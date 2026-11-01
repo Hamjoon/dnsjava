@@ -1,0 +1,17 @@
+{
+  "index": 58,
+  "sha": "90289576555ba11633da961aabb4b0c4e8df0e1a",
+  "parent": "bed96f60d5505d1d6cf99f0aea1ed2f47ca0cd99",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/NioClient.java": [
+      65
+    ]
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/NioClient.java": [
+      65,
+      66
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/NioClient.java b/src/main/java/org/xbill/DNS/NioClient.java\nindex 73f2c45a..edb48d19 100644\n--- a/src/main/java/org/xbill/DNS/NioClient.java\n+++ b/src/main/java/org/xbill/DNS/NioClient.java\n@@ -65 +65,2 @@ public abstract class NioClient {\n-          if (Boolean.parseBoolean(System.getProperty(\"dnsjava.nio.register_shutdown_hook\", \"true\"))) {\n+          if (Boolean.parseBoolean(\n+              System.getProperty(\"dnsjava.nio.register_shutdown_hook\", \"true\"))) {"
+}

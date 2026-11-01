@@ -1,0 +1,18 @@
+{
+  "index": 7,
+  "sha": "6204b0ea94868a71ad9369fc98ce953d270ff339",
+  "parent": "ae50e1fd44db8b791df3a569165c74c89deca6b4",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/ARecord.java": []
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/ARecord.java": [
+      58,
+      59,
+      60,
+      62,
+      63
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/ARecord.java b/src/main/java/org/xbill/DNS/ARecord.java\nindex a4739fcc..cb0e6fa0 100644\n--- a/src/main/java/org/xbill/DNS/ARecord.java\n+++ b/src/main/java/org/xbill/DNS/ARecord.java\n@@ -50,0 +51,14 @@ public class ARecord extends Record {\n+  /**\n+   * Creates an A Record from the given data\n+   *\n+   * @param address The address that the name refers to\n+   * @since 3.6\n+   */\n+  public ARecord(Name name, int dclass, long ttl, byte[] address) {\n+    super(name, Type.A, dclass, ttl);\n+    if (address == null || address.length != 4) {\n+      throw new IllegalArgumentException(\"invalid IPv4 address\");\n+    }\n+    addr = fromArray(address);\n+  }\n+"
+}

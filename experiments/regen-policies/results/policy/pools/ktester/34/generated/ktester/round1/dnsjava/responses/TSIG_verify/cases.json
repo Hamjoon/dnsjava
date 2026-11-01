@@ -1,0 +1,153 @@
+[
+  {
+    "group": "testVerify_NullArguments",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "m",
+            "value": "null"
+          },
+          {
+            "parameter": "messageBytes",
+            "value": "new byte[]{1,2,3}"
+          },
+          {
+            "parameter": "requestTSIG",
+            "value": "validTSIG"
+          }
+        ],
+        "expected": "NullPointerException",
+        "description": "Message argument is null \u2013 the method should throw a NullPointerException."
+      },
+      {
+        "input": [
+          {
+            "parameter": "m",
+            "value": "validMessage"
+          },
+          {
+            "parameter": "messageBytes",
+            "value": "null"
+          },
+          {
+            "parameter": "requestTSIG",
+            "value": "validTSIG"
+          }
+        ],
+        "expected": "NullPointerException",
+        "description": "messageBytes argument is null \u2013 the method should throw a NullPointerException."
+      },
+      {
+        "input": [
+          {
+            "parameter": "m",
+            "value": "validMessage"
+          },
+          {
+            "parameter": "messageBytes",
+            "value": "new byte[]{1,2,3}"
+          },
+          {
+            "parameter": "requestTSIG",
+            "value": "null"
+          }
+        ],
+        "expected": "NullPointerException",
+        "description": "requestTSIG argument is null \u2013 the method should throw a NullPointerException."
+      }
+    ]
+  },
+  {
+    "group": "testVerify_InvalidMessageBytes",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "m",
+            "value": "validMessage"
+          },
+          {
+            "parameter": "messageBytes",
+            "value": "new byte[0]"
+          },
+          {
+            "parameter": "requestTSIG",
+            "value": "validTSIG"
+          }
+        ],
+        "expected": "IllegalArgumentException",
+        "description": "Empty messageBytes array should be considered invalid and cause an IllegalArgumentException."
+      }
+    ]
+  },
+  {
+    "group": "testVerify_UnsupportedAlgorithm",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "m",
+            "value": "validMessage"
+          },
+          {
+            "parameter": "messageBytes",
+            "value": "new byte[]{1,2,3}"
+          },
+          {
+            "parameter": "requestTSIG",
+            "value": "tsigWithUnknownAlg"
+          }
+        ],
+        "expected": "IllegalArgumentException",
+        "description": "TSIGRecord whose algorithm string cannot be mapped to a known Name should trigger IllegalArgumentException."
+      }
+    ]
+  },
+  {
+    "group": "testVerify_TimeSkewExceeded",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "m",
+            "value": "validMessage"
+          },
+          {
+            "parameter": "messageBytes",
+            "value": "new byte[]{1,2,3}"
+          },
+          {
+            "parameter": "requestTSIG",
+            "value": "tsigWithFutureTimestamp"
+          }
+        ],
+        "expected": "SecurityException",
+        "description": "TSIG timestamp more than TSIG.FUDGE seconds ahead of the current time should cause a SecurityException."
+      }
+    ]
+  },
+  {
+    "group": "testVerify_MACInitFailure",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "m",
+            "value": "validMessage"
+          },
+          {
+            "parameter": "messageBytes",
+            "value": "new byte[]{1,2,3}"
+          },
+          {
+            "parameter": "requestTSIG",
+            "value": "tsigWithInvalidKey"
+          }
+        ],
+        "expected": "GeneralSecurityException",
+        "description": "If the secret key in the TSIGRecord is malformed (e.g., wrong length) the underlying Mac initialization fails, throwing GeneralSecurityException."
+      }
+    ]
+  }
+]

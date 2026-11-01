@@ -1,0 +1,1355 @@
+{
+  "1": [
+    "src/main/java/org/xbill/DNS/DefaultIoClient.java",
+    "src/main/java/org/xbill/DNS/Lookup.java",
+    "src/main/java/org/xbill/DNS/NioTcpClient.java",
+    "src/main/java/org/xbill/DNS/NioUdpClient.java",
+    "src/main/java/org/xbill/DNS/SimpleResolver.java",
+    "src/main/java/org/xbill/DNS/io/DefaultIoClientFactory.java",
+    "src/main/java/org/xbill/DNS/io/IoClientFactory.java",
+    "src/main/java/org/xbill/DNS/io/TcpIoClient.java",
+    "src/main/java/org/xbill/DNS/io/UdpIoClient.java",
+    "src/test/java/org/xbill/DNS/NioTcpClientTest.java",
+    "src/test/java/org/xbill/DNS/SimpleResolverDeniedTest.java",
+    "src/test/java/org/xbill/DNS/TSIGTest.java"
+  ],
+  "2": [
+    "src/main/java/org/xbill/DNS/dnssec/DnsSecVerifier.java",
+    "src/main/java/org/xbill/DNS/dnssec/ValidatingResolver.java"
+  ],
+  "3": [
+    "EXAMPLES.md"
+  ],
+  "4": [
+    "pom.xml",
+    "src/main/java/org/xbill/DNS/Rcode.java",
+    "src/main/java/org/xbill/DNS/ZoneMDRecord.java",
+    "src/main/java/org/xbill/DNS/lookup/LookupSession.java"
+  ],
+  "5": [
+    "src/main/java/org/xbill/DNS/dnssec/ValidatingResolver.java",
+    "src/test/java/org/xbill/DNS/dnssec/TestBase.java"
+  ],
+  "6": [
+    "src/main/java/org/xbill/DNS/WireParseException.java",
+    "src/main/java/org/xbill/DNS/lookup/LookupFailedException.java",
+    "src/main/java/org/xbill/DNS/lookup/LookupSession.java",
+    "src/main/java/org/xbill/DNS/lookup/ServerFailedException.java"
+  ],
+  "7": [
+    "src/main/java/org/xbill/DNS/ARecord.java",
+    "src/test/java/org/xbill/DNS/ARecordTest.java"
+  ],
+  "8": [
+    "pom.xml",
+    "src/main/java/org/xbill/DNS/dnssec/DnsSecVerifier.java"
+  ],
+  "9": [
+    "src/main/java/org/xbill/DNS/NioUdpClient.java"
+  ],
+  "10": [
+    "src/main/java/org/xbill/DNS/NioClient.java",
+    "src/test/java/org/xbill/DNS/NioTcpClientTest.java"
+  ],
+  "11": [
+    "src/main/java/org/xbill/DNS/Cache.java",
+    "src/main/java/org/xbill/DNS/SetResponse.java",
+    "src/main/java/org/xbill/DNS/SetResponseType.java",
+    "src/main/java/org/xbill/DNS/Zone.java",
+    "src/test/java/org/xbill/DNS/SetResponseTest.java"
+  ],
+  "12": [
+    "src/main/java/org/xbill/DNS/Credibility.java",
+    "src/main/java/org/xbill/DNS/lookup/InvalidZoneDataException.java",
+    "src/main/java/org/xbill/DNS/lookup/LookupFailedException.java",
+    "src/main/java/org/xbill/DNS/lookup/LookupResult.java",
+    "src/main/java/org/xbill/DNS/lookup/LookupSession.java",
+    "src/main/java/org/xbill/DNS/lookup/NoSuchDomainException.java",
+    "src/main/java/org/xbill/DNS/lookup/NoSuchRRSetException.java",
+    "src/main/java/org/xbill/DNS/lookup/RedirectOverflowException.java",
+    "src/main/java/org/xbill/DNS/lookup/ServerFailedException.java"
+  ],
+  "13": [
+    "src/main/java/org/xbill/DNS/lookup/LookupFailedException.java",
+    "src/main/java/org/xbill/DNS/lookup/NoSuchDomainException.java",
+    "src/main/java/org/xbill/DNS/lookup/NoSuchRRSetException.java",
+    "src/main/java/org/xbill/DNS/lookup/RedirectLoopException.java",
+    "src/main/java/org/xbill/DNS/lookup/RedirectOverflowException.java"
+  ],
+  "14": [
+    "README.adoc"
+  ],
+  "15": [
+    "README.adoc",
+    "pom.xml",
+    "src/main/java/org/xbill/DNS/Cache.java",
+    "src/main/java/org/xbill/DNS/Lookup.java",
+    "src/main/java/org/xbill/DNS/Message.java",
+    "src/main/java/org/xbill/DNS/RRset.java",
+    "src/main/java/org/xbill/DNS/Record.java",
+    "src/main/java/org/xbill/DNS/Section.java",
+    "src/main/java/org/xbill/DNS/SetResponse.java",
+    "src/main/java/org/xbill/DNS/SetResponseType.java",
+    "src/main/java/org/xbill/DNS/dnssec/ValidatingResolver.java",
+    "src/main/java/org/xbill/DNS/lookup/IrrelevantRecordMode.java",
+    "src/main/java/org/xbill/DNS/lookup/LookupResult.java",
+    "src/main/java/org/xbill/DNS/lookup/LookupSession.java",
+    "src/main/java/org/xbill/DNS/lookup/NoSuchDomainException.java",
+    "src/main/java/org/xbill/DNS/lookup/NoSuchRRSetException.java",
+    "src/main/java/org/xbill/DNS/lookup/RedirectOverflowException.java",
+    "src/test/java/org/xbill/DNS/LookupTest.java",
+    "src/test/java/org/xbill/DNS/MessageTest.java",
+    "src/test/java/org/xbill/DNS/SetResponseTest.java",
+    "src/test/java/org/xbill/DNS/dnssec/Rpl.java",
+    "src/test/java/org/xbill/DNS/dnssec/RplParser.java",
+    "src/test/java/org/xbill/DNS/dnssec/TestBase.java",
+    "src/test/java/org/xbill/DNS/dnssec/UnboundTests.java",
+    "src/test/java/org/xbill/DNS/lookup/LookupResultTest.java",
+    "src/test/java/org/xbill/DNS/lookup/LookupSessionTest.java",
+    "src/test/resources/unbound/val_adcopy.rpl",
+    "src/test/resources/unbound/val_unalgo_anchor.rpl"
+  ],
+  "16": [
+    "src/main/java/org/xbill/DNS/DNSSEC.java",
+    "src/main/java/org/xbill/DNS/dnssec/KeyEntry.java",
+    "src/main/java/org/xbill/DNS/dnssec/ValUtils.java",
+    "src/main/java/org/xbill/DNS/dnssec/ValidatingResolver.java"
+  ],
+  "17": [
+    "src/main/java/org/xbill/DNS/Message.java",
+    "src/main/java/org/xbill/DNS/dnssec/KeyEntry.java",
+    "src/main/java/org/xbill/DNS/dnssec/ValidatingResolver.java",
+    "src/test/java/org/xbill/DNS/dnssec/TestDNames.java",
+    "src/test/java/org/xbill/DNS/dnssec/TestPositive.java",
+    "src/test/java/org/xbill/DNS/dnssec/UnboundTests.java"
+  ],
+  "18": [
+    "README.adoc",
+    "src/main/java/org/xbill/DNS/DNSKEYRecord.java",
+    "src/main/java/org/xbill/DNS/dnssec/DnsSecVerifier.java",
+    "src/main/java/org/xbill/DNS/dnssec/KeyCache.java",
+    "src/main/java/org/xbill/DNS/dnssec/NSEC3ValUtils.java",
+    "src/main/java/org/xbill/DNS/dnssec/ValUtils.java",
+    "src/main/java/org/xbill/DNS/dnssec/ValidatingResolver.java",
+    "src/main/resources/messages.properties",
+    "src/test/java/org/xbill/DNS/dnssec/DnsSecVerifierTests.java"
+  ],
+  "19": [
+    "src/main/java/org/xbill/DNS/DNSSEC.java"
+  ],
+  "20": [
+    "README.adoc",
+    "src/main/java/org/xbill/DNS/dnssec/ValUtils.java",
+    "src/test/java/org/xbill/DNS/dnssec/Rpl.java",
+    "src/test/java/org/xbill/DNS/dnssec/RplParser.java",
+    "src/test/java/org/xbill/DNS/dnssec/TestNsec3ValUtilsPublicKeyLoading.java",
+    "src/test/java/org/xbill/DNS/dnssec/UnboundTests.java",
+    "src/test/resources/unbound/val_ans_dsent.rpl",
+    "src/test/resources/unbound/val_ans_nx.rpl",
+    "src/test/resources/unbound/val_cnameinsectopos.rpl",
+    "src/test/resources/unbound/val_cnamenx_rcodenx.rpl",
+    "src/test/resources/unbound/val_cnametocloser.rpl",
+    "src/test/resources/unbound/val_cnametocnamewctoposwc.rpl",
+    "src/test/resources/unbound/val_cnametodname.rpl",
+    "src/test/resources/unbound/val_cnametodnametocnametopos.rpl",
+    "src/test/resources/unbound/val_cnametonodata.rpl",
+    "src/test/resources/unbound/val_cnametonx.rpl",
+    "src/test/resources/unbound/val_cnametopos.rpl",
+    "src/test/resources/unbound/val_cnametoposwc.rpl",
+    "src/test/resources/unbound/val_cnamewctonodata.rpl",
+    "src/test/resources/unbound/val_cnamewctonx.rpl",
+    "src/test/resources/unbound/val_cnamewctoposwc.rpl",
+    "src/test/resources/unbound/val_dnametopos.rpl",
+    "src/test/resources/unbound/val_dnametoposwc.rpl",
+    "src/test/resources/unbound/val_ds_cnamesub.rpl",
+    "src/test/resources/unbound/val_ds_sha2.rpl",
+    "src/test/resources/unbound/val_ds_sha2_downgrade_override.rpl",
+    "src/test/resources/unbound/val_ds_sha2_lenient.rpl",
+    "src/test/resources/unbound/val_entds.rpl",
+    "src/test/resources/unbound/val_keyprefetch.rpl",
+    "src/test/resources/unbound/val_keyprefetch_verify.rpl",
+    "src/test/resources/unbound/val_nsec3_b1_nameerror.rpl",
+    "src/test/resources/unbound/val_nsec3_b21_nodataent.rpl",
+    "src/test/resources/unbound/val_nsec3_b2_nodata.rpl",
+    "src/test/resources/unbound/val_nsec3_b3_optout.rpl",
+    "src/test/resources/unbound/val_nsec3_b4_wild.rpl",
+    "src/test/resources/unbound/val_nsec3_b5_wcnodata.rpl",
+    "src/test/resources/unbound/val_nsec3_b5_wcnodata_nowc.rpl",
+    "src/test/resources/unbound/val_nsec3_cnametocnamewctoposwc.rpl",
+    "src/test/resources/unbound/val_nsec3_optout_ad.rpl",
+    "src/test/resources/unbound/val_secds.rpl",
+    "src/test/resources/unbound/val_stub_noroot.rpl",
+    "src/test/resources/unbound/val_unsec_cname.rpl"
+  ],
+  "21": [
+    "src/test/java/org/xbill/DNS/DNSKEYRecordTest.java"
+  ],
+  "22": [
+    "src/main/java/org/xbill/DNS/Name.java"
+  ],
+  "23": [
+    "README.adoc",
+    "src/main/java/org/xbill/DNS/DNSSEC.java",
+    "src/main/java/org/xbill/DNS/dnssec/DnsSecVerifier.java",
+    "src/main/java/org/xbill/DNS/dnssec/ValUtils.java",
+    "src/main/resources/messages.properties",
+    "src/test/java/org/xbill/DNS/dnssec/DnsSecVerifierTests.java",
+    "src/test/java/org/xbill/DNS/dnssec/TestNsec3ValUtilsPublicKeyLoading.java",
+    "src/test/resources/unbound/val_any_dname.rpl",
+    "src/test/resources/unbound/val_cnametocloser_nosig.rpl",
+    "src/test/resources/unbound/val_cnametoposnowc.rpl",
+    "src/test/resources/unbound/val_nsec3_b1_nameerror_noce.rpl",
+    "src/test/resources/unbound/val_nsec3_b1_nameerror_nonc.rpl",
+    "src/test/resources/unbound/val_nsec3_b1_nameerror_nowc.rpl",
+    "src/test/resources/unbound/val_nsec3_b21_nodataent_wr.rpl",
+    "src/test/resources/unbound/val_nsec3_b2_nodata_nons.rpl",
+    "src/test/resources/unbound/val_nsec3_b3_optout_noce.rpl",
+    "src/test/resources/unbound/val_nsec3_b3_optout_nonc.rpl",
+    "src/test/resources/unbound/val_nsec3_b4_wild_wr.rpl",
+    "src/test/resources/unbound/val_nsec3_b5_wcnodata_noce.rpl",
+    "src/test/resources/unbound/val_nsec3_b5_wcnodata_nonc.rpl"
+  ],
+  "24": [
+    "src/test/java/org/xbill/DNS/dnssec/TestAlgorithmSupport.java",
+    "src/test/java/org/xbill/DNS/dnssec/TestBase.java",
+    "src/test/java/org/xbill/DNS/dnssec/TestBogusReasonMessage.java",
+    "src/test/java/org/xbill/DNS/dnssec/TestCNames.java",
+    "src/test/java/org/xbill/DNS/dnssec/TestDNames.java",
+    "src/test/java/org/xbill/DNS/dnssec/TestInvalid.java",
+    "src/test/java/org/xbill/DNS/dnssec/TestKeyCacheUsage.java",
+    "src/test/java/org/xbill/DNS/dnssec/TestNSEC3NoData.java",
+    "src/test/java/org/xbill/DNS/dnssec/TestNoData.java",
+    "src/test/java/org/xbill/DNS/dnssec/TestNonExistence.java",
+    "src/test/java/org/xbill/DNS/dnssec/TestNsec3ValUtils.java",
+    "src/test/java/org/xbill/DNS/dnssec/TestNsec3ValUtilsPublicKeyLoading.java",
+    "src/test/java/org/xbill/DNS/dnssec/TestPartiallyInvalid.java",
+    "src/test/java/org/xbill/DNS/dnssec/TestPositive.java",
+    "src/test/java/org/xbill/DNS/dnssec/TestPriming.java",
+    "src/test/java/org/xbill/DNS/dnssec/TestRRsig.java",
+    "src/test/java/org/xbill/DNS/dnssec/TestTrustAnchorLoading.java",
+    "src/test/java/org/xbill/DNS/dnssec/TestUnsigned.java",
+    "src/test/java/org/xbill/DNS/dnssec/TestValUtils.java",
+    "src/test/java/org/xbill/DNS/dnssec/TestWildcard.java"
+  ],
+  "25": [
+    "src/main/java/org/xbill/DNS/DNSSEC.java",
+    "src/main/java/org/xbill/DNS/Resolver.java",
+    "src/main/java/org/xbill/DNS/dnssec/AlgorithmRequirements.java",
+    "src/main/java/org/xbill/DNS/dnssec/DnsSecVerifier.java",
+    "src/main/java/org/xbill/DNS/dnssec/KeyEntry.java",
+    "src/main/java/org/xbill/DNS/dnssec/NSEC3ValUtils.java",
+    "src/main/java/org/xbill/DNS/dnssec/Nsec3ValidationState.java",
+    "src/main/java/org/xbill/DNS/dnssec/ValUtils.java",
+    "src/main/java/org/xbill/DNS/dnssec/ValidatingResolver.java",
+    "src/main/resources/messages.properties",
+    "src/test/java/org/xbill/DNS/dnssec/DnsSecVerifierTests.java",
+    "src/test/java/org/xbill/DNS/dnssec/TestAlgorithmSupport.java",
+    "src/test/java/org/xbill/DNS/dnssec/TestBase.java",
+    "src/test/java/org/xbill/DNS/dnssec/TestCNames.java",
+    "src/test/java/org/xbill/DNS/dnssec/TestNormallyUnreachableCode.java",
+    "src/test/java/org/xbill/DNS/dnssec/TestNsec3ValUtilsPublicKeyLoading.java",
+    "src/test/java/org/xbill/DNS/dnssec/TestPriming.java",
+    "src/test/java/org/xbill/DNS/dnssec/TestTrustAnchorLoading.java",
+    "src/test/java/org/xbill/DNS/dnssec/UnboundTests.java",
+    "src/test/resources/unbound/val_secds_nosig.rpl",
+    "src/test/resources/unbound/val_ta_algo_dnskey.rpl",
+    "src/test/resources/unbound/val_ta_algo_dnskey_dp.rpl",
+    "src/test/resources/unbound/val_ta_algo_missing.rpl",
+    "src/test/resources/unbound/val_ta_algo_missing_dp.rpl"
+  ],
+  "26": [
+    "pom.xml",
+    "src/test/java/org/xbill/DNS/lookup/LookupSessionTest.java"
+  ],
+  "27": [
+    "src/main/java/org/xbill/DNS/NioTcpClient.java",
+    "src/main/java/org/xbill/DNS/NioUdpClient.java"
+  ],
+  "28": [
+    "src/main/java/org/xbill/DNS/SimpleResolver.java"
+  ],
+  "29": [
+    "src/main/java/org/xbill/DNS/AAAARecord.java",
+    "src/test/java/org/xbill/DNS/AAAARecordTest.java"
+  ],
+  "30": [
+    ".github/workflows/build.yml",
+    ".gitignore",
+    "checkstyle/checkstyle-suppressions.xml",
+    "pom.xml",
+    "src/main/java/org/xbill/DNS/RRset.java",
+    "src/main/java/org/xbill/DNS/SetResponseType.java",
+    "src/main/java/org/xbill/DNS/Zone.java",
+    "src/test/java/org/xbill/DNS/ResolverConfigTest.java",
+    "src/test/java/org/xbill/DNS/ZoneStressTest.java",
+    "src/test/java/org/xbill/DNS/ZoneTest.java"
+  ],
+  "31": [
+    ".github/actions/download-artifact/action.yml",
+    ".github/actions/prepare-analysis/action.yml",
+    ".github/actions/upload-artifact/action.yml",
+    ".github/workflows/analyze.yml",
+    ".github/workflows/build.yml",
+    ".github/workflows/codeql-analysis.yml",
+    "pom.xml"
+  ],
+  "32": [
+    "EXAMPLES.md",
+    "README.adoc",
+    "pom.xml",
+    "src/main/java/org/xbill/DNS/A6Record.java",
+    "src/main/java/org/xbill/DNS/AAAARecord.java",
+    "src/main/java/org/xbill/DNS/AFSDBRecord.java",
+    "src/main/java/org/xbill/DNS/APLRecord.java",
+    "src/main/java/org/xbill/DNS/ARecord.java",
+    "src/main/java/org/xbill/DNS/CAARecord.java",
+    "src/main/java/org/xbill/DNS/CDNSKEYRecord.java",
+    "src/main/java/org/xbill/DNS/CDSRecord.java",
+    "src/main/java/org/xbill/DNS/CERTRecord.java",
+    "src/main/java/org/xbill/DNS/CNAMERecord.java",
+    "src/main/java/org/xbill/DNS/ClientSubnetOption.java",
+    "src/main/java/org/xbill/DNS/CookieOption.java",
+    "src/main/java/org/xbill/DNS/DHCIDRecord.java",
+    "src/main/java/org/xbill/DNS/DLVRecord.java",
+    "src/main/java/org/xbill/DNS/DNAMERecord.java",
+    "src/main/java/org/xbill/DNS/DNSKEYRecord.java",
+    "src/main/java/org/xbill/DNS/DNSSEC.java",
+    "src/main/java/org/xbill/DNS/DSRecord.java",
+    "src/main/java/org/xbill/DNS/DohResolver.java",
+    "src/main/java/org/xbill/DNS/EDNSOption.java",
+    "src/main/java/org/xbill/DNS/ExtendedErrorCodeOption.java",
+    "src/main/java/org/xbill/DNS/GPOSRecord.java",
+    "src/main/java/org/xbill/DNS/HINFORecord.java",
+    "src/main/java/org/xbill/DNS/HTTPSRecord.java",
+    "src/main/java/org/xbill/DNS/IPSECKEYRecord.java",
+    "src/main/java/org/xbill/DNS/ISDNRecord.java",
+    "src/main/java/org/xbill/DNS/KEYRecord.java",
+    "src/main/java/org/xbill/DNS/KXRecord.java",
+    "src/main/java/org/xbill/DNS/LOCRecord.java",
+    "src/main/java/org/xbill/DNS/MBRecord.java",
+    "src/main/java/org/xbill/DNS/MDRecord.java",
+    "src/main/java/org/xbill/DNS/MFRecord.java",
+    "src/main/java/org/xbill/DNS/MGRecord.java",
+    "src/main/java/org/xbill/DNS/MINFORecord.java",
+    "src/main/java/org/xbill/DNS/MRRecord.java",
+    "src/main/java/org/xbill/DNS/MXRecord.java",
+    "src/main/java/org/xbill/DNS/NAPTRRecord.java",
+    "src/main/java/org/xbill/DNS/NSAPRecord.java",
+    "src/main/java/org/xbill/DNS/NSAP_PTRRecord.java",
+    "src/main/java/org/xbill/DNS/NSEC3PARAMRecord.java",
+    "src/main/java/org/xbill/DNS/NSEC3Record.java",
+    "src/main/java/org/xbill/DNS/NSECRecord.java",
+    "src/main/java/org/xbill/DNS/NSIDOption.java",
+    "src/main/java/org/xbill/DNS/NSRecord.java",
+    "src/main/java/org/xbill/DNS/NULLRecord.java",
+    "src/main/java/org/xbill/DNS/NXTRecord.java",
+    "src/main/java/org/xbill/DNS/NioTcpClient.java",
+    "src/main/java/org/xbill/DNS/NioUdpClient.java",
+    "src/main/java/org/xbill/DNS/OPENPGPKEYRecord.java",
+    "src/main/java/org/xbill/DNS/OPTRecord.java",
+    "src/main/java/org/xbill/DNS/Opcode.java",
+    "src/main/java/org/xbill/DNS/PTRRecord.java",
+    "src/main/java/org/xbill/DNS/PXRecord.java",
+    "src/main/java/org/xbill/DNS/RPRecord.java",
+    "src/main/java/org/xbill/DNS/RRSIGRecord.java",
+    "src/main/java/org/xbill/DNS/RTRecord.java",
+    "src/main/java/org/xbill/DNS/SIGRecord.java",
+    "src/main/java/org/xbill/DNS/SMIMEARecord.java",
+    "src/main/java/org/xbill/DNS/SOARecord.java",
+    "src/main/java/org/xbill/DNS/SPFRecord.java",
+    "src/main/java/org/xbill/DNS/SRVRecord.java",
+    "src/main/java/org/xbill/DNS/SSHFPRecord.java",
+    "src/main/java/org/xbill/DNS/SVCBBase.java",
+    "src/main/java/org/xbill/DNS/SVCBRecord.java",
+    "src/main/java/org/xbill/DNS/TKEYRecord.java",
+    "src/main/java/org/xbill/DNS/TLSARecord.java",
+    "src/main/java/org/xbill/DNS/TSIG.java",
+    "src/main/java/org/xbill/DNS/TSIGRecord.java",
+    "src/main/java/org/xbill/DNS/TXTRecord.java",
+    "src/main/java/org/xbill/DNS/TcpKeepaliveOption.java",
+    "src/main/java/org/xbill/DNS/Type.java",
+    "src/main/java/org/xbill/DNS/URIRecord.java",
+    "src/main/java/org/xbill/DNS/WKSRecord.java",
+    "src/main/java/org/xbill/DNS/X25Record.java",
+    "src/main/java/org/xbill/DNS/ZoneMDRecord.java",
+    "src/main/java/org/xbill/DNS/lookup/LookupSession.java",
+    "src/main/java/org/xbill/DNS/lookup/NoSuchRRSetException.java",
+    "src/test/java/org/xbill/DNS/dnssec/ResolveExample.java"
+  ],
+  "33": [
+    ".github/actions/download-artifact/action.yml",
+    ".github/actions/prepare-analysis/action.yml",
+    ".github/workflows/build.yml",
+    "src/test/java/org/xbill/DNS/ZoneStressTest.java"
+  ],
+  "34": [
+    "Changelog",
+    "pom.xml"
+  ],
+  "35": [
+    "pom.xml"
+  ],
+  "36": [
+    "pom.xml",
+    "src/main/java18/module-info.java",
+    "src/main/java18/org/xbill/DNS/spi/DnsjavaInetAddressResolver.java",
+    "src/main/java18/org/xbill/DNS/spi/DnsjavaInetAddressResolverProvider.java",
+    "src/main/java21/module-info.java",
+    "src/main/java21/org/xbill/DNS/spi/DnsjavaInetAddressResolver.java",
+    "src/main/java21/org/xbill/DNS/spi/DnsjavaInetAddressResolverProvider.java"
+  ],
+  "37": [
+    "src/main/java/org/xbill/DNS/lookup/LookupSession.java"
+  ],
+  "38": [
+    "Changelog",
+    "pom.xml"
+  ],
+  "39": [
+    "pom.xml"
+  ],
+  "40": [
+    "EXAMPLES.md",
+    "src/test/resources/trust_anchors"
+  ],
+  "41": [
+    "EXAMPLES.md"
+  ],
+  "42": [
+    "src/main/java/org/xbill/DNS/Zone.java",
+    "src/test/java/org/xbill/DNS/ZoneWithSoaSigTest.java"
+  ],
+  "43": [
+    "src/test/java/org/xbill/DNS/ZoneWithSoaSigTest.java"
+  ],
+  "44": [
+    "src/main/java/org/xbill/DNS/Zone.java",
+    "src/test/java/org/xbill/DNS/ZoneTest.java",
+    "src/test/java/org/xbill/DNS/ZoneWithSoaSigTest.java",
+    "src/test/resources/zonefileEx2"
+  ],
+  "45": [
+    "src/main/java/org/xbill/DNS/Cache.java"
+  ],
+  "46": [
+    "EXAMPLES.md"
+  ],
+  "47": [
+    "src/main/java/org/xbill/DNS/Cache.java",
+    "src/main/java/org/xbill/DNS/Zone.java"
+  ],
+  "48": [
+    "Changelog",
+    "pom.xml"
+  ],
+  "49": [
+    "pom.xml"
+  ],
+  "50": [
+    "README.adoc",
+    "src/main/java/org/xbill/DNS/hosts/HostsFileParser.java",
+    "src/test/java/org/xbill/DNS/hosts/HostsFileParserTest.java"
+  ],
+  "51": [
+    "src/main/java/org/xbill/DNS/Zone.java",
+    "src/test/java/org/xbill/DNS/ZoneTest.java",
+    "src/test/resources/zonefileEx3"
+  ],
+  "52": [
+    "src/main/java/org/xbill/DNS/hosts/HostsFileParser.java",
+    "src/test/java/org/xbill/DNS/hosts/HostsFileParserTest.java"
+  ],
+  "53": [
+    "src/main/java/org/xbill/DNS/NioTcpClient.java"
+  ],
+  "54": [
+    "src/main/java/org/xbill/DNS/CNAMERecord.java"
+  ],
+  "55": [
+    "README.adoc",
+    "src/main/java/org/xbill/DNS/NioClient.java"
+  ],
+  "56": [
+    "src/main/java/org/xbill/DNS/TSIG.java",
+    "src/test/java/org/xbill/DNS/TSIGTest.java"
+  ],
+  "57": [
+    "src/main/java/org/xbill/DNS/TSIG.java",
+    "src/test/java/org/xbill/DNS/TSIGTest.java"
+  ],
+  "58": [
+    ".github/actions/download-artifact/action.yml",
+    ".github/workflows/analyze.yml",
+    ".github/workflows/build.yml",
+    ".github/workflows/codeql-analysis.yml",
+    "src/main/java/org/xbill/DNS/NioClient.java"
+  ],
+  "59": [
+    "pom.xml"
+  ],
+  "60": [
+    ".github/workflows/analyze.yml"
+  ],
+  "61": [
+    "pom.xml"
+  ],
+  "62": [
+    "src/main/java/org/xbill/DNS/NioClient.java",
+    "src/main/java/org/xbill/DNS/NioTcpClient.java",
+    "src/test/java/org/xbill/DNS/NioTcpClientTest.java"
+  ],
+  "63": [
+    "pom.xml"
+  ],
+  "64": [
+    "pom.xml",
+    "src/main/java/org/xbill/DNS/Header.java",
+    "src/main/java/org/xbill/DNS/Message.java",
+    "src/main/java/org/xbill/DNS/MessageSizeExceededException.java",
+    "src/main/java/org/xbill/DNS/SimpleResolver.java",
+    "src/test/java/org/xbill/DNS/UpdateTest.java"
+  ],
+  "65": [
+    "src/main/java/org/xbill/DNS/DohResolver.java",
+    "src/test/java/org/xbill/DNS/DohResolverTest.java"
+  ],
+  "66": [
+    "src/main/java/org/xbill/DNS/DohResolver.java"
+  ],
+  "67": [
+    "src/main/java/org/xbill/DNS/Message.java"
+  ],
+  "68": [
+    ".github/actions/download-artifact/action.yml",
+    ".github/workflows/analyze.yml",
+    ".github/workflows/build.yml",
+    "pom.xml",
+    "sonar-project.properties",
+    "src/main/java/android/net/Network.java",
+    "src/main/java/org/xbill/DNS/APLRecord.java",
+    "src/main/java/org/xbill/DNS/ARecord.java",
+    "src/main/java/org/xbill/DNS/Address.java",
+    "src/main/java/org/xbill/DNS/CERTRecord.java",
+    "src/main/java/org/xbill/DNS/Cache.java",
+    "src/main/java/org/xbill/DNS/DNSOutput.java",
+    "src/main/java/org/xbill/DNS/EDNSOption.java",
+    "src/main/java/org/xbill/DNS/EmptyRecord.java",
+    "src/main/java/org/xbill/DNS/Flags.java",
+    "src/main/java/org/xbill/DNS/GPOSRecord.java",
+    "src/main/java/org/xbill/DNS/HINFORecord.java",
+    "src/main/java/org/xbill/DNS/HIPRecord.java",
+    "src/main/java/org/xbill/DNS/Header.java",
+    "src/main/java/org/xbill/DNS/IPAddressUtils.java",
+    "src/main/java/org/xbill/DNS/KEYBase.java",
+    "src/main/java/org/xbill/DNS/KEYRecord.java",
+    "src/main/java/org/xbill/DNS/LOCRecord.java",
+    "src/main/java/org/xbill/DNS/Lookup.java",
+    "src/main/java/org/xbill/DNS/Master.java",
+    "src/main/java/org/xbill/DNS/Message.java",
+    "src/main/java/org/xbill/DNS/Mnemonic.java",
+    "src/main/java/org/xbill/DNS/NAPTRRecord.java",
+    "src/main/java/org/xbill/DNS/NSEC3PARAMRecord.java",
+    "src/main/java/org/xbill/DNS/NSEC3Record.java",
+    "src/main/java/org/xbill/DNS/OPENPGPKEYRecord.java",
+    "src/main/java/org/xbill/DNS/Opcode.java",
+    "src/main/java/org/xbill/DNS/Options.java",
+    "src/main/java/org/xbill/DNS/RRset.java",
+    "src/main/java/org/xbill/DNS/Record.java",
+    "src/main/java/org/xbill/DNS/SIG0.java",
+    "src/main/java/org/xbill/DNS/SIGBase.java",
+    "src/main/java/org/xbill/DNS/SOARecord.java",
+    "src/main/java/org/xbill/DNS/SRVRecord.java",
+    "src/main/java/org/xbill/DNS/SVCBBase.java",
+    "src/main/java/org/xbill/DNS/Serial.java",
+    "src/main/java/org/xbill/DNS/TCPClient.java",
+    "src/main/java/org/xbill/DNS/TKEYRecord.java",
+    "src/main/java/org/xbill/DNS/TSIG.java",
+    "src/main/java/org/xbill/DNS/TSIGRecord.java",
+    "src/main/java/org/xbill/DNS/TTL.java",
+    "src/main/java/org/xbill/DNS/Tokenizer.java",
+    "src/main/java/org/xbill/DNS/Type.java",
+    "src/main/java/org/xbill/DNS/URIRecord.java",
+    "src/main/java/org/xbill/DNS/Update.java",
+    "src/main/java/org/xbill/DNS/Utils.java",
+    "src/main/java/org/xbill/DNS/ZoneMDRecord.java",
+    "src/main/java/org/xbill/DNS/ZoneTransferIn.java",
+    "src/main/java/org/xbill/DNS/config/BaseResolverConfigProvider.java",
+    "src/main/java/org/xbill/DNS/config/IPHlpAPI.java",
+    "src/main/java/org/xbill/DNS/config/PropertyResolverConfigProvider.java",
+    "src/main/java/org/xbill/DNS/dnssec/AlgorithmRequirements.java",
+    "src/main/java/org/xbill/DNS/dnssec/Nsec3ValidationState.java",
+    "src/main/java/org/xbill/DNS/dnssec/SMessage.java",
+    "src/main/java/org/xbill/DNS/hosts/HostsFileParser.java",
+    "src/main/java/org/xbill/DNS/lookup/LookupResult.java",
+    "src/main/java/org/xbill/DNS/lookup/LookupSession.java",
+    "src/main/java/org/xbill/DNS/spi/DNSJavaNameService.java",
+    "src/main/java/org/xbill/DNS/tools/dig.java",
+    "src/main/java/org/xbill/DNS/tools/jnamed.java",
+    "src/main/java/org/xbill/DNS/tools/update.java",
+    "src/main/java/org/xbill/DNS/tools/xfrin.java",
+    "src/main/java/org/xbill/DNS/utils/base32.java",
+    "src/main/java/org/xbill/DNS/utils/base64.java",
+    "src/main/java/org/xbill/DNS/utils/hexdump.java",
+    "src/test/java/org/xbill/DNS/CAARecordTest.java",
+    "src/test/java/org/xbill/DNS/CERTRecordTest.java",
+    "src/test/java/org/xbill/DNS/DLVRecordTest.java",
+    "src/test/java/org/xbill/DNS/HTTPSRecordTest.java",
+    "src/test/java/org/xbill/DNS/HeaderTest.java",
+    "src/test/java/org/xbill/DNS/IPSECKEYRecordTest.java",
+    "src/test/java/org/xbill/DNS/ISDNRecordTest.java",
+    "src/test/java/org/xbill/DNS/LOCRecordTest.java",
+    "src/test/java/org/xbill/DNS/MINFORecordTest.java",
+    "src/test/java/org/xbill/DNS/MXRecordTest.java",
+    "src/test/java/org/xbill/DNS/MasterTest.java",
+    "src/test/java/org/xbill/DNS/NAPTRRecordTest.java",
+    "src/test/java/org/xbill/DNS/NSAPRecordTest.java",
+    "src/test/java/org/xbill/DNS/NSAP_PTRRecordTest.java",
+    "src/test/java/org/xbill/DNS/NSEC3PARAMRecordTest.java",
+    "src/test/java/org/xbill/DNS/NSEC3RecordTest.java",
+    "src/test/java/org/xbill/DNS/NSECRecordTest.java",
+    "src/test/java/org/xbill/DNS/NXTRecordTest.java",
+    "src/test/java/org/xbill/DNS/OPENPGPKEYRecordTest.java",
+    "src/test/java/org/xbill/DNS/OPTRecordTest.java",
+    "src/test/java/org/xbill/DNS/PXRecordTest.java",
+    "src/test/java/org/xbill/DNS/RPRecordTest.java",
+    "src/test/java/org/xbill/DNS/RRSIGRecordTest.java",
+    "src/test/java/org/xbill/DNS/SMIMEARecordTest.java",
+    "src/test/java/org/xbill/DNS/SPFRecordTest.java",
+    "src/test/java/org/xbill/DNS/SRVRecordTest.java",
+    "src/test/java/org/xbill/DNS/SSHFPRecordTest.java",
+    "src/test/java/org/xbill/DNS/SVCBRecordTest.java",
+    "src/test/java/org/xbill/DNS/SimpleResolverDeniedTest.java",
+    "src/test/java/org/xbill/DNS/TLSARecordTest.java",
+    "src/test/java/org/xbill/DNS/TSIGTest.java",
+    "src/test/java/org/xbill/DNS/TypeTest.java",
+    "src/test/java/org/xbill/DNS/WKSRecordTest.java",
+    "src/test/java/org/xbill/DNS/X25RecordTest.java",
+    "src/test/java/org/xbill/DNS/dnssec/MessageReader.java",
+    "src/test/java/org/xbill/DNS/dnssec/TestNormallyUnreachableCode.java",
+    "src/test/java/org/xbill/DNS/lookup/LookupResultTest.java",
+    "src/test/java/org/xbill/DNS/lookup/LookupSessionTest.java"
+  ],
+  "69": [
+    "Changelog",
+    "pom.xml"
+  ],
+  "70": [
+    "pom.xml"
+  ],
+  "71": [
+    "src/main/java/org/xbill/DNS/Lookup.java"
+  ],
+  "72": [
+    "pom.xml"
+  ],
+  "73": [
+    "pom.xml",
+    "src/main/java/org/xbill/DNS/AsyncSemaphore.java",
+    "src/main/java/org/xbill/DNS/DohResolver.java",
+    "src/main/java/org/xbill/DNS/DohResolverCommon.java",
+    "src/main/java/org/xbill/DNS/TimeoutCompletableFuture.java",
+    "src/main/java11/org/xbill/DNS/AsyncSemaphore.java",
+    "src/main/java11/org/xbill/DNS/DohResolver.java",
+    "src/test/java/org/xbill/DNS/DohResolverTest.java"
+  ],
+  "74": [
+    "sonar-project.properties",
+    "src/main/java/org/xbill/DNS/NioClient.java",
+    "src/main/java/org/xbill/DNS/NioTcpClient.java",
+    "src/main/java/org/xbill/DNS/NioUdpClient.java",
+    "src/test/java/org/xbill/DNS/NioTcpClientTest.java"
+  ],
+  "75": [
+    "src/main/java/org/xbill/DNS/hosts/HostsFileParser.java"
+  ],
+  "76": [
+    "src/main/java/org/xbill/DNS/hosts/HostsFileParser.java",
+    "src/test/java/org/xbill/DNS/hosts/HostsFileParserTest.java"
+  ],
+  "77": [
+    "src/main/java/org/xbill/DNS/Message.java",
+    "src/test/java/org/xbill/DNS/MessageTest.java",
+    "src/test/java/org/xbill/DNS/TSIGTest.java",
+    "src/test/java/org/xbill/DNS/dnssec/TestBase.java"
+  ],
+  "78": [
+    "src/main/java/org/xbill/DNS/Resolver.java",
+    "src/test/java/org/xbill/DNS/ResolverTest.java"
+  ],
+  "79": [
+    "src/main/java/org/xbill/DNS/ReverseMap.java",
+    "src/main/java/org/xbill/DNS/WKSRecord.java"
+  ],
+  "80": [
+    "src/main/java/org/xbill/DNS/Message.java",
+    "src/main/java/org/xbill/DNS/NioClient.java"
+  ],
+  "81": [
+    "src/main/java/org/xbill/DNS/DohResolverCommon.java"
+  ],
+  "82": [
+    ".github/workflows/build.yml",
+    ".github/workflows/codeql-analysis.yml"
+  ],
+  "83": [
+    ".github/workflows/build.yml",
+    "pom.xml"
+  ],
+  "84": [
+    "src/main/java/org/xbill/DNS/Lookup.java",
+    "src/test/java/org/xbill/DNS/LookupTest.java"
+  ],
+  "85": [
+    "src/main/java/org/xbill/DNS/Zone.java",
+    "src/test/java/org/xbill/DNS/ZoneTest.java"
+  ],
+  "86": [
+    "src/main/java/org/xbill/DNS/NioClient.java"
+  ],
+  "87": [
+    ".github/actions/download-artifact/action.yml",
+    ".github/actions/prepare-analysis/action.yml",
+    ".github/actions/upload-artifact/action.yml",
+    ".github/workflows/analyze.yml",
+    ".github/workflows/build.yml",
+    ".github/workflows/codeql-analysis.yml",
+    "README.adoc",
+    "pom.xml"
+  ],
+  "88": [
+    "README.adoc"
+  ],
+  "89": [
+    "pom.xml",
+    "src/main/java/org/xbill/DNS/dnssec/ValidatingResolver.java"
+  ],
+  "90": [
+    "Changelog",
+    "pom.xml"
+  ],
+  "91": [
+    "pom.xml"
+  ],
+  "92": [
+    "pom.xml"
+  ],
+  "93": [
+    "src/main/java/org/xbill/DNS/NioClient.java",
+    "src/main/java/org/xbill/DNS/NioTcpClient.java"
+  ],
+  "94": [
+    "README.adoc"
+  ],
+  "95": [
+    "pom.xml",
+    "src/main/java/org/xbill/DNS/NioClient.java",
+    "src/main/java/org/xbill/DNS/NioTcpClient.java",
+    "src/main/java/org/xbill/DNS/NioUdpClient.java",
+    "src/test/java/org/xbill/DNS/NioUdpClientTest.java",
+    "src/test/resources/logging.properties",
+    "src/test/resources/simplelogger.properties"
+  ],
+  "96": [
+    "src/main/java/org/xbill/DNS/hosts/HostsFileParser.java",
+    "src/test/java/org/xbill/DNS/hosts/HostsFileParserTest.java"
+  ],
+  "97": [
+    "src/test/java/org/xbill/DNS/NioUdpClientTest.java"
+  ],
+  "98": [
+    "pom.xml"
+  ],
+  "99": [
+    "src/main/java/org/xbill/DNS/EDNSOption.java",
+    "src/main/java/org/xbill/DNS/ExtendedErrorCodeOption.java",
+    "src/main/java/org/xbill/DNS/ExtendedFlags.java",
+    "src/main/java/org/xbill/DNS/Flags.java",
+    "src/main/java/org/xbill/DNS/Type.java"
+  ],
+  "100": [
+    ".github/actions/download-artifact/action.yml",
+    ".github/actions/prepare-analysis/action.yml",
+    ".github/actions/upload-artifact/action.yml",
+    ".github/workflows/analyze.yml",
+    ".github/workflows/build.yml"
+  ],
+  "101": [
+    "src/main/java/org/xbill/DNS/CAARecord.java",
+    "src/main/java/org/xbill/DNS/HINFORecord.java",
+    "src/main/java/org/xbill/DNS/ISDNRecord.java",
+    "src/main/java/org/xbill/DNS/NAPTRRecord.java",
+    "src/main/java/org/xbill/DNS/NSAPRecord.java",
+    "src/main/java/org/xbill/DNS/TXTBase.java",
+    "src/main/java/org/xbill/DNS/URIRecord.java",
+    "src/main/java/org/xbill/DNS/X25Record.java",
+    "src/test/java/org/xbill/DNS/CAARecordTest.java",
+    "src/test/java/org/xbill/DNS/HINFORecordTest.java",
+    "src/test/java/org/xbill/DNS/ISDNRecordTest.java",
+    "src/test/java/org/xbill/DNS/NAPTRRecordTest.java",
+    "src/test/java/org/xbill/DNS/NSAPRecordTest.java",
+    "src/test/java/org/xbill/DNS/URIRecordTest.java"
+  ],
+  "102": [
+    "Changelog",
+    "pom.xml"
+  ],
+  "103": [
+    "pom.xml"
+  ],
+  "104": [
+    "pom.xml"
+  ],
+  "105": [
+    "src/main/java/org/xbill/DNS/NioClient.java"
+  ],
+  "106": [
+    "pom.xml"
+  ],
+  "107": [
+    "pom.xml",
+    "src/main/java/org/xbill/DNS/DohResolver.java",
+    "src/main/java/org/xbill/DNS/ExtendedErrorCodeOption.java",
+    "src/main/java/org/xbill/DNS/NioClient.java",
+    "src/main/java/org/xbill/DNS/Options.java",
+    "src/main/java/org/xbill/DNS/Zone.java",
+    "src/main/java/org/xbill/DNS/utils/base16.java"
+  ],
+  "108": [
+    "src/main/java/org/xbill/DNS/Rcode.java"
+  ],
+  "109": [
+    "src/test/java/org/xbill/DNS/NioUdpClientTest.java",
+    "src/test/java/org/xbill/DNS/ResolverTest.java"
+  ],
+  "110": [
+    "src/main/java/org/xbill/DNS/TSIG.java",
+    "src/main/java/org/xbill/DNS/TSIGRecord.java",
+    "src/test/java/org/xbill/DNS/TSIGTest.java"
+  ],
+  "111": [
+    "src/main/java/org/xbill/DNS/Lookup.java",
+    "src/main/java/org/xbill/DNS/hosts/HostsFileParser.java",
+    "src/main/java/org/xbill/DNS/lookup/LookupSession.java",
+    "src/test/java/org/xbill/DNS/LookupTest.java",
+    "src/test/java/org/xbill/DNS/hosts/HostsFileParserTest.java",
+    "src/test/java/org/xbill/DNS/lookup/LookupSessionTest.java"
+  ],
+  "112": [
+    "src/main/java/org/xbill/DNS/NioTcpClient.java",
+    "src/test/java/org/xbill/DNS/NioTcpClientTest.java"
+  ],
+  "113": [
+    "src/main/java/org/xbill/DNS/Type.java"
+  ],
+  "114": [
+    ".github/actions/download-artifact/action.yml",
+    ".github/workflows/analyze.yml",
+    ".github/workflows/build.yml",
+    ".github/workflows/codeql-analysis.yml"
+  ],
+  "115": [
+    "src/main/java/org/xbill/DNS/DNSSEC.java",
+    "src/main/java/org/xbill/DNS/DigestLengths.java",
+    "src/main/java/org/xbill/DNS/SSHFPRecord.java",
+    "src/main/java/org/xbill/DNS/TSIG.java",
+    "src/main/java/org/xbill/DNS/ZoneMDRecord.java",
+    "src/test/java/org/xbill/DNS/SSHFPRecordTest.java",
+    "src/test/java/org/xbill/DNS/ZoneMDRecordTest.java"
+  ],
+  "116": [
+    "README.adoc",
+    "src/main/java/org/xbill/DNS/Header.java",
+    "src/main/java/org/xbill/DNS/NioUdpClient.java",
+    "src/main/java/org/xbill/DNS/Utils.java",
+    "src/test/java/org/xbill/DNS/UtilsTest.java"
+  ],
+  "117": [
+    "src/main/java/org/xbill/DNS/DigestLengths.java",
+    "src/test/java/org/xbill/DNS/DSRecordTest.java"
+  ],
+  "118": [
+    "src/main/java/org/xbill/DNS/DNSSEC.java",
+    "src/test/java/org/xbill/DNS/DNSSECWithBCProviderTest.java"
+  ],
+  "119": [
+    "src/main/java/org/xbill/DNS/Cache.java",
+    "src/test/java/org/xbill/DNS/CacheTest.java",
+    "src/test/java/org/xbill/DNS/DNSSECTest.java",
+    "src/test/java/org/xbill/DNS/DohResolverCommonTest.java",
+    "src/test/java/org/xbill/DNS/GeneratorTest.java",
+    "src/test/java/org/xbill/DNS/MessageTest.java",
+    "src/test/java/org/xbill/DNS/MnemonicTest.java",
+    "src/test/java/org/xbill/DNS/MockClock.java",
+    "src/test/java/org/xbill/DNS/ZoneTransferInTest.java",
+    "src/test/java/org/xbill/DNS/tools/LookupToolTest.java",
+    "src/test/java/org/xbill/DNS/tools/PrimaryToolTest.java"
+  ],
+  "120": [
+    ".github/workflows/build.yml"
+  ],
+  "121": [
+    ".github/workflows/analyze.yml"
+  ],
+  "122": [
+    ".github/workflows/analyze.yml"
+  ],
+  "123": [
+    "src/main/java/org/xbill/DNS/TSIG.java",
+    "src/test/java/org/xbill/DNS/TSIGTest.java"
+  ],
+  "124": [
+    "checkstyle/forbidden-apis.txt",
+    "pom.xml",
+    "src/main/java/org/xbill/DNS/Master.java",
+    "src/main/java/org/xbill/DNS/TTL.java",
+    "src/main/java/org/xbill/DNS/Tokenizer.java",
+    "src/main/java/org/xbill/DNS/X25Record.java",
+    "src/test/java/org/xbill/DNS/X25RecordTest.java"
+  ],
+  "125": [
+    "src/main/java/org/xbill/DNS/Message.java"
+  ],
+  "126": [
+    "src/main/java/org/xbill/DNS/Message.java",
+    "src/test/java/org/xbill/DNS/MessageTest.java"
+  ],
+  "127": [
+    "src/main/java/org/xbill/DNS/DohResolver.java",
+    "src/main/java/org/xbill/DNS/DohResolverCommon.java",
+    "src/main/java11/org/xbill/DNS/DohResolver.java",
+    "src/test/java/org/xbill/DNS/DohResolverTest.java"
+  ],
+  "128": [
+    "src/main/java/org/xbill/DNS/Message.java",
+    "src/main/java/org/xbill/DNS/tools/jnamed.java",
+    "src/test/java/org/xbill/DNS/TSIGTest.java"
+  ],
+  "129": [
+    "pom.xml"
+  ],
+  "130": [
+    "src/main/java/org/xbill/DNS/Compression.java",
+    "src/main/java/org/xbill/DNS/Message.java",
+    "src/test/java/org/xbill/DNS/MessageTest.java"
+  ],
+  "131": [
+    "src/main/java/org/xbill/DNS/Zone.java",
+    "src/test/java/org/xbill/DNS/ZoneTest.java"
+  ],
+  "132": [
+    "src/main/java/org/xbill/DNS/utils/base64.java",
+    "src/test/java/org/xbill/DNS/utils/Base64Test.java"
+  ],
+  "133": [
+    "src/main/java/org/xbill/DNS/A6Record.java",
+    "src/main/java/org/xbill/DNS/AAAARecord.java",
+    "src/main/java/org/xbill/DNS/IPAddressUtils.java",
+    "src/main/java/org/xbill/DNS/IPSECKEYRecord.java",
+    "src/test/java/org/xbill/DNS/A6RecordTest.java",
+    "src/test/java/org/xbill/DNS/AAAARecordTest.java",
+    "src/test/java/org/xbill/DNS/AddressTest.java",
+    "src/test/java/org/xbill/DNS/IPSECKEYRecordTest.java"
+  ],
+  "134": [
+    "src/main/java/org/xbill/DNS/SVCBBase.java",
+    "src/test/java/org/xbill/DNS/SVCBRecordTest.java"
+  ],
+  "135": [
+    "src/main/java/org/xbill/DNS/CERTRecord.java"
+  ],
+  "136": [
+    "src/main/java/org/xbill/DNS/GPOSRecord.java",
+    "src/test/java/org/xbill/DNS/GPOSRecordTest.java"
+  ],
+  "137": [
+    "src/main/java/org/xbill/DNS/SVCBBase.java"
+  ],
+  "138": [
+    "pom.xml",
+    "src/main/java/org/xbill/DNS/Record.java",
+    "src/main/java/org/xbill/DNS/SVCBBase.java",
+    "src/main/java/org/xbill/DNS/TextParseException.java",
+    "src/test/java/org/xbill/DNS/SVCBRecordTest.java"
+  ],
+  "139": [
+    "src/main/java/org/xbill/DNS/DSRecord.java",
+    "src/main/java/org/xbill/DNS/NSEC3Record.java",
+    "src/main/java/org/xbill/DNS/SSHFPRecord.java",
+    "src/main/java/org/xbill/DNS/TypeBitmap.java",
+    "src/test/java/org/xbill/DNS/DSRecordTest.java",
+    "src/test/java/org/xbill/DNS/NSEC3RecordTest.java",
+    "src/test/java/org/xbill/DNS/SSHFPRecordTest.java"
+  ],
+  "140": [
+    "src/main/java/org/xbill/DNS/CAARecord.java",
+    "src/main/java/org/xbill/DNS/Record.java",
+    "src/main/java/org/xbill/DNS/URIRecord.java",
+    "src/test/java/org/xbill/DNS/CAARecordTest.java",
+    "src/test/java/org/xbill/DNS/URIRecordTest.java"
+  ],
+  "141": [
+    "src/main/java/org/xbill/DNS/TTL.java",
+    "src/test/java/org/xbill/DNS/TTLTest.java"
+  ],
+  "142": [
+    "src/main/java/org/xbill/DNS/Generator.java",
+    "src/test/java/org/xbill/DNS/GeneratorTest.java"
+  ],
+  "143": [
+    "src/main/java/org/xbill/DNS/Update.java",
+    "src/test/java/org/xbill/DNS/UpdateTest.java"
+  ],
+  "144": [
+    "src/main/java/org/xbill/DNS/ExtendedFlags.java",
+    "src/test/java/org/xbill/DNS/OPTRecordTest.java"
+  ],
+  "145": [
+    "src/main/java/org/xbill/DNS/ReverseMap.java",
+    "src/test/java/org/xbill/DNS/ReverseMapTest.java"
+  ],
+  "146": [
+    "src/main/java/org/xbill/DNS/Message.java"
+  ],
+  "147": [
+    "src/main/java/org/xbill/DNS/Record.java"
+  ],
+  "148": [
+    "src/main/java/org/xbill/DNS/Header.java"
+  ],
+  "149": [
+    "src/main/java/org/xbill/DNS/LOCRecord.java",
+    "src/main/java/org/xbill/DNS/Tokenizer.java",
+    "src/test/java/org/xbill/DNS/LOCRecordTest.java"
+  ],
+  "150": [
+    "src/main/java/org/xbill/DNS/WKSRecord.java",
+    "src/test/java/org/xbill/DNS/WKSRecordTest.java"
+  ],
+  "151": [
+    "src/main/java/org/xbill/DNS/DNSOutput.java",
+    "src/test/java/org/xbill/DNS/DNSOutputTest.java"
+  ],
+  "152": [
+    "src/main/java/org/xbill/DNS/TypeBitmap.java",
+    "src/test/java/org/xbill/DNS/TypeBitmapTest.java"
+  ],
+  "153": [
+    "src/main/java/org/xbill/DNS/CERTRecord.java",
+    "src/main/java/org/xbill/DNS/DHCIDRecord.java",
+    "src/main/java/org/xbill/DNS/HIPRecord.java",
+    "src/main/java/org/xbill/DNS/OPENPGPKEYRecord.java",
+    "src/main/java/org/xbill/DNS/SIGBase.java",
+    "src/test/java/org/xbill/DNS/CERTRecordTest.java",
+    "src/test/java/org/xbill/DNS/DHCIDRecordTest.java",
+    "src/test/java/org/xbill/DNS/HIPRecordTest.java",
+    "src/test/java/org/xbill/DNS/OPENPGPKEYRecordTest.java",
+    "src/test/java/org/xbill/DNS/RRSIGRecordTest.java",
+    "src/test/java/org/xbill/DNS/RRsetTest.java"
+  ],
+  "154": [
+    "src/main/java/org/xbill/DNS/NSAPRecord.java",
+    "src/test/java/org/xbill/DNS/NSAPRecordTest.java"
+  ],
+  "155": [
+    "src/main/java/org/xbill/DNS/HIPRecord.java",
+    "src/test/java/org/xbill/DNS/HIPRecordTest.java"
+  ],
+  "156": [
+    "src/main/java/org/xbill/DNS/SIGBase.java",
+    "src/test/java/org/xbill/DNS/RRSIGRecordTest.java"
+  ],
+  "157": [
+    "src/main/java/org/xbill/DNS/CERTRecord.java",
+    "src/main/java/org/xbill/DNS/DHCIDRecord.java",
+    "src/main/java/org/xbill/DNS/HIPRecord.java",
+    "src/main/java/org/xbill/DNS/IPSECKEYRecord.java",
+    "src/main/java/org/xbill/DNS/NSEC3Record.java",
+    "src/main/java/org/xbill/DNS/OPENPGPKEYRecord.java",
+    "src/main/java/org/xbill/DNS/SIGBase.java",
+    "src/main/java/org/xbill/DNS/SVCBBase.java",
+    "src/test/java/org/xbill/DNS/CERTRecordTest.java",
+    "src/test/java/org/xbill/DNS/DHCIDRecordTest.java",
+    "src/test/java/org/xbill/DNS/HIPRecordTest.java",
+    "src/test/java/org/xbill/DNS/OPENPGPKEYRecordTest.java",
+    "src/test/java/org/xbill/DNS/RRSIGRecordTest.java"
+  ],
+  "158": [
+    "src/main/java/org/xbill/DNS/OPTRecord.java",
+    "src/main/java/org/xbill/DNS/Record.java",
+    "src/test/java/org/xbill/DNS/OPTRecordTest.java"
+  ],
+  "159": [
+    "src/main/java/org/xbill/DNS/Message.java",
+    "src/test/java/org/xbill/DNS/MessageTest.java"
+  ],
+  "160": [
+    "src/main/java/org/xbill/DNS/Record.java",
+    "src/main/java/org/xbill/DNS/SPFRecord.java",
+    "src/main/java/org/xbill/DNS/SVCBBase.java",
+    "src/main/java/org/xbill/DNS/TXTBase.java",
+    "src/main/java/org/xbill/DNS/TXTRecord.java",
+    "src/main/java/org/xbill/DNS/Tokenizer.java",
+    "src/test/java/org/xbill/DNS/TXTRecordTest.java"
+  ],
+  "161": [
+    "src/main/java/org/xbill/DNS/TSIG.java"
+  ],
+  "162": [
+    "src/main/java/org/xbill/DNS/CAARecord.java",
+    "src/test/java/org/xbill/DNS/CAARecordTest.java"
+  ],
+  "163": [
+    "src/main/java/org/xbill/DNS/Cache.java",
+    "src/main/java/org/xbill/DNS/Lookup.java",
+    "src/main/java/org/xbill/DNS/ZoneTransferIn.java",
+    "src/main/java/org/xbill/DNS/dnssec/ValidatingResolver.java",
+    "src/main/java/org/xbill/DNS/tools/jnamed.java",
+    "src/main/java/org/xbill/DNS/tools/update.java",
+    "src/test/java/org/xbill/DNS/CacheTest.java",
+    "src/test/java/org/xbill/DNS/DohResolverTest.java",
+    "src/test/java/org/xbill/DNS/dnssec/TestWildcard.java"
+  ],
+  "164": [
+    "src/main/java/org/xbill/DNS/Zone.java",
+    "src/test/java/org/xbill/DNS/ZoneTest.java"
+  ],
+  "165": [
+    "src/main/java/org/xbill/DNS/Zone.java",
+    "src/test/java/org/xbill/DNS/ZoneTest.java"
+  ],
+  "166": [
+    "src/main/java/org/xbill/DNS/Cache.java",
+    "src/test/java/org/xbill/DNS/CacheTest.java"
+  ],
+  "167": [
+    "src/main/java/org/xbill/DNS/RRset.java"
+  ],
+  "168": [
+    "src/main/java/org/xbill/DNS/Generator.java",
+    "src/main/java/org/xbill/DNS/Name.java",
+    "src/test/java/org/xbill/DNS/GeneratorTest.java"
+  ],
+  "169": [
+    "src/main/java/org/xbill/DNS/Generator.java",
+    "src/test/java/org/xbill/DNS/GeneratorTest.java"
+  ],
+  "170": [
+    "src/main/java/org/xbill/DNS/Message.java",
+    "src/test/java/org/xbill/DNS/MessageTest.java"
+  ],
+  "171": [
+    "src/main/java/org/xbill/DNS/DNSKEYRecord.java",
+    "src/main/java/org/xbill/DNS/EDNSOption.java",
+    "src/main/java/org/xbill/DNS/ExtendedErrorCodeOption.java",
+    "src/main/java/org/xbill/DNS/ExtendedFlags.java",
+    "src/test/java/org/xbill/DNS/OPTRecordTest.java"
+  ],
+  "172": [
+    "Changelog",
+    "pom.xml",
+    "src/main/java/org/xbill/DNS/Compression.java",
+    "src/main/java/org/xbill/DNS/Rcode.java",
+    "src/main/java/org/xbill/DNS/Record.java",
+    "src/main/java/org/xbill/DNS/SVCBBase.java",
+    "src/main/java/org/xbill/DNS/TextParseException.java",
+    "src/main/java/org/xbill/DNS/Tokenizer.java",
+    "src/main/java/org/xbill/DNS/hosts/HostsFileParser.java"
+  ],
+  "173": [
+    "pom.xml"
+  ],
+  "174": [
+    "src/main/java/org/xbill/DNS/AAAARecord.java"
+  ],
+  "175": [
+    "src/main/java/org/xbill/DNS/IPAddressUtils.java",
+    "src/main/java/org/xbill/DNS/Name.java",
+    "src/main/java/org/xbill/DNS/SVCBBase.java",
+    "src/test/java/org/xbill/DNS/APLRecordTest.java",
+    "src/test/java/org/xbill/DNS/AddressTest.java",
+    "src/test/java/org/xbill/DNS/DNSKEYRecordTest.java",
+    "src/test/java/org/xbill/DNS/DNSOutputTest.java",
+    "src/test/java/org/xbill/DNS/DSRecordTest.java",
+    "src/test/java/org/xbill/DNS/DohResolverCommonTest.java",
+    "src/test/java/org/xbill/DNS/ExtendedErrorCodeOptionTest.java",
+    "src/test/java/org/xbill/DNS/GPOSRecordTest.java",
+    "src/test/java/org/xbill/DNS/HINFORecordTest.java",
+    "src/test/java/org/xbill/DNS/HTTPSRecordTest.java",
+    "src/test/java/org/xbill/DNS/HeaderTest.java",
+    "src/test/java/org/xbill/DNS/KEYBaseTest.java",
+    "src/test/java/org/xbill/DNS/KEYRecordTest.java",
+    "src/test/java/org/xbill/DNS/MXRecordTest.java",
+    "src/test/java/org/xbill/DNS/NameTest.java",
+    "src/test/java/org/xbill/DNS/RecordTest.java",
+    "src/test/java/org/xbill/DNS/ReverseMapTest.java",
+    "src/test/java/org/xbill/DNS/SOARecordTest.java",
+    "src/test/java/org/xbill/DNS/SVCBRecordTest.java",
+    "src/test/java/org/xbill/DNS/SingleCompressedNameBaseTest.java",
+    "src/test/java/org/xbill/DNS/SingleNameBaseTest.java",
+    "src/test/java/org/xbill/DNS/TypeBitmapTest.java",
+    "src/test/java/org/xbill/DNS/U16NameBaseTest.java",
+    "src/test/java/org/xbill/DNS/URIRecordTest.java",
+    "src/test/java/org/xbill/DNS/dnssec/TestByteArrayComparator.java",
+    "src/test/java/org/xbill/DNS/hosts/HostsFileParserTest.java",
+    "src/test/java/org/xbill/DNS/utils/HexdumpTest.java"
+  ],
+  "176": [
+    "src/test/java/org/xbill/DNS/A6RecordTest.java",
+    "src/test/java/org/xbill/DNS/AAAARecordTest.java",
+    "src/test/java/org/xbill/DNS/AFSDBRecordTest.java",
+    "src/test/java/org/xbill/DNS/APLRecordTest.java",
+    "src/test/java/org/xbill/DNS/ARecordTest.java",
+    "src/test/java/org/xbill/DNS/AddressTest.java",
+    "src/test/java/org/xbill/DNS/CAARecordTest.java",
+    "src/test/java/org/xbill/DNS/CERTRecordTest.java",
+    "src/test/java/org/xbill/DNS/CNAMERecordTest.java",
+    "src/test/java/org/xbill/DNS/CacheTest.java",
+    "src/test/java/org/xbill/DNS/CompressionTest.java",
+    "src/test/java/org/xbill/DNS/CookieOptionTest.java",
+    "src/test/java/org/xbill/DNS/DClassTest.java",
+    "src/test/java/org/xbill/DNS/DLVRecordTest.java",
+    "src/test/java/org/xbill/DNS/DNAMERecordTest.java",
+    "src/test/java/org/xbill/DNS/DNSInputTest.java",
+    "src/test/java/org/xbill/DNS/DNSKEYRecordTest.java",
+    "src/test/java/org/xbill/DNS/DNSOutputTest.java",
+    "src/test/java/org/xbill/DNS/DNSSECTest.java",
+    "src/test/java/org/xbill/DNS/DNSSECWithBCProviderTest.java",
+    "src/test/java/org/xbill/DNS/DSRecordTest.java",
+    "src/test/java/org/xbill/DNS/DnssecAlgorithmOptionTest.java",
+    "src/test/java/org/xbill/DNS/DnssecDsaTest.java",
+    "src/test/java/org/xbill/DNS/DnssecEcDsaTest.java",
+    "src/test/java/org/xbill/DNS/DnssecEdDsaTest.java",
+    "src/test/java/org/xbill/DNS/DohResolverCommonTest.java",
+    "src/test/java/org/xbill/DNS/DohResolverTest.java",
+    "src/test/java/org/xbill/DNS/EDNS0MessageTests.java",
+    "src/test/java/org/xbill/DNS/EmptyRecordTest.java",
+    "src/test/java/org/xbill/DNS/ExceptionTest.java",
+    "src/test/java/org/xbill/DNS/ExtendedErrorCodeOptionTest.java",
+    "src/test/java/org/xbill/DNS/ExtendedFlagsTest.java",
+    "src/test/java/org/xbill/DNS/ExtendedResolverTest.java",
+    "src/test/java/org/xbill/DNS/FlagsTest.java",
+    "src/test/java/org/xbill/DNS/FormattedTimeTest.java",
+    "src/test/java/org/xbill/DNS/GPOSRecordTest.java",
+    "src/test/java/org/xbill/DNS/GeneratorTest.java",
+    "src/test/java/org/xbill/DNS/HINFORecordTest.java",
+    "src/test/java/org/xbill/DNS/HIPRecordTest.java",
+    "src/test/java/org/xbill/DNS/HTTPSRecordTest.java",
+    "src/test/java/org/xbill/DNS/HeaderTest.java",
+    "src/test/java/org/xbill/DNS/IPSECKEYRecordTest.java",
+    "src/test/java/org/xbill/DNS/ISDNRecordTest.java",
+    "src/test/java/org/xbill/DNS/KEYBaseTest.java",
+    "src/test/java/org/xbill/DNS/KEYRecordTest.java",
+    "src/test/java/org/xbill/DNS/KXRecordTest.java",
+    "src/test/java/org/xbill/DNS/LOCRecordTest.java",
+    "src/test/java/org/xbill/DNS/LookupTest.java",
+    "src/test/java/org/xbill/DNS/MBRecordTest.java",
+    "src/test/java/org/xbill/DNS/MDRecordTest.java",
+    "src/test/java/org/xbill/DNS/MFRecordTest.java",
+    "src/test/java/org/xbill/DNS/MGRecordTest.java",
+    "src/test/java/org/xbill/DNS/MINFORecordTest.java",
+    "src/test/java/org/xbill/DNS/MRRecordTest.java",
+    "src/test/java/org/xbill/DNS/MXRecordTest.java",
+    "src/test/java/org/xbill/DNS/MasterTest.java",
+    "src/test/java/org/xbill/DNS/MessageTest.java",
+    "src/test/java/org/xbill/DNS/MnemonicTest.java",
+    "src/test/java/org/xbill/DNS/NAPTRRecordTest.java",
+    "src/test/java/org/xbill/DNS/NSAPRecordTest.java",
+    "src/test/java/org/xbill/DNS/NSAP_PTRRecordTest.java",
+    "src/test/java/org/xbill/DNS/NSEC3PARAMRecordTest.java",
+    "src/test/java/org/xbill/DNS/NSEC3RecordTest.java",
+    "src/test/java/org/xbill/DNS/NSECRecordTest.java",
+    "src/test/java/org/xbill/DNS/NSRecordTest.java",
+    "src/test/java/org/xbill/DNS/NULLRecordTest.java",
+    "src/test/java/org/xbill/DNS/NXTRecordTest.java",
+    "src/test/java/org/xbill/DNS/NameTest.java",
+    "src/test/java/org/xbill/DNS/NioTcpClientTest.java",
+    "src/test/java/org/xbill/DNS/OPENPGPKEYRecordTest.java",
+    "src/test/java/org/xbill/DNS/OPTRecordTest.java",
+    "src/test/java/org/xbill/DNS/OpcodeTest.java",
+    "src/test/java/org/xbill/DNS/OptionsTest.java",
+    "src/test/java/org/xbill/DNS/PXRecordTest.java",
+    "src/test/java/org/xbill/DNS/RPRecordTest.java",
+    "src/test/java/org/xbill/DNS/RRSIGRecordTest.java",
+    "src/test/java/org/xbill/DNS/RRsetTest.java",
+    "src/test/java/org/xbill/DNS/RTRecordTest.java",
+    "src/test/java/org/xbill/DNS/RcodeTest.java",
+    "src/test/java/org/xbill/DNS/RecordTest.java",
+    "src/test/java/org/xbill/DNS/ResolverConfigTest.java",
+    "src/test/java/org/xbill/DNS/ResolverTest.java",
+    "src/test/java/org/xbill/DNS/ReverseMapTest.java",
+    "src/test/java/org/xbill/DNS/SMIMEARecordTest.java",
+    "src/test/java/org/xbill/DNS/SOARecordTest.java",
+    "src/test/java/org/xbill/DNS/SPFRecordTest.java",
+    "src/test/java/org/xbill/DNS/SRVRecordTest.java",
+    "src/test/java/org/xbill/DNS/SSHFPRecordTest.java",
+    "src/test/java/org/xbill/DNS/SVCBRecordTest.java",
+    "src/test/java/org/xbill/DNS/SectionTest.java",
+    "src/test/java/org/xbill/DNS/SerialTest.java",
+    "src/test/java/org/xbill/DNS/SetResponseTest.java",
+    "src/test/java/org/xbill/DNS/SimpleResolverDeniedTest.java",
+    "src/test/java/org/xbill/DNS/SingleCompressedNameBaseTest.java",
+    "src/test/java/org/xbill/DNS/SingleNameBaseTest.java",
+    "src/test/java/org/xbill/DNS/TKEYRecordTest.java",
+    "src/test/java/org/xbill/DNS/TLSARecordTest.java",
+    "src/test/java/org/xbill/DNS/TSIGRecordTest.java",
+    "src/test/java/org/xbill/DNS/TSIGTest.java",
+    "src/test/java/org/xbill/DNS/TTLTest.java",
+    "src/test/java/org/xbill/DNS/TcpKeepaliveOptionTest.java",
+    "src/test/java/org/xbill/DNS/TokenizerTest.java",
+    "src/test/java/org/xbill/DNS/TypeBitmapTest.java",
+    "src/test/java/org/xbill/DNS/TypeTest.java",
+    "src/test/java/org/xbill/DNS/U16NameBaseTest.java",
+    "src/test/java/org/xbill/DNS/URIRecordTest.java",
+    "src/test/java/org/xbill/DNS/UtilsTest.java",
+    "src/test/java/org/xbill/DNS/X25RecordTest.java",
+    "src/test/java/org/xbill/DNS/ZoneMDRecordTest.java",
+    "src/test/java/org/xbill/DNS/ZoneTest.java",
+    "src/test/java/org/xbill/DNS/ZoneTransferInTest.java",
+    "src/test/java/org/xbill/DNS/dnssec/DnsSecVerifierTests.java",
+    "src/test/java/org/xbill/DNS/dnssec/RTest.java",
+    "src/test/java/org/xbill/DNS/dnssec/TestAlgorithmSupport.java",
+    "src/test/java/org/xbill/DNS/dnssec/TestBase.java",
+    "src/test/java/org/xbill/DNS/dnssec/TestBogusReasonMessage.java",
+    "src/test/java/org/xbill/DNS/dnssec/TestByteArrayComparator.java",
+    "src/test/java/org/xbill/DNS/dnssec/TestCNames.java",
+    "src/test/java/org/xbill/DNS/dnssec/TestDNames.java",
+    "src/test/java/org/xbill/DNS/dnssec/TestDefaultTrustAnchorStore.java",
+    "src/test/java/org/xbill/DNS/dnssec/TestInvalid.java",
+    "src/test/java/org/xbill/DNS/dnssec/TestKeyCache.java",
+    "src/test/java/org/xbill/DNS/dnssec/TestKeyCacheUsage.java",
+    "src/test/java/org/xbill/DNS/dnssec/TestNSEC3NoData.java",
+    "src/test/java/org/xbill/DNS/dnssec/TestNoData.java",
+    "src/test/java/org/xbill/DNS/dnssec/TestNonExistence.java",
+    "src/test/java/org/xbill/DNS/dnssec/TestNormallyUnreachableCode.java",
+    "src/test/java/org/xbill/DNS/dnssec/TestNsec3ValUtils.java",
+    "src/test/java/org/xbill/DNS/dnssec/TestNsec3ValUtilsPublicKeyLoading.java",
+    "src/test/java/org/xbill/DNS/dnssec/TestPartiallyInvalid.java",
+    "src/test/java/org/xbill/DNS/dnssec/TestPositive.java",
+    "src/test/java/org/xbill/DNS/dnssec/TestPriming.java",
+    "src/test/java/org/xbill/DNS/dnssec/TestRRsig.java",
+    "src/test/java/org/xbill/DNS/dnssec/TestSMessage.java",
+    "src/test/java/org/xbill/DNS/dnssec/TestTrustAnchorLoading.java",
+    "src/test/java/org/xbill/DNS/dnssec/TestUnsigned.java",
+    "src/test/java/org/xbill/DNS/dnssec/TestValUtils.java",
+    "src/test/java/org/xbill/DNS/dnssec/TestWildcard.java",
+    "src/test/java/org/xbill/DNS/dnssec/UnboundTests.java",
+    "src/test/java/org/xbill/DNS/hosts/HostsFileParserTest.java",
+    "src/test/java/org/xbill/DNS/lookup/LookupFailedExceptionTest.java",
+    "src/test/java/org/xbill/DNS/lookup/LookupResultTest.java",
+    "src/test/java/org/xbill/DNS/lookup/LookupSessionTest.java",
+    "src/test/java/org/xbill/DNS/tools/LookupToolTest.java",
+    "src/test/java/org/xbill/DNS/tools/PrimaryToolTest.java",
+    "src/test/java/org/xbill/DNS/utils/Base16Test.java",
+    "src/test/java/org/xbill/DNS/utils/Base64Test.java",
+    "src/test/java/org/xbill/DNS/utils/BaseUtilsTest.java",
+    "src/test/java/org/xbill/DNS/utils/HexdumpTest.java"
+  ],
+  "177": [
+    "src/main/java/org/xbill/DNS/Record.java",
+    "src/test/java/org/xbill/DNS/TXTRecordTest.java"
+  ],
+  "178": [
+    "src/main/java/org/xbill/DNS/DNSSEC.java",
+    "src/test/java/org/xbill/DNS/DNSSECWithBCProviderTest.java"
+  ]
+}

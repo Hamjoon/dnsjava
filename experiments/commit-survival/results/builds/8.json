@@ -1,0 +1,67 @@
+{
+  "index": 8,
+  "sha": "c194bf85be0095912d36aaa4b1f3b5e2de315d60",
+  "build": "ok",
+  "attempts": [
+    {
+      "command": [
+        "mvn",
+        "-q",
+        "-o",
+        "-DskipTests",
+        "compile"
+      ],
+      "cwd": "/repo/experiments/commit-survival/work/checkouts/8",
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 16.714,
+      "log": "results/builds/logs/8-1.txt"
+    }
+  ],
+  "input_sha256": "5bcf6d366ffb4b6868d5ec742f3552961a468d1be75eb75301f4b7e8078806a0",
+  "pom_sha256": "00e4c42ff7f5dab63d55e527fed01071d11d3f521a4f062359c5039862a389b0",
+  "classpath": "work/classpaths/00e4c42ff7f5dab63d55e527fed01071d11d3f521a4f062359c5039862a389b0.txt",
+  "classpath_attempts": [
+    {
+      "command": [
+        "mvn",
+        "-q",
+        "-o",
+        "dependency:go-offline"
+      ],
+      "cwd": "/repo/experiments/commit-survival/work/checkouts/8",
+      "exit_code": 1,
+      "timeout": false,
+      "seconds": 3.946,
+      "log": "results/builds/logs/classpath-8/go-offline-88f080ef5b57455f96069c9ed829f3e0/1.txt"
+    },
+    {
+      "command": [
+        "mvn",
+        "-q",
+        "-U",
+        "dependency:go-offline"
+      ],
+      "cwd": "/repo/experiments/commit-survival/work/checkouts/8",
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 10.488,
+      "log": "results/builds/logs/classpath-8/go-offline-88f080ef5b57455f96069c9ed829f3e0/2.txt"
+    },
+    {
+      "command": [
+        "mvn",
+        "-q",
+        "-o",
+        "dependency:build-classpath",
+        "-DincludeScope=test",
+        "-Dmdep.outputFile=/repo/experiments/commit-survival/work/classpaths/00e4c42ff7f5dab63d55e527fed01071d11d3f521a4f062359c5039862a389b0-c7c54c28190b405dbca4856ee2794452.tmp"
+      ],
+      "cwd": "/repo/experiments/commit-survival/work/checkouts/8",
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 2.326,
+      "log": "results/builds/logs/classpath-8/build-classpath-fbc60cc7906b48c6a8dc68b972f25013/1.txt"
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+[
+  {
+    "group": "Empty zone",
+    "cases": [
+      {
+        "input": [],
+        "expected": "The returned master file string is empty because there are no nodes (originNode is null and data map is empty).",
+        "description": "Verify that toMasterFile() returns an empty string when the Zone has no origin node and no data entries."
+      }
+    ]
+  },
+  {
+    "group": "Origin only",
+    "cases": [
+      {
+        "input": [],
+        "expected": "The returned string contains the master\u2011file representation of the origin node only (e.g., the SOA and NS records for the zone) and nothing else.",
+        "description": "Create a Zone, set its origin to \"example.com.\", add an RRset for the origin (e.g., an SOA record). No other records are added. toMasterFile() should serialize only the origin node."
+      }
+    ]
+  },
+  {
+    "group": "Single non\u2011origin entry",
+    "cases": [
+      {
+        "input": [],
+        "expected": "The returned string contains the master\u2011file representation of the non\u2011origin node (e.g., an A record for www.example.com.) and does not contain any data for the origin because originNode is null.",
+        "description": "Create a Zone with origin \"example.com.\" but do NOT add any records for the origin (originNode stays null). Add an RRset for a different name (www.example.com.). toMasterFile() should output only the www record."
+      }
+    ]
+  },
+  {
+    "group": "Origin present and duplicate entry in data map",
+    "cases": [
+      {
+        "input": [],
+        "expected": "The returned string contains the origin node exactly once (its SOA/NS records) followed by the other node\u2019s records; the duplicate entry for the origin in the data map is ignored.",
+        "description": "Create a Zone with origin \"example.com.\", add an RRset for the origin, then add another RRset for the same name via addRRset (so the name equals origin). Also add a distinct RRset for \"mail.example.com.\". toMasterFile() must serialize the origin once and then the mail record; the second origin entry must not appear."
+      }
+    ]
+  },
+  {
+    "group": "Multiple ordered entries",
+    "cases": [
+      {
+        "input": [],
+        "expected": "The returned string lists the origin node first, then the remaining nodes in alphabetical order of their names (as guaranteed by ConcurrentSkipListMap).",
+        "description": "Create a Zone with origin \"example.com.\" and add RRsets for \"a.example.com.\", \"z.example.com.\", and \"m.example.com.\". Verify that toMasterFile() outputs the origin node first and the other three nodes in the order a, m, z."
+      }
+    ]
+  },
+  {
+    "group": "Null origin leads to NPE",
+    "cases": [
+      {
+        "input": [],
+        "expected": "NullPointerException is thrown because origin is null and the method calls origin.equals(entry.getKey()).",
+        "description": "Create a Zone but never set its origin (origin remains null). Add any RRset (e.g., for \"test.example.com.\"). Calling toMasterFile() should result in a NullPointerException."
+      }
+    ]
+  },
+  {
+    "group": "Invalid originNode type",
+    "cases": [
+      {
+        "input": [],
+        "expected": "ClassCastException is thrown because originNode is set to an object of an unexpected type and nodeToString attempts to cast it to the internal node representation.",
+        "description": "Create a Zone, set a valid origin (e.g., \"example.com.\"), then use reflection to assign a String instance to the private field 'originNode'. Calling toMasterFile() should propagate a ClassCastException from nodeToString."
+      }
+    ]
+  },
+  {
+    "group": "Invalid data map value type",
+    "cases": [
+      {
+        "input": [],
+        "expected": "ClassCastException is thrown because a map entry value is of an incompatible type and nodeToString attempts to process it.",
+        "description": "Create a Zone with a valid origin, then use reflection to put an entry into the private 'data' map where the key is a proper Name instance but the value is a plain Integer. When toMasterFile() iterates over the map, nodeToString will receive the Integer and throw a ClassCastException."
+      }
+    ]
+  },
+  {
+    "group": "Null key in data map",
+    "cases": [
+      {
+        "input": [],
+        "expected": "NullPointerException is thrown when origin.equals(entry.getKey()) is evaluated because the map contains a null key.",
+        "description": "Create a Zone with a non\u2011null origin, then use reflection to insert a null key with any non\u2011null value into the private 'data' ConcurrentSkipListMap. The iteration in toMasterFile() will encounter the null key, causing origin.equals(null) to throw NPE."
+      }
+    ]
+  },
+  {
+    "group": "Null value in data map",
+    "cases": [
+      {
+        "input": [],
+        "expected": "NullPointerException is thrown inside nodeToString because it receives a null node value.",
+        "description": "Create a Zone with a valid origin, then use reflection to add a proper Name key to the private 'data' map but associate it with a null value. When toMasterFile() calls nodeToString(sb, entry.getValue()), the null argument triggers an NPE."
+      }
+    ]
+  }
+]

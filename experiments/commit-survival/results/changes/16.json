@@ -1,0 +1,65 @@
+{
+  "index": 16,
+  "sha": "4a2869d12d1467f5e311d9bb78b12b127aeb99b8",
+  "parent": "2073a0cdea2c560465f7ac0cc56f202e6fc39705",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/DNSSEC.java": [
+      389,
+      915,
+      937,
+      1019,
+      1020,
+      1021,
+      1291,
+      1292,
+      1293
+    ],
+    "src/main/java/org/xbill/DNS/dnssec/KeyEntry.java": [
+      128
+    ],
+    "src/main/java/org/xbill/DNS/dnssec/ValUtils.java": [],
+    "src/main/java/org/xbill/DNS/dnssec/ValidatingResolver.java": [
+      410,
+      462,
+      670,
+      835
+    ]
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/DNSSEC.java": [
+      389,
+      390,
+      393,
+      907,
+      908,
+      909,
+      922,
+      945,
+      947,
+      949,
+      951,
+      953,
+      955,
+      957,
+      959,
+      961,
+      1044,
+      1314
+    ],
+    "src/main/java/org/xbill/DNS/dnssec/KeyEntry.java": [
+      128,
+      130,
+      132,
+      133,
+      134
+    ],
+    "src/main/java/org/xbill/DNS/dnssec/ValUtils.java": [],
+    "src/main/java/org/xbill/DNS/dnssec/ValidatingResolver.java": [
+      410,
+      462,
+      670,
+      835
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/DNSSEC.java b/src/main/java/org/xbill/DNS/DNSSEC.java\nindex 72df3f2b..f90fe6c7 100644\n--- a/src/main/java/org/xbill/DNS/DNSSEC.java\n+++ b/src/main/java/org/xbill/DNS/DNSSEC.java\n@@ -389 +389,5 @@ public class DNSSEC {\n-      super(\"signature verification failed\");\n+      super(\"Signature verification failed\");\n+    }\n+\n+    SignatureVerificationException(String message) {\n+      super(\"Signature verification failed: \" + message);\n@@ -901 +905 @@ public class DNSSEC {\n-  private static void verify(PublicKey key, int alg, byte[] data, byte[] signature)\n+  private static void verify(KEYBase keyRecord, SIGBase sigRecord, byte[] data, int coveredType)\n@@ -902,0 +907,3 @@ public class DNSSEC {\n+    PublicKey key = keyRecord.getPublicKey();\n+    int alg = sigRecord.getAlgorithm();\n+    byte[] signature = sigRecord.getSignature();\n@@ -915 +922,2 @@ public class DNSSEC {\n-              throw new SignatureVerificationException();\n+              throw new SignatureVerificationException(\n+                  \"signature length doesn't match expected length\");\n@@ -937 +945,18 @@ public class DNSSEC {\n-        throw new SignatureVerificationException();\n+        throw new SignatureVerificationException(\n+            \"KEY \"\n+                + keyRecord.getName()\n+                + \" (alg=\"\n+                + keyRecord.getAlgorithm()\n+                + \",id=\"\n+                + keyRecord.getFootprint()\n+                + \") doesn't validate <\"\n+                + sigRecord.getName()\n+                + \"/\"\n+                + DClass.string(sigRecord.getDClass())\n+                + \"/\"\n+                + Type.string(coveredType)\n+                + \"> (alg=\"\n+                + sigRecord.getAlgorithm()\n+                + \",id=\"\n+                + sigRecord.getFootprint()\n+                + \")\");\n@@ -1019,3 +1044 @@ public class DNSSEC {\n-    verify(\n-        key.getPublicKey(), rrsig.getAlgorithm(),\n-        digestRRset(rrsig, rrset), rrsig.getSignature());\n+    verify(key, rrsig, digestRRset(rrsig, rrset), rrset.getType());\n@@ -1291,3 +1314 @@ public class DNSSEC {\n-    verify(\n-        key.getPublicKey(), sig.getAlgorithm(),\n-        out.toByteArray(), sig.getSignature());\n+    verify(key, sig, out.toByteArray(), 0);\ndiff --git a/src/main/java/org/xbill/DNS/dnssec/KeyEntry.java b/src/main/java/org/xbill/DNS/dnssec/KeyEntry.java\nindex 914e5f65..d043739d 100644\n--- a/src/main/java/org/xbill/DNS/dnssec/KeyEntry.java\n+++ b/src/main/java/org/xbill/DNS/dnssec/KeyEntry.java\n@@ -8,0 +9 @@ import lombok.extern.slf4j.Slf4j;\n+import org.xbill.DNS.DClass;\n@@ -121 +122 @@ final class KeyEntry extends SRRset {\n-   * @param signerName the name against which this key is validated.\n+   * @param set the set against which this key is validated.\n@@ -124 +125 @@ final class KeyEntry extends SRRset {\n-  JustifiedSecStatus validateKeyFor(Name signerName) {\n+  JustifiedSecStatus validateKeyFor(SRRset set) {\n@@ -126,0 +128 @@ final class KeyEntry extends SRRset {\n+    Name signerName = set.getSignerName();\n@@ -128 +130,6 @@ final class KeyEntry extends SRRset {\n-      log.debug(\"No signerName\");\n+      log.debug(\n+          \"No signerName for <{}/{}/{}>\",\n+          set.getName(),\n+          DClass.string(set.getDClass()),\n+          Type.string(set.getType()));\n+\ndiff --git a/src/main/java/org/xbill/DNS/dnssec/ValUtils.java b/src/main/java/org/xbill/DNS/dnssec/ValUtils.java\nindex 1dd645a0..086a009c 100644\n--- a/src/main/java/org/xbill/DNS/dnssec/ValUtils.java\n+++ b/src/main/java/org/xbill/DNS/dnssec/ValUtils.java\n@@ -338 +338 @@ final class ValUtils {\n-   * Gets the digest ID for the favorite (best) algorithm that is support in a given DS set.\n+   * Gets the digest ID for the favorite (best) algorithm that is supported in a given DS set.\ndiff --git a/src/main/java/org/xbill/DNS/dnssec/ValidatingResolver.java b/src/main/java/org/xbill/DNS/dnssec/ValidatingResolver.java\nindex 19b3d354..17c0221f 100644\n--- a/src/main/java/org/xbill/DNS/dnssec/ValidatingResolver.java\n+++ b/src/main/java/org/xbill/DNS/dnssec/ValidatingResolver.java\n@@ -410 +410 @@ public final class ValidatingResolver implements Resolver {\n-              JustifiedSecStatus kve = ke.validateKeyFor(set.getSignerName());\n+              JustifiedSecStatus kve = ke.validateKeyFor(set);\n@@ -462 +462 @@ public final class ValidatingResolver implements Resolver {\n-              JustifiedSecStatus kve = ke.validateKeyFor(set.getSignerName());\n+              JustifiedSecStatus kve = ke.validateKeyFor(set);\n@@ -670 +670 @@ public final class ValidatingResolver implements Resolver {\n-              JustifiedSecStatus kve = ke.validateKeyFor(set.getSignerName());\n+              JustifiedSecStatus kve = ke.validateKeyFor(set);\n@@ -835 +835 @@ public final class ValidatingResolver implements Resolver {\n-              JustifiedSecStatus kve = ke.validateKeyFor(set.getSignerName());\n+              JustifiedSecStatus kve = ke.validateKeyFor(set);"
+}

@@ -1,0 +1,16 @@
+{
+  "index": 161,
+  "sha": "54aa223c1060585a682c83fcff7782211bd64c90",
+  "parent": "9260418e430b42f9fe8ee23be72abe2094c05d20",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/TSIG.java": [
+      250
+    ]
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/TSIG.java": [
+      251
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/TSIG.java b/src/main/java/org/xbill/DNS/TSIG.java\nindex 934e5c41..69586e9e 100644\n--- a/src/main/java/org/xbill/DNS/TSIG.java\n+++ b/src/main/java/org/xbill/DNS/TSIG.java\n@@ -6,0 +7 @@ import java.security.GeneralSecurityException;\n+import java.security.MessageDigest;\n@@ -250 +251 @@ public class TSIG {\n-    return Arrays.equals(signature, expected);\n+    return MessageDigest.isEqual(signature, expected);"
+}

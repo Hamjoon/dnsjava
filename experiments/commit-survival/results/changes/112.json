@@ -1,0 +1,23 @@
+{
+  "index": 112,
+  "sha": "eab9a17bc83e5d4200ea81c476639a1c997753bc",
+  "parent": "64efa230175a77af8896393ce6b542ac6da49440",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/NioTcpClient.java": [
+      150,
+      266,
+      267,
+      276,
+      277
+    ]
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/NioTcpClient.java": [
+      152,
+      268,
+      281,
+      283
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/NioTcpClient.java b/src/main/java/org/xbill/DNS/NioTcpClient.java\nindex 72df9827..7ef93ca7 100644\n--- a/src/main/java/org/xbill/DNS/NioTcpClient.java\n+++ b/src/main/java/org/xbill/DNS/NioTcpClient.java\n@@ -150 +150,3 @@ final class NioTcpClient extends NioClient implements TcpIoClient {\n-          if (key.isReadable()) {\n+          // processWrite may have canceled the key on a write failure; isReadable would\n+          // then throw a CancelledKeyException and kill the selector thread\n+          if (key.isValid() && key.isReadable()) {\n@@ -266,2 +268 @@ final class NioTcpClient extends NioClient implements TcpIoClient {\n-      for (Iterator<Transaction> it = pendingTransactions.iterator(); it.hasNext(); ) {\n-        Transaction t = it.next();\n+      for (Transaction t : pendingTransactions) {\n@@ -276,2 +277,5 @@ final class NioTcpClient extends NioClient implements TcpIoClient {\n-          t.f.completeExceptionally(e);\n-          it.remove();\n+          // A failed write leaves the TCP stream in an undefined state for all transactions\n+          // multiplexed on this channel, fail them and close the channel. Return without\n+          // touching interestOps, on the now canceled key it would throw\n+          // CancelledKeyException and kill the selector thread.\n+          handleChannelException(e);\n@@ -278,0 +283 @@ final class NioTcpClient extends NioClient implements TcpIoClient {\n+          return;"
+}

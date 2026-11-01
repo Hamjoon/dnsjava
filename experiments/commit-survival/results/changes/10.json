@@ -1,0 +1,42 @@
+{
+  "index": 10,
+  "sha": "f6fa697f88eb0dd502a0bdf13df48b49ae451db7",
+  "parent": "04186e441a0b93e75c7d54ed291b742eeaa3b7b7",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/NioClient.java": [
+      93,
+      96,
+      97,
+      98,
+      102,
+      103,
+      104,
+      106,
+      107,
+      108,
+      109
+    ]
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/NioClient.java": [
+      93,
+      94,
+      95,
+      96,
+      97,
+      98,
+      99,
+      101,
+      102,
+      104,
+      105,
+      106,
+      107,
+      110,
+      112,
+      113,
+      114
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/NioClient.java b/src/main/java/org/xbill/DNS/NioClient.java\nindex 57e20f67..47c08361 100644\n--- a/src/main/java/org/xbill/DNS/NioClient.java\n+++ b/src/main/java/org/xbill/DNS/NioClient.java\n@@ -93 +93,7 @@ public abstract class NioClient {\n-    selector.wakeup();\n+    Selector localSelector = selector;\n+    Thread localSelectorThread = selectorThread;\n+    synchronized (NioClient.class) {\n+      selector = null;\n+      selectorThread = null;\n+      closeThread = null;\n+    }\n@@ -95,4 +101,7 @@ public abstract class NioClient {\n-    try {\n-      selector.close();\n-    } catch (IOException e) {\n-      log.warn(\"Failed to properly close selector, ignoring and continuing close\", e);\n+    if (localSelector != null) {\n+      localSelector.wakeup();\n+      try {\n+        localSelector.close();\n+      } catch (IOException e) {\n+        log.warn(\"Failed to properly close selector, ignoring and continuing close\", e);\n+      }\n@@ -101,9 +110,5 @@ public abstract class NioClient {\n-    try {\n-      selectorThread.join();\n-    } catch (InterruptedException e) {\n-      Thread.currentThread().interrupt();\n-    } finally {\n-      synchronized (NioClient.class) {\n-        selector = null;\n-        selectorThread = null;\n-        closeThread = null;\n+    if (localSelectorThread != null) {\n+      try {\n+        localSelectorThread.join();\n+      } catch (InterruptedException e) {\n+        Thread.currentThread().interrupt();"
+}

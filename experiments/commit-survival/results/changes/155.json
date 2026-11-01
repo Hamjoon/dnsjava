@@ -1,0 +1,20 @@
+{
+  "index": 155,
+  "sha": "f69725ee9997d04583466c32788313d8a5a1f212",
+  "parent": "8750cd84fa6375a5afcafc0d38895651e3cf73e0",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/HIPRecord.java": [
+      151,
+      162
+    ]
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/HIPRecord.java": [
+      151,
+      162,
+      163,
+      164
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/HIPRecord.java b/src/main/java/org/xbill/DNS/HIPRecord.java\nindex a5eb8d07..f7863ae9 100644\n--- a/src/main/java/org/xbill/DNS/HIPRecord.java\n+++ b/src/main/java/org/xbill/DNS/HIPRecord.java\n@@ -151 +151 @@ public class HIPRecord extends Record {\n-      rvServers.add(new Name(t.value()));\n+      rvServers.add(Name.fromString(t.value(), origin));\n@@ -162 +162,3 @@ public class HIPRecord extends Record {\n-    rvServers.forEach(n -> n.toWire(out, null, canonical));\n+    for (Name n : rvServers) {\n+      n.toWire(out, null, canonical);\n+    }"
+}

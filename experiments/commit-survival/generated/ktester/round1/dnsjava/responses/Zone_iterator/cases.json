@@ -1,0 +1,77 @@
+[
+  {
+    "group": "Zone.iterator()",
+    "cases": [
+      {
+        "input": [],
+        "expected": "Iterator has no elements; hasNext() returns false and next() throws NoSuchElementException",
+        "description": "Verify that an empty Zone returns an iterator that reports no elements and correctly throws NoSuchElementException when next() is called."
+      },
+      {
+        "input": [],
+        "expected": "Iterator returns the single RRset added to the Zone in the order it was added; subsequent hasNext() returns false",
+        "description": "Add a single RRset to a Zone, obtain the iterator and ensure it yields exactly that RRset and then reports no further elements."
+      },
+      {
+        "input": [],
+        "expected": "Iterator returns all RRsets added to the Zone in insertion order; after the last element hasNext() returns false",
+        "description": "Add multiple RRsets to a Zone (e.g., three), obtain the iterator and verify that it iterates over all RRsets in the same order they were added."
+      },
+      {
+        "input": [],
+        "expected": "Two successive calls to iterator() return independent iterator instances; actions on one do not affect the other",
+        "description": "Create a Zone with several RRsets, obtain two iterators via separate iterator() calls, and confirm that each iterator can traverse the full collection independently."
+      },
+      {
+        "input": [],
+        "expected": "Calling remove() on the iterator throws UnsupportedOperationException (if ZoneIterator does not support removal)",
+        "description": "Ensure that the iterator returned by Zone.iterator() adheres to the contract of not supporting element removal, by invoking remove() and expecting UnsupportedOperationException."
+      }
+    ]
+  },
+  {
+    "group": "Zone.iterator() - iterator snapshot behavior after modification",
+    "cases": [
+      {
+        "input": [],
+        "expected": "After obtaining an iterator from a non\u2011empty Zone, adding a new RRset to the Zone causes the iterator to throw java.util.ConcurrentModificationException on the next call to hasNext() or next()",
+        "description": "Create a Zone, add one RRset, obtain an iterator, then add a second RRset to the Zone. Verify that the iterator becomes fail\u2011fast and throws ConcurrentModificationException when used after the modification."
+      },
+      {
+        "input": [],
+        "expected": "After obtaining an iterator from a Zone, removing an existing RRset from the Zone causes the iterator to throw java.util.ConcurrentModificationException on subsequent hasNext() or next() calls",
+        "description": "Create a Zone with two RRsets, obtain an iterator, then remove one RRset via Zone.removeRecord(...). Confirm that the iterator detects the concurrent modification and throws ConcurrentModificationException."
+      }
+    ]
+  },
+  {
+    "group": "Zone.iterator() - next after full iteration",
+    "cases": [
+      {
+        "input": [],
+        "expected": "java.util.NoSuchElementException",
+        "description": "Obtain an iterator from a Zone that contains one or more RRsets, iterate until hasNext() returns false, then call next() again. The iterator must throw NoSuchElementException because there are no remaining elements."
+      }
+    ]
+  },
+  {
+    "group": "Zone.iterator() - iterator fails on corrupted internal structure",
+    "cases": [
+      {
+        "input": [],
+        "expected": "java.lang.NullPointerException",
+        "description": "Using reflection, set the Zone's internal collection that stores RRsets (e.g., the private Map or List field) to null, then invoke iterator(). The iterator construction should encounter the null reference and throw a NullPointerException."
+      }
+    ]
+  },
+  {
+    "group": "Zone.iterator() - iterator encounters null element",
+    "cases": [
+      {
+        "input": [],
+        "expected": "java.lang.NullPointerException",
+        "description": "Insert a null entry into the Zone's internal RRset storage via reflection (or by calling a method that allows null if available). When iterator().next() reaches this null element, it must throw a NullPointerException."
+      }
+    ]
+  }
+]

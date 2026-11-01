@@ -1,0 +1,22 @@
+{
+  "index": 107,
+  "sha": "38136c9a7eee0b8219cc54a2ab4b625845b599c6",
+  "parent": "3d889712a7333c3131d4cd12d2ab44fb0cf542cf",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/DohResolver.java": [],
+    "src/main/java/org/xbill/DNS/ExtendedErrorCodeOption.java": [],
+    "src/main/java/org/xbill/DNS/NioClient.java": [],
+    "src/main/java/org/xbill/DNS/Options.java": [],
+    "src/main/java/org/xbill/DNS/Zone.java": [],
+    "src/main/java/org/xbill/DNS/utils/base16.java": []
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/DohResolver.java": [],
+    "src/main/java/org/xbill/DNS/ExtendedErrorCodeOption.java": [],
+    "src/main/java/org/xbill/DNS/NioClient.java": [],
+    "src/main/java/org/xbill/DNS/Options.java": [],
+    "src/main/java/org/xbill/DNS/Zone.java": [],
+    "src/main/java/org/xbill/DNS/utils/base16.java": []
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/DohResolver.java b/src/main/java/org/xbill/DNS/DohResolver.java\nindex fa150cc0..4025d862 100644\n--- a/src/main/java/org/xbill/DNS/DohResolver.java\n+++ b/src/main/java/org/xbill/DNS/DohResolver.java\n@@ -40,2 +40,5 @@ import lombok.extern.slf4j.Slf4j;\n- * <li>https://cloudflare-dns.com/dns-query: max streams=250, idle timeout=400s\n- * <li>https://dns.google/dns-query: max streams=100, idle timeout=240s\n+ *\n+ * <ul>\n+ *   <li>https://cloudflare-dns.com/dns-query: max streams=250, idle timeout=400s\n+ *   <li>https://dns.google/dns-query: max streams=100, idle timeout=240s *\n+ * </ul>\ndiff --git a/src/main/java/org/xbill/DNS/ExtendedErrorCodeOption.java b/src/main/java/org/xbill/DNS/ExtendedErrorCodeOption.java\nindex 59979c18..be10e2b8 100644\n--- a/src/main/java/org/xbill/DNS/ExtendedErrorCodeOption.java\n+++ b/src/main/java/org/xbill/DNS/ExtendedErrorCodeOption.java\n@@ -45 +45 @@ public class ExtendedErrorCodeOption extends EDNSOption {\n-   * @see <a href=\"https://datatracker.ietf.org/doc/html/rfc4035>RFC 4035</a>\n+   * @see <a href=\"https://datatracker.ietf.org/doc/html/rfc4035\">RFC 4035</a>\ndiff --git a/src/main/java/org/xbill/DNS/NioClient.java b/src/main/java/org/xbill/DNS/NioClient.java\nindex f4fea343..6dedff20 100644\n--- a/src/main/java/org/xbill/DNS/NioClient.java\n+++ b/src/main/java/org/xbill/DNS/NioClient.java\n@@ -25 +25 @@ import org.xbill.DNS.utils.hexdump;\n- * <p>The following configuration parameter is available:\n+ * <p>The following configuration parameters are available:\n@@ -28 +28 @@ import org.xbill.DNS.utils.hexdump;\n- *   <dt>{@value SELECTOR_TIMEOUT_PROPERTY}\n+ *   <dt>{@code dnsjava.nio.selector_timeout}\n@@ -30 +30 @@ import org.xbill.DNS.utils.hexdump;\n- *   <dt>{@value REGISTER_SHUTDOWN_HOOK_PROPERTY}\n+ *   <dt>{@code dnsjava.nio.register_shutdown_hook}\ndiff --git a/src/main/java/org/xbill/DNS/Options.java b/src/main/java/org/xbill/DNS/Options.java\nindex 4459a632..1dc34414 100644\n--- a/src/main/java/org/xbill/DNS/Options.java\n+++ b/src/main/java/org/xbill/DNS/Options.java\n@@ -17,2 +17,2 @@ import java.util.StringTokenizer;\n- *   <li>multiline - Print records in multiline format<br>\n- *   <li>noPrintIN - Don't print the class of a record if it's IN<br>\n+ *   <li>multiline - Print records in multiline format\n+ *   <li>noPrintIN - Don't print the class of a record if it's IN\ndiff --git a/src/main/java/org/xbill/DNS/Zone.java b/src/main/java/org/xbill/DNS/Zone.java\nindex d323fb4d..279828de 100644\n--- a/src/main/java/org/xbill/DNS/Zone.java\n+++ b/src/main/java/org/xbill/DNS/Zone.java\n@@ -28 +28 @@ import lombok.Getter;\n- *     package info from {@code java.util.concurrent}).\n+ *     package info from {@link java.util.concurrent}).\ndiff --git a/src/main/java/org/xbill/DNS/utils/base16.java b/src/main/java/org/xbill/DNS/utils/base16.java\nindex 74c4e3bc..e6d9750f 100644\n--- a/src/main/java/org/xbill/DNS/utils/base16.java\n+++ b/src/main/java/org/xbill/DNS/utils/base16.java\n@@ -60,0 +61 @@ public class base16 {\n+   * </ul>"
+}

@@ -1,0 +1,17 @@
+/repo/experiments/commit-survival/generated/ouedraogo/round2/sources/Zone/CoT/ZoneTest.java:52: error: reference to Record is ambiguous
+    private static Record makeNS() throws IOException {
+                   ^
+  both class org.xbill.DNS.Record in org.xbill.DNS and class java.lang.Record in java.lang match
+/repo/experiments/commit-survival/generated/ouedraogo/round2/sources/Zone/CoT/ZoneTest.java:63: error: reference to Record is ambiguous
+    private static Record makeA(Name name, String ip) throws IOException {
+                   ^
+  both class org.xbill.DNS.Record in org.xbill.DNS and class java.lang.Record in java.lang match
+/repo/experiments/commit-survival/generated/ouedraogo/round2/sources/Zone/CoT/ZoneTest.java:74: error: reference to Record is ambiguous
+    private static Record makeCNAME(Name alias, Name target) throws IOException {
+                   ^
+  both class org.xbill.DNS.Record in org.xbill.DNS and class java.lang.Record in java.lang match
+/repo/experiments/commit-survival/generated/ouedraogo/round2/sources/Zone/CoT/ZoneTest.java:85: error: reference to Record is ambiguous
+    private static Record makeWildcardA(String ip) throws IOException {
+                   ^
+  both class org.xbill.DNS.Record in org.xbill.DNS and class java.lang.Record in java.lang match
+4 errors

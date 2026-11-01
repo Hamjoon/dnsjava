@@ -1,0 +1,1136 @@
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/DNSSEC.java:446: error: constructor SignatureVerificationException(java.lang.String) is already defined in class org.xbill.DNS.DNSSEC.SignatureVerificationException
+    SignatureVerificationException(String message) {
+    ^
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/Record.java:77: error: cannot find symbol
+    log.trace("Creating proxy object for serialization");
+    ^
+  symbol:   variable log
+  location: class org.xbill.DNS.Record
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/Name.java:373: error: cannot find symbol
+          log.trace("currently {}, pointer to {}", in.current(), pos);
+          ^
+  symbol:   variable log
+  location: class org.xbill.DNS.Name
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/Name.java:383: error: cannot find symbol
+          log.trace("current name '{}', seeking to {}", this, pos);
+          ^
+  symbol:   variable log
+  location: class org.xbill.DNS.Name
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/Compression.java:49: error: cannot find symbol
+    log.trace("Adding {} at {}", name, pos);
+    ^
+  symbol:   variable log
+  location: class org.xbill.DNS.Compression
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/Compression.java:66: error: cannot find symbol
+    log.trace("Looking for {}, found {}", name, pos);
+    ^
+  symbol:   variable log
+  location: class org.xbill.DNS.Compression
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/NioClient.java:55: error: cannot find symbol
+          log.debug("Starting dnsjava NIO selector thread");
+          ^
+  symbol:   variable log
+  location: class org.xbill.DNS.NioClient
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/NioClient.java:83: error: cannot find symbol
+        log.warn("Failed to remove shutdown hook, ignoring and continuing close");
+        ^
+  symbol:   variable log
+  location: class org.xbill.DNS.NioClient
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/NioClient.java:90: error: cannot find symbol
+      log.warn("Failed to execute shutdown task, ignoring and continuing close", e);
+      ^
+  symbol:   variable log
+  location: class org.xbill.DNS.NioClient
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/NioClient.java:106: error: cannot find symbol
+        log.warn("Failed to properly close selector, ignoring and continuing close", e);
+        ^
+  symbol:   variable log
+  location: class org.xbill.DNS.NioClient
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/NioClient.java:137: error: cannot find symbol
+        log.error("A selection operation failed", e);
+        ^
+  symbol:   variable log
+  location: class org.xbill.DNS.NioClient
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/NioClient.java:142: error: cannot find symbol
+    log.debug("dnsjava NIO selector thread stopped");
+    ^
+  symbol:   variable log
+  location: class org.xbill.DNS.NioClient
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/NioClient.java:187: error: cannot find symbol
+    if (log.isTraceEnabled()) {
+        ^
+  symbol:   variable log
+  location: class org.xbill.DNS.NioClient
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/NioClient.java:188: error: cannot find symbol
+      log.trace(hexdump.dump(prefix, data));
+      ^
+  symbol:   variable log
+  location: class org.xbill.DNS.NioClient
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/Message.java:801: error: cannot find symbol
+          log.warn(
+          ^
+  symbol:   variable log
+  location: class org.xbill.DNS.Message
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/Message.java:859: error: cannot find symbol
+            log.warn(
+            ^
+  symbol:   variable log
+  location: class org.xbill.DNS.Message
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/Message.java:900: error: cannot find symbol
+          log.warn(
+          ^
+  symbol:   variable log
+  location: class org.xbill.DNS.Message
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/Message.java:1046: error: cannot find symbol
+    log.debug(
+    ^
+  symbol:   variable log
+  location: class org.xbill.DNS.Message
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:408: error: cannot find symbol
+      if (log.isTraceEnabled()) {
+          ^
+  symbol:   variable log
+  location: class org.xbill.DNS.TSIG
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:409: error: cannot find symbol
+        log.trace(hexdump.dump("TSIG-HMAC rendered message", b));
+        ^
+  symbol:   variable log
+  location: class org.xbill.DNS.TSIG
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:433: error: cannot find symbol
+      if (log.isTraceEnabled()) {
+          ^
+  symbol:   variable log
+  location: class org.xbill.DNS.TSIG
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:434: error: cannot find symbol
+        log.trace(hexdump.dump("TSIG-HMAC variables", tsigVariables));
+        ^
+  symbol:   variable log
+  location: class org.xbill.DNS.TSIG
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:626: error: cannot find symbol
+      log.debug(
+      ^
+  symbol:   variable log
+  location: class org.xbill.DNS.TSIG
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:647: error: cannot find symbol
+    if (log.isTraceEnabled()) {
+        ^
+  symbol:   variable log
+  location: class org.xbill.DNS.TSIG
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:648: error: cannot find symbol
+      log.trace(hexdump.dump("TSIG-HMAC header", header));
+      ^
+  symbol:   variable log
+  location: class org.xbill.DNS.TSIG
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:653: error: cannot find symbol
+    if (log.isTraceEnabled()) {
+        ^
+  symbol:   variable log
+  location: class org.xbill.DNS.TSIG
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:654: error: cannot find symbol
+      log.trace(hexdump.dump("TSIG-HMAC message after header", messageBytes, header.length, len));
+      ^
+  symbol:   variable log
+  location: class org.xbill.DNS.TSIG
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:698: error: cannot find symbol
+    if (log.isTraceEnabled()) {
+        ^
+  symbol:   variable log
+  location: class org.xbill.DNS.TSIG
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:699: error: cannot find symbol
+      log.trace(hexdump.dump("TSIG-HMAC variables", tsigVariables));
+      ^
+  symbol:   variable log
+  location: class org.xbill.DNS.TSIG
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:712: error: cannot find symbol
+      log.debug(
+      ^
+  symbol:   variable log
+  location: class org.xbill.DNS.TSIG
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:716: error: cannot find symbol
+      log.debug(
+      ^
+  symbol:   variable log
+  location: class org.xbill.DNS.TSIG
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:725: error: cannot find symbol
+        if (log.isDebugEnabled()) {
+            ^
+  symbol:   variable log
+  location: class org.xbill.DNS.TSIG
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:726: error: cannot find symbol
+          log.debug(
+          ^
+  symbol:   variable log
+  location: class org.xbill.DNS.TSIG
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:741: error: cannot find symbol
+      log.debug(
+      ^
+  symbol:   variable log
+  location: class org.xbill.DNS.TSIG
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:768: error: cannot find symbol
+    if (log.isTraceEnabled()) {
+        ^
+  symbol:   variable log
+  location: class org.xbill.DNS.TSIG
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:769: error: cannot find symbol
+      log.trace(hexdump.dump("TSIG-HMAC signature size", signatureSize));
+      ^
+  symbol:   variable log
+  location: class org.xbill.DNS.TSIG
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:770: error: cannot find symbol
+      log.trace(hexdump.dump("TSIG-HMAC signature", tsig.getSignature()));
+      ^
+  symbol:   variable log
+  location: class org.xbill.DNS.TSIG
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:936: error: cannot find symbol
+          log.debug(warningPrefix, errorMessage);
+          ^
+  symbol:   variable log
+  location: class org.xbill.DNS.TSIG.StreamVerifier
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:951: error: cannot find symbol
+          log.debug(warningPrefix, errorMessage);
+          ^
+  symbol:   variable log
+  location: class org.xbill.DNS.TSIG.StreamVerifier
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:956: error: cannot find symbol
+          log.debug(warningPrefix, errorMessage);
+          ^
+  symbol:   variable log
+  location: class org.xbill.DNS.TSIG.StreamVerifier
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:961: error: cannot find symbol
+          log.debug(warningPrefix, errorMessage);
+          ^
+  symbol:   variable log
+  location: class org.xbill.DNS.TSIG.StreamVerifier
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:970: error: cannot find symbol
+      if (log.isTraceEnabled()) {
+          ^
+  symbol:   variable log
+  location: class org.xbill.DNS.TSIG.StreamVerifier
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:971: error: cannot find symbol
+        log.trace(hexdump.dump("TSIG-HMAC header", header));
+        ^
+  symbol:   variable log
+  location: class org.xbill.DNS.TSIG.StreamVerifier
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:976: error: cannot find symbol
+      if (log.isTraceEnabled()) {
+          ^
+  symbol:   variable log
+  location: class org.xbill.DNS.TSIG.StreamVerifier
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:977: error: cannot find symbol
+        log.trace(hexdump.dump("TSIG-HMAC message after header", messageBytes, header.length, len));
+        ^
+  symbol:   variable log
+  location: class org.xbill.DNS.TSIG.StreamVerifier
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/SimpleResolver.java:287: error: cannot find symbol
+    log.debug(
+    ^
+  symbol:   variable log
+  location: class org.xbill.DNS.SimpleResolver
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/SimpleResolver.java:359: error: cannot find symbol
+    if (log.isTraceEnabled()) {
+        ^
+  symbol:   variable log
+  location: class org.xbill.DNS.SimpleResolver
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/SimpleResolver.java:360: error: cannot find symbol
+      log.trace(
+      ^
+  symbol:   variable log
+  location: class org.xbill.DNS.SimpleResolver
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/SimpleResolver.java:369: error: cannot find symbol
+    } else if (log.isDebugEnabled()) {
+               ^
+  symbol:   variable log
+  location: class org.xbill.DNS.SimpleResolver
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/SimpleResolver.java:370: error: cannot find symbol
+      log.debug(
+      ^
+  symbol:   variable log
+  location: class org.xbill.DNS.SimpleResolver
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/SimpleResolver.java:461: error: cannot find symbol
+            if (log.isTraceEnabled()) {
+                ^
+  symbol:   variable log
+  location: class org.xbill.DNS.SimpleResolver
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/SimpleResolver.java:462: error: cannot find symbol
+              log.trace(
+              ^
+  symbol:   variable log
+  location: class org.xbill.DNS.SimpleResolver
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/SimpleResolver.java:467: error: cannot find symbol
+              log.debug("Got truncated response for id {}, retrying via TCP", qid);
+              ^
+  symbol:   variable log
+  location: class org.xbill.DNS.SimpleResolver
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/ExtendedResolver.java:71: error: cannot find symbol
+      log.debug(
+      ^
+  symbol:   variable log
+  location: class org.xbill.DNS.ExtendedResolver.Resolution
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/ExtendedResolver.java:95: error: cannot find symbol
+        log.debug(
+        ^
+  symbol:   variable log
+  location: class org.xbill.DNS.ExtendedResolver.Resolution
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/ExtendedResolver.java:145: error: constructor ResolverEntry in class org.xbill.DNS.ExtendedResolver.ResolverEntry cannot be applied to given types;
+      this(r, new AtomicInteger(0));
+      ^
+  required: org.xbill.DNS.Resolver
+  found:    org.xbill.DNS.Resolver,java.util.concurrent.atomic.AtomicInteger
+  reason: actual and formal argument lists differ in length
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/SetResponseType.java:11: error: constructor SetResponseType in enum org.xbill.DNS.SetResponseType cannot be applied to given types;
+  UNKNOWN(false, true),
+         ^
+  required: no arguments
+  found:    boolean,boolean
+  reason: actual and formal argument lists differ in length
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/SetResponseType.java:17: error: constructor SetResponseType in enum org.xbill.DNS.SetResponseType cannot be applied to given types;
+  NXDOMAIN(false, true),
+          ^
+  required: no arguments
+  found:    boolean,boolean
+  reason: actual and formal argument lists differ in length
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/SetResponseType.java:23: error: constructor SetResponseType in enum org.xbill.DNS.SetResponseType cannot be applied to given types;
+  NXRRSET(false, true),
+         ^
+  required: no arguments
+  found:    boolean,boolean
+  reason: actual and formal argument lists differ in length
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/SetResponseType.java:26: error: constructor SetResponseType in enum org.xbill.DNS.SetResponseType cannot be applied to given types;
+  DELEGATION(true, false),
+            ^
+  required: no arguments
+  found:    boolean,boolean
+  reason: actual and formal argument lists differ in length
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/SetResponseType.java:33: error: constructor SetResponseType in enum org.xbill.DNS.SetResponseType cannot be applied to given types;
+  CNAME(true, false),
+       ^
+  required: no arguments
+  found:    boolean,boolean
+  reason: actual and formal argument lists differ in length
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/SetResponseType.java:40: error: constructor SetResponseType in enum org.xbill.DNS.SetResponseType cannot be applied to given types;
+  DNAME(true, false),
+       ^
+  required: no arguments
+  found:    boolean,boolean
+  reason: actual and formal argument lists differ in length
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/SetResponseType.java:43: error: constructor SetResponseType in enum org.xbill.DNS.SetResponseType cannot be applied to given types;
+  SUCCESSFUL(false, false);
+            ^
+  required: no arguments
+  found:    boolean,boolean
+  reason: actual and formal argument lists differ in length
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/Lookup.java:569: error: cannot find symbol
+    log.debug("Lookup for {}/{}, cache answer: {}", current, Type.string(type), sr);
+    ^
+  symbol:   variable log
+  location: class org.xbill.DNS.Lookup
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/Lookup.java:582: error: cannot find symbol
+      log.debug(
+      ^
+  symbol:   variable log
+  location: class org.xbill.DNS.Lookup
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/Lookup.java:619: error: cannot find symbol
+    log.debug(
+    ^
+  symbol:   variable log
+  location: class org.xbill.DNS.Lookup
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/Lookup.java:640: error: cannot find symbol
+        log.debug("Local hosts database parsing failed, ignoring and using resolver", e);
+        ^
+  symbol:   variable log
+  location: class org.xbill.DNS.Lookup
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/Cache.java:771: error: cannot find symbol
+    log.debug(
+    ^
+  symbol:   variable log
+  location: class org.xbill.DNS.Cache
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/hosts/HostsFileParser.java:176: error: cannot find symbol
+      log.warn("Could not decode address {}, {}#L{}", lineTokens[0], path, lineNumber);
+      ^
+  symbol:   variable log
+  location: class org.xbill.DNS.hosts.HostsFileParser
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/hosts/HostsFileParser.java:186: error: constructor LineData in class org.xbill.DNS.hosts.HostsFileParser.LineData cannot be applied to given types;
+    return new LineData(lineAddressType, lineAddressBytes, lineNames);
+           ^
+  required: no arguments
+  found:    int,byte[],java.lang.Iterable<capture#1 of ? extends org.xbill.DNS.Name>
+  reason: actual and formal argument lists differ in length
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/hosts/HostsFileParser.java:193: error: cannot find symbol
+      log.warn("Could not decode name {}, {}#L{}, skipping", name, path, lineNumber);
+      ^
+  symbol:   variable log
+  location: class org.xbill.DNS.hosts.HostsFileParser
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/hosts/HostsFileParser.java:217: error: cannot find symbol
+          log.info("Local hosts database has changed at {}, clearing cache", fileTime);
+          ^
+  symbol:   variable log
+  location: class org.xbill.DNS.hosts.HostsFileParser
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/SetResponse.java:81: error: cannot find symbol
+    if (type.isSealed()) {
+            ^
+  symbol:   method isSealed()
+  location: variable type of type org.xbill.DNS.SetResponseType
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/SetResponse.java:160: error: cannot find symbol
+    return type + (type.isPrintRecords() ? ": " + data.get(0) : "");
+                       ^
+  symbol:   method isPrintRecords()
+  location: variable type of type org.xbill.DNS.SetResponseType
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/ZoneTransferIn.java:366: error: cannot find symbol
+    log.debug("{}: {}", zname, s);
+    ^
+  symbol:   variable log
+  location: class org.xbill.DNS.ZoneTransferIn
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/ZoneTransferIn.java:510: error: cannot find symbol
+          if (verifier.getErrorMessage() != null) {
+                      ^
+  symbol:   method getErrorMessage()
+  location: variable verifier of type org.xbill.DNS.TSIG.StreamVerifier
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/ZoneTransferIn.java:515: error: cannot find symbol
+                    + verifier.getErrorMessage()
+                              ^
+  symbol:   method getErrorMessage()
+  location: variable verifier of type org.xbill.DNS.TSIG.StreamVerifier
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/dnssec/ValUtils.java:233: error: cannot find symbol
+    log.warn("Failed to classify response message:\n{}", m);
+    ^
+  symbol:   variable log
+  location: class org.xbill.DNS.dnssec.ValUtils
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/dnssec/ValUtils.java:299: error: cannot find symbol
+          log.trace("DNSKEY size not supported, skipping");
+          ^
+  symbol:   variable log
+  location: class org.xbill.DNS.dnssec.ValUtils
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/dnssec/ValUtils.java:422: error: cannot find symbol
+      log.trace(
+      ^
+  symbol:   variable log
+  location: class org.xbill.DNS.dnssec.ValUtils
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/dnssec/ValUtils.java:662: error: cannot find symbol
+            log.debug("NSEC proofed wildcard CNAME");
+            ^
+  symbol:   variable log
+  location: class org.xbill.DNS.dnssec.ValUtils
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/dnssec/ValUtils.java:671: error: cannot find symbol
+            log.debug("Wrong parent (wildcard) NSEC used");
+            ^
+  symbol:   variable log
+  location: class org.xbill.DNS.dnssec.ValUtils
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/dnssec/ValUtils.java:677: error: cannot find symbol
+            log.debug("NSEC proofed that {} exists", Type.string(qtype));
+            ^
+  symbol:   variable log
+  location: class org.xbill.DNS.dnssec.ValUtils
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/dnssec/ValUtils.java:696: error: cannot find symbol
+      log.debug("NSEC proofed that {} exists", Type.string(qtype));
+      ^
+  symbol:   variable log
+  location: class org.xbill.DNS.dnssec.ValUtils
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/dnssec/ValUtils.java:703: error: cannot find symbol
+      log.debug("NSEC proofed CNAME");
+      ^
+  symbol:   variable log
+  location: class org.xbill.DNS.dnssec.ValUtils
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/dnssec/ValUtils.java:714: error: cannot find symbol
+      log.debug("NSEC proofed missing referral");
+      ^
+  symbol:   variable log
+  location: class org.xbill.DNS.dnssec.ValUtils
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/dnssec/ValUtils.java:719: error: cannot find symbol
+      log.debug("NSEC from wrong zone");
+      ^
+  symbol:   variable log
+  location: class org.xbill.DNS.dnssec.ValUtils
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/dnssec/ValUtils.java:939: error: cannot find symbol
+            log.debug(
+            ^
+  symbol:   variable log
+  location: class org.xbill.DNS.dnssec.ValUtils
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/dnssec/DnsSecVerifier.java:62: error: cannot find symbol
+      log.trace(
+      ^
+  symbol:   variable log
+  location: class org.xbill.DNS.dnssec.DnsSecVerifier
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/dnssec/DnsSecVerifier.java:96: error: cannot find symbol
+      log.debug("Signer name {} is off-tree for {}", sigrec.getSigner(), rrset.getName());
+      ^
+  symbol:   variable log
+  location: class org.xbill.DNS.dnssec.DnsSecVerifier
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/dnssec/DnsSecVerifier.java:125: error: cannot find symbol
+            SecurityStatus.BOGUS, e.getEdeCode(), R.get("dnskey.invalid"));
+                                   ^
+  symbol:   method getEdeCode()
+  location: variable e of type org.xbill.DNS.DNSSEC.InvalidDnskeyException
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/dnssec/DnsSecVerifier.java:127: error: cannot find symbol
+        log.error(
+        ^
+  symbol:   variable log
+  location: class org.xbill.DNS.dnssec.DnsSecVerifier
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/dnssec/DnsSecVerifier.java:138: error: cannot find symbol
+    log.trace("Could not find appropriate key for {}", sigrec);
+    ^
+  symbol:   variable log
+  location: class org.xbill.DNS.dnssec.DnsSecVerifier
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/dnssec/DnsSecVerifier.java:158: error: cannot find symbol
+      log.info(
+      ^
+  symbol:   variable log
+  location: class org.xbill.DNS.dnssec.DnsSecVerifier
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/dnssec/DnsSecVerifier.java:179: error: cannot find symbol
+        log.warn(
+        ^
+  symbol:   variable log
+  location: class org.xbill.DNS.dnssec.DnsSecVerifier
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/dnssec/DnsSecVerifier.java:191: error: cannot find symbol
+    log.warn(
+    ^
+  symbol:   variable log
+  location: class org.xbill.DNS.dnssec.DnsSecVerifier
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/dnssec/DnsSecVerifier.java:212: error: cannot find symbol
+      log.warn(
+      ^
+  symbol:   variable log
+  location: class org.xbill.DNS.dnssec.DnsSecVerifier
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/dnssec/DnsSecVerifier.java:236: error: cannot find symbol
+        log.warn(
+        ^
+  symbol:   variable log
+  location: class org.xbill.DNS.dnssec.DnsSecVerifier
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/dnssec/DnsSecVerifier.java:247: error: cannot find symbol
+        log.warn(
+        ^
+  symbol:   variable log
+  location: class org.xbill.DNS.dnssec.DnsSecVerifier
+/repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/dnssec/DnsSecVerifier.java:259: error: cannot find symbol
+    log.warn(
+    ^
+  symbol:   variable log
+  location: class org.xbill.DNS.dnssec.DnsSecVerifier
+[ERROR] COMPILATION ERROR : 
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/DNSSEC.java:[446,5] constructor SignatureVerificationException(java.lang.String) is already defined in class org.xbill.DNS.DNSSEC.SignatureVerificationException
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/Record.java:[77,5] cannot find symbol
+  symbol:   variable log
+  location: class org.xbill.DNS.Record
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/Name.java:[373,11] cannot find symbol
+  symbol:   variable log
+  location: class org.xbill.DNS.Name
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/Name.java:[383,11] cannot find symbol
+  symbol:   variable log
+  location: class org.xbill.DNS.Name
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/Compression.java:[49,5] cannot find symbol
+  symbol:   variable log
+  location: class org.xbill.DNS.Compression
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/Compression.java:[66,5] cannot find symbol
+  symbol:   variable log
+  location: class org.xbill.DNS.Compression
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/Message.java:[801,11] cannot find symbol
+  symbol:   variable log
+  location: class org.xbill.DNS.Message
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/Message.java:[859,13] cannot find symbol
+  symbol:   variable log
+  location: class org.xbill.DNS.Message
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/Message.java:[900,11] cannot find symbol
+  symbol:   variable log
+  location: class org.xbill.DNS.Message
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/Message.java:[1046,5] cannot find symbol
+  symbol:   variable log
+  location: class org.xbill.DNS.Message
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:[408,11] cannot find symbol
+  symbol:   variable log
+  location: class org.xbill.DNS.TSIG
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:[409,9] cannot find symbol
+  symbol:   variable log
+  location: class org.xbill.DNS.TSIG
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:[433,11] cannot find symbol
+  symbol:   variable log
+  location: class org.xbill.DNS.TSIG
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:[434,9] cannot find symbol
+  symbol:   variable log
+  location: class org.xbill.DNS.TSIG
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:[626,7] cannot find symbol
+  symbol:   variable log
+  location: class org.xbill.DNS.TSIG
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:[647,9] cannot find symbol
+  symbol:   variable log
+  location: class org.xbill.DNS.TSIG
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:[648,7] cannot find symbol
+  symbol:   variable log
+  location: class org.xbill.DNS.TSIG
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:[653,9] cannot find symbol
+  symbol:   variable log
+  location: class org.xbill.DNS.TSIG
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:[654,7] cannot find symbol
+  symbol:   variable log
+  location: class org.xbill.DNS.TSIG
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:[698,9] cannot find symbol
+  symbol:   variable log
+  location: class org.xbill.DNS.TSIG
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:[699,7] cannot find symbol
+  symbol:   variable log
+  location: class org.xbill.DNS.TSIG
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:[712,7] cannot find symbol
+  symbol:   variable log
+  location: class org.xbill.DNS.TSIG
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:[716,7] cannot find symbol
+  symbol:   variable log
+  location: class org.xbill.DNS.TSIG
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:[725,13] cannot find symbol
+  symbol:   variable log
+  location: class org.xbill.DNS.TSIG
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:[726,11] cannot find symbol
+  symbol:   variable log
+  location: class org.xbill.DNS.TSIG
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:[741,7] cannot find symbol
+  symbol:   variable log
+  location: class org.xbill.DNS.TSIG
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:[768,9] cannot find symbol
+  symbol:   variable log
+  location: class org.xbill.DNS.TSIG
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:[769,7] cannot find symbol
+  symbol:   variable log
+  location: class org.xbill.DNS.TSIG
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:[770,7] cannot find symbol
+  symbol:   variable log
+  location: class org.xbill.DNS.TSIG
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:[936,11] cannot find symbol
+  symbol:   variable log
+  location: class org.xbill.DNS.TSIG.StreamVerifier
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:[951,11] cannot find symbol
+  symbol:   variable log
+  location: class org.xbill.DNS.TSIG.StreamVerifier
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:[956,11] cannot find symbol
+  symbol:   variable log
+  location: class org.xbill.DNS.TSIG.StreamVerifier
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:[961,11] cannot find symbol
+  symbol:   variable log
+  location: class org.xbill.DNS.TSIG.StreamVerifier
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:[970,11] cannot find symbol
+  symbol:   variable log
+  location: class org.xbill.DNS.TSIG.StreamVerifier
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:[971,9] cannot find symbol
+  symbol:   variable log
+  location: class org.xbill.DNS.TSIG.StreamVerifier
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:[976,11] cannot find symbol
+  symbol:   variable log
+  location: class org.xbill.DNS.TSIG.StreamVerifier
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:[977,9] cannot find symbol
+  symbol:   variable log
+  location: class org.xbill.DNS.TSIG.StreamVerifier
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/Cache.java:[771,5] cannot find symbol
+  symbol:   variable log
+  location: class org.xbill.DNS.Cache
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/SetResponseType.java:[11,10] constructor SetResponseType in enum org.xbill.DNS.SetResponseType cannot be applied to given types;
+  required: no arguments
+  found:    boolean,boolean
+  reason: actual and formal argument lists differ in length
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/SetResponseType.java:[17,11] constructor SetResponseType in enum org.xbill.DNS.SetResponseType cannot be applied to given types;
+  required: no arguments
+  found:    boolean,boolean
+  reason: actual and formal argument lists differ in length
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/SetResponseType.java:[23,10] constructor SetResponseType in enum org.xbill.DNS.SetResponseType cannot be applied to given types;
+  required: no arguments
+  found:    boolean,boolean
+  reason: actual and formal argument lists differ in length
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/SetResponseType.java:[26,13] constructor SetResponseType in enum org.xbill.DNS.SetResponseType cannot be applied to given types;
+  required: no arguments
+  found:    boolean,boolean
+  reason: actual and formal argument lists differ in length
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/SetResponseType.java:[33,8] constructor SetResponseType in enum org.xbill.DNS.SetResponseType cannot be applied to given types;
+  required: no arguments
+  found:    boolean,boolean
+  reason: actual and formal argument lists differ in length
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/SetResponseType.java:[40,8] constructor SetResponseType in enum org.xbill.DNS.SetResponseType cannot be applied to given types;
+  required: no arguments
+  found:    boolean,boolean
+  reason: actual and formal argument lists differ in length
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/SetResponseType.java:[43,13] constructor SetResponseType in enum org.xbill.DNS.SetResponseType cannot be applied to given types;
+  required: no arguments
+  found:    boolean,boolean
+  reason: actual and formal argument lists differ in length
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/SetResponse.java:[81,13] cannot find symbol
+  symbol:   method isSealed()
+  location: variable type of type org.xbill.DNS.SetResponseType
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/SetResponse.java:[160,24] cannot find symbol
+  symbol:   method isPrintRecords()
+  location: variable type of type org.xbill.DNS.SetResponseType
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/DohResolver.java:[170,9] cannot find symbol
+  symbol:   variable log
+  location: class org.xbill.DNS.DohResolver
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/DohResolver.java:[237,13] cannot find symbol
+  symbol:   variable log
+  location: class org.xbill.DNS.DohResolver
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/DohResolver.java:[381,14] constructor SendAndGetMessageBytesResponse in class org.xbill.DNS.DohResolver.SendAndGetMessageBytesResponse cannot be applied to given types;
+  required: no arguments
+  found:    int,<nulltype>
+  reason: actual and formal argument lists differ in length
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/DohResolver.java:[400,16] constructor SendAndGetMessageBytesResponse in class org.xbill.DNS.DohResolver.SendAndGetMessageBytesResponse cannot be applied to given types;
+  required: no arguments
+  found:    int,byte[]
+  reason: actual and formal argument lists differ in length
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/DohResolver.java:[412,18] constructor SendAndGetMessageBytesResponse in class org.xbill.DNS.DohResolver.SendAndGetMessageBytesResponse cannot be applied to given types;
+  required: no arguments
+  found:    int,byte[]
+  reason: actual and formal argument lists differ in length
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/DohResolver.java:[644,5] cannot find symbol
+  symbol:   variable log
+  location: class org.xbill.DNS.DohResolver
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/ExtendedResolver.java:[71,7] cannot find symbol
+  symbol:   variable log
+  location: class org.xbill.DNS.ExtendedResolver.Resolution
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/ExtendedResolver.java:[95,9] cannot find symbol
+  symbol:   variable log
+  location: class org.xbill.DNS.ExtendedResolver.Resolution
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/ExtendedResolver.java:[145,7] constructor ResolverEntry in class org.xbill.DNS.ExtendedResolver.ResolverEntry cannot be applied to given types;
+  required: org.xbill.DNS.Resolver
+  found:    org.xbill.DNS.Resolver,java.util.concurrent.atomic.AtomicInteger
+  reason: actual and formal argument lists differ in length
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/Lookup.java:[569,5] cannot find symbol
+  symbol:   variable log
+  location: class org.xbill.DNS.Lookup
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/Lookup.java:[582,7] cannot find symbol
+  symbol:   variable log
+  location: class org.xbill.DNS.Lookup
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/Lookup.java:[619,5] cannot find symbol
+  symbol:   variable log
+  location: class org.xbill.DNS.Lookup
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/Lookup.java:[640,9] cannot find symbol
+  symbol:   variable log
+  location: class org.xbill.DNS.Lookup
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/hosts/HostsFileParser.java:[176,7] cannot find symbol
+  symbol:   variable log
+  location: class org.xbill.DNS.hosts.HostsFileParser
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/hosts/HostsFileParser.java:[186,12] constructor LineData in class org.xbill.DNS.hosts.HostsFileParser.LineData cannot be applied to given types;
+  required: no arguments
+  found:    int,byte[],java.lang.Iterable<capture#1 of ? extends org.xbill.DNS.Name>
+  reason: actual and formal argument lists differ in length
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/hosts/HostsFileParser.java:[193,7] cannot find symbol
+  symbol:   variable log
+  location: class org.xbill.DNS.hosts.HostsFileParser
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/hosts/HostsFileParser.java:[217,11] cannot find symbol
+  symbol:   variable log
+  location: class org.xbill.DNS.hosts.HostsFileParser
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/NioClient.java:[55,11] cannot find symbol
+  symbol:   variable log
+  location: class org.xbill.DNS.NioClient
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/NioClient.java:[83,9] cannot find symbol
+  symbol:   variable log
+  location: class org.xbill.DNS.NioClient
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/NioClient.java:[90,7] cannot find symbol
+  symbol:   variable log
+  location: class org.xbill.DNS.NioClient
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/NioClient.java:[106,9] cannot find symbol
+  symbol:   variable log
+  location: class org.xbill.DNS.NioClient
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/NioClient.java:[137,9] cannot find symbol
+  symbol:   variable log
+  location: class org.xbill.DNS.NioClient
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/NioClient.java:[142,5] cannot find symbol
+  symbol:   variable log
+  location: class org.xbill.DNS.NioClient
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/NioClient.java:[187,9] cannot find symbol
+  symbol:   variable log
+  location: class org.xbill.DNS.NioClient
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/NioClient.java:[188,7] cannot find symbol
+  symbol:   variable log
+  location: class org.xbill.DNS.NioClient
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/NioTcpClient.java:[153,13] cannot find symbol
+  symbol:   variable log
+  location: class org.xbill.DNS.NioTcpClient.ChannelState
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/NioTcpClient.java:[236,7] cannot find symbol
+  symbol:   variable log
+  location: class org.xbill.DNS.NioTcpClient.ChannelState
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/NioTcpClient.java:[274,15] constructor ChannelKey in class org.xbill.DNS.NioTcpClient.ChannelKey cannot be applied to given types;
+  required: no arguments
+  found:    java.net.InetSocketAddress,java.net.InetSocketAddress
+  reason: actual and formal argument lists differ in length
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/NioTcpClient.java:[276,17] cannot find symbol
+  symbol:   variable log
+  location: class org.xbill.DNS.NioTcpClient
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/NioTcpClient.java:[286,26] constructor ChannelState in class org.xbill.DNS.NioTcpClient.ChannelState cannot be applied to given types;
+  required: no arguments
+  found:    java.nio.channels.SocketChannel
+  reason: actual and formal argument lists differ in length
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/NioTcpClient.java:[300,9] cannot find symbol
+  symbol:   variable log
+  location: class org.xbill.DNS.NioTcpClient
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/NioTcpClient.java:[305,25] constructor Transaction in class org.xbill.DNS.NioTcpClient.Transaction cannot be applied to given types;
+  required: no arguments
+  found:    org.xbill.DNS.Message,byte[],long,java.nio.channels.SocketChannel,java.util.concurrent.CompletableFuture<byte[]>
+  reason: actual and formal argument lists differ in length
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/NioUdpClient.java:[61,9] cannot find symbol
+  symbol:   variable log
+  location: class org.xbill.DNS.NioUdpClient
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/NioUdpClient.java:[173,23] constructor Transaction in class org.xbill.DNS.NioUdpClient.Transaction cannot be applied to given types;
+  required: no arguments
+  found:    int,byte[],int,long,java.nio.channels.DatagramChannel,java.util.concurrent.CompletableFuture<byte[]>
+  reason: actual and formal argument lists differ in length
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/ResolverConfig.java:[133,11] cannot find symbol
+  symbol:   variable log
+  location: class org.xbill.DNS.ResolverConfig
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/SimpleResolver.java:[287,5] cannot find symbol
+  symbol:   variable log
+  location: class org.xbill.DNS.SimpleResolver
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/SimpleResolver.java:[359,9] cannot find symbol
+  symbol:   variable log
+  location: class org.xbill.DNS.SimpleResolver
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/SimpleResolver.java:[360,7] cannot find symbol
+  symbol:   variable log
+  location: class org.xbill.DNS.SimpleResolver
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/SimpleResolver.java:[369,16] cannot find symbol
+  symbol:   variable log
+  location: class org.xbill.DNS.SimpleResolver
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/SimpleResolver.java:[370,7] cannot find symbol
+  symbol:   variable log
+  location: class org.xbill.DNS.SimpleResolver
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/SimpleResolver.java:[461,17] cannot find symbol
+  symbol:   variable log
+  location: class org.xbill.DNS.SimpleResolver
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/SimpleResolver.java:[462,15] cannot find symbol
+  symbol:   variable log
+  location: class org.xbill.DNS.SimpleResolver
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/SimpleResolver.java:[467,15] cannot find symbol
+  symbol:   variable log
+  location: class org.xbill.DNS.SimpleResolver
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TimeoutCompletableFuture.java:[29,9] cannot find symbol
+  symbol:   variable log
+  location: class org.xbill.DNS.TimeoutCompletableFuture<T>
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/ZoneTransferIn.java:[366,5] cannot find symbol
+  symbol:   variable log
+  location: class org.xbill.DNS.ZoneTransferIn
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/ZoneTransferIn.java:[510,23] cannot find symbol
+  symbol:   method getErrorMessage()
+  location: variable verifier of type org.xbill.DNS.TSIG.StreamVerifier
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/ZoneTransferIn.java:[515,31] cannot find symbol
+  symbol:   method getErrorMessage()
+  location: variable verifier of type org.xbill.DNS.TSIG.StreamVerifier
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/config/JndiContextResolverConfigProvider.java:[32,9] cannot find symbol
+  symbol:   variable log
+  location: class org.xbill.DNS.config.JndiContextResolverConfigProvider
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/config/JndiContextResolverConfigProvider.java:[41,7] non-static variable log cannot be referenced from a static context
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/config/WindowsResolverConfigProvider.java:[44,9] cannot find symbol
+  symbol:   variable log
+  location: class org.xbill.DNS.config.WindowsResolverConfigProvider
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/config/WindowsResolverConfigProvider.java:[52,7] non-static variable log cannot be referenced from a static context
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/dnssec/DnsSecVerifier.java:[62,7] cannot find symbol
+  symbol:   variable log
+  location: class org.xbill.DNS.dnssec.DnsSecVerifier
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/dnssec/DnsSecVerifier.java:[96,7] cannot find symbol
+  symbol:   variable log
+  location: class org.xbill.DNS.dnssec.DnsSecVerifier
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:compile (default-compile) on project dnsjava: Compilation failure: Compilation failure: 
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/DNSSEC.java:[446,5] constructor SignatureVerificationException(java.lang.String) is already defined in class org.xbill.DNS.DNSSEC.SignatureVerificationException
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/Record.java:[77,5] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class org.xbill.DNS.Record
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/Name.java:[373,11] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class org.xbill.DNS.Name
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/Name.java:[383,11] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class org.xbill.DNS.Name
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/Compression.java:[49,5] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class org.xbill.DNS.Compression
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/Compression.java:[66,5] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class org.xbill.DNS.Compression
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/Message.java:[801,11] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class org.xbill.DNS.Message
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/Message.java:[859,13] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class org.xbill.DNS.Message
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/Message.java:[900,11] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class org.xbill.DNS.Message
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/Message.java:[1046,5] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class org.xbill.DNS.Message
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:[408,11] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class org.xbill.DNS.TSIG
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:[409,9] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class org.xbill.DNS.TSIG
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:[433,11] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class org.xbill.DNS.TSIG
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:[434,9] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class org.xbill.DNS.TSIG
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:[626,7] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class org.xbill.DNS.TSIG
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:[647,9] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class org.xbill.DNS.TSIG
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:[648,7] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class org.xbill.DNS.TSIG
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:[653,9] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class org.xbill.DNS.TSIG
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:[654,7] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class org.xbill.DNS.TSIG
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:[698,9] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class org.xbill.DNS.TSIG
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:[699,7] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class org.xbill.DNS.TSIG
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:[712,7] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class org.xbill.DNS.TSIG
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:[716,7] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class org.xbill.DNS.TSIG
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:[725,13] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class org.xbill.DNS.TSIG
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:[726,11] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class org.xbill.DNS.TSIG
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:[741,7] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class org.xbill.DNS.TSIG
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:[768,9] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class org.xbill.DNS.TSIG
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:[769,7] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class org.xbill.DNS.TSIG
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:[770,7] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class org.xbill.DNS.TSIG
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:[936,11] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class org.xbill.DNS.TSIG.StreamVerifier
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:[951,11] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class org.xbill.DNS.TSIG.StreamVerifier
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:[956,11] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class org.xbill.DNS.TSIG.StreamVerifier
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:[961,11] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class org.xbill.DNS.TSIG.StreamVerifier
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:[970,11] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class org.xbill.DNS.TSIG.StreamVerifier
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:[971,9] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class org.xbill.DNS.TSIG.StreamVerifier
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:[976,11] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class org.xbill.DNS.TSIG.StreamVerifier
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TSIG.java:[977,9] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class org.xbill.DNS.TSIG.StreamVerifier
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/Cache.java:[771,5] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class org.xbill.DNS.Cache
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/SetResponseType.java:[11,10] constructor SetResponseType in enum org.xbill.DNS.SetResponseType cannot be applied to given types;
+[ERROR]   required: no arguments
+[ERROR]   found:    boolean,boolean
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/SetResponseType.java:[17,11] constructor SetResponseType in enum org.xbill.DNS.SetResponseType cannot be applied to given types;
+[ERROR]   required: no arguments
+[ERROR]   found:    boolean,boolean
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/SetResponseType.java:[23,10] constructor SetResponseType in enum org.xbill.DNS.SetResponseType cannot be applied to given types;
+[ERROR]   required: no arguments
+[ERROR]   found:    boolean,boolean
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/SetResponseType.java:[26,13] constructor SetResponseType in enum org.xbill.DNS.SetResponseType cannot be applied to given types;
+[ERROR]   required: no arguments
+[ERROR]   found:    boolean,boolean
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/SetResponseType.java:[33,8] constructor SetResponseType in enum org.xbill.DNS.SetResponseType cannot be applied to given types;
+[ERROR]   required: no arguments
+[ERROR]   found:    boolean,boolean
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/SetResponseType.java:[40,8] constructor SetResponseType in enum org.xbill.DNS.SetResponseType cannot be applied to given types;
+[ERROR]   required: no arguments
+[ERROR]   found:    boolean,boolean
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/SetResponseType.java:[43,13] constructor SetResponseType in enum org.xbill.DNS.SetResponseType cannot be applied to given types;
+[ERROR]   required: no arguments
+[ERROR]   found:    boolean,boolean
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/SetResponse.java:[81,13] cannot find symbol
+[ERROR]   symbol:   method isSealed()
+[ERROR]   location: variable type of type org.xbill.DNS.SetResponseType
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/SetResponse.java:[160,24] cannot find symbol
+[ERROR]   symbol:   method isPrintRecords()
+[ERROR]   location: variable type of type org.xbill.DNS.SetResponseType
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/DohResolver.java:[170,9] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class org.xbill.DNS.DohResolver
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/DohResolver.java:[237,13] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class org.xbill.DNS.DohResolver
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/DohResolver.java:[381,14] constructor SendAndGetMessageBytesResponse in class org.xbill.DNS.DohResolver.SendAndGetMessageBytesResponse cannot be applied to given types;
+[ERROR]   required: no arguments
+[ERROR]   found:    int,<nulltype>
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/DohResolver.java:[400,16] constructor SendAndGetMessageBytesResponse in class org.xbill.DNS.DohResolver.SendAndGetMessageBytesResponse cannot be applied to given types;
+[ERROR]   required: no arguments
+[ERROR]   found:    int,byte[]
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/DohResolver.java:[412,18] constructor SendAndGetMessageBytesResponse in class org.xbill.DNS.DohResolver.SendAndGetMessageBytesResponse cannot be applied to given types;
+[ERROR]   required: no arguments
+[ERROR]   found:    int,byte[]
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/DohResolver.java:[644,5] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class org.xbill.DNS.DohResolver
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/ExtendedResolver.java:[71,7] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class org.xbill.DNS.ExtendedResolver.Resolution
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/ExtendedResolver.java:[95,9] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class org.xbill.DNS.ExtendedResolver.Resolution
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/ExtendedResolver.java:[145,7] constructor ResolverEntry in class org.xbill.DNS.ExtendedResolver.ResolverEntry cannot be applied to given types;
+[ERROR]   required: org.xbill.DNS.Resolver
+[ERROR]   found:    org.xbill.DNS.Resolver,java.util.concurrent.atomic.AtomicInteger
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/Lookup.java:[569,5] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class org.xbill.DNS.Lookup
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/Lookup.java:[582,7] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class org.xbill.DNS.Lookup
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/Lookup.java:[619,5] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class org.xbill.DNS.Lookup
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/Lookup.java:[640,9] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class org.xbill.DNS.Lookup
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/hosts/HostsFileParser.java:[176,7] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class org.xbill.DNS.hosts.HostsFileParser
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/hosts/HostsFileParser.java:[186,12] constructor LineData in class org.xbill.DNS.hosts.HostsFileParser.LineData cannot be applied to given types;
+[ERROR]   required: no arguments
+[ERROR]   found:    int,byte[],java.lang.Iterable<capture#1 of ? extends org.xbill.DNS.Name>
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/hosts/HostsFileParser.java:[193,7] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class org.xbill.DNS.hosts.HostsFileParser
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/hosts/HostsFileParser.java:[217,11] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class org.xbill.DNS.hosts.HostsFileParser
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/NioClient.java:[55,11] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class org.xbill.DNS.NioClient
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/NioClient.java:[83,9] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class org.xbill.DNS.NioClient
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/NioClient.java:[90,7] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class org.xbill.DNS.NioClient
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/NioClient.java:[106,9] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class org.xbill.DNS.NioClient
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/NioClient.java:[137,9] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class org.xbill.DNS.NioClient
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/NioClient.java:[142,5] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class org.xbill.DNS.NioClient
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/NioClient.java:[187,9] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class org.xbill.DNS.NioClient
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/NioClient.java:[188,7] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class org.xbill.DNS.NioClient
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/NioTcpClient.java:[153,13] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class org.xbill.DNS.NioTcpClient.ChannelState
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/NioTcpClient.java:[236,7] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class org.xbill.DNS.NioTcpClient.ChannelState
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/NioTcpClient.java:[274,15] constructor ChannelKey in class org.xbill.DNS.NioTcpClient.ChannelKey cannot be applied to given types;
+[ERROR]   required: no arguments
+[ERROR]   found:    java.net.InetSocketAddress,java.net.InetSocketAddress
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/NioTcpClient.java:[276,17] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class org.xbill.DNS.NioTcpClient
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/NioTcpClient.java:[286,26] constructor ChannelState in class org.xbill.DNS.NioTcpClient.ChannelState cannot be applied to given types;
+[ERROR]   required: no arguments
+[ERROR]   found:    java.nio.channels.SocketChannel
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/NioTcpClient.java:[300,9] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class org.xbill.DNS.NioTcpClient
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/NioTcpClient.java:[305,25] constructor Transaction in class org.xbill.DNS.NioTcpClient.Transaction cannot be applied to given types;
+[ERROR]   required: no arguments
+[ERROR]   found:    org.xbill.DNS.Message,byte[],long,java.nio.channels.SocketChannel,java.util.concurrent.CompletableFuture<byte[]>
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/NioUdpClient.java:[61,9] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class org.xbill.DNS.NioUdpClient
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/NioUdpClient.java:[173,23] constructor Transaction in class org.xbill.DNS.NioUdpClient.Transaction cannot be applied to given types;
+[ERROR]   required: no arguments
+[ERROR]   found:    int,byte[],int,long,java.nio.channels.DatagramChannel,java.util.concurrent.CompletableFuture<byte[]>
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/ResolverConfig.java:[133,11] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class org.xbill.DNS.ResolverConfig
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/SimpleResolver.java:[287,5] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class org.xbill.DNS.SimpleResolver
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/SimpleResolver.java:[359,9] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class org.xbill.DNS.SimpleResolver
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/SimpleResolver.java:[360,7] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class org.xbill.DNS.SimpleResolver
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/SimpleResolver.java:[369,16] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class org.xbill.DNS.SimpleResolver
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/SimpleResolver.java:[370,7] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class org.xbill.DNS.SimpleResolver
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/SimpleResolver.java:[461,17] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class org.xbill.DNS.SimpleResolver
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/SimpleResolver.java:[462,15] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class org.xbill.DNS.SimpleResolver
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/SimpleResolver.java:[467,15] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class org.xbill.DNS.SimpleResolver
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/TimeoutCompletableFuture.java:[29,9] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class org.xbill.DNS.TimeoutCompletableFuture<T>
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/ZoneTransferIn.java:[366,5] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class org.xbill.DNS.ZoneTransferIn
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/ZoneTransferIn.java:[510,23] cannot find symbol
+[ERROR]   symbol:   method getErrorMessage()
+[ERROR]   location: variable verifier of type org.xbill.DNS.TSIG.StreamVerifier
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/ZoneTransferIn.java:[515,31] cannot find symbol
+[ERROR]   symbol:   method getErrorMessage()
+[ERROR]   location: variable verifier of type org.xbill.DNS.TSIG.StreamVerifier
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/config/JndiContextResolverConfigProvider.java:[32,9] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class org.xbill.DNS.config.JndiContextResolverConfigProvider
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/config/JndiContextResolverConfigProvider.java:[41,7] non-static variable log cannot be referenced from a static context
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/config/WindowsResolverConfigProvider.java:[44,9] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class org.xbill.DNS.config.WindowsResolverConfigProvider
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/config/WindowsResolverConfigProvider.java:[52,7] non-static variable log cannot be referenced from a static context
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/dnssec/DnsSecVerifier.java:[62,7] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class org.xbill.DNS.dnssec.DnsSecVerifier
+[ERROR] /repo/experiments/commit-survival/work/checkouts/23/src/main/java/org/xbill/DNS/dnssec/DnsSecVerifier.java:[96,7] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class org.xbill.DNS.dnssec.DnsSecVerifier
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

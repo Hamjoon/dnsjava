@@ -1,0 +1,22 @@
+/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/generated/ouedraogo/round2/sources/Message/FSL/MessageTest.java:60: error: no suitable constructor found for Message(Header)
+    Message m3 = new Message(h);
+                 ^
+    constructor Message.Message(Header) is not applicable
+      (Message(Header) has private access in Message)
+    constructor Message.Message(int) is not applicable
+      (argument mismatch; Header cannot be converted to int)
+    constructor Message.Message(DNSInput) is not applicable
+      (argument mismatch; Header cannot be converted to DNSInput)
+    constructor Message.Message(byte[]) is not applicable
+      (argument mismatch; Header cannot be converted to byte[])
+    constructor Message.Message(ByteBuffer) is not applicable
+      (argument mismatch; Header cannot be converted to ByteBuffer)
+/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/generated/ouedraogo/round2/sources/Message/FSL/MessageTest.java:211: error: cannot find symbol
+    assertEquals(key.getName(), gen.getAlgorithm());
+                    ^
+  symbol:   method getName()
+  location: variable key of type TSIG
+Note: /repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/generated/ouedraogo/round2/sources/Message/FSL/MessageTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+2 errors

@@ -1,0 +1,67 @@
+{
+  "index": 87,
+  "sha": "f6608422df4414905978abbfb6ab5b5c39ba0833",
+  "build": "ok",
+  "attempts": [
+    {
+      "command": [
+        "mvn",
+        "-q",
+        "-o",
+        "-DskipTests",
+        "compile"
+      ],
+      "cwd": "/repo/experiments/commit-survival/work/checkouts/87",
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 11.853,
+      "log": "results/builds/logs/87-1.txt"
+    }
+  ],
+  "input_sha256": "4f10b6072ac505d8f1b6f40d4eb44d282dc74afae4ea0533c445027b549661a8",
+  "pom_sha256": "eb8df1b528008c8618a52c82a1dc3eb092b9495deb404830eb7077ece7684b46",
+  "classpath": "work/classpaths/eb8df1b528008c8618a52c82a1dc3eb092b9495deb404830eb7077ece7684b46.txt",
+  "classpath_attempts": [
+    {
+      "command": [
+        "mvn",
+        "-q",
+        "-o",
+        "dependency:go-offline"
+      ],
+      "cwd": "/repo/experiments/commit-survival/work/checkouts/87",
+      "exit_code": 1,
+      "timeout": false,
+      "seconds": 1.588,
+      "log": "results/builds/logs/classpath-87/go-offline-6eafa9d410f74c7c992221258f083d76/1.txt"
+    },
+    {
+      "command": [
+        "mvn",
+        "-q",
+        "-U",
+        "dependency:go-offline"
+      ],
+      "cwd": "/repo/experiments/commit-survival/work/checkouts/87",
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 6.862,
+      "log": "results/builds/logs/classpath-87/go-offline-6eafa9d410f74c7c992221258f083d76/2.txt"
+    },
+    {
+      "command": [
+        "mvn",
+        "-q",
+        "-o",
+        "dependency:build-classpath",
+        "-DincludeScope=test",
+        "-Dmdep.outputFile=/repo/experiments/commit-survival/work/classpaths/eb8df1b528008c8618a52c82a1dc3eb092b9495deb404830eb7077ece7684b46-d957ec6414a541ccb82a876578532457.tmp"
+      ],
+      "cwd": "/repo/experiments/commit-survival/work/checkouts/87",
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 2.942,
+      "log": "results/builds/logs/classpath-87/build-classpath-f6b484b131d94216961ad117f8cb42dc/1.txt"
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+[
+  {
+    "group": "Zone.getNS() \u2013 basic functionality and copy semantics",
+    "cases": [
+      {
+        "input": [],
+        "expected": "throws NullPointerException",
+        "description": "When the internal NS field is null, getNS() should propagate the NPE that occurs when the RRset constructor receives a null argument. This verifies that the method does not silently swallow the error."
+      },
+      {
+        "input": [],
+        "expected": "RRset instance that is equal (same records) to the internal NS but not the same object reference",
+        "description": "Populate the private NS field with a non\u2011empty RRset (using reflection or addRRset). getNS() must return a new RRset that contains the same records, confirming that a defensive copy is created."
+      },
+      {
+        "input": [],
+        "expected": "original internal NS unchanged after mutating the returned RRset",
+        "description": "After calling getNS(), add a new Record to the returned RRset. The internal NS stored inside the Zone should remain unchanged, proving that the copy is deep enough for the test\u2019s purposes."
+      },
+      {
+        "input": [],
+        "expected": "RRset instance with zero records when internal NS is an empty RRset",
+        "description": "Set the internal NS to an empty RRset (no records). getNS() should return a new empty RRset (size 0), ensuring the method works for the edge case of an empty set."
+      }
+    ]
+  },
+  {
+    "group": "Zone.getNS() \u2013 distinct instances on successive calls",
+    "cases": [
+      {
+        "input": [],
+        "expected": "Two successive calls to getNS() return two different RRset objects (different identity) even though they contain equal records",
+        "description": "Ensures that getNS() does not cache the RRset instance and always creates a fresh defensive copy."
+      }
+    ]
+  },
+  {
+    "group": "Zone.getNS() \u2013 snapshot semantics after internal mutation",
+    "cases": [
+      {
+        "input": [],
+        "expected": "RRset returned before the internal NS is mutated remains unchanged after the internal NS is modified",
+        "description": "Calls getNS(), then adds a new NS Record directly to the Zone's internal NS (using reflection or addRRset). The previously obtained RRset must still reflect the original state, confirming snapshot behaviour."
+      }
+    ]
+  },
+  {
+    "group": "Zone.getNS() \u2013 copies all records when multiple NS records are present",
+    "cases": [
+      {
+        "input": [],
+        "expected": "RRset returned by getNS() contains exactly the same number and content of NS records as the internal NS (e.g., 3 NS records) and is a different object reference",
+        "description": "Populates the internal NS with several distinct NS records. Verifies that the copy includes every record, not just the first one."
+      }
+    ]
+  },
+  {
+    "group": "Zone.getNS() \u2013 thread\u2011safety under concurrent access",
+    "cases": [
+      {
+        "input": [],
+        "expected": "All concurrent invocations of getNS() complete without throwing exceptions and each returns a valid RRset copy",
+        "description": "Spawns multiple threads (e.g., 10) that simultaneously call getNS() on the same Zone instance whose internal NS is non\u2011null. Confirms that the read\u2011write lock protects the method from race conditions."
+      }
+    ]
+  },
+  {
+    "group": "Zone.getNS() \u2013 returned RRset can be mutated independently (remove operation)",
+    "cases": [
+      {
+        "input": [],
+        "expected": "Removing a Record from the RRset returned by getNS() does not affect the internal NS stored in the Zone",
+        "description": "After obtaining the copy via getNS(), call removeRecord on the copy. The internal NS inside the Zone must still contain the original record, demonstrating that the copy is fully independent."
+      }
+    ]
+  }
+]

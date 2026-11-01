@@ -1,0 +1,554 @@
+{
+  "file": "generated/ktester/round1/dnsjava/test_classes/TSIG_recordLength_Test.java",
+  "compile": {
+    "command": [
+      "javac",
+      "-J-Xmx512m",
+      "-cp",
+      "/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/checkouts/0/target/classes:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/apiguardian-api-1.1.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/byte-buddy-1.17.7.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/byte-buddy-agent-1.17.7.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/commons-io-2.16.1.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/commons-lang3-3.14.0.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/hamcrest-2.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/junit-jupiter-5.11.4.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/junit-jupiter-api-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/junit-jupiter-engine-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/junit-jupiter-params-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/junit-platform-commons-1.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/junit-platform-engine-1.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/mockito-core-5.24.0.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/mockito-junit-jupiter-5.24.0.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/objenesis-3.3.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/opentest4j-1.3.0.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/junit-vintage-engine-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/junit-4.13.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/hamcrest-core-1.3.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/junit-platform-console-standalone-1.9.3.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/projectlombok/lombok/1.18.34/lombok-1.18.34.jar:/root/.m2/repository/net/java/dev/jna/jna/5.14.0/jna-5.14.0.jar:/root/.m2/repository/net/java/dev/jna/jna-platform/5.14.0/jna-platform-5.14.0.jar:/root/.m2/repository/org/bouncycastle/bcprov-jdk18on/1.78.1/bcprov-jdk18on-1.78.1.jar:/root/.m2/repository/org/bouncycastle/bcutil-jdk18on/1.78.1/bcutil-jdk18on-1.78.1.jar:/root/.m2/repository/org/assertj/assertj-core/3.26.3/assertj-core-3.26.3.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.14.18/byte-buddy-1.14.18.jar:/root/.m2/repository/org/mockito/mockito-core/5.12.0/mockito-core-5.12.0.jar:/root/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/root/.m2/repository/org/mockito/mockito-junit-jupiter/5.12.0/mockito-junit-jupiter-5.12.0.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.18/byte-buddy-agent-1.14.18.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.36/slf4j-simple-1.7.36.jar:/root/.m2/repository/io/vertx/vertx-core/4.5.9/vertx-core-4.5.9.jar:/root/.m2/repository/io/netty/netty-common/4.1.111.Final/netty-common-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-buffer/4.1.111.Final/netty-buffer-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-transport/4.1.111.Final/netty-transport-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-handler/4.1.111.Final/netty-handler-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-transport-native-unix-common/4.1.111.Final/netty-transport-native-unix-common-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-codec/4.1.111.Final/netty-codec-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-handler-proxy/4.1.111.Final/netty-handler-proxy-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-codec-socks/4.1.111.Final/netty-codec-socks-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-codec-http/4.1.111.Final/netty-codec-http-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-codec-http2/4.1.111.Final/netty-codec-http2-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-resolver/4.1.111.Final/netty-resolver-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-resolver-dns/4.1.111.Final/netty-resolver-dns-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-codec-dns/4.1.111.Final/netty-codec-dns-4.1.111.Final.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.16.1/jackson-core-2.16.1.jar:/root/.m2/repository/io/vertx/vertx-junit5/4.5.9/vertx-junit5-4.5.9.jar:/root/.m2/repository/io/vertx/vertx-codegen/4.5.9/vertx-codegen-4.5.9.jar:/root/.m2/repository/commons-io/commons-io/2.16.1/commons-io-2.16.1.jar:/root/.m2/repository/org/openjdk/jcstress/jcstress-core/0.16/jcstress-core-0.16.jar:/root/.m2/repository/net/sf/jopt-simple/jopt-simple/4.6/jopt-simple-4.6.jar",
+      "-sourcepath",
+      "/repo/experiments/regen-policies/results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "-d",
+      "/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/validation/ktester/round1/41/test/classes",
+      "/repo/experiments/regen-policies/results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/TSIG_recordLength_Test.java"
+    ],
+    "cwd": "/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/checkouts/0",
+    "exit_code": 0,
+    "timeout": false,
+    "seconds": 1.124,
+    "log": "work/validation/ktester/round1/41/test/javac.txt"
+  },
+  "runs": [
+    {
+      "command": [
+        "java",
+        "-Xmx1g",
+        "-XX:+UseSerialGC",
+        "-cp",
+        "/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/validation/ktester/round1/41/test/classes:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/checkouts/0/target/classes:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/apiguardian-api-1.1.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/byte-buddy-1.17.7.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/byte-buddy-agent-1.17.7.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/commons-io-2.16.1.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/commons-lang3-3.14.0.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/hamcrest-2.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/junit-jupiter-5.11.4.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/junit-jupiter-api-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/junit-jupiter-engine-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/junit-jupiter-params-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/junit-platform-commons-1.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/junit-platform-engine-1.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/mockito-core-5.24.0.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/mockito-junit-jupiter-5.24.0.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/objenesis-3.3.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/opentest4j-1.3.0.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/junit-vintage-engine-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/junit-4.13.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/hamcrest-core-1.3.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/junit-platform-console-standalone-1.9.3.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/projectlombok/lombok/1.18.34/lombok-1.18.34.jar:/root/.m2/repository/net/java/dev/jna/jna/5.14.0/jna-5.14.0.jar:/root/.m2/repository/net/java/dev/jna/jna-platform/5.14.0/jna-platform-5.14.0.jar:/root/.m2/repository/org/bouncycastle/bcprov-jdk18on/1.78.1/bcprov-jdk18on-1.78.1.jar:/root/.m2/repository/org/bouncycastle/bcutil-jdk18on/1.78.1/bcutil-jdk18on-1.78.1.jar:/root/.m2/repository/org/assertj/assertj-core/3.26.3/assertj-core-3.26.3.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.14.18/byte-buddy-1.14.18.jar:/root/.m2/repository/org/mockito/mockito-core/5.12.0/mockito-core-5.12.0.jar:/root/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/root/.m2/repository/org/mockito/mockito-junit-jupiter/5.12.0/mockito-junit-jupiter-5.12.0.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.18/byte-buddy-agent-1.14.18.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.36/slf4j-simple-1.7.36.jar:/root/.m2/repository/io/vertx/vertx-core/4.5.9/vertx-core-4.5.9.jar:/root/.m2/repository/io/netty/netty-common/4.1.111.Final/netty-common-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-buffer/4.1.111.Final/netty-buffer-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-transport/4.1.111.Final/netty-transport-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-handler/4.1.111.Final/netty-handler-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-transport-native-unix-common/4.1.111.Final/netty-transport-native-unix-common-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-codec/4.1.111.Final/netty-codec-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-handler-proxy/4.1.111.Final/netty-handler-proxy-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-codec-socks/4.1.111.Final/netty-codec-socks-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-codec-http/4.1.111.Final/netty-codec-http-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-codec-http2/4.1.111.Final/netty-codec-http2-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-resolver/4.1.111.Final/netty-resolver-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-resolver-dns/4.1.111.Final/netty-resolver-dns-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-codec-dns/4.1.111.Final/netty-codec-dns-4.1.111.Final.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.16.1/jackson-core-2.16.1.jar:/root/.m2/repository/io/vertx/vertx-junit5/4.5.9/vertx-junit5-4.5.9.jar:/root/.m2/repository/io/vertx/vertx-codegen/4.5.9/vertx-codegen-4.5.9.jar:/root/.m2/repository/commons-io/commons-io/2.16.1/commons-io-2.16.1.jar:/root/.m2/repository/org/openjdk/jcstress/jcstress-core/0.16/jcstress-core-0.16.jar:/root/.m2/repository/net/sf/jopt-simple/jopt-simple/4.6/jopt-simple-4.6.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/dev/src-test-t/resources:/repo/experiments/regen-policies/results/policy/pools/ktester/34/dev/src-test-t/suite",
+        "org.junit.platform.console.ConsoleLauncher",
+        "--disable-banner",
+        "--disable-ansi-colors",
+        "--fail-if-no-tests",
+        "--details",
+        "summary",
+        "--select-method",
+        "org.xbill.DNS.TSIG_recordLength_Test#recordLength_simpleName()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_recordLength_Test#recordLength_multiLabelName()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_recordLength_Test#recordLength_differentAlgorithmAndLongName()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_recordLength_Test#recordLength_keyIrrelevant()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_recordLength_Test#recordLength_typical_exampleCom()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_recordLength_Test#recordLength_typical_root()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_recordLength_Test#recordLength_typical_maxLengths()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_recordLength_Test#recordLength_nameNull()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_recordLength_Test#recordLength_algNull()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_recordLength_Test#recordLength_smallLengths(java.lang.String,org.xbill.DNS.Name,org.xbill.DNS.Name,int)",
+        "--select-method",
+        "org.xbill.DNS.TSIG_recordLength_Test#recordLength_idempotent()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_recordLength_Test#recordLength_afterNameChange()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_recordLength_Test#recordLength_overflow()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_recordLength_Test#recordLength_nameLengthThrows()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_recordLength_Test#recordLength_algLengthThrows()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_recordLength_Test#recordLength_bothThrow()",
+        "--reports-dir",
+        "/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/validation/ktester/round1/41/test/run1"
+      ],
+      "cwd": "/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/runtime",
+      "exit_code": 1,
+      "timeout": false,
+      "seconds": 2.126,
+      "log": "work/validation/ktester/round1/41/test/run1/console.txt"
+    },
+    {
+      "command": [
+        "java",
+        "-Xmx1g",
+        "-XX:+UseSerialGC",
+        "-cp",
+        "/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/validation/ktester/round1/41/test/classes:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/checkouts/0/target/classes:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/apiguardian-api-1.1.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/byte-buddy-1.17.7.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/byte-buddy-agent-1.17.7.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/commons-io-2.16.1.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/commons-lang3-3.14.0.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/hamcrest-2.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/junit-jupiter-5.11.4.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/junit-jupiter-api-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/junit-jupiter-engine-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/junit-jupiter-params-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/junit-platform-commons-1.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/junit-platform-engine-1.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/mockito-core-5.24.0.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/mockito-junit-jupiter-5.24.0.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/objenesis-3.3.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/opentest4j-1.3.0.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/junit-vintage-engine-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/junit-4.13.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/hamcrest-core-1.3.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/junit-platform-console-standalone-1.9.3.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/projectlombok/lombok/1.18.34/lombok-1.18.34.jar:/root/.m2/repository/net/java/dev/jna/jna/5.14.0/jna-5.14.0.jar:/root/.m2/repository/net/java/dev/jna/jna-platform/5.14.0/jna-platform-5.14.0.jar:/root/.m2/repository/org/bouncycastle/bcprov-jdk18on/1.78.1/bcprov-jdk18on-1.78.1.jar:/root/.m2/repository/org/bouncycastle/bcutil-jdk18on/1.78.1/bcutil-jdk18on-1.78.1.jar:/root/.m2/repository/org/assertj/assertj-core/3.26.3/assertj-core-3.26.3.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.14.18/byte-buddy-1.14.18.jar:/root/.m2/repository/org/mockito/mockito-core/5.12.0/mockito-core-5.12.0.jar:/root/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/root/.m2/repository/org/mockito/mockito-junit-jupiter/5.12.0/mockito-junit-jupiter-5.12.0.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.18/byte-buddy-agent-1.14.18.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.36/slf4j-simple-1.7.36.jar:/root/.m2/repository/io/vertx/vertx-core/4.5.9/vertx-core-4.5.9.jar:/root/.m2/repository/io/netty/netty-common/4.1.111.Final/netty-common-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-buffer/4.1.111.Final/netty-buffer-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-transport/4.1.111.Final/netty-transport-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-handler/4.1.111.Final/netty-handler-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-transport-native-unix-common/4.1.111.Final/netty-transport-native-unix-common-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-codec/4.1.111.Final/netty-codec-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-handler-proxy/4.1.111.Final/netty-handler-proxy-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-codec-socks/4.1.111.Final/netty-codec-socks-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-codec-http/4.1.111.Final/netty-codec-http-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-codec-http2/4.1.111.Final/netty-codec-http2-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-resolver/4.1.111.Final/netty-resolver-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-resolver-dns/4.1.111.Final/netty-resolver-dns-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-codec-dns/4.1.111.Final/netty-codec-dns-4.1.111.Final.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.16.1/jackson-core-2.16.1.jar:/root/.m2/repository/io/vertx/vertx-junit5/4.5.9/vertx-junit5-4.5.9.jar:/root/.m2/repository/io/vertx/vertx-codegen/4.5.9/vertx-codegen-4.5.9.jar:/root/.m2/repository/commons-io/commons-io/2.16.1/commons-io-2.16.1.jar:/root/.m2/repository/org/openjdk/jcstress/jcstress-core/0.16/jcstress-core-0.16.jar:/root/.m2/repository/net/sf/jopt-simple/jopt-simple/4.6/jopt-simple-4.6.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/dev/src-test-t/resources:/repo/experiments/regen-policies/results/policy/pools/ktester/34/dev/src-test-t/suite",
+        "org.junit.platform.console.ConsoleLauncher",
+        "--disable-banner",
+        "--disable-ansi-colors",
+        "--fail-if-no-tests",
+        "--details",
+        "summary",
+        "--select-method",
+        "org.xbill.DNS.TSIG_recordLength_Test#recordLength_simpleName()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_recordLength_Test#recordLength_multiLabelName()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_recordLength_Test#recordLength_differentAlgorithmAndLongName()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_recordLength_Test#recordLength_keyIrrelevant()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_recordLength_Test#recordLength_typical_exampleCom()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_recordLength_Test#recordLength_typical_root()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_recordLength_Test#recordLength_typical_maxLengths()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_recordLength_Test#recordLength_nameNull()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_recordLength_Test#recordLength_algNull()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_recordLength_Test#recordLength_smallLengths(java.lang.String,org.xbill.DNS.Name,org.xbill.DNS.Name,int)",
+        "--select-method",
+        "org.xbill.DNS.TSIG_recordLength_Test#recordLength_idempotent()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_recordLength_Test#recordLength_afterNameChange()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_recordLength_Test#recordLength_overflow()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_recordLength_Test#recordLength_nameLengthThrows()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_recordLength_Test#recordLength_algLengthThrows()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_recordLength_Test#recordLength_bothThrow()",
+        "--reports-dir",
+        "/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/validation/ktester/round1/41/test/run2"
+      ],
+      "cwd": "/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/runtime",
+      "exit_code": 1,
+      "timeout": false,
+      "seconds": 2.08,
+      "log": "work/validation/ktester/round1/41/test/run2/console.txt"
+    },
+    {
+      "command": [
+        "java",
+        "-Xmx1g",
+        "-XX:+UseSerialGC",
+        "-cp",
+        "/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/validation/ktester/round1/41/test/classes:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/checkouts/0/target/classes:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/apiguardian-api-1.1.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/byte-buddy-1.17.7.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/byte-buddy-agent-1.17.7.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/commons-io-2.16.1.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/commons-lang3-3.14.0.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/hamcrest-2.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/junit-jupiter-5.11.4.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/junit-jupiter-api-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/junit-jupiter-engine-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/junit-jupiter-params-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/junit-platform-commons-1.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/junit-platform-engine-1.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/mockito-core-5.24.0.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/mockito-junit-jupiter-5.24.0.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/objenesis-3.3.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/opentest4j-1.3.0.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/junit-vintage-engine-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/junit-4.13.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/hamcrest-core-1.3.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/junit-platform-console-standalone-1.9.3.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/projectlombok/lombok/1.18.34/lombok-1.18.34.jar:/root/.m2/repository/net/java/dev/jna/jna/5.14.0/jna-5.14.0.jar:/root/.m2/repository/net/java/dev/jna/jna-platform/5.14.0/jna-platform-5.14.0.jar:/root/.m2/repository/org/bouncycastle/bcprov-jdk18on/1.78.1/bcprov-jdk18on-1.78.1.jar:/root/.m2/repository/org/bouncycastle/bcutil-jdk18on/1.78.1/bcutil-jdk18on-1.78.1.jar:/root/.m2/repository/org/assertj/assertj-core/3.26.3/assertj-core-3.26.3.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.14.18/byte-buddy-1.14.18.jar:/root/.m2/repository/org/mockito/mockito-core/5.12.0/mockito-core-5.12.0.jar:/root/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/root/.m2/repository/org/mockito/mockito-junit-jupiter/5.12.0/mockito-junit-jupiter-5.12.0.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.18/byte-buddy-agent-1.14.18.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.36/slf4j-simple-1.7.36.jar:/root/.m2/repository/io/vertx/vertx-core/4.5.9/vertx-core-4.5.9.jar:/root/.m2/repository/io/netty/netty-common/4.1.111.Final/netty-common-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-buffer/4.1.111.Final/netty-buffer-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-transport/4.1.111.Final/netty-transport-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-handler/4.1.111.Final/netty-handler-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-transport-native-unix-common/4.1.111.Final/netty-transport-native-unix-common-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-codec/4.1.111.Final/netty-codec-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-handler-proxy/4.1.111.Final/netty-handler-proxy-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-codec-socks/4.1.111.Final/netty-codec-socks-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-codec-http/4.1.111.Final/netty-codec-http-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-codec-http2/4.1.111.Final/netty-codec-http2-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-resolver/4.1.111.Final/netty-resolver-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-resolver-dns/4.1.111.Final/netty-resolver-dns-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-codec-dns/4.1.111.Final/netty-codec-dns-4.1.111.Final.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.16.1/jackson-core-2.16.1.jar:/root/.m2/repository/io/vertx/vertx-junit5/4.5.9/vertx-junit5-4.5.9.jar:/root/.m2/repository/io/vertx/vertx-codegen/4.5.9/vertx-codegen-4.5.9.jar:/root/.m2/repository/commons-io/commons-io/2.16.1/commons-io-2.16.1.jar:/root/.m2/repository/org/openjdk/jcstress/jcstress-core/0.16/jcstress-core-0.16.jar:/root/.m2/repository/net/sf/jopt-simple/jopt-simple/4.6/jopt-simple-4.6.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/dev/src-test-t/resources:/repo/experiments/regen-policies/results/policy/pools/ktester/34/dev/src-test-t/suite",
+        "org.junit.platform.console.ConsoleLauncher",
+        "--disable-banner",
+        "--disable-ansi-colors",
+        "--fail-if-no-tests",
+        "--details",
+        "summary",
+        "--select-method",
+        "org.xbill.DNS.TSIG_recordLength_Test#recordLength_simpleName()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_recordLength_Test#recordLength_multiLabelName()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_recordLength_Test#recordLength_differentAlgorithmAndLongName()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_recordLength_Test#recordLength_keyIrrelevant()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_recordLength_Test#recordLength_typical_exampleCom()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_recordLength_Test#recordLength_typical_root()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_recordLength_Test#recordLength_typical_maxLengths()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_recordLength_Test#recordLength_nameNull()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_recordLength_Test#recordLength_algNull()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_recordLength_Test#recordLength_smallLengths(java.lang.String,org.xbill.DNS.Name,org.xbill.DNS.Name,int)",
+        "--select-method",
+        "org.xbill.DNS.TSIG_recordLength_Test#recordLength_idempotent()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_recordLength_Test#recordLength_afterNameChange()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_recordLength_Test#recordLength_overflow()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_recordLength_Test#recordLength_nameLengthThrows()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_recordLength_Test#recordLength_algLengthThrows()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_recordLength_Test#recordLength_bothThrow()",
+        "--reports-dir",
+        "/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/validation/ktester/round1/41/test/run3"
+      ],
+      "cwd": "/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/runtime",
+      "exit_code": 1,
+      "timeout": false,
+      "seconds": 2.449,
+      "log": "work/validation/ktester/round1/41/test/run3/console.txt"
+    }
+  ],
+  "methods": [
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/TSIG_recordLength_Test.java",
+      "class": "org.xbill.DNS.TSIG_recordLength_Test",
+      "method": "recordLength_simpleName",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/TSIG_recordLength_Test.java|org.xbill.DNS.TSIG_recordLength_Test|recordLength_simpleName",
+      "body_hash": "8e437f64286752b36b0d4f686209361957a3596b1322cbe92016cd5970860871",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "fail",
+      "message": "org.opentest4j.AssertionFailedError: recordLength() should equal name.length() + alg.length() + 48 ==> expected: <69> but was: <70>",
+      "flaky": false,
+      "initial_state": "fail",
+      "selector": [
+        "org.xbill.DNS.TSIG_recordLength_Test#recordLength_simpleName()"
+      ],
+      "baseline_states": [
+        "fail",
+        "fail",
+        "fail"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/TSIG_recordLength_Test.java",
+      "class": "org.xbill.DNS.TSIG_recordLength_Test",
+      "method": "recordLength_multiLabelName",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/TSIG_recordLength_Test.java|org.xbill.DNS.TSIG_recordLength_Test|recordLength_multiLabelName",
+      "body_hash": "6d226b2466a387e665adc37f01de5499602d5c749a0292c69d3e64545e5ee03c",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "fail",
+      "message": "org.opentest4j.AssertionFailedError: recordLength() should correctly handle multi‑label names ==> expected: <71> but was: <72>",
+      "flaky": false,
+      "initial_state": "fail",
+      "selector": [
+        "org.xbill.DNS.TSIG_recordLength_Test#recordLength_multiLabelName()"
+      ],
+      "baseline_states": [
+        "fail",
+        "fail",
+        "fail"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/TSIG_recordLength_Test.java",
+      "class": "org.xbill.DNS.TSIG_recordLength_Test",
+      "method": "recordLength_differentAlgorithmAndLongName",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/TSIG_recordLength_Test.java|org.xbill.DNS.TSIG_recordLength_Test|recordLength_differentAlgorithmAndLongName",
+      "body_hash": "e45defe5b1d0eb50f07c04b1bbc429a6cad238ade437ab11d758addde5b9298d",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.TSIG_recordLength_Test#recordLength_differentAlgorithmAndLongName()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/TSIG_recordLength_Test.java",
+      "class": "org.xbill.DNS.TSIG_recordLength_Test",
+      "method": "recordLength_keyIrrelevant",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/TSIG_recordLength_Test.java|org.xbill.DNS.TSIG_recordLength_Test|recordLength_keyIrrelevant",
+      "body_hash": "0e811ca117ccddc4332b7e435b019ffbb73378304a2b27f619cc006aa2d36c2e",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.TSIG_recordLength_Test#recordLength_keyIrrelevant()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/TSIG_recordLength_Test.java",
+      "class": "org.xbill.DNS.TSIG_recordLength_Test",
+      "method": "recordLength_typical_exampleCom",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/TSIG_recordLength_Test.java|org.xbill.DNS.TSIG_recordLength_Test|recordLength_typical_exampleCom",
+      "body_hash": "180e319e66a3581713e52c604525877a46614b3be0f9035a8e21d093f69007a5",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "error",
+      "message": "java.lang.IllegalArgumentException: Unknown algorithm: Mock for Name, hashCode: 81269359",
+      "flaky": false,
+      "initial_state": "error",
+      "selector": [
+        "org.xbill.DNS.TSIG_recordLength_Test#recordLength_typical_exampleCom()"
+      ],
+      "baseline_states": [
+        "error",
+        "error",
+        "error"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/TSIG_recordLength_Test.java",
+      "class": "org.xbill.DNS.TSIG_recordLength_Test",
+      "method": "recordLength_typical_root",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/TSIG_recordLength_Test.java|org.xbill.DNS.TSIG_recordLength_Test|recordLength_typical_root",
+      "body_hash": "12b83c3f926bb0c89259ffef04b302f05f0745527b5b961afd4cfc80ff0a8bb4",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "error",
+      "message": "java.lang.IllegalArgumentException: Unknown algorithm: Mock for Name, hashCode: 2008907751",
+      "flaky": false,
+      "initial_state": "error",
+      "selector": [
+        "org.xbill.DNS.TSIG_recordLength_Test#recordLength_typical_root()"
+      ],
+      "baseline_states": [
+        "error",
+        "error",
+        "error"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/TSIG_recordLength_Test.java",
+      "class": "org.xbill.DNS.TSIG_recordLength_Test",
+      "method": "recordLength_typical_maxLengths",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/TSIG_recordLength_Test.java|org.xbill.DNS.TSIG_recordLength_Test|recordLength_typical_maxLengths",
+      "body_hash": "6eaea0cf6010b22bd7deeb83d90cc55d143af4f8dc2e70be202692feb03570c4",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "error",
+      "message": "java.lang.IllegalArgumentException: Unknown algorithm: Mock for Name, hashCode: 1904676263",
+      "flaky": false,
+      "initial_state": "error",
+      "selector": [
+        "org.xbill.DNS.TSIG_recordLength_Test#recordLength_typical_maxLengths()"
+      ],
+      "baseline_states": [
+        "error",
+        "error",
+        "error"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/TSIG_recordLength_Test.java",
+      "class": "org.xbill.DNS.TSIG_recordLength_Test",
+      "method": "recordLength_nameNull",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/TSIG_recordLength_Test.java|org.xbill.DNS.TSIG_recordLength_Test|recordLength_nameNull",
+      "body_hash": "636690afcd9c3b7549f7270c02d6449e41cc5fcadc81028cd4ab5008b4fb8790",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.TSIG_recordLength_Test#recordLength_nameNull()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/TSIG_recordLength_Test.java",
+      "class": "org.xbill.DNS.TSIG_recordLength_Test",
+      "method": "recordLength_algNull",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/TSIG_recordLength_Test.java|org.xbill.DNS.TSIG_recordLength_Test|recordLength_algNull",
+      "body_hash": "bda7d79e254f6475797413c4c9b37a6e548298790187de2b4d4e37d19a078cad",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.TSIG_recordLength_Test#recordLength_algNull()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/TSIG_recordLength_Test.java",
+      "class": "org.xbill.DNS.TSIG_recordLength_Test",
+      "method": "recordLength_smallLengths",
+      "kind": "parameterized",
+      "id": "generated/ktester/round1/dnsjava/test_classes/TSIG_recordLength_Test.java|org.xbill.DNS.TSIG_recordLength_Test|recordLength_smallLengths",
+      "body_hash": "de52457a5a62fb0cff84d962fac541211ed4e3dc8fff8423514166cdc3d7decd",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "error",
+      "message": "java.lang.IllegalArgumentException: Unknown algorithm: alg.",
+      "flaky": false,
+      "initial_state": "error",
+      "selector": [
+        "org.xbill.DNS.TSIG_recordLength_Test#recordLength_smallLengths(java.lang.String,org.xbill.DNS.Name,org.xbill.DNS.Name,int)"
+      ],
+      "baseline_states": [
+        "error",
+        "error",
+        "error"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/TSIG_recordLength_Test.java",
+      "class": "org.xbill.DNS.TSIG_recordLength_Test",
+      "method": "recordLength_idempotent",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/TSIG_recordLength_Test.java|org.xbill.DNS.TSIG_recordLength_Test|recordLength_idempotent",
+      "body_hash": "d6a38b21a676dcb9aeff247610926525b9f45ff7ecce68faaa62bcfd185ca10b",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "error",
+      "message": "java.lang.IllegalArgumentException: Unknown algorithm: Mock for Name, hashCode: 1957530885",
+      "flaky": false,
+      "initial_state": "error",
+      "selector": [
+        "org.xbill.DNS.TSIG_recordLength_Test#recordLength_idempotent()"
+      ],
+      "baseline_states": [
+        "error",
+        "error",
+        "error"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/TSIG_recordLength_Test.java",
+      "class": "org.xbill.DNS.TSIG_recordLength_Test",
+      "method": "recordLength_afterNameChange",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/TSIG_recordLength_Test.java|org.xbill.DNS.TSIG_recordLength_Test|recordLength_afterNameChange",
+      "body_hash": "d96e11b4de9dd6d341a6fc734e862b5abdb88d0b055ce95a5d8a20028a81294b",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "error",
+      "message": "java.lang.IllegalArgumentException: Unknown algorithm: Mock for Name, hashCode: 1605834811",
+      "flaky": false,
+      "initial_state": "error",
+      "selector": [
+        "org.xbill.DNS.TSIG_recordLength_Test#recordLength_afterNameChange()"
+      ],
+      "baseline_states": [
+        "error",
+        "error",
+        "error"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/TSIG_recordLength_Test.java",
+      "class": "org.xbill.DNS.TSIG_recordLength_Test",
+      "method": "recordLength_overflow",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/TSIG_recordLength_Test.java|org.xbill.DNS.TSIG_recordLength_Test|recordLength_overflow",
+      "body_hash": "dc44623f71e643a9724246ad56a4bef31c51e080f1252b8ab63384b486267f73",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "error",
+      "message": "java.lang.IllegalArgumentException: Unknown algorithm: Mock for Name, hashCode: 382252989",
+      "flaky": false,
+      "initial_state": "error",
+      "selector": [
+        "org.xbill.DNS.TSIG_recordLength_Test#recordLength_overflow()"
+      ],
+      "baseline_states": [
+        "error",
+        "error",
+        "error"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/TSIG_recordLength_Test.java",
+      "class": "org.xbill.DNS.TSIG_recordLength_Test",
+      "method": "recordLength_nameLengthThrows",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/TSIG_recordLength_Test.java|org.xbill.DNS.TSIG_recordLength_Test|recordLength_nameLengthThrows",
+      "body_hash": "da19471f963eabdb1152ee0ba2fea6969d66b3f8bd2541b118828de03bdb2ac5",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "error",
+      "message": "java.lang.IllegalArgumentException: Unknown algorithm: Mock for Name, hashCode: 1035357140",
+      "flaky": false,
+      "initial_state": "error",
+      "selector": [
+        "org.xbill.DNS.TSIG_recordLength_Test#recordLength_nameLengthThrows()"
+      ],
+      "baseline_states": [
+        "error",
+        "error",
+        "error"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/TSIG_recordLength_Test.java",
+      "class": "org.xbill.DNS.TSIG_recordLength_Test",
+      "method": "recordLength_algLengthThrows",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/TSIG_recordLength_Test.java|org.xbill.DNS.TSIG_recordLength_Test|recordLength_algLengthThrows",
+      "body_hash": "fc26f7412ecf699a6cf2d2dc101cb19bb7f72caa52cecf9bab27102da65b91a2",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "error",
+      "message": "java.lang.IllegalArgumentException: Unknown algorithm: Mock for Name, hashCode: 1929661663",
+      "flaky": false,
+      "initial_state": "error",
+      "selector": [
+        "org.xbill.DNS.TSIG_recordLength_Test#recordLength_algLengthThrows()"
+      ],
+      "baseline_states": [
+        "error",
+        "error",
+        "error"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/TSIG_recordLength_Test.java",
+      "class": "org.xbill.DNS.TSIG_recordLength_Test",
+      "method": "recordLength_bothThrow",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/TSIG_recordLength_Test.java|org.xbill.DNS.TSIG_recordLength_Test|recordLength_bothThrow",
+      "body_hash": "4b9c3f74b2db09d3a6379ebff9f8b3ee3c2ee54f03e60e00e3c2bfe82cbb2062",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "error",
+      "message": "java.lang.IllegalArgumentException: Unknown algorithm: Mock for Name, hashCode: 161672347",
+      "flaky": false,
+      "initial_state": "error",
+      "selector": [
+        "org.xbill.DNS.TSIG_recordLength_Test#recordLength_bothThrow()"
+      ],
+      "baseline_states": [
+        "error",
+        "error",
+        "error"
+      ]
+    }
+  ],
+  "parse": {
+    "command": [
+      "java",
+      "-Xmx512m",
+      "/survival-package/adapters/java/SourceInventory.java",
+      "/repo/experiments/regen-policies/results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/TSIG_recordLength_Test.java",
+      "auto"
+    ],
+    "cwd": "/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/checkouts/0",
+    "exit_code": 0,
+    "timeout": false,
+    "seconds": 0.623,
+    "log": "work/validation/ktester/round1/41/inventory.tsv"
+  },
+  "input_sha256": "3d492fe833bf194ace2e5189c84efd7e78d1a346373b9fd4127fd8573bbddd52"
+}

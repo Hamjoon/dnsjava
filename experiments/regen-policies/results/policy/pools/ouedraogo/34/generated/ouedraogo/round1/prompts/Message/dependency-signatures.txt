@@ -1,0 +1,269 @@
+// public API of org.xbill.DNS.Header
+public class Header implements Cloneable {
+  public static final int LENGTH;
+  public Header(int id);
+  public Header();
+  public Header(byte[] b) throws IOException;
+  public byte[] toWire();
+  public void setFlag(int bit);
+  public void unsetFlag(int bit);
+  public boolean getFlag(int bit);
+  public int getID();
+  public void setID(int id);
+  public void setRcode(int value);
+  public int getRcode();
+  public void setOpcode(int value);
+  public int getOpcode();
+  public int getCount(int field);
+  public String printFlags();
+  public String toString();
+  public Header clone();
+}
+
+// public API of org.xbill.DNS.DNSInput
+public class DNSInput {
+  public DNSInput(byte[] input);
+  public DNSInput(ByteBuffer byteBuffer);
+  public int current();
+  public int remaining();
+  public void setActive(int len);
+  public void clearActive();
+  public int saveActive();
+  public void restoreActive(int pos);
+  public void jump(int index);
+  public void save();
+  public void restore();
+  public int readU8() throws WireParseException;
+  public int readU16() throws WireParseException;
+  public long readU32() throws WireParseException;
+  public void readByteArray(byte[] b, int off, int len) throws WireParseException;
+  public byte[] readByteArray(int len) throws WireParseException;
+  public byte[] readByteArray();
+  public byte[] readCountedString() throws WireParseException;
+}
+
+// public API of org.xbill.DNS.Record
+public abstract class Record implements Cloneable,Comparable<Record>,Serializable {
+  protected Record();
+  protected Record(Name name, int type, int dclass, long ttl);
+  protected abstract void rrFromWire(DNSInput in) throws IOException;
+  public static Record newRecord(Name name, int type, int dclass, long ttl, int length, byte[] data);
+  public static Record newRecord(Name name, int type, int dclass, long ttl, byte[] data);
+  public static Record newRecord(Name name, int type, int dclass, long ttl);
+  public static Record newRecord(Name name, int type, int dclass);
+  public static Record fromWire(byte[] b, int section) throws IOException;
+  public byte[] toWire(int section);
+  public byte[] toWireCanonical();
+  public byte[] rdataToWireCanonical();
+  protected abstract String rrToString();
+  public String rdataToString();
+  public String toString();
+  protected abstract void rdataFromString(Tokenizer st, Name origin) throws IOException;
+  protected static byte[] byteArrayFromString(String s) throws TextParseException;
+  protected static String byteArrayToString(byte[] array, boolean quote);
+  protected static String unknownToString(byte[] data);
+  public static Record fromString(Name name, int type, int dclass, long ttl, Tokenizer st, Name origin) throws IOException;
+  public static Record fromString(Name name, int type, int dclass, long ttl, String s, Name origin) throws IOException;
+  public Name getName();
+  public int getType();
+  public int getRRsetType();
+  public int getDClass();
+  public long getTTL();
+  protected abstract void rrToWire(DNSOutput out, Compression c, boolean canonical);
+  public boolean sameRRset(Record rec);
+  public boolean sameRRset(RRset set);
+  public boolean equals(Object arg);
+  public int hashCode();
+  public Record withName(Name name);
+  public int compareTo(Record arg);
+  public Name getAdditionalName();
+}
+
+// public API of org.xbill.DNS.TSIG
+public class TSIG {
+  public static final Name GSS_TSIG;
+  public static final Name HMAC_MD5;
+  public static final Name HMAC;
+  public static final Name HMAC_SHA1;
+  public static final Name HMAC_SHA224;
+  public static final Name HMAC_SHA256;
+  public static final Name HMAC_SHA384;
+  public static final Name HMAC_SHA512;
+  public static Name algorithmToName(String alg);
+  public static String nameToAlgorithm(Name name);
+  public static final Duration FUDGE;
+  public TSIG(Name algorithm, Name name, String key);
+  public TSIG(Name algorithm, Name name, byte[] keyBytes);
+  public TSIG(Name algorithm, Name name, SecretKey key);
+  public TSIG(Name algorithm, Name name, SecretKey key, Clock clock);
+  public TSIG(Mac mac, Name name);
+  public TSIG(Name name, byte[] key);
+  public TSIG(Name algorithm, String name, String key);
+  public TSIG(String algorithm, String name, String key);
+  public TSIG(String name, String key);
+  public static TSIG fromString(String str);
+  public TSIGRecord generate(Message m, byte[] b, int error, TSIGRecord old);
+  public TSIGRecord generate(Message m, byte[] b, int error, TSIGRecord old, boolean fullSignature);
+  public void apply(Message m, TSIGRecord old);
+  public void apply(Message m, int error, TSIGRecord old);
+  public void apply(Message m, TSIGRecord old, boolean fullSignature);
+  public void apply(Message m, int error, TSIGRecord old, boolean fullSignature);
+  public void applyStream(Message m, TSIGRecord old, boolean fullSignature);
+  public byte verify(Message m, byte[] b, int length, TSIGRecord old);
+  public int verify(Message m, byte[] messageBytes, TSIGRecord requestTSIG);
+  public int verify(Message m, byte[] messageBytes, TSIGRecord requestTSIG, boolean fullSignature);
+  public int recordLength();
+}
+
+// public API of org.xbill.DNS.TSIGRecord
+public class TSIGRecord extends Record {
+  public TSIGRecord(Name name, int dclass, long ttl, Name alg, Date timeSigned, int fudge, byte[] signature, int originalID, int error, byte[] other);
+  public TSIGRecord(Name name, int dclass, long ttl, Name alg, Instant timeSigned, Duration fudge, byte[] signature, int originalID, int error, byte[] other);
+  protected void rrFromWire(DNSInput in) throws IOException;
+  protected void rdataFromString(Tokenizer st, Name origin) throws IOException;
+  protected String rrToString();
+  public Name getAlgorithm();
+  public Instant getTimeSigned();
+  public Duration getFudge();
+  public byte[] getSignature();
+  public int getOriginalID();
+  public int getError();
+  public byte[] getOther();
+  protected void rrToWire(DNSOutput out, Compression c, boolean canonical);
+}
+
+// public API of org.xbill.DNS.Resolver
+public interface Resolver {
+   void setPort(int port);
+   void setTCP(boolean flag);
+   void setIgnoreTruncation(boolean flag);
+  default void setEDNS(int version);
+   void setEDNS(int version, int payloadSize, int flags, List<EDNSOption> options);
+  default void setEDNS(int version, int payloadSize, int flags, EDNSOption... options);
+   void setTSIGKey(TSIG key);
+  default void setTimeout(int secs, int msecs);
+  default void setTimeout(int secs);
+   void setTimeout(Duration timeout);
+  default Duration getTimeout();
+  default Message send(Message query) throws IOException;
+  default CompletionStage<Message> sendAsync(Message query);
+  default CompletionStage<Message> sendAsync(Message query, Executor executor);
+  default Object sendAsync(Message query, ResolverListener listener);
+}
+
+// public API of org.xbill.DNS.Name
+public class Name implements Comparable<Name>,Serializable {
+  public static final Name root;
+  public static final Name empty;
+  public Name(String s, Name origin) throws TextParseException;
+  public Name(String s) throws TextParseException;
+  public static Name fromString(String s, Name origin) throws TextParseException;
+  public static Name fromString(String s) throws TextParseException;
+  public static Name fromConstantString(String s);
+  public Name(DNSInput in) throws WireParseException;
+  public Name(byte[] b) throws IOException;
+  public Name(Name src, int n);
+  public static Name concatenate(Name prefix, Name suffix) throws NameTooLongException;
+  public Name relativize(Name origin);
+  public Name wild(int n);
+  public Name canonicalize();
+  public Name fromDNAME(DNAMERecord dname) throws NameTooLongException;
+  public boolean isWild();
+  public boolean isAbsolute();
+  public short length();
+  public int labels();
+  public boolean subdomain(Name domain);
+  public String toString(boolean omitFinalDot);
+  public String toString();
+  public byte[] getLabel(int n);
+  public String getLabelString(int n);
+  public void toWire(DNSOutput out, Compression c);
+  public byte[] toWire();
+  public void toWireCanonical(DNSOutput out);
+  public byte[] toWireCanonical();
+  public void toWire(DNSOutput out, Compression c, boolean canonical);
+  public boolean equals(Object arg);
+  public int hashCode();
+  public int compareTo(Name arg);
+}
+
+// public API of org.xbill.DNS.OPTRecord
+public class OPTRecord extends Record {
+  public OPTRecord(int payloadSize, int xrcode, int version, int flags, EDNSOption... options);
+  public OPTRecord(int payloadSize, int xrcode, int version, int flags, List<EDNSOption> options);
+  public OPTRecord(int payloadSize, int xrcode, int version, int flags);
+  public OPTRecord(int payloadSize, int xrcode, int version);
+  protected void rrFromWire(DNSInput in) throws IOException;
+  protected void rdataFromString(Tokenizer st, Name origin) throws IOException;
+  protected String rrToString();
+  public String toString();
+  public int getPayloadSize();
+  public int getExtendedRcode();
+  public int getVersion();
+  public int getFlags();
+  protected void rrToWire(DNSOutput out, Compression c, boolean canonical);
+  public List<EDNSOption> getOptions();
+  public List<EDNSOption> getOptions(int code);
+  public boolean equals(Object arg);
+  public int hashCode();
+}
+
+// public API of org.xbill.DNS.RRset
+public class RRset implements Serializable,Iterable<Record> {
+  public RRset();
+  public RRset(Record record);
+  public RRset(Record... records);
+  public RRset(Iterable<Record> records);
+  public RRset(RRset rrset);
+  public void addRR(RRSIGRecord r);
+  public void addRR(Record r);
+  public void deleteRR(RRSIGRecord r);
+  public void deleteRR(Record r);
+  public void clear();
+  public List<Record> rrs(boolean cycle);
+  public List<Record> rrs();
+  public List<RRSIGRecord> sigs();
+  public int size();
+  public int sigSize();
+  public boolean isEmpty();
+  public Name getName();
+  public int getType();
+  public int getDClass();
+  public long getTTL();
+  public Record first();
+  public String toString();
+  public Iterator<Record> iterator();
+}
+
+// public API of org.xbill.DNS.DNSOutput
+public class DNSOutput {
+  public DNSOutput(int size);
+  public DNSOutput();
+  public int current();
+  public void jump(int index);
+  public void save();
+  public void restore();
+  public void writeU8(int val);
+  public void writeU16(int val);
+  public void writeU16At(int val, int where);
+  public void writeU32(long val);
+  public void writeByteArray(byte[] b, int off, int len);
+  public void writeByteArray(byte[] b);
+  public void writeCountedString(byte[] s);
+  public byte[] toByteArray();
+}
+
+// public API of org.xbill.DNS.Compression
+public class Compression {
+  public Compression();
+  public void add(int pos, Name name);
+  public int get(Name name);
+}
+
+// public API of org.xbill.DNS.WireParseException
+public class WireParseException extends IOException {
+  public WireParseException();
+  public WireParseException(String s);
+  public WireParseException(String s, Throwable cause);
+}
+

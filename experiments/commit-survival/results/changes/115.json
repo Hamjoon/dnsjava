@@ -1,0 +1,66 @@
+{
+  "index": 115,
+  "sha": "bb5992421f2aed35396ffb7a5b8a262bb1a5628f",
+  "parent": "be8d4470645d28395f72416f86bb03f4c26c47ee",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/DNSSEC.java": [
+      240,
+      242,
+      244,
+      246,
+      248,
+      250
+    ],
+    "src/main/java/org/xbill/DNS/SSHFPRecord.java": [],
+    "src/main/java/org/xbill/DNS/TSIG.java": [
+      148,
+      149,
+      150,
+      151,
+      152,
+      153
+    ],
+    "src/main/java/org/xbill/DNS/ZoneMDRecord.java": [
+      86,
+      88
+    ]
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/DNSSEC.java": [
+      240,
+      242,
+      244,
+      246,
+      248,
+      250
+    ],
+    "src/main/java/org/xbill/DNS/DigestLengths.java": [],
+    "src/main/java/org/xbill/DNS/SSHFPRecord.java": [
+      61,
+      69,
+      77,
+      78,
+      82,
+      83,
+      84,
+      87,
+      90,
+      92,
+      94,
+      96
+    ],
+    "src/main/java/org/xbill/DNS/TSIG.java": [
+      148,
+      149,
+      150,
+      151,
+      152,
+      153
+    ],
+    "src/main/java/org/xbill/DNS/ZoneMDRecord.java": [
+      86,
+      88
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/DNSSEC.java b/src/main/java/org/xbill/DNS/DNSSEC.java\nindex ff8e7efa..8e7140b3 100644\n--- a/src/main/java/org/xbill/DNS/DNSSEC.java\n+++ b/src/main/java/org/xbill/DNS/DNSSEC.java\n@@ -240 +240 @@ public class DNSSEC {\n-      algLengths.put(SHA1, 20);\n+      algLengths.put(SHA1, DigestLengths.SHA1);\n@@ -242 +242 @@ public class DNSSEC {\n-      algLengths.put(SHA256, 32);\n+      algLengths.put(SHA256, DigestLengths.SHA256);\n@@ -244 +244 @@ public class DNSSEC {\n-      algLengths.put(GOST3411, 32);\n+      algLengths.put(GOST3411, DigestLengths.GOST3411);\n@@ -246 +246 @@ public class DNSSEC {\n-      algLengths.put(SHA384, 48);\n+      algLengths.put(SHA384, DigestLengths.SHA384);\n@@ -248 +248 @@ public class DNSSEC {\n-      algLengths.put(GOST3411_12, 64);\n+      algLengths.put(GOST3411_12, DigestLengths.GOST3411_12);\n@@ -250 +250 @@ public class DNSSEC {\n-      algLengths.put(SM3, 32);\n+      algLengths.put(SM3, DigestLengths.SM3);\ndiff --git a/src/main/java/org/xbill/DNS/DigestLengths.java b/src/main/java/org/xbill/DNS/DigestLengths.java\nnew file mode 100644\nindex 00000000..9a9ff439\n--- /dev/null\n+++ b/src/main/java/org/xbill/DNS/DigestLengths.java\n@@ -0,0 +1,18 @@\n+// SPDX-License-Identifier: BSD-3-Clause\n+package org.xbill.DNS;\n+\n+import lombok.experimental.UtilityClass;\n+\n+/** Constants for common Hash/Digest lengths. */\n+@UtilityClass\n+class DigestLengths {\n+  static final int MD5 = 16;\n+  static final int SHA1 = 20;\n+  static final int SHA224 = 28;\n+  static final int SHA256 = 32;\n+  static final int SHA384 = 48;\n+  static final int SHA512 = 64;\n+  static final int GOST3411 = 32;\n+  static final int GOST3411_12 = 64;\n+  static final int SM3 = 32;\n+}\ndiff --git a/src/main/java/org/xbill/DNS/SSHFPRecord.java b/src/main/java/org/xbill/DNS/SSHFPRecord.java\nindex 4d7e9715..3025f1aa 100644\n--- a/src/main/java/org/xbill/DNS/SSHFPRecord.java\n+++ b/src/main/java/org/xbill/DNS/SSHFPRecord.java\n@@ -6,0 +7 @@ import java.io.IOException;\n+import java.util.function.Function;\n@@ -21 +22,12 @@ public class SSHFPRecord extends Record {\n-    public static final int DSS = 2;\n+\n+    /**\n+     * Use {@link #DSA}; DSS was a typo in RFC 4255.\n+     *\n+     * @see <a href=\"https://errata.rfc-editor.org/eid6266/\">Errata-ID: 6266</a>\n+     */\n+    @Deprecated public static final int DSS = 2;\n+\n+    public static final int DSA = 2;\n+    public static final int ECDSA = 3;\n+    public static final int ED25519 = 4;\n+    public static final int ED448 = 6;\n@@ -27,0 +40 @@ public class SSHFPRecord extends Record {\n+    public static final int SHA256 = 2;\n@@ -47,0 +61 @@ public class SSHFPRecord extends Record {\n+    validateFingerprintLength(IllegalArgumentException::new);\n@@ -54,0 +69 @@ public class SSHFPRecord extends Record {\n+    validateFingerprintLength(WireParseException::new);\n@@ -61,0 +77,21 @@ public class SSHFPRecord extends Record {\n+    validateFingerprintLength(st::exception);\n+  }\n+\n+  private <T extends Throwable> void validateFingerprintLength(Function<String, T> exceptionCreator)\n+      throws T {\n+    int expectedLength = fingerprintLength(digestType);\n+    if (expectedLength >= 0 && fingerprint.length != expectedLength) {\n+      throw exceptionCreator.apply(\n+          \"Expected \" + expectedLength + \" fingerprint bytes, got \" + fingerprint.length);\n+    }\n+  }\n+\n+  private static int fingerprintLength(int digestType) {\n+    switch (digestType) {\n+      case Digest.SHA1:\n+        return DigestLengths.SHA1;\n+      case Digest.SHA256:\n+        return DigestLengths.SHA256;\n+      default:\n+        return -1;\n+    }\ndiff --git a/src/main/java/org/xbill/DNS/TSIG.java b/src/main/java/org/xbill/DNS/TSIG.java\nindex 4d189c0d..c3bf7067 100644\n--- a/src/main/java/org/xbill/DNS/TSIG.java\n+++ b/src/main/java/org/xbill/DNS/TSIG.java\n@@ -148,6 +148,6 @@ public class TSIG {\n-    lengths.put(HMAC_MD5, 16);\n-    lengths.put(HMAC_SHA1, 20);\n-    lengths.put(HMAC_SHA224, 28);\n-    lengths.put(HMAC_SHA256, 32);\n-    lengths.put(HMAC_SHA384, 48);\n-    lengths.put(HMAC_SHA512, 64);\n+    lengths.put(HMAC_MD5, DigestLengths.MD5);\n+    lengths.put(HMAC_SHA1, DigestLengths.SHA1);\n+    lengths.put(HMAC_SHA224, DigestLengths.SHA224);\n+    lengths.put(HMAC_SHA256, DigestLengths.SHA256);\n+    lengths.put(HMAC_SHA384, DigestLengths.SHA384);\n+    lengths.put(HMAC_SHA512, DigestLengths.SHA512);\ndiff --git a/src/main/java/org/xbill/DNS/ZoneMDRecord.java b/src/main/java/org/xbill/DNS/ZoneMDRecord.java\nindex 14e39ddb..adf41892 100644\n--- a/src/main/java/org/xbill/DNS/ZoneMDRecord.java\n+++ b/src/main/java/org/xbill/DNS/ZoneMDRecord.java\n@@ -86 +86 @@ public class ZoneMDRecord extends Record {\n-      hashLengths.put(SHA384, 48);\n+      hashLengths.put(SHA384, DigestLengths.SHA384);\n@@ -88 +88 @@ public class ZoneMDRecord extends Record {\n-      hashLengths.put(SHA512, 64);\n+      hashLengths.put(SHA512, DigestLengths.SHA512);"
+}

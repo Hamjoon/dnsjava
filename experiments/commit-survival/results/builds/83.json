@@ -1,0 +1,67 @@
+{
+  "index": 83,
+  "sha": "4b84d92812c9335dc271633ce045028a68f0108f",
+  "build": "ok",
+  "attempts": [
+    {
+      "command": [
+        "mvn",
+        "-q",
+        "-o",
+        "-DskipTests",
+        "compile"
+      ],
+      "cwd": "/repo/experiments/commit-survival/work/checkouts/83",
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 17.24,
+      "log": "results/builds/logs/83-1.txt"
+    }
+  ],
+  "input_sha256": "4f0c68cab6f3dfd397626d8bf9ed7054251ba40dbc2542296338247b579dca88",
+  "pom_sha256": "6eb95218b4ce57c83de8b806cbf8efaf3bb090cc2bd40997ca110036f7bee020",
+  "classpath": "work/classpaths/6eb95218b4ce57c83de8b806cbf8efaf3bb090cc2bd40997ca110036f7bee020.txt",
+  "classpath_attempts": [
+    {
+      "command": [
+        "mvn",
+        "-q",
+        "-o",
+        "dependency:go-offline"
+      ],
+      "cwd": "/repo/experiments/commit-survival/work/checkouts/83",
+      "exit_code": 1,
+      "timeout": false,
+      "seconds": 1.48,
+      "log": "results/builds/logs/classpath-83/go-offline-e5bf1ac22ee44ecea639cc3b2f4ec513/1.txt"
+    },
+    {
+      "command": [
+        "mvn",
+        "-q",
+        "-U",
+        "dependency:go-offline"
+      ],
+      "cwd": "/repo/experiments/commit-survival/work/checkouts/83",
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 2.802,
+      "log": "results/builds/logs/classpath-83/go-offline-e5bf1ac22ee44ecea639cc3b2f4ec513/2.txt"
+    },
+    {
+      "command": [
+        "mvn",
+        "-q",
+        "-o",
+        "dependency:build-classpath",
+        "-DincludeScope=test",
+        "-Dmdep.outputFile=/repo/experiments/commit-survival/work/classpaths/6eb95218b4ce57c83de8b806cbf8efaf3bb090cc2bd40997ca110036f7bee020-1559553ca3594e4f9f60b8e396044d63.tmp"
+      ],
+      "cwd": "/repo/experiments/commit-survival/work/checkouts/83",
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 2.205,
+      "log": "results/builds/logs/classpath-83/build-classpath-793d7011181e4bf89894b07fbc255568/1.txt"
+    }
+  ]
+}

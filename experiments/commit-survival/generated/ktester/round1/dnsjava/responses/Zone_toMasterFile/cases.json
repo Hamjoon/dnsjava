@@ -1,0 +1,112 @@
+[
+  {
+    "group": "Empty zone",
+    "cases": [
+      {
+        "input": [],
+        "expected": "",
+        "description": "A newly created Zone with no origin and no data should produce an empty string. The method iterates over an empty map and never calls nodeToString."
+      }
+    ]
+  },
+  {
+    "group": "Origin node only",
+    "cases": [
+      {
+        "input": [],
+        "expected": "ORIGIN_NODE\n",
+        "description": "Zone with a non\u2011null originNode and an empty data map. The method should invoke nodeToString once for the originNode and return its string representation only."
+      }
+    ]
+  },
+  {
+    "group": "Origin node plus one additional node",
+    "cases": [
+      {
+        "input": [],
+        "expected": "ORIGIN_NODE\nADDITIONAL_NODE\n",
+        "description": "Zone where originNode is set and data contains a single entry whose key is different from the origin. The method should serialize the originNode first, then the additional node, preserving order."
+      }
+    ]
+  },
+  {
+    "group": "Multiple nodes with origin excluded",
+    "cases": [
+      {
+        "input": [],
+        "expected": "ORIGIN_NODE\nNODE_A\nNODE_B\nNODE_C\n",
+        "description": "Zone with originNode and three distinct data entries (keys A, B, C) none of which equal the origin. All nodes must be serialized after the originNode, in the natural order of the TreeMap."
+      }
+    ]
+  },
+  {
+    "group": "Data contains only the origin key",
+    "cases": [
+      {
+        "input": [],
+        "expected": "ORIGIN_NODE\n",
+        "description": "Zone where data contains an entry whose key equals the origin. The loop must skip this entry, resulting in output that contains only the originNode serialization."
+      }
+    ]
+  },
+  {
+    "group": "Null originNode handling",
+    "cases": [
+      {
+        "input": [],
+        "expected": "NODE_X\n",
+        "description": "Zone with a null originNode (nodeToString should safely ignore null) and a single data entry X. The method should produce output only for the data node X."
+      }
+    ]
+  },
+  {
+    "group": "Null origin and null originNode",
+    "cases": [
+      {
+        "input": [],
+        "expected": "",
+        "description": "Zone where both origin and originNode are null and data map is empty. The method should return an empty string without throwing NullPointerException."
+      }
+    ]
+  },
+  {
+    "group": "Null data map",
+    "cases": [
+      {
+        "input": [],
+        "expected": "NullPointerException",
+        "description": "Zone instance where the internal `data` map is deliberately set to null (e.g., via reflection). Calling `toMasterFile()` should attempt `data.entrySet()` and throw a NullPointerException."
+      }
+    ]
+  },
+  {
+    "group": "Null origin with populated data",
+    "cases": [
+      {
+        "input": [],
+        "expected": "NullPointerException",
+        "description": "Zone instance with a non\u2011null `data` map containing at least one entry, but the `origin` field is null. The loop executes `origin.equals(entry.getKey())`, which should raise a NullPointerException because `origin` is null."
+      }
+    ]
+  },
+  {
+    "group": "Null node value in data map",
+    "cases": [
+      {
+        "input": [],
+        "expected": "NullPointerException",
+        "description": "Zone instance where `data` contains an entry whose value (node) is null. The method will call `nodeToString(sb, entry.getValue())` with a null node, which is expected to cause a NullPointerException inside `nodeToString`."
+      }
+    ]
+  },
+  {
+    "group": "Null origin and null originNode with non\u2011empty data",
+    "cases": [
+      {
+        "input": [],
+        "expected": "NullPointerException",
+        "description": "Both `origin` and `originNode` are null, but `data` contains at least one entry. The first call `nodeToString(sb, originNode)` passes a null node (acceptable), but the subsequent loop evaluates `origin.equals(entry.getKey())` and throws NullPointerException because `origin` is null."
+      }
+    ]
+  }
+]

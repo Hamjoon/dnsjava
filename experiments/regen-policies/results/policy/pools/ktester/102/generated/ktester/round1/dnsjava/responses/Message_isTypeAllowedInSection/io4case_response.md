@@ -1,0 +1,151 @@
+{
+  "test_cases": [
+    {
+      "group": "Authority Section - Disallowed Types",
+      "cases": [
+        {
+          "input": [
+            { "parameter": "type", "value": "Type.A" },
+            { "parameter": "section", "value": "Section.AUTHORITY" }
+          ],
+          "expected": false,
+          "description": "A records are not permitted in the AUTHORITY section; with the default hardening property (true) the method should return false."
+        },
+        {
+          "input": [
+            { "parameter": "type", "value": "Type.MX" },
+            { "parameter": "section", "value": "Section.AUTHORITY" }
+          ],
+          "expected": false,
+          "description": "MX records are not part of the allowed list for AUTHORITY; expect false under default settings."
+        }
+      ]
+    },
+    {
+      "group": "Additional Section - Allowed Types",
+      "cases": [
+        {
+          "input": [
+            { "parameter": "type", "value": "Type.A" },
+            { "parameter": "section", "value": "Section.ADDITIONAL" }
+          ],
+          "expected": true,
+          "description": "A records are explicitly allowed in the ADDITIONAL section; method should return true."
+        },
+        {
+          "input": [
+            { "parameter": "type", "value": "Type.AAAA" },
+            { "parameter": "section", "value": "Section.ADDITIONAL" }
+          ],
+          "expected": true,
+          "description": "AAAA records are explicitly allowed in the ADDITIONAL section; method should return true."
+        }
+      ]
+    },
+    {
+      "group": "Additional Section - Disallowed Types",
+      "cases": [
+        {
+          "input": [
+            { "parameter": "type", "value": "Type.NS" },
+            { "parameter": "section", "value": "Section.ADDITIONAL" }
+          ],
+          "expected": false,
+          "description": "NS records are not permitted in the ADDITIONAL section; with default hardening the method returns false."
+        },
+        {
+          "input": [
+            { "parameter": "type", "value": "Type.SOA" },
+            { "parameter": "section", "value": "Section.ADDITIONAL" }
+          ],
+          "expected": false,
+          "description": "SOA records are not permitted in the ADDITIONAL section; expect false under default settings."
+        }
+      ]
+    },
+    {
+      "group": "Non‑Authority/Additional Sections",
+      "cases": [
+        {
+          "input": [
+            { "parameter": "type", "value": "Type.A" },
+            { "parameter": "section", "value": "Section.ANSWER" }
+          ],
+          "expected": false,
+          "description": "When the section is neither AUTHORITY nor ADDITIONAL (e.g., ANSWER), the method falls back to the hardening flag and returns false by default."
+        },
+        {
+          "input": [
+            { "parameter": "type", "value": "Type.NS" },
+            { "parameter": "section", "value": "Section.QUESTION" }
+          ],
+          "expected": false,
+          "description": "For the QUESTION section the method does not have a special allowance; with default hardening it returns false."
+        }
+      ]
+    },
+    {
+      "group": "System Property Harden Unknown Additional Disabled",
+      "cases": [
+        {
+          "input": [
+            { "parameter": "type", "value": "Type.MX" },
+            { "parameter": "section", "value": "Section.AUTHORITY" }
+          ],
+          "expected": true,
+          "description": "When the system property \"dnsjava.harden_unknown_additional\" is set to \"false\", the method returns true for any type/section combination that is not explicitly allowed."
+        },
+        {
+          "input": [
+            { "parameter": "type", "value": "Type.CNAME" },
+            { "parameter": "section", "value": "Section.ADDITIONAL" }
+          ],
+          "expected": true,
+          "description": "With hardening disabled, even a disallowed type like CNAME in ADDITIONAL yields true."
+        }
+      ]
+    },
+    {
+      "group": "Invalid Type Handling",
+      "cases": [
+        {
+          "input": [
+            { "parameter": "type", "value": "-1" },
+            { "parameter": "section", "value": "Section.AUTHORITY" }
+          ],
+          "expected": "IllegalArgumentException",
+          "description": "Type.check should reject negative values; the method is expected to throw IllegalArgumentException."
+        },
+        {
+          "input": [
+            { "parameter": "type", "value": "99999" },
+            { "parameter": "section", "value": "Section.ADDITIONAL" }
+          ],
+          "expected": "IllegalArgumentException",
+          "description": "An out‑of‑range type code triggers Type.check to throw IllegalArgumentException."
+        }
+      ]
+    },
+    {
+      "group": "Invalid Section Handling",
+      "cases": [
+        {
+          "input": [
+            { "parameter": "type", "value": "Type.A" },
+            { "parameter": "section", "value": "-1" }
+          ],
+          "expected": "IllegalArgumentException",
+          "description": "Section.check should reject an invalid section index; the method must propagate IllegalArgumentException."
+        },
+        {
+          "input": [
+            { "parameter": "type", "value": "Type.A" },
+            { "parameter": "section", "value": "999" }
+          ],
+          "expected": "IllegalArgumentException",
+          "description": "A section value outside the defined range causes Section.check to throw IllegalArgumentException."
+        }
+      ]
+    }
+  ]
+}

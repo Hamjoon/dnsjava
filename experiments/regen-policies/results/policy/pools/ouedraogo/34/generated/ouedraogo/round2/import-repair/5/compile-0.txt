@@ -1,0 +1,11 @@
+/repo/experiments/regen-policies/results/policy/pools/ouedraogo/34/generated/ouedraogo/round2/sources/TSIG/CoT/TSIGTest.java:66: error: cannot find symbol
+    private static final Clock FIXED_CLOCK = Clock.fixed(Instant.parse("2023-01-01T00:00:00Z"), ZoneOffset.UTC);
+                                                                                                ^
+  symbol:   variable ZoneOffset
+  location: class TSIGTest
+/repo/experiments/regen-policies/results/policy/pools/ouedraogo/34/generated/ouedraogo/round2/sources/TSIG/CoT/TSIGTest.java:126: error: alg has private access in TSIG
+        assertEquals(TSIG.HMAC_MD5, tsig.alg);
+                                        ^
+Note: /repo/experiments/regen-policies/results/policy/pools/ouedraogo/34/generated/ouedraogo/round2/sources/TSIG/CoT/TSIGTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+2 errors

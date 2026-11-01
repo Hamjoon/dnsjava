@@ -1,0 +1,55 @@
+class,method,signature,line
+org.xbill.DNS.Message,newQuery,newQuery(Record),82
+org.xbill.DNS.Message,newUpdate,newUpdate(Name),96
+org.xbill.DNS.Message,setHeader,setHeader(Header),161
+org.xbill.DNS.Message,getHeader,getHeader(),170
+org.xbill.DNS.Message,addRecord,"addRecord(Record, int)",180
+org.xbill.DNS.Message,removeRecord,"removeRecord(Record, int)",194
+org.xbill.DNS.Message,removeAllRecords,removeAllRecords(int),209
+org.xbill.DNS.Message,findRecord,"findRecord(Record, int)",220
+org.xbill.DNS.Message,findRecord,findRecord(Record),230
+org.xbill.DNS.Message,findRRset,"findRRset(Name, int, int)",245
+org.xbill.DNS.Message,findRRset,"findRRset(Name, int)",264
+org.xbill.DNS.Message,getQuestion,getQuestion(),276
+org.xbill.DNS.Message,getTSIG,getTSIG(),291
+org.xbill.DNS.Message,getGeneratedTSIG,getGeneratedTSIG(),310
+org.xbill.DNS.Message,isSigned,isSigned(),319
+org.xbill.DNS.Message,isVerified,isVerified(),328
+org.xbill.DNS.Message,getOPT,getOPT(),338
+org.xbill.DNS.Message,getRcode,getRcode(),348
+org.xbill.DNS.Message,getSection,getSection(int),380
+org.xbill.DNS.Message,getSectionRRsets,getSectionRRsets(int),399
+org.xbill.DNS.Message,toWire,toWire(DNSOutput),429
+org.xbill.DNS.Message,toWire,toWire(),541
+org.xbill.DNS.Message,toWire,toWire(int),564
+org.xbill.DNS.Message,setTSIG,setTSIG(TSIG),577
+org.xbill.DNS.Message,setTSIG,"setTSIG(TSIG, int, TSIGRecord)",588
+org.xbill.DNS.Message,numBytes,numBytes(),598
+org.xbill.DNS.Message,sectionToString,sectionToString(int),607
+org.xbill.DNS.Message,toString,toString(),637
+org.xbill.DNS.Message,clone,clone(),678
+org.xbill.DNS.Message,setResolver,setResolver(Resolver),700
+org.xbill.DNS.Message,getResolver,getResolver(),705
+org.xbill.DNS.TSIG,algorithmToName,algorithmToName(String),82
+org.xbill.DNS.TSIG,generate,"generate(Message, byte[], int, TSIGRecord)",353
+org.xbill.DNS.TSIG,generate,"generate(Message, byte[], int, TSIGRecord, boolean)",371
+org.xbill.DNS.TSIG,apply,"apply(Message, TSIGRecord)",476
+org.xbill.DNS.TSIG,apply,"apply(Message, int, TSIGRecord)",487
+org.xbill.DNS.TSIG,apply,"apply(Message, TSIGRecord, boolean)",501
+org.xbill.DNS.TSIG,apply,"apply(Message, int, TSIGRecord, boolean)",516
+org.xbill.DNS.TSIG,verify,"verify(Message, byte[], TSIGRecord)",574
+org.xbill.DNS.TSIG,verify,"verify(Message, byte[], TSIGRecord, boolean)",597
+org.xbill.DNS.TSIG,recordLength,recordLength(),756
+org.xbill.DNS.Zone,getOrigin,getOrigin(),215
+org.xbill.DNS.Zone,getNS,getNS(),220
+org.xbill.DNS.Zone,getSOA,getSOA(),225
+org.xbill.DNS.Zone,getDClass,getDClass(),230
+org.xbill.DNS.Zone,findRecords,"findRecords(Name, int)",454
+org.xbill.DNS.Zone,findExactMatch,"findExactMatch(Name, int)",466
+org.xbill.DNS.Zone,addRRset,addRRset(RRset),480
+org.xbill.DNS.Zone,addRecord,addRecord(T),491
+org.xbill.DNS.Zone,removeRecord,removeRecord(Record),511
+org.xbill.DNS.Zone,iterator,iterator(),528
+org.xbill.DNS.Zone,AXFR,AXFR(),537
+org.xbill.DNS.Zone,toMasterFile,toMasterFile(),550
+org.xbill.DNS.Zone,toString,toString(),562

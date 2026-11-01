@@ -1,0 +1,312 @@
+[
+  {
+    "group": "Normal operation \u2013 simple query",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "maxLength",
+            "value": 512
+          }
+        ],
+        "expected": "byte[] whose length is <= 512 and contains a valid DNS wire format for a message with a single question record and no answer/authority/additional sections",
+        "description": "A freshly created Message containing only a question Record (created via Message.newQuery(questionRecord)). The toWire(512) call should succeed and produce a wire\u2011format byte array that fits within the classic DNS UDP size limit."
+      }
+    ]
+  },
+  {
+    "group": "Normal operation \u2013 message with multiple sections",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "maxLength",
+            "value": 4096
+          }
+        ],
+        "expected": "byte[] whose length is <= 4096 and includes the header, question, answer, authority and additional sections in correct order",
+        "description": "Message built with a question, two answer records, one authority record and one OPT (EDNS) record. toWire(4096) must serialize all sections and respect the supplied maxLength."
+      }
+    ]
+  },
+  {
+    "group": "Maximum length handling",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "maxLength",
+            "value": 100
+          }
+        ],
+        "expected": "IllegalArgumentException",
+        "description": "Message contains enough records that the wire format would exceed 100 bytes. The method should detect the overflow and throw an IllegalArgumentException (or IOException wrapped as RuntimeException) indicating the message is too large for the supplied maxLength."
+      },
+      {
+        "input": [
+          {
+            "parameter": "maxLength",
+            "value": 65535
+          }
+        ],
+        "expected": "byte[] whose length equals Message.MAXLENGTH (65535) when the message is deliberately filled to the maximum allowed size",
+        "description": "Create a Message whose total wire size is exactly 65535 bytes (e.g., by adding many dummy records). toWire(Message.MAXLENGTH) must succeed and return a byte array of length 65535."
+      }
+    ]
+  },
+  {
+    "group": "TSIG handling \u2013 unsigned message",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "maxLength",
+            "value": 1500
+          }
+        ],
+        "expected": "byte[] without a TSIG record at the end and size field reflects only the DNS payload",
+        "description": "Message has no TSIG set (tsigState == TSIG_UNSIGNED). toWire should serialize the message normally and not append any TSIG trailer."
+      }
+    ]
+  },
+  {
+    "group": "TSIG handling \u2013 signed message",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "maxLength",
+            "value": 1500
+          }
+        ],
+        "expected": "byte[] that ends with a TSIGRecord and whose total length does not exceed maxLength",
+        "description": "Message is signed by calling setTSIG(key). The internal tsigState becomes TSIG_SIGNED. toWire must append the TSIG RR at the end of the wire format. The test verifies that the last 10\u2011+ bytes correspond to a TSIG RR and that the overall length respects the supplied maxLength."
+      }
+    ]
+  },
+  {
+    "group": "TSIG handling \u2013 intermediate state (partial signing)",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "maxLength",
+            "value": 1500
+          }
+        ],
+        "expected": "IllegalStateException",
+        "description": "Message has tsigState == TSIG_INTERMEDIATE (e.g., after calling toWire(out) once but before final signing). Attempting a second toWire(maxLength) should fail because the message is in an inconsistent state."
+      }
+    ]
+  },
+  {
+    "group": "Error conditions \u2013 null maxLength (negative value)",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "maxLength",
+            "value": -1
+          }
+        ],
+        "expected": "IllegalArgumentException",
+        "description": "Passing a negative maxLength is illegal; the method should immediately throw an IllegalArgumentException before attempting any serialization."
+      }
+    ]
+  },
+  {
+    "group": "Error conditions \u2013 message with malformed header",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "maxLength",
+            "value": 512
+          }
+        ],
+        "expected": "IOException",
+        "description": "Header fields (e.g., opcode, rcode) are set to values that are not permitted by the DNS spec. During serialization the method should raise an IOException indicating an invalid header."
+      }
+    ]
+  },
+  {
+    "group": "Boundary condition \u2013 maxLength exactly required size",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "maxLength",
+            "value": "wireSize"
+          }
+        ],
+        "expected": "byte[] whose length equals wireSize and matches the output of toWire() without a maxLength argument",
+        "description": "Create a simple query Message (Message.newQuery(questionRecord)). Compute its wire size by calling toWire() with the default overload, store that length as `wireSize`, then call toWire(wireSize). The method should succeed and return a byte array of exactly that length, confirming that the boundary check is inclusive."
+      }
+    ]
+  },
+  {
+    "group": "Zero maxLength handling",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "maxLength",
+            "value": 0
+          }
+        ],
+        "expected": "IllegalArgumentException",
+        "description": "Passing a maxLength of 0 is illegal because a DNS message must contain at least the 12\u2011byte header. The method should throw IllegalArgumentException before any serialization occurs."
+      }
+    ]
+  },
+  {
+    "group": "Empty message (no question, no records)",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "maxLength",
+            "value": 512
+          }
+        ],
+        "expected": "byte[] of length 12 (only the DNS header) with all header fields set to zero except ID",
+        "description": "Instantiate a Message with the default constructor, do not add a question or any records. toWire(512) should produce a 12\u2011byte array representing an empty DNS message (header only)."
+      }
+    ]
+  },
+  {
+    "group": "Message containing only an OPT record (EDNS) and no question",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "maxLength",
+            "value": 256
+          }
+        ],
+        "expected": "byte[] whose length is >12 and contains an OPT RR in the additional section and no question section",
+        "description": "Create a Message, add an OPTRecord via setOPT(new OPTRecord(...)) without adding a question Record. toWire(256) must serialize the header followed directly by the OPT RR in the additional section. The resulting byte array should have the OPT RR at the end and the question count field should be zero."
+      }
+    ]
+  },
+  {
+    "group": "Signed message exceeding supplied maxLength",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "maxLength",
+            "value": 200
+          }
+        ],
+        "expected": "IllegalArgumentException",
+        "description": "Create a Message with enough records (e.g., 5 large TXT records) such that the unsigned wire size is 180 bytes. Sign the message with setTSIG(key). The TSIG adds ~20 bytes, pushing the total to ~200+ bytes. Calling toWire(200) should detect the overflow and throw IllegalArgumentException."
+      }
+    ]
+  },
+  {
+    "group": "Internal state \u2013 size field reflects wire length",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "maxLength",
+            "value": 1024
+          }
+        ],
+        "expected": "Message.size equals the length of the returned byte[]",
+        "description": "After calling toWire(1024) on a Message with a mixture of sections, verify that the private `size` field (exposed via the public method numBytes() if available, or via reflection) matches the length of the byte array returned by toWire."
+      }
+    ]
+  },
+  {
+    "group": "Large message just under MAXLENGTH",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "maxLength",
+            "value": 65535
+          }
+        ],
+        "expected": "byte[] whose length is < 65535 (e.g., 65000) and serialization succeeds",
+        "description": "Populate a Message with many records so that its wire size is, for example, 65000 bytes (well under the limit). Call toWire(Message.MAXLENGTH). The method should succeed and return a byte array of length 65000, confirming that the implementation does not require the message to exactly fill the limit."
+      }
+    ]
+  },
+  {
+    "group": "maxLength exceeds Message.MAXLENGTH",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "maxLength",
+            "value": 70000
+          }
+        ],
+        "expected": "IllegalArgumentException",
+        "description": "Calling toWire with a maxLength larger than the protocol limit (Message.MAXLENGTH = 65535) should be rejected. The method must validate the upper bound and throw IllegalArgumentException before any serialization occurs."
+      }
+    ]
+  },
+  {
+    "group": "Record serialization failure \u2013 IOException",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "maxLength",
+            "value": 512
+          }
+        ],
+        "expected": "IOException",
+        "description": "Add a custom Record implementation whose wire() method deliberately throws an IOException (e.g., because the RDATA length is inconsistent). When toWire attempts to serialize this record, the IOException should propagate (or be wrapped) and cause the test to observe an IOException."
+      }
+    ]
+  },
+  {
+    "group": "Null TSIG key \u2013 NullPointerException during signing",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "maxLength",
+            "value": 1024
+          }
+        ],
+        "expected": "NullPointerException",
+        "description": "Invoke Message.setTSIG(null) to put the message into a signed state with a null key. Subsequent call to toWire(maxLength) will attempt to access the key and should throw a NullPointerException (or an IllegalStateException, depending on implementation). The test verifies that the method does not silently succeed."
+      }
+    ]
+  },
+  {
+    "group": "Message with malformed name (label length > 63) \u2013 IOException",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "maxLength",
+            "value": 1024
+          }
+        ],
+        "expected": "IOException",
+        "description": "Create a Record whose owner Name contains a label longer than 63 bytes (violating DNS name rules). When toWire serializes the name, it must detect the violation and throw an IOException indicating an invalid name."
+      }
+    ]
+  },
+  {
+    "group": "Message with duplicate sections causing IllegalArgumentException",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "maxLength",
+            "value": 1024
+          }
+        ],
+        "expected": "IllegalArgumentException",
+        "description": "Manually manipulate the internal section lists so that the same Record appears in two different sections (e.g., both answer and authority). The serialization logic checks for such inconsistencies and should raise an IllegalArgumentException."
+      }
+    ]
+  }
+]

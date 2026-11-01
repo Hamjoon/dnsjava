@@ -1,0 +1,57 @@
+{
+  "index": 13,
+  "sha": "74e827d7f6520f815050f1c10b7eded66f89d790",
+  "parent": "ce7f15baa7c88d8f37ac8f45e76be55f75752dcc",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/lookup/LookupFailedException.java": [
+      17,
+      21,
+      25,
+      26,
+      27,
+      38,
+      39,
+      40,
+      52
+    ],
+    "src/main/java/org/xbill/DNS/lookup/NoSuchDomainException.java": [
+      14
+    ],
+    "src/main/java/org/xbill/DNS/lookup/NoSuchRRSetException.java": [
+      14
+    ],
+    "src/main/java/org/xbill/DNS/lookup/RedirectOverflowException.java": []
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/lookup/LookupFailedException.java": [
+      22,
+      26,
+      30,
+      41,
+      53,
+      54,
+      58,
+      61
+    ],
+    "src/main/java/org/xbill/DNS/lookup/NoSuchDomainException.java": [
+      14,
+      15,
+      21
+    ],
+    "src/main/java/org/xbill/DNS/lookup/NoSuchRRSetException.java": [
+      14,
+      15,
+      21
+    ],
+    "src/main/java/org/xbill/DNS/lookup/RedirectLoopException.java": [
+      11,
+      12
+    ],
+    "src/main/java/org/xbill/DNS/lookup/RedirectOverflowException.java": [
+      37,
+      38,
+      39
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/lookup/LookupFailedException.java b/src/main/java/org/xbill/DNS/lookup/LookupFailedException.java\nindex 81e773af..f45fb618 100644\n--- a/src/main/java/org/xbill/DNS/lookup/LookupFailedException.java\n+++ b/src/main/java/org/xbill/DNS/lookup/LookupFailedException.java\n@@ -3,0 +4,2 @@ package org.xbill.DNS.lookup;\n+import lombok.AccessLevel;\n+import lombok.Getter;\n@@ -15,0 +18,3 @@ public class LookupFailedException extends RuntimeException {\n+  @Getter(AccessLevel.PACKAGE)\n+  private final boolean isAuthenticated;\n+\n@@ -17 +22 @@ public class LookupFailedException extends RuntimeException {\n-    this(null, null);\n+    this(null, null, null, 0, false);\n@@ -21 +26 @@ public class LookupFailedException extends RuntimeException {\n-    this(message, null);\n+    this(message, null, null, 0, false);\n@@ -25,3 +30 @@ public class LookupFailedException extends RuntimeException {\n-    super(message, inner);\n-    name = null;\n-    type = 0;\n+    this(message, inner, null, 0, false);\n@@ -38,3 +41 @@ public class LookupFailedException extends RuntimeException {\n-    super(\"Lookup for \" + name + \"/\" + Type.string(type) + \" failed\");\n-    this.name = name;\n-    this.type = type;\n+    this(\"Lookup for \" + name + \"/\" + Type.string(type) + \" failed\", name, type);\n@@ -44,2 +45,2 @@ public class LookupFailedException extends RuntimeException {\n-   * Construct a LookupFailedException that also specifies the name and type of the lookup that\n-   * failed.\n+   * Construct a LookupFailedException with a custom message that also specifies the name and type\n+   * of the lookup that failed.\n@@ -52 +53,6 @@ public class LookupFailedException extends RuntimeException {\n-    super(message);\n+    this(message, null, name, type, false);\n+  }\n+\n+  LookupFailedException(\n+      String message, Throwable inner, Name name, int type, boolean isAuthenticated) {\n+    super(message, inner);\n@@ -54,0 +61 @@ public class LookupFailedException extends RuntimeException {\n+    this.isAuthenticated = isAuthenticated;\ndiff --git a/src/main/java/org/xbill/DNS/lookup/NoSuchDomainException.java b/src/main/java/org/xbill/DNS/lookup/NoSuchDomainException.java\nindex e219c38d..f6a870db 100644\n--- a/src/main/java/org/xbill/DNS/lookup/NoSuchDomainException.java\n+++ b/src/main/java/org/xbill/DNS/lookup/NoSuchDomainException.java\n@@ -7,2 +7,2 @@ import org.xbill.DNS.Name;\n- * Thrown to indicate that no data is associated with the given name, as indicated by the NXDOMAIN\n- * response code as specified in RF2136 Section 2.2.\n+ * Thrown to indicate that no data is associated with the given name, as indicated by the {@link\n+ * org.xbill.DNS.Rcode#NXDOMAIN} response code as specified in RF2136 Section 2.2.\n@@ -14 +14,8 @@ public class NoSuchDomainException extends LookupFailedException {\n-    super(name, type);\n+    this(name, type, false);\n+  }\n+\n+  /**\n+   * @since 3.6\n+   */\n+  NoSuchDomainException(Name name, int type, boolean isAuthenticated) {\n+    super(null, null, name, type, isAuthenticated);\ndiff --git a/src/main/java/org/xbill/DNS/lookup/NoSuchRRSetException.java b/src/main/java/org/xbill/DNS/lookup/NoSuchRRSetException.java\nindex 0e466716..acc51e1b 100644\n--- a/src/main/java/org/xbill/DNS/lookup/NoSuchRRSetException.java\n+++ b/src/main/java/org/xbill/DNS/lookup/NoSuchRRSetException.java\n@@ -8 +8 @@ import org.xbill.DNS.Name;\n- * NXRRSET return code as specified in RFC2136 Section 2.2.\n+ * {@link org.xbill.DNS.Rcode#NXRRSET} return code as specified in RFC2136 Section 2.2.\n@@ -14 +14,8 @@ public class NoSuchRRSetException extends LookupFailedException {\n-    super(name, type);\n+    this(name, type, false);\n+  }\n+\n+  /**\n+   * @since 3.6\n+   */\n+  NoSuchRRSetException(Name name, int type, boolean isAuthenticated) {\n+    super(null, null, name, type, isAuthenticated);\ndiff --git a/src/main/java/org/xbill/DNS/lookup/RedirectLoopException.java b/src/main/java/org/xbill/DNS/lookup/RedirectLoopException.java\nnew file mode 100644\nindex 00000000..c32bba6b\n--- /dev/null\n+++ b/src/main/java/org/xbill/DNS/lookup/RedirectLoopException.java\n@@ -0,0 +1,13 @@\n+// SPDX-License-Identifier: BSD-3-Clause\n+package org.xbill.DNS.lookup;\n+\n+/**\n+ * Thrown if the lookup results in a loop of CNAME and/or DNAME indirections.\n+ *\n+ * @since 3.6\n+ */\n+public class RedirectLoopException extends RedirectOverflowException {\n+  public RedirectLoopException(int maxRedirects) {\n+    super(\"Detected a redirect loop\", maxRedirects);\n+  }\n+}\ndiff --git a/src/main/java/org/xbill/DNS/lookup/RedirectOverflowException.java b/src/main/java/org/xbill/DNS/lookup/RedirectOverflowException.java\nindex d93df0ef..6ba56fd8 100644\n--- a/src/main/java/org/xbill/DNS/lookup/RedirectOverflowException.java\n+++ b/src/main/java/org/xbill/DNS/lookup/RedirectOverflowException.java\n@@ -34,0 +35,5 @@ public class RedirectOverflowException extends LookupFailedException {\n+\n+  RedirectOverflowException(String message, int maxRedirects) {\n+    super(message);\n+    this.maxRedirects = maxRedirects;\n+  }"
+}

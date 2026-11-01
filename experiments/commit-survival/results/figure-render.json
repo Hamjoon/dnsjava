@@ -1,0 +1,14 @@
+{
+  "command": [
+    "java",
+    "-Djava.awt.headless=true",
+    "/survival-package/report/RenderFigure.java",
+    "/repo/experiments/commit-survival/results/figure1-survival-by-commit.svg",
+    "/repo/experiments/commit-survival/results/figure1-survival-by-commit.png"
+  ],
+  "cwd": "/repo/experiments/commit-survival/work/checkouts/0",
+  "exit_code": 0,
+  "timeout": false,
+  "seconds": 0.871,
+  "log": "results/figure-render.log"
+}

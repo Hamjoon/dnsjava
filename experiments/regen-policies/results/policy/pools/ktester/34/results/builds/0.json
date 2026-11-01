@@ -1,0 +1,67 @@
+{
+  "index": 0,
+  "sha": "fd1d7c9280986ebb219c421695a902559aaeda22",
+  "build": "ok",
+  "attempts": [
+    {
+      "command": [
+        "mvn",
+        "-q",
+        "-o",
+        "-DskipTests",
+        "compile"
+      ],
+      "cwd": "/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/checkouts/0",
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 6.557,
+      "log": "results/builds/logs/0-1.txt"
+    }
+  ],
+  "input_sha256": "2223f981ba636d4fb31dcbc6ad59a196af5c0e600f1493bea3a519ba1575c545",
+  "pom_sha256": "0a0300c34407a4e3c406e6111f123a64af7a5b0cb2b505295e0f363f87dcefe6",
+  "classpath": "work/classpaths/0a0300c34407a4e3c406e6111f123a64af7a5b0cb2b505295e0f363f87dcefe6.txt",
+  "classpath_attempts": [
+    {
+      "command": [
+        "mvn",
+        "-q",
+        "-o",
+        "dependency:go-offline"
+      ],
+      "cwd": "/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/checkouts/0",
+      "exit_code": 1,
+      "timeout": false,
+      "seconds": 2.499,
+      "log": "results/builds/logs/classpath-0/go-offline-bfd7ab7297584efa83e3678ace7f23ef/1.txt"
+    },
+    {
+      "command": [
+        "mvn",
+        "-q",
+        "-U",
+        "dependency:go-offline"
+      ],
+      "cwd": "/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/checkouts/0",
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 7.623,
+      "log": "results/builds/logs/classpath-0/go-offline-bfd7ab7297584efa83e3678ace7f23ef/2.txt"
+    },
+    {
+      "command": [
+        "mvn",
+        "-q",
+        "-o",
+        "dependency:build-classpath",
+        "-DincludeScope=test",
+        "-Dmdep.outputFile=/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/classpaths/0a0300c34407a4e3c406e6111f123a64af7a5b0cb2b505295e0f363f87dcefe6-bc78a5ecb6574bb393e5c17f9461e18c.tmp"
+      ],
+      "cwd": "/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/checkouts/0",
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 2.352,
+      "log": "results/builds/logs/classpath-0/build-classpath-1311eac41bea44b2815ee6e38a8879fa/1.txt"
+    }
+  ]
+}

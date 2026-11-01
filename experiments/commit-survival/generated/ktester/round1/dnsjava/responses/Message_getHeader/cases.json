@@ -1,0 +1,27 @@
+[
+  {
+    "group": "Message#getHeader",
+    "cases": [
+      {
+        "input": [],
+        "expected": "null",
+        "description": "A newly instantiated Message has no Header set. Calling getHeader() should return null."
+      },
+      {
+        "input": [],
+        "expected": "Header{id=0x1234, flags=0x8000}",
+        "description": "After creating a Header with known fields (e.g., id=0x1234, flags=0x8000) and assigning it to the Message via setHeader(Header), getHeader() must return the exact same Header instance (object identity)."
+      },
+      {
+        "input": [],
+        "expected": "Header{id=0xABCD, flags=0x0400}",
+        "description": "When a Message with a non\u2011null Header is cloned, the cloned Message\u2019s getHeader() should return a Header that is equal to the original\u2019s Header (either the same reference or an equivalent copy, depending on the clone implementation)."
+      },
+      {
+        "input": [],
+        "expected": "Header{id=0xFFFF, flags=0x0}",
+        "description": "Setting a Header that contains edge\u2011case values (maximum id, zero flags) and then invoking getHeader() must return a Header reflecting those exact values."
+      }
+    ]
+  }
+]

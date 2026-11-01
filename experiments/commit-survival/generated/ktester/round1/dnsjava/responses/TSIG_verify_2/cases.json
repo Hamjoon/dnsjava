@@ -1,0 +1,708 @@
+[
+  {
+    "group": "Null and Invalid Parameter Checks",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "null"
+          },
+          {
+            "parameter": "byte[] messageBytes",
+            "value": "new byte[0]"
+          },
+          {
+            "parameter": "TSIGRecord requestTSIG",
+            "value": "null"
+          },
+          {
+            "parameter": "boolean fullSignature",
+            "value": "false"
+          }
+        ],
+        "expected": "Rcode.FORMERR (or appropriate error code for missing TSIG record)",
+        "description": "Verify that the method returns a format error when the TSIG record argument is null."
+      },
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "mock Message (valid)"
+          },
+          {
+            "parameter": "byte[] messageBytes",
+            "value": "null"
+          },
+          {
+            "parameter": "TSIGRecord requestTSIG",
+            "value": "mock TSIGRecord (valid)"
+          },
+          {
+            "parameter": "boolean fullSignature",
+            "value": "false"
+          }
+        ],
+        "expected": "Rcode.FORMERR (or appropriate error code for missing message bytes)",
+        "description": "Verify that a null messageBytes array results in a format error."
+      },
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "null"
+          },
+          {
+            "parameter": "byte[] messageBytes",
+            "value": "null"
+          },
+          {
+            "parameter": "TSIGRecord requestTSIG",
+            "value": "null"
+          },
+          {
+            "parameter": "boolean fullSignature",
+            "value": "false"
+          }
+        ],
+        "expected": "Rcode.FORMERR",
+        "description": "All inputs null \u2013 the method should fail fast with a format error."
+      }
+    ]
+  },
+  {
+    "group": "Algorithm Name Mapping",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "mock Message"
+          },
+          {
+            "parameter": "byte[] messageBytes",
+            "value": "validMessageBytes"
+          },
+          {
+            "parameter": "TSIGRecord requestTSIG",
+            "value": "TSIGRecord with algorithm = \"HMAC-MD5.SIG-ALG.REG.INT.\""
+          },
+          {
+            "parameter": "boolean fullSignature",
+            "value": "false"
+          }
+        ],
+        "expected": "Rcode.NOERROR (or successful verification path)",
+        "description": "Valid algorithm name that maps to a known Name constant; should follow the normal verification flow."
+      },
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "mock Message"
+          },
+          {
+            "parameter": "byte[] messageBytes",
+            "value": "validMessageBytes"
+          },
+          {
+            "parameter": "TSIGRecord requestTSIG",
+            "value": "TSIGRecord with algorithm = \"UNKNOWN-ALG.\""
+          },
+          {
+            "parameter": "boolean fullSignature",
+            "value": "false"
+          }
+        ],
+        "expected": "Rcode.NOTIMP (or appropriate error for unsupported algorithm)",
+        "description": "Algorithm string that does not map to any known Name constant; method should return NOTIMP."
+      }
+    ]
+  },
+  {
+    "group": "Time\u2011Fudge Validation",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "Message with TSIG time = now - 100 seconds"
+          },
+          {
+            "parameter": "byte[] messageBytes",
+            "value": "validMessageBytes"
+          },
+          {
+            "parameter": "TSIGRecord requestTSIG",
+            "value": "TSIGRecord with time = now - 100 seconds"
+          },
+          {
+            "parameter": "boolean fullSignature",
+            "value": "false"
+          }
+        ],
+        "expected": "Rcode.NOERROR",
+        "description": "TSIG timestamp within the allowed fudge window (\u00b1300\u202fs); verification should succeed."
+      },
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "Message with TSIG time = now - 400 seconds"
+          },
+          {
+            "parameter": "byte[] messageBytes",
+            "value": "validMessageBytes"
+          },
+          {
+            "parameter": "TSIGRecord requestTSIG",
+            "value": "TSIGRecord with time = now - 400 seconds"
+          },
+          {
+            "parameter": "boolean fullSignature",
+            "value": "false"
+          }
+        ],
+        "expected": "Rcode.BADTIME",
+        "description": "TSIG timestamp older than the allowed fudge; method should return BADTIME."
+      },
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "Message with TSIG time = now + 400 seconds"
+          },
+          {
+            "parameter": "byte[] messageBytes",
+            "value": "validMessageBytes"
+          },
+          {
+            "parameter": "TSIGRecord requestTSIG",
+            "value": "TSIGRecord with time = now + 400 seconds"
+          },
+          {
+            "parameter": "boolean fullSignature",
+            "value": "false"
+          }
+        ],
+        "expected": "Rcode.BADTIME",
+        "description": "TSIG timestamp in the future beyond the fudge window; method should return BADTIME."
+      }
+    ]
+  },
+  {
+    "group": "Signature Verification",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "Message with correct MAC"
+          },
+          {
+            "parameter": "byte[] messageBytes",
+            "value": "validMessageBytes"
+          },
+          {
+            "parameter": "TSIGRecord requestTSIG",
+            "value": "TSIGRecord with matching signature"
+          },
+          {
+            "parameter": "boolean fullSignature",
+            "value": "false"
+          }
+        ],
+        "expected": "Rcode.NOERROR",
+        "description": "When the MAC computed over the message matches the TSIG signature, verification should succeed."
+      },
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "Message with altered payload"
+          },
+          {
+            "parameter": "byte[] messageBytes",
+            "value": "alteredMessageBytes"
+          },
+          {
+            "parameter": "TSIGRecord requestTSIG",
+            "value": "TSIGRecord with signature from original payload"
+          },
+          {
+            "parameter": "boolean fullSignature",
+            "value": "false"
+          }
+        ],
+        "expected": "Rcode.BADSIG",
+        "description": "If the computed MAC does not match the TSIG signature, the method should return BADSIG."
+      }
+    ]
+  },
+  {
+    "group": "Full\u2011Signature Flag Paths",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "Message with additional TSIG variables (e.g., error, other data)"
+          },
+          {
+            "parameter": "byte[] messageBytes",
+            "value": "validMessageBytes"
+          },
+          {
+            "parameter": "TSIGRecord requestTSIG",
+            "value": "TSIGRecord with error = 0"
+          },
+          {
+            "parameter": "boolean fullSignature",
+            "value": "true"
+          }
+        ],
+        "expected": "Rcode.NOERROR",
+        "description": "When fullSignature is true, the method includes extra fields (error, other data) in the MAC calculation; with correct data verification succeeds."
+      },
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "Message with mismatched error field"
+          },
+          {
+            "parameter": "byte[] messageBytes",
+            "value": "validMessageBytes"
+          },
+          {
+            "parameter": "TSIGRecord requestTSIG",
+            "value": "TSIGRecord with error = 1 (but MAC was generated with error = 0)"
+          },
+          {
+            "parameter": "boolean fullSignature",
+            "value": "true"
+          }
+        ],
+        "expected": "Rcode.BADSIG",
+        "description": "Full\u2011signature mode but the error field used for MAC generation differs; verification must fail with BADSIG."
+      }
+    ]
+  },
+  {
+    "group": "Exception Handling (Mac initialization failure)",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "Message with algorithm = \"HMAC-MD5.SIG-ALG.REG.INT.\""
+          },
+          {
+            "parameter": "byte[] messageBytes",
+            "value": "validMessageBytes"
+          },
+          {
+            "parameter": "TSIGRecord requestTSIG",
+            "value": "TSIGRecord with key that triggers GeneralSecurityException"
+          },
+          {
+            "parameter": "boolean fullSignature",
+            "value": "false"
+          }
+        ],
+        "expected": "Rcode.NOTAUTH (or appropriate error indicating MAC init failure)",
+        "description": "If creating the Mac instance throws a GeneralSecurityException (e.g., unsupported algorithm), the method should catch it and return NOTAUTH."
+      }
+    ]
+  },
+  {
+    "group": "Empty MAC Handling",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "mock Message (valid, no TSIG variables)"
+          },
+          {
+            "parameter": "byte[] messageBytes",
+            "value": "validMessageBytes"
+          },
+          {
+            "parameter": "TSIGRecord requestTSIG",
+            "value": "TSIGRecord with correct algorithm, key, time, but mac = new byte[0]"
+          },
+          {
+            "parameter": "boolean fullSignature",
+            "value": "false"
+          }
+        ],
+        "expected": "Rcode.BADSIG",
+        "description": "An empty MAC (zero\u2011length signature) cannot match any computed MAC, so verification must fail with BADSIG."
+      },
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "mock Message (valid)"
+          },
+          {
+            "parameter": "byte[] messageBytes",
+            "value": "validMessageBytes"
+          },
+          {
+            "parameter": "TSIGRecord requestTSIG",
+            "value": "TSIGRecord with mac = null"
+          },
+          {
+            "parameter": "boolean fullSignature",
+            "value": "false"
+          }
+        ],
+        "expected": "Rcode.FORMERR",
+        "description": "A null MAC field is considered malformed; the method should return FORMERR rather than attempting verification."
+      }
+    ]
+  },
+  {
+    "group": "Timestamp Edge Fudge Window",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "Message with TSIG time = now - 300 seconds"
+          },
+          {
+            "parameter": "byte[] messageBytes",
+            "value": "validMessageBytes"
+          },
+          {
+            "parameter": "TSIGRecord requestTSIG",
+            "value": "TSIGRecord with time = now - 300 seconds"
+          },
+          {
+            "parameter": "boolean fullSignature",
+            "value": "false"
+          }
+        ],
+        "expected": "Rcode.NOERROR",
+        "description": "Timestamp exactly at the negative edge of the allowed fudge window (\u2011300\u202fs) is still acceptable."
+      },
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "Message with TSIG time = now + 300 seconds"
+          },
+          {
+            "parameter": "byte[] messageBytes",
+            "value": "validMessageBytes"
+          },
+          {
+            "parameter": "TSIGRecord requestTSIG",
+            "value": "TSIGRecord with time = now + 300 seconds"
+          },
+          {
+            "parameter": "boolean fullSignature",
+            "value": "false"
+          }
+        ],
+        "expected": "Rcode.NOERROR",
+        "description": "Timestamp exactly at the positive edge of the allowed fudge window (+300\u202fs) is also accepted."
+      }
+    ]
+  },
+  {
+    "group": "Full\u2011Signature with Matching Non\u2011Zero Error",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "Message with TSIG error = 2 and other fields matching the MAC generation"
+          },
+          {
+            "parameter": "byte[] messageBytes",
+            "value": "validMessageBytes"
+          },
+          {
+            "parameter": "TSIGRecord requestTSIG",
+            "value": "TSIGRecord with error = 2, same algorithm/key/time as Message, and MAC generated including error=2"
+          },
+          {
+            "parameter": "boolean fullSignature",
+            "value": "true"
+          }
+        ],
+        "expected": "Rcode.NOERROR",
+        "description": "When fullSignature is true the error field participates in MAC calculation; a matching non\u2011zero error value should verify successfully."
+      }
+    ]
+  },
+  {
+    "group": "Algorithm Name Null or Empty",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "mock Message"
+          },
+          {
+            "parameter": "byte[] messageBytes",
+            "value": "validMessageBytes"
+          },
+          {
+            "parameter": "TSIGRecord requestTSIG",
+            "value": "TSIGRecord with algorithm = null"
+          },
+          {
+            "parameter": "boolean fullSignature",
+            "value": "false"
+          }
+        ],
+        "expected": "Rcode.FORMERR",
+        "description": "A null algorithm string cannot be mapped; the method should treat the record as malformed and return FORMERR."
+      },
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "mock Message"
+          },
+          {
+            "parameter": "byte[] messageBytes",
+            "value": "validMessageBytes"
+          },
+          {
+            "parameter": "TSIGRecord requestTSIG",
+            "value": "TSIGRecord with algorithm = \"\""
+          },
+          {
+            "parameter": "boolean fullSignature",
+            "value": "false"
+          }
+        ],
+        "expected": "Rcode.NOTIMP",
+        "description": "An empty algorithm string maps to no known Name constant; verification should return NOTIMP."
+      }
+    ]
+  },
+  {
+    "group": "Empty Message Payload",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "Message with no additional records (empty payload)"
+          },
+          {
+            "parameter": "byte[] messageBytes",
+            "value": "new byte[0]"
+          },
+          {
+            "parameter": "TSIGRecord requestTSIG",
+            "value": "TSIGRecord whose MAC was generated over an empty payload"
+          },
+          {
+            "parameter": "boolean fullSignature",
+            "value": "false"
+          }
+        ],
+        "expected": "Rcode.NOERROR",
+        "description": "Verification must succeed when both the message and the MAC are computed over an empty byte array."
+      }
+    ]
+  },
+  {
+    "group": "Key Name Not Found",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "mock Message (valid)"
+          },
+          {
+            "parameter": "byte[] messageBytes",
+            "value": "validMessageBytes"
+          },
+          {
+            "parameter": "TSIGRecord requestTSIG",
+            "value": "TSIGRecord with key name that is not present in the TSIG key store"
+          },
+          {
+            "parameter": "boolean fullSignature",
+            "value": "false"
+          }
+        ],
+        "expected": "Rcode.NOTAUTH",
+        "description": "If the TSIG key name cannot be resolved to a secret key, MAC initialization fails and the method should return NOTAUTH."
+      }
+    ]
+  },
+  {
+    "group": "FullSignature false ignores error field",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "Message with TSIG error = 5 (but fullSignature = false)"
+          },
+          {
+            "parameter": "byte[] messageBytes",
+            "value": "validMessageBytes"
+          },
+          {
+            "parameter": "TSIGRecord requestTSIG",
+            "value": "TSIGRecord with error = 5, MAC generated without the error field (as per false flag)"
+          },
+          {
+            "parameter": "boolean fullSignature",
+            "value": "false"
+          }
+        ],
+        "expected": "Rcode.NOERROR",
+        "description": "When fullSignature is false the error field must be ignored in MAC calculation; verification should succeed even though the error values differ."
+      }
+    ]
+  },
+  {
+    "group": "Invalid Algorithm Format",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "mock Message (valid)"
+          },
+          {
+            "parameter": "byte[] messageBytes",
+            "value": "validMessageBytes"
+          },
+          {
+            "parameter": "TSIGRecord requestTSIG",
+            "value": "TSIGRecord with algorithm = \"HMAC MD5\" (contains space, illegal DNS name)"
+          },
+          {
+            "parameter": "boolean fullSignature",
+            "value": "false"
+          }
+        ],
+        "expected": "Rcode.FORMERR",
+        "description": "Algorithm string contains illegal characters that cause Name parsing to throw IllegalArgumentException; method should treat this as a malformed TSIG record and return FORMERR."
+      }
+    ]
+  },
+  {
+    "group": "Null Key Name",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "mock Message (valid)"
+          },
+          {
+            "parameter": "byte[] messageBytes",
+            "value": "validMessageBytes"
+          },
+          {
+            "parameter": "TSIGRecord requestTSIG",
+            "value": "TSIGRecord with keyName = null"
+          },
+          {
+            "parameter": "boolean fullSignature",
+            "value": "false"
+          }
+        ],
+        "expected": "Rcode.NOTAUTH",
+        "description": "TSIGRecord does not contain a key name; key lookup fails and MAC initialization cannot proceed, resulting in NOTAUTH."
+      }
+    ]
+  },
+  {
+    "group": "Empty Secret Key",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "mock Message (valid)"
+          },
+          {
+            "parameter": "byte[] messageBytes",
+            "value": "validMessageBytes"
+          },
+          {
+            "parameter": "TSIGRecord requestTSIG",
+            "value": "TSIGRecord with valid key name but secret key bytes = new byte[0]"
+          },
+          {
+            "parameter": "boolean fullSignature",
+            "value": "false"
+          }
+        ],
+        "expected": "Rcode.BADSIG",
+        "description": "A zero\u2011length secret key can be used to create a Mac instance, but the resulting MAC will never match the signature; verification must fail with BADSIG."
+      }
+    ]
+  },
+  {
+    "group": "MAC Length Mismatch",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "mock Message (valid)"
+          },
+          {
+            "parameter": "byte[] messageBytes",
+            "value": "validMessageBytes"
+          },
+          {
+            "parameter": "TSIGRecord requestTSIG",
+            "value": "TSIGRecord with algorithm = \"HMAC-MD5.SIG-ALG.REG.INT.\", MAC = new byte[4] (shorter than expected 16 bytes)"
+          },
+          {
+            "parameter": "boolean fullSignature",
+            "value": "false"
+          }
+        ],
+        "expected": "Rcode.BADSIG",
+        "description": "The MAC length does not match the length required by the algorithm; verification should detect the mismatch and return BADSIG."
+      }
+    ]
+  },
+  {
+    "group": "Empty Message Payload With Non\u2011Empty MAC",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "Message with no additional records (empty payload)"
+          },
+          {
+            "parameter": "byte[] messageBytes",
+            "value": "new byte[0]"
+          },
+          {
+            "parameter": "TSIGRecord requestTSIG",
+            "value": "TSIGRecord with valid algorithm/key/time but MAC = non\u2011empty byte array"
+          },
+          {
+            "parameter": "boolean fullSignature",
+            "value": "false"
+          }
+        ],
+        "expected": "Rcode.BADSIG",
+        "description": "When the message payload is empty but the TSIG record contains a non\u2011empty MAC, the computed MAC (over empty data) cannot match; verification must fail with BADSIG."
+      }
+    ]
+  }
+]

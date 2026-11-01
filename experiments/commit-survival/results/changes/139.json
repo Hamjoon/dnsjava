@@ -1,0 +1,66 @@
+{
+  "index": 139,
+  "sha": "7abc4f7bd2a68030dd1c959926ccd74681bdebcc",
+  "parent": "92636d27da2ce981f1ccb8006780552e946b4531",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/DSRecord.java": [
+      179,
+      180
+    ],
+    "src/main/java/org/xbill/DNS/NSEC3Record.java": [
+      115,
+      116,
+      190,
+      200
+    ],
+    "src/main/java/org/xbill/DNS/SSHFPRecord.java": [
+      107
+    ],
+    "src/main/java/org/xbill/DNS/TypeBitmap.java": [
+      22,
+      23,
+      24,
+      27,
+      28,
+      29,
+      30,
+      35,
+      78
+    ]
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/DSRecord.java": [
+      179,
+      180,
+      183
+    ],
+    "src/main/java/org/xbill/DNS/NSEC3Record.java": [
+      116,
+      117,
+      118,
+      139,
+      140,
+      149,
+      150,
+      187,
+      188,
+      197,
+      198,
+      208,
+      218
+    ],
+    "src/main/java/org/xbill/DNS/SSHFPRecord.java": [
+      107,
+      108,
+      110
+    ],
+    "src/main/java/org/xbill/DNS/TypeBitmap.java": [
+      20,
+      23,
+      24,
+      25,
+      26
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/DSRecord.java b/src/main/java/org/xbill/DNS/DSRecord.java\nindex ab279418..623c711e 100644\n--- a/src/main/java/org/xbill/DNS/DSRecord.java\n+++ b/src/main/java/org/xbill/DNS/DSRecord.java\n@@ -179,2 +179,2 @@ public class DSRecord extends Record {\n-    if (digest != null) {\n-      sb.append(\" \");\n+    sb.append(\" \");\n+    if (digest != null && digest.length > 0) {\n@@ -181,0 +182,2 @@ public class DSRecord extends Record {\n+    } else {\n+      sb.append(\"\\\"\\\"\");\ndiff --git a/src/main/java/org/xbill/DNS/NSEC3Record.java b/src/main/java/org/xbill/DNS/NSEC3Record.java\nindex aaad185b..969ba9e7 100644\n--- a/src/main/java/org/xbill/DNS/NSEC3Record.java\n+++ b/src/main/java/org/xbill/DNS/NSEC3Record.java\n@@ -8,0 +9 @@ import java.security.NoSuchAlgorithmException;\n+import java.util.Objects;\n@@ -115,2 +116,3 @@ public class NSEC3Record extends Record {\n-    if (next.length > 255) {\n-      throw new IllegalArgumentException(\"Invalid next hash\");\n+    Objects.requireNonNull(next);\n+    if (next.length == 0 || next.length > 255) {\n+      throw new IllegalArgumentException(\"Invalid next hash length\");\n@@ -136,0 +139,4 @@ public class NSEC3Record extends Record {\n+    if (nextLength == 0) {\n+      throw new WireParseException(\"Invalid next hash length\");\n+    }\n+\n@@ -142,0 +149,4 @@ public class NSEC3Record extends Record {\n+    if (next == null || next.length == 0) {\n+      throw new IllegalStateException(\"Record is not initialized\");\n+    }\n+\n@@ -176,0 +187,4 @@ public class NSEC3Record extends Record {\n+    if (next.length == 0) {\n+      throw new TextParseException(\"Invalid next hash\");\n+    }\n+\n@@ -182,0 +197,4 @@ public class NSEC3Record extends Record {\n+    if (next == null || next.length == 0) {\n+      throw new IllegalStateException(\"Record is not initialized\");\n+    }\n+\n@@ -190 +208 @@ public class NSEC3Record extends Record {\n-    if (salt == null) {\n+    if (salt == null || salt.length == 0) {\n@@ -200 +218 @@ public class NSEC3Record extends Record {\n-      sb.append(types.toString());\n+      sb.append(types);\ndiff --git a/src/main/java/org/xbill/DNS/SSHFPRecord.java b/src/main/java/org/xbill/DNS/SSHFPRecord.java\nindex 3025f1aa..f590bf67 100644\n--- a/src/main/java/org/xbill/DNS/SSHFPRecord.java\n+++ b/src/main/java/org/xbill/DNS/SSHFPRecord.java\n@@ -107 +107,6 @@ public class SSHFPRecord extends Record {\n-    sb.append(base16.toString(fingerprint));\n+    if (fingerprint.length == 0) {\n+      sb.append(\"\\\"\\\"\");\n+    } else {\n+      sb.append(base16.toString(fingerprint));\n+    }\n+\ndiff --git a/src/main/java/org/xbill/DNS/TypeBitmap.java b/src/main/java/org/xbill/DNS/TypeBitmap.java\nindex d827cf40..3618cfd0 100644\n--- a/src/main/java/org/xbill/DNS/TypeBitmap.java\n+++ b/src/main/java/org/xbill/DNS/TypeBitmap.java\n@@ -20,5 +20 @@ final class TypeBitmap implements Serializable {\n-  private final TreeSet<Integer> types;\n-\n-  private TypeBitmap() {\n-    types = new TreeSet<>();\n-  }\n+  private final TreeSet<Integer> types = new TreeSet<>();\n@@ -27,4 +23,5 @@ final class TypeBitmap implements Serializable {\n-    this();\n-    for (int value : array) {\n-      Type.check(value);\n-      types.add(value);\n+    if (array != null) {\n+      for (int value : array) {\n+        Type.check(value);\n+        types.add(value);\n+      }\n@@ -35,2 +31,0 @@ final class TypeBitmap implements Serializable {\n-    this();\n-\n@@ -78 +72,0 @@ final class TypeBitmap implements Serializable {\n-    this();"
+}

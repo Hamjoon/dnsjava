@@ -1,0 +1,20 @@
+{
+  "index": 141,
+  "sha": "c993f68a5f0a2f0453e2d3c6f3f9525ba2f6ef13",
+  "parent": "363a70a1b9fbb1a8845aef433d434d6068c16119",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/TTL.java": []
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/TTL.java": [
+      46,
+      47,
+      52,
+      68,
+      69,
+      82,
+      83
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/TTL.java b/src/main/java/org/xbill/DNS/TTL.java\nindex 4c550e4a..b9b43bb5 100644\n--- a/src/main/java/org/xbill/DNS/TTL.java\n+++ b/src/main/java/org/xbill/DNS/TTL.java\n@@ -45,0 +46,2 @@ public final class TTL {\n+    boolean hasUnit = false;\n+    boolean hadAnyUnit = false;\n@@ -49,0 +52 @@ public final class TTL {\n+        hasUnit = false;\n@@ -64,0 +68,2 @@ public final class TTL {\n+            hasUnit = true;\n+            hadAnyUnit = true;\n@@ -75,0 +81,5 @@ public final class TTL {\n+\n+    if (hadAnyUnit && !hasUnit) {\n+      throw new NumberFormatException(\"Missing unit\");\n+    }\n+"
+}

@@ -1,0 +1,16 @@
+{
+  "index": 54,
+  "sha": "d445fe8da928260ee381add221090620025a8078",
+  "parent": "f7a527779691d212b2a95f0d8925cf9954cc95ad",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/CNAMERecord.java": [
+      22
+    ]
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/CNAMERecord.java": [
+      22
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/CNAMERecord.java b/src/main/java/org/xbill/DNS/CNAMERecord.java\nindex 5033d9fe..1449e4e2 100644\n--- a/src/main/java/org/xbill/DNS/CNAMERecord.java\n+++ b/src/main/java/org/xbill/DNS/CNAMERecord.java\n@@ -19 +19 @@ public class CNAMERecord extends SingleCompressedNameBase {\n-   * @param alias The name to which the CNAME alias points\n+   * @param target The name to which the CNAME alias points\n@@ -21,2 +21,2 @@ public class CNAMERecord extends SingleCompressedNameBase {\n-  public CNAMERecord(Name name, int dclass, long ttl, Name alias) {\n-    super(name, Type.CNAME, dclass, ttl, alias, \"alias\");\n+  public CNAMERecord(Name name, int dclass, long ttl, Name target) {\n+    super(name, Type.CNAME, dclass, ttl, target, \"target\");"
+}

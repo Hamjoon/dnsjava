@@ -1,0 +1,284 @@
+{
+  "details": {
+    "Message_removeRecord": {
+      "process_init_response": 3.636007785797119,
+      "process_case_response": 143.98589754104614,
+      "check_test_class": 1.253835678100586
+    },
+    "Message_findRecord": {
+      "process_init_response": 9.336066961288452,
+      "process_case_response": 73.84693479537964,
+      "check_test_class": 66.4044041633606
+    },
+    "Message_addRecord": {
+      "process_init_response": 11.242632389068604,
+      "process_case_response": 60.15012288093567,
+      "check_test_class": 1.229369878768921
+    },
+    "Message_newUpdate": {
+      "process_init_response": 12.763683795928955,
+      "process_case_response": 63.54272699356079,
+      "check_test_class": 32.28247594833374
+    },
+    "Message_findRecord_2": {
+      "process_init_response": 9.409405946731567,
+      "process_case_response": 95.41914629936218,
+      "check_test_class": 72.89528465270996
+    },
+    "Message_setHeader": {
+      "process_init_response": 18.27554702758789,
+      "process_case_response": 67.59986996650696,
+      "check_test_class": 49.745511531829834
+    },
+    "Message_getTSIG": {
+      "process_init_response": 6.573217391967773,
+      "process_case_response": 117.80603981018066,
+      "check_test_class": 110.68128323554993
+    },
+    "Message_newQuery": {
+      "process_init_response": 22.10980987548828,
+      "process_case_response": 967.4535126686096,
+      "check_test_class": 73.23287296295166
+    },
+    "Message_getQuestion": {
+      "process_init_response": 10.37279200553894,
+      "process_case_response": 76.06477570533752,
+      "check_test_class": 51.01327896118164
+    },
+    "Message_findRRset_2": {
+      "process_init_response": 11.972692728042603,
+      "process_case_response": 123.10504388809204,
+      "check_test_class": 178.93965029716492
+    },
+    "Message_isSigned": {
+      "process_init_response": 3.94734787940979,
+      "process_case_response": 56.14666223526001,
+      "check_test_class": 112.05797553062439
+    },
+    "Message_removeAllRecords": {
+      "process_init_response": 28.39088463783264,
+      "process_case_response": 53.684141874313354,
+      "check_test_class": 1.3602280616760254
+    },
+    "Message_getHeader": {
+      "process_init_response": 30.65997624397278,
+      "process_case_response": 19.117153882980347,
+      "check_test_class": 49.48928689956665
+    },
+    "Message_getOPT": {
+      "process_init_response": 9.090486764907837,
+      "process_case_response": 97.76875019073486,
+      "check_test_class": 1.9141795635223389
+    },
+    "Message_getRcode": {
+      "process_init_response": 12.76813793182373,
+      "process_case_response": 93.07207322120667,
+      "check_test_class": 1.943155288696289
+    },
+    "Message_findRRset": {
+      "process_init_response": 28.865453481674194,
+      "process_case_response": 106.36920642852783,
+      "check_test_class": 37.123454332351685
+    },
+    "Message_isVerified": {
+      "process_init_response": 18.769750833511353,
+      "process_case_response": 51.935298204422,
+      "check_test_class": 1.2609567642211914
+    },
+    "Message_toWire_2": {
+      "process_init_response": 10.915679454803467,
+      "process_case_response": 143.60226130485535,
+      "check_test_class": 57.23402237892151
+    },
+    "Message_toWire": {
+      "process_init_response": 13.647276401519775,
+      "process_case_response": 124.97049736976624,
+      "check_test_class": 57.187357664108276
+    },
+    "Message_setTSIG": {
+      "process_init_response": 10.555710077285767,
+      "process_case_response": 146.01497101783752,
+      "check_test_class": 135.3836646080017
+    },
+    "Message_sectionToString": {
+      "process_init_response": 5.53488826751709,
+      "process_case_response": 127.73111176490784,
+      "check_test_class": 1.3060176372528076
+    },
+    "Message_getSectionRRsets": {
+      "process_init_response": 26.77230739593506,
+      "process_case_response": 140.3289749622345,
+      "check_test_class": 86.53114151954651
+    },
+    "Message_setTSIG_2": {
+      "process_init_response": 14.695232629776001,
+      "process_case_response": 118.22027564048767,
+      "check_test_class": 272.0768518447876
+    },
+    "Message_getGeneratedTSIG": {
+      "process_init_response": 42.24972629547119,
+      "process_case_response": 84.51345133781433,
+      "check_test_class": 151.90348052978516
+    },
+    "Message_getSection": {
+      "process_init_response": 37.128823041915894,
+      "process_case_response": 87.43331050872803,
+      "check_test_class": 192.46410036087036
+    },
+    "Message_setResolver": {
+      "process_init_response": 7.02510666847229,
+      "process_case_response": 124.60355043411255,
+      "check_test_class": 1.39259672164917
+    },
+    "Message_numBytes": {
+      "process_init_response": 24.88999843597412,
+      "process_case_response": 103.26821279525757,
+      "check_test_class": 138.9546799659729
+    },
+    "Message_normalize": {
+      "process_init_response": 7.9975905418396,
+      "process_case_response": 145.92792010307312,
+      "check_test_class": 87.40660190582275
+    },
+    "Zone_getDClass": {
+      "process_init_response": 2.336029529571533,
+      "process_case_response": 109.50645470619202,
+      "check_test_class": 152.48458313941956
+    },
+    "Message_getResolver": {
+      "process_init_response": 15.566509008407593,
+      "process_case_response": 66.82296681404114,
+      "check_test_class": 29.563669443130493
+    },
+    "Message_clone": {
+      "process_init_response": 23.54700231552124,
+      "process_case_response": 200.39731979370117,
+      "check_test_class": 265.9984118938446
+    },
+    "Message_toString": {
+      "process_init_response": 26.0997474193573,
+      "process_case_response": 178.09492707252502,
+      "check_test_class": 96.38528847694397
+    },
+    "Zone_AXFR": {
+      "process_init_response": 3.883986711502075,
+      "process_case_response": 171.43937015533447,
+      "check_test_class": 262.18732166290283
+    },
+    "Message_toWire_3": {
+      "process_init_response": 40.99386405944824,
+      "process_case_response": 143.76422572135925,
+      "check_test_class": 226.38730120658875
+    },
+    "Zone_addRecord": {
+      "process_init_response": 6.140480279922485,
+      "process_case_response": 105.9116530418396,
+      "check_test_class": 92.38422107696533
+    },
+    "Message_normalize_2": {
+      "process_init_response": 17.61516833305359,
+      "process_case_response": 359.2472014427185,
+      "check_test_class": 319.758095741272
+    },
+    "Zone_findRecords": {
+      "process_init_response": 4.621898651123047,
+      "process_case_response": 105.91249394416809,
+      "check_test_class": 110.43702578544617
+    },
+    "Message_isTypeAllowedInSection": {
+      "process_init_response": 25.567811250686646,
+      "process_case_response": 157.9106092453003,
+      "check_test_class": 1.2178995609283447
+    },
+    "Zone_removeRRset": {
+      "process_init_response": 12.300320625305176,
+      "process_case_response": 210.93155765533447,
+      "check_test_class": 148.64785361289978
+    },
+    "TSIG_algorithmToName": {
+      "process_init_response": 3.949963331222534,
+      "process_case_response": 140.15768599510193,
+      "check_test_class": 1.285029411315918
+    },
+    "Zone_removeRecord": {
+      "process_init_response": 19.151018142700195,
+      "process_case_response": 177.14587330818176,
+      "check_test_class": 183.4068992137909
+    },
+    "Zone_toMasterFile": {
+      "process_init_response": 9.693342685699463,
+      "process_case_response": 191.7886939048767,
+      "check_test_class": 115.29577732086182
+    },
+    "Zone_getNS": {
+      "process_init_response": 28.461536169052124,
+      "process_case_response": 133.166157245636,
+      "check_test_class": 103.42142844200134
+    },
+    "Zone_toString": {
+      "process_init_response": 15.438631772994995,
+      "process_case_response": 134.05114769935608,
+      "check_test_class": 128.43758535385132
+    },
+    "Zone_iterator": {
+      "process_init_response": 34.72127413749695,
+      "process_case_response": 160.12319540977478,
+      "check_test_class": 293.3434691429138
+    },
+    "Zone_findExactMatch": {
+      "process_init_response": 25.87651753425598,
+      "process_case_response": 159.62286853790283,
+      "check_test_class": 237.57119798660278
+    },
+    "TSIG_apply": {
+      "process_init_response": 12.09158992767334,
+      "process_case_response": 88.44555497169495,
+      "check_test_class": 43.101624488830566
+    },
+    "Zone_addRRset": {
+      "process_init_response": 33.69164848327637,
+      "process_case_response": 185.96261930465698,
+      "check_test_class": 133.29418110847473
+    },
+    "TSIG_apply_3": {
+      "process_init_response": 12.983851432800293,
+      "process_case_response": 195.74582529067993,
+      "check_test_class": 214.42667722702026
+    },
+    "TSIG_apply_2": {
+      "process_init_response": 14.243969202041626,
+      "process_case_response": 264.3304672241211,
+      "check_test_class": 213.83864569664001
+    },
+    "TSIG_verify": {
+      "process_init_response": 12.697222709655762,
+      "process_case_response": 229.0402274131775,
+      "check_test_class": 72.78757929801941
+    },
+    "TSIG_recordLength": {
+      "process_init_response": 11.916690826416016,
+      "process_case_response": 189.75074577331543,
+      "check_test_class": 98.23759412765503
+    },
+    "TSIG_verify_2": {
+      "process_init_response": 20.78441309928894,
+      "process_case_response": 215.1190276145935,
+      "check_test_class": 59.28785443305969
+    },
+    "TSIG_generate": {
+      "process_init_response": 35.7814621925354,
+      "process_case_response": 337.26242232322693,
+      "check_test_class": 132.95859360694885
+    },
+    "TSIG_generate_2": {
+      "process_init_response": 48.28782629966736,
+      "process_case_response": 237.09132432937622,
+      "check_test_class": 49.54297494888306
+    },
+    "TSIG_apply_4": {
+      "process_init_response": 46.593299865722656,
+      "process_case_response": 140.51657223701477,
+      "check_test_class": 305.1503357887268
+    }
+  }
+}

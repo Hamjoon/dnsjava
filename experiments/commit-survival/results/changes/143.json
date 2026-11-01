@@ -1,0 +1,16 @@
+{
+  "index": 143,
+  "sha": "16786e27cfeda6db50718f0343c77815f242fbec",
+  "parent": "ebce5ed58d6521625b2731cdcd35fb00248dc998",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/Update.java": [
+      31
+    ]
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/Update.java": [
+      31
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/Update.java b/src/main/java/org/xbill/DNS/Update.java\nindex 948f154b..76f88b65 100644\n--- a/src/main/java/org/xbill/DNS/Update.java\n+++ b/src/main/java/org/xbill/DNS/Update.java\n@@ -31 +31 @@ public class Update extends Message {\n-    Record soa = Record.newRecord(zone, Type.SOA, DClass.IN);\n+    Record soa = Record.newRecord(zone, Type.SOA, dclass);"
+}

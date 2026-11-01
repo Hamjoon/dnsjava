@@ -1,0 +1,268 @@
+[
+  {
+    "group": "addRecord \u2013 section list initially null",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "record",
+            "value": "new Record(Name.fromString(\"example.com.\"), Type.A, DClass.IN, 3600, InetAddress.getByName(\"1.2.3.4\"))"
+          },
+          {
+            "parameter": "section",
+            "value": "0"
+          }
+        ],
+        "expected": "Message.sections[0] is a non\u2011null List containing the provided record; Message.header.getCount(0) is incremented by 1",
+        "description": "When the target section array entry is null, addRecord should allocate a new LinkedList, increment the corresponding header count and store the record."
+      }
+    ]
+  },
+  {
+    "group": "addRecord \u2013 section list already allocated",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "record",
+            "value": "new Record(Name.fromString(\"test.org.\"), Type.AAAA, DClass.IN, 7200, InetAddress.getByName(\"2001:db8::1\"))"
+          },
+          {
+            "parameter": "section",
+            "value": "1"
+          }
+        ],
+        "expected": "Message.sections[1] already existed; after call its size is increased by 1 and contains the new record; Message.header.getCount(1) is incremented by 1",
+        "description": "When the target section already holds a List, addRecord must not replace it, must only add the new record and increment the header count."
+      }
+    ]
+  },
+  {
+    "group": "addRecord \u2013 invalid section index (negative)",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "record",
+            "value": "new Record(Name.fromString(\"bad.net.\"), Type.MX, DClass.IN, 300, new MXRecord(Name.fromString(\"mail.bad.net.\"), DClass.IN, 10, Name.fromString(\"mail.bad.net.\")))"
+          },
+          {
+            "parameter": "section",
+            "value": "-1"
+          }
+        ],
+        "expected": "ArrayIndexOutOfBoundsException is thrown",
+        "description": "Passing a negative section index should cause the array access to fail, resulting in an ArrayIndexOutOfBoundsException."
+      }
+    ]
+  },
+  {
+    "group": "addRecord \u2013 invalid section index (out of upper bound)",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "record",
+            "value": "new Record(Name.fromString(\"out.of.range.\"), Type.SOA, DClass.IN, 3600, new SOARecord(Name.fromString(\"out.of.range.\"), DClass.IN, 3600, Name.fromString(\"ns1.out.of.range.\"), Name.fromString(\"hostmaster.out.of.range.\"), 2021010101L, 7200, 3600, 1209600, 3600))"
+          },
+          {
+            "parameter": "section",
+            "value": "5"
+          }
+        ],
+        "expected": "ArrayIndexOutOfBoundsException is thrown",
+        "description": "The sections array is defined for the standard DNS sections (0\u20113). Supplying an index outside this range must raise an exception."
+      }
+    ]
+  },
+  {
+    "group": "addRecord \u2013 null Record argument",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "record",
+            "value": "null"
+          },
+          {
+            "parameter": "section",
+            "value": "2"
+          }
+        ],
+        "expected": "Message.sections[2] is a non\u2011null List containing a null element; Message.header.getCount(2) is incremented by 1",
+        "description": "The method does not guard against a null record; it should simply add the null reference to the list and still increment the header count."
+      }
+    ]
+  },
+  {
+    "group": "addRecord \u2013 allocate list for section 3 (additional section)",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "record",
+            "value": "new Record(Name.fromString(\"add.example.\"), Type.TXT, DClass.IN, 300, new TXTRecord(Name.fromString(\"add.example.\"), DClass.IN, 300, \"sample\"))"
+          },
+          {
+            "parameter": "section",
+            "value": "3"
+          }
+        ],
+        "expected": "Message.sections[3] is a non\u2011null List containing the provided record; Message.header.getCount(3) is incremented by 1",
+        "description": "When the target section (the additional section, index 3) is null, addRecord must allocate a new LinkedList, store the record and increase the corresponding header count."
+      }
+    ]
+  },
+  {
+    "group": "addRecord \u2013 preserve insertion order when list already contains records",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "record",
+            "value": "new Record(Name.fromString(\"order.example.\"), Type.A, DClass.IN, 600, InetAddress.getByName(\"5.6.7.8\"))"
+          },
+          {
+            "parameter": "section",
+            "value": "1"
+          }
+        ],
+        "expected": "Message.sections[1] size becomes 2; the first element remains the previously added record, the second element is the new record; Message.header.getCount(1) is incremented by 1",
+        "description": "The method should not reorder existing elements. After a prior record has been added to section 1, a second call adds a new record at the end of the list."
+      }
+    ]
+  },
+  {
+    "group": "addRecord \u2013 duplicate record is added as a separate entry",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "record",
+            "value": "new Record(Name.fromString(\"dup.example.\"), Type.A, DClass.IN, 3600, InetAddress.getByName(\"9.9.9.9\"))"
+          },
+          {
+            "parameter": "section",
+            "value": "0"
+          }
+        ],
+        "expected": "Message.sections[0] contains two entries that are equal to the provided record; Message.header.getCount(0) is incremented by 1 for the second insertion",
+        "description": "addRecord does not deduplicate; adding the same Record instance (or an equal one) results in two list elements."
+      }
+    ]
+  },
+  {
+    "group": "addRecord \u2013 record with zero TTL",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "record",
+            "value": "new Record(Name.fromString(\"zero.ttl.\"), Type.A, DClass.IN, 0, InetAddress.getByName(\"10.0.0.1\"))"
+          },
+          {
+            "parameter": "section",
+            "value": "2"
+          }
+        ],
+        "expected": "Message.sections[2] contains the record whose TTL field is 0; Message.header.getCount(2) is incremented by 1",
+        "description": "The method must accept records with a TTL of zero without special handling."
+      }
+    ]
+  },
+  {
+    "group": "addRecord \u2013 header is null (NullPointerException)",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "record",
+            "value": "new Record(Name.fromString(\"nullheader.example.\"), Type.A, DClass.IN, 300, InetAddress.getByName(\"11.11.11.11\"))"
+          },
+          {
+            "parameter": "section",
+            "value": "1"
+          }
+        ],
+        "expected": "NullPointerException is thrown",
+        "description": "If the Message's header has been explicitly set to null via setHeader(null), addRecord attempts to call header.incCount(section) and therefore throws a NullPointerException."
+      }
+    ]
+  },
+  {
+    "group": "addRecord \u2013 section index equal to array length (4) throws ArrayIndexOutOfBoundsException",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "record",
+            "value": "new Record(Name.fromString(\"out.of.bounds.\"), Type.NS, DClass.IN, 3600, new NSRecord(Name.fromString(\"out.of.bounds.\"), DClass.IN, 3600, Name.fromString(\"ns.out.of.bounds.\")))"
+          },
+          {
+            "parameter": "section",
+            "value": "4"
+          }
+        ],
+        "expected": "ArrayIndexOutOfBoundsException is thrown",
+        "description": "The sections array is defined for indices 0\u20113; providing the exact length (4) should trigger an out\u2011of\u2011bounds access."
+      }
+    ]
+  },
+  {
+    "group": "addRecord \u2013 sections array is null (NullPointerException)",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "record",
+            "value": "new Record(Name.fromString(\"nullsections.example.\"), Type.A, DClass.IN, 300, InetAddress.getByName(\"12.12.12.12\"))"
+          },
+          {
+            "parameter": "section",
+            "value": "0"
+          }
+        ],
+        "expected": "NullPointerException is thrown",
+        "description": "If the Message object's internal `sections` array is explicitly set to null (e.g., via reflection or a constructor that allows it), the first array access `sections[section]` triggers a NullPointerException before any other logic runs."
+      }
+    ]
+  },
+  {
+    "group": "addRecord \u2013 immutable section list (UnsupportedOperationException)",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "record",
+            "value": "new Record(Name.fromString(\"immutable.example.\"), Type.A, DClass.IN, 300, InetAddress.getByName(\"13.13.13.13\"))"
+          },
+          {
+            "parameter": "section",
+            "value": "1"
+          }
+        ],
+        "expected": "UnsupportedOperationException is thrown",
+        "description": "When the target `sections[1]` entry is pre\u2011populated with an unmodifiable list such as `Collections.emptyList()` (or `Collections.unmodifiableList(new LinkedList<>())`), the call to `sections[section].add(r)` fails with an UnsupportedOperationException. The header count is still incremented before the exception is raised."
+      }
+    ]
+  },
+  {
+    "group": "addRecord \u2013 header.incCount throws IllegalArgumentException for out\u2011of\u2011range section",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "record",
+            "value": "new Record(Name.fromString(\"header.illegal.arg.example.\"), Type.A, DClass.IN, 300, InetAddress.getByName(\"14.14.14.14\"))"
+          },
+          {
+            "parameter": "section",
+            "value": "2"
+          }
+        ],
+        "expected": "IllegalArgumentException is thrown",
+        "description": "If the Message's `header` instance is replaced with a custom Header implementation that validates the section index and throws IllegalArgumentException for values it does not recognize (e.g., section 2 is considered invalid), `header.incCount(section)` will raise the exception before the record is added to the list."
+      }
+    ]
+  }
+]

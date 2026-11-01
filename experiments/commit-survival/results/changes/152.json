@@ -1,0 +1,18 @@
+{
+  "index": 152,
+  "sha": "9c1610a78a12a1e92d38708dd49fa580ca98030b",
+  "parent": "1674d53ed6a8484e4426588cb0ebac0710ea595a",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/TypeBitmap.java": [
+      33,
+      40
+    ]
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/TypeBitmap.java": [
+      33,
+      40
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/TypeBitmap.java b/src/main/java/org/xbill/DNS/TypeBitmap.java\nindex 3618cfd0..43c35e04 100644\n--- a/src/main/java/org/xbill/DNS/TypeBitmap.java\n+++ b/src/main/java/org/xbill/DNS/TypeBitmap.java\n@@ -33 +33 @@ final class TypeBitmap implements Serializable {\n-    int lastWindowBlockNumber = -1;\n+    int windowBlockNumber = -1;\n@@ -40 +40 @@ final class TypeBitmap implements Serializable {\n-      int windowBlockNumber = getWindowBlockNumber(in, lastWindowBlockNumber);\n+      windowBlockNumber = getWindowBlockNumber(in, windowBlockNumber);"
+}

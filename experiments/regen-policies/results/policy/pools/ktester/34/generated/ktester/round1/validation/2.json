@@ -1,0 +1,834 @@
+{
+  "file": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java",
+  "compile": {
+    "command": [
+      "javac",
+      "-J-Xmx512m",
+      "-cp",
+      "/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/checkouts/0/target/classes:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/apiguardian-api-1.1.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/byte-buddy-1.17.7.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/byte-buddy-agent-1.17.7.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/commons-io-2.16.1.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/commons-lang3-3.14.0.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/hamcrest-2.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/junit-jupiter-5.11.4.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/junit-jupiter-api-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/junit-jupiter-engine-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/junit-jupiter-params-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/junit-platform-commons-1.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/junit-platform-engine-1.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/mockito-core-5.24.0.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/mockito-junit-jupiter-5.24.0.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/objenesis-3.3.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/opentest4j-1.3.0.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/junit-vintage-engine-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/junit-4.13.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/hamcrest-core-1.3.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/junit-platform-console-standalone-1.9.3.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/projectlombok/lombok/1.18.34/lombok-1.18.34.jar:/root/.m2/repository/net/java/dev/jna/jna/5.14.0/jna-5.14.0.jar:/root/.m2/repository/net/java/dev/jna/jna-platform/5.14.0/jna-platform-5.14.0.jar:/root/.m2/repository/org/bouncycastle/bcprov-jdk18on/1.78.1/bcprov-jdk18on-1.78.1.jar:/root/.m2/repository/org/bouncycastle/bcutil-jdk18on/1.78.1/bcutil-jdk18on-1.78.1.jar:/root/.m2/repository/org/assertj/assertj-core/3.26.3/assertj-core-3.26.3.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.14.18/byte-buddy-1.14.18.jar:/root/.m2/repository/org/mockito/mockito-core/5.12.0/mockito-core-5.12.0.jar:/root/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/root/.m2/repository/org/mockito/mockito-junit-jupiter/5.12.0/mockito-junit-jupiter-5.12.0.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.18/byte-buddy-agent-1.14.18.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.36/slf4j-simple-1.7.36.jar:/root/.m2/repository/io/vertx/vertx-core/4.5.9/vertx-core-4.5.9.jar:/root/.m2/repository/io/netty/netty-common/4.1.111.Final/netty-common-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-buffer/4.1.111.Final/netty-buffer-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-transport/4.1.111.Final/netty-transport-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-handler/4.1.111.Final/netty-handler-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-transport-native-unix-common/4.1.111.Final/netty-transport-native-unix-common-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-codec/4.1.111.Final/netty-codec-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-handler-proxy/4.1.111.Final/netty-handler-proxy-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-codec-socks/4.1.111.Final/netty-codec-socks-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-codec-http/4.1.111.Final/netty-codec-http-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-codec-http2/4.1.111.Final/netty-codec-http2-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-resolver/4.1.111.Final/netty-resolver-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-resolver-dns/4.1.111.Final/netty-resolver-dns-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-codec-dns/4.1.111.Final/netty-codec-dns-4.1.111.Final.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.16.1/jackson-core-2.16.1.jar:/root/.m2/repository/io/vertx/vertx-junit5/4.5.9/vertx-junit5-4.5.9.jar:/root/.m2/repository/io/vertx/vertx-codegen/4.5.9/vertx-codegen-4.5.9.jar:/root/.m2/repository/commons-io/commons-io/2.16.1/commons-io-2.16.1.jar:/root/.m2/repository/org/openjdk/jcstress/jcstress-core/0.16/jcstress-core-0.16.jar:/root/.m2/repository/net/sf/jopt-simple/jopt-simple/4.6/jopt-simple-4.6.jar",
+      "-sourcepath",
+      "/repo/experiments/regen-policies/results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "-d",
+      "/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/validation/ktester/round1/2/test/classes",
+      "/repo/experiments/regen-policies/results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java"
+    ],
+    "cwd": "/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/checkouts/0",
+    "exit_code": 0,
+    "timeout": false,
+    "seconds": 1.585,
+    "log": "work/validation/ktester/round1/2/test/javac.txt"
+  },
+  "runs": [
+    {
+      "command": [
+        "java",
+        "-Xmx1g",
+        "-XX:+UseSerialGC",
+        "-cp",
+        "/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/validation/ktester/round1/2/test/classes:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/checkouts/0/target/classes:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/apiguardian-api-1.1.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/byte-buddy-1.17.7.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/byte-buddy-agent-1.17.7.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/commons-io-2.16.1.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/commons-lang3-3.14.0.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/hamcrest-2.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/junit-jupiter-5.11.4.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/junit-jupiter-api-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/junit-jupiter-engine-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/junit-jupiter-params-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/junit-platform-commons-1.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/junit-platform-engine-1.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/mockito-core-5.24.0.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/mockito-junit-jupiter-5.24.0.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/objenesis-3.3.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/opentest4j-1.3.0.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/junit-vintage-engine-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/junit-4.13.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/hamcrest-core-1.3.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/junit-platform-console-standalone-1.9.3.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/projectlombok/lombok/1.18.34/lombok-1.18.34.jar:/root/.m2/repository/net/java/dev/jna/jna/5.14.0/jna-5.14.0.jar:/root/.m2/repository/net/java/dev/jna/jna-platform/5.14.0/jna-platform-5.14.0.jar:/root/.m2/repository/org/bouncycastle/bcprov-jdk18on/1.78.1/bcprov-jdk18on-1.78.1.jar:/root/.m2/repository/org/bouncycastle/bcutil-jdk18on/1.78.1/bcutil-jdk18on-1.78.1.jar:/root/.m2/repository/org/assertj/assertj-core/3.26.3/assertj-core-3.26.3.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.14.18/byte-buddy-1.14.18.jar:/root/.m2/repository/org/mockito/mockito-core/5.12.0/mockito-core-5.12.0.jar:/root/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/root/.m2/repository/org/mockito/mockito-junit-jupiter/5.12.0/mockito-junit-jupiter-5.12.0.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.18/byte-buddy-agent-1.14.18.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.36/slf4j-simple-1.7.36.jar:/root/.m2/repository/io/vertx/vertx-core/4.5.9/vertx-core-4.5.9.jar:/root/.m2/repository/io/netty/netty-common/4.1.111.Final/netty-common-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-buffer/4.1.111.Final/netty-buffer-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-transport/4.1.111.Final/netty-transport-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-handler/4.1.111.Final/netty-handler-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-transport-native-unix-common/4.1.111.Final/netty-transport-native-unix-common-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-codec/4.1.111.Final/netty-codec-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-handler-proxy/4.1.111.Final/netty-handler-proxy-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-codec-socks/4.1.111.Final/netty-codec-socks-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-codec-http/4.1.111.Final/netty-codec-http-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-codec-http2/4.1.111.Final/netty-codec-http2-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-resolver/4.1.111.Final/netty-resolver-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-resolver-dns/4.1.111.Final/netty-resolver-dns-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-codec-dns/4.1.111.Final/netty-codec-dns-4.1.111.Final.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.16.1/jackson-core-2.16.1.jar:/root/.m2/repository/io/vertx/vertx-junit5/4.5.9/vertx-junit5-4.5.9.jar:/root/.m2/repository/io/vertx/vertx-codegen/4.5.9/vertx-codegen-4.5.9.jar:/root/.m2/repository/commons-io/commons-io/2.16.1/commons-io-2.16.1.jar:/root/.m2/repository/org/openjdk/jcstress/jcstress-core/0.16/jcstress-core-0.16.jar:/root/.m2/repository/net/sf/jopt-simple/jopt-simple/4.6/jopt-simple-4.6.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/dev/src-test-t/resources:/repo/experiments/regen-policies/results/policy/pools/ktester/34/dev/src-test-t/suite",
+        "org.junit.platform.console.ConsoleLauncher",
+        "--disable-banner",
+        "--disable-ansi-colors",
+        "--fail-if-no-tests",
+        "--details",
+        "summary",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_presentInAnswer_returnsTrue()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_presentInAuthority_returnsTrue()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_presentInAdditional_returnsTrue()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_notPresent_returnsFalse()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_wrongType_returnsFalse()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_wrongName_returnsFalse()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_multipleSectionsOnlyOneMatches_returnsTrue()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_basicScenarios(java.lang.String,int,boolean,java.lang.String)",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_nullName_throwsNullPointerException()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_invalidNameMissingTrailingDot_throwsIllegalArgumentException()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_invalidNameIllegalCharacters_throwsIllegalArgumentException()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_invalidNameEmptyString_throwsIllegalArgumentException()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_negativeType_returnsFalse()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_typeGreaterThan65535_throwsIllegalArgumentException()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_typeNotAllowedInSection_throwsIllegalArgumentException()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_shortCircuitStopsAfterAnswer()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_ANYTypeMatchesAnyRecord()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_nameCaseInsensitivity()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_subdomainMismatch_returnsFalse()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_emptyMessage_returnsFalse()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_nullName_returnsFalse()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_invalidNameMissingTrailingDot_throwsTextParseException()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_invalidNameIllegalCharacters_throwsTextParseException()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_invalidNameEmptyString_throwsTextParseException()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_negativeType_throwsInvalidTypeException()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_typeNotAllowedInSection_returnsFalse()",
+        "--reports-dir",
+        "/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/validation/ktester/round1/2/test/run1"
+      ],
+      "cwd": "/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/runtime",
+      "exit_code": 1,
+      "timeout": false,
+      "seconds": 1.726,
+      "log": "work/validation/ktester/round1/2/test/run1/console.txt"
+    },
+    {
+      "command": [
+        "java",
+        "-Xmx1g",
+        "-XX:+UseSerialGC",
+        "-cp",
+        "/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/validation/ktester/round1/2/test/classes:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/checkouts/0/target/classes:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/apiguardian-api-1.1.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/byte-buddy-1.17.7.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/byte-buddy-agent-1.17.7.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/commons-io-2.16.1.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/commons-lang3-3.14.0.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/hamcrest-2.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/junit-jupiter-5.11.4.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/junit-jupiter-api-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/junit-jupiter-engine-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/junit-jupiter-params-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/junit-platform-commons-1.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/junit-platform-engine-1.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/mockito-core-5.24.0.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/mockito-junit-jupiter-5.24.0.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/objenesis-3.3.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/opentest4j-1.3.0.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/junit-vintage-engine-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/junit-4.13.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/hamcrest-core-1.3.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/junit-platform-console-standalone-1.9.3.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/projectlombok/lombok/1.18.34/lombok-1.18.34.jar:/root/.m2/repository/net/java/dev/jna/jna/5.14.0/jna-5.14.0.jar:/root/.m2/repository/net/java/dev/jna/jna-platform/5.14.0/jna-platform-5.14.0.jar:/root/.m2/repository/org/bouncycastle/bcprov-jdk18on/1.78.1/bcprov-jdk18on-1.78.1.jar:/root/.m2/repository/org/bouncycastle/bcutil-jdk18on/1.78.1/bcutil-jdk18on-1.78.1.jar:/root/.m2/repository/org/assertj/assertj-core/3.26.3/assertj-core-3.26.3.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.14.18/byte-buddy-1.14.18.jar:/root/.m2/repository/org/mockito/mockito-core/5.12.0/mockito-core-5.12.0.jar:/root/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/root/.m2/repository/org/mockito/mockito-junit-jupiter/5.12.0/mockito-junit-jupiter-5.12.0.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.18/byte-buddy-agent-1.14.18.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.36/slf4j-simple-1.7.36.jar:/root/.m2/repository/io/vertx/vertx-core/4.5.9/vertx-core-4.5.9.jar:/root/.m2/repository/io/netty/netty-common/4.1.111.Final/netty-common-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-buffer/4.1.111.Final/netty-buffer-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-transport/4.1.111.Final/netty-transport-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-handler/4.1.111.Final/netty-handler-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-transport-native-unix-common/4.1.111.Final/netty-transport-native-unix-common-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-codec/4.1.111.Final/netty-codec-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-handler-proxy/4.1.111.Final/netty-handler-proxy-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-codec-socks/4.1.111.Final/netty-codec-socks-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-codec-http/4.1.111.Final/netty-codec-http-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-codec-http2/4.1.111.Final/netty-codec-http2-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-resolver/4.1.111.Final/netty-resolver-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-resolver-dns/4.1.111.Final/netty-resolver-dns-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-codec-dns/4.1.111.Final/netty-codec-dns-4.1.111.Final.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.16.1/jackson-core-2.16.1.jar:/root/.m2/repository/io/vertx/vertx-junit5/4.5.9/vertx-junit5-4.5.9.jar:/root/.m2/repository/io/vertx/vertx-codegen/4.5.9/vertx-codegen-4.5.9.jar:/root/.m2/repository/commons-io/commons-io/2.16.1/commons-io-2.16.1.jar:/root/.m2/repository/org/openjdk/jcstress/jcstress-core/0.16/jcstress-core-0.16.jar:/root/.m2/repository/net/sf/jopt-simple/jopt-simple/4.6/jopt-simple-4.6.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/dev/src-test-t/resources:/repo/experiments/regen-policies/results/policy/pools/ktester/34/dev/src-test-t/suite",
+        "org.junit.platform.console.ConsoleLauncher",
+        "--disable-banner",
+        "--disable-ansi-colors",
+        "--fail-if-no-tests",
+        "--details",
+        "summary",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_presentInAnswer_returnsTrue()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_presentInAuthority_returnsTrue()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_presentInAdditional_returnsTrue()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_notPresent_returnsFalse()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_wrongType_returnsFalse()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_wrongName_returnsFalse()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_multipleSectionsOnlyOneMatches_returnsTrue()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_basicScenarios(java.lang.String,int,boolean,java.lang.String)",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_nullName_throwsNullPointerException()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_invalidNameMissingTrailingDot_throwsIllegalArgumentException()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_invalidNameIllegalCharacters_throwsIllegalArgumentException()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_invalidNameEmptyString_throwsIllegalArgumentException()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_negativeType_returnsFalse()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_typeGreaterThan65535_throwsIllegalArgumentException()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_typeNotAllowedInSection_throwsIllegalArgumentException()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_shortCircuitStopsAfterAnswer()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_ANYTypeMatchesAnyRecord()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_nameCaseInsensitivity()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_subdomainMismatch_returnsFalse()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_emptyMessage_returnsFalse()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_nullName_returnsFalse()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_invalidNameMissingTrailingDot_throwsTextParseException()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_invalidNameIllegalCharacters_throwsTextParseException()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_invalidNameEmptyString_throwsTextParseException()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_negativeType_throwsInvalidTypeException()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_typeNotAllowedInSection_returnsFalse()",
+        "--reports-dir",
+        "/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/validation/ktester/round1/2/test/run2"
+      ],
+      "cwd": "/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/runtime",
+      "exit_code": 1,
+      "timeout": false,
+      "seconds": 1.53,
+      "log": "work/validation/ktester/round1/2/test/run2/console.txt"
+    },
+    {
+      "command": [
+        "java",
+        "-Xmx1g",
+        "-XX:+UseSerialGC",
+        "-cp",
+        "/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/validation/ktester/round1/2/test/classes:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/checkouts/0/target/classes:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/apiguardian-api-1.1.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/byte-buddy-1.17.7.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/byte-buddy-agent-1.17.7.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/commons-io-2.16.1.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/commons-lang3-3.14.0.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/hamcrest-2.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/junit-jupiter-5.11.4.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/junit-jupiter-api-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/junit-jupiter-engine-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/junit-jupiter-params-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/junit-platform-commons-1.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/junit-platform-engine-1.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/mockito-core-5.24.0.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/mockito-junit-jupiter-5.24.0.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/objenesis-3.3.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/opentest4j-1.3.0.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/junit-vintage-engine-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/junit-4.13.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/hamcrest-core-1.3.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/libs/junit-platform-console-standalone-1.9.3.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/projectlombok/lombok/1.18.34/lombok-1.18.34.jar:/root/.m2/repository/net/java/dev/jna/jna/5.14.0/jna-5.14.0.jar:/root/.m2/repository/net/java/dev/jna/jna-platform/5.14.0/jna-platform-5.14.0.jar:/root/.m2/repository/org/bouncycastle/bcprov-jdk18on/1.78.1/bcprov-jdk18on-1.78.1.jar:/root/.m2/repository/org/bouncycastle/bcutil-jdk18on/1.78.1/bcutil-jdk18on-1.78.1.jar:/root/.m2/repository/org/assertj/assertj-core/3.26.3/assertj-core-3.26.3.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.14.18/byte-buddy-1.14.18.jar:/root/.m2/repository/org/mockito/mockito-core/5.12.0/mockito-core-5.12.0.jar:/root/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/root/.m2/repository/org/mockito/mockito-junit-jupiter/5.12.0/mockito-junit-jupiter-5.12.0.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.18/byte-buddy-agent-1.14.18.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.36/slf4j-simple-1.7.36.jar:/root/.m2/repository/io/vertx/vertx-core/4.5.9/vertx-core-4.5.9.jar:/root/.m2/repository/io/netty/netty-common/4.1.111.Final/netty-common-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-buffer/4.1.111.Final/netty-buffer-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-transport/4.1.111.Final/netty-transport-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-handler/4.1.111.Final/netty-handler-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-transport-native-unix-common/4.1.111.Final/netty-transport-native-unix-common-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-codec/4.1.111.Final/netty-codec-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-handler-proxy/4.1.111.Final/netty-handler-proxy-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-codec-socks/4.1.111.Final/netty-codec-socks-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-codec-http/4.1.111.Final/netty-codec-http-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-codec-http2/4.1.111.Final/netty-codec-http2-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-resolver/4.1.111.Final/netty-resolver-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-resolver-dns/4.1.111.Final/netty-resolver-dns-4.1.111.Final.jar:/root/.m2/repository/io/netty/netty-codec-dns/4.1.111.Final/netty-codec-dns-4.1.111.Final.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.16.1/jackson-core-2.16.1.jar:/root/.m2/repository/io/vertx/vertx-junit5/4.5.9/vertx-junit5-4.5.9.jar:/root/.m2/repository/io/vertx/vertx-codegen/4.5.9/vertx-codegen-4.5.9.jar:/root/.m2/repository/commons-io/commons-io/2.16.1/commons-io-2.16.1.jar:/root/.m2/repository/org/openjdk/jcstress/jcstress-core/0.16/jcstress-core-0.16.jar:/root/.m2/repository/net/sf/jopt-simple/jopt-simple/4.6/jopt-simple-4.6.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/34/dev/src-test-t/resources:/repo/experiments/regen-policies/results/policy/pools/ktester/34/dev/src-test-t/suite",
+        "org.junit.platform.console.ConsoleLauncher",
+        "--disable-banner",
+        "--disable-ansi-colors",
+        "--fail-if-no-tests",
+        "--details",
+        "summary",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_presentInAnswer_returnsTrue()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_presentInAuthority_returnsTrue()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_presentInAdditional_returnsTrue()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_notPresent_returnsFalse()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_wrongType_returnsFalse()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_wrongName_returnsFalse()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_multipleSectionsOnlyOneMatches_returnsTrue()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_basicScenarios(java.lang.String,int,boolean,java.lang.String)",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_nullName_throwsNullPointerException()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_invalidNameMissingTrailingDot_throwsIllegalArgumentException()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_invalidNameIllegalCharacters_throwsIllegalArgumentException()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_invalidNameEmptyString_throwsIllegalArgumentException()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_negativeType_returnsFalse()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_typeGreaterThan65535_throwsIllegalArgumentException()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_typeNotAllowedInSection_throwsIllegalArgumentException()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_shortCircuitStopsAfterAnswer()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_ANYTypeMatchesAnyRecord()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_nameCaseInsensitivity()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_subdomainMismatch_returnsFalse()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_emptyMessage_returnsFalse()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_nullName_returnsFalse()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_invalidNameMissingTrailingDot_throwsTextParseException()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_invalidNameIllegalCharacters_throwsTextParseException()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_invalidNameEmptyString_throwsTextParseException()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_negativeType_throwsInvalidTypeException()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_typeNotAllowedInSection_returnsFalse()",
+        "--reports-dir",
+        "/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/validation/ktester/round1/2/test/run3"
+      ],
+      "cwd": "/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/runtime",
+      "exit_code": 1,
+      "timeout": false,
+      "seconds": 1.776,
+      "log": "work/validation/ktester/round1/2/test/run3/console.txt"
+    }
+  ],
+  "methods": [
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java",
+      "class": "org.xbill.DNS.Message_findRRset_2_Test",
+      "method": "findRRset_presentInAnswer_returnsTrue",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java|org.xbill.DNS.Message_findRRset_2_Test|findRRset_presentInAnswer_returnsTrue",
+      "body_hash": "91f4623890161dab1f5b59d59f7cf95902e759c32c0abd05d727211a15136882",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_presentInAnswer_returnsTrue()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java",
+      "class": "org.xbill.DNS.Message_findRRset_2_Test",
+      "method": "findRRset_presentInAuthority_returnsTrue",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java|org.xbill.DNS.Message_findRRset_2_Test|findRRset_presentInAuthority_returnsTrue",
+      "body_hash": "0e0530e6aea559698450031da5a7a06fd60eb8d6683fd674cebbf40964ae041a",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_presentInAuthority_returnsTrue()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java",
+      "class": "org.xbill.DNS.Message_findRRset_2_Test",
+      "method": "findRRset_presentInAdditional_returnsTrue",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java|org.xbill.DNS.Message_findRRset_2_Test|findRRset_presentInAdditional_returnsTrue",
+      "body_hash": "53c609a4abdecd7071e9d680c46f5c47d2030ae61f57fe91e1c1b5a952967870",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_presentInAdditional_returnsTrue()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java",
+      "class": "org.xbill.DNS.Message_findRRset_2_Test",
+      "method": "findRRset_notPresent_returnsFalse",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java|org.xbill.DNS.Message_findRRset_2_Test|findRRset_notPresent_returnsFalse",
+      "body_hash": "a89482eea3345278ec79f8c1ba68363ba0d28575baf1f19cfec2e0a5445413c9",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_notPresent_returnsFalse()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java",
+      "class": "org.xbill.DNS.Message_findRRset_2_Test",
+      "method": "findRRset_wrongType_returnsFalse",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java|org.xbill.DNS.Message_findRRset_2_Test|findRRset_wrongType_returnsFalse",
+      "body_hash": "7f6737b061ea985f3410f00aa8350695c681202321a3abf1a3b1e25871d586a1",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_wrongType_returnsFalse()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java",
+      "class": "org.xbill.DNS.Message_findRRset_2_Test",
+      "method": "findRRset_wrongName_returnsFalse",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java|org.xbill.DNS.Message_findRRset_2_Test|findRRset_wrongName_returnsFalse",
+      "body_hash": "5fd9aab271a8e52e161d32fd651fc1b02af0e5d75efb548e48f2828c8cb55502",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_wrongName_returnsFalse()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java",
+      "class": "org.xbill.DNS.Message_findRRset_2_Test",
+      "method": "findRRset_multipleSectionsOnlyOneMatches_returnsTrue",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java|org.xbill.DNS.Message_findRRset_2_Test|findRRset_multipleSectionsOnlyOneMatches_returnsTrue",
+      "body_hash": "b3cd69081667ba3a44d16eb6a6811372d61b9bfa7a3935dc2df95782d5400d16",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_multipleSectionsOnlyOneMatches_returnsTrue()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java",
+      "class": "org.xbill.DNS.Message_findRRset_2_Test",
+      "method": "findRRset_basicScenarios",
+      "kind": "parameterized",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java|org.xbill.DNS.Message_findRRset_2_Test|findRRset_basicScenarios",
+      "body_hash": "20e88151650ba109b1ef1cf1df339b5e3ef34491671435deaba50fc8481c8601",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_basicScenarios(java.lang.String,int,boolean,java.lang.String)"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java",
+      "class": "org.xbill.DNS.Message_findRRset_2_Test",
+      "method": "findRRset_nullName_throwsNullPointerException",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java|org.xbill.DNS.Message_findRRset_2_Test|findRRset_nullName_throwsNullPointerException",
+      "body_hash": "dd772cc9861e4a152c17310ba8477b4c78f86cae63b9253d03412c7c111cf435",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "fail",
+      "message": "org.opentest4j.AssertionFailedError: Passing a null Name should throw NullPointerException ==> Expected java.lang.NullPointerException to be thrown, but nothing was thrown.",
+      "flaky": false,
+      "initial_state": "fail",
+      "selector": [
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_nullName_throwsNullPointerException()"
+      ],
+      "baseline_states": [
+        "fail",
+        "fail",
+        "fail"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java",
+      "class": "org.xbill.DNS.Message_findRRset_2_Test",
+      "method": "findRRset_invalidNameMissingTrailingDot_throwsIllegalArgumentException",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java|org.xbill.DNS.Message_findRRset_2_Test|findRRset_invalidNameMissingTrailingDot_throwsIllegalArgumentException",
+      "body_hash": "1bd416a8dc8175aafe82b3b60614a1e48437583027c96180f9a84a49693774cb",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "fail",
+      "message": "org.opentest4j.AssertionFailedError: Name without trailing dot should cause IllegalArgumentException ==> Expected java.lang.IllegalArgumentException to be thrown, but nothing was thrown.",
+      "flaky": false,
+      "initial_state": "fail",
+      "selector": [
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_invalidNameMissingTrailingDot_throwsIllegalArgumentException()"
+      ],
+      "baseline_states": [
+        "fail",
+        "fail",
+        "fail"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java",
+      "class": "org.xbill.DNS.Message_findRRset_2_Test",
+      "method": "findRRset_invalidNameIllegalCharacters_throwsIllegalArgumentException",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java|org.xbill.DNS.Message_findRRset_2_Test|findRRset_invalidNameIllegalCharacters_throwsIllegalArgumentException",
+      "body_hash": "5aa543c8a585a758b512c39a1ac7f0612b90693720d7c0b0064c661d28ac6783",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "fail",
+      "message": "org.opentest4j.AssertionFailedError: Name containing illegal characters should cause IllegalArgumentException ==> Expected java.lang.IllegalArgumentException to be thrown, but nothing was thrown.",
+      "flaky": false,
+      "initial_state": "fail",
+      "selector": [
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_invalidNameIllegalCharacters_throwsIllegalArgumentException()"
+      ],
+      "baseline_states": [
+        "fail",
+        "fail",
+        "fail"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java",
+      "class": "org.xbill.DNS.Message_findRRset_2_Test",
+      "method": "findRRset_invalidNameEmptyString_throwsIllegalArgumentException",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java|org.xbill.DNS.Message_findRRset_2_Test|findRRset_invalidNameEmptyString_throwsIllegalArgumentException",
+      "body_hash": "b4528f6348cde56794a145559c2d058b79aa3063a1ab1d294e74909a14758bc8",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "fail",
+      "message": "org.opentest4j.AssertionFailedError: Empty string is not a valid DNS name ==> Unexpected exception type thrown, expected: <java.lang.IllegalArgumentException> but was: <org.xbill.DNS.TextParseException>",
+      "flaky": false,
+      "initial_state": "fail",
+      "selector": [
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_invalidNameEmptyString_throwsIllegalArgumentException()"
+      ],
+      "baseline_states": [
+        "fail",
+        "fail",
+        "fail"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java",
+      "class": "org.xbill.DNS.Message_findRRset_2_Test",
+      "method": "findRRset_negativeType_returnsFalse",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java|org.xbill.DNS.Message_findRRset_2_Test|findRRset_negativeType_returnsFalse",
+      "body_hash": "fe1ca47c3b038beac0c9f1f727d1d3b5264a23862b0eff2eb218522ba6d084f6",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "error",
+      "message": "org.xbill.DNS.InvalidTypeException: Invalid DNS type: -1",
+      "flaky": false,
+      "initial_state": "error",
+      "selector": [
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_negativeType_returnsFalse()"
+      ],
+      "baseline_states": [
+        "error",
+        "error",
+        "error"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java",
+      "class": "org.xbill.DNS.Message_findRRset_2_Test",
+      "method": "findRRset_typeGreaterThan65535_throwsIllegalArgumentException",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java|org.xbill.DNS.Message_findRRset_2_Test|findRRset_typeGreaterThan65535_throwsIllegalArgumentException",
+      "body_hash": "77d5fde160742200c1d38d4c1e96022385bea661a985d3f907a34d1c99d18ee7",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_typeGreaterThan65535_throwsIllegalArgumentException()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java",
+      "class": "org.xbill.DNS.Message_findRRset_2_Test",
+      "method": "findRRset_typeNotAllowedInSection_throwsIllegalArgumentException",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java|org.xbill.DNS.Message_findRRset_2_Test|findRRset_typeNotAllowedInSection_throwsIllegalArgumentException",
+      "body_hash": "26d0e35c892899587514b87bbae02d3b9c2389a89ceec49b204285d852220034",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "fail",
+      "message": "org.opentest4j.AssertionFailedError: SIG type should trigger IllegalArgumentException ==> Expected java.lang.IllegalArgumentException to be thrown, but nothing was thrown.",
+      "flaky": false,
+      "initial_state": "fail",
+      "selector": [
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_typeNotAllowedInSection_throwsIllegalArgumentException()"
+      ],
+      "baseline_states": [
+        "fail",
+        "fail",
+        "fail"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java",
+      "class": "org.xbill.DNS.Message_findRRset_2_Test",
+      "method": "findRRset_shortCircuitStopsAfterAnswer",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java|org.xbill.DNS.Message_findRRset_2_Test|findRRset_shortCircuitStopsAfterAnswer",
+      "body_hash": "f94e23b9fb43fb0d795d2e3ad5f3c010fbc1fb3938aa35ac38baf3ada4a0a969",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_shortCircuitStopsAfterAnswer()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java",
+      "class": "org.xbill.DNS.Message_findRRset_2_Test",
+      "method": "findRRset_ANYTypeMatchesAnyRecord",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java|org.xbill.DNS.Message_findRRset_2_Test|findRRset_ANYTypeMatchesAnyRecord",
+      "body_hash": "800d648b09828ac41093903ae1d9ef2a5cdacd3d745ecb232cec0540ba69c514",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_ANYTypeMatchesAnyRecord()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java",
+      "class": "org.xbill.DNS.Message_findRRset_2_Test",
+      "method": "findRRset_nameCaseInsensitivity",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java|org.xbill.DNS.Message_findRRset_2_Test|findRRset_nameCaseInsensitivity",
+      "body_hash": "1a720e6337019b9fda753f953cbc0f78d323d8db1889105922e50ccd355edb11",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_nameCaseInsensitivity()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java",
+      "class": "org.xbill.DNS.Message_findRRset_2_Test",
+      "method": "findRRset_subdomainMismatch_returnsFalse",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java|org.xbill.DNS.Message_findRRset_2_Test|findRRset_subdomainMismatch_returnsFalse",
+      "body_hash": "b41b0bd8f76d1031b9200ba35f0d38acb0d357e2637660bb644d0d0d5975bd1c",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_subdomainMismatch_returnsFalse()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java",
+      "class": "org.xbill.DNS.Message_findRRset_2_Test",
+      "method": "findRRset_emptyMessage_returnsFalse",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java|org.xbill.DNS.Message_findRRset_2_Test|findRRset_emptyMessage_returnsFalse",
+      "body_hash": "0a0c77767d770696085ed7877955181a6886108bd57c5d9e715ed35de575b8b0",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_emptyMessage_returnsFalse()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java",
+      "class": "org.xbill.DNS.Message_findRRset_2_Test",
+      "method": "findRRset_nullName_returnsFalse",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java|org.xbill.DNS.Message_findRRset_2_Test|findRRset_nullName_returnsFalse",
+      "body_hash": "83fd810a9973b5db8d4c631b97226a07dcb62864398cfabb0b2a8d8a7f00ead8",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_nullName_returnsFalse()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java",
+      "class": "org.xbill.DNS.Message_findRRset_2_Test",
+      "method": "findRRset_invalidNameMissingTrailingDot_throwsTextParseException",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java|org.xbill.DNS.Message_findRRset_2_Test|findRRset_invalidNameMissingTrailingDot_throwsTextParseException",
+      "body_hash": "7a121fe3b4780f6c41c73d6249974f7a8f54a7ea084b191dfc1226ed4000ce34",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "fail",
+      "message": "org.opentest4j.AssertionFailedError: Name without trailing dot should cause TextParseException ==> Expected org.xbill.DNS.TextParseException to be thrown, but nothing was thrown.",
+      "flaky": false,
+      "initial_state": "fail",
+      "selector": [
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_invalidNameMissingTrailingDot_throwsTextParseException()"
+      ],
+      "baseline_states": [
+        "fail",
+        "fail",
+        "fail"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java",
+      "class": "org.xbill.DNS.Message_findRRset_2_Test",
+      "method": "findRRset_invalidNameIllegalCharacters_throwsTextParseException",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java|org.xbill.DNS.Message_findRRset_2_Test|findRRset_invalidNameIllegalCharacters_throwsTextParseException",
+      "body_hash": "685bfc04e60e11035dc234790c31cf9762f3d72a8052cd957619131ab6df87b9",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "fail",
+      "message": "org.opentest4j.AssertionFailedError: Name containing illegal characters should cause TextParseException ==> Expected org.xbill.DNS.TextParseException to be thrown, but nothing was thrown.",
+      "flaky": false,
+      "initial_state": "fail",
+      "selector": [
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_invalidNameIllegalCharacters_throwsTextParseException()"
+      ],
+      "baseline_states": [
+        "fail",
+        "fail",
+        "fail"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java",
+      "class": "org.xbill.DNS.Message_findRRset_2_Test",
+      "method": "findRRset_invalidNameEmptyString_throwsTextParseException",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java|org.xbill.DNS.Message_findRRset_2_Test|findRRset_invalidNameEmptyString_throwsTextParseException",
+      "body_hash": "7cd2e5eb346f3db5bc91d4998bd2fd9c4ecd64fef687fb1c9a02c1c0cc7acda0",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_invalidNameEmptyString_throwsTextParseException()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java",
+      "class": "org.xbill.DNS.Message_findRRset_2_Test",
+      "method": "findRRset_negativeType_throwsInvalidTypeException",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java|org.xbill.DNS.Message_findRRset_2_Test|findRRset_negativeType_throwsInvalidTypeException",
+      "body_hash": "f380639a846537e6733315d69392c57d7863de080746fabdefe7448f781e349a",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_negativeType_throwsInvalidTypeException()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java",
+      "class": "org.xbill.DNS.Message_findRRset_2_Test",
+      "method": "findRRset_typeNotAllowedInSection_returnsFalse",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java|org.xbill.DNS.Message_findRRset_2_Test|findRRset_typeNotAllowedInSection_returnsFalse",
+      "body_hash": "3e80dff9bbcb3b53438c4b63777d1c78cbd7f0b1f0b080f14e7a9c5f461e1c45",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_typeNotAllowedInSection_returnsFalse()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    }
+  ],
+  "parse": {
+    "command": [
+      "java",
+      "-Xmx512m",
+      "/survival-package/adapters/java/SourceInventory.java",
+      "/repo/experiments/regen-policies/results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java",
+      "auto"
+    ],
+    "cwd": "/repo/experiments/regen-policies/results/policy/pools/ktester/34/work/checkouts/0",
+    "exit_code": 0,
+    "timeout": false,
+    "seconds": 0.773,
+    "log": "work/validation/ktester/round1/2/inventory.tsv"
+  },
+  "input_sha256": "c36917ae18f2af1f9896d67b6c58ed6fd3bc7b9527166340a17eaafe7e8aa197"
+}

@@ -1,0 +1,67 @@
+{
+  "index": 15,
+  "sha": "2073a0cdea2c560465f7ac0cc56f202e6fc39705",
+  "build": "ok",
+  "attempts": [
+    {
+      "command": [
+        "mvn",
+        "-q",
+        "-o",
+        "-DskipTests",
+        "compile"
+      ],
+      "cwd": "/repo/experiments/commit-survival/work/checkouts/15",
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 18.732,
+      "log": "results/builds/logs/15-1.txt"
+    }
+  ],
+  "input_sha256": "874c1e570ba37f5ade6c8768fcf9c4f411dc0ab18bcde3b58c04b4532eba6b3e",
+  "pom_sha256": "31cd358ebf3be5d051e40d9dd28f447c60a9305067d92631664552f6baf6eead",
+  "classpath": "work/classpaths/31cd358ebf3be5d051e40d9dd28f447c60a9305067d92631664552f6baf6eead.txt",
+  "classpath_attempts": [
+    {
+      "command": [
+        "mvn",
+        "-q",
+        "-o",
+        "dependency:go-offline"
+      ],
+      "cwd": "/repo/experiments/commit-survival/work/checkouts/15",
+      "exit_code": 1,
+      "timeout": false,
+      "seconds": 3.784,
+      "log": "results/builds/logs/classpath-15/go-offline-31eaca9395554ad2a87349d1a5fc8d0c/1.txt"
+    },
+    {
+      "command": [
+        "mvn",
+        "-q",
+        "-U",
+        "dependency:go-offline"
+      ],
+      "cwd": "/repo/experiments/commit-survival/work/checkouts/15",
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 5.597,
+      "log": "results/builds/logs/classpath-15/go-offline-31eaca9395554ad2a87349d1a5fc8d0c/2.txt"
+    },
+    {
+      "command": [
+        "mvn",
+        "-q",
+        "-o",
+        "dependency:build-classpath",
+        "-DincludeScope=test",
+        "-Dmdep.outputFile=/repo/experiments/commit-survival/work/classpaths/31cd358ebf3be5d051e40d9dd28f447c60a9305067d92631664552f6baf6eead-5d277bb654f5498289120a161fac1e2d.tmp"
+      ],
+      "cwd": "/repo/experiments/commit-survival/work/checkouts/15",
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 2.8,
+      "log": "results/builds/logs/classpath-15/build-classpath-5070478f77e64799b28cfb802d53fdc4/1.txt"
+    }
+  ]
+}

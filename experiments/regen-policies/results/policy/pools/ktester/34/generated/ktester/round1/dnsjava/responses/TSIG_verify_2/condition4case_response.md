@@ -1,0 +1,4 @@
+{
+  "analysis": "We need to generate test cases for the focal method verify(Message, byte[], TSIGRecord, boolean). We need to cover all conditional branches inside that method, but we don't have the method body. However we must infer possible branches: likely checks for nulls, algorithm types, time fudge, signature verification, fullSignature flag, etc. We need to produce test cases covering branches: requestTSIG null, message null, fullSignature true/false, algorithm unsupported, time out of range, signature verification passes/fails, hmac null etc. Provide inputs with mock objects. Since we can't compile, we describe using mocks. Provide groups logically: Null handling, Time validation, Algorithm handling, Signature verification, FullSignature variations. Provide input parameter values as placeholders. Use description. Provide expected return values (int error codes). We need JSON array of groups with cases. We'll craft several cases."
+
+}

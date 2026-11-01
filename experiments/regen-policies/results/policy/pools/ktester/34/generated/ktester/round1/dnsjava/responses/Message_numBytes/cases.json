@@ -1,0 +1,142 @@
+[
+  {
+    "group": "Default state",
+    "cases": [
+      {
+        "input": [],
+        "expected": 0,
+        "description": "A newly constructed Message should have an internal size of 0, therefore numBytes() must return 0."
+      }
+    ]
+  },
+  {
+    "group": "Size set via reflection",
+    "cases": [
+      {
+        "input": [],
+        "expected": 12345,
+        "description": "Using reflection, set the private field `size` to 12345 on a Message instance. numBytes() must return the exact value that was injected, proving that the method simply returns the field without modification."
+      },
+      {
+        "input": [],
+        "expected": -1,
+        "description": "Set the private field `size` to a negative value (e.g., -1) via reflection. Although a negative size is not a valid DNS message length, numBytes() should still return the raw field value, confirming no validation is performed inside the method."
+      }
+    ]
+  },
+  {
+    "group": "Size after adding records (indirect verification)",
+    "cases": [
+      {
+        "input": [],
+        "expected": "non\u2011zero",
+        "description": "Create a Message, add a dummy Record to the QUESTION section (section = 0) using `addRecord`. The internal implementation of `addRecord` is expected to increase the message size. After the addition, `numBytes()` should return a value greater than 0. The exact number is not asserted because it depends on the Record implementation, but the test verifies that the size changes from the initial 0."
+      },
+      {
+        "input": [],
+        "expected": "unchanged",
+        "description": "Create a Message, call `addRecord` with a `null` Record (or a Record that is ignored by the implementation). The internal size should remain 0, and `numBytes()` must still return 0, confirming that `addRecord` does not modify the size when no data is added."
+      }
+    ]
+  },
+  {
+    "group": "Size after setting Header",
+    "cases": [
+      {
+        "input": [],
+        "expected": "unchanged",
+        "description": "Create a fresh Message, then call setHeader() with a newly constructed Header. The internal size field should remain 0 because setting a Header does not modify the serialized length of the message."
+      },
+      {
+        "input": [],
+        "expected": "non\u2011zero",
+        "description": "Create a Message, add a dummy Record to the ANSWER section, then replace the Header with a custom Header (e.g., different ID or flags). The size should stay non\u2011zero (the Header replacement does not reset the size)."
+      }
+    ]
+  },
+  {
+    "group": "Size after adding TSIG",
+    "cases": [
+      {
+        "input": [],
+        "expected": "non\u2011zero",
+        "description": "Create a Message, invoke setTSIG() with a valid TSIG key. Adding a TSIG record should increase the internal size, therefore numBytes() must return a value greater than 0."
+      },
+      {
+        "input": [],
+        "expected": "unchanged",
+        "description": "Create a Message with no other sections, call setTSIG() with a null TSIG key. The method should ignore the null argument and leave the size at 0."
+      }
+    ]
+  },
+  {
+    "group": "Size after removing records",
+    "cases": [
+      {
+        "input": [],
+        "expected": 0,
+        "description": "Add a dummy Record to the ANSWER section, verify numBytes() > 0, then remove the same Record with removeRecord(). After removal the internal size should be back to 0."
+      },
+      {
+        "input": [],
+        "expected": "unchanged",
+        "description": "Attempt to remove a Record that was never added. The size must remain unchanged (still 0)."
+      }
+    ]
+  },
+  {
+    "group": "Size after cloning",
+    "cases": [
+      {
+        "input": [],
+        "expected": "same as original",
+        "description": "Create a Message, add at least one Record, capture its size, then clone the Message. The cloned instance must report the identical size via numBytes()."
+      },
+      {
+        "input": [],
+        "expected": 0,
+        "description": "Clone a freshly constructed empty Message. Both the original and the clone should report size 0."
+      }
+    ]
+  },
+  {
+    "group": "Size after toWire serialization",
+    "cases": [
+      {
+        "input": [],
+        "expected": "equals byte array length",
+        "description": "Add one or more Records, call toWire() to obtain the serialized byte array, and compare numBytes() with the length of that array. They must match because toWire() should not alter the stored size."
+      }
+    ]
+  },
+  {
+    "group": "Size after toWire with maxLength truncation",
+    "cases": [
+      {
+        "input": [],
+        "expected": "\u2264 maxLength",
+        "description": "Construct a Message whose logical size exceeds 1024 bytes, then invoke toWire(1024). The returned byte array length will be at most 1024, and numBytes() must reflect the truncated length (i.e., be \u2264 1024)."
+      }
+    ]
+  },
+  {
+    "group": "Size after normalize()",
+    "cases": [
+      {
+        "input": [],
+        "expected": "non\u2011increasing",
+        "description": "Create a Message with extra, irrelevant records, call normalize(query) using a valid query Message. Normalization removes irrelevant data, so the size reported by numBytes() after normalization must be less than or equal to the size before the call."
+      }
+    ]
+  },
+  {
+    "group": "Size after setting Resolver",
+    "cases": [
+      {
+        "input": [],
+        "expected": "unchanged",
+        "description": "Assign a mock Resolver to a Message via setResolver(). The resolver is not part of the wire format, therefore the internal size must stay unchanged."
+      }
+    ]
+  }
+]

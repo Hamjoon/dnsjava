@@ -1,0 +1,701 @@
+package org.xbill.DNS;
+
+import static org.junit.jupiter.api.Assertions.*;
+import java.io.IOException;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.junit.jupiter.MockitoExtension;
+import static org.mockito.Mockito.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Stream;
+import org.junit.jupiter.params.*;
+import org.junit.jupiter.params.provider.*;
+
+@ExtendWith(MockitoExtension.class)
+class Message_normalize_2_Test {
+
+    /**
+     * A simple A‑record used as the query in most tests.
+     */
+    private Record queryRecord;
+
+    /**
+     * The query Message created from {@link #queryRecord}.
+     */
+    private Message query;
+
+    @BeforeEach
+    void setupBeforeEach() {
+        queryRecord = Record.newRecord(Name.fromConstantString("example.com."), Type.A, DClass.IN);
+        query = Message.newQuery(queryRecord);
+    }
+
+    /**
+     * Helper to create a simple A‑record used as the query.
+     */
+    private static Record queryA(String name) throws Exception {
+        return Record.newRecord(Name.fromString(name, Name.root), Type.A, DClass.IN);
+    }
+
+    /**
+     * Helper to create a Message that contains only the QUESTION section.
+     */
+    private static Message newQueryMessage(Record q) {
+        Message m = Message.newQuery(q);
+        return m;
+    }
+
+    /**
+     * Helper to create a spy that can override {@code isTypeAllowedInSection}.
+     */
+    private static Message spyMessage(Message m) {
+        Message spy = spy(m);
+        // By default delegate to the real method for all types
+        doCallRealMethod().when(spy).isTypeAllowedInSection(anyInt(), anyInt());
+        return spy;
+    }
+
+    /**
+     * When the response RCODE is neither NOERROR nor NXDOMAIN the method must
+     * return the original Message instance unchanged.
+     */
+    @Test
+    void normalize_returnsSelfWhenRcodeNotNoErrorOrNxDomain() throws WireParseException {
+        Message response = new Message();
+        response.addRecord(queryRecord, Section.QUESTION);
+        // Force a non‑NOERROR RCODE (e.g. SERVFAIL = 2)
+        response.getHeader().setRcode(Rcode.SERVFAIL);
+        Message result = response.normalize(query, false);
+        assertSame(response, result, "Message should be returned unchanged for non‑NOERROR/NXDOMAIN");
+        assertEquals(Rcode.SERVFAIL, result.getHeader().getRcode());
+    }
+
+    /**
+     * A DNAME RRset that contains more than one record is considered malformed.
+     * With {@code throwOnIrrelevantRecord=true} the method must throw a
+     * {@link WireParseException}.
+     */
+    @Test
+    void normalize_throwsWhenDnameRrsetHasMultipleEntries() {
+        Message response = new Message();
+        response.addRecord(queryRecord, Section.QUESTION);
+        // Build a DNAME RRset with two entries (same name, different targets)
+        Name dnameOwner = Name.fromConstantString("example.com.");
+        DNAMERecord d1 = new DNAMERecord(dnameOwner, DClass.IN, 300, Name.fromConstantString("target1.example.com."));
+        DNAMERecord d2 = new DNAMERecord(dnameOwner, DClass.IN, 300, Name.fromConstantString("target2.example.com."));
+        response.addRecord(d1, Section.ANSWER);
+        response.addRecord(d2, Section.ANSWER);
+        assertThrows(WireParseException.class, () -> response.normalize(query, true), "Multiple DNAME records should cause a WireParseException when throwOnIrrelevantRecord is true");
+    }
+
+    /**
+     * When a single DNAME is present in the answer section and the query is
+     * *not* for a DNAME, the method must synthesize a CNAME that points to the
+     * DNAME target. The synthesized CNAME must appear in the normalized
+     * answer section.
+     */
+    @Test
+    void normalize_synthesizesCnameFromDname() throws WireParseException, UnknownHostException {
+        Message response = new Message();
+        response.addRecord(queryRecord, Section.QUESTION);
+        // Single DNAME record
+        Name dnameOwner = Name.fromConstantString("example.com.");
+        Name dnameTarget = Name.fromConstantString("alias.example.org.");
+        DNAMERecord dname = new DNAMERecord(dnameOwner, DClass.IN, 300, dnameTarget);
+        response.addRecord(dname, Section.ANSWER);
+        Message normalized = response.normalize(query, false);
+        // The answer should now contain the original DNAME and the synthesized CNAME
+        assertEquals(2, normalized.getSection(Section.ANSWER).size(), "Answer section must contain DNAME + synthesized CNAME");
+        // Verify the synthesized CNAME
+        Record synthesized = normalized.getSection(Section.ANSWER).stream().filter(r -> r.getType() == Type.CNAME).findFirst().orElseThrow(() -> new AssertionError("Synthesized CNAME not found"));
+        assertEquals(dnameOwner, synthesized.getName(), "CNAME name must be the original query name");
+        assertEquals(dnameTarget, ((CNAMERecord) synthesized).getTarget(), "CNAME target must be the DNAME target");
+    }
+
+    /**
+     * When the response contains records that are irrelevant to the query and
+     * {@code throwOnIrrelevantRecord} is {@code false}, they must simply be
+     * ignored. The normalized message should contain no answer records.
+     */
+    @Test
+    void normalize_ignoresIrrelevantRecordsWhenThrowFalse() throws WireParseException, UnknownHostException {
+        Message response = new Message();
+        response.addRecord(queryRecord, Section.QUESTION);
+        // Irrelevant A record for a different name
+        Record other = new ARecord(Name.fromConstantString("other.example.com."), DClass.IN, 300, InetAddress.getByName("127.0.0.2"));
+        response.addRecord(other, Section.ANSWER);
+        Message normalized = response.normalize(query, false);
+        assertTrue(normalized.getSection(Section.ANSWER).isEmpty(), "Irrelevant answer records must be removed when throwOnIrrelevantRecord is false");
+    }
+
+    @Test
+    void normalize_earlyExit_notNoErrorOrNxDomain() throws Exception {
+        Message response = new Message();
+        response.addRecord(queryA("example.com."), Section.QUESTION);
+        // not NOERROR/NXDOMAIN
+        response.getHeader().setRcode(Rcode.FORMERR);
+        Message result = response.normalize(newQueryMessage(queryA("example.com.")), false);
+        assertSame(response, result, "Should return the original message when RCODE is not NOERROR/NXDOMAIN");
+    }
+
+    @Test
+    void normalize_earlyExit_nxdomainContinues() throws Exception {
+        Message response = new Message();
+        response.addRecord(queryA("example.com."), Section.QUESTION);
+        // allowed – must continue
+        response.getHeader().setRcode(Rcode.NXDOMAIN);
+        // No answer records – after normalisation we still get a new Message (not the same instance)
+        Message result = response.normalize(newQueryMessage(queryA("example.com.")), false);
+        assertNotSame(response, result);
+        assertEquals(Rcode.NXDOMAIN, result.getHeader().getRcode());
+    }
+
+    @ParameterizedTest(name = "throwOnIrrelevant={0} → expect {1}")
+    @CsvSource({ "true, exception", "false, null" })
+    void normalize_dnameMultipleEntries(boolean throwOnIrrelevant, String expectation) throws Exception {
+        Message response = new Message();
+        Record q = queryA("example.com.");
+        response.addRecord(q, Section.QUESTION);
+        Name owner = Name.fromString("example.com.", Name.root);
+        DNAMERecord d1 = new DNAMERecord(owner, DClass.IN, 300, Name.fromString("target1.example.com.", Name.root));
+        DNAMERecord d2 = new DNAMERecord(owner, DClass.IN, 300, Name.fromString("target2.example.com.", Name.root));
+        response.addRecord(d1, Section.ANSWER);
+        response.addRecord(d2, Section.ANSWER);
+        if (throwOnIrrelevant) {
+            assertThrows(WireParseException.class, () -> response.normalize(newQueryMessage(q), true));
+        } else {
+            Message result = response.normalize(newQueryMessage(q), false);
+            assertNull(result, "Method should return null when DNAME RRset has >1 entries and throwOnIrrelevant=false");
+        }
+    }
+
+    @Test
+    void normalize_dnameQueryTypeDname_noCnameSynthesis() throws Exception {
+        Record q = new Record(Name.fromString("alias.example.com.", Name.root), Type.DNAME, DClass.IN) {
+
+            @Override
+            public String toString() {
+                return "";
+            }
+        };
+        Message query = Message.newQuery(q);
+        Message response = new Message();
+        response.addRecord(q, Section.QUESTION);
+        DNAMERecord dname = new DNAMERecord(Name.fromString("alias.example.com.", Name.root), DClass.IN, 300, Name.fromString("target.example.com.", Name.root));
+        response.addRecord(dname, Section.ANSWER);
+        Message norm = response.normalize(query, false);
+        assertNotNull(norm);
+        List<Record> ans = norm.getSection(Section.ANSWER);
+        assertEquals(1, ans.size(), "Only the original DNAME must be present");
+        assertTrue(ans.get(0) instanceof DNAMERecord);
+    }
+
+    @Test
+    void normalize_dnameSynthesisesCname() throws Exception {
+        Record q = queryA("www.example.com.");
+        Message query = newQueryMessage(q);
+        Message resp = new Message();
+        resp.addRecord(q, Section.QUESTION);
+        DNAMERecord dname = new DNAMERecord(Name.fromString("example.com.", Name.root), DClass.IN, 300, Name.fromString("target.com.", Name.root));
+        resp.addRecord(dname, Section.ANSWER);
+        Message norm = resp.normalize(query, false);
+        assertNotNull(norm);
+        List<Record> ans = norm.getSection(Section.ANSWER);
+        assertEquals(2, ans.size(), "DNAME + synthesized CNAME expected");
+        assertTrue(ans.stream().anyMatch(r -> r.getType() == Type.CNAME));
+        CNAMERecord cname = (CNAMERecord) ans.stream().filter(r -> r.getType() == Type.CNAME).findFirst().get();
+        assertEquals(Name.fromString("www.example.com.", Name.root), cname.getName());
+        assertEquals(Name.fromString("target.com.", Name.root), cname.getTarget());
+        assertEquals(0, cname.getTTL(), "Synthesised CNAME must have TTL=0");
+    }
+
+    @Test
+    void normalize_dnameExistingMatchingCnameNotDuplicated() throws Exception {
+        Record q = queryA("www.example.com.");
+        Message query = newQueryMessage(q);
+        Message resp = new Message();
+        resp.addRecord(q, Section.QUESTION);
+        DNAMERecord dname = new DNAMERecord(Name.fromString("example.com.", Name.root), DClass.IN, 300, Name.fromString("target.com.", Name.root));
+        resp.addRecord(dname, Section.ANSWER);
+        // Correct CNAME already present
+        CNAMERecord cname = new CNAMERecord(Name.fromString("www.example.com.", Name.root), DClass.IN, 123, Name.fromString("target.com.", Name.root));
+        resp.addRecord(cname, Section.ANSWER);
+        Message norm = resp.normalize(query, false);
+        List<Record> ans = norm.getSection(Section.ANSWER);
+        // DNAME + existing CNAME (no extra synthesized)
+        assertEquals(2, ans.size());
+        long cnameCount = ans.stream().filter(r -> r.getType() == Type.CNAME).count();
+        assertEquals(1, cnameCount);
+    }
+
+    @Test
+    void normalize_dnameAnyQueryKeepsExtraRecords() throws Exception {
+        Record q = new Record(Name.fromString("www.example.com.", Name.root), Type.ANY, DClass.IN) {
+
+            @Override
+            public String toString() {
+                return "";
+            }
+        };
+        Message query = Message.newQuery(q);
+        Message resp = new Message();
+        resp.addRecord(q, Section.QUESTION);
+        DNAMERecord dname = new DNAMERecord(Name.fromString("example.com.", Name.root), DClass.IN, 300, Name.fromString("target.com.", Name.root));
+        resp.addRecord(dname, Section.ANSWER);
+        // unrelated RR after DNAME (same original name)
+        ARecord extra = new ARecord(Name.fromString("old.example.com.", Name.root), DClass.IN, 300, InetAddress.getByName("1.2.3.4"));
+        resp.addRecord(extra, Section.ANSWER);
+        Message norm = resp.normalize(query, false);
+        List<Record> ans = norm.getSection(Section.ANSWER);
+        // DNAME + synthesized CNAME + extra A
+        assertEquals(3, ans.size());
+        assertTrue(ans.stream().anyMatch(r -> r.getType() == Type.A));
+    }
+
+    @Test
+    void normalize_dnameNameTooLongThrowsWhenFlagTrue() throws Exception {
+        Record q = queryA("www.example.com.");
+        Message query = newQueryMessage(q);
+        Message resp = new Message();
+        resp.addRecord(q, Section.QUESTION);
+        // Create a DNAME whose target is deliberately too long (>255 bytes) to trigger NameTooLongException
+        StringBuilder longTarget = new StringBuilder();
+        for (int i = 0; i < 260; i++) longTarget.append('a');
+        Name tooLong = Name.fromString(longTarget.toString() + ".example.com.", Name.root);
+        DNAMERecord dname = new DNAMERecord(Name.fromString("example.com.", Name.root), DClass.IN, 300, tooLong);
+        resp.addRecord(dname, Section.ANSWER);
+        assertThrows(WireParseException.class, () -> resp.normalize(query, true));
+    }
+
+    @Test
+    void normalize_dnameNameTooLongReturnsNullWhenFlagFalse() throws Exception {
+        Record q = queryA("www.example.com.");
+        Message query = newQueryMessage(q);
+        Message resp = new Message();
+        resp.addRecord(q, Section.QUESTION);
+        StringBuilder longTarget = new StringBuilder();
+        for (int i = 0; i < 260; i++) longTarget.append('a');
+        Name tooLong = Name.fromString(longTarget.toString() + ".example.com.", Name.root);
+        DNAMERecord dname = new DNAMERecord(Name.fromString("example.com.", Name.root), DClass.IN, 300, tooLong);
+        resp.addRecord(dname, Section.ANSWER);
+        Message norm = resp.normalize(query, false);
+        assertNull(norm);
+    }
+
+    @ParameterizedTest(name = "throw={0} → expect {1}")
+    @CsvSource({ "false, omitted", "true, exception" })
+    void normalize_irrelevantAnswerName(boolean throwOnIrrelevant, String expectation) throws Exception {
+        Record q = queryA("wanted.example.com.");
+        Message query = newQueryMessage(q);
+        Message resp = new Message();
+        resp.addRecord(q, Section.QUESTION);
+        ARecord other = new ARecord(Name.fromString("other.example.com.", Name.root), DClass.IN, 300, InetAddress.getByName("1.2.3.4"));
+        resp.addRecord(other, Section.ANSWER);
+        if (throwOnIrrelevant) {
+            assertThrows(WireParseException.class, () -> resp.normalize(query, true));
+        } else {
+            Message norm = resp.normalize(query, false);
+            assertTrue(norm.getSection(Section.ANSWER).isEmpty(), "Irrelevant answer should be removed");
+        }
+    }
+
+    @ParameterizedTest(name = "throw={0} → expect {1}")
+    @CsvSource({ "false, trimmed", "true, exception" })
+    void normalize_multipleCnameRrs(boolean throwOnIrrelevant, String expectation) throws Exception {
+        Record q = queryA("alias.example.com.");
+        Message query = newQueryMessage(q);
+        Message resp = new Message();
+        resp.addRecord(q, Section.QUESTION);
+        // Build an RRset with two CNAME records (same name, different targets)
+        CNAMERecord c1 = new CNAMERecord(Name.fromString("alias.example.com.", Name.root), DClass.IN, 300, Name.fromString("target1.example.com.", Name.root));
+        CNAMERecord c2 = new CNAMERecord(Name.fromString("alias.example.com.", Name.root), DClass.IN, 300, Name.fromString("target2.example.com.", Name.root));
+        // addRecord adds each record individually – they will end up in the same RRset
+        resp.addRecord(c1, Section.ANSWER);
+        resp.addRecord(c2, Section.ANSWER);
+        if (throwOnIrrelevant) {
+            assertThrows(WireParseException.class, () -> resp.normalize(query, true));
+        } else {
+            Message norm = resp.normalize(query, false);
+            List<Record> ans = norm.getSection(Section.ANSWER);
+            assertEquals(1, ans.size(), "Only the first CNAME should be kept");
+            CNAMERecord kept = (CNAMERecord) ans.get(0);
+            assertEquals(Name.fromString("target1.example.com.", Name.root), kept.getTarget(), "First CNAME must be retained");
+        }
+    }
+
+    @Test
+    void normalize_anyQueryKeepsRecordsAfterCname() throws Exception {
+        Record q = new Record(Name.fromString("alias.example.com.", Name.root), Type.ANY, DClass.IN) {
+
+            @Override
+            public String toString() {
+                return "";
+            }
+        };
+        Message query = Message.newQuery(q);
+        Message resp = new Message();
+        resp.addRecord(q, Section.QUESTION);
+        CNAMERecord cname = new CNAMERecord(Name.fromString("alias.example.com.", Name.root), DClass.IN, 300, Name.fromString("target.example.com.", Name.root));
+        resp.addRecord(cname, Section.ANSWER);
+        ARecord a = new ARecord(Name.fromString("alias.example.com.", Name.root), DClass.IN, 300, InetAddress.getByName("5.6.7.8"));
+        resp.addRecord(a, Section.ANSWER);
+        Message norm = resp.normalize(query, false);
+        List<Record> ans = norm.getSection(Section.ANSWER);
+        assertEquals(2, ans.size(), "Both CNAME and following A must be retained for ANY query");
+    }
+
+    @Test
+    void normalize_answerTypeMismatchIsIgnored() throws Exception {
+        Record q = queryA("host.example.com.");
+        Message query = newQueryMessage(q);
+        Message resp = new Message();
+        resp.addRecord(q, Section.QUESTION);
+        AAAARecord aaaa = new AAAARecord(Name.fromString("host.example.com.", Name.root), DClass.IN, 300, InetAddress.getByName("::1"));
+        resp.addRecord(aaaa, Section.ANSWER);
+        Message norm = resp.normalize(query, false);
+        assertTrue(norm.getSection(Section.ANSWER).isEmpty(), "AAAA RRset should be omitted for A query");
+    }
+
+    @Test
+    void normalize_authorityForbiddenTypesAreIgnored() throws Exception {
+        Record q = queryA("example.com.");
+        Message query = newQueryMessage(q);
+        Message resp = new Message();
+        resp.addRecord(q, Section.QUESTION);
+        // DNAME, CNAME, A, AAAA in authority – all must be ignored
+        DNAMERecord dname = new DNAMERecord(Name.fromString("example.com.", Name.root), DClass.IN, 300, Name.fromString("t.example.com.", Name.root));
+        CNAMERecord cname = new CNAMERecord(Name.fromString("example.com.", Name.root), DClass.IN, 300, Name.fromString("c.example.com.", Name.root));
+        ARecord a = new ARecord(Name.fromString("example.com.", Name.root), DClass.IN, 300, InetAddress.getByName("1.2.3.4"));
+        AAAARecord aaaa = new AAAARecord(Name.fromString("example.com.", Name.root), DClass.IN, 300, InetAddress.getByName("::1"));
+        resp.addRecord(dname, Section.AUTHORITY);
+        resp.addRecord(cname, Section.AUTHORITY);
+        resp.addRecord(a, Section.AUTHORITY);
+        resp.addRecord(aaaa, Section.AUTHORITY);
+        Message norm = resp.normalize(query, false);
+        assertTrue(norm.getSection(Section.AUTHORITY).isEmpty(), "Forbidden types must be removed from AUTHORITY");
+    }
+
+    @Test
+    void normalize_authorityForbiddenTypesThrowWhenFlagTrue() throws Exception {
+        Record q = queryA("example.com.");
+        Message query = newQueryMessage(q);
+        Message resp = new Message();
+        resp.addRecord(q, Section.QUESTION);
+        DNAMERecord dname = new DNAMERecord(Name.fromString("example.com.", Name.root), DClass.IN, 300, Name.fromString("t.example.com.", Name.root));
+        resp.addRecord(dname, Section.AUTHORITY);
+        assertThrows(WireParseException.class, () -> resp.normalize(query, true));
+    }
+
+    @Test
+    void normalize_authorityDisallowedTypeIsIgnored() throws Exception {
+        Record q = queryA("example.com.");
+        Message query = newQueryMessage(q);
+        Message resp = new Message();
+        resp.addRecord(q, Section.QUESTION);
+        // SRV is not allowed in AUTHORITY for this test
+        SRVRecord srv = new SRVRecord(Name.fromString("example.com.", Name.root), DClass.IN, 300, 0, 5, 5060, Name.fromString("srv.example.com.", Name.root));
+        resp.addRecord(srv, Section.AUTHORITY);
+        // Spy to force isTypeAllowedInSection to return false for SRV
+        Message spy = spyMessage(resp);
+        doReturn(false).when(spy).isTypeAllowedInSection(eq(Type.SRV), eq(Section.AUTHORITY));
+        Message norm = spy.normalize(query, false);
+        assertTrue(norm.getSection(Section.AUTHORITY).isEmpty(), "Disallowed SRV RRset must be omitted");
+    }
+
+    @Test
+    void normalize_authorityDisallowedTypeThrowsWhenFlagTrue() throws Exception {
+        Record q = queryA("example.com.");
+        Message query = newQueryMessage(q);
+        Message resp = new Message();
+        resp.addRecord(q, Section.QUESTION);
+        SRVRecord srv = new SRVRecord(Name.fromString("example.com.", Name.root), DClass.IN, 300, 0, 5, 5060, Name.fromString("srv.example.com.", Name.root));
+        resp.addRecord(srv, Section.AUTHORITY);
+        Message spy = spyMessage(resp);
+        doReturn(false).when(spy).isTypeAllowedInSection(eq(Type.SRV), eq(Section.AUTHORITY));
+        assertThrows(WireParseException.class, () -> spy.normalize(query, true));
+    }
+
+    @Test
+    void normalize_authorityNsNotSubdomainIsIgnored() throws Exception {
+        Record q = queryA("sub.example.com.");
+        Message query = newQueryMessage(q);
+        Message resp = new Message();
+        resp.addRecord(q, Section.QUESTION);
+        NSRecord ns = new NSRecord(Name.fromString("other.com.", Name.root), DClass.IN, 300, Name.fromString("ns.other.com.", Name.root));
+        resp.addRecord(ns, Section.AUTHORITY);
+        Message norm = resp.normalize(query, false);
+        assertTrue(norm.getSection(Section.AUTHORITY).isEmpty(), "NS not subdomain of query should be ignored");
+    }
+
+    @Test
+    void normalize_authorityNsNotSubdomainThrowsWhenFlagTrue() throws Exception {
+        Record q = queryA("sub.example.com.");
+        Message query = newQueryMessage(q);
+        Message resp = new Message();
+        resp.addRecord(q, Section.QUESTION);
+        NSRecord ns = new NSRecord(Name.fromString("other.com.", Name.root), DClass.IN, 300, Name.fromString("ns.other.com.", Name.root));
+        resp.addRecord(ns, Section.AUTHORITY);
+        assertThrows(WireParseException.class, () -> resp.normalize(query, true));
+    }
+
+    @Test
+    void normalize_authorityNsSuppressedOnNxDomain() throws Exception {
+        Record q = queryA("example.com.");
+        Message query = newQueryMessage(q);
+        Message resp = new Message();
+        resp.getHeader().setRcode(Rcode.NXDOMAIN);
+        resp.addRecord(q, Section.QUESTION);
+        NSRecord ns = new NSRecord(Name.fromString("example.com.", Name.root), DClass.IN, 300, Name.fromString("ns.example.com.", Name.root));
+        resp.addRecord(ns, Section.AUTHORITY);
+        Message norm = resp.normalize(query, false);
+        assertTrue(norm.getSection(Section.AUTHORITY).isEmpty(), "NS must be omitted for NXDOMAIN responses");
+    }
+
+    @Test
+    void normalize_authorityNsSuppressedOnNoErrorNodata() throws Exception {
+        Record q = queryA("example.com.");
+        Message query = newQueryMessage(q);
+        Message resp = new Message();
+        resp.getHeader().setRcode(Rcode.NOERROR);
+        resp.addRecord(q, Section.QUESTION);
+        // No answer records – NODATA scenario
+        SOARecord soa = new SOARecord(Name.fromString("example.com.", Name.root), DClass.IN, 300, Name.fromString("ns.example.com.", Name.root), Name.fromString("hostmaster.example.com.", Name.root), 1, 7200, 3600, 1209600, 3600);
+        NSRecord ns = new NSRecord(Name.fromString("example.com.", Name.root), DClass.IN, 300, Name.fromString("ns.example.com.", Name.root));
+        resp.addRecord(soa, Section.AUTHORITY);
+        resp.addRecord(ns, Section.AUTHORITY);
+        Message norm = resp.normalize(query, false);
+        // NS must be removed, SOA kept
+        List<Record> auth = norm.getSection(Section.AUTHORITY);
+        assertEquals(1, auth.size());
+        assertEquals(Type.SOA, auth.get(0).getType());
+    }
+
+    @Test
+    void normalize_authorityDuplicateNsKeepsFirstOnly() throws Exception {
+        Record q = queryA("example.com.");
+        Message query = newQueryMessage(q);
+        Message resp = new Message();
+        resp.addRecord(q, Section.QUESTION);
+        NSRecord ns1 = new NSRecord(Name.fromString("example.com.", Name.root), DClass.IN, 300, Name.fromString("ns1.example.com.", Name.root));
+        NSRecord ns2 = new NSRecord(Name.fromString("example.com.", Name.root), DClass.IN, 300, Name.fromString("ns2.example.com.", Name.root));
+        resp.addRecord(ns1, Section.AUTHORITY);
+        resp.addRecord(ns2, Section.AUTHORITY);
+        Message norm = resp.normalize(query, false);
+        List<Record> auth = norm.getSection(Section.AUTHORITY);
+        assertEquals(1, auth.size(), "Only the first NS RRset should be kept");
+        assertEquals(Name.fromString("ns1.example.com.", Name.root), ((NSRecord) auth.get(0)).getTarget());
+    }
+
+    @Test
+    void normalize_authorityDuplicateNsThrowsWhenFlagTrue() throws Exception {
+        Record q = queryA("example.com.");
+        Message query = newQueryMessage(q);
+        Message resp = new Message();
+        resp.addRecord(q, Section.QUESTION);
+        NSRecord ns1 = new NSRecord(Name.fromString("example.com.", Name.root), DClass.IN, 300, Name.fromString("ns1.example.com.", Name.root));
+        NSRecord ns2 = new NSRecord(Name.fromString("example.com.", Name.root), DClass.IN, 300, Name.fromString("ns2.example.com.", Name.root));
+        resp.addRecord(ns1, Section.AUTHORITY);
+        resp.addRecord(ns2, Section.AUTHORITY);
+        assertThrows(WireParseException.class, () -> resp.normalize(query, true));
+    }
+
+    @Test
+    void normalize_successfulOverallFlow() throws Exception {
+        // Query
+        Record q = queryA("www.example.com.");
+        Message query = newQueryMessage(q);
+        // Response
+        Message resp = new Message();
+        resp.addRecord(q, Section.QUESTION);
+        // CNAME chain
+        CNAMERecord cname = new CNAMERecord(Name.fromString("www.example.com.", Name.root), DClass.IN, 300, Name.fromString("alias.example.com.", Name.root));
+        resp.addRecord(cname, Section.ANSWER);
+        ARecord a = new ARecord(Name.fromString("alias.example.com.", Name.root), DClass.IN, 300, InetAddress.getByName("5.6.7.8"));
+        resp.addRecord(a, Section.ANSWER);
+        // Authority NS
+        NSRecord ns = new NSRecord(Name.fromString("example.com.", Name.root), DClass.IN, 300, Name.fromString("ns1.example.com.", Name.root));
+        resp.addRecord(ns, Section.AUTHORITY);
+        // Additional A for the NS host
+        ARecord addA = new ARecord(Name.fromString("ns1.example.com.", Name.root), DClass.IN, 300, InetAddress.getByName("1.2.3.4"));
+        resp.addRecord(addA, Section.ADDITIONAL);
+        Message norm = resp.normalize(query, false);
+        // Verify answer section
+        List<Record> ans = norm.getSection(Section.ANSWER);
+        assertEquals(2, ans.size());
+        assertTrue(ans.stream().anyMatch(r -> r.getType() == Type.CNAME));
+        assertTrue(ans.stream().anyMatch(r -> r.getType() == Type.A));
+        // Verify authority section
+        List<Record> auth = norm.getSection(Section.AUTHORITY);
+        assertEquals(1, auth.size());
+        assertEquals(Type.NS, auth.get(0).getType());
+        // Verify additional section
+        List<Record> add = norm.getSection(Section.ADDITIONAL);
+        assertEquals(1, add.size());
+        assertEquals(Type.A, add.get(0).getType());
+        // Header counts must match the sections
+        Header hdr = norm.getHeader();
+        assertEquals(ans.size(), hdr.getCount(Section.ANSWER));
+        assertEquals(auth.size(), hdr.getCount(Section.AUTHORITY));
+        assertEquals(add.size(), hdr.getCount(Section.ADDITIONAL));
+    }
+
+    @Test
+    void normalize_cnameQueryDoesNotFollow() throws Exception {
+        Record q = new Record(Name.fromString("alias.example.com.", Name.root), Type.CNAME, DClass.IN) {
+
+            @Override
+            public String toString() {
+                return "";
+            }
+        };
+        Message query = Message.newQuery(q);
+        Message resp = new Message();
+        resp.addRecord(q, Section.QUESTION);
+        CNAMERecord cname = new CNAMERecord(Name.fromString("alias.example.com.", Name.root), DClass.IN, 300, Name.fromString("target.example.com.", Name.root));
+        ARecord a = new ARecord(Name.fromString("alias.example.com.", Name.root), DClass.IN, 300, InetAddress.getByName("1.2.3.4"));
+        resp.addRecord(cname, Section.ANSWER);
+        resp.addRecord(a, Section.ANSWER);
+        Message norm = resp.normalize(query, false);
+        List<Record> ans = norm.getSection(Section.ANSWER);
+        // Only the CNAME should survive; the A record is ignored because query type is CNAME
+        assertEquals(1, ans.size());
+        assertEquals(Type.CNAME, ans.get(0).getType());
+    }
+
+    @Test
+    void normalize_dnameMismatchingCnameSynthesisesCorrectOne() throws Exception {
+        Record q = queryA("www.example.com.");
+        Message query = newQueryMessage(q);
+        Message resp = new Message();
+        resp.addRecord(q, Section.QUESTION);
+        DNAMERecord dname = new DNAMERecord(Name.fromString("example.com.", Name.root), DClass.IN, 300, Name.fromString("target.com.", Name.root));
+        resp.addRecord(dname, Section.ANSWER);
+        // Wrong CNAME after DNAME
+        CNAMERecord wrongCname = new CNAMERecord(Name.fromString("www.example.com.", Name.root), DClass.IN, 300, Name.fromString("wrong.example.com.", Name.root));
+        resp.addRecord(wrongCname, Section.ANSWER);
+        Message norm = resp.normalize(query, false);
+        List<Record> ans = norm.getSection(Section.ANSWER);
+        // Should contain DNAME + synthesized correct CNAME (wrong one omitted)
+        assertEquals(2, ans.size());
+        CNAMERecord synthesized = (CNAMERecord) ans.stream().filter(r -> r.getType() == Type.CNAME).findFirst().get();
+        assertEquals(Name.fromString("target.com.", Name.root), synthesized.getTarget());
+    }
+
+    @Test
+    void normalize_authorityAllowedMxKeepsAdditional() throws Exception {
+        // Query for MX
+        Record q = new Record(Name.fromString("mail.example.com.", Name.root), Type.MX, DClass.IN) {
+
+            @Override
+            public String toString() {
+                return "";
+            }
+        };
+        Message query = Message.newQuery(q);
+        Message resp = new Message();
+        resp.addRecord(q, Section.QUESTION);
+        MXRecord mx = new MXRecord(Name.fromString("example.com.", Name.root), DClass.IN, 300, 10, Name.fromString("mailhost.example.com.", Name.root));
+        resp.addRecord(mx, Section.AUTHORITY);
+        // Additional A for the MX host
+        ARecord addA = new ARecord(Name.fromString("mailhost.example.com.", Name.root), DClass.IN, 300, InetAddress.getByName("9.9.9.9"));
+        resp.addRecord(addA, Section.ADDITIONAL);
+        // Spy to make MX allowed in AUTHORITY
+        Message spy = spyMessage(resp);
+        doReturn(true).when(spy).isTypeAllowedInSection(eq(Type.MX), eq(Section.AUTHORITY));
+        Message norm = spy.normalize(query, false);
+        List<Record> auth = norm.getSection(Section.AUTHORITY);
+        assertEquals(1, auth.size());
+        assertEquals(Type.MX, auth.get(0).getType());
+        List<Record> add = norm.getSection(Section.ADDITIONAL);
+        assertEquals(1, add.size());
+        assertEquals(Type.A, add.get(0).getType());
+    }
+
+    @Test
+    void normalize_emptyAnswerProcessesAuthorityAndAdditional() throws Exception {
+        Record q = queryA("example.com.");
+        Message query = newQueryMessage(q);
+        Message resp = new Message();
+        resp.addRecord(q, Section.QUESTION);
+        NSRecord ns = new NSRecord(Name.fromString("example.com.", Name.root), DClass.IN, 300, Name.fromString("ns1.example.com.", Name.root));
+        resp.addRecord(ns, Section.AUTHORITY);
+        ARecord addA = new ARecord(Name.fromString("ns1.example.com.", Name.root), DClass.IN, 300, InetAddress.getByName("1.2.3.4"));
+        resp.addRecord(addA, Section.ADDITIONAL);
+        Message norm = resp.normalize(query, false);
+        assertTrue(norm.getSection(Section.ANSWER).isEmpty());
+        assertEquals(1, norm.getSection(Section.AUTHORITY).size());
+        assertEquals(1, norm.getSection(Section.ADDITIONAL).size());
+    }
+
+    @Test
+    void normalize_anyQueryKeepsAllAnswerTypes() throws Exception {
+        Record q = new Record(Name.fromString("host.example.com.", Name.root), Type.ANY, DClass.IN) {
+
+            @Override
+            public String toString() {
+                return "";
+            }
+        };
+        Message query = Message.newQuery(q);
+        Message resp = new Message();
+        resp.addRecord(q, Section.QUESTION);
+        ARecord a = new ARecord(Name.fromString("host.example.com.", Name.root), DClass.IN, 300, InetAddress.getByName("1.1.1.1"));
+        AAAARecord aaaa = new AAAARecord(Name.fromString("host.example.com.", Name.root), DClass.IN, 300, InetAddress.getByName("::1"));
+        TXTRecord txt = new TXTRecord(Name.fromString("host.example.com.", Name.root), DClass.IN, 300, "hello");
+        resp.addRecord(a, Section.ANSWER);
+        resp.addRecord(aaaa, Section.ANSWER);
+        resp.addRecord(txt, Section.ANSWER);
+        Message norm = resp.normalize(query, false);
+        List<Record> ans = norm.getSection(Section.ANSWER);
+        assertEquals(3, ans.size(), "ALL three RRsets must be retained for ANY query");
+    }
+
+    @Test
+    void normalize_irrelevantNsInAuthorityThrowsWhenFlagTrue() throws Exception {
+        Record q = queryA("sub.example.com.");
+        Message query = newQueryMessage(q);
+        Message resp = new Message();
+        resp.addRecord(q, Section.QUESTION);
+        NSRecord ns = new NSRecord(Name.fromString("other.com.", Name.root), DClass.IN, 300, Name.fromString("ns.other.com.", Name.root));
+        resp.addRecord(ns, Section.AUTHORITY);
+        assertThrows(WireParseException.class, () -> resp.normalize(query, true));
+    }
+
+    @Test
+    void normalize_answerTypeMismatchThrowsWhenFlagTrue() throws Exception {
+        Record q = queryA("host.example.com.");
+        Message query = newQueryMessage(q);
+        Message resp = new Message();
+        resp.addRecord(q, Section.QUESTION);
+        AAAARecord aaaa = new AAAARecord(Name.fromString("host.example.com.", Name.root), DClass.IN, 300, InetAddress.getByName("::1"));
+        resp.addRecord(aaaa, Section.ANSWER);
+        assertThrows(WireParseException.class, () -> resp.normalize(query, true));
+    }
+
+    @Test
+    void normalize_authorityForbiddenTypesThrowWhenFlagTrue() throws Exception {
+        Record q = queryA("example.com.");
+        Message query = newQueryMessage(q);
+        Message resp = new Message();
+        resp.addRecord(q, Section.QUESTION);
+        DNAMERecord dname = new DNAMERecord(Name.fromString("example.com.", Name.root), DClass.IN, 300, Name.fromString("t.example.com.", Name.root));
+        resp.addRecord(dname, Section.AUTHORITY);
+        assertThrows(WireParseException.class, () -> resp.normalize(query, true));
+    }
+
+    @Test
+    void normalize_authorityDisallowedTypeThrowsWhenFlagTrue() throws Exception {
+        Record q = queryA("example.com.");
+        Message query = newQueryMessage(q);
+        Message resp = new Message();
+        resp.addRecord(q, Section.QUESTION);
+        SRVRecord srv = new SRVRecord(Name.fromString("example.com.", Name.root), DClass.IN, 300, 0, 5, 5060, Name.fromString("srv.example.com.", Name.root));
+        resp.addRecord(srv, Section.AUTHORITY);
+        Message spy = spyMessage(resp);
+        doReturn(false).when(spy).isTypeAllowedInSection(eq(Type.SRV), eq(Section.AUTHORITY));
+        assertThrows(WireParseException.class, () -> spy.normalize(query, true));
+    }
+}

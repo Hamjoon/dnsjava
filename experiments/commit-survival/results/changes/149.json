@@ -1,0 +1,62 @@
+{
+  "index": 149,
+  "sha": "2cb04ab45457437c3bb9756c29bc16f00fab7545",
+  "parent": "0c929f5d23b7aed4972d0e7f55aeff264f23f2dc",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/LOCRecord.java": [
+      103,
+      104,
+      113,
+      115,
+      119,
+      120,
+      124,
+      132,
+      188,
+      193,
+      204,
+      206,
+      208,
+      210,
+      213,
+      217,
+      226,
+      227,
+      230,
+      231
+    ],
+    "src/main/java/org/xbill/DNS/Tokenizer.java": []
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/LOCRecord.java": [
+      58,
+      59,
+      61,
+      62,
+      64,
+      65,
+      123,
+      127,
+      128,
+      129,
+      132,
+      137,
+      140,
+      142,
+      201,
+      216,
+      217,
+      220,
+      221,
+      225,
+      236,
+      237,
+      240,
+      241
+    ],
+    "src/main/java/org/xbill/DNS/Tokenizer.java": [
+      749
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/LOCRecord.java b/src/main/java/org/xbill/DNS/LOCRecord.java\nindex ca51dbb6..b7bb439a 100644\n--- a/src/main/java/org/xbill/DNS/LOCRecord.java\n+++ b/src/main/java/org/xbill/DNS/LOCRecord.java\n@@ -57,0 +58,9 @@ public class LOCRecord extends Record {\n+    if (size < 0 || size > 9e9) {\n+      throw new IllegalArgumentException(\"size must be > 0\");\n+    }\n+    if (hPrecision < 0 || hPrecision > 9e9) {\n+      throw new IllegalArgumentException(\"size must be > 0\");\n+    }\n+    if (vPrecision < 0 || vPrecision > 9e9) {\n+      throw new IllegalArgumentException(\"size must be > 0\");\n+    }\n@@ -83 +92 @@ public class LOCRecord extends Record {\n-  private double parseFixedPoint(String s) {\n+  private double parseFixedPoint(String s) throws NumberFormatException {\n@@ -103,2 +112,2 @@ public class LOCRecord extends Record {\n-    int min = 0;\n-    double sec = 0;\n+    int min;\n+    double sec;\n@@ -113 +121,0 @@ public class LOCRecord extends Record {\n-    s = st.getString();\n@@ -115 +123 @@ public class LOCRecord extends Record {\n-      min = Integer.parseInt(s);\n+      min = Integer.parseInt(st.getString());\n@@ -119,2 +127,6 @@ public class LOCRecord extends Record {\n-      s = st.getString();\n-      sec = parseFixedPoint(s);\n+    } catch (NumberFormatException e) {\n+      throw st.exception(\"Invalid LOC \" + type + \" minutes\", e);\n+    }\n+\n+    try {\n+      sec = parseFixedPoint(st.getString());\n@@ -124 +135,0 @@ public class LOCRecord extends Record {\n-      s = st.getString();\n@@ -125,0 +137 @@ public class LOCRecord extends Record {\n+      throw st.exception(\"Invalid LOC \" + type + \" seconds\", e);\n@@ -127,0 +140,3 @@ public class LOCRecord extends Record {\n+    value = Math.round(1000 * (sec + 60L * (min + 60L * deg)));\n+\n+    s = st.getString();\n@@ -132,2 +146,0 @@ public class LOCRecord extends Record {\n-    value = (long) (1000 * (sec + 60L * (min + 60L * deg)));\n-\n@@ -188 +201 @@ public class LOCRecord extends Record {\n-      sb.append(formatter.format(value));\n+      sb.append(formatter.format(Math.abs(value)));\n@@ -192,2 +205 @@ public class LOCRecord extends Record {\n-  private String positionToString(long value, char pos, char neg) {\n-    StringBuilder sb = new StringBuilder();\n+  private void positionToString(StringBuilder sb, long value, char pos, char neg) {\n@@ -204 +216,3 @@ public class LOCRecord extends Record {\n-    sb.append(temp / (3600 * 1000)); /* degrees */\n+    sb.append(w2.format(temp / (3600 * 1000))); /* degrees */\n+    sb.append(' ');\n+\n@@ -206 +220,2 @@ public class LOCRecord extends Record {\n-    sb.append(\" \");\n+    sb.append(w2.format(temp / (60 * 1000))); /* minutes */\n+    sb.append(' ');\n@@ -208 +222,0 @@ public class LOCRecord extends Record {\n-    sb.append(temp / (60 * 1000)); /* minutes */\n@@ -210,2 +223,0 @@ public class LOCRecord extends Record {\n-    sb.append(\" \");\n-\n@@ -213 +225 @@ public class LOCRecord extends Record {\n-    sb.append(\" \");\n+    sb.append(' ');\n@@ -216,2 +227,0 @@ public class LOCRecord extends Record {\n-\n-    return sb.toString();\n@@ -226,2 +236,2 @@ public class LOCRecord extends Record {\n-    sb.append(positionToString(latitude, 'N', 'S'));\n-    sb.append(\" \");\n+    positionToString(sb, latitude, 'N', 'S');\n+    sb.append(' ');\n@@ -230,2 +240,2 @@ public class LOCRecord extends Record {\n-    sb.append(positionToString(longitude, 'E', 'W'));\n-    sb.append(\" \");\n+    positionToString(sb, longitude, 'E', 'W');\n+    sb.append(' ');\ndiff --git a/src/main/java/org/xbill/DNS/Tokenizer.java b/src/main/java/org/xbill/DNS/Tokenizer.java\nindex 80cc1f3d..d134fc85 100644\n--- a/src/main/java/org/xbill/DNS/Tokenizer.java\n+++ b/src/main/java/org/xbill/DNS/Tokenizer.java\n@@ -732 +732 @@ public class Tokenizer implements AutoCloseable {\n-   * Creates an exception which includes the current state in the error message\n+   * Creates an exception which includes the current state in the error message.\n@@ -740,0 +741,11 @@ public class Tokenizer implements AutoCloseable {\n+  /**\n+   * Creates an exception which includes the current state in the error message.\n+   *\n+   * @since 3.6.6\n+   * @param s The error message to include.\n+   * @return The exception to be thrown\n+   */\n+  public TextParseException exception(String s, Throwable inner) {\n+    return new TextParseException(filename + \":\" + line + \": \" + s, inner);\n+  }\n+"
+}

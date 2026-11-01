@@ -1,0 +1,59 @@
+{
+  "index": 165,
+  "sha": "dc1527f40fabfd753a5230b8a247d34017639a87",
+  "parent": "52399e367fd31d52dffd27a29cd74f738d59910b",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/Zone.java": [
+      42,
+      488,
+      507,
+      531,
+      536,
+      545,
+      553,
+      556,
+      599,
+      610,
+      639,
+      666
+    ]
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/Zone.java": [
+      43,
+      295,
+      296,
+      298,
+      299,
+      300,
+      301,
+      498,
+      499,
+      518,
+      542,
+      547,
+      549,
+      559,
+      567,
+      570,
+      580,
+      583,
+      617,
+      628,
+      630,
+      633,
+      637,
+      638,
+      639,
+      640,
+      669,
+      688,
+      689,
+      700,
+      727,
+      728,
+      733
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/Zone.java b/src/main/java/org/xbill/DNS/Zone.java\nindex 3f525875..b17165b5 100644\n--- a/src/main/java/org/xbill/DNS/Zone.java\n+++ b/src/main/java/org/xbill/DNS/Zone.java\n@@ -16,0 +17 @@ import java.util.NoSuchElementException;\n+import java.util.concurrent.ConcurrentNavigableMap;\n@@ -42 +43 @@ public class Zone implements Serializable, Iterable<RRset> {\n-  private final Map<Name, Object> data = new ConcurrentSkipListMap<>();\n+  private final ConcurrentSkipListMap<Name, Object> data = new ConcurrentSkipListMap<>();\n@@ -291,0 +293,9 @@ public class Zone implements Serializable, Iterable<RRset> {\n+            // RFC 4592 section 2.2.2 / RFC 8020 make `sub.example.` an existing name with no data\n+            // Add empty RRsets so they can later be found\n+            if (!name.equals(origin)) {\n+              Name parent = name;\n+              do {\n+                parent = new Name(parent, 1);\n+                addRRsetWithoutLock(parent, new RRset());\n+              } while (!parent.equals(origin));\n+            }\n@@ -488 +498,2 @@ public class Zone implements Serializable, Iterable<RRset> {\n-      return Collections.singletonList((RRset) types);\n+      RRset set = (RRset) types;\n+      return set.isEmpty() ? Collections.emptyList() : Collections.singletonList(set);\n@@ -507 +518 @@ public class Zone implements Serializable, Iterable<RRset> {\n-      if (set.getType() == type) {\n+      if (set.isEmpty() || set.getType() == type) {\n@@ -531 +542 @@ public class Zone implements Serializable, Iterable<RRset> {\n-    if (types == null) {\n+    if (types == null && !rrset.isEmpty()) {\n@@ -536 +547,4 @@ public class Zone implements Serializable, Iterable<RRset> {\n-    int rtype = rrset.getType();\n+    if (types != null && rrset.isEmpty()) {\n+      // The zone already knows about the name, but we asked to add an empty non-terminal\n+      return;\n+    }\n@@ -545 +559 @@ public class Zone implements Serializable, Iterable<RRset> {\n-        if (set.getType() == rtype) {\n+        if (set.getType() == rrset.getType()) {\n@@ -553 +567 @@ public class Zone implements Serializable, Iterable<RRset> {\n-    } else {\n+    } else if (types instanceof RRset) {\n@@ -556 +570 @@ public class Zone implements Serializable, Iterable<RRset> {\n-      if (set.getType() == rtype) {\n+      if (set.getType() == rrset.getType()) {\n@@ -565,0 +580,4 @@ public class Zone implements Serializable, Iterable<RRset> {\n+    } else if (rrset.isEmpty()) {\n+      // RFC 4592 section 2.2.2 / RFC 8020 make `sub.example.` an existing name with no data\n+      // Add an empty RRset so it can later be found\n+      data.put(name, new RRset());\n@@ -599 +617 @@ public class Zone implements Serializable, Iterable<RRset> {\n-        data.remove(name);\n+        removeEntryKeepEmptyNonTerminalWithoutLock(name);\n@@ -610 +628,13 @@ public class Zone implements Serializable, Iterable<RRset> {\n-      data.remove(name);\n+      removeEntryKeepEmptyNonTerminalWithoutLock(name);\n+    }\n+  }\n+\n+  private void removeEntryKeepEmptyNonTerminalWithoutLock(Name name) {\n+    data.remove(name);\n+\n+    // RFC 4592 section 2.2.2 / RFC 8020: if the removed name was an empty non-terminal,\n+    // add an empty RRset back so it can later be found\n+    ConcurrentNavigableMap<Name, Object> following = data.tailMap(name, false);\n+    Name next = following.ceilingKey(name);\n+    if (next != null && next.subdomain(name)) {\n+      data.put(name, new RRset());\n@@ -639 +669 @@ public class Zone implements Serializable, Iterable<RRset> {\n-        if (ns != null) {\n+        if (ns != null && !ns.isEmpty()) {\n@@ -657,0 +688,4 @@ public class Zone implements Serializable, Iterable<RRset> {\n+          if (rrset.isEmpty()) {\n+            return SetResponse.ofType(SetResponseType.NXRRSET);\n+          }\n+\n@@ -666 +700 @@ public class Zone implements Serializable, Iterable<RRset> {\n-        if (rrset != null) {\n+        if (rrset != null && !rrset.isEmpty()) {\n@@ -692,0 +727,4 @@ public class Zone implements Serializable, Iterable<RRset> {\n+          if (rrset.isEmpty()) {\n+            return SetResponse.ofType(SetResponseType.NXRRSET);\n+          }\n+\n@@ -693,0 +732,2 @@ public class Zone implements Serializable, Iterable<RRset> {\n+        } else {\n+          return SetResponse.ofType(SetResponseType.NXRRSET);\n@@ -817 +856,0 @@ public class Zone implements Serializable, Iterable<RRset> {\n-            // Ignore empty sets (they shouldn't exist anyway)"
+}

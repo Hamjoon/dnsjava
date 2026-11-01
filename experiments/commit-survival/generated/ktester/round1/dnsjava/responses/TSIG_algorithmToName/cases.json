@@ -1,0 +1,457 @@
+[
+  {
+    "group": "Null input handling",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "alg",
+            "value": null
+          }
+        ],
+        "expected": "IllegalArgumentException with message \"Null algorithm\"",
+        "description": "When the algorithm argument is null the method must throw an IllegalArgumentException."
+      }
+    ]
+  },
+  {
+    "group": "Alias for RFC name (HMAC\u2011MD5)",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "alg",
+            "value": "HMAC-MD5"
+          }
+        ],
+        "expected": "TSIG.HMAC_MD5",
+        "description": "Exact alias (case\u2011sensitive) should be recognised and the constant HMAC_MD5 returned."
+      },
+      {
+        "input": [
+          {
+            "parameter": "alg",
+            "value": "hmac-md5"
+          }
+        ],
+        "expected": "TSIG.HMAC_MD5",
+        "description": "Alias is case\u2011insensitive; lower\u2011case version must also map to HMAC_MD5."
+      },
+      {
+        "input": [
+          {
+            "parameter": "alg",
+            "value": "HMAC-MD5."
+          }
+        ],
+        "expected": "TSIG.HMAC_MD5",
+        "description": "Alias with a trailing dot must also be accepted."
+      },
+      {
+        "input": [
+          {
+            "parameter": "alg",
+            "value": "hmac-md5."
+          }
+        ],
+        "expected": "TSIG.HMAC_MD5",
+        "description": "Alias with both lower\u2011case and trailing dot must be accepted."
+      }
+    ]
+  },
+  {
+    "group": "RFC name lookup via map keys",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "alg",
+            "value": "hmac-sha256."
+          }
+        ],
+        "expected": "TSIG.HMAC_SHA256",
+        "description": "Exact RFC name with trailing dot matches a key in algMap; the corresponding constant is returned."
+      },
+      {
+        "input": [
+          {
+            "parameter": "alg",
+            "value": "HMAC-SHA256"
+          }
+        ],
+        "expected": "TSIG.HMAC_SHA256",
+        "description": "RFC name without trailing dot, case\u2011insensitive, should match the same key."
+      },
+      {
+        "input": [
+          {
+            "parameter": "alg",
+            "value": "hMaC-sHa256"
+          }
+        ],
+        "expected": "TSIG.HMAC_SHA256",
+        "description": "Mixed\u2011case RFC name without dot must still be matched (case\u2011insensitive)."
+      }
+    ]
+  },
+  {
+    "group": "Java name lookup via map values",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "alg",
+            "value": "HmacSHA256"
+          }
+        ],
+        "expected": "TSIG.HMAC_SHA256",
+        "description": "When the algorithm string does not match any key, the method falls back to searching the map values (Java names). The Java name \"HmacSHA256\" must resolve to the same constant."
+      },
+      {
+        "input": [
+          {
+            "parameter": "alg",
+            "value": "hmacsha256"
+          }
+        ],
+        "expected": "TSIG.HMAC_SHA256",
+        "description": "Java name lookup is also case\u2011insensitive."
+      }
+    ]
+  },
+  {
+    "group": "Unknown algorithm handling",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "alg",
+            "value": "UNKNOWN-ALG"
+          }
+        ],
+        "expected": "IllegalArgumentException with message \"Unknown algorithm: UNKNOWN-ALG\"",
+        "description": "If the algorithm string is neither an alias, nor a key in the map, nor a value in the map, the method must throw an IllegalArgumentException indicating the unknown algorithm."
+      }
+    ]
+  },
+  {
+    "group": "Other RFC name lookup via map keys",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "alg",
+            "value": "hmac-sha1."
+          }
+        ],
+        "expected": "TSIG.HMAC_SHA1",
+        "description": "RFC name with trailing dot (lower\u2011case) should match the Name key for SHA\u20111 and return the corresponding constant."
+      },
+      {
+        "input": [
+          {
+            "parameter": "alg",
+            "value": "HMAC-SHA1"
+          }
+        ],
+        "expected": "TSIG.HMAC_SHA1",
+        "description": "RFC name without trailing dot (upper\u2011case) must be matched case\u2011insensitively and return the SHA\u20111 constant."
+      },
+      {
+        "input": [
+          {
+            "parameter": "alg",
+            "value": "hMaC-sHa1"
+          }
+        ],
+        "expected": "TSIG.HMAC_SHA1",
+        "description": "Mixed\u2011case RFC name without dot should still resolve to the SHA\u20111 constant."
+      },
+      {
+        "input": [
+          {
+            "parameter": "alg",
+            "value": "hmac-sha224"
+          }
+        ],
+        "expected": "TSIG.HMAC_SHA224",
+        "description": "RFC name for SHA\u2011224 without trailing dot (lower\u2011case) resolves to the correct constant."
+      },
+      {
+        "input": [
+          {
+            "parameter": "alg",
+            "value": "HMAC-SHA384."
+          }
+        ],
+        "expected": "TSIG.HMAC_SHA384",
+        "description": "RFC name for SHA\u2011384 with trailing dot (upper\u2011case) resolves to the correct constant."
+      },
+      {
+        "input": [
+          {
+            "parameter": "alg",
+            "value": "hmac-sha512"
+          }
+        ],
+        "expected": "TSIG.HMAC_SHA512",
+        "description": "RFC name for SHA\u2011512 without dot (lower\u2011case) resolves to the correct constant."
+      }
+    ]
+  },
+  {
+    "group": "Other Java name lookup via map values",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "alg",
+            "value": "HmacSHA1"
+          }
+        ],
+        "expected": "TSIG.HMAC_SHA1",
+        "description": "Java algorithm name for SHA\u20111 (exact case) should be found in the map values and return the SHA\u20111 constant."
+      },
+      {
+        "input": [
+          {
+            "parameter": "alg",
+            "value": "hmacsha224"
+          }
+        ],
+        "expected": "TSIG.HMAC_SHA224",
+        "description": "Java algorithm name for SHA\u2011224 (lower\u2011case) is case\u2011insensitive and resolves to the SHA\u2011224 constant."
+      },
+      {
+        "input": [
+          {
+            "parameter": "alg",
+            "value": "HmacSHA384"
+          }
+        ],
+        "expected": "TSIG.HMAC_SHA384",
+        "description": "Java algorithm name for SHA\u2011384 (mixed case) resolves to the SHA\u2011384 constant."
+      },
+      {
+        "input": [
+          {
+            "parameter": "alg",
+            "value": "HmacSHA512"
+          }
+        ],
+        "expected": "TSIG.HMAC_SHA512",
+        "description": "Java algorithm name for SHA\u2011512 (exact case) resolves to the SHA\u2011512 constant."
+      }
+    ]
+  },
+  {
+    "group": "Trailing dot mismatch and whitespace handling",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "alg",
+            "value": "hmac-sha1.."
+          }
+        ],
+        "expected": "IllegalArgumentException with message \"Unknown algorithm: hmac-sha1..\"",
+        "description": "Double trailing dot does not match any RFC name nor any Java name, so the method must throw an IllegalArgumentException."
+      },
+      {
+        "input": [
+          {
+            "parameter": "alg",
+            "value": " HMAC-SHA256"
+          }
+        ],
+        "expected": "IllegalArgumentException with message \"Unknown algorithm:  HMAC-SHA256\"",
+        "description": "Leading whitespace prevents a match; the method should treat the string as unknown and throw an exception."
+      },
+      {
+        "input": [
+          {
+            "parameter": "alg",
+            "value": ""
+          }
+        ],
+        "expected": "IllegalArgumentException with message \"Unknown algorithm: \"",
+        "description": "Empty string is not a valid algorithm name; the method must throw an IllegalArgumentException."
+      },
+      {
+        "input": [
+          {
+            "parameter": "alg",
+            "value": "hmac-md5.."
+          }
+        ],
+        "expected": "IllegalArgumentException with message \"Unknown algorithm: hmac-md5..\"",
+        "description": "Alias handling for HMAC\u2011MD5 accepts only zero or one trailing dot; a double dot should be rejected."
+      },
+      {
+        "input": [
+          {
+            "parameter": "alg",
+            "value": "HMAC-MD5.SIG-ALG.REG.INT."
+          }
+        ],
+        "expected": "IllegalArgumentException with message \"Unknown algorithm: HMAC-MD5.SIG-ALG.REG.INT.\"",
+        "description": "The full RFC name is not treated as an alias; it is not present in the map, so the method must throw an IllegalArgumentException."
+      }
+    ]
+  },
+  {
+    "group": "Alias case\u2011insensitivity beyond simple forms",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "alg",
+            "value": "Hmac-Md5"
+          }
+        ],
+        "expected": "TSIG.HMAC_MD5",
+        "description": "Alias check is case\u2011insensitive; mixed\u2011case \"Hmac-Md5\" must still resolve to the HMAC\u2011MD5 constant."
+      },
+      {
+        "input": [
+          {
+            "parameter": "alg",
+            "value": "hmac-md5."
+          }
+        ],
+        "expected": "TSIG.HMAC_MD5",
+        "description": "Alias with a trailing dot in any case must be accepted and map to HMAC\u2011MD5."
+      }
+    ]
+  },
+  {
+    "group": "Whitespace edge cases",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "alg",
+            "value": "HMAC-SHA256 "
+          }
+        ],
+        "expected": "IllegalArgumentException with message \"Unknown algorithm: HMAC-SHA256 \"",
+        "description": "Trailing whitespace prevents a match; the method must treat the string as unknown and throw an IllegalArgumentException."
+      },
+      {
+        "input": [
+          {
+            "parameter": "alg",
+            "value": " HMAC-SHA256 "
+          }
+        ],
+        "expected": "IllegalArgumentException with message \"Unknown algorithm:  HMAC-SHA256 \"",
+        "description": "Both leading and trailing whitespace make the string unknown; an IllegalArgumentException is expected."
+      },
+      {
+        "input": [
+          {
+            "parameter": "alg",
+            "value": "   "
+          }
+        ],
+        "expected": "IllegalArgumentException with message \"Unknown algorithm:    \"",
+        "description": "A string consisting only of whitespace is not a valid algorithm name and must cause an IllegalArgumentException."
+      },
+      {
+        "input": [
+          {
+            "parameter": "alg",
+            "value": "HMAC SHA256"
+          }
+        ],
+        "expected": "IllegalArgumentException with message \"Unknown algorithm: HMAC SHA256\"",
+        "description": "Internal whitespace breaks the algorithm token; the method should throw an IllegalArgumentException."
+      }
+    ]
+  },
+  {
+    "group": "Java name with trailing dot",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "alg",
+            "value": "HmacSHA256."
+          }
+        ],
+        "expected": "IllegalArgumentException with message \"Unknown algorithm: HmacSHA256.\"",
+        "description": "Java algorithm names are not accepted with a trailing dot; the method must reject it as unknown."
+      },
+      {
+        "input": [
+          {
+            "parameter": "alg",
+            "value": "hmacsha256."
+          }
+        ],
+        "expected": "IllegalArgumentException with message \"Unknown algorithm: hmacsha256.\"",
+        "description": "Case\u2011insensitive Java name with a trailing dot is still unknown and should raise IllegalArgumentException."
+      }
+    ]
+  },
+  {
+    "group": "Alias with extra characters",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "alg",
+            "value": "HMAC-MD5-EXTRA"
+          }
+        ],
+        "expected": "IllegalArgumentException with message \"Unknown algorithm: HMAC-MD5-EXTRA\"",
+        "description": "Alias handling accepts only the exact forms \"HMAC-MD5\" or \"HMAC-MD5.\"; any additional characters must cause an exception."
+      },
+      {
+        "input": [
+          {
+            "parameter": "alg",
+            "value": "hmac-md5extra"
+          }
+        ],
+        "expected": "IllegalArgumentException with message \"Unknown algorithm: hmac-md5extra\"",
+        "description": "Even when case\u2011insensitive, extra characters after the alias make the string unknown."
+      }
+    ]
+  },
+  {
+    "group": "Non\u2011algorithm strings",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "alg",
+            "value": "12345"
+          }
+        ],
+        "expected": "IllegalArgumentException with message \"Unknown algorithm: 12345\"",
+        "description": "Numeric strings are not valid algorithm identifiers; the method must throw IllegalArgumentException."
+      },
+      {
+        "input": [
+          {
+            "parameter": "alg",
+            "value": "null"
+          }
+        ],
+        "expected": "IllegalArgumentException with message \"Unknown algorithm: null\"",
+        "description": "The literal string \"null\" is not treated as a null reference; it should be considered unknown."
+      },
+      {
+        "input": [
+          {
+            "parameter": "alg",
+            "value": "!"
+          }
+        ],
+        "expected": "IllegalArgumentException with message \"Unknown algorithm: !\"",
+        "description": "Special characters that do not correspond to any known algorithm must trigger an IllegalArgumentException."
+      }
+    ]
+  }
+]

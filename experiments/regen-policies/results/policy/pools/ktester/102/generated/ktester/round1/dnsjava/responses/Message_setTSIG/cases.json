@@ -1,0 +1,363 @@
+[
+  {
+    "group": "Valid TSIG addition (default NOERROR)",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "key",
+            "value": "new TSIG(\"hmac-md5\", \"secret\".getBytes())"
+          }
+        ],
+        "expected": "Message.isSigned() == true && Message.getTSIG() != null && Message.getTSIG().getAlgorithm().equals(\"hmac-md5\")",
+        "description": "Calling setTSIG(TSIG) with a non\u2011null TSIG key should attach a TSIGRecord to the message, set the internal state to TSIG_SIGNED and make isSigned() return true."
+      }
+    ]
+  },
+  {
+    "group": "Null TSIG removal",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "key",
+            "value": "null"
+          }
+        ],
+        "expected": "Message.isSigned() == false && Message.getTSIG() == null && Message.tsigState == Message.TSIG_UNSIGNED",
+        "description": "Passing null to setTSIG(TSIG) should clear any existing TSIG, reset the state to TSIG_UNSIGNED and ensure the message is not considered signed."
+      }
+    ]
+  },
+  {
+    "group": "Error code handling (non\u2011NOERROR)",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "key",
+            "value": "new TSIG(\"hmac-sha256\", \"key\".getBytes())"
+          },
+          {
+            "parameter": "error",
+            "value": "Rcode.FORMERR"
+          },
+          {
+            "parameter": "querytsig",
+            "value": "null"
+          }
+        ],
+        "expected": "Message.tsigState == Message.TSIG_FAILED && Message.isSigned() == false",
+        "description": "When the three\u2011argument overload is invoked with an error code other than NOERROR, the method should mark the TSIG processing as failed (TSIG_FAILED) and the message must not be considered signed."
+      }
+    ]
+  },
+  {
+    "group": "Existing TSIG replacement",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "key",
+            "value": "new TSIG(\"hmac-md5\", \"old\".getBytes())"
+          }
+        ],
+        "expected": "Message.getTSIG().getKey().equals(\"old\")",
+        "description": "First call attaches an initial TSIG."
+      },
+      {
+        "input": [
+          {
+            "parameter": "key",
+            "value": "new TSIG(\"hmac-sha1\", \"new\".getBytes())"
+          }
+        ],
+        "expected": "Message.getTSIG().getAlgorithm().equals(\"hmac-sha1\") && Message.isSigned() == true",
+        "description": "Calling setTSIG again with a different key should replace the existing TSIGRecord and keep the state as TSIG_SIGNED."
+      }
+    ]
+  },
+  {
+    "group": "Verification with query TSIG (successful verification)",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "key",
+            "value": "new TSIG(\"hmac-md5\", \"secret\".getBytes())"
+          },
+          {
+            "parameter": "error",
+            "value": "Rcode.NOERROR"
+          },
+          {
+            "parameter": "querytsig",
+            "value": "new TSIGRecord(Name.fromString(\"example.com.\"), DClass.IN, 300, key, new byte[0])"
+          }
+        ],
+        "expected": "Message.tsigState == Message.TSIG_VERIFIED && Message.isVerified() == true",
+        "description": "When a query TSIGRecord is supplied and the MAC verification succeeds, the method should set the state to TSIG_VERIFIED and isVerified() must return true."
+      }
+    ]
+  },
+  {
+    "group": "Verification with query TSIG (failed verification)",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "key",
+            "value": "new TSIG(\"hmac-md5\", \"secret\".getBytes())"
+          },
+          {
+            "parameter": "error",
+            "value": "Rcode.NOERROR"
+          },
+          {
+            "parameter": "querytsig",
+            "value": "new TSIGRecord(Name.fromString(\"example.com.\"), DClass.IN, 300, new TSIG(\"hmac-md5\", \"wrong\".getBytes()), new byte[0])"
+          }
+        ],
+        "expected": "Message.tsigState == Message.TSIG_FAILED && Message.isVerified() == false",
+        "description": "If the supplied query TSIGRecord does not match the key (MAC verification fails), the method must transition to TSIG_FAILED and verification flag stays false."
+      }
+    ]
+  },
+  {
+    "group": "Intermediate state handling (TSIG_INTERMEDIATE)",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "key",
+            "value": "new TSIG(\"hmac-md5\", \"secret\".getBytes())"
+          },
+          {
+            "parameter": "error",
+            "value": "Rcode.NOERROR"
+          },
+          {
+            "parameter": "querytsig",
+            "value": "null"
+          }
+        ],
+        "expected": "Message.tsigState == Message.TSIG_INTERMEDIATE && Message.isSigned() == false",
+        "description": "If the method is called during message construction (no query TSIG and no error), it should place the TSIG in an intermediate state awaiting final signing."
+      }
+    ]
+  },
+  {
+    "group": "Idempotent setTSIG on already signed message",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "key",
+            "value": "new TSIG(\"hmac-sha256\", \"secret\".getBytes())"
+          }
+        ],
+        "expected": "Message.isSigned() == true && Message.getTSIG() != null && Message.tsigState == Message.TSIG_SIGNED && Message.getTSIG().getAlgorithm().equals(\"hmac-sha256\")",
+        "description": "First call attaches a TSIG and marks the message as signed. A second call with the same TSIG instance should leave the message in the same TSIG_SIGNED state without creating a second TSIGRecord."
+      },
+      {
+        "input": [
+          {
+            "parameter": "key",
+            "value": "new TSIG(\"hmac-sha256\", \"secret\".getBytes())"
+          }
+        ],
+        "expected": "Message.isSigned() == true && Message.getTSIG() != null && Message.tsigState == Message.TSIG_SIGNED && Message.getTSIG().getAlgorithm().equals(\"hmac-sha256\")",
+        "description": "Calling setTSIG(TSIG) twice consecutively with an identical key must be a no\u2011op after the first successful attachment; the internal state and TSIGRecord remain unchanged."
+      }
+    ]
+  },
+  {
+    "group": "Set TSIG with zero\u2011length secret",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "key",
+            "value": "new TSIG(\"hmac-md5\", new byte[0])"
+          }
+        ],
+        "expected": "Message.isSigned() == true && Message.getTSIG() != null && Message.getTSIG().getKey().length == 0 && Message.tsigState == Message.TSIG_SIGNED",
+        "description": "A TSIG whose secret is an empty byte array is still a valid key for the library; setTSIG should attach it and mark the message as signed."
+      }
+    ]
+  },
+  {
+    "group": "Set TSIG with unsupported algorithm",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "key",
+            "value": "new TSIG(\"unsupported-algo\", \"key\".getBytes())"
+          }
+        ],
+        "expected": "IllegalArgumentException",
+        "description": "If the algorithm string is not one of the algorithms supported by the TSIG implementation, setTSIG(TSIG) must throw an IllegalArgumentException."
+      }
+    ]
+  },
+  {
+    "group": "Set TSIG after successful verification resets verification flag",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "key",
+            "value": "new TSIG(\"hmac-md5\", \"secret\".getBytes())"
+          },
+          {
+            "parameter": "error",
+            "value": "Rcode.NOERROR"
+          },
+          {
+            "parameter": "querytsig",
+            "value": "new TSIGRecord(Name.fromString(\"example.com.\"), DClass.IN, 300, new TSIG(\"hmac-md5\", \"secret\".getBytes()), new byte[0])"
+          }
+        ],
+        "expected": "Message.tsigState == Message.TSIG_VERIFIED && Message.isVerified() == true",
+        "description": "First, use the three\u2011argument overload to simulate a verified incoming TSIG (state = TSIG_VERIFIED)."
+      },
+      {
+        "input": [
+          {
+            "parameter": "key",
+            "value": "new TSIG(\"hmac-md5\", \"secret\".getBytes())"
+          }
+        ],
+        "expected": "Message.isSigned() == true && Message.isVerified() == false && Message.tsigState == Message.TSIG_SIGNED",
+        "description": "Calling the one\u2011argument setTSIG(TSIG) after a verified state must replace the TSIGRecord and reset the verification flag, leaving the message in the normal signed state."
+      }
+    ]
+  },
+  {
+    "group": "Replace TSIG with same algorithm but different secret",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "key",
+            "value": "new TSIG(\"hmac-sha1\", \"first\".getBytes())"
+          }
+        ],
+        "expected": "Message.getTSIG().getKey().length == \"first\".getBytes().length && Message.isSigned() == true",
+        "description": "Attach an initial TSIG using algorithm hmac\u2011sha1 and secret \"first\"."
+      },
+      {
+        "input": [
+          {
+            "parameter": "key",
+            "value": "new TSIG(\"hmac-sha1\", \"second\".getBytes())"
+          }
+        ],
+        "expected": "Message.getTSIG().getKey().length == \"second\".getBytes().length && Message.getTSIG().getAlgorithm().equals(\"hmac-sha1\") && Message.isSigned() == true && Message.tsigState == Message.TSIG_SIGNED",
+        "description": "Calling setTSIG again with the same algorithm but a different secret must replace the existing TSIGRecord while keeping the message signed."
+      }
+    ]
+  },
+  {
+    "group": "Set TSIG after intermediate state transition",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "key",
+            "value": "new TSIG(\"hmac-md5\", \"secret\".getBytes())"
+          },
+          {
+            "parameter": "error",
+            "value": "Rcode.NOERROR"
+          },
+          {
+            "parameter": "querytsig",
+            "value": "null"
+          }
+        ],
+        "expected": "Message.tsigState == Message.TSIG_INTERMEDIATE && Message.isSigned() == false",
+        "description": "Use the three\u2011argument overload to place the message in the intermediate state (no query TSIG, no error)."
+      },
+      {
+        "input": [
+          {
+            "parameter": "key",
+            "value": "new TSIG(\"hmac-md5\", \"secret\".getBytes())"
+          }
+        ],
+        "expected": "Message.tsigState == Message.TSIG_SIGNED && Message.isSigned() == true",
+        "description": "Calling the one\u2011argument setTSIG(TSIG) after an intermediate state should finalize the TSIG, moving the state to TSIG_SIGNED and marking the message as signed."
+      }
+    ]
+  },
+  {
+    "group": "Null algorithm in TSIG",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "key",
+            "value": "new TSIG(null, \"secret\".getBytes())"
+          }
+        ],
+        "expected": "IllegalArgumentException",
+        "description": "Creating a TSIG with a null algorithm string should cause the TSIG constructor (and thus setTSIG) to throw IllegalArgumentException."
+      }
+    ]
+  },
+  {
+    "group": "Null secret in TSIG",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "key",
+            "value": "new TSIG(\"hmac-md5\", null)"
+          }
+        ],
+        "expected": "IllegalArgumentException",
+        "description": "Creating a TSIG with a null secret byte array must raise IllegalArgumentException because the secret cannot be null."
+      }
+    ]
+  },
+  {
+    "group": "Invalid error code in three\u2011argument overload",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "key",
+            "value": "new TSIG(\"hmac-md5\", \"secret\".getBytes())"
+          },
+          {
+            "parameter": "error",
+            "value": "99999"
+          },
+          {
+            "parameter": "querytsig",
+            "value": "null"
+          }
+        ],
+        "expected": "IllegalArgumentException",
+        "description": "Passing an error code outside the valid Rcode range to setTSIG(TSIG, int, TSIGRecord) should result in IllegalArgumentException."
+      }
+    ]
+  },
+  {
+    "group": "TSIG attached to another Message (illegal state)",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "key",
+            "value": "new TSIG(\"hmac-md5\", \"secret\".getBytes())"
+          }
+        ],
+        "expected": "IllegalStateException",
+        "description": "If a TSIG instance has already been associated with a different Message (simulated by calling setTSIG on a first Message and then on a second Message without cloning), the second call should throw IllegalStateException because a TSIG cannot be reused across messages."
+      }
+    ]
+  }
+]

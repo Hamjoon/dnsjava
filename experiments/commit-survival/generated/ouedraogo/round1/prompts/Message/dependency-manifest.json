@@ -1,0 +1,49 @@
+{
+  "class_name": "org.xbill.DNS.Message",
+  "ordered_types": [
+    "org.xbill.DNS.Header",
+    "org.xbill.DNS.DNSInput",
+    "org.xbill.DNS.Record",
+    "org.xbill.DNS.TSIG",
+    "org.xbill.DNS.TSIGRecord",
+    "org.xbill.DNS.Resolver",
+    "org.xbill.DNS.Name",
+    "org.xbill.DNS.OPTRecord",
+    "org.xbill.DNS.RRset",
+    "org.xbill.DNS.DNSOutput",
+    "org.xbill.DNS.Compression"
+  ],
+  "included": [
+    "org.xbill.DNS.Header",
+    "org.xbill.DNS.DNSInput",
+    "org.xbill.DNS.Record",
+    "org.xbill.DNS.TSIG",
+    "org.xbill.DNS.TSIGRecord",
+    "org.xbill.DNS.Resolver",
+    "org.xbill.DNS.Name",
+    "org.xbill.DNS.OPTRecord",
+    "org.xbill.DNS.RRset",
+    "org.xbill.DNS.DNSOutput",
+    "org.xbill.DNS.Compression"
+  ],
+  "omitted": [],
+  "reasons": {
+    "org.xbill.DNS.Header": "constructor",
+    "org.xbill.DNS.DNSInput": "constructor",
+    "org.xbill.DNS.Record": "field",
+    "org.xbill.DNS.TSIG": "field",
+    "org.xbill.DNS.TSIGRecord": "field",
+    "org.xbill.DNS.Resolver": "field",
+    "org.xbill.DNS.Name": "method",
+    "org.xbill.DNS.OPTRecord": "method",
+    "org.xbill.DNS.RRset": "method",
+    "org.xbill.DNS.DNSOutput": "method",
+    "org.xbill.DNS.Compression": "method"
+  },
+  "types": 11,
+  "lines": 257,
+  "limits": {
+    "types": 15,
+    "lines": 400
+  }
+}

@@ -1,0 +1,15 @@
+/repo/experiments/regen-policies/results/policy/pools/ouedraogo/34/generated/ouedraogo/round1/sources/TSIG/CoT/TSIGTest.java:131: error: alg has private access in TSIG
+    assertEquals(TSIG.HMAC_MD5, t.alg);
+                                 ^
+/repo/experiments/regen-policies/results/policy/pools/ouedraogo/34/generated/ouedraogo/round1/sources/TSIG/CoT/TSIGTest.java:132: error: name has private access in TSIG
+    assertEquals(Name.fromString("mykey."), t.name);
+                                             ^
+/repo/experiments/regen-policies/results/policy/pools/ouedraogo/34/generated/ouedraogo/round1/sources/TSIG/CoT/TSIGTest.java:139: error: alg has private access in TSIG
+    assertEquals(TSIG.HMAC_SHA256, t.alg);
+                                    ^
+/repo/experiments/regen-policies/results/policy/pools/ouedraogo/34/generated/ouedraogo/round1/sources/TSIG/CoT/TSIGTest.java:140: error: name has private access in TSIG
+    assertEquals(Name.fromString("mykey."), t.name);
+                                             ^
+Note: /repo/experiments/regen-policies/results/policy/pools/ouedraogo/34/generated/ouedraogo/round1/sources/TSIG/CoT/TSIGTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+4 errors

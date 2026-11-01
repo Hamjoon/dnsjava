@@ -1,0 +1,14 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /repo/experiments/commit-survival/work/checkouts/44/src/main/java/org/xbill/DNS/Zone.java:[180,11] variables in try-with-resources are not supported in -source 8
+  (use -source 9 or higher to enable variables in try-with-resources)
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:compile (default-compile) on project dnsjava: Compilation failure
+[ERROR] /repo/experiments/commit-survival/work/checkouts/44/src/main/java/org/xbill/DNS/Zone.java:[180,11] variables in try-with-resources are not supported in -source 8
+[ERROR]   (use -source 9 or higher to enable variables in try-with-resources)
+[ERROR] 
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

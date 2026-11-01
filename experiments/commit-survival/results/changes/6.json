@@ -1,0 +1,52 @@
+{
+  "index": 6,
+  "sha": "ae50e1fd44db8b791df3a569165c74c89deca6b4",
+  "parent": "85ff1c91f9fd980a3643ce8db46130e0d273eb7d",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/WireParseException.java": [
+      24,
+      25
+    ],
+    "src/main/java/org/xbill/DNS/lookup/LookupFailedException.java": [],
+    "src/main/java/org/xbill/DNS/lookup/LookupSession.java": [
+      602
+    ],
+    "src/main/java/org/xbill/DNS/lookup/ServerFailedException.java": [
+      8
+    ]
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/WireParseException.java": [
+      24
+    ],
+    "src/main/java/org/xbill/DNS/lookup/LookupFailedException.java": [
+      34,
+      35,
+      36,
+      37,
+      48
+    ],
+    "src/main/java/org/xbill/DNS/lookup/LookupSession.java": [
+      602,
+      603,
+      604,
+      605,
+      606,
+      607,
+      611
+    ],
+    "src/main/java/org/xbill/DNS/lookup/ServerFailedException.java": [
+      22,
+      23,
+      24,
+      34,
+      35,
+      36,
+      48,
+      49,
+      52,
+      53
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/WireParseException.java b/src/main/java/org/xbill/DNS/WireParseException.java\nindex 8d07e891..2c75e864 100644\n--- a/src/main/java/org/xbill/DNS/WireParseException.java\n+++ b/src/main/java/org/xbill/DNS/WireParseException.java\n@@ -24,2 +24 @@ public class WireParseException extends IOException {\n-    super(s);\n-    initCause(cause);\n+    super(s, cause);\ndiff --git a/src/main/java/org/xbill/DNS/lookup/LookupFailedException.java b/src/main/java/org/xbill/DNS/lookup/LookupFailedException.java\nindex d0d31bdf..16325838 100644\n--- a/src/main/java/org/xbill/DNS/lookup/LookupFailedException.java\n+++ b/src/main/java/org/xbill/DNS/lookup/LookupFailedException.java\n@@ -4,0 +5 @@ import org.xbill.DNS.Name;\n+import org.xbill.DNS.Type;\n@@ -32,0 +34,15 @@ public class LookupFailedException extends RuntimeException {\n+    super(\"Lookup for \" + name + \"/\" + Type.string(type) + \" failed\");\n+    this.name = name;\n+    this.type = type;\n+  }\n+\n+  /**\n+   * Construct a LookupFailedException that also specifies the name and type of the lookup that\n+   * failed.\n+   *\n+   * @param name the name that caused the failure.\n+   * @param type the type that caused the failure.\n+   * @since 3.6\n+   */\n+  public LookupFailedException(String message, Name name, int type) {\n+    super(message);\ndiff --git a/src/main/java/org/xbill/DNS/lookup/LookupSession.java b/src/main/java/org/xbill/DNS/lookup/LookupSession.java\nindex 05b91428..2ffa815c 100644\n--- a/src/main/java/org/xbill/DNS/lookup/LookupSession.java\n+++ b/src/main/java/org/xbill/DNS/lookup/LookupSession.java\n@@ -602 +602,10 @@ public class LookupSession {\n-          throw new ServerFailedException();\n+          if (answer.getOPT() != null) {\n+            List<EDNSOption> options =\n+                answer.getOPT().getOptions(EDNSOption.Code.EDNS_EXTENDED_ERROR);\n+            if (!options.isEmpty()) {\n+              throw new ServerFailedException(\n+                  query.getName(), query.getType(), (ExtendedErrorCodeOption) options.get(0));\n+            }\n+          }\n+\n+          throw new ServerFailedException(query.getName(), query.getType());\ndiff --git a/src/main/java/org/xbill/DNS/lookup/ServerFailedException.java b/src/main/java/org/xbill/DNS/lookup/ServerFailedException.java\nindex c3e7ebdd..86956d8a 100644\n--- a/src/main/java/org/xbill/DNS/lookup/ServerFailedException.java\n+++ b/src/main/java/org/xbill/DNS/lookup/ServerFailedException.java\n@@ -3,0 +4,5 @@ package org.xbill.DNS.lookup;\n+import lombok.Getter;\n+import org.xbill.DNS.ExtendedErrorCodeOption;\n+import org.xbill.DNS.Name;\n+import org.xbill.DNS.Type;\n+\n@@ -5 +10 @@ package org.xbill.DNS.lookup;\n- * Represents a server failure, that the upstream server responding to the request returned a {@link\n+ * Represents a server failure. The upstream server responding to the request returned a {@link\n@@ -8 +13,42 @@ package org.xbill.DNS.lookup;\n-public class ServerFailedException extends LookupFailedException {}\n+public class ServerFailedException extends LookupFailedException {\n+  /**\n+   * An extended error code explaining why the server failed to return a result. May be {@code\n+   * null}.\n+   *\n+   * @since 3.6\n+   */\n+  @Getter private final ExtendedErrorCodeOption extendedRcode;\n+\n+  public ServerFailedException() {\n+    extendedRcode = null;\n+  }\n+\n+  /**\n+   * Creates a new instance of this class.\n+   *\n+   * @param name The name in the query that caused the failure.\n+   * @param type The type in the query that caused the failure.\n+   * @since 3.6\n+   */\n+  public ServerFailedException(Name name, int type) {\n+    super(name, type);\n+    extendedRcode = null;\n+  }\n+\n+  /**\n+   * Creates a new instance of this class.\n+   *\n+   * @param name The name in the query that caused the failure.\n+   * @param type The type in the query that caused the failure.\n+   * @param extendedRcode An extended error code explaining why the server failed to return a\n+   *     result.\n+   * @since 3.6\n+   */\n+  public ServerFailedException(Name name, int type, ExtendedErrorCodeOption extendedRcode) {\n+    super(\n+        \"Lookup for \" + name + \"/\" + Type.string(type) + \" failed with \" + extendedRcode.getText(),\n+        name,\n+        type);\n+    this.extendedRcode = extendedRcode;\n+  }\n+}"
+}

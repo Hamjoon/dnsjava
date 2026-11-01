@@ -1,0 +1,91 @@
+{
+  "index": 111,
+  "sha": "64efa230175a77af8896393ce6b542ac6da49440",
+  "parent": "06a0599933114f36efe59667cd80ee0246a1a882",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/Lookup.java": [
+      647,
+      661,
+      662
+    ],
+    "src/main/java/org/xbill/DNS/hosts/HostsFileParser.java": [
+      215,
+      217,
+      218,
+      219
+    ],
+    "src/main/java/org/xbill/DNS/lookup/LookupSession.java": [
+      461,
+      476,
+      477
+    ]
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/Lookup.java": [
+      647,
+      648,
+      652,
+      665,
+      666,
+      667,
+      668,
+      669,
+      670,
+      671,
+      674,
+      675
+    ],
+    "src/main/java/org/xbill/DNS/hosts/HostsFileParser.java": [
+      141,
+      143,
+      145,
+      146,
+      147,
+      150,
+      151,
+      154,
+      155,
+      158,
+      176,
+      177,
+      227,
+      228,
+      229,
+      230,
+      231,
+      232,
+      233,
+      234,
+      236,
+      239,
+      240,
+      244,
+      246,
+      248,
+      277,
+      279,
+      280,
+      281,
+      282,
+      283,
+      285,
+      369,
+      372
+    ],
+    "src/main/java/org/xbill/DNS/lookup/LookupSession.java": [
+      462,
+      463,
+      467,
+      481,
+      482,
+      483,
+      484,
+      485,
+      486,
+      488,
+      490,
+      491
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/Lookup.java b/src/main/java/org/xbill/DNS/Lookup.java\nindex 6a7ae8fb..4d52d07f 100644\n--- a/src/main/java/org/xbill/DNS/Lookup.java\n+++ b/src/main/java/org/xbill/DNS/Lookup.java\n@@ -647,2 +647,6 @@ public final class Lookup {\n-    if (hostsFileParser != null && (type == Type.A || type == Type.AAAA)) {\n-      try {\n+    if (hostsFileParser == null) {\n+      return false;\n+    }\n+\n+    try {\n+      if (type == Type.A || type == Type.AAAA) {\n@@ -661,2 +665,8 @@ public final class Lookup {\n-      } catch (IOException e) {\n-        log.debug(\"Local hosts database parsing failed, ignoring and using resolver\", e);\n+      } else if (type == Type.PTR) {\n+        Optional<Name> localLookup = hostsFileParser.getNameForReverseLookup(current);\n+        if (localLookup.isPresent()) {\n+          result = SUCCESSFUL;\n+          done = true;\n+          answers = new PTRRecord[] {new PTRRecord(current, dclass, 0L, localLookup.get())};\n+          return true;\n+        }\n@@ -663,0 +674,2 @@ public final class Lookup {\n+    } catch (IOException e) {\n+      log.debug(\"Local hosts database parsing failed, ignoring and using resolver\", e);\ndiff --git a/src/main/java/org/xbill/DNS/hosts/HostsFileParser.java b/src/main/java/org/xbill/DNS/hosts/HostsFileParser.java\nindex 2dda049c..1a5195e4 100644\n--- a/src/main/java/org/xbill/DNS/hosts/HostsFileParser.java\n+++ b/src/main/java/org/xbill/DNS/hosts/HostsFileParser.java\n@@ -23,0 +24 @@ import org.xbill.DNS.Name;\n+import org.xbill.DNS.ReverseMap;\n@@ -48,0 +50,3 @@ public final class HostsFileParser {\n+  @SuppressWarnings(\"java:S3077\")\n+  private volatile Map<Name, Name> reverseHostsCache;\n+\n@@ -126,0 +131,30 @@ public final class HostsFileParser {\n+  /**\n+   * Performs on-demand parsing and caching of the local hosts database for a reverse (PTR) lookup.\n+   *\n+   * @param reverseName the reverse map name to search for, as returned by {@link\n+   *     ReverseMap#fromAddress(InetAddress)}.\n+   * @return The first host name found for the requested address.\n+   * @throws IOException When the parsing fails.\n+   * @since 3.6.6\n+   */\n+  public Optional<Name> getNameForReverseLookup(Name reverseName) throws IOException {\n+    Objects.requireNonNull(reverseName, \"reverseName is required\");\n+\n+    validateCache();\n+\n+    Name cachedName = reverseHostsCache.get(reverseName);\n+    if (cachedName != null) {\n+      return Optional.of(cachedName);\n+    }\n+\n+    if (isEntireFileParsed) {\n+      return Optional.empty();\n+    }\n+\n+    if (hostsFileSizeBytes > maxFullCacheFileSizeBytes) {\n+      searchHostsFileForReverseEntry(reverseName);\n+    }\n+\n+    return Optional.ofNullable(reverseHostsCache.get(reverseName));\n+  }\n+\n@@ -140,0 +175,3 @@ public final class HostsFileParser {\n+\n+          reverseHostsCache.putIfAbsent(\n+              ReverseMap.fromAddress(lineData.address), lineData.names[0]);\n@@ -187,0 +225,25 @@ public final class HostsFileParser {\n+  private void searchHostsFileForReverseEntry(Name reverseName) throws IOException {\n+    String line;\n+    int lineNumber = 0;\n+    AtomicInteger addressFailures = new AtomicInteger(0);\n+    AtomicInteger nameFailures = new AtomicInteger(0);\n+    try (BufferedReader hostsReader = Files.newBufferedReader(path, StandardCharsets.UTF_8)) {\n+      while ((line = hostsReader.readLine()) != null) {\n+        LineData lineData = parseLine(++lineNumber, line, addressFailures, nameFailures);\n+        if (lineData != null && ReverseMap.fromAddress(lineData.address).equals(reverseName)) {\n+          reverseHostsCache.putIfAbsent(reverseName, lineData.names[0]);\n+        }\n+      }\n+    }\n+\n+    if (!hostsFileWarningLogged && (addressFailures.get() > 0 || nameFailures.get() > 0)) {\n+      log.warn(\n+          \"Failed to find {} in hosts file {}, address failures={}, name failures={}\",\n+          reverseName,\n+          path,\n+          addressFailures.get(),\n+          nameFailures);\n+      hostsFileWarningLogged = true;\n+    }\n+  }\n+\n@@ -192 +254 @@ public final class HostsFileParser {\n-    final Iterable<? extends Name> names;\n+    final Name[] names;\n@@ -215 +277 @@ public final class HostsFileParser {\n-    Iterable<? extends Name> lineNames =\n+    Name[] lineNames =\n@@ -217,4 +279,9 @@ public final class HostsFileParser {\n-                .skip(1)\n-                .map(lineTokenName -> safeName(lineTokenName, lineNumber, nameFailures))\n-                .filter(Objects::nonNull)\n-            ::iterator;\n+            .skip(1)\n+            .map(lineTokenName -> safeName(lineTokenName, lineNumber, nameFailures))\n+            .filter(Objects::nonNull)\n+            .toArray(Name[]::new);\n+    if (lineNames.length == 0) {\n+      // Skip lines that have no valid names\n+      return null;\n+    }\n+\n@@ -301,0 +369 @@ public final class HostsFileParser {\n+      reverseHostsCache = new ConcurrentHashMap<>();\n@@ -303,0 +372 @@ public final class HostsFileParser {\n+      reverseHostsCache.clear();\ndiff --git a/src/main/java/org/xbill/DNS/lookup/LookupSession.java b/src/main/java/org/xbill/DNS/lookup/LookupSession.java\nindex 89259478..8f538735 100644\n--- a/src/main/java/org/xbill/DNS/lookup/LookupSession.java\n+++ b/src/main/java/org/xbill/DNS/lookup/LookupSession.java\n@@ -36,0 +37 @@ import org.xbill.DNS.NameTooLongException;\n+import org.xbill.DNS.PTRRecord;\n@@ -461,2 +462,6 @@ public class LookupSession {\n-    if (hostsFileParser != null && (type == Type.A || type == Type.AAAA)) {\n-      try {\n+    if (hostsFileParser == null) {\n+      return null;\n+    }\n+\n+    try {\n+      if (type == Type.A || type == Type.AAAA) {\n@@ -476,2 +481,8 @@ public class LookupSession {\n-      } catch (IOException e) {\n-        log.debug(\"Local hosts database parsing failed, ignoring and using resolver\", e);\n+      } else if (type == Type.PTR) {\n+        for (Name name : names) {\n+          Optional<Name> result = hostsFileParser.getNameForReverseLookup(name);\n+          if (result.isPresent()) {\n+            Record r = new PTRRecord(name, DClass.IN, 0, result.get());\n+            return new LookupResult(Record.newRecord(name, type, DClass.IN), true, r);\n+          }\n+        }\n@@ -478,0 +490,2 @@ public class LookupSession {\n+    } catch (IOException e) {\n+      log.debug(\"Local hosts database parsing failed, ignoring and using resolver\", e);"
+}

@@ -1,0 +1,82 @@
+[
+  {
+    "group": "Zone#getSOA",
+    "cases": [
+      {
+        "input": [],
+        "expected": "null",
+        "description": "When a newly created Zone has no SOA record added, getSOA() should return null."
+      },
+      {
+        "input": [],
+        "expected": "SOARecord instance (same object that was added)",
+        "description": "After adding an SOARecord to the Zone (via addRecord or appropriate method), getSOA() must return that exact SOARecord object."
+      },
+      {
+        "input": [],
+        "expected": "identical SOARecord instance on successive calls",
+        "description": "Verify that multiple invocations of getSOA() on a Zone that already contains an SOARecord always return the same reference (no new objects are created)."
+      }
+    ]
+  },
+  {
+    "group": "Zone#getSOA after adding non\u2011SOA record",
+    "cases": [
+      {
+        "input": [],
+        "expected": "null",
+        "description": "Create a new Zone, add a generic Record (e.g., an ARecord) using addRecord, and verify that getSOA() still returns null because no SOARecord has been added."
+      }
+    ]
+  },
+  {
+    "group": "Zone#getSOA after removing the only SOA record",
+    "cases": [
+      {
+        "input": [],
+        "expected": "null",
+        "description": "Create a Zone, add an SOARecord via addRecord, then remove it with removeRecord. After removal, getSOA() must return null."
+      }
+    ]
+  },
+  {
+    "group": "Zone#getSOA after removing SOA via removeRRset",
+    "cases": [
+      {
+        "input": [],
+        "expected": "null",
+        "description": "Create a Zone, add an SOARecord, then call removeRRset with the SOARecord's name and Type.SOA. getSOA() should return null because the RRset containing the SOA has been removed."
+      }
+    ]
+  },
+  {
+    "group": "Zone#getSOA when a second SOARecord overwrites the first",
+    "cases": [
+      {
+        "input": [],
+        "expected": "SOARecord instance (the second one added)",
+        "description": "Add an initial SOARecord to a Zone, then add a different SOARecord (same name, different serial). The second addition should replace the first; getSOA() must return the second SOARecord instance."
+      }
+    ]
+  },
+  {
+    "group": "Zone#getSOA after adding SOA via RRset",
+    "cases": [
+      {
+        "input": [],
+        "expected": "SOARecord instance (the one contained in the RRset)",
+        "description": "Create an RRset that contains a single SOARecord, add the RRset to the Zone with addRRset, and verify that getSOA() returns the SOARecord from that RRset."
+      }
+    ]
+  },
+  {
+    "group": "Zone#getSOA after clearing the zone",
+    "cases": [
+      {
+        "input": [],
+        "expected": "null",
+        "description": "Populate a Zone with several records including an SOARecord, then clear all data (e.g., by creating a new empty Zone instance or by removing each RRset). After clearing, getSOA() must return null."
+      }
+    ]
+  }
+]

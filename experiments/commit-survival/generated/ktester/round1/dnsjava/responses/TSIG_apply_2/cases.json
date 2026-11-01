@@ -1,0 +1,531 @@
+[
+  {
+    "group": "Valid inputs \u2013 normal signature",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "validMessage"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "validOldTSIGRecord"
+          },
+          {
+            "parameter": "boolean fullSignature",
+            "value": false
+          }
+        ],
+        "expected": "Message m contains a TSIGRecord with a standard (truncated) MAC and error code NOERROR",
+        "description": "Apply TSIG with a valid message and an existing TSIG record using the default (non\u2011full) signature. The method should generate a new TSIG RR, attach it to the message and set the MAC length to the default size."
+      }
+    ]
+  },
+  {
+    "group": "Valid inputs \u2013 full signature",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "validMessage"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "validOldTSIGRecord"
+          },
+          {
+            "parameter": "boolean fullSignature",
+            "value": true
+          }
+        ],
+        "expected": "Message m contains a TSIGRecord with a full\u2011length MAC (no truncation) and error code NOERROR",
+        "description": "Apply TSIG with the fullSignature flag set to true. The method should generate a TSIG RR that contains the complete MAC value rather than a truncated one."
+      }
+    ]
+  },
+  {
+    "group": "Old TSIGRecord is null \u2013 generate new record",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "validMessage"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": null
+          },
+          {
+            "parameter": "boolean fullSignature",
+            "value": false
+          }
+        ],
+        "expected": "Message m contains a newly generated TSIGRecord (no old record to chain) and error code NOERROR",
+        "description": "When the old TSIGRecord argument is null the method must generate a fresh TSIG RR and attach it to the message."
+      }
+    ]
+  },
+  {
+    "group": "Null Message argument",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": null
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "validOldTSIGRecord"
+          },
+          {
+            "parameter": "boolean fullSignature",
+            "value": false
+          }
+        ],
+        "expected": "NullPointerException",
+        "description": "Passing a null Message should cause the method to throw a NullPointerException because it cannot add a TSIG RR to a non\u2011existent message."
+      }
+    ]
+  },
+  {
+    "group": "Unsupported algorithm in old TSIGRecord",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "validMessage"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "tsigRecordWithUnknownAlgorithm"
+          },
+          {
+            "parameter": "boolean fullSignature",
+            "value": false
+          }
+        ],
+        "expected": "IllegalArgumentException with message containing 'unsupported algorithm'",
+        "description": "If the old TSIGRecord contains an algorithm name that the TSIG class does not recognise, the method should reject the request and throw an IllegalArgumentException."
+      }
+    ]
+  },
+  {
+    "group": "Non\u2011zero error code handling",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "validMessage"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "validOldTSIGRecord"
+          },
+          {
+            "parameter": "boolean fullSignature",
+            "value": false
+          }
+        ],
+        "expected": "Message m contains a TSIGRecord whose error field equals Rcode.FORMERR (or other non\u2011zero error code)",
+        "description": "When the internal call to apply(Message, int, TSIGRecord, boolean) is invoked with an error code other than NOERROR, the resulting TSIG RR must carry that error code."
+      }
+    ]
+  },
+  {
+    "group": "Full signature requested but old record lacks MAC",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "validMessage"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "tsigRecordWithoutMac"
+          },
+          {
+            "parameter": "boolean fullSignature",
+            "value": true
+          }
+        ],
+        "expected": "IllegalStateException with message containing 'MAC missing'",
+        "description": "If fullSignature is true but the supplied old TSIGRecord does not contain a MAC (e.g., it is a placeholder), the method cannot compute a chain and must throw an IllegalStateException."
+      }
+    ]
+  },
+  {
+    "group": "Fudge time window exceeded",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "messageWithTimestampOutsideFudge"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "validOldTSIGRecord"
+          },
+          {
+            "parameter": "boolean fullSignature",
+            "value": false
+          }
+        ],
+        "expected": "TSIGRecord attached to Message with error code Rcode.BADTIME",
+        "description": "If the timestamp in the message is older/newer than the current time by more than TSIG.FUDGE (300\u202fs), the generated TSIG RR must indicate a BADTIME error."
+      }
+    ]
+  },
+  {
+    "group": "Fudge boundary \u2013 timestamp exactly at upper limit",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "validMessageTimestampNowPlus300"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "validOldTSIGRecordSHA1"
+          },
+          {
+            "parameter": "boolean fullSignature",
+            "value": false
+          }
+        ],
+        "expected": "Message m contains a TSIGRecord with error code NOERROR (timestamp accepted at +300\u202fs)",
+        "description": "The message timestamp is exactly the current time plus TSIG.FUDGE (300\u202fs). The apply method must treat the timestamp as valid and generate a TSIG RR with NOERROR."
+      }
+    ]
+  },
+  {
+    "group": "Fudge boundary \u2013 timestamp exactly at lower limit",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "validMessageTimestampNowMinus300"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "validOldTSIGRecordSHA1"
+          },
+          {
+            "parameter": "boolean fullSignature",
+            "value": false
+          }
+        ],
+        "expected": "Message m contains a TSIGRecord with error code NOERROR (timestamp accepted at \u2013300\u202fs)",
+        "description": "The message timestamp is exactly the current time minus TSIG.FUDGE (300\u202fs). The apply method must accept the timestamp and generate a TSIG RR with NOERROR."
+      }
+    ]
+  },
+  {
+    "group": "Fudge exceeded by one second \u2013 future timestamp",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "validMessageTimestampNowPlus301"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "validOldTSIGRecordSHA1"
+          },
+          {
+            "parameter": "boolean fullSignature",
+            "value": false
+          }
+        ],
+        "expected": "Message m contains a TSIGRecord with error code Rcode.BADTIME",
+        "description": "The message timestamp is 301\u202fs in the future, i.e., just beyond the allowed fudge window. The apply method must set the error field to BADTIME."
+      }
+    ]
+  },
+  {
+    "group": "Fudge exceeded by one second \u2013 past timestamp",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "validMessageTimestampNowMinus301"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "validOldTSIGRecordSHA1"
+          },
+          {
+            "parameter": "boolean fullSignature",
+            "value": false
+          }
+        ],
+        "expected": "Message m contains a TSIGRecord with error code Rcode.BADTIME",
+        "description": "The message timestamp is 301\u202fs in the past, just outside the allowed fudge window. The apply method must set the error field to BADTIME."
+      }
+    ]
+  },
+  {
+    "group": "Message already contains a TSIG \u2013 replacement",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "messageWithExistingTSIG"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "validOldTSIGRecordSHA256"
+          },
+          {
+            "parameter": "boolean fullSignature",
+            "value": false
+          }
+        ],
+        "expected": "Message m contains exactly one TSIGRecord, the newly generated one (old TSIG replaced)",
+        "description": "When the message already has a TSIG RR, apply must remove the existing record and attach a freshly generated TSIG RR based on the supplied old record."
+      }
+    ]
+  },
+  {
+    "group": "FullSignature false \u2013 MAC truncation",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "validMessage"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "validOldTSIGRecordSHA1WithFullMac"
+          },
+          {
+            "parameter": "boolean fullSignature",
+            "value": false
+          }
+        ],
+        "expected": "Generated TSIGRecord MAC length equals 10 bytes (default truncated size)",
+        "description": "The old TSIGRecord supplies a full\u2011length SHA\u20111 MAC (20\u202fbytes). With fullSignature set to false the apply method must truncate the MAC to the default 10\u2011byte length."
+      }
+    ]
+  },
+  {
+    "group": "FullSignature true \u2013 full MAC retained",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "validMessage"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "validOldTSIGRecordSHA1WithFullMac"
+          },
+          {
+            "parameter": "boolean fullSignature",
+            "value": true
+          }
+        ],
+        "expected": "Generated TSIGRecord MAC length equals 20 bytes (full SHA\u20111 MAC)",
+        "description": "When fullSignature is true the apply method must keep the complete MAC (no truncation). The resulting TSIG RR should contain the full 20\u2011byte SHA\u20111 MAC."
+      }
+    ]
+  },
+  {
+    "group": "Empty secret key \u2013 illegal argument",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "validMessage"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "tsigRecordWithEmptySecretKey"
+          },
+          {
+            "parameter": "boolean fullSignature",
+            "value": false
+          }
+        ],
+        "expected": "IllegalArgumentException with message containing 'secret key length'",
+        "description": "If the TSIGRecord references a secret key of zero length, the apply method cannot compute a MAC and must throw an IllegalArgumentException."
+      }
+    ]
+  },
+  {
+    "group": "Algorithm HMAC\u2011SHA256 handling \u2013 default truncation",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "validMessage"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "validOldTSIGRecordSHA256"
+          },
+          {
+            "parameter": "boolean fullSignature",
+            "value": false
+          }
+        ],
+        "expected": "Generated TSIGRecord MAC length equals 10 bytes (default truncated size) and algorithm name HMAC\u2011SHA256",
+        "description": "The old TSIGRecord uses the HMAC\u2011SHA256 algorithm. With fullSignature false the MAC must be truncated to the default 10\u2011byte size while preserving the algorithm identifier."
+      }
+    ]
+  },
+  {
+    "group": "Algorithm HMAC\u2011SHA256 handling \u2013 full signature",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "validMessage"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "validOldTSIGRecordSHA256"
+          },
+          {
+            "parameter": "boolean fullSignature",
+            "value": true
+          }
+        ],
+        "expected": "Generated TSIGRecord MAC length equals 32 bytes (full SHA\u2011256 MAC) and algorithm name HMAC\u2011SHA256",
+        "description": "When fullSignature is true and the algorithm is HMAC\u2011SHA256, the apply method must retain the full 32\u2011byte MAC."
+      }
+    ]
+  },
+  {
+    "group": "Null secret key in TSIGRecord",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "validMessage"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "tsigRecordWithNullSecretKey"
+          },
+          {
+            "parameter": "boolean fullSignature",
+            "value": false
+          }
+        ],
+        "expected": "IllegalArgumentException with message containing 'secret key is null'",
+        "description": "The old TSIGRecord references a null secret key. The apply method must validate the key before MAC computation and throw an IllegalArgumentException."
+      }
+    ]
+  },
+  {
+    "group": "Null algorithm name in TSIGRecord",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "validMessage"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "tsigRecordWithNullAlgorithm"
+          },
+          {
+            "parameter": "boolean fullSignature",
+            "value": false
+          }
+        ],
+        "expected": "IllegalArgumentException with message containing 'algorithm name is null'",
+        "description": "The supplied TSIGRecord has a null algorithm identifier. The method must reject such a record and raise an IllegalArgumentException."
+      }
+    ]
+  },
+  {
+    "group": "Invalid secret key length for HMAC\u2011SHA256",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "validMessage"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "tsigRecordSHA256WithShortKey"
+          },
+          {
+            "parameter": "boolean fullSignature",
+            "value": true
+          }
+        ],
+        "expected": "GeneralSecurityException",
+        "description": "The old TSIGRecord specifies HMAC\u2011SHA256 but provides a secret key that is too short for the algorithm. When the MAC instance is initialized, the JCE provider throws a GeneralSecurityException, which should propagate from apply."
+      }
+    ]
+  },
+  {
+    "group": "Unsupported MAC algorithm causing JCE failure",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "validMessage"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "tsigRecordWithSupportedAlgButJceUnavailable"
+          },
+          {
+            "parameter": "boolean fullSignature",
+            "value": false
+          }
+        ],
+        "expected": "GeneralSecurityException",
+        "description": "The TSIGRecord uses a known algorithm name (e.g., HMAC\u2011SHA384) but the underlying JCE provider cannot supply a Mac instance for it, resulting in a GeneralSecurityException that must be thrown by apply."
+      }
+    ]
+  },
+  {
+    "group": "Immutable Message \u2013 cannot attach TSIG",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "immutableMessage"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "validOldTSIGRecord"
+          },
+          {
+            "parameter": "boolean fullSignature",
+            "value": false
+          }
+        ],
+        "expected": "IllegalStateException with message containing 'Message is immutable'",
+        "description": "When the Message instance is marked as immutable (e.g., after being sent), apply must refuse to modify it and throw an IllegalStateException."
+      }
+    ]
+  }
+]

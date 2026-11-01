@@ -1,0 +1,12 @@
+{
+  "index": 89,
+  "sha": "7b7c929e5b90b8c24f257d95aa8297767de143e8",
+  "parent": "6f65a368cc7981ee94650045c6b7853c8ae1f185",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/dnssec/ValidatingResolver.java": []
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/dnssec/ValidatingResolver.java": []
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/dnssec/ValidatingResolver.java b/src/main/java/org/xbill/DNS/dnssec/ValidatingResolver.java\nindex 19795543..0d7e57df 100644\n--- a/src/main/java/org/xbill/DNS/dnssec/ValidatingResolver.java\n+++ b/src/main/java/org/xbill/DNS/dnssec/ValidatingResolver.java\n@@ -1131,0 +1132 @@ public final class ValidatingResolver implements Resolver {\n+        case SECURE:\n@@ -1134 +1134,0 @@ public final class ValidatingResolver implements Resolver {\n-        case SECURE:"
+}

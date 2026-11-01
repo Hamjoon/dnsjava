@@ -1,0 +1,646 @@
+{
+  "index": 110,
+  "sha": "06a0599933114f36efe59667cd80ee0246a1a882",
+  "status": "evaluated",
+  "imported": false,
+  "coverage_version": 3,
+  "coverage_status": "complete",
+  "coverage_reason": "",
+  "methods": [
+    {
+      "id": "generated/ktester/round1/dnsjava/test_classes/TSIG_algorithmToName_Test.java|org.xbill.DNS.TSIG_algorithmToName_Test|algorithmToName_nullArgument_throwsIllegalArgumentException",
+      "file_hash": "9775160e9072398f3b8f492ead3aaa32ca4b736488c5d876af7fca3275f988c5",
+      "execution_hash": "3bb8eab8206b7d5d3db8b93e2ef031cf258490a5bed5ce36b92d6d57f9b561aa",
+      "class": "org.xbill.DNS.TSIG_algorithmToName_Test",
+      "method": "algorithmToName_nullArgument_throwsIllegalArgumentException",
+      "state": "pass",
+      "message": "",
+      "lines": [
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          168
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          169
+        ]
+      ]
+    },
+    {
+      "id": "generated/ktester/round1/dnsjava/test_classes/TSIG_algorithmToName_Test.java|org.xbill.DNS.TSIG_algorithmToName_Test|algorithmToName_rfcStyle_withoutTrailingDot_returnsCorrectName",
+      "file_hash": "9775160e9072398f3b8f492ead3aaa32ca4b736488c5d876af7fca3275f988c5",
+      "execution_hash": "3bb8eab8206b7d5d3db8b93e2ef031cf258490a5bed5ce36b92d6d57f9b561aa",
+      "class": "org.xbill.DNS.TSIG_algorithmToName_Test",
+      "method": "algorithmToName_rfcStyle_withoutTrailingDot_returnsCorrectName",
+      "state": "pass",
+      "message": "",
+      "lines": [
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          168
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          173
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          184
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          185
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          190
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          193
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          196
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          201
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          205
+        ]
+      ]
+    },
+    {
+      "id": "generated/ktester/round1/dnsjava/test_classes/TSIG_algorithmToName_Test.java|org.xbill.DNS.TSIG_algorithmToName_Test|algorithmToName_rfcStyle_withTrailingDot_returnsCorrectName",
+      "file_hash": "9775160e9072398f3b8f492ead3aaa32ca4b736488c5d876af7fca3275f988c5",
+      "execution_hash": "3bb8eab8206b7d5d3db8b93e2ef031cf258490a5bed5ce36b92d6d57f9b561aa",
+      "class": "org.xbill.DNS.TSIG_algorithmToName_Test",
+      "method": "algorithmToName_rfcStyle_withTrailingDot_returnsCorrectName",
+      "state": "pass",
+      "message": "",
+      "lines": [
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          168
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          173
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          184
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          190
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          193
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          196
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          201
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          205
+        ]
+      ]
+    },
+    {
+      "id": "generated/ktester/round1/dnsjava/test_classes/TSIG_algorithmToName_Test.java|org.xbill.DNS.TSIG_algorithmToName_Test|algorithmToName_javaStyle_withoutLength_returnsCorrectName",
+      "file_hash": "9775160e9072398f3b8f492ead3aaa32ca4b736488c5d876af7fca3275f988c5",
+      "execution_hash": "3bb8eab8206b7d5d3db8b93e2ef031cf258490a5bed5ce36b92d6d57f9b561aa",
+      "class": "org.xbill.DNS.TSIG_algorithmToName_Test",
+      "method": "algorithmToName_javaStyle_withoutLength_returnsCorrectName",
+      "state": "pass",
+      "message": "",
+      "lines": [
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          168
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          173
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          174
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          175
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          176
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          177
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          178
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          184
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          185
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          190
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          193
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          196
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          201
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          205
+        ]
+      ]
+    },
+    {
+      "id": "generated/ktester/round1/dnsjava/test_classes/TSIG_algorithmToName_Test.java|org.xbill.DNS.TSIG_algorithmToName_Test|algorithmToName_javaStyle_withLength_returnsCorrectName",
+      "file_hash": "9775160e9072398f3b8f492ead3aaa32ca4b736488c5d876af7fca3275f988c5",
+      "execution_hash": "3bb8eab8206b7d5d3db8b93e2ef031cf258490a5bed5ce36b92d6d57f9b561aa",
+      "class": "org.xbill.DNS.TSIG_algorithmToName_Test",
+      "method": "algorithmToName_javaStyle_withLength_returnsCorrectName",
+      "state": "pass",
+      "message": "",
+      "lines": [
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          168
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          173
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          174
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          175
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          176
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          177
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          178
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          179
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          184
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          185
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          190
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          193
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          196
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          201
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          205
+        ]
+      ]
+    },
+    {
+      "id": "generated/ktester/round1/dnsjava/test_classes/TSIG_algorithmToName_Test.java|org.xbill.DNS.TSIG_algorithmToName_Test|algorithmToName_javaStyle_lowerCaseWithSlash_returnsCorrectName",
+      "file_hash": "9775160e9072398f3b8f492ead3aaa32ca4b736488c5d876af7fca3275f988c5",
+      "execution_hash": "3bb8eab8206b7d5d3db8b93e2ef031cf258490a5bed5ce36b92d6d57f9b561aa",
+      "class": "org.xbill.DNS.TSIG_algorithmToName_Test",
+      "method": "algorithmToName_javaStyle_lowerCaseWithSlash_returnsCorrectName",
+      "state": "pass",
+      "message": "",
+      "lines": [
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          168
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          173
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          174
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          175
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          176
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          177
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          178
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          179
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          184
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          185
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          190
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          193
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          196
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          201
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          205
+        ]
+      ]
+    },
+    {
+      "id": "generated/ktester/round1/dnsjava/test_classes/TSIG_algorithmToName_Test.java|org.xbill.DNS.TSIG_algorithmToName_Test|algorithmToName_hmacMd5Alias_returnsHmacMd5Constant",
+      "file_hash": "9775160e9072398f3b8f492ead3aaa32ca4b736488c5d876af7fca3275f988c5",
+      "execution_hash": "3bb8eab8206b7d5d3db8b93e2ef031cf258490a5bed5ce36b92d6d57f9b561aa",
+      "class": "org.xbill.DNS.TSIG_algorithmToName_Test",
+      "method": "algorithmToName_hmacMd5Alias_returnsHmacMd5Constant",
+      "state": "pass",
+      "message": "",
+      "lines": [
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          33
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          42
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          49
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          55
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          63
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          70
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          77
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          84
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          91
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          98
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          107
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          116
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          125
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          129
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          130
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          134
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          135
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          136
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          137
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          138
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          139
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          140
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          142
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          143
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          144
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          145
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          147
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          148
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          149
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          150
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          151
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          152
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          153
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          154
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          155
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          156
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          157
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          168
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          173
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          184
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          185
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          190
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          193
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          196
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          197
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          228
+        ]
+      ]
+    },
+    {
+      "id": "generated/ktester/round1/dnsjava/test_classes/TSIG_algorithmToName_Test.java|org.xbill.DNS.TSIG_algorithmToName_Test|algorithmToName_unknownAlgorithm_throwsIllegalArgumentException",
+      "file_hash": "9775160e9072398f3b8f492ead3aaa32ca4b736488c5d876af7fca3275f988c5",
+      "execution_hash": "3bb8eab8206b7d5d3db8b93e2ef031cf258490a5bed5ce36b92d6d57f9b561aa",
+      "class": "org.xbill.DNS.TSIG_algorithmToName_Test",
+      "method": "algorithmToName_unknownAlgorithm_throwsIllegalArgumentException",
+      "state": "pass",
+      "message": "",
+      "lines": [
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          168
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          173
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          184
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          185
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          190
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          193
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          196
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          201
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          202
+        ]
+      ]
+    },
+    {
+      "id": "generated/ktester/round1/dnsjava/test_classes/TSIG_algorithmToName_Test.java|org.xbill.DNS.TSIG_algorithmToName_Test|algorithmToName_success",
+      "file_hash": "9775160e9072398f3b8f492ead3aaa32ca4b736488c5d876af7fca3275f988c5",
+      "execution_hash": "3bb8eab8206b7d5d3db8b93e2ef031cf258490a5bed5ce36b92d6d57f9b561aa",
+      "class": "org.xbill.DNS.TSIG_algorithmToName_Test",
+      "method": "algorithmToName_success",
+      "state": "pass",
+      "message": "",
+      "lines": [
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          168
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          173
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          174
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          175
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          176
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          177
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          178
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          179
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          184
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          185
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          190
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          193
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          196
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          197
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          201
+        ],
+        [
+          "src/main/java/org/xbill/DNS/TSIG.java",
+          205
+        ]
+      ]
+    }
+  ]
+}

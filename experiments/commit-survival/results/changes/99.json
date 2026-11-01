@@ -1,0 +1,26 @@
+{
+  "index": 99,
+  "sha": "8348de04b6c16fd2c97c46ff05ccd7e817c39306",
+  "parent": "5055ebb8a173ca0ec7d8ce39bc1a59f40759757d",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/EDNSOption.java": [],
+    "src/main/java/org/xbill/DNS/ExtendedErrorCodeOption.java": [],
+    "src/main/java/org/xbill/DNS/ExtendedFlags.java": [],
+    "src/main/java/org/xbill/DNS/Flags.java": [],
+    "src/main/java/org/xbill/DNS/Type.java": []
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/EDNSOption.java": [
+      183
+    ],
+    "src/main/java/org/xbill/DNS/ExtendedErrorCodeOption.java": [
+      245
+    ],
+    "src/main/java/org/xbill/DNS/ExtendedFlags.java": [
+      32
+    ],
+    "src/main/java/org/xbill/DNS/Flags.java": [],
+    "src/main/java/org/xbill/DNS/Type.java": []
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/EDNSOption.java b/src/main/java/org/xbill/DNS/EDNSOption.java\nindex b8dc7ca1..918fb844 100644\n--- a/src/main/java/org/xbill/DNS/EDNSOption.java\n+++ b/src/main/java/org/xbill/DNS/EDNSOption.java\n@@ -148,0 +149,8 @@ public abstract class EDNSOption implements Serializable {\n+    /**\n+     * Report Channel.\n+     *\n+     * @since 3.6.5\n+     * @see <a href=\"https://datatracker.ietf.org/doc/html/rfc9660/\">RFC 9660</a>\n+     */\n+    public static final int ZONEVERSION = 19;\n+\n@@ -174,0 +183 @@ public abstract class EDNSOption implements Serializable {\n+      codes.add(ZONEVERSION, \"ZONEVERSION\");\ndiff --git a/src/main/java/org/xbill/DNS/ExtendedErrorCodeOption.java b/src/main/java/org/xbill/DNS/ExtendedErrorCodeOption.java\nindex 1c40d571..59979c18 100644\n--- a/src/main/java/org/xbill/DNS/ExtendedErrorCodeOption.java\n+++ b/src/main/java/org/xbill/DNS/ExtendedErrorCodeOption.java\n@@ -197,0 +198,8 @@ public class ExtendedErrorCodeOption extends EDNSOption {\n+  /**\n+   * Invalid Query Type.\n+   *\n+   * @since 3.6.5\n+   * @see <a href=\"https://datatracker.ietf.org/doc/html/rfc9824\">RFC 9824</a>\n+   */\n+  public static final int INVALID_QUERY_TYPE = 30;\n+\n@@ -236,0 +245 @@ public class ExtendedErrorCodeOption extends EDNSOption {\n+    codes.add(INVALID_QUERY_TYPE, \"INVALID_QUERY_TYPE\");\ndiff --git a/src/main/java/org/xbill/DNS/ExtendedFlags.java b/src/main/java/org/xbill/DNS/ExtendedFlags.java\nindex 8efa3498..019c859d 100644\n--- a/src/main/java/org/xbill/DNS/ExtendedFlags.java\n+++ b/src/main/java/org/xbill/DNS/ExtendedFlags.java\n@@ -15 +15 @@ public final class ExtendedFlags {\n-  /** dnssec ok */\n+  /** DNSSEC answer OK. */\n@@ -17,0 +18,8 @@ public final class ExtendedFlags {\n+  /**\n+   * Compact Answers OK.\n+   *\n+   * @since 3.6.5\n+   * @see <a href=\"https://datatracker.ietf.org/doc/html/rfc9824\">RFC 9824</a>\n+   */\n+  public static final int CO = 0x8001;\n+\n@@ -23,0 +32 @@ public final class ExtendedFlags {\n+    extflags.add(CO, \"co\");\ndiff --git a/src/main/java/org/xbill/DNS/Flags.java b/src/main/java/org/xbill/DNS/Flags.java\nindex d71c5c33..9f1e1767 100644\n--- a/src/main/java/org/xbill/DNS/Flags.java\n+++ b/src/main/java/org/xbill/DNS/Flags.java\n@@ -36 +36 @@ public final class Flags {\n-  /** dnssec ok (extended) */\n+  /** DNSSEC answer OK (extended). */\n@@ -38,0 +39,8 @@ public final class Flags {\n+  /**\n+   * Compact Answers OK (extended).\n+   *\n+   * @since 3.6.5\n+   * @see <a href=\"https://datatracker.ietf.org/doc/html/rfc9824\">RFC 9824</a>\n+   */\n+  public static final int CO = ExtendedFlags.CO;\n+\ndiff --git a/src/main/java/org/xbill/DNS/Type.java b/src/main/java/org/xbill/DNS/Type.java\nindex 34b73222..0324f42c 100644\n--- a/src/main/java/org/xbill/DNS/Type.java\n+++ b/src/main/java/org/xbill/DNS/Type.java\n@@ -273,0 +274,8 @@ public final class Type {\n+  /**\n+   * NXDOMAIN indicator for Compact Denial of Existence.\n+   *\n+   * @since 3.6.5\n+   * @see <a href=\"https://datatracker.ietf.org/doc/html/rfc9824\">RFC 9824</a>\n+   */\n+  public static final int NXNAME = 128;\n+"
+}

@@ -1,0 +1,32 @@
+{
+  "index": 175,
+  "sha": "94ac1bf94d9073f6554f2cfd9b6c30595f66c38d",
+  "parent": "1e08600c3f18547629bb5ace9f4cd251a409339f",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/IPAddressUtils.java": [
+      11
+    ],
+    "src/main/java/org/xbill/DNS/Name.java": [
+      37,
+      38
+    ],
+    "src/main/java/org/xbill/DNS/SVCBBase.java": [
+      351,
+      352
+    ]
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/IPAddressUtils.java": [
+      11
+    ],
+    "src/main/java/org/xbill/DNS/Name.java": [
+      37,
+      38
+    ],
+    "src/main/java/org/xbill/DNS/SVCBBase.java": [
+      351,
+      352
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/IPAddressUtils.java b/src/main/java/org/xbill/DNS/IPAddressUtils.java\nindex f8bb36d7..5647b188 100644\n--- a/src/main/java/org/xbill/DNS/IPAddressUtils.java\n+++ b/src/main/java/org/xbill/DNS/IPAddressUtils.java\n@@ -11,2 +11,3 @@ class IPAddressUtils {\n-  static final byte[] IPV4_MAPPED_IPV6_PREFIX =\n-      new byte[] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, (byte) 0xff, (byte) 0xff};\n+  static final byte[] IPV4_MAPPED_IPV6_PREFIX = {\n+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, (byte) 0xff, (byte) 0xff\n+  };\ndiff --git a/src/main/java/org/xbill/DNS/Name.java b/src/main/java/org/xbill/DNS/Name.java\nindex 80dfa06b..91cd3b67 100644\n--- a/src/main/java/org/xbill/DNS/Name.java\n+++ b/src/main/java/org/xbill/DNS/Name.java\n@@ -37,2 +37,2 @@ public class Name implements Comparable<Name>, Serializable {\n-  private static final byte[] emptyLabel = new byte[] {(byte) 0};\n-  private static final byte[] wildLabel = new byte[] {(byte) 1, (byte) '*'};\n+  private static final byte[] emptyLabel = {(byte) 0};\n+  private static final byte[] wildLabel = {(byte) 1, (byte) '*'};\ndiff --git a/src/main/java/org/xbill/DNS/SVCBBase.java b/src/main/java/org/xbill/DNS/SVCBBase.java\nindex bd076f58..744ee2f4 100644\n--- a/src/main/java/org/xbill/DNS/SVCBBase.java\n+++ b/src/main/java/org/xbill/DNS/SVCBBase.java\n@@ -351,2 +351,2 @@ public abstract class SVCBBase extends Record {\n-    private static final byte[] H2 = new byte[] {'h', '2'};\n-    private static final byte[] H3 = new byte[] {'h', '3'};\n+    private static final byte[] H2 = {'h', '2'};\n+    private static final byte[] H3 = {'h', '3'};"
+}

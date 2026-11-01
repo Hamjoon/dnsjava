@@ -1,0 +1,284 @@
+[
+  {
+    "group": "Message.setTSIG - basic field assignment",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "key",
+            "value": "new TSIG(\"hmac-md5\", \"secret\".getBytes())"
+          },
+          {
+            "parameter": "error",
+            "value": "0"
+          },
+          {
+            "parameter": "querytsig",
+            "value": "new TSIGRecord(Name.fromString(\"example.com.\"), DClass.IN, 300, new TSIG(\"hmac-md5\", \"secret\".getBytes()))"
+          }
+        ],
+        "expected": "Message.getTSIG() returns the same TSIG instance, Message.getGeneratedTSIG() returns the same TSIGRecord instance, and Message.tsigerror equals 0",
+        "description": "Standard usage with non\u2011null key and query TSIG and a successful error code (0). All three fields should be stored unchanged."
+      },
+      {
+        "input": [
+          {
+            "parameter": "key",
+            "value": "null"
+          },
+          {
+            "parameter": "error",
+            "value": "0"
+          },
+          {
+            "parameter": "querytsig",
+            "value": "null"
+          }
+        ],
+        "expected": "Message.getTSIG() returns null, Message.getGeneratedTSIG() returns null, and Message.tsigerror equals 0",
+        "description": "Both TSIG key and query TSIG are null \u2013 the method must still assign the null values without throwing."
+      },
+      {
+        "input": [
+          {
+            "parameter": "key",
+            "value": "new TSIG(\"hmac-sha256\", \"key\".getBytes())"
+          },
+          {
+            "parameter": "error",
+            "value": "-1"
+          },
+          {
+            "parameter": "querytsig",
+            "value": "null"
+          }
+        ],
+        "expected": "Message.getTSIG() returns the provided TSIG, Message.getGeneratedTSIG() returns null, and Message.tsigerror equals -1",
+        "description": "Negative error code is allowed \u2013 the method should store the exact integer value."
+      },
+      {
+        "input": [
+          {
+            "parameter": "key",
+            "value": "null"
+          },
+          {
+            "parameter": "error",
+            "value": "65535"
+          },
+          {
+            "parameter": "querytsig",
+            "value": "new TSIGRecord(Name.fromString(\"example.org.\"), DClass.IN, 600, new TSIG(\"hmac-sha1\", \"another\".getBytes()))"
+          }
+        ],
+        "expected": "Message.getTSIG() returns null, Message.getGeneratedTSIG() returns the provided TSIGRecord, and Message.tsigerror equals 65535",
+        "description": "Large positive error code with a non\u2011null query TSIG but a null key \u2013 verifies that each field is set independently."
+      },
+      {
+        "input": [
+          {
+            "parameter": "key",
+            "value": "new TSIG(\"hmac-md5\", \"first\".getBytes())"
+          },
+          {
+            "parameter": "error",
+            "value": "0"
+          },
+          {
+            "parameter": "querytsig",
+            "value": "new TSIGRecord(Name.fromString(\"first.com.\"), DClass.IN, 100, new TSIG(\"hmac-md5\", \"first\".getBytes()))"
+          }
+        ],
+        "expected": "After first setTSIG call, fields contain the first values; after a second setTSIG call with different arguments, fields contain the second values, confirming overwriting works.",
+        "description": "Ensures that repeated invocations replace previously stored TSIG, error and query TSIG rather than appending or leaving stale data."
+      }
+    ]
+  },
+  {
+    "group": "Message.setTSIG - extreme error codes",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "key",
+            "value": "new TSIG(\"hmac-sha512\", \"bigkey\".getBytes())"
+          },
+          {
+            "parameter": "error",
+            "value": "Integer.MAX_VALUE"
+          },
+          {
+            "parameter": "querytsig",
+            "value": "null"
+          }
+        ],
+        "expected": "Message.getTSIG() returns the same TSIG instance, Message.getGeneratedTSIG() returns null, and Message.tsigerror equals Integer.MAX_VALUE",
+        "description": "Verify that the method stores the maximum positive int value without overflow or truncation."
+      },
+      {
+        "input": [
+          {
+            "parameter": "key",
+            "value": "null"
+          },
+          {
+            "parameter": "error",
+            "value": "Integer.MIN_VALUE"
+          },
+          {
+            "parameter": "querytsig",
+            "value": "null"
+          }
+        ],
+        "expected": "Message.getTSIG() returns null, Message.getGeneratedTSIG() returns null, and Message.tsigerror equals Integer.MIN_VALUE",
+        "description": "Verify that the method stores the most negative int value correctly."
+      }
+    ]
+  },
+  {
+    "group": "Message.setTSIG - empty algorithm and secret handling",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "key",
+            "value": "new TSIG(\"\", new byte[0])"
+          },
+          {
+            "parameter": "error",
+            "value": "0"
+          },
+          {
+            "parameter": "querytsig",
+            "value": "null"
+          }
+        ],
+        "expected": "Message.getTSIG() returns the TSIG instance with empty algorithm and empty secret, Message.getGeneratedTSIG() returns null, and Message.tsigerror equals 0",
+        "description": "Ensure that a TSIG with an empty algorithm string and an empty secret array is accepted and stored unchanged."
+      },
+      {
+        "input": [
+          {
+            "parameter": "key",
+            "value": "new TSIG(\"hmac-md5\", new byte[0])"
+          },
+          {
+            "parameter": "error",
+            "value": "0"
+          },
+          {
+            "parameter": "querytsig",
+            "value": "new TSIGRecord(Name.fromString(\"emptysecret.example.\"), DClass.IN, 300, new TSIG(\"hmac-md5\", new byte[0]))"
+          }
+        ],
+        "expected": "Message.getTSIG() returns the TSIG with non\u2011empty algorithm but empty secret, Message.getGeneratedTSIG() returns the provided TSIGRecord (which also contains an empty secret), and Message.tsigerror equals 0",
+        "description": "Check that a TSIGRecord containing a TSIG with an empty secret is stored correctly."
+      }
+    ]
+  },
+  {
+    "group": "Message.setTSIG - zero and maximum TTL in query TSIG",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "key",
+            "value": "new TSIG(\"hmac-sha256\", \"key\".getBytes())"
+          },
+          {
+            "parameter": "error",
+            "value": "0"
+          },
+          {
+            "parameter": "querytsig",
+            "value": "new TSIGRecord(Name.fromString(\"zero.ttl.example.\"), DClass.IN, 0, new TSIG(\"hmac-sha256\", \"key\".getBytes()))"
+          }
+        ],
+        "expected": "Message.getGeneratedTSIG() returns the TSIGRecord with TTL 0, all other fields unchanged",
+        "description": "Validate that a TSIGRecord with a TTL of zero is accepted and stored without modification."
+      },
+      {
+        "input": [
+          {
+            "parameter": "key",
+            "value": "new TSIG(\"hmac-sha256\", \"key\".getBytes())"
+          },
+          {
+            "parameter": "error",
+            "value": "0"
+          },
+          {
+            "parameter": "querytsig",
+            "value": "new TSIGRecord(Name.fromString(\"max.ttl.example.\"), DClass.IN, Integer.MAX_VALUE, new TSIG(\"hmac-sha256\", \"key\".getBytes()))"
+          }
+        ],
+        "expected": "Message.getGeneratedTSIG() returns the TSIGRecord with TTL Integer.MAX_VALUE, all other fields unchanged",
+        "description": "Confirm that an extremely large TTL does not cause overflow or loss when stored."
+      }
+    ]
+  },
+  {
+    "group": "Message.setTSIG - shared TSIG instance between key and query",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "key",
+            "value": "sharedTsig"
+          },
+          {
+            "parameter": "error",
+            "value": "0"
+          },
+          {
+            "parameter": "querytsig",
+            "value": "new TSIGRecord(Name.fromString(\"shared.example.\"), DClass.IN, 300, sharedTsig)"
+          }
+        ],
+        "expected": "Message.getTSIG() and Message.getGeneratedTSIG().getAlgorithm() refer to the same TSIG instance (reference equality), Message.tsigerror equals 0",
+        "description": "Test that when the same TSIG object is supplied both as the key and inside the TSIGRecord, the method stores the exact same reference for both fields."
+      }
+    ]
+  },
+  {
+    "group": "Message.setTSIG - clearing query TSIG on subsequent call",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "key",
+            "value": "new TSIG(\"hmac-md5\", \"first\".getBytes())"
+          },
+          {
+            "parameter": "error",
+            "value": "0"
+          },
+          {
+            "parameter": "querytsig",
+            "value": "new TSIGRecord(Name.fromString(\"first.example.\"), DClass.IN, 100, new TSIG(\"hmac-md5\", \"first\".getBytes()))"
+          }
+        ],
+        "expected": "After first call, Message.getGeneratedTSIG() is non\u2011null",
+        "description": "Initial set with a non\u2011null query TSIG."
+      },
+      {
+        "input": [
+          {
+            "parameter": "key",
+            "value": "new TSIG(\"hmac-sha1\", \"second\".getBytes())"
+          },
+          {
+            "parameter": "error",
+            "value": "0"
+          },
+          {
+            "parameter": "querytsig",
+            "value": "null"
+          }
+        ],
+        "expected": "After second call, Message.getGeneratedTSIG() returns null while Message.getTSIG() reflects the new key, confirming that a null querytsig overwrites the previous record.",
+        "description": "Second invocation replaces the earlier query TSIG with null, testing that the method does not retain stale data."
+      }
+    ]
+  }
+]

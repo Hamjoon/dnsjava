@@ -1,0 +1,131 @@
+{
+  "index": 34,
+  "sha": "fd1d7c9280986ebb219c421695a902559aaeda22",
+  "status": "evaluated",
+  "imported": true,
+  "coverage_version": 3,
+  "coverage_status": "missing",
+  "coverage_reason": "imported evidence has no per-test coverage",
+  "methods": [
+    {
+      "file": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/TSIG_apply_2_Test.java",
+      "class": "org.xbill.DNS.TSIG_apply_2_Test",
+      "method": "testApplyWithNullOldRecord",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/TSIG_apply_2_Test.java|org.xbill.DNS.TSIG_apply_2_Test|testApplyWithNullOldRecord",
+      "body_hash": "5a0be56e5a4f8eed55d77d7c4fa096646edd685a0b840d12057bb4db7f181d75",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.TSIG_apply_2_Test#testApplyWithNullOldRecord()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "1ef82f8f75633adf9debb16da4d7433e503c217d64e4d200f577c72b4ae813cc",
+      "execution_hash": "27acf11b3a2bef16f2e041ca7ef6a2738dca60540a6b2d4cfb0bb28fa46e187d",
+      "source_root": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0a86ba63f7379cd03eeb83e8739e9cebcd20ac34830f8ae9f79ab6a8466f0110",
+      "resource_tree_hash": "de9617e6c9dd225fb49909e865a12a9415c63de3448234d2eb4d0a852a3dd419",
+      "unit": "org.xbill.DNS.TSIG#apply(Message, TSIGRecord, boolean)",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/TSIG_apply_2_Test.java|org.xbill.DNS.TSIG_apply_2_Test|testApplyWithNullOldRecord",
+      "resource_root": "results/policy/pools/ktester/34/dev/src-test-t"
+    },
+    {
+      "file": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/TSIG_apply_2_Test.java",
+      "class": "org.xbill.DNS.TSIG_apply_2_Test",
+      "method": "testApplyUnknownAlgorithmThrows",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/TSIG_apply_2_Test.java|org.xbill.DNS.TSIG_apply_2_Test|testApplyUnknownAlgorithmThrows",
+      "body_hash": "4dce082e1c9edd64fb5125cd844d4ecbbff2647e03cb56d33780c4cb97180336",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.TSIG_apply_2_Test#testApplyUnknownAlgorithmThrows()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "1ef82f8f75633adf9debb16da4d7433e503c217d64e4d200f577c72b4ae813cc",
+      "execution_hash": "27acf11b3a2bef16f2e041ca7ef6a2738dca60540a6b2d4cfb0bb28fa46e187d",
+      "source_root": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0a86ba63f7379cd03eeb83e8739e9cebcd20ac34830f8ae9f79ab6a8466f0110",
+      "resource_tree_hash": "de9617e6c9dd225fb49909e865a12a9415c63de3448234d2eb4d0a852a3dd419",
+      "unit": "org.xbill.DNS.TSIG#apply(Message, TSIGRecord, boolean)",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/TSIG_apply_2_Test.java|org.xbill.DNS.TSIG_apply_2_Test|testApplyUnknownAlgorithmThrows",
+      "resource_root": "results/policy/pools/ktester/34/dev/src-test-t"
+    },
+    {
+      "file": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/TSIG_apply_2_Test.java",
+      "class": "org.xbill.DNS.TSIG_apply_2_Test",
+      "method": "testApplyUnsupportedMacAlgorithmThrows",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/TSIG_apply_2_Test.java|org.xbill.DNS.TSIG_apply_2_Test|testApplyUnsupportedMacAlgorithmThrows",
+      "body_hash": "6de17f3c0b716a789ba80b33646ce541a4d2b003f26fdc95ad7168fc46ded91c",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.TSIG_apply_2_Test#testApplyUnsupportedMacAlgorithmThrows()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "1ef82f8f75633adf9debb16da4d7433e503c217d64e4d200f577c72b4ae813cc",
+      "execution_hash": "27acf11b3a2bef16f2e041ca7ef6a2738dca60540a6b2d4cfb0bb28fa46e187d",
+      "source_root": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0a86ba63f7379cd03eeb83e8739e9cebcd20ac34830f8ae9f79ab6a8466f0110",
+      "resource_tree_hash": "de9617e6c9dd225fb49909e865a12a9415c63de3448234d2eb4d0a852a3dd419",
+      "unit": "org.xbill.DNS.TSIG#apply(Message, TSIGRecord, boolean)",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/TSIG_apply_2_Test.java|org.xbill.DNS.TSIG_apply_2_Test|testApplyUnsupportedMacAlgorithmThrows",
+      "resource_root": "results/policy/pools/ktester/34/dev/src-test-t"
+    },
+    {
+      "file": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/TSIG_apply_2_Test.java",
+      "class": "org.xbill.DNS.TSIG_apply_2_Test",
+      "method": "testFudgeTimeWindow",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/TSIG_apply_2_Test.java|org.xbill.DNS.TSIG_apply_2_Test|testFudgeTimeWindow",
+      "body_hash": "0850e48be3249e4d07d32d24222dd816887174eba8ec84dfc06f6b1250d61bfb",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.TSIG_apply_2_Test#testFudgeTimeWindow()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "1ef82f8f75633adf9debb16da4d7433e503c217d64e4d200f577c72b4ae813cc",
+      "execution_hash": "27acf11b3a2bef16f2e041ca7ef6a2738dca60540a6b2d4cfb0bb28fa46e187d",
+      "source_root": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0a86ba63f7379cd03eeb83e8739e9cebcd20ac34830f8ae9f79ab6a8466f0110",
+      "resource_tree_hash": "de9617e6c9dd225fb49909e865a12a9415c63de3448234d2eb4d0a852a3dd419",
+      "unit": "org.xbill.DNS.TSIG#apply(Message, TSIGRecord, boolean)",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/TSIG_apply_2_Test.java|org.xbill.DNS.TSIG_apply_2_Test|testFudgeTimeWindow",
+      "resource_root": "results/policy/pools/ktester/34/dev/src-test-t"
+    }
+  ]
+}

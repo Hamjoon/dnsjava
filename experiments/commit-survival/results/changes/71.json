@@ -1,0 +1,45 @@
+{
+  "index": 71,
+  "sha": "7411e13f34b30a875fab111c121a1f8bba50cb44",
+  "parent": "c1efd4e69f589964c598c384d8b2374479e0b629",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/Lookup.java": [
+      199,
+      203,
+      205,
+      208,
+      420,
+      424,
+      426,
+      428,
+      674,
+      675
+    ]
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/Lookup.java": [
+      47,
+      177,
+      178,
+      179,
+      193,
+      194,
+      195,
+      210,
+      214,
+      216,
+      219,
+      409,
+      410,
+      411,
+      425,
+      426,
+      427,
+      441,
+      445,
+      447,
+      450
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/Lookup.java b/src/main/java/org/xbill/DNS/Lookup.java\nindex 135be61e..875d03b0 100644\n--- a/src/main/java/org/xbill/DNS/Lookup.java\n+++ b/src/main/java/org/xbill/DNS/Lookup.java\n@@ -10,0 +11 @@ import java.util.Arrays;\n+import java.util.Collections;\n@@ -46 +47 @@ public final class Lookup {\n-  private static List<Name> defaultSearchPath;\n+  private static List<Name> defaultSearchPath = Collections.emptyList();\n@@ -175,0 +177,5 @@ public final class Lookup {\n+    if (domains == null) {\n+      defaultSearchPath = Collections.emptyList();\n+      return;\n+    }\n+\n@@ -186,0 +193,5 @@ public final class Lookup {\n+    if (domains == null) {\n+      defaultSearchPath = Collections.emptyList();\n+      return;\n+    }\n+\n@@ -199 +210 @@ public final class Lookup {\n-      defaultSearchPath = null;\n+      defaultSearchPath = Collections.emptyList();\n@@ -203 +214 @@ public final class Lookup {\n-    List<Name> newdomains = new ArrayList<>(domains.length);\n+    List<Name> newDomains = new ArrayList<>(domains.length);\n@@ -205 +216 @@ public final class Lookup {\n-      newdomains.add(Name.fromString(domain, Name.root));\n+      newDomains.add(Name.fromString(domain, Name.root));\n@@ -208 +219 @@ public final class Lookup {\n-    defaultSearchPath = newdomains;\n+    defaultSearchPath = newDomains;\n@@ -397,0 +409,5 @@ public final class Lookup {\n+    if (domains == null) {\n+      this.searchPath = Collections.emptyList();\n+      return;\n+    }\n+\n@@ -408,0 +425,5 @@ public final class Lookup {\n+    if (domains == null) {\n+      this.searchPath = Collections.emptyList();\n+      return;\n+    }\n+\n@@ -420 +441 @@ public final class Lookup {\n-      this.searchPath = null;\n+      this.searchPath = Collections.emptyList();\n@@ -424 +445 @@ public final class Lookup {\n-    List<Name> newdomains = new ArrayList<>(domains.length);\n+    List<Name> newDomains = new ArrayList<>(domains.length);\n@@ -426 +447 @@ public final class Lookup {\n-      newdomains.add(Name.fromString(domain, Name.root));\n+      newDomains.add(Name.fromString(domain, Name.root));\n@@ -428 +449,2 @@ public final class Lookup {\n-    this.searchPath = newdomains;\n+\n+    this.searchPath = newDomains;\n@@ -674,2 +695,0 @@ public final class Lookup {\n-    } else if (searchPath == null) {\n-      resolve(name, Name.root);"
+}

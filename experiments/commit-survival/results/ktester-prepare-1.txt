@@ -1,0 +1,32 @@
+Picked up _JAVA_OPTIONS: -Duser.language=en -Duser.country=US -Dfile.encoding=UTF-8
+[ERROR] Failed to execute goal on project dnsjava: Could not resolve dependencies for project dnsjava:dnsjava:bundle:3.6.0-SNAPSHOT
+[ERROR] dependency: org.projectlombok:lombok:jar:1.18.30 (provided)
+[ERROR] 	Cannot access central (https://repo.maven.apache.org/maven2) in offline mode and the artifact org.projectlombok:lombok:jar:1.18.30 has not been downloaded from it before.
+[ERROR] dependency: net.java.dev.jna:jna:jar:5.13.0 (compile?)
+[ERROR] 	Cannot access central (https://repo.maven.apache.org/maven2) in offline mode and the artifact net.java.dev.jna:jna:jar:5.13.0 has not been downloaded from it before.
+[ERROR] dependency: net.java.dev.jna:jna-platform:jar:5.13.0 (compile?)
+[ERROR] 	Cannot access central (https://repo.maven.apache.org/maven2) in offline mode and the artifact net.java.dev.jna:jna-platform:jar:5.13.0 has not been downloaded from it before.
+[ERROR] dependency: org.bouncycastle:bcprov-jdk18on:jar:1.76 (test)
+[ERROR] 	Cannot access central (https://repo.maven.apache.org/maven2) in offline mode and the artifact org.bouncycastle:bcprov-jdk18on:jar:1.76 has not been downloaded from it before.
+[ERROR] dependency: org.mockito:mockito-core:jar:5.7.0 (test)
+[ERROR] 	Cannot access central (https://repo.maven.apache.org/maven2) in offline mode and the artifact org.mockito:mockito-core:jar:5.7.0 has not been downloaded from it before.
+[ERROR] dependency: org.mockito:mockito-junit-jupiter:jar:5.7.0 (test)
+[ERROR] 	Cannot access central (https://repo.maven.apache.org/maven2) in offline mode and the artifact org.mockito:mockito-junit-jupiter:jar:5.7.0 has not been downloaded from it before.
+[ERROR] dependency: org.slf4j:slf4j-simple:jar:1.7.36 (test)
+[ERROR] 	Cannot access central (https://repo.maven.apache.org/maven2) in offline mode and the artifact org.slf4j:slf4j-simple:jar:1.7.36 has not been downloaded from it before.
+[ERROR] dependency: io.vertx:vertx-core:jar:4.4.6 (test)
+[ERROR] 	Cannot access central (https://repo.maven.apache.org/maven2) in offline mode and the artifact io.vertx:vertx-core:jar:4.4.6 has not been downloaded from it before.
+[ERROR] dependency: io.vertx:vertx-junit5:jar:4.4.6 (test)
+[ERROR] 	Cannot access central (https://repo.maven.apache.org/maven2) in offline mode and the artifact io.vertx:vertx-junit5:jar:4.4.6 has not been downloaded from it before.
+[ERROR] dependency: io.vertx:vertx-codegen:jar:4.4.6 (test)
+[ERROR] 	Cannot access central (https://repo.maven.apache.org/maven2) in offline mode and the artifact io.vertx:vertx-codegen:jar:4.4.6 has not been downloaded from it before.
+[ERROR] dependency: commons-io:commons-io:jar:2.15.0 (test)
+[ERROR] 	Cannot access central (https://repo.maven.apache.org/maven2) in offline mode and the artifact commons-io:commons-io:jar:2.15.0 has not been downloaded from it before.
+[ERROR] 
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/DependencyResolutionException

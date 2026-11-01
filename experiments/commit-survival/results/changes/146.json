@@ -1,0 +1,14 @@
+{
+  "index": 146,
+  "sha": "a943d8068a5341d6e74b8a6e852e68b3265800af",
+  "parent": "ef208e2ca5f168bce2a614aa9842862fb02b7ff4",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/Message.java": []
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/Message.java": [
+      190
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/Message.java b/src/main/java/org/xbill/DNS/Message.java\nindex b72f708a..93e23cee 100644\n--- a/src/main/java/org/xbill/DNS/Message.java\n+++ b/src/main/java/org/xbill/DNS/Message.java\n@@ -189,0 +190 @@ public class Message implements Cloneable {\n+    Section.check(section);"
+}

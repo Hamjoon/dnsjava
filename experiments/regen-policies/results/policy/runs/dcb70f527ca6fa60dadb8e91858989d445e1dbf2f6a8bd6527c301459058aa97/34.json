@@ -1,0 +1,221 @@
+{
+  "index": 34,
+  "sha": "fd1d7c9280986ebb219c421695a902559aaeda22",
+  "status": "evaluated",
+  "imported": true,
+  "coverage_version": 3,
+  "coverage_status": "missing",
+  "coverage_reason": "imported evidence has no per-test coverage",
+  "methods": [
+    {
+      "file": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/Zone_iterator_Test.java",
+      "class": "org.xbill.DNS.Zone_iterator_Test",
+      "method": "iteratorRemoveBeforeNextFails",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Zone_iterator_Test.java|org.xbill.DNS.Zone_iterator_Test|iteratorRemoveBeforeNextFails",
+      "body_hash": "4cb015d55585042ec542df360872e4a6bb2894be515b0e11507b0a11b97d5825",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Zone_iterator_Test#iteratorRemoveBeforeNextFails()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "28ddc2c4cb2acc8e15ccce76188f2bf47bbb08e1b6ba2990b4e8ae68f5d82d04",
+      "execution_hash": "dcb70f527ca6fa60dadb8e91858989d445e1dbf2f6a8bd6527c301459058aa97",
+      "source_root": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0a86ba63f7379cd03eeb83e8739e9cebcd20ac34830f8ae9f79ab6a8466f0110",
+      "resource_tree_hash": "de9617e6c9dd225fb49909e865a12a9415c63de3448234d2eb4d0a852a3dd419",
+      "unit": "org.xbill.DNS.Zone#iterator()",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Zone_iterator_Test.java|org.xbill.DNS.Zone_iterator_Test|iteratorRemoveBeforeNextFails",
+      "resource_root": "results/policy/pools/ktester/34/dev/src-test-t"
+    },
+    {
+      "file": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/Zone_iterator_Test.java",
+      "class": "org.xbill.DNS.Zone_iterator_Test",
+      "method": "iteratorRemoveNsFails",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Zone_iterator_Test.java|org.xbill.DNS.Zone_iterator_Test|iteratorRemoveNsFails",
+      "body_hash": "c8358f938e08e16d8f6bfd546f5251b16624974f47e9d282480d13dd3e8051f7",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Zone_iterator_Test#iteratorRemoveNsFails()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "28ddc2c4cb2acc8e15ccce76188f2bf47bbb08e1b6ba2990b4e8ae68f5d82d04",
+      "execution_hash": "dcb70f527ca6fa60dadb8e91858989d445e1dbf2f6a8bd6527c301459058aa97",
+      "source_root": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0a86ba63f7379cd03eeb83e8739e9cebcd20ac34830f8ae9f79ab6a8466f0110",
+      "resource_tree_hash": "de9617e6c9dd225fb49909e865a12a9415c63de3448234d2eb4d0a852a3dd419",
+      "unit": "org.xbill.DNS.Zone#iterator()",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Zone_iterator_Test.java|org.xbill.DNS.Zone_iterator_Test|iteratorRemoveNsFails",
+      "resource_root": "results/policy/pools/ktester/34/dev/src-test-t"
+    },
+    {
+      "file": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/Zone_iterator_Test.java",
+      "class": "org.xbill.DNS.Zone_iterator_Test",
+      "method": "iteratorRemoveARecordSucceeds",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Zone_iterator_Test.java|org.xbill.DNS.Zone_iterator_Test|iteratorRemoveARecordSucceeds",
+      "body_hash": "5b92457fb99fce28ca58db1fcc514fead950f7eeda80293c8cad189290d74118",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Zone_iterator_Test#iteratorRemoveARecordSucceeds()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "28ddc2c4cb2acc8e15ccce76188f2bf47bbb08e1b6ba2990b4e8ae68f5d82d04",
+      "execution_hash": "dcb70f527ca6fa60dadb8e91858989d445e1dbf2f6a8bd6527c301459058aa97",
+      "source_root": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0a86ba63f7379cd03eeb83e8739e9cebcd20ac34830f8ae9f79ab6a8466f0110",
+      "resource_tree_hash": "de9617e6c9dd225fb49909e865a12a9415c63de3448234d2eb4d0a852a3dd419",
+      "unit": "org.xbill.DNS.Zone#iterator()",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Zone_iterator_Test.java|org.xbill.DNS.Zone_iterator_Test|iteratorRemoveARecordSucceeds",
+      "resource_root": "results/policy/pools/ktester/34/dev/src-test-t"
+    },
+    {
+      "file": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/Zone_iterator_Test.java",
+      "class": "org.xbill.DNS.Zone_iterator_Test",
+      "method": "iteratorNextAfterExhaustionFails",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Zone_iterator_Test.java|org.xbill.DNS.Zone_iterator_Test|iteratorNextAfterExhaustionFails",
+      "body_hash": "e95dfa7245d6b62331553334e7c1725598963f7194b1b40f6f05dbb2cd99d265",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Zone_iterator_Test#iteratorNextAfterExhaustionFails()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "28ddc2c4cb2acc8e15ccce76188f2bf47bbb08e1b6ba2990b4e8ae68f5d82d04",
+      "execution_hash": "dcb70f527ca6fa60dadb8e91858989d445e1dbf2f6a8bd6527c301459058aa97",
+      "source_root": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0a86ba63f7379cd03eeb83e8739e9cebcd20ac34830f8ae9f79ab6a8466f0110",
+      "resource_tree_hash": "de9617e6c9dd225fb49909e865a12a9415c63de3448234d2eb4d0a852a3dd419",
+      "unit": "org.xbill.DNS.Zone#iterator()",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Zone_iterator_Test.java|org.xbill.DNS.Zone_iterator_Test|iteratorNextAfterExhaustionFails",
+      "resource_root": "results/policy/pools/ktester/34/dev/src-test-t"
+    },
+    {
+      "file": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/Zone_iterator_Test.java",
+      "class": "org.xbill.DNS.Zone_iterator_Test",
+      "method": "twoIteratorsAreIndependent",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Zone_iterator_Test.java|org.xbill.DNS.Zone_iterator_Test|twoIteratorsAreIndependent",
+      "body_hash": "8718603c1f112347b2cef9887f999064bf33624b408e4f143a4fea8f3070c6be",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Zone_iterator_Test#twoIteratorsAreIndependent()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "28ddc2c4cb2acc8e15ccce76188f2bf47bbb08e1b6ba2990b4e8ae68f5d82d04",
+      "execution_hash": "dcb70f527ca6fa60dadb8e91858989d445e1dbf2f6a8bd6527c301459058aa97",
+      "source_root": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0a86ba63f7379cd03eeb83e8739e9cebcd20ac34830f8ae9f79ab6a8466f0110",
+      "resource_tree_hash": "de9617e6c9dd225fb49909e865a12a9415c63de3448234d2eb4d0a852a3dd419",
+      "unit": "org.xbill.DNS.Zone#iterator()",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Zone_iterator_Test.java|org.xbill.DNS.Zone_iterator_Test|twoIteratorsAreIndependent",
+      "resource_root": "results/policy/pools/ktester/34/dev/src-test-t"
+    },
+    {
+      "file": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/Zone_iterator_Test.java",
+      "class": "org.xbill.DNS.Zone_iterator_Test",
+      "method": "iteratorDoesNotThrowOnConcurrentRemove",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Zone_iterator_Test.java|org.xbill.DNS.Zone_iterator_Test|iteratorDoesNotThrowOnConcurrentRemove",
+      "body_hash": "4e94273b60e2e6c928d90481209b88c7247d48892c36f19429fe086a18c2e472",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Zone_iterator_Test#iteratorDoesNotThrowOnConcurrentRemove()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "28ddc2c4cb2acc8e15ccce76188f2bf47bbb08e1b6ba2990b4e8ae68f5d82d04",
+      "execution_hash": "dcb70f527ca6fa60dadb8e91858989d445e1dbf2f6a8bd6527c301459058aa97",
+      "source_root": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0a86ba63f7379cd03eeb83e8739e9cebcd20ac34830f8ae9f79ab6a8466f0110",
+      "resource_tree_hash": "de9617e6c9dd225fb49909e865a12a9415c63de3448234d2eb4d0a852a3dd419",
+      "unit": "org.xbill.DNS.Zone#iterator()",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Zone_iterator_Test.java|org.xbill.DNS.Zone_iterator_Test|iteratorDoesNotThrowOnConcurrentRemove",
+      "resource_root": "results/policy/pools/ktester/34/dev/src-test-t"
+    },
+    {
+      "file": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/Zone_iterator_Test.java",
+      "class": "org.xbill.DNS.Zone_iterator_Test",
+      "method": "nextOnExhaustedMinimalZoneThrows",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Zone_iterator_Test.java|org.xbill.DNS.Zone_iterator_Test|nextOnExhaustedMinimalZoneThrows",
+      "body_hash": "d6a6ff69d64c16e8d79c5d6d20a514eda149acb4213c1f231cb02b4301846959",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Zone_iterator_Test#nextOnExhaustedMinimalZoneThrows()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "28ddc2c4cb2acc8e15ccce76188f2bf47bbb08e1b6ba2990b4e8ae68f5d82d04",
+      "execution_hash": "dcb70f527ca6fa60dadb8e91858989d445e1dbf2f6a8bd6527c301459058aa97",
+      "source_root": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0a86ba63f7379cd03eeb83e8739e9cebcd20ac34830f8ae9f79ab6a8466f0110",
+      "resource_tree_hash": "de9617e6c9dd225fb49909e865a12a9415c63de3448234d2eb4d0a852a3dd419",
+      "unit": "org.xbill.DNS.Zone#iterator()",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Zone_iterator_Test.java|org.xbill.DNS.Zone_iterator_Test|nextOnExhaustedMinimalZoneThrows",
+      "resource_root": "results/policy/pools/ktester/34/dev/src-test-t"
+    }
+  ]
+}

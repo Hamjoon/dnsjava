@@ -1,0 +1,25 @@
+{
+  "index": 166,
+  "sha": "8985908a54f5d7cf155057e46515e0db7988150e",
+  "parent": "dc1527f40fabfd753a5230b8a247d34017639a87",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/Cache.java": [
+      396,
+      397,
+      398
+    ]
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/Cache.java": [
+      396,
+      397,
+      398,
+      399,
+      400,
+      401,
+      402,
+      403
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/Cache.java b/src/main/java/org/xbill/DNS/Cache.java\nindex 2da955ac..f3e62020 100644\n--- a/src/main/java/org/xbill/DNS/Cache.java\n+++ b/src/main/java/org/xbill/DNS/Cache.java\n@@ -396,3 +396,9 @@ public class Cache {\n-    } else if (element.compareCredibility(cred) == 0 && element instanceof CacheRRset) {\n-      CacheRRset crrset = (CacheRRset) element;\n-      crrset.addRR(r);\n+    } else if (element.compareCredibility(cred) == 0) {\n+      if (element instanceof CacheRRset) {\n+        CacheRRset crrset = (CacheRRset) element;\n+        crrset.addRR(r);\n+      } else if (element instanceof NegativeElement) {\n+        CacheRRset crrset =\n+            new CacheRRset(r, cred, limitExpire(r.getTTL(), maxcache), isAuthenticated);\n+        addRRset(crrset, cred, isAuthenticated);\n+      }"
+}

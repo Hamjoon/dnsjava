@@ -1,0 +1,101 @@
+{
+  "index": 34,
+  "sha": "fd1d7c9280986ebb219c421695a902559aaeda22",
+  "status": "evaluated",
+  "imported": true,
+  "coverage_version": 3,
+  "coverage_status": "missing",
+  "coverage_reason": "imported evidence has no per-test coverage",
+  "methods": [
+    {
+      "file": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/Zone_AXFR_Test.java",
+      "class": "org.xbill.DNS.Zone_AXFR_Test",
+      "method": "axfrIteratorNextAfterLastFails",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Zone_AXFR_Test.java|org.xbill.DNS.Zone_AXFR_Test|axfrIteratorNextAfterLastFails",
+      "body_hash": "75b1f2e67c2940d4ffa5894387beab22cac05699f7c29ac49fa979465167fdd3",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Zone_AXFR_Test#axfrIteratorNextAfterLastFails()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "585bdba5470c84f5de2555e9a899245ff52a7563685dce5344a413f9d65842e2",
+      "execution_hash": "5dafed24949ab602bb044e43b766ed3cc35722518c92addecd188a062ddb09cd",
+      "source_root": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0a86ba63f7379cd03eeb83e8739e9cebcd20ac34830f8ae9f79ab6a8466f0110",
+      "resource_tree_hash": "de9617e6c9dd225fb49909e865a12a9415c63de3448234d2eb4d0a852a3dd419",
+      "unit": "org.xbill.DNS.Zone#AXFR()",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Zone_AXFR_Test.java|org.xbill.DNS.Zone_AXFR_Test|axfrIteratorNextAfterLastFails",
+      "resource_root": "results/policy/pools/ktester/34/dev/src-test-t"
+    },
+    {
+      "file": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/Zone_AXFR_Test.java",
+      "class": "org.xbill.DNS.Zone_AXFR_Test",
+      "method": "axfrIteratorIndependence",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Zone_AXFR_Test.java|org.xbill.DNS.Zone_AXFR_Test|axfrIteratorIndependence",
+      "body_hash": "e11664132ec40a8d969129118c56c0210bb6c4e36acd55899c7db58afb6135af",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Zone_AXFR_Test#axfrIteratorIndependence()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "585bdba5470c84f5de2555e9a899245ff52a7563685dce5344a413f9d65842e2",
+      "execution_hash": "5dafed24949ab602bb044e43b766ed3cc35722518c92addecd188a062ddb09cd",
+      "source_root": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0a86ba63f7379cd03eeb83e8739e9cebcd20ac34830f8ae9f79ab6a8466f0110",
+      "resource_tree_hash": "de9617e6c9dd225fb49909e865a12a9415c63de3448234d2eb4d0a852a3dd419",
+      "unit": "org.xbill.DNS.Zone#AXFR()",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Zone_AXFR_Test.java|org.xbill.DNS.Zone_AXFR_Test|axfrIteratorIndependence",
+      "resource_root": "results/policy/pools/ktester/34/dev/src-test-t"
+    },
+    {
+      "file": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/Zone_AXFR_Test.java",
+      "class": "org.xbill.DNS.Zone_AXFR_Test",
+      "method": "axfrIteratorIllegalStateAfterExhaustion",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Zone_AXFR_Test.java|org.xbill.DNS.Zone_AXFR_Test|axfrIteratorIllegalStateAfterExhaustion",
+      "body_hash": "e7bf5f4f6e015275e31394329dce7c78a5713b451498efcf7e2211de40adf07c",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Zone_AXFR_Test#axfrIteratorIllegalStateAfterExhaustion()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "585bdba5470c84f5de2555e9a899245ff52a7563685dce5344a413f9d65842e2",
+      "execution_hash": "5dafed24949ab602bb044e43b766ed3cc35722518c92addecd188a062ddb09cd",
+      "source_root": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0a86ba63f7379cd03eeb83e8739e9cebcd20ac34830f8ae9f79ab6a8466f0110",
+      "resource_tree_hash": "de9617e6c9dd225fb49909e865a12a9415c63de3448234d2eb4d0a852a3dd419",
+      "unit": "org.xbill.DNS.Zone#AXFR()",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Zone_AXFR_Test.java|org.xbill.DNS.Zone_AXFR_Test|axfrIteratorIllegalStateAfterExhaustion",
+      "resource_root": "results/policy/pools/ktester/34/dev/src-test-t"
+    }
+  ]
+}

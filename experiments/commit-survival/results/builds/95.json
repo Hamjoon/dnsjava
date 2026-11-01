@@ -1,0 +1,67 @@
+{
+  "index": 95,
+  "sha": "c1478fa58f0e863d410d9c8f47122b1825722e40",
+  "build": "ok",
+  "attempts": [
+    {
+      "command": [
+        "mvn",
+        "-q",
+        "-o",
+        "-DskipTests",
+        "compile"
+      ],
+      "cwd": "/repo/experiments/commit-survival/work/checkouts/95",
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 13.555,
+      "log": "results/builds/logs/95-1.txt"
+    }
+  ],
+  "input_sha256": "58a8b86af9e4076d78456e5d8da034c106e1bb85b93e8bd6d2554a4356fba268",
+  "pom_sha256": "5cd7d7ca9b9687d3639b265377f01388f0c994bfb50b04a83fcd3a919c22d062",
+  "classpath": "work/classpaths/5cd7d7ca9b9687d3639b265377f01388f0c994bfb50b04a83fcd3a919c22d062.txt",
+  "classpath_attempts": [
+    {
+      "command": [
+        "mvn",
+        "-q",
+        "-o",
+        "dependency:go-offline"
+      ],
+      "cwd": "/repo/experiments/commit-survival/work/checkouts/95",
+      "exit_code": 1,
+      "timeout": false,
+      "seconds": 3.845,
+      "log": "results/builds/logs/classpath-95/go-offline-a727401811874d06b33500f8a6d185cc/1.txt"
+    },
+    {
+      "command": [
+        "mvn",
+        "-q",
+        "-U",
+        "dependency:go-offline"
+      ],
+      "cwd": "/repo/experiments/commit-survival/work/checkouts/95",
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 4.649,
+      "log": "results/builds/logs/classpath-95/go-offline-a727401811874d06b33500f8a6d185cc/2.txt"
+    },
+    {
+      "command": [
+        "mvn",
+        "-q",
+        "-o",
+        "dependency:build-classpath",
+        "-DincludeScope=test",
+        "-Dmdep.outputFile=/repo/experiments/commit-survival/work/classpaths/5cd7d7ca9b9687d3639b265377f01388f0c994bfb50b04a83fcd3a919c22d062-9b53613938f545528b358e2dd3eef966.tmp"
+      ],
+      "cwd": "/repo/experiments/commit-survival/work/checkouts/95",
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 3.935,
+      "log": "results/builds/logs/classpath-95/build-classpath-680bcc14fa6b43fbbfb78e20c72742c9/1.txt"
+    }
+  ]
+}

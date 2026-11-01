@@ -1,0 +1,67 @@
+{
+  "index": 104,
+  "sha": "bfe3c3d0fba3b1fff1045ad4a78f23d0aea0b822",
+  "build": "ok",
+  "attempts": [
+    {
+      "command": [
+        "mvn",
+        "-q",
+        "-o",
+        "-DskipTests",
+        "compile"
+      ],
+      "cwd": "/repo/experiments/commit-survival/work/checkouts/104",
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 9.881,
+      "log": "results/builds/logs/104-1.txt"
+    }
+  ],
+  "input_sha256": "9b4c245f1df893c34d38534afbac675ce7ec5610ffeb3da582bbfb85202c1b2b",
+  "pom_sha256": "0f0b2b3e69a63158b9f97ff4b6bee0ef918168186f5e480edac11815dcd95e9f",
+  "classpath": "work/classpaths/0f0b2b3e69a63158b9f97ff4b6bee0ef918168186f5e480edac11815dcd95e9f.txt",
+  "classpath_attempts": [
+    {
+      "command": [
+        "mvn",
+        "-q",
+        "-o",
+        "dependency:go-offline"
+      ],
+      "cwd": "/repo/experiments/commit-survival/work/checkouts/104",
+      "exit_code": 1,
+      "timeout": false,
+      "seconds": 1.988,
+      "log": "results/builds/logs/classpath-104/go-offline-fbe399d2d4f14b2ebeecbc1c10053b9c/1.txt"
+    },
+    {
+      "command": [
+        "mvn",
+        "-q",
+        "-U",
+        "dependency:go-offline"
+      ],
+      "cwd": "/repo/experiments/commit-survival/work/checkouts/104",
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 3.216,
+      "log": "results/builds/logs/classpath-104/go-offline-fbe399d2d4f14b2ebeecbc1c10053b9c/2.txt"
+    },
+    {
+      "command": [
+        "mvn",
+        "-q",
+        "-o",
+        "dependency:build-classpath",
+        "-DincludeScope=test",
+        "-Dmdep.outputFile=/repo/experiments/commit-survival/work/classpaths/0f0b2b3e69a63158b9f97ff4b6bee0ef918168186f5e480edac11815dcd95e9f-5843a5a1980043aea234a69e531040ac.tmp"
+      ],
+      "cwd": "/repo/experiments/commit-survival/work/checkouts/104",
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 1.673,
+      "log": "results/builds/logs/classpath-104/build-classpath-a712fba05cf14cb89ef2220c60d5b044/1.txt"
+    }
+  ]
+}

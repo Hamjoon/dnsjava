@@ -1,0 +1,14 @@
+{
+  "index": 57,
+  "sha": "bed96f60d5505d1d6cf99f0aea1ed2f47ca0cd99",
+  "parent": "c32a9b9a99fa098fd076469bc50e518b00fc7843",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/TSIG.java": []
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/TSIG.java": [
+      863
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/TSIG.java b/src/main/java/org/xbill/DNS/TSIG.java\nindex e826ae6a..15ef8ca2 100644\n--- a/src/main/java/org/xbill/DNS/TSIG.java\n+++ b/src/main/java/org/xbill/DNS/TSIG.java\n@@ -862 +862,2 @@ public class TSIG {\n-        + 18 // 2 byte MAC length, 16 byte MAC\n+        + 2 // 2 byte MAC length\n+        + algLengthMap.get(alg)"
+}

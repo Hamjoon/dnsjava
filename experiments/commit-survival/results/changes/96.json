@@ -1,0 +1,29 @@
+{
+  "index": 96,
+  "sha": "c2d3b1b1bfcc73cbee699b5e578d7c5c1cc6e6d5",
+  "parent": "c1478fa58f0e863d410d9c8f47122b1825722e40",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/hosts/HostsFileParser.java": [
+      49,
+      50,
+      257,
+      263,
+      264,
+      265,
+      279
+    ]
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/hosts/HostsFileParser.java": [
+      49,
+      50,
+      257,
+      259,
+      265,
+      268,
+      269,
+      283
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/hosts/HostsFileParser.java b/src/main/java/org/xbill/DNS/hosts/HostsFileParser.java\nindex cd5dfb88..2dda049c 100644\n--- a/src/main/java/org/xbill/DNS/hosts/HostsFileParser.java\n+++ b/src/main/java/org/xbill/DNS/hosts/HostsFileParser.java\n@@ -49,2 +49,2 @@ public final class HostsFileParser {\n-  private Instant lastFileModificationCheckTime = Instant.MIN;\n-  private Instant lastFileReadTime = Instant.MIN;\n+  private Instant lastFileModificationCheckTime = null;\n+  private Instant lastFileReadTime = null;\n@@ -257 +257,3 @@ public final class HostsFileParser {\n-    if (lastFileModificationCheckTime.plus(fileChangeCheckInterval).isBefore(clock.instant())) {\n+    if (hostsCache == null\n+        || lastFileModificationCheckTime == null\n+        || lastFileModificationCheckTime.plus(fileChangeCheckInterval).isBefore(clock.instant())) {\n@@ -263,3 +265,5 @@ public final class HostsFileParser {\n-        if (!lastFileModificationCheckTime\n-            .plus(fileChangeCheckInterval)\n-            .isBefore(clock.instant())) {\n+        if (hostsCache != null\n+            && lastFileModificationCheckTime != null\n+            && !lastFileModificationCheckTime\n+                .plus(fileChangeCheckInterval)\n+                .isBefore(clock.instant())) {\n@@ -279 +283 @@ public final class HostsFileParser {\n-      if (!lastFileReadTime.equals(fileTime)) {\n+      if (lastFileReadTime == null || !lastFileReadTime.equals(fileTime)) {"
+}

@@ -1,0 +1,18 @@
+{
+  "index": 29,
+  "sha": "e206796c91d54dc1a5993d71ef74ec89eebc4184",
+  "parent": "a24a6bf4ee6a546dcfefeb869b0675206c563952",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/AAAARecord.java": []
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/AAAARecord.java": [
+      42,
+      43,
+      44,
+      46,
+      47
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/AAAARecord.java b/src/main/java/org/xbill/DNS/AAAARecord.java\nindex 6f7c4b9b..8721e968 100644\n--- a/src/main/java/org/xbill/DNS/AAAARecord.java\n+++ b/src/main/java/org/xbill/DNS/AAAARecord.java\n@@ -23 +23 @@ public class AAAARecord extends Record {\n-   * Creates an AAAA Record from the given data\n+   * Creates an AAAA record from the given address.\n@@ -25 +25 @@ public class AAAARecord extends Record {\n-   * @param address The address suffix\n+   * @param address The address that the name refers to.\n@@ -34,0 +35,14 @@ public class AAAARecord extends Record {\n+  /**\n+   * Creates an AAAA record from the given data.\n+   *\n+   * @param address The address that the name refers to\n+   * @since 3.6\n+   */\n+  public AAAARecord(Name name, int dclass, long ttl, byte[] address) {\n+    super(name, Type.AAAA, dclass, ttl);\n+    if (address == null || address.length != 16) {\n+      throw new IllegalArgumentException(\"invalid IPv6 address\");\n+    }\n+    this.address = address;\n+  }\n+"
+}

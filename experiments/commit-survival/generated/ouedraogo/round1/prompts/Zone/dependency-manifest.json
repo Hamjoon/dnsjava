@@ -1,0 +1,40 @@
+{
+  "class_name": "org.xbill.DNS.Zone",
+  "ordered_types": [
+    "org.xbill.DNS.Name",
+    "org.xbill.DNS.Record",
+    "org.xbill.DNS.ZoneTransferIn",
+    "org.xbill.DNS.RRset",
+    "org.xbill.DNS.SOARecord",
+    "org.xbill.DNS.ZoneTransferException",
+    "org.xbill.DNS.SetResponse",
+    "org.xbill.DNS.Zone.ZoneIterator"
+  ],
+  "included": [
+    "org.xbill.DNS.Name",
+    "org.xbill.DNS.Record",
+    "org.xbill.DNS.ZoneTransferIn",
+    "org.xbill.DNS.RRset",
+    "org.xbill.DNS.SOARecord",
+    "org.xbill.DNS.ZoneTransferException",
+    "org.xbill.DNS.SetResponse",
+    "org.xbill.DNS.Zone.ZoneIterator"
+  ],
+  "omitted": [],
+  "reasons": {
+    "org.xbill.DNS.Name": "constructor",
+    "org.xbill.DNS.Record": "constructor",
+    "org.xbill.DNS.ZoneTransferIn": "constructor",
+    "org.xbill.DNS.RRset": "field",
+    "org.xbill.DNS.SOARecord": "field",
+    "org.xbill.DNS.ZoneTransferException": "method",
+    "org.xbill.DNS.SetResponse": "method",
+    "org.xbill.DNS.Zone.ZoneIterator": "nested declaration"
+  },
+  "types": 8,
+  "lines": 163,
+  "limits": {
+    "types": 15,
+    "lines": 400
+  }
+}

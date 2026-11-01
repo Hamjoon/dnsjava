@@ -1,0 +1,40 @@
+{
+  "index": 45,
+  "sha": "8f8f91ea78c7fe4f9cde1edfff5cbdcb93149c7e",
+  "parent": "1984e363b95b537ef78805fbd881b006aeb92ac6",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/Cache.java": [
+      175,
+      201,
+      202,
+      203,
+      204,
+      205
+    ]
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/Cache.java": [
+      7,
+      174,
+      202,
+      203,
+      204,
+      205,
+      206,
+      207,
+      208,
+      209,
+      210,
+      211,
+      212,
+      213,
+      214,
+      215,
+      216,
+      217,
+      218,
+      219
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/Cache.java b/src/main/java/org/xbill/DNS/Cache.java\nindex b399ea61..69b67f52 100644\n--- a/src/main/java/org/xbill/DNS/Cache.java\n+++ b/src/main/java/org/xbill/DNS/Cache.java\n@@ -6,0 +7 @@ import java.io.IOException;\n+import java.io.InputStream;\n@@ -172,0 +174 @@ public class Cache {\n+  private final int dclass;\n@@ -175 +176,0 @@ public class Cache {\n-  private int dclass;\n@@ -201,5 +202,18 @@ public class Cache {\n-    data = new CacheMap(defaultMaxEntries);\n-    try (Master m = new Master(file)) {\n-      Record record;\n-      while ((record = m.nextRecord()) != null) {\n-        addRecord(record, Credibility.HINT);\n+    this(new Master(file));\n+  }\n+\n+  /**\n+   * Creates a Cache which initially contains all records in the specified stream.\n+   *\n+   * @since 3.6.2\n+   */\n+  public Cache(InputStream input) throws IOException {\n+    this(new Master(input));\n+  }\n+\n+  private <T> Cache(Master m) throws IOException {\n+    this();\n+    try (m) {\n+      Record r;\n+      while ((r = m.nextRecord()) != null) {\n+        addRecord(r, Credibility.HINT);"
+}

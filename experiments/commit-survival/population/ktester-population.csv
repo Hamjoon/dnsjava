@@ -1,0 +1,55 @@
+id,class,method-name,test-class,test-path
+Message_newQuery,org.xbill.DNS.Message,newQuery(Record),org.xbill.DNS.Message_newQuery_Test,src/test/java/org/xbill/DNS/Message_newQuery_Test.java
+Message_newUpdate,org.xbill.DNS.Message,newUpdate(Name),org.xbill.DNS.Message_newUpdate_Test,src/test/java/org/xbill/DNS/Message_newUpdate_Test.java
+Message_setHeader,org.xbill.DNS.Message,setHeader(Header),org.xbill.DNS.Message_setHeader_Test,src/test/java/org/xbill/DNS/Message_setHeader_Test.java
+Message_getHeader,org.xbill.DNS.Message,getHeader(),org.xbill.DNS.Message_getHeader_Test,src/test/java/org/xbill/DNS/Message_getHeader_Test.java
+Message_addRecord,org.xbill.DNS.Message,"addRecord(Record, int)",org.xbill.DNS.Message_addRecord_Test,src/test/java/org/xbill/DNS/Message_addRecord_Test.java
+Message_removeRecord,org.xbill.DNS.Message,"removeRecord(Record, int)",org.xbill.DNS.Message_removeRecord_Test,src/test/java/org/xbill/DNS/Message_removeRecord_Test.java
+Message_removeAllRecords,org.xbill.DNS.Message,removeAllRecords(int),org.xbill.DNS.Message_removeAllRecords_Test,src/test/java/org/xbill/DNS/Message_removeAllRecords_Test.java
+Message_findRecord,org.xbill.DNS.Message,"findRecord(Record, int)",org.xbill.DNS.Message_findRecord_Test,src/test/java/org/xbill/DNS/Message_findRecord_Test.java
+Message_findRecord_2,org.xbill.DNS.Message,findRecord(Record),org.xbill.DNS.Message_findRecord_2_Test,src/test/java/org/xbill/DNS/Message_findRecord_2_Test.java
+Message_findRRset,org.xbill.DNS.Message,"findRRset(Name, int, int)",org.xbill.DNS.Message_findRRset_Test,src/test/java/org/xbill/DNS/Message_findRRset_Test.java
+Message_findRRset_2,org.xbill.DNS.Message,"findRRset(Name, int)",org.xbill.DNS.Message_findRRset_2_Test,src/test/java/org/xbill/DNS/Message_findRRset_2_Test.java
+Message_getQuestion,org.xbill.DNS.Message,getQuestion(),org.xbill.DNS.Message_getQuestion_Test,src/test/java/org/xbill/DNS/Message_getQuestion_Test.java
+Message_getTSIG,org.xbill.DNS.Message,getTSIG(),org.xbill.DNS.Message_getTSIG_Test,src/test/java/org/xbill/DNS/Message_getTSIG_Test.java
+Message_getGeneratedTSIG,org.xbill.DNS.Message,getGeneratedTSIG(),org.xbill.DNS.Message_getGeneratedTSIG_Test,src/test/java/org/xbill/DNS/Message_getGeneratedTSIG_Test.java
+Message_isSigned,org.xbill.DNS.Message,isSigned(),org.xbill.DNS.Message_isSigned_Test,src/test/java/org/xbill/DNS/Message_isSigned_Test.java
+Message_isVerified,org.xbill.DNS.Message,isVerified(),org.xbill.DNS.Message_isVerified_Test,src/test/java/org/xbill/DNS/Message_isVerified_Test.java
+Message_getOPT,org.xbill.DNS.Message,getOPT(),org.xbill.DNS.Message_getOPT_Test,src/test/java/org/xbill/DNS/Message_getOPT_Test.java
+Message_getRcode,org.xbill.DNS.Message,getRcode(),org.xbill.DNS.Message_getRcode_Test,src/test/java/org/xbill/DNS/Message_getRcode_Test.java
+Message_getSection,org.xbill.DNS.Message,getSection(int),org.xbill.DNS.Message_getSection_Test,src/test/java/org/xbill/DNS/Message_getSection_Test.java
+Message_getSectionRRsets,org.xbill.DNS.Message,getSectionRRsets(int),org.xbill.DNS.Message_getSectionRRsets_Test,src/test/java/org/xbill/DNS/Message_getSectionRRsets_Test.java
+Message_toWire,org.xbill.DNS.Message,toWire(DNSOutput),org.xbill.DNS.Message_toWire_Test,src/test/java/org/xbill/DNS/Message_toWire_Test.java
+Message_toWire_2,org.xbill.DNS.Message,toWire(),org.xbill.DNS.Message_toWire_2_Test,src/test/java/org/xbill/DNS/Message_toWire_2_Test.java
+Message_toWire_3,org.xbill.DNS.Message,toWire(int),org.xbill.DNS.Message_toWire_3_Test,src/test/java/org/xbill/DNS/Message_toWire_3_Test.java
+Message_setTSIG,org.xbill.DNS.Message,setTSIG(TSIG),org.xbill.DNS.Message_setTSIG_Test,src/test/java/org/xbill/DNS/Message_setTSIG_Test.java
+Message_setTSIG_2,org.xbill.DNS.Message,"setTSIG(TSIG, int, TSIGRecord)",org.xbill.DNS.Message_setTSIG_2_Test,src/test/java/org/xbill/DNS/Message_setTSIG_2_Test.java
+Message_numBytes,org.xbill.DNS.Message,numBytes(),org.xbill.DNS.Message_numBytes_Test,src/test/java/org/xbill/DNS/Message_numBytes_Test.java
+Message_sectionToString,org.xbill.DNS.Message,sectionToString(int),org.xbill.DNS.Message_sectionToString_Test,src/test/java/org/xbill/DNS/Message_sectionToString_Test.java
+Message_toString,org.xbill.DNS.Message,toString(),org.xbill.DNS.Message_toString_Test,src/test/java/org/xbill/DNS/Message_toString_Test.java
+Message_clone,org.xbill.DNS.Message,clone(),org.xbill.DNS.Message_clone_Test,src/test/java/org/xbill/DNS/Message_clone_Test.java
+Message_setResolver,org.xbill.DNS.Message,setResolver(Resolver),org.xbill.DNS.Message_setResolver_Test,src/test/java/org/xbill/DNS/Message_setResolver_Test.java
+Message_getResolver,org.xbill.DNS.Message,getResolver(),org.xbill.DNS.Message_getResolver_Test,src/test/java/org/xbill/DNS/Message_getResolver_Test.java
+Zone_getOrigin,org.xbill.DNS.Zone,getOrigin(),org.xbill.DNS.Zone_getOrigin_Test,src/test/java/org/xbill/DNS/Zone_getOrigin_Test.java
+Zone_getNS,org.xbill.DNS.Zone,getNS(),org.xbill.DNS.Zone_getNS_Test,src/test/java/org/xbill/DNS/Zone_getNS_Test.java
+Zone_getSOA,org.xbill.DNS.Zone,getSOA(),org.xbill.DNS.Zone_getSOA_Test,src/test/java/org/xbill/DNS/Zone_getSOA_Test.java
+Zone_getDClass,org.xbill.DNS.Zone,getDClass(),org.xbill.DNS.Zone_getDClass_Test,src/test/java/org/xbill/DNS/Zone_getDClass_Test.java
+Zone_findRecords,org.xbill.DNS.Zone,"findRecords(Name, int)",org.xbill.DNS.Zone_findRecords_Test,src/test/java/org/xbill/DNS/Zone_findRecords_Test.java
+Zone_findExactMatch,org.xbill.DNS.Zone,"findExactMatch(Name, int)",org.xbill.DNS.Zone_findExactMatch_Test,src/test/java/org/xbill/DNS/Zone_findExactMatch_Test.java
+Zone_addRRset,org.xbill.DNS.Zone,addRRset(RRset),org.xbill.DNS.Zone_addRRset_Test,src/test/java/org/xbill/DNS/Zone_addRRset_Test.java
+Zone_addRecord,org.xbill.DNS.Zone,addRecord(T),org.xbill.DNS.Zone_addRecord_Test,src/test/java/org/xbill/DNS/Zone_addRecord_Test.java
+Zone_removeRecord,org.xbill.DNS.Zone,removeRecord(Record),org.xbill.DNS.Zone_removeRecord_Test,src/test/java/org/xbill/DNS/Zone_removeRecord_Test.java
+Zone_iterator,org.xbill.DNS.Zone,iterator(),org.xbill.DNS.Zone_iterator_Test,src/test/java/org/xbill/DNS/Zone_iterator_Test.java
+Zone_AXFR,org.xbill.DNS.Zone,AXFR(),org.xbill.DNS.Zone_AXFR_Test,src/test/java/org/xbill/DNS/Zone_AXFR_Test.java
+Zone_toMasterFile,org.xbill.DNS.Zone,toMasterFile(),org.xbill.DNS.Zone_toMasterFile_Test,src/test/java/org/xbill/DNS/Zone_toMasterFile_Test.java
+Zone_toString,org.xbill.DNS.Zone,toString(),org.xbill.DNS.Zone_toString_Test,src/test/java/org/xbill/DNS/Zone_toString_Test.java
+TSIG_algorithmToName,org.xbill.DNS.TSIG,algorithmToName(String),org.xbill.DNS.TSIG_algorithmToName_Test,src/test/java/org/xbill/DNS/TSIG_algorithmToName_Test.java
+TSIG_generate,org.xbill.DNS.TSIG,"generate(Message, byte[], int, TSIGRecord)",org.xbill.DNS.TSIG_generate_Test,src/test/java/org/xbill/DNS/TSIG_generate_Test.java
+TSIG_generate_2,org.xbill.DNS.TSIG,"generate(Message, byte[], int, TSIGRecord, boolean)",org.xbill.DNS.TSIG_generate_2_Test,src/test/java/org/xbill/DNS/TSIG_generate_2_Test.java
+TSIG_apply,org.xbill.DNS.TSIG,"apply(Message, TSIGRecord)",org.xbill.DNS.TSIG_apply_Test,src/test/java/org/xbill/DNS/TSIG_apply_Test.java
+TSIG_apply_3,org.xbill.DNS.TSIG,"apply(Message, int, TSIGRecord)",org.xbill.DNS.TSIG_apply_3_Test,src/test/java/org/xbill/DNS/TSIG_apply_3_Test.java
+TSIG_apply_2,org.xbill.DNS.TSIG,"apply(Message, TSIGRecord, boolean)",org.xbill.DNS.TSIG_apply_2_Test,src/test/java/org/xbill/DNS/TSIG_apply_2_Test.java
+TSIG_apply_4,org.xbill.DNS.TSIG,"apply(Message, int, TSIGRecord, boolean)",org.xbill.DNS.TSIG_apply_4_Test,src/test/java/org/xbill/DNS/TSIG_apply_4_Test.java
+TSIG_verify,org.xbill.DNS.TSIG,"verify(Message, byte[], TSIGRecord)",org.xbill.DNS.TSIG_verify_Test,src/test/java/org/xbill/DNS/TSIG_verify_Test.java
+TSIG_verify_2,org.xbill.DNS.TSIG,"verify(Message, byte[], TSIGRecord, boolean)",org.xbill.DNS.TSIG_verify_2_Test,src/test/java/org/xbill/DNS/TSIG_verify_2_Test.java
+TSIG_recordLength,org.xbill.DNS.TSIG,recordLength(),org.xbill.DNS.TSIG_recordLength_Test,src/test/java/org/xbill/DNS/TSIG_recordLength_Test.java

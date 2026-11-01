@@ -1,0 +1,12 @@
+{
+  "index": 113,
+  "sha": "8bed725c19e2c551b421771b27e851d521e16a4f",
+  "parent": "eab9a17bc83e5d4200ea81c476639a1c997753bc",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/Type.java": []
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/Type.java": []
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/Type.java b/src/main/java/org/xbill/DNS/Type.java\nindex 0324f42c..4b4095e5 100644\n--- a/src/main/java/org/xbill/DNS/Type.java\n+++ b/src/main/java/org/xbill/DNS/Type.java\n@@ -348 +348 @@ public final class Type {\n-              \"mnemnonic \\\"\" + str + \"\\\" already used by type \" + oldVal);\n+              \"mnemonic \\\"\" + str + \"\\\" already used by type \" + oldVal);"
+}

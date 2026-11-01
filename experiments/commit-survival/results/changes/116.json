@@ -1,0 +1,32 @@
+{
+  "index": 116,
+  "sha": "26a8d857a4c39a35eb7b0dee6d67d9ecfb1520ae",
+  "parent": "bb5992421f2aed35396ffb7a5b8a262bb1a5628f",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/Header.java": [
+      23
+    ],
+    "src/main/java/org/xbill/DNS/NioUdpClient.java": [
+      51
+    ],
+    "src/main/java/org/xbill/DNS/Utils.java": []
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/Header.java": [
+      22
+    ],
+    "src/main/java/org/xbill/DNS/NioUdpClient.java": [
+      51
+    ],
+    "src/main/java/org/xbill/DNS/Utils.java": [
+      9,
+      20,
+      21,
+      23,
+      24,
+      25,
+      31
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/Header.java b/src/main/java/org/xbill/DNS/Header.java\nindex 5f7dd421..4fefdbc4 100644\n--- a/src/main/java/org/xbill/DNS/Header.java\n+++ b/src/main/java/org/xbill/DNS/Header.java\n@@ -7 +6,0 @@ import java.io.IOException;\n-import java.security.SecureRandom;\n@@ -23 +22 @@ public class Header implements Cloneable {\n-  private static final Random random = new SecureRandom();\n+  private static final Random random = Utils.secureRandom();\ndiff --git a/src/main/java/org/xbill/DNS/NioUdpClient.java b/src/main/java/org/xbill/DNS/NioUdpClient.java\nindex bfd2da3e..4c31c90a 100644\n--- a/src/main/java/org/xbill/DNS/NioUdpClient.java\n+++ b/src/main/java/org/xbill/DNS/NioUdpClient.java\n@@ -51 +51 @@ final class NioUdpClient extends NioClient implements UdpIoClient {\n-      prng = new SecureRandom();\n+      prng = Utils.secureRandom();\ndiff --git a/src/main/java/org/xbill/DNS/Utils.java b/src/main/java/org/xbill/DNS/Utils.java\nindex a968cd2e..94177864 100644\n--- a/src/main/java/org/xbill/DNS/Utils.java\n+++ b/src/main/java/org/xbill/DNS/Utils.java\n@@ -3,0 +4,2 @@ package org.xbill.DNS;\n+import java.security.NoSuchAlgorithmException;\n+import java.security.SecureRandom;\n@@ -4,0 +7 @@ import lombok.experimental.UtilityClass;\n+import lombok.extern.slf4j.Slf4j;\n@@ -5,0 +9 @@ import lombok.experimental.UtilityClass;\n+@Slf4j\n@@ -7,0 +12,22 @@ class Utils {\n+  static final String SECURE_RANDOM_ALGORITHM_PROPERTY = \"dnsjava.secure_random_algorithm\";\n+\n+  /**\n+   * Creates a {@link SecureRandom} using the algorithm named by the {@code\n+   * dnsjava.secure_random_algorithm} system property. Falls back to a default {@link SecureRandom}\n+   * when the property is not set or names an algorithm that is not available.\n+   */\n+  static SecureRandom secureRandom() {\n+    String algorithm = System.getProperty(SECURE_RANDOM_ALGORITHM_PROPERTY);\n+    if (algorithm != null && !algorithm.isEmpty()) {\n+      try {\n+        return SecureRandom.getInstance(algorithm);\n+      } catch (NoSuchAlgorithmException e) {\n+        log.warn(\n+            \"SecureRandom algorithm '{}' requested via {} is not available, falling back to the default\",\n+            algorithm,\n+            SECURE_RANDOM_ALGORITHM_PROPERTY);\n+      }\n+    }\n+    return new SecureRandom();\n+  }\n+"
+}

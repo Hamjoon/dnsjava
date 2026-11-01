@@ -1,0 +1,242 @@
+{
+  "details": {
+    "Message_findRecord": {
+      "process_init_response": 4.691073179244995,
+      "process_case_response": 115.94534158706665,
+      "check_test_class": 71.0764639377594
+    },
+    "Message_addRecord": {
+      "process_init_response": 9.32021975517273,
+      "process_case_response": 193.28736996650696,
+      "check_test_class": 31.327009201049805
+    },
+    "Message_newUpdate": {
+      "process_init_response": 14.994953393936157,
+      "process_case_response": 138.40229725837708,
+      "check_test_class": 147.41018795967102
+    },
+    "Message_removeAllRecords": {
+      "process_init_response": 38.70227026939392,
+      "process_case_response": 118.5726318359375,
+      "check_test_class": 2.741718053817749
+    },
+    "Message_findRRset": {
+      "process_init_response": 29.571778535842896,
+      "process_case_response": 188.24987626075745,
+      "check_test_class": 2.408649444580078
+    },
+    "Message_setHeader": {
+      "process_init_response": 39.78286910057068,
+      "process_case_response": 31.380679607391357,
+      "check_test_class": 79.85281419754028
+    },
+    "Message_removeRecord": {
+      "process_init_response": 43.6943576335907,
+      "process_case_response": 74.94376039505005,
+      "check_test_class": 3.4880855083465576
+    },
+    "Message_findRecord_2": {
+      "process_init_response": 39.77606225013733,
+      "process_case_response": 175.94130492210388,
+      "check_test_class": 2.735388994216919
+    },
+    "Message_findRRset_2": {
+      "process_init_response": 31.83440375328064,
+      "process_case_response": 197.90895748138428,
+      "check_test_class": 72.79060316085815
+    },
+    "Message_getHeader": {
+      "process_init_response": 53.06059122085571,
+      "process_case_response": 149.40939331054688,
+      "check_test_class": 127.02404856681824
+    },
+    "Message_isSigned": {
+      "process_init_response": 14.186808586120605,
+      "process_case_response": 84.52418684959412,
+      "check_test_class": 110.16993570327759
+    },
+    "Message_getOPT": {
+      "process_init_response": 21.121243715286255,
+      "process_case_response": 153.37821054458618,
+      "check_test_class": 1.4847297668457031
+    },
+    "Message_getQuestion": {
+      "process_init_response": 32.04737186431885,
+      "process_case_response": 110.26075792312622,
+      "check_test_class": 2.4021852016448975
+    },
+    "Message_isVerified": {
+      "process_init_response": 27.94141936302185,
+      "process_case_response": 86.06469869613647,
+      "check_test_class": 45.32270693778992
+    },
+    "Message_getGeneratedTSIG": {
+      "process_init_response": 33.37946963310242,
+      "process_case_response": 154.2111463546753,
+      "check_test_class": 488.9460017681122
+    },
+    "Message_getTSIG": {
+      "process_init_response": 37.16416525840759,
+      "process_case_response": 154.52231550216675,
+      "check_test_class": 208.48000288009644
+    },
+    "Message_toWire_3": {
+      "process_init_response": 4.597556114196777,
+      "process_case_response": 262.00502252578735
+    },
+    "Message_toWire": {
+      "process_init_response": 16.045642137527466,
+      "process_case_response": 229.6849491596222,
+      "check_test_class": 3.459571361541748
+    },
+    "Message_setTSIG": {
+      "process_init_response": 11.309541463851929,
+      "process_case_response": 229.29092121124268
+    },
+    "Message_sectionToString": {
+      "process_init_response": 3.570431709289551,
+      "process_case_response": 145.36991167068481
+    },
+    "Message_getSection": {
+      "process_init_response": 33.522722005844116,
+      "process_case_response": 104.00296783447266,
+      "check_test_class": 1.4785397052764893
+    },
+    "Message_newQuery": {
+      "process_init_response": 92.2972514629364,
+      "process_case_response": 231.45856189727783,
+      "check_test_class": 93.99858498573303
+    },
+    "Message_toString": {
+      "process_init_response": 20.98029351234436,
+      "process_case_response": 218.78671526908875
+    },
+    "Message_numBytes": {
+      "process_init_response": 28.441218852996826,
+      "process_case_response": 174.0955183506012
+    },
+    "Message_setTSIG_2": {
+      "process_init_response": 40.52719783782959,
+      "process_case_response": 196.9936785697937
+    },
+    "Message_setResolver": {
+      "process_init_response": 30.107502222061157,
+      "process_case_response": 96.16618204116821
+    },
+    "Message_toWire_2": {
+      "process_init_response": 51.27513647079468,
+      "process_case_response": 301.54061579704285,
+      "check_test_class": 427.0714662075043
+    },
+    "Message_getRcode": {
+      "process_init_response": 75.89049816131592,
+      "process_case_response": 141.42521905899048,
+      "check_test_class": 104.84375405311584
+    },
+    "Zone_getSOA": {
+      "process_init_response": 19.969592094421387,
+      "process_case_response": 113.56082224845886
+    },
+    "Zone_getDClass": {
+      "process_init_response": 27.69526481628418,
+      "process_case_response": 67.40173268318176
+    },
+    "Zone_getOrigin": {
+      "process_init_response": 37.32597279548645,
+      "process_case_response": 126.41011548042297
+    },
+    "Message_getResolver": {
+      "process_init_response": 41.184364318847656,
+      "process_case_response": 91.96389651298523
+    },
+    "Zone_getNS": {
+      "process_init_response": 35.48225116729736,
+      "process_case_response": 109.30088543891907
+    },
+    "Zone_addRRset": {
+      "process_init_response": 9.207192420959473,
+      "process_case_response": 185.97672843933105
+    },
+    "Message_getSectionRRsets": {
+      "process_init_response": 97.40653848648071,
+      "process_case_response": 236.42783284187317,
+      "check_test_class": 257.68710684776306
+    },
+    "Zone_findRecords": {
+      "process_init_response": 37.19934701919556,
+      "process_case_response": 212.36787104606628
+    },
+    "Zone_iterator": {
+      "process_init_response": 17.74623417854309,
+      "process_case_response": 148.0287857055664
+    },
+    "TSIG_algorithmToName": {
+      "process_init_response": 10.524710893630981,
+      "process_case_response": 181.7030065059662
+    },
+    "Zone_toMasterFile": {
+      "process_init_response": 34.155904054641724,
+      "process_case_response": 168.8381688594818
+    },
+    "Zone_AXFR": {
+      "process_init_response": 46.457340478897095,
+      "process_case_response": 126.98653364181519
+    },
+    "Zone_toString": {
+      "process_init_response": 50.23580002784729,
+      "process_case_response": 200.95088005065918
+    },
+    "Message_clone": {
+      "process_init_response": 127.0186653137207,
+      "process_case_response": 159.85894393920898
+    },
+    "Zone_addRecord": {
+      "process_init_response": 75.73311471939087,
+      "process_case_response": 122.97437715530396
+    },
+    "Zone_findExactMatch": {
+      "process_init_response": 89.50228643417358,
+      "process_case_response": 179.0634789466858
+    },
+    "TSIG_generate": {
+      "process_init_response": 61.67011475563049,
+      "process_case_response": 306.61295890808105
+    },
+    "TSIG_apply_4": {
+      "process_init_response": 19.691460847854614,
+      "process_case_response": 223.4301733970642
+    },
+    "Zone_removeRecord": {
+      "process_init_response": 96.05901765823364,
+      "process_case_response": 95.07034039497375
+    },
+    "TSIG_verify_2": {
+      "process_init_response": 9.365790605545044,
+      "process_case_response": 217.10639095306396
+    },
+    "TSIG_apply": {
+      "process_init_response": 47.05578637123108,
+      "process_case_response": 273.2997944355011
+    },
+    "TSIG_apply_2": {
+      "process_init_response": 40.28019571304321,
+      "process_case_response": 297.49286103248596
+    },
+    "TSIG_generate_2": {
+      "process_init_response": 70.06715154647827,
+      "process_case_response": 232.59099817276
+    },
+    "TSIG_verify": {
+      "process_init_response": 40.99391961097717,
+      "process_case_response": 237.69386768341064
+    },
+    "TSIG_apply_3": {
+      "process_init_response": 75.46454811096191,
+      "process_case_response": 297.437579870224
+    },
+    "TSIG_recordLength": {
+      "process_init_response": 47.01763463020325,
+      "process_case_response": 197.4825358390808
+    }
+  }
+}

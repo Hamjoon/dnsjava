@@ -1,0 +1,34 @@
+{
+  "index": 65,
+  "sha": "9a748a04f6e39b348fb747bd8f03390abbfe450f",
+  "parent": "8444680476c095299a76958144157667c4ed70d4",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/DohResolver.java": [
+      318,
+      366,
+      392,
+      406,
+      435,
+      457,
+      479,
+      480,
+      486,
+      528
+    ]
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/DohResolver.java": [
+      179,
+      323,
+      371,
+      397,
+      411,
+      440,
+      462,
+      484,
+      490,
+      532
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/DohResolver.java b/src/main/java/org/xbill/DNS/DohResolver.java\nindex 0933ef18..23dc871a 100644\n--- a/src/main/java/org/xbill/DNS/DohResolver.java\n+++ b/src/main/java/org/xbill/DNS/DohResolver.java\n@@ -176,0 +177,5 @@ public final class DohResolver implements Resolver {\n+  // package-visible for testing\n+  long getNanoTime() {\n+    return System.nanoTime();\n+  }\n+\n@@ -318 +323 @@ public final class DohResolver implements Resolver {\n-    long startTime = System.nanoTime();\n+    long startTime = getNanoTime();\n@@ -366 +371 @@ public final class DohResolver implements Resolver {\n-    Duration remainingTimeout = timeout.minus(System.nanoTime() - startTime, ChronoUnit.NANOS);\n+    Duration remainingTimeout = timeout.minus(getNanoTime() - startTime, ChronoUnit.NANOS);\n@@ -392 +397 @@ public final class DohResolver implements Resolver {\n-          remainingTimeout = timeout.minus(System.nanoTime() - startTime, ChronoUnit.NANOS);\n+          remainingTimeout = timeout.minus(getNanoTime() - startTime, ChronoUnit.NANOS);\n@@ -406 +411 @@ public final class DohResolver implements Resolver {\n-            remainingTimeout = timeout.minus(System.nanoTime() - startTime, ChronoUnit.NANOS);\n+            remainingTimeout = timeout.minus(getNanoTime() - startTime, ChronoUnit.NANOS);\n@@ -435 +440 @@ public final class DohResolver implements Resolver {\n-    long startTime = System.nanoTime();\n+    long startTime = getNanoTime();\n@@ -457 +462 @@ public final class DohResolver implements Resolver {\n-    Duration remainingTimeout = timeout.minus(System.nanoTime() - startTime, ChronoUnit.NANOS);\n+    Duration remainingTimeout = timeout.minus(getNanoTime() - startTime, ChronoUnit.NANOS);\n@@ -479,2 +484 @@ public final class DohResolver implements Resolver {\n-    boolean isInitialRequest =\n-        (lastRequestTime < System.nanoTime() - idleConnectionTimeout.toNanos());\n+    boolean isInitialRequest = idleConnectionTimeout.toNanos() > getNanoTime() - lastRequestTime;\n@@ -486 +490 @@ public final class DohResolver implements Resolver {\n-    Duration remainingTimeout = timeout.minus(System.nanoTime() - startTime, ChronoUnit.NANOS);\n+    Duration remainingTimeout = timeout.minus(getNanoTime() - startTime, ChronoUnit.NANOS);\n@@ -528 +532 @@ public final class DohResolver implements Resolver {\n-    Duration remainingTimeout = timeout.minus(System.nanoTime() - startTime, ChronoUnit.NANOS);\n+    Duration remainingTimeout = timeout.minus(getNanoTime() - startTime, ChronoUnit.NANOS);"
+}

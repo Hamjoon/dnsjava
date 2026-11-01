@@ -1,0 +1,142 @@
+[
+  {
+    "group": "Clone with empty sections and no TSIG records",
+    "cases": [
+      {
+        "input": [],
+        "expected": "A new Message instance whose sections array has the same length as the original, all entries are null; header is a distinct clone (different object but equal content); querytsig and generatedTsig are null. Modifying the original's header or sections after cloning does not affect the clone.",
+        "description": "Verify that clone() correctly handles the case where `sections` contains only null entries and both TSIG fields are null. The method should create a new sections array with nulls, clone the header, and leave TSIG fields null."
+      }
+    ]
+  },
+  {
+    "group": "Clone with populated sections (non\u2011null lists) and no TSIG",
+    "cases": [
+      {
+        "input": [],
+        "expected": "The cloned Message has a sections array of the same length as the original. Each non\u2011null list in the original is cloned into a new LinkedList instance (different object) containing the same Record objects. Adding or removing a Record from a list in the original after cloning does not affect the corresponding list in the clone. The header is a distinct clone (different object but equal content). querytsig and generatedTsig remain null.",
+        "description": "Verify deep\u2011copy of the sections lists while preserving record references, and independence of the sections array and header when TSIG fields are absent."
+      }
+    ]
+  },
+  {
+    "group": "Clone with mixed null and non\u2011null sections",
+    "cases": [
+      {
+        "input": [],
+        "expected": "The clone\u2019s sections array has the same length as the source. Positions that were null in the source remain null in the clone. Positions that contained a non\u2011null List are replaced by a new LinkedList instance (different object) with the same elements. No TSIG records are present. Header is cloned separately.",
+        "description": "Ensure that the cloning logic correctly handles a mixture of null and populated section entries, preserving nulls and deep\u2011copying only the existing lists."
+      }
+    ]
+  },
+  {
+    "group": "Clone with empty but non\u2011null sections",
+    "cases": [
+      {
+        "input": [],
+        "expected": "For each section that originally held an empty LinkedList (non\u2011null but size 0), the clone contains a new empty LinkedList (different object). The sections array length matches the original. Header is cloned. No TSIG records are present.",
+        "description": "Confirm that even empty lists are duplicated rather than shared, guaranteeing that later modifications to one list do not affect the other."
+      }
+    ]
+  },
+  {
+    "group": "Clone with header mutation independence",
+    "cases": [
+      {
+        "input": [],
+        "expected": "The cloned Message\u2019s header is a distinct Header instance (object identity differs) but equals the original header in content. After cloning, mutating the original header (e.g., changing the ID or flags) does not change the header inside the clone, and vice\u2011versa.",
+        "description": "Validate that Message.clone() performs a deep clone of the Header object, not a shallow reference copy."
+      }
+    ]
+  },
+  {
+    "group": "Clone with queryTSIG present",
+    "cases": [
+      {
+        "input": [],
+        "expected": "The clone contains a querytsig field that is a distinct TSIGRecord instance (different object) whose content equals the original\u2019s querytsig. The generatedTsig field remains null. Header and sections are cloned as usual.",
+        "description": "Test that when querytsig is non\u2011null, clone() invokes cloneRecord() and stores a separate copy, ensuring no shared mutable state."
+      }
+    ]
+  },
+  {
+    "group": "Clone with generatedTSIG present",
+    "cases": [
+      {
+        "input": [],
+        "expected": "The clone\u2019s generatedTsig field is a distinct TSIGRecord instance equal in content to the original\u2019s generatedTsig. querytsig remains null. Header and sections are cloned correctly.",
+        "description": "Verify that generatedTsig is deep\u2011cloned via cloneRecord() when it is set."
+      }
+    ]
+  },
+  {
+    "group": "Clone with both queryTSIG and generatedTSIG present",
+    "cases": [
+      {
+        "input": [],
+        "expected": "Both querytsig and generatedTsig are cloned into separate TSIGRecord instances (different objects) with content equal to the originals. Header and sections are deep\u2011copied as usual.",
+        "description": "Ensure that the method handles cloning of both TSIG fields simultaneously without overwriting or sharing references."
+      }
+    ]
+  },
+  {
+    "group": "Clone with zero\u2011length sections array",
+    "cases": [
+      {
+        "input": [],
+        "expected": "The cloned Message has a sections array of length 0 (same as source). No NullPointerException is thrown. Header is cloned. Both TSIG fields are null.",
+        "description": "Check that clone() works correctly when the internal sections array is empty, a corner case that could expose index handling bugs."
+      }
+    ]
+  },
+  {
+    "group": "Clone when sections array is null",
+    "cases": [
+      {
+        "input": [],
+        "expected": "java.lang.NullPointerException",
+        "description": "Invoke Message.clone() on a Message instance whose internal `sections` field has been set to null (via reflection). The method attempts to read `sections.length`, which should throw a NullPointerException."
+      }
+    ]
+  },
+  {
+    "group": "Clone when header is null",
+    "cases": [
+      {
+        "input": [],
+        "expected": "java.lang.NullPointerException",
+        "description": "Invoke Message.clone() on a Message instance whose `header` field has been set to null (via reflection). The call to `header.clone()` should result in a NullPointerException."
+      }
+    ]
+  },
+  {
+    "group": "Clone when queryTSIG.cloneRecord throws IOException",
+    "cases": [
+      {
+        "input": [],
+        "expected": "java.io.IOException",
+        "description": "Create a Message with a non\u2011null `querytsig` that is a mock or subclass of TSIGRecord whose `cloneRecord()` method throws an IOException. Calling clone() should propagate the IOException (SneakyThrows converts it to an unchecked exception, but the original exception type remains IOException)."
+      }
+    ]
+  },
+  {
+    "group": "Clone when generatedTSIG.cloneRecord throws IOException",
+    "cases": [
+      {
+        "input": [],
+        "expected": "java.io.IOException",
+        "description": "Create a Message with a non\u2011null `generatedTsig` that is a mock/subclass of TSIGRecord whose `cloneRecord()` method throws an IOException. The clone() call should propagate this IOException."
+      }
+    ]
+  },
+  {
+    "group": "Clone when super.clone throws CloneNotSupportedException",
+    "cases": [
+      {
+        "input": [],
+        "expected": "java.lang.CloneNotSupportedException",
+        "description": "Define a subclass of Message that does NOT implement Cloneable. Invoke the inherited clone() method on an instance of this subclass. The call to `super.clone()` will throw CloneNotSupportedException, which is re\u2011thrown by the method (via SneakyThrows)."
+      }
+    ]
+  }
+]

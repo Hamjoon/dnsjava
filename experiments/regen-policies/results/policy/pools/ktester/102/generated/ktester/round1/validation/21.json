@@ -1,0 +1,246 @@
+{
+  "file": "generated/ktester/round1/dnsjava/test_classes/Message_normalize_Test.java",
+  "compile": {
+    "command": [
+      "javac",
+      "-J-Xmx512m",
+      "-cp",
+      "/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/checkouts/0/target/classes:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/apiguardian-api-1.1.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/byte-buddy-1.17.7.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/byte-buddy-agent-1.17.7.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/commons-io-2.16.1.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/commons-lang3-3.14.0.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/hamcrest-2.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/junit-jupiter-5.11.4.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/junit-jupiter-api-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/junit-jupiter-engine-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/junit-jupiter-params-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/junit-platform-commons-1.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/junit-platform-engine-1.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/mockito-core-5.24.0.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/mockito-junit-jupiter-5.24.0.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/objenesis-3.3.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/opentest4j-1.3.0.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/junit-vintage-engine-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/junit-4.13.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/hamcrest-core-1.3.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/junit-platform-console-standalone-1.9.3.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/projectlombok/lombok/1.18.42/lombok-1.18.42.jar:/root/.m2/repository/net/java/dev/jna/jna/5.18.1/jna-5.18.1.jar:/root/.m2/repository/net/java/dev/jna/jna-platform/5.18.1/jna-platform-5.18.1.jar:/root/.m2/repository/org/bouncycastle/bcprov-jdk18on/1.84/bcprov-jdk18on-1.84.jar:/root/.m2/repository/org/bouncycastle/bcutil-jdk18on/1.84/bcutil-jdk18on-1.84.jar:/root/.m2/repository/org/assertj/assertj-core/3.27.7/assertj-core-3.27.7.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.18.3/byte-buddy-1.18.3.jar:/root/.m2/repository/org/mockito/mockito-core/5.21.0/mockito-core-5.21.0.jar:/root/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/root/.m2/repository/org/mockito/mockito-junit-jupiter/5.21.0/mockito-junit-jupiter-5.21.0.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.18.4/byte-buddy-agent-1.18.4.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.36/slf4j-simple-1.7.36.jar:/root/.m2/repository/org/slf4j/jul-to-slf4j/1.7.36/jul-to-slf4j-1.7.36.jar:/root/.m2/repository/io/vertx/vertx-core/4.5.24/vertx-core-4.5.24.jar:/root/.m2/repository/io/netty/netty-common/4.1.130.Final/netty-common-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-buffer/4.1.130.Final/netty-buffer-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-transport/4.1.130.Final/netty-transport-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-handler/4.1.130.Final/netty-handler-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-transport-native-unix-common/4.1.130.Final/netty-transport-native-unix-common-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-codec/4.1.130.Final/netty-codec-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-handler-proxy/4.1.130.Final/netty-handler-proxy-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-codec-socks/4.1.130.Final/netty-codec-socks-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-codec-http/4.1.130.Final/netty-codec-http-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-codec-http2/4.1.130.Final/netty-codec-http2-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-resolver/4.1.130.Final/netty-resolver-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-resolver-dns/4.1.130.Final/netty-resolver-dns-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-codec-dns/4.1.130.Final/netty-codec-dns-4.1.130.Final.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.16.1/jackson-core-2.16.1.jar:/root/.m2/repository/io/vertx/vertx-junit5/4.5.24/vertx-junit5-4.5.24.jar:/root/.m2/repository/io/vertx/vertx-codegen/4.5.24/vertx-codegen-4.5.24.jar:/root/.m2/repository/commons-io/commons-io/2.21.0/commons-io-2.21.0.jar:/root/.m2/repository/org/openjdk/jcstress/jcstress-core/0.16/jcstress-core-0.16.jar:/root/.m2/repository/net/sf/jopt-simple/jopt-simple/4.6/jopt-simple-4.6.jar",
+      "-sourcepath",
+      "/repo/experiments/regen-policies/results/policy/pools/ktester/102/generated/ktester/round1/dnsjava/test_classes",
+      "-d",
+      "/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/validation/ktester/round1/21/test/classes",
+      "/repo/experiments/regen-policies/results/policy/pools/ktester/102/generated/ktester/round1/dnsjava/test_classes/Message_normalize_Test.java"
+    ],
+    "cwd": "/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/checkouts/0",
+    "exit_code": 0,
+    "timeout": false,
+    "seconds": 1.226,
+    "log": "work/validation/ktester/round1/21/test/javac.txt"
+  },
+  "runs": [
+    {
+      "command": [
+        "java",
+        "-Xmx1g",
+        "-XX:+UseSerialGC",
+        "-cp",
+        "/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/validation/ktester/round1/21/test/classes:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/checkouts/0/target/classes:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/apiguardian-api-1.1.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/byte-buddy-1.17.7.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/byte-buddy-agent-1.17.7.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/commons-io-2.16.1.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/commons-lang3-3.14.0.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/hamcrest-2.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/junit-jupiter-5.11.4.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/junit-jupiter-api-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/junit-jupiter-engine-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/junit-jupiter-params-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/junit-platform-commons-1.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/junit-platform-engine-1.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/mockito-core-5.24.0.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/mockito-junit-jupiter-5.24.0.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/objenesis-3.3.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/opentest4j-1.3.0.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/junit-vintage-engine-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/junit-4.13.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/hamcrest-core-1.3.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/junit-platform-console-standalone-1.9.3.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/projectlombok/lombok/1.18.42/lombok-1.18.42.jar:/root/.m2/repository/net/java/dev/jna/jna/5.18.1/jna-5.18.1.jar:/root/.m2/repository/net/java/dev/jna/jna-platform/5.18.1/jna-platform-5.18.1.jar:/root/.m2/repository/org/bouncycastle/bcprov-jdk18on/1.84/bcprov-jdk18on-1.84.jar:/root/.m2/repository/org/bouncycastle/bcutil-jdk18on/1.84/bcutil-jdk18on-1.84.jar:/root/.m2/repository/org/assertj/assertj-core/3.27.7/assertj-core-3.27.7.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.18.3/byte-buddy-1.18.3.jar:/root/.m2/repository/org/mockito/mockito-core/5.21.0/mockito-core-5.21.0.jar:/root/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/root/.m2/repository/org/mockito/mockito-junit-jupiter/5.21.0/mockito-junit-jupiter-5.21.0.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.18.4/byte-buddy-agent-1.18.4.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.36/slf4j-simple-1.7.36.jar:/root/.m2/repository/org/slf4j/jul-to-slf4j/1.7.36/jul-to-slf4j-1.7.36.jar:/root/.m2/repository/io/vertx/vertx-core/4.5.24/vertx-core-4.5.24.jar:/root/.m2/repository/io/netty/netty-common/4.1.130.Final/netty-common-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-buffer/4.1.130.Final/netty-buffer-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-transport/4.1.130.Final/netty-transport-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-handler/4.1.130.Final/netty-handler-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-transport-native-unix-common/4.1.130.Final/netty-transport-native-unix-common-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-codec/4.1.130.Final/netty-codec-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-handler-proxy/4.1.130.Final/netty-handler-proxy-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-codec-socks/4.1.130.Final/netty-codec-socks-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-codec-http/4.1.130.Final/netty-codec-http-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-codec-http2/4.1.130.Final/netty-codec-http2-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-resolver/4.1.130.Final/netty-resolver-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-resolver-dns/4.1.130.Final/netty-resolver-dns-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-codec-dns/4.1.130.Final/netty-codec-dns-4.1.130.Final.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.16.1/jackson-core-2.16.1.jar:/root/.m2/repository/io/vertx/vertx-junit5/4.5.24/vertx-junit5-4.5.24.jar:/root/.m2/repository/io/vertx/vertx-codegen/4.5.24/vertx-codegen-4.5.24.jar:/root/.m2/repository/commons-io/commons-io/2.21.0/commons-io-2.21.0.jar:/root/.m2/repository/org/openjdk/jcstress/jcstress-core/0.16/jcstress-core-0.16.jar:/root/.m2/repository/net/sf/jopt-simple/jopt-simple/4.6/jopt-simple-4.6.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/dev/src-test-t/resources:/repo/experiments/regen-policies/results/policy/pools/ktester/102/dev/src-test-t/suite",
+        "org.junit.platform.console.ConsoleLauncher",
+        "--disable-banner",
+        "--disable-ansi-colors",
+        "--fail-if-no-tests",
+        "--details",
+        "summary",
+        "--select-method",
+        "org.xbill.DNS.Message_normalize_Test#normalize_removesIrrelevantSections()",
+        "--select-method",
+        "org.xbill.DNS.Message_normalize_Test#normalize_doesNotModifyQuery()",
+        "--select-method",
+        "org.xbill.DNS.Message_normalize_Test#normalize_nullQuery_throwsNPE()",
+        "--select-method",
+        "org.xbill.DNS.Message_normalize_Test#normalize_internalWireParseException_returnsNull()",
+        "--select-method",
+        "org.xbill.DNS.Message_normalize_Test#normalize_validMessage_returnsNormalizedMessage()",
+        "--reports-dir",
+        "/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/validation/ktester/round1/21/test/run1"
+      ],
+      "cwd": "/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/runtime",
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 2.537,
+      "log": "work/validation/ktester/round1/21/test/run1/console.txt"
+    },
+    {
+      "command": [
+        "java",
+        "-Xmx1g",
+        "-XX:+UseSerialGC",
+        "-cp",
+        "/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/validation/ktester/round1/21/test/classes:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/checkouts/0/target/classes:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/apiguardian-api-1.1.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/byte-buddy-1.17.7.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/byte-buddy-agent-1.17.7.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/commons-io-2.16.1.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/commons-lang3-3.14.0.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/hamcrest-2.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/junit-jupiter-5.11.4.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/junit-jupiter-api-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/junit-jupiter-engine-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/junit-jupiter-params-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/junit-platform-commons-1.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/junit-platform-engine-1.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/mockito-core-5.24.0.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/mockito-junit-jupiter-5.24.0.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/objenesis-3.3.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/opentest4j-1.3.0.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/junit-vintage-engine-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/junit-4.13.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/hamcrest-core-1.3.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/junit-platform-console-standalone-1.9.3.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/projectlombok/lombok/1.18.42/lombok-1.18.42.jar:/root/.m2/repository/net/java/dev/jna/jna/5.18.1/jna-5.18.1.jar:/root/.m2/repository/net/java/dev/jna/jna-platform/5.18.1/jna-platform-5.18.1.jar:/root/.m2/repository/org/bouncycastle/bcprov-jdk18on/1.84/bcprov-jdk18on-1.84.jar:/root/.m2/repository/org/bouncycastle/bcutil-jdk18on/1.84/bcutil-jdk18on-1.84.jar:/root/.m2/repository/org/assertj/assertj-core/3.27.7/assertj-core-3.27.7.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.18.3/byte-buddy-1.18.3.jar:/root/.m2/repository/org/mockito/mockito-core/5.21.0/mockito-core-5.21.0.jar:/root/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/root/.m2/repository/org/mockito/mockito-junit-jupiter/5.21.0/mockito-junit-jupiter-5.21.0.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.18.4/byte-buddy-agent-1.18.4.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.36/slf4j-simple-1.7.36.jar:/root/.m2/repository/org/slf4j/jul-to-slf4j/1.7.36/jul-to-slf4j-1.7.36.jar:/root/.m2/repository/io/vertx/vertx-core/4.5.24/vertx-core-4.5.24.jar:/root/.m2/repository/io/netty/netty-common/4.1.130.Final/netty-common-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-buffer/4.1.130.Final/netty-buffer-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-transport/4.1.130.Final/netty-transport-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-handler/4.1.130.Final/netty-handler-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-transport-native-unix-common/4.1.130.Final/netty-transport-native-unix-common-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-codec/4.1.130.Final/netty-codec-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-handler-proxy/4.1.130.Final/netty-handler-proxy-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-codec-socks/4.1.130.Final/netty-codec-socks-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-codec-http/4.1.130.Final/netty-codec-http-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-codec-http2/4.1.130.Final/netty-codec-http2-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-resolver/4.1.130.Final/netty-resolver-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-resolver-dns/4.1.130.Final/netty-resolver-dns-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-codec-dns/4.1.130.Final/netty-codec-dns-4.1.130.Final.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.16.1/jackson-core-2.16.1.jar:/root/.m2/repository/io/vertx/vertx-junit5/4.5.24/vertx-junit5-4.5.24.jar:/root/.m2/repository/io/vertx/vertx-codegen/4.5.24/vertx-codegen-4.5.24.jar:/root/.m2/repository/commons-io/commons-io/2.21.0/commons-io-2.21.0.jar:/root/.m2/repository/org/openjdk/jcstress/jcstress-core/0.16/jcstress-core-0.16.jar:/root/.m2/repository/net/sf/jopt-simple/jopt-simple/4.6/jopt-simple-4.6.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/dev/src-test-t/resources:/repo/experiments/regen-policies/results/policy/pools/ktester/102/dev/src-test-t/suite",
+        "org.junit.platform.console.ConsoleLauncher",
+        "--disable-banner",
+        "--disable-ansi-colors",
+        "--fail-if-no-tests",
+        "--details",
+        "summary",
+        "--select-method",
+        "org.xbill.DNS.Message_normalize_Test#normalize_removesIrrelevantSections()",
+        "--select-method",
+        "org.xbill.DNS.Message_normalize_Test#normalize_doesNotModifyQuery()",
+        "--select-method",
+        "org.xbill.DNS.Message_normalize_Test#normalize_nullQuery_throwsNPE()",
+        "--select-method",
+        "org.xbill.DNS.Message_normalize_Test#normalize_internalWireParseException_returnsNull()",
+        "--select-method",
+        "org.xbill.DNS.Message_normalize_Test#normalize_validMessage_returnsNormalizedMessage()",
+        "--reports-dir",
+        "/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/validation/ktester/round1/21/test/run2"
+      ],
+      "cwd": "/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/runtime",
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 2.603,
+      "log": "work/validation/ktester/round1/21/test/run2/console.txt"
+    },
+    {
+      "command": [
+        "java",
+        "-Xmx1g",
+        "-XX:+UseSerialGC",
+        "-cp",
+        "/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/validation/ktester/round1/21/test/classes:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/checkouts/0/target/classes:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/apiguardian-api-1.1.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/byte-buddy-1.17.7.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/byte-buddy-agent-1.17.7.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/commons-io-2.16.1.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/commons-lang3-3.14.0.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/hamcrest-2.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/junit-jupiter-5.11.4.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/junit-jupiter-api-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/junit-jupiter-engine-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/junit-jupiter-params-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/junit-platform-commons-1.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/junit-platform-engine-1.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/mockito-core-5.24.0.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/mockito-junit-jupiter-5.24.0.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/objenesis-3.3.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/opentest4j-1.3.0.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/junit-vintage-engine-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/junit-4.13.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/hamcrest-core-1.3.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/junit-platform-console-standalone-1.9.3.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/projectlombok/lombok/1.18.42/lombok-1.18.42.jar:/root/.m2/repository/net/java/dev/jna/jna/5.18.1/jna-5.18.1.jar:/root/.m2/repository/net/java/dev/jna/jna-platform/5.18.1/jna-platform-5.18.1.jar:/root/.m2/repository/org/bouncycastle/bcprov-jdk18on/1.84/bcprov-jdk18on-1.84.jar:/root/.m2/repository/org/bouncycastle/bcutil-jdk18on/1.84/bcutil-jdk18on-1.84.jar:/root/.m2/repository/org/assertj/assertj-core/3.27.7/assertj-core-3.27.7.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.18.3/byte-buddy-1.18.3.jar:/root/.m2/repository/org/mockito/mockito-core/5.21.0/mockito-core-5.21.0.jar:/root/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/root/.m2/repository/org/mockito/mockito-junit-jupiter/5.21.0/mockito-junit-jupiter-5.21.0.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.18.4/byte-buddy-agent-1.18.4.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.36/slf4j-simple-1.7.36.jar:/root/.m2/repository/org/slf4j/jul-to-slf4j/1.7.36/jul-to-slf4j-1.7.36.jar:/root/.m2/repository/io/vertx/vertx-core/4.5.24/vertx-core-4.5.24.jar:/root/.m2/repository/io/netty/netty-common/4.1.130.Final/netty-common-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-buffer/4.1.130.Final/netty-buffer-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-transport/4.1.130.Final/netty-transport-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-handler/4.1.130.Final/netty-handler-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-transport-native-unix-common/4.1.130.Final/netty-transport-native-unix-common-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-codec/4.1.130.Final/netty-codec-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-handler-proxy/4.1.130.Final/netty-handler-proxy-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-codec-socks/4.1.130.Final/netty-codec-socks-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-codec-http/4.1.130.Final/netty-codec-http-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-codec-http2/4.1.130.Final/netty-codec-http2-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-resolver/4.1.130.Final/netty-resolver-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-resolver-dns/4.1.130.Final/netty-resolver-dns-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-codec-dns/4.1.130.Final/netty-codec-dns-4.1.130.Final.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.16.1/jackson-core-2.16.1.jar:/root/.m2/repository/io/vertx/vertx-junit5/4.5.24/vertx-junit5-4.5.24.jar:/root/.m2/repository/io/vertx/vertx-codegen/4.5.24/vertx-codegen-4.5.24.jar:/root/.m2/repository/commons-io/commons-io/2.21.0/commons-io-2.21.0.jar:/root/.m2/repository/org/openjdk/jcstress/jcstress-core/0.16/jcstress-core-0.16.jar:/root/.m2/repository/net/sf/jopt-simple/jopt-simple/4.6/jopt-simple-4.6.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/dev/src-test-t/resources:/repo/experiments/regen-policies/results/policy/pools/ktester/102/dev/src-test-t/suite",
+        "org.junit.platform.console.ConsoleLauncher",
+        "--disable-banner",
+        "--disable-ansi-colors",
+        "--fail-if-no-tests",
+        "--details",
+        "summary",
+        "--select-method",
+        "org.xbill.DNS.Message_normalize_Test#normalize_removesIrrelevantSections()",
+        "--select-method",
+        "org.xbill.DNS.Message_normalize_Test#normalize_doesNotModifyQuery()",
+        "--select-method",
+        "org.xbill.DNS.Message_normalize_Test#normalize_nullQuery_throwsNPE()",
+        "--select-method",
+        "org.xbill.DNS.Message_normalize_Test#normalize_internalWireParseException_returnsNull()",
+        "--select-method",
+        "org.xbill.DNS.Message_normalize_Test#normalize_validMessage_returnsNormalizedMessage()",
+        "--reports-dir",
+        "/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/validation/ktester/round1/21/test/run3"
+      ],
+      "cwd": "/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/runtime",
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 2.084,
+      "log": "work/validation/ktester/round1/21/test/run3/console.txt"
+    }
+  ],
+  "methods": [
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/Message_normalize_Test.java",
+      "class": "org.xbill.DNS.Message_normalize_Test",
+      "method": "normalize_removesIrrelevantSections",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_normalize_Test.java|org.xbill.DNS.Message_normalize_Test|normalize_removesIrrelevantSections",
+      "body_hash": "ffe8201856924fe26d18d156b42c4fbbbdb25294979dacc1c0896700c86c8b50",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_normalize_Test#normalize_removesIrrelevantSections()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/Message_normalize_Test.java",
+      "class": "org.xbill.DNS.Message_normalize_Test",
+      "method": "normalize_doesNotModifyQuery",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_normalize_Test.java|org.xbill.DNS.Message_normalize_Test|normalize_doesNotModifyQuery",
+      "body_hash": "41e6e90d57c857c62456d07eae0e4e7c994e6ea17263bf299f8667a0efac98b3",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_normalize_Test#normalize_doesNotModifyQuery()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/Message_normalize_Test.java",
+      "class": "org.xbill.DNS.Message_normalize_Test",
+      "method": "normalize_nullQuery_throwsNPE",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_normalize_Test.java|org.xbill.DNS.Message_normalize_Test|normalize_nullQuery_throwsNPE",
+      "body_hash": "3149a530f0db164e1e83f10f99ed54ed938b4ddaa37ce416f0c03e66a6256c96",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_normalize_Test#normalize_nullQuery_throwsNPE()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/Message_normalize_Test.java",
+      "class": "org.xbill.DNS.Message_normalize_Test",
+      "method": "normalize_internalWireParseException_returnsNull",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_normalize_Test.java|org.xbill.DNS.Message_normalize_Test|normalize_internalWireParseException_returnsNull",
+      "body_hash": "2d02de340b5b457735637b315e980430328e028edbabe1e2e93558ceada52c3c",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_normalize_Test#normalize_internalWireParseException_returnsNull()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/Message_normalize_Test.java",
+      "class": "org.xbill.DNS.Message_normalize_Test",
+      "method": "normalize_validMessage_returnsNormalizedMessage",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_normalize_Test.java|org.xbill.DNS.Message_normalize_Test|normalize_validMessage_returnsNormalizedMessage",
+      "body_hash": "6136c9419c433e6ee3c82fb9e18812d1b1c458211cf7f6af0cae6e73c72c4b91",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_normalize_Test#normalize_validMessage_returnsNormalizedMessage()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    }
+  ],
+  "parse": {
+    "command": [
+      "java",
+      "-Xmx512m",
+      "/survival-package/adapters/java/SourceInventory.java",
+      "/repo/experiments/regen-policies/results/policy/pools/ktester/102/generated/ktester/round1/dnsjava/test_classes/Message_normalize_Test.java",
+      "auto"
+    ],
+    "cwd": "/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/checkouts/0",
+    "exit_code": 0,
+    "timeout": false,
+    "seconds": 0.418,
+    "log": "work/validation/ktester/round1/21/inventory.tsv"
+  },
+  "input_sha256": "9052cdb0a4eb79199cdaed1614a8f7804af387941816d719063ab150b2ca9f43"
+}

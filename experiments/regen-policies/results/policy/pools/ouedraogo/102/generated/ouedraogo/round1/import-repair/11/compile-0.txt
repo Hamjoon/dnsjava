@@ -1,0 +1,31 @@
+/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/generated/ouedraogo/round1/sources/Zone/FSL/ZoneTest.java:96: error: unreported exception TextParseException; must be caught or declared to be thrown
+    RRset wwwA = zone.findExactMatch(new Name("www.example.com."), Type.A);
+                                     ^
+/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/generated/ouedraogo/round1/sources/Zone/FSL/ZoneTest.java:102: error: unreported exception TextParseException; must be caught or declared to be thrown
+    RRset notFound = zone.findExactMatch(new Name("nosuch.example.com."), Type.A);
+                                         ^
+/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/generated/ouedraogo/round1/sources/Zone/FSL/ZoneTest.java:112: error: unreported exception TextParseException; must be caught or declared to be thrown
+    SetResponse respA = zone.findRecords(new Name("www.example.com."), Type.A);
+                                         ^
+/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/generated/ouedraogo/round1/sources/Zone/FSL/ZoneTest.java:118: error: unreported exception TextParseException; must be caught or declared to be thrown
+    SetResponse respCNAME = zone.findRecords(new Name("mail.example.com."), Type.A);
+                                             ^
+/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/generated/ouedraogo/round1/sources/Zone/FSL/ZoneTest.java:123: error: unreported exception TextParseException; must be caught or declared to be thrown
+    SetResponse respWildcard = zone.findRecords(new Name("test.example.com."), Type.A);
+                                                ^
+/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/generated/ouedraogo/round1/sources/Zone/FSL/ZoneTest.java:129: error: unreported exception TextParseException; must be caught or declared to be thrown
+    assertEquals(new Name("test.example.com."), expanded.getName());
+                 ^
+/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/generated/ouedraogo/round1/sources/Zone/FSL/ZoneTest.java:132: error: unreported exception TextParseException; must be caught or declared to be thrown
+    SetResponse respOut = zone.findRecords(new Name("example.org."), Type.A);
+                                           ^
+/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/generated/ouedraogo/round1/sources/Zone/FSL/ZoneTest.java:182: error: unreported exception TextParseException; must be caught or declared to be thrown
+    assertNull(zone.findExactMatch(new Name("www.example.com."), Type.A));
+                                   ^
+/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/generated/ouedraogo/round1/sources/Zone/FSL/ZoneTest.java:286: error: unreported exception IOException; must be caught or declared to be thrown
+      new Zone(null, soa1);
+      ^
+/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/generated/ouedraogo/round1/sources/Zone/FSL/ZoneTest.java:292: error: unreported exception IOException; must be caught or declared to be thrown
+      new Zone(origin, (Record[]) null);
+      ^
+10 errors

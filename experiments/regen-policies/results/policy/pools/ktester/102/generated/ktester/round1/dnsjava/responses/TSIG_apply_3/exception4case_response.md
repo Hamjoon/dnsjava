@@ -1,0 +1,137 @@
+{
+    "test_cases": [
+        {
+            "group": "apply_nullMessage",
+            "cases": [
+                {
+                    "input": [
+                        {
+                            "parameter": "Message m",
+                            "value": "null"
+                        },
+                        {
+                            "parameter": "int error",
+                            "value": "0"
+                        },
+                        {
+                            "parameter": "TSIGRecord old",
+                            "value": "null"
+                        }
+                    ],
+                    "expected": "NullPointerException",
+                    "description": "Calling apply with a null Message should throw NPE because the method needs to access the message to add a TSIG record."
+                }
+            ]
+        },
+        {
+            "group": "apply_nullMessageAndOld",
+            "cases": [
+                {
+                    "input": [
+                        {
+                            "parameter": "Message m",
+                            "value": "null"
+                        },
+                        {
+                            "parameter": "int error",
+                            "value": "0"
+                        },
+                        {
+                            "parameter": "TSIGRecord old",
+                            "value": "new TSIGRecord(Name.fromString(\"example.com.\"), TSIG.HMAC_SHA256, 0, new byte[0], 0, 0, 0, new byte[0])"
+                        }
+                    ],
+                    "expected": "NullPointerException",
+                    "description": "Even when a non‑null previous TSIGRecord is supplied, a null Message is invalid and must raise NPE."
+                }
+            ]
+        },
+        {
+            "group": "apply_invalidErrorCode",
+            "cases": [
+                {
+                    "input": [
+                        {
+                            "parameter": "Message m",
+                            "value": "new Message()"
+                        },
+                        {
+                            "parameter": "int error",
+                            "value": "-1"
+                        },
+                        {
+                            "parameter": "TSIGRecord old",
+                            "value": "null"
+                        }
+                    ],
+                    "expected": "IllegalArgumentException",
+                    "description": "The DNS TSIG error field must be a non‑negative value defined by RFC 2845. Supplying a negative error code should cause an IllegalArgumentException."
+                },
+                {
+                    "input": [
+                        {
+                            "parameter": "Message m",
+                            "value": "new Message()"
+                        },
+                        {
+                            "parameter": "int error",
+                            "value": "9999"
+                        },
+                        {
+                            "parameter": "TSIGRecord old",
+                            "value": "null"
+                        }
+                    ],
+                    "expected": "IllegalArgumentException",
+                    "description": "Error codes outside the range of defined TSIG error values (0‑16) must be rejected."
+                }
+            ]
+        },
+        {
+            "group": "apply_unsupportedAlgorithm",
+            "cases": [
+                {
+                    "input": [
+                        {
+                            "parameter": "Message m",
+                            "value": "new Message()"
+                        },
+                        {
+                            "parameter": "int error",
+                            "value": "0"
+                        },
+                        {
+                            "parameter": "TSIGRecord old",
+                            "value": "new TSIGRecord(Name.fromString(\"example.com.\"), Name.fromString(\"unsupported-alg.\"), 0, new byte[0], 0, 0, 0, new byte[0])"
+                        }
+                    ],
+                    "expected": "GeneralSecurityException",
+                    "description": "If the supplied old TSIGRecord uses an algorithm name that TSIG does not recognise, the internal Mac initialization fails and a GeneralSecurityException is thrown."
+                }
+            ]
+        },
+        {
+            "group": "apply_messageAlreadySigned",
+            "cases": [
+                {
+                    "input": [
+                        {
+                            "parameter": "Message m",
+                            "value": "MessageWithExistingTSIG"
+                        },
+                        {
+                            "parameter": "int error",
+                            "value": "0"
+                        },
+                        {
+                            "parameter": "TSIGRecord old",
+                            "value": "null"
+                        }
+                    ],
+                    "expected": "IllegalStateException",
+                    "description": "When the Message already contains a TSIG record, applying a new TSIG should be prohibited and result in an IllegalStateException."
+                }
+            ]
+        }
+    ]
+}

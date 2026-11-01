@@ -1,0 +1,67 @@
+{
+  "index": 30,
+  "sha": "2f9b45ba6dd60e7b65ac29c81aa765b152029c8f",
+  "build": "ok",
+  "attempts": [
+    {
+      "command": [
+        "mvn",
+        "-q",
+        "-o",
+        "-DskipTests",
+        "compile"
+      ],
+      "cwd": "/repo/experiments/commit-survival/work/checkouts/30",
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 7.507,
+      "log": "results/builds/logs/30-1.txt"
+    }
+  ],
+  "input_sha256": "811a73c55ea4d88e1fce774434f9e25de8e8f51e4e3fc8d6dd4881c90a6075a9",
+  "pom_sha256": "0d0458d27d108f6baf995bc84a9d4467e9d3ba9dc58edbac5e9677a7c93ba812",
+  "classpath": "work/classpaths/0d0458d27d108f6baf995bc84a9d4467e9d3ba9dc58edbac5e9677a7c93ba812.txt",
+  "classpath_attempts": [
+    {
+      "command": [
+        "mvn",
+        "-q",
+        "-o",
+        "dependency:go-offline"
+      ],
+      "cwd": "/repo/experiments/commit-survival/work/checkouts/30",
+      "exit_code": 1,
+      "timeout": false,
+      "seconds": 3.066,
+      "log": "results/builds/logs/classpath-30/go-offline-7753a4ba7edc4988822dcc2e18e47fc2/1.txt"
+    },
+    {
+      "command": [
+        "mvn",
+        "-q",
+        "-U",
+        "dependency:go-offline"
+      ],
+      "cwd": "/repo/experiments/commit-survival/work/checkouts/30",
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 2.432,
+      "log": "results/builds/logs/classpath-30/go-offline-7753a4ba7edc4988822dcc2e18e47fc2/2.txt"
+    },
+    {
+      "command": [
+        "mvn",
+        "-q",
+        "-o",
+        "dependency:build-classpath",
+        "-DincludeScope=test",
+        "-Dmdep.outputFile=/repo/experiments/commit-survival/work/classpaths/0d0458d27d108f6baf995bc84a9d4467e9d3ba9dc58edbac5e9677a7c93ba812-ee81ba9590cd4dad91e93dc05d08b298.tmp"
+      ],
+      "cwd": "/repo/experiments/commit-survival/work/checkouts/30",
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 1.282,
+      "log": "results/builds/logs/classpath-30/build-classpath-27d029f504814422b0ebb99cb99eca27/1.txt"
+    }
+  ]
+}

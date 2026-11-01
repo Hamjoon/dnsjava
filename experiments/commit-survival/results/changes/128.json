@@ -1,0 +1,21 @@
+{
+  "index": 128,
+  "sha": "7e2250647a25613502e349b958fe5c0964dd40c4",
+  "parent": "7b2feec1b9cc48eca806f5ae24b968c83e38801a",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/Message.java": [],
+    "src/main/java/org/xbill/DNS/tools/jnamed.java": [
+      593
+    ]
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/Message.java": [
+      140,
+      141
+    ],
+    "src/main/java/org/xbill/DNS/tools/jnamed.java": [
+      593
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/Message.java b/src/main/java/org/xbill/DNS/Message.java\nindex bdff5f4b..09e64b74 100644\n--- a/src/main/java/org/xbill/DNS/Message.java\n+++ b/src/main/java/org/xbill/DNS/Message.java\n@@ -136,0 +137,7 @@ public class Message implements Cloneable {\n+\n+    // Reconcile the header with what was actually parsed so readers that index a section by its\n+    // declared count cannot run past the end.\n+    for (int i = 0; i < 4; i++) {\n+      header.setCount(i, sections[i] == null ? 0 : sections[i].size());\n+    }\n+\ndiff --git a/src/main/java/org/xbill/DNS/tools/jnamed.java b/src/main/java/org/xbill/DNS/tools/jnamed.java\nindex b111ce35..54b24781 100644\n--- a/src/main/java/org/xbill/DNS/tools/jnamed.java\n+++ b/src/main/java/org/xbill/DNS/tools/jnamed.java\n@@ -593 +593 @@ public class jnamed {\n-    } catch (IOException e) {\n+    } catch (Exception e) {"
+}

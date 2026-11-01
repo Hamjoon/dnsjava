@@ -1,0 +1,866 @@
+{
+  "index": 68,
+  "sha": "fbb6b097a7c78533fdcef0b640d15e665580826b",
+  "parent": "77e049578334982794348885027261130e89b2d1",
+  "pre_image": {
+    "src/main/java/android/net/Network.java": [],
+    "src/main/java/org/xbill/DNS/APLRecord.java": [],
+    "src/main/java/org/xbill/DNS/ARecord.java": [
+      96
+    ],
+    "src/main/java/org/xbill/DNS/Address.java": [
+      27,
+      29,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      38,
+      39,
+      42,
+      43,
+      45,
+      46,
+      47,
+      49,
+      50,
+      52,
+      54,
+      55,
+      58,
+      59,
+      61,
+      62,
+      63,
+      65,
+      69,
+      70,
+      73,
+      74,
+      76,
+      77,
+      81,
+      82,
+      84,
+      86,
+      87,
+      89,
+      93,
+      94,
+      96,
+      100,
+      104,
+      105,
+      107,
+      111,
+      112,
+      116,
+      117,
+      118,
+      119,
+      121,
+      122,
+      125,
+      127,
+      128,
+      131,
+      132,
+      134,
+      135,
+      136,
+      138,
+      139,
+      141,
+      145,
+      146,
+      147,
+      148,
+      151,
+      152,
+      153,
+      155,
+      156,
+      157,
+      158,
+      159,
+      162,
+      163,
+      166,
+      167,
+      168,
+      169,
+      170,
+      174,
+      215,
+      217,
+      453
+    ],
+    "src/main/java/org/xbill/DNS/CERTRecord.java": [
+      162
+    ],
+    "src/main/java/org/xbill/DNS/Cache.java": [
+      188,
+      385,
+      386,
+      387,
+      388,
+      674,
+      726,
+      773,
+      774
+    ],
+    "src/main/java/org/xbill/DNS/DNSOutput.java": [
+      25,
+      78,
+      83,
+      86,
+      87,
+      125
+    ],
+    "src/main/java/org/xbill/DNS/EDNSOption.java": [],
+    "src/main/java/org/xbill/DNS/EmptyRecord.java": [
+      16,
+      19,
+      27
+    ],
+    "src/main/java/org/xbill/DNS/Flags.java": [
+      13,
+      40,
+      41,
+      42,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      57,
+      62,
+      70
+    ],
+    "src/main/java/org/xbill/DNS/GPOSRecord.java": [],
+    "src/main/java/org/xbill/DNS/HINFORecord.java": [],
+    "src/main/java/org/xbill/DNS/HIPRecord.java": [
+      103,
+      107,
+      119
+    ],
+    "src/main/java/org/xbill/DNS/Header.java": [
+      34,
+      153,
+      204
+    ],
+    "src/main/java/org/xbill/DNS/KEYBase.java": [
+      52
+    ],
+    "src/main/java/org/xbill/DNS/KEYRecord.java": [
+      181,
+      184,
+      185,
+      187,
+      188,
+      189,
+      190,
+      191,
+      192,
+      193,
+      194,
+      195,
+      196,
+      197,
+      198,
+      199,
+      200,
+      201,
+      202,
+      203,
+      204,
+      205,
+      206,
+      207,
+      208,
+      209,
+      210,
+      211,
+      212,
+      213,
+      214,
+      215,
+      216,
+      217,
+      231,
+      240
+    ],
+    "src/main/java/org/xbill/DNS/LOCRecord.java": [
+      98
+    ],
+    "src/main/java/org/xbill/DNS/Lookup.java": [
+      271,
+      276,
+      441,
+      449,
+      603,
+      610,
+      698
+    ],
+    "src/main/java/org/xbill/DNS/Master.java": [
+      135,
+      139,
+      154,
+      184,
+      398
+    ],
+    "src/main/java/org/xbill/DNS/Message.java": [
+      1066
+    ],
+    "src/main/java/org/xbill/DNS/Mnemonic.java": [
+      184,
+      185,
+      186,
+      187,
+      188
+    ],
+    "src/main/java/org/xbill/DNS/NAPTRRecord.java": [],
+    "src/main/java/org/xbill/DNS/NSEC3PARAMRecord.java": [
+      64,
+      65,
+      66
+    ],
+    "src/main/java/org/xbill/DNS/NSEC3Record.java": [
+      129,
+      130,
+      131,
+      136,
+      137
+    ],
+    "src/main/java/org/xbill/DNS/OPENPGPKEYRecord.java": [
+      45
+    ],
+    "src/main/java/org/xbill/DNS/Opcode.java": [],
+    "src/main/java/org/xbill/DNS/Options.java": [],
+    "src/main/java/org/xbill/DNS/RRset.java": [
+      38
+    ],
+    "src/main/java/org/xbill/DNS/Record.java": [
+      706,
+      715,
+      724
+    ],
+    "src/main/java/org/xbill/DNS/SIG0.java": [
+      101,
+      102,
+      105,
+      108
+    ],
+    "src/main/java/org/xbill/DNS/SIGBase.java": [
+      103,
+      113
+    ],
+    "src/main/java/org/xbill/DNS/SOARecord.java": [
+      82
+    ],
+    "src/main/java/org/xbill/DNS/SRVRecord.java": [],
+    "src/main/java/org/xbill/DNS/SVCBBase.java": [],
+    "src/main/java/org/xbill/DNS/Serial.java": [
+      31,
+      34,
+      39,
+      40,
+      56
+    ],
+    "src/main/java/org/xbill/DNS/TCPClient.java": [
+      154,
+      156
+    ],
+    "src/main/java/org/xbill/DNS/TKEYRecord.java": [
+      167,
+      177
+    ],
+    "src/main/java/org/xbill/DNS/TSIG.java": [
+      186
+    ],
+    "src/main/java/org/xbill/DNS/TSIGRecord.java": [
+      143,
+      152,
+      166,
+      192
+    ],
+    "src/main/java/org/xbill/DNS/TTL.java": [
+      99,
+      101,
+      103,
+      105,
+      107
+    ],
+    "src/main/java/org/xbill/DNS/Tokenizer.java": [
+      448,
+      463,
+      478,
+      552,
+      553,
+      554,
+      556
+    ],
+    "src/main/java/org/xbill/DNS/Type.java": [
+      467
+    ],
+    "src/main/java/org/xbill/DNS/URIRecord.java": [],
+    "src/main/java/org/xbill/DNS/Update.java": [
+      79,
+      101,
+      127,
+      142,
+      147,
+      148,
+      173,
+      188,
+      193,
+      194,
+      211,
+      230,
+      231,
+      239,
+      240
+    ],
+    "src/main/java/org/xbill/DNS/ZoneMDRecord.java": [
+      188
+    ],
+    "src/main/java/org/xbill/DNS/ZoneTransferIn.java": [
+      184,
+      185,
+      349,
+      374,
+      391,
+      394,
+      395,
+      406,
+      414,
+      428,
+      444,
+      447,
+      448
+    ],
+    "src/main/java/org/xbill/DNS/config/BaseResolverConfigProvider.java": [
+      23,
+      24,
+      92,
+      100
+    ],
+    "src/main/java/org/xbill/DNS/config/IPHlpAPI.java": [],
+    "src/main/java/org/xbill/DNS/config/PropertyResolverConfigProvider.java": [
+      47,
+      51
+    ],
+    "src/main/java/org/xbill/DNS/dnssec/AlgorithmRequirements.java": [],
+    "src/main/java/org/xbill/DNS/dnssec/Nsec3ValidationState.java": [],
+    "src/main/java/org/xbill/DNS/dnssec/SMessage.java": [
+      49
+    ],
+    "src/main/java/org/xbill/DNS/hosts/HostsFileParser.java": [
+      32,
+      107
+    ],
+    "src/main/java/org/xbill/DNS/lookup/LookupResult.java": [
+      82,
+      85
+    ],
+    "src/main/java/org/xbill/DNS/lookup/LookupSession.java": [],
+    "src/main/java/org/xbill/DNS/spi/DNSJavaNameService.java": [],
+    "src/main/java/org/xbill/DNS/tools/dig.java": [
+      28,
+      43,
+      47,
+      48,
+      193,
+      194,
+      227,
+      228,
+      229
+    ],
+    "src/main/java/org/xbill/DNS/tools/jnamed.java": [
+      85,
+      174,
+      434
+    ],
+    "src/main/java/org/xbill/DNS/tools/update.java": [
+      343,
+      345,
+      348,
+      351,
+      352,
+      370,
+      371,
+      372,
+      376,
+      377,
+      378,
+      402,
+      404,
+      407,
+      410,
+      411,
+      415,
+      416,
+      417
+    ],
+    "src/main/java/org/xbill/DNS/tools/xfrin.java": [
+      28,
+      37,
+      38,
+      80,
+      81,
+      88,
+      93,
+      94
+    ],
+    "src/main/java/org/xbill/DNS/utils/base32.java": [],
+    "src/main/java/org/xbill/DNS/utils/base64.java": [
+      42,
+      120
+    ],
+    "src/main/java/org/xbill/DNS/utils/hexdump.java": [
+      44
+    ]
+  },
+  "post_image": {
+    "src/main/java/android/net/Network.java": [],
+    "src/main/java/org/xbill/DNS/APLRecord.java": [],
+    "src/main/java/org/xbill/DNS/ARecord.java": [
+      96
+    ],
+    "src/main/java/org/xbill/DNS/Address.java": [
+      62,
+      64,
+      300
+    ],
+    "src/main/java/org/xbill/DNS/CERTRecord.java": [
+      163
+    ],
+    "src/main/java/org/xbill/DNS/Cache.java": [
+      188,
+      385,
+      386,
+      387,
+      671,
+      723,
+      770,
+      771
+    ],
+    "src/main/java/org/xbill/DNS/DNSOutput.java": [
+      25,
+      78,
+      83,
+      86,
+      87,
+      125
+    ],
+    "src/main/java/org/xbill/DNS/EDNSOption.java": [],
+    "src/main/java/org/xbill/DNS/EmptyRecord.java": [
+      18,
+      23,
+      33
+    ],
+    "src/main/java/org/xbill/DNS/Flags.java": [
+      13,
+      40,
+      41,
+      42,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      57,
+      62,
+      70
+    ],
+    "src/main/java/org/xbill/DNS/GPOSRecord.java": [],
+    "src/main/java/org/xbill/DNS/HINFORecord.java": [],
+    "src/main/java/org/xbill/DNS/HIPRecord.java": [
+      103,
+      107,
+      119
+    ],
+    "src/main/java/org/xbill/DNS/Header.java": [
+      34,
+      153,
+      204
+    ],
+    "src/main/java/org/xbill/DNS/IPAddressUtils.java": [
+      15,
+      17,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      26,
+      27,
+      30,
+      31,
+      33,
+      34,
+      35,
+      37,
+      38,
+      40,
+      42,
+      43,
+      46,
+      47,
+      49,
+      50,
+      51,
+      53,
+      57,
+      58,
+      61,
+      62,
+      64,
+      65,
+      69,
+      70,
+      72,
+      74,
+      75,
+      77,
+      81,
+      82,
+      84,
+      88,
+      92,
+      93,
+      95,
+      99,
+      100,
+      105,
+      106,
+      107,
+      108,
+      110,
+      111,
+      114,
+      116,
+      117,
+      120,
+      121,
+      123,
+      124,
+      125,
+      127,
+      128,
+      130,
+      134,
+      135,
+      136,
+      137,
+      140,
+      141,
+      142,
+      144,
+      145,
+      146,
+      147,
+      148,
+      151,
+      152,
+      155,
+      156,
+      157,
+      158,
+      159,
+      163
+    ],
+    "src/main/java/org/xbill/DNS/KEYBase.java": [
+      54
+    ],
+    "src/main/java/org/xbill/DNS/KEYRecord.java": [
+      181,
+      184,
+      185,
+      187,
+      188,
+      189,
+      190,
+      191,
+      192,
+      193,
+      194,
+      195,
+      196,
+      197,
+      198,
+      199,
+      200,
+      201,
+      202,
+      203,
+      204,
+      205,
+      206,
+      207,
+      208,
+      209,
+      210,
+      211,
+      212,
+      213,
+      214,
+      215,
+      216,
+      217,
+      231,
+      241
+    ],
+    "src/main/java/org/xbill/DNS/LOCRecord.java": [
+      103
+    ],
+    "src/main/java/org/xbill/DNS/Lookup.java": [
+      271,
+      276,
+      441,
+      449,
+      603,
+      610,
+      698
+    ],
+    "src/main/java/org/xbill/DNS/Master.java": [
+      135,
+      139,
+      154,
+      184,
+      398
+    ],
+    "src/main/java/org/xbill/DNS/Message.java": [
+      1066
+    ],
+    "src/main/java/org/xbill/DNS/Mnemonic.java": [
+      185,
+      186,
+      187,
+      188
+    ],
+    "src/main/java/org/xbill/DNS/NAPTRRecord.java": [],
+    "src/main/java/org/xbill/DNS/NSEC3PARAMRecord.java": [
+      64,
+      65,
+      66
+    ],
+    "src/main/java/org/xbill/DNS/NSEC3Record.java": [
+      129,
+      130,
+      131,
+      136,
+      137
+    ],
+    "src/main/java/org/xbill/DNS/OPENPGPKEYRecord.java": [
+      45
+    ],
+    "src/main/java/org/xbill/DNS/Opcode.java": [],
+    "src/main/java/org/xbill/DNS/Options.java": [
+      124,
+      125,
+      128
+    ],
+    "src/main/java/org/xbill/DNS/RRset.java": [
+      38
+    ],
+    "src/main/java/org/xbill/DNS/Record.java": [
+      706,
+      715,
+      724
+    ],
+    "src/main/java/org/xbill/DNS/SIG0.java": [
+      101,
+      102,
+      105,
+      108
+    ],
+    "src/main/java/org/xbill/DNS/SIGBase.java": [
+      104,
+      114
+    ],
+    "src/main/java/org/xbill/DNS/SOARecord.java": [
+      87
+    ],
+    "src/main/java/org/xbill/DNS/SRVRecord.java": [],
+    "src/main/java/org/xbill/DNS/SVCBBase.java": [],
+    "src/main/java/org/xbill/DNS/Serial.java": [
+      35,
+      38,
+      58
+    ],
+    "src/main/java/org/xbill/DNS/TCPClient.java": [
+      155,
+      157
+    ],
+    "src/main/java/org/xbill/DNS/TKEYRecord.java": [
+      167,
+      177
+    ],
+    "src/main/java/org/xbill/DNS/TSIG.java": [
+      186
+    ],
+    "src/main/java/org/xbill/DNS/TSIGRecord.java": [
+      143,
+      152,
+      166,
+      192
+    ],
+    "src/main/java/org/xbill/DNS/TTL.java": [
+      98,
+      100,
+      102,
+      104,
+      106
+    ],
+    "src/main/java/org/xbill/DNS/Tokenizer.java": [
+      448,
+      463,
+      478,
+      552,
+      553,
+      554,
+      555,
+      556,
+      559,
+      560,
+      563
+    ],
+    "src/main/java/org/xbill/DNS/Type.java": [
+      467
+    ],
+    "src/main/java/org/xbill/DNS/URIRecord.java": [],
+    "src/main/java/org/xbill/DNS/Update.java": [
+      79,
+      101,
+      127,
+      142,
+      147,
+      148,
+      173,
+      188,
+      193,
+      194,
+      211,
+      230,
+      231,
+      239,
+      240
+    ],
+    "src/main/java/org/xbill/DNS/Utils.java": [
+      9,
+      13,
+      17,
+      21,
+      25
+    ],
+    "src/main/java/org/xbill/DNS/ZoneMDRecord.java": [
+      188
+    ],
+    "src/main/java/org/xbill/DNS/ZoneTransferIn.java": [
+      184,
+      185,
+      349,
+      374,
+      391,
+      394,
+      395,
+      406,
+      414,
+      428,
+      444,
+      447,
+      448
+    ],
+    "src/main/java/org/xbill/DNS/config/BaseResolverConfigProvider.java": [
+      23,
+      24,
+      94,
+      102
+    ],
+    "src/main/java/org/xbill/DNS/config/IPHlpAPI.java": [],
+    "src/main/java/org/xbill/DNS/config/PropertyResolverConfigProvider.java": [
+      46,
+      50
+    ],
+    "src/main/java/org/xbill/DNS/dnssec/AlgorithmRequirements.java": [],
+    "src/main/java/org/xbill/DNS/dnssec/Nsec3ValidationState.java": [],
+    "src/main/java/org/xbill/DNS/dnssec/SMessage.java": [
+      49
+    ],
+    "src/main/java/org/xbill/DNS/hosts/HostsFileParser.java": [
+      32,
+      107
+    ],
+    "src/main/java/org/xbill/DNS/lookup/LookupResult.java": [
+      82,
+      85
+    ],
+    "src/main/java/org/xbill/DNS/lookup/LookupSession.java": [],
+    "src/main/java/org/xbill/DNS/spi/DNSJavaNameService.java": [],
+    "src/main/java/org/xbill/DNS/tools/dig.java": [
+      28,
+      29,
+      50,
+      51,
+      54,
+      191,
+      192,
+      225,
+      226,
+      227
+    ],
+    "src/main/java/org/xbill/DNS/tools/jnamed.java": [
+      85,
+      174,
+      434
+    ],
+    "src/main/java/org/xbill/DNS/tools/update.java": [
+      344,
+      346,
+      349,
+      352,
+      353,
+      371,
+      372,
+      373,
+      377,
+      378,
+      379,
+      403,
+      405,
+      408,
+      411,
+      412,
+      416,
+      417,
+      418
+    ],
+    "src/main/java/org/xbill/DNS/tools/xfrin.java": [
+      28,
+      37,
+      38,
+      80,
+      81,
+      88,
+      93,
+      94
+    ],
+    "src/main/java/org/xbill/DNS/utils/base32.java": [],
+    "src/main/java/org/xbill/DNS/utils/base64.java": [
+      42,
+      120
+    ],
+    "src/main/java/org/xbill/DNS/utils/hexdump.java": [
+      44
+    ]
+  },
+  "diff": "diff --git a/src/main/java/android/net/Network.java b/src/main/java/android/net/Network.java\nindex da9ef5d3..afa217c1 100644\n--- a/src/main/java/android/net/Network.java\n+++ b/src/main/java/android/net/Network.java\n@@ -3,0 +4 @@ package android.net;\n+@SuppressWarnings(\"java:S2094\")\ndiff --git a/src/main/java/org/xbill/DNS/APLRecord.java b/src/main/java/org/xbill/DNS/APLRecord.java\nindex fab315c6..cdfc805f 100644\n--- a/src/main/java/org/xbill/DNS/APLRecord.java\n+++ b/src/main/java/org/xbill/DNS/APLRecord.java\n@@ -6,0 +7 @@ import java.io.IOException;\n+import java.io.Serializable;\n@@ -13,5 +13,0 @@ import org.xbill.DNS.utils.base16;\n-/*\n- * Note: this currently uses the same constants as the Address class;\n- * this could change if more constants are defined for APL records.\n- */\n-\n@@ -27 +23 @@ public class APLRecord extends Record {\n-  public static class Element {\n+  public static class Element implements Serializable {\ndiff --git a/src/main/java/org/xbill/DNS/ARecord.java b/src/main/java/org/xbill/DNS/ARecord.java\nindex 6dedde5d..e5cd28f9 100644\n--- a/src/main/java/org/xbill/DNS/ARecord.java\n+++ b/src/main/java/org/xbill/DNS/ARecord.java\n@@ -96 +96 @@ public class ARecord extends Record {\n-    out.writeU32((long) addr & 0xFFFFFFFFL);\n+    out.writeU32(addr & 0xFFFFFFFFL);\ndiff --git a/src/main/java/org/xbill/DNS/Address.java b/src/main/java/org/xbill/DNS/Address.java\nindex 960495b9..c2bc669e 100644\n--- a/src/main/java/org/xbill/DNS/Address.java\n+++ b/src/main/java/org/xbill/DNS/Address.java\n@@ -9,0 +10 @@ import java.net.UnknownHostException;\n+import lombok.experimental.UtilityClass;\n@@ -16,0 +18 @@ import java.net.UnknownHostException;\n+@UtilityClass\n@@ -22,155 +23,0 @@ public final class Address {\n-  private Address() {}\n-\n-  private static byte[] parseV4(String s) {\n-    int numDigits;\n-    int currentOctet;\n-    byte[] values = new byte[4];\n-    int currentValue;\n-    int length = s.length();\n-\n-    currentOctet = 0;\n-    currentValue = 0;\n-    numDigits = 0;\n-    for (int i = 0; i < length; i++) {\n-      char c = s.charAt(i);\n-      if (c >= '0' && c <= '9') {\n-        /* Can't have more than 3 digits per octet. */\n-        if (numDigits == 3) {\n-          return null;\n-        }\n-        /* Octets shouldn't start with 0, unless they are 0. */\n-        if (numDigits > 0 && currentValue == 0) {\n-          return null;\n-        }\n-        numDigits++;\n-        currentValue *= 10;\n-        currentValue += c - '0';\n-        /* 255 is the maximum value for an octet. */\n-        if (currentValue > 255) {\n-          return null;\n-        }\n-      } else if (c == '.') {\n-        /* Can't have more than 3 dots. */\n-        if (currentOctet == 3) {\n-          return null;\n-        }\n-        /* Two consecutive dots are bad. */\n-        if (numDigits == 0) {\n-          return null;\n-        }\n-        values[currentOctet++] = (byte) currentValue;\n-        currentValue = 0;\n-        numDigits = 0;\n-      } else {\n-        return null;\n-      }\n-    }\n-    /* Must have 4 octets. */\n-    if (currentOctet != 3) {\n-      return null;\n-    }\n-    /* The fourth octet can't be empty. */\n-    if (numDigits == 0) {\n-      return null;\n-    }\n-    values[currentOctet] = (byte) currentValue;\n-    return values;\n-  }\n-\n-  private static byte[] parseV6(String s) {\n-    int range = -1;\n-    byte[] data = new byte[16];\n-\n-    String[] tokens = s.split(\":\", -1);\n-\n-    int first = 0;\n-    int last = tokens.length - 1;\n-\n-    if (tokens[0].isEmpty()) {\n-      // If the first two tokens are empty, it means the string\n-      // started with ::, which is fine.  If only the first is\n-      // empty, the string started with :, which is bad.\n-      if (last - first > 0 && tokens[1].isEmpty()) {\n-        first++;\n-      } else {\n-        return null;\n-      }\n-    }\n-\n-    if (tokens[last].isEmpty()) {\n-      // If the last two tokens are empty, it means the string\n-      // ended with ::, which is fine.  If only the last is\n-      // empty, the string ended with :, which is bad.\n-      if (last - first > 0 && tokens[last - 1].isEmpty()) {\n-        last--;\n-      } else {\n-        return null;\n-      }\n-    }\n-\n-    if (last - first + 1 > 8) {\n-      return null;\n-    }\n-\n-    int i, j;\n-    for (i = first, j = 0; i <= last; i++) {\n-      if (tokens[i].isEmpty()) {\n-        if (range >= 0) {\n-          return null;\n-        }\n-        range = j;\n-        continue;\n-      }\n-\n-      if (tokens[i].indexOf('.') >= 0) {\n-        // An IPv4 address must be the last component\n-        if (i < last) {\n-          return null;\n-        }\n-        // There can't have been more than 6 components.\n-        if (i > 6) {\n-          return null;\n-        }\n-        byte[] v4addr = Address.toByteArray(tokens[i], IPv4);\n-        if (v4addr == null) {\n-          return null;\n-        }\n-        for (int k = 0; k < 4; k++) {\n-          data[j++] = v4addr[k];\n-        }\n-        break;\n-      }\n-\n-      try {\n-        for (int k = 0; k < tokens[i].length(); k++) {\n-          char c = tokens[i].charAt(k);\n-          if (Character.digit(c, 16) < 0) {\n-            return null;\n-          }\n-        }\n-        int x = Integer.parseInt(tokens[i], 16);\n-        if (x > 0xFFFF || x < 0) {\n-          return null;\n-        }\n-        data[j++] = (byte) (x >>> 8);\n-        data[j++] = (byte) (x & 0xFF);\n-      } catch (NumberFormatException e) {\n-        return null;\n-      }\n-    }\n-\n-    if (j < 16 && range < 0) {\n-      return null;\n-    }\n-\n-    if (range >= 0) {\n-      int empty = 16 - j;\n-      System.arraycopy(data, range, data, range + empty, j - range);\n-      for (i = range; i < range + empty; i++) {\n-        data[i] = 0;\n-      }\n-    }\n-\n-    return data;\n-  }\n-\n@@ -215 +62 @@ public final class Address {\n-      return parseV4(s);\n+      return IPAddressUtils.parseV4(s);\n@@ -217 +64 @@ public final class Address {\n-      return parseV6(s);\n+      return IPAddressUtils.parseV6(s);\n@@ -453 +300 @@ public final class Address {\n-    bytes[maskLength / 8] &= bitmask;\n+    bytes[maskLength / 8] &= (byte) bitmask;\ndiff --git a/src/main/java/org/xbill/DNS/CERTRecord.java b/src/main/java/org/xbill/DNS/CERTRecord.java\nindex 5ab7fd0c..fb7c7369 100644\n--- a/src/main/java/org/xbill/DNS/CERTRecord.java\n+++ b/src/main/java/org/xbill/DNS/CERTRecord.java\n@@ -105 +105,2 @@ public class CERTRecord extends Record {\n-  private int certType, keyTag;\n+  private int certType;\n+  private int keyTag;\n@@ -162 +163 @@ public class CERTRecord extends Record {\n-      if (Options.check(\"multiline\")) {\n+      if (Options.multiline()) {\ndiff --git a/src/main/java/org/xbill/DNS/Cache.java b/src/main/java/org/xbill/DNS/Cache.java\nindex 3258686e..3a6da65c 100644\n--- a/src/main/java/org/xbill/DNS/Cache.java\n+++ b/src/main/java/org/xbill/DNS/Cache.java\n@@ -168 +168 @@ public class Cache {\n-    protected boolean removeEldestEntry(Map.Entry eldest) {\n+    protected boolean removeEldestEntry(Map.Entry<Name, Object> eldest) {\n@@ -178 +178 @@ public class Cache {\n-  private static final int defaultMaxEntries = 50000;\n+  private static final int DEFAULT_MAX_ENTRIES = 50000;\n@@ -188 +188 @@ public class Cache {\n-    data = new CacheMap(defaultMaxEntries);\n+    data = new CacheMap(DEFAULT_MAX_ENTRIES);\n@@ -385,5 +385,3 @@ public class Cache {\n-    } else if (element.compareCredibility(cred) == 0) {\n-      if (element instanceof CacheRRset) {\n-        CacheRRset crrset = (CacheRRset) element;\n-        crrset.addRR(r);\n-      }\n+    } else if (element.compareCredibility(cred) == 0 && element instanceof CacheRRset) {\n+      CacheRRset crrset = (CacheRRset) element;\n+      crrset.addRR(r);\n@@ -658 +655,0 @@ public class Cache {\n-    List<RRset> answers, auth, addl;\n@@ -674 +671 @@ public class Cache {\n-    answers = in.getSectionRRsets(Section.ANSWER);\n+    List<RRset> answers = in.getSectionRRsets(Section.ANSWER);\n@@ -726 +723 @@ public class Cache {\n-    auth = in.getSectionRRsets(Section.AUTHORITY);\n+    List<RRset> auth = in.getSectionRRsets(Section.AUTHORITY);\n@@ -773,2 +770,2 @@ public class Cache {\n-    addl = in.getSectionRRsets(Section.ADDITIONAL);\n-    for (RRset rRset : addl) {\n+    List<RRset> additional = in.getSectionRRsets(Section.ADDITIONAL);\n+    for (RRset rRset : additional) {\ndiff --git a/src/main/java/org/xbill/DNS/DNSOutput.java b/src/main/java/org/xbill/DNS/DNSOutput.java\nindex 0aab750d..204fda0e 100644\n--- a/src/main/java/org/xbill/DNS/DNSOutput.java\n+++ b/src/main/java/org/xbill/DNS/DNSOutput.java\n@@ -15 +15 @@ public class DNSOutput {\n-  private int saved_pos;\n+  private int savedPos;\n@@ -25 +25 @@ public class DNSOutput {\n-    saved_pos = -1;\n+    savedPos = -1;\n@@ -78 +78 @@ public class DNSOutput {\n-    saved_pos = pos;\n+    savedPos = pos;\n@@ -83 +83 @@ public class DNSOutput {\n-    if (saved_pos < 0) {\n+    if (savedPos < 0) {\n@@ -86,2 +86,2 @@ public class DNSOutput {\n-    pos = saved_pos;\n-    saved_pos = -1;\n+    pos = savedPos;\n+    savedPos = -1;\n@@ -125 +125 @@ public class DNSOutput {\n-    array[where++] = (byte) (val & 0xFF);\n+    array[where] = (byte) (val & 0xFF);\ndiff --git a/src/main/java/org/xbill/DNS/EDNSOption.java b/src/main/java/org/xbill/DNS/EDNSOption.java\nindex 81906f83..b8dc7ca1 100644\n--- a/src/main/java/org/xbill/DNS/EDNSOption.java\n+++ b/src/main/java/org/xbill/DNS/EDNSOption.java\n@@ -5,0 +6 @@ import java.io.IOException;\n+import java.io.Serializable;\n@@ -15 +16 @@ import java.util.Arrays;\n-public abstract class EDNSOption {\n+public abstract class EDNSOption implements Serializable {\n@@ -239 +240,2 @@ public abstract class EDNSOption {\n-    int code, length;\n+    int code;\n+    int length;\ndiff --git a/src/main/java/org/xbill/DNS/EmptyRecord.java b/src/main/java/org/xbill/DNS/EmptyRecord.java\nindex 28bebfee..0f24109a 100644\n--- a/src/main/java/org/xbill/DNS/EmptyRecord.java\n+++ b/src/main/java/org/xbill/DNS/EmptyRecord.java\n@@ -16 +16,3 @@ class EmptyRecord extends Record {\n-  protected void rrFromWire(DNSInput in) {}\n+  protected void rrFromWire(DNSInput in) {\n+    // The empty record doesn't have any data to parse\n+  }\n@@ -19 +21,3 @@ class EmptyRecord extends Record {\n-  protected void rdataFromString(Tokenizer st, Name origin) {}\n+  protected void rdataFromString(Tokenizer st, Name origin) {\n+    // The empty record doesn't have any data to parse\n+  }\n@@ -27 +31,3 @@ class EmptyRecord extends Record {\n-  protected void rrToWire(DNSOutput out, Compression c, boolean canonical) {}\n+  protected void rrToWire(DNSOutput out, Compression c, boolean canonical) {\n+    // The empty record doesn't have any data to write\n+  }\ndiff --git a/src/main/java/org/xbill/DNS/Flags.java b/src/main/java/org/xbill/DNS/Flags.java\nindex d76c539c..d71c5c33 100644\n--- a/src/main/java/org/xbill/DNS/Flags.java\n+++ b/src/main/java/org/xbill/DNS/Flags.java\n@@ -13 +13 @@ public final class Flags {\n-  private static final Mnemonic flags = new Mnemonic(\"DNS Header Flag\", Mnemonic.CASE_LOWER);\n+  private static final Mnemonic HEADER_FLAGS = new Mnemonic(\"DNS Header Flag\", Mnemonic.CASE_LOWER);\n@@ -40,11 +40,11 @@ public final class Flags {\n-    flags.setMaximum(0xF);\n-    flags.setPrefix(\"FLAG\");\n-    flags.setNumericAllowed(true);\n-\n-    flags.add(QR, \"qr\");\n-    flags.add(AA, \"aa\");\n-    flags.add(TC, \"tc\");\n-    flags.add(RD, \"rd\");\n-    flags.add(RA, \"ra\");\n-    flags.add(AD, \"ad\");\n-    flags.add(CD, \"cd\");\n+    HEADER_FLAGS.setMaximum(0xF);\n+    HEADER_FLAGS.setPrefix(\"FLAG\");\n+    HEADER_FLAGS.setNumericAllowed(true);\n+\n+    HEADER_FLAGS.add(QR, \"qr\");\n+    HEADER_FLAGS.add(AA, \"aa\");\n+    HEADER_FLAGS.add(TC, \"tc\");\n+    HEADER_FLAGS.add(RD, \"rd\");\n+    HEADER_FLAGS.add(RA, \"ra\");\n+    HEADER_FLAGS.add(AD, \"ad\");\n+    HEADER_FLAGS.add(CD, \"cd\");\n@@ -57 +57 @@ public final class Flags {\n-    return flags.getText(i);\n+    return HEADER_FLAGS.getText(i);\n@@ -62 +62 @@ public final class Flags {\n-    return flags.getValue(s);\n+    return HEADER_FLAGS.getValue(s);\n@@ -70 +70 @@ public final class Flags {\n-    flags.check(index);\n+    HEADER_FLAGS.check(index);\ndiff --git a/src/main/java/org/xbill/DNS/GPOSRecord.java b/src/main/java/org/xbill/DNS/GPOSRecord.java\nindex 1566ccd5..e9fee7cc 100644\n--- a/src/main/java/org/xbill/DNS/GPOSRecord.java\n+++ b/src/main/java/org/xbill/DNS/GPOSRecord.java\n@@ -17 +17,3 @@ public class GPOSRecord extends Record {\n-  private byte[] latitude, longitude, altitude;\n+  private byte[] latitude;\n+  private byte[] longitude;\n+  private byte[] altitude;\ndiff --git a/src/main/java/org/xbill/DNS/HINFORecord.java b/src/main/java/org/xbill/DNS/HINFORecord.java\nindex 06d32ec4..90b0192b 100644\n--- a/src/main/java/org/xbill/DNS/HINFORecord.java\n+++ b/src/main/java/org/xbill/DNS/HINFORecord.java\n@@ -16 +16,2 @@ public class HINFORecord extends Record {\n-  private byte[] cpu, os;\n+  private byte[] cpu;\n+  private byte[] os;\ndiff --git a/src/main/java/org/xbill/DNS/HIPRecord.java b/src/main/java/org/xbill/DNS/HIPRecord.java\nindex 522db10d..257334d9 100644\n--- a/src/main/java/org/xbill/DNS/HIPRecord.java\n+++ b/src/main/java/org/xbill/DNS/HIPRecord.java\n@@ -103 +103 @@ public class HIPRecord extends Record {\n-    if (Options.check(\"multiline\")) {\n+    if (Options.multiline()) {\n@@ -107 +107 @@ public class HIPRecord extends Record {\n-    String separator = Options.check(\"multiline\") ? \"\\n\\t\" : \" \";\n+    String separator = Options.multiline() ? \"\\n\\t\" : \" \";\n@@ -119 +119 @@ public class HIPRecord extends Record {\n-    if (Options.check(\"multiline\")) {\n+    if (Options.multiline()) {\ndiff --git a/src/main/java/org/xbill/DNS/Header.java b/src/main/java/org/xbill/DNS/Header.java\nindex 114bf21a..5f7dd421 100644\n--- a/src/main/java/org/xbill/DNS/Header.java\n+++ b/src/main/java/org/xbill/DNS/Header.java\n@@ -34 +34 @@ public class Header implements Cloneable {\n-    if (id < 0 || id > 0xffff) {\n+    if (!Utils.isUInt16(id)) {\n@@ -153 +153 @@ public class Header implements Cloneable {\n-    if (id < 0 || id > 0xffff) {\n+    if (!Utils.isUInt16(id)) {\n@@ -204 +204 @@ public class Header implements Cloneable {\n-    if (value < 0 || value > 0xFFFF) {\n+    if (!Utils.isUInt16(value)) {\ndiff --git a/src/main/java/org/xbill/DNS/IPAddressUtils.java b/src/main/java/org/xbill/DNS/IPAddressUtils.java\nnew file mode 100644\nindex 00000000..8f0aac23\n--- /dev/null\n+++ b/src/main/java/org/xbill/DNS/IPAddressUtils.java\n@@ -0,0 +1,165 @@\n+// SPDX-License-Identifier: BSD-3-Clause\n+package org.xbill.DNS;\n+\n+import lombok.experimental.UtilityClass;\n+\n+@UtilityClass\n+@SuppressWarnings({\"java:S115\", \"java:S1168\"})\n+class IPAddressUtils {\n+  static final int IPv4 = 1;\n+  static final int IPv6 = 2;\n+\n+  static byte[] parseV4(String s) {\n+    int numDigits;\n+    int currentOctet;\n+    byte[] values = new byte[4];\n+    int currentValue;\n+    int length = s.length();\n+\n+    currentOctet = 0;\n+    currentValue = 0;\n+    numDigits = 0;\n+    for (int i = 0; i < length; i++) {\n+      char c = s.charAt(i);\n+      if (c >= '0' && c <= '9') {\n+        /* Can't have more than 3 digits per octet. */\n+        if (numDigits == 3) {\n+          return null;\n+        }\n+        /* Octets shouldn't start with 0, unless they are 0. */\n+        if (numDigits > 0 && currentValue == 0) {\n+          return null;\n+        }\n+        numDigits++;\n+        currentValue *= 10;\n+        currentValue += c - '0';\n+        /* 255 is the maximum value for an octet. */\n+        if (currentValue > 255) {\n+          return null;\n+        }\n+      } else if (c == '.') {\n+        /* Can't have more than 3 dots. */\n+        if (currentOctet == 3) {\n+          return null;\n+        }\n+        /* Two consecutive dots are bad. */\n+        if (numDigits == 0) {\n+          return null;\n+        }\n+        values[currentOctet++] = (byte) currentValue;\n+        currentValue = 0;\n+        numDigits = 0;\n+      } else {\n+        return null;\n+      }\n+    }\n+    /* Must have 4 octets. */\n+    if (currentOctet != 3) {\n+      return null;\n+    }\n+    /* The fourth octet can't be empty. */\n+    if (numDigits == 0) {\n+      return null;\n+    }\n+    values[currentOctet] = (byte) currentValue;\n+    return values;\n+  }\n+\n+  static byte[] parseV6(String s) {\n+    int range = -1;\n+    byte[] data = new byte[16];\n+\n+    String[] tokens = s.split(\":\", -1);\n+\n+    int first = 0;\n+    int last = tokens.length - 1;\n+\n+    if (tokens[0].isEmpty()) {\n+      // If the first two tokens are empty, it means the string\n+      // started with ::, which is fine.  If only the first is\n+      // empty, the string started with :, which is bad.\n+      if (last - first > 0 && tokens[1].isEmpty()) {\n+        first++;\n+      } else {\n+        return null;\n+      }\n+    }\n+\n+    if (tokens[last].isEmpty()) {\n+      // If the last two tokens are empty, it means the string\n+      // ended with ::, which is fine.  If only the last is\n+      // empty, the string ended with :, which is bad.\n+      if (last - first > 0 && tokens[last - 1].isEmpty()) {\n+        last--;\n+      } else {\n+        return null;\n+      }\n+    }\n+\n+    if (last - first + 1 > 8) {\n+      return null;\n+    }\n+\n+    int i;\n+    int j;\n+    for (i = first, j = 0; i <= last; i++) {\n+      if (tokens[i].isEmpty()) {\n+        if (range >= 0) {\n+          return null;\n+        }\n+        range = j;\n+        continue;\n+      }\n+\n+      if (tokens[i].indexOf('.') >= 0) {\n+        // An IPv4 address must be the last component\n+        if (i < last) {\n+          return null;\n+        }\n+        // There can't have been more than 6 components.\n+        if (i > 6) {\n+          return null;\n+        }\n+        byte[] v4addr = Address.toByteArray(tokens[i], Address.IPv4);\n+        if (v4addr == null) {\n+          return null;\n+        }\n+        for (int k = 0; k < 4; k++) {\n+          data[j++] = v4addr[k];\n+        }\n+        break;\n+      }\n+\n+      try {\n+        for (int k = 0; k < tokens[i].length(); k++) {\n+          char c = tokens[i].charAt(k);\n+          if (Character.digit(c, 16) < 0) {\n+            return null;\n+          }\n+        }\n+        int x = Integer.parseInt(tokens[i], 16);\n+        if (!Utils.isUInt16(x)) {\n+          return null;\n+        }\n+        data[j++] = (byte) (x >>> 8);\n+        data[j++] = (byte) (x & 0xFF);\n+      } catch (NumberFormatException e) {\n+        return null;\n+      }\n+    }\n+\n+    if (j < 16 && range < 0) {\n+      return null;\n+    }\n+\n+    if (range >= 0) {\n+      int empty = 16 - j;\n+      System.arraycopy(data, range, data, range + empty, j - range);\n+      for (i = range; i < range + empty; i++) {\n+        data[i] = 0;\n+      }\n+    }\n+\n+    return data;\n+  }\n+}\ndiff --git a/src/main/java/org/xbill/DNS/KEYBase.java b/src/main/java/org/xbill/DNS/KEYBase.java\nindex cc50ecb5..fce47130 100644\n--- a/src/main/java/org/xbill/DNS/KEYBase.java\n+++ b/src/main/java/org/xbill/DNS/KEYBase.java\n@@ -16 +16,3 @@ abstract class KEYBase extends Record {\n-  protected int flags, proto, alg;\n+  protected int flags;\n+  protected int proto;\n+  protected int alg;\n@@ -23 +25 @@ abstract class KEYBase extends Record {\n-  public KEYBase(\n+  protected KEYBase(\n@@ -52 +54 @@ abstract class KEYBase extends Record {\n-      if (Options.check(\"multiline\")) {\n+      if (Options.multiline()) {\ndiff --git a/src/main/java/org/xbill/DNS/KEYRecord.java b/src/main/java/org/xbill/DNS/KEYRecord.java\nindex 2335964b..83570866 100644\n--- a/src/main/java/org/xbill/DNS/KEYRecord.java\n+++ b/src/main/java/org/xbill/DNS/KEYRecord.java\n@@ -181 +181 @@ public class KEYRecord extends KEYBase {\n-    private static final Mnemonic flags = new Mnemonic(\"KEY flags\", Mnemonic.CASE_UPPER);\n+    private static final Mnemonic KEY_FLAGS = new Mnemonic(\"KEY flags\", Mnemonic.CASE_UPPER);\n@@ -184,34 +184,34 @@ public class KEYRecord extends KEYBase {\n-      flags.setMaximum(0xFFFF);\n-      flags.setNumericAllowed(false);\n-\n-      flags.add(NOCONF, \"NOCONF\");\n-      flags.add(NOAUTH, \"NOAUTH\");\n-      flags.add(NOKEY, \"NOKEY\");\n-      flags.add(FLAG2, \"FLAG2\");\n-      flags.add(EXTEND, \"EXTEND\");\n-      flags.add(FLAG4, \"FLAG4\");\n-      flags.add(FLAG5, \"FLAG5\");\n-      flags.add(USER, \"USER\");\n-      flags.add(ZONE, \"ZONE\");\n-      flags.add(HOST, \"HOST\");\n-      flags.add(NTYP3, \"NTYP3\");\n-      flags.add(FLAG8, \"FLAG8\");\n-      flags.add(FLAG9, \"FLAG9\");\n-      flags.add(FLAG10, \"FLAG10\");\n-      flags.add(FLAG11, \"FLAG11\");\n-      flags.add(SIG0, \"SIG0\");\n-      flags.add(SIG1, \"SIG1\");\n-      flags.add(SIG2, \"SIG2\");\n-      flags.add(SIG3, \"SIG3\");\n-      flags.add(SIG4, \"SIG4\");\n-      flags.add(SIG5, \"SIG5\");\n-      flags.add(SIG6, \"SIG6\");\n-      flags.add(SIG7, \"SIG7\");\n-      flags.add(SIG8, \"SIG8\");\n-      flags.add(SIG9, \"SIG9\");\n-      flags.add(SIG10, \"SIG10\");\n-      flags.add(SIG11, \"SIG11\");\n-      flags.add(SIG12, \"SIG12\");\n-      flags.add(SIG13, \"SIG13\");\n-      flags.add(SIG14, \"SIG14\");\n-      flags.add(SIG15, \"SIG15\");\n+      KEY_FLAGS.setMaximum(0xFFFF);\n+      KEY_FLAGS.setNumericAllowed(false);\n+\n+      KEY_FLAGS.add(NOCONF, \"NOCONF\");\n+      KEY_FLAGS.add(NOAUTH, \"NOAUTH\");\n+      KEY_FLAGS.add(NOKEY, \"NOKEY\");\n+      KEY_FLAGS.add(FLAG2, \"FLAG2\");\n+      KEY_FLAGS.add(EXTEND, \"EXTEND\");\n+      KEY_FLAGS.add(FLAG4, \"FLAG4\");\n+      KEY_FLAGS.add(FLAG5, \"FLAG5\");\n+      KEY_FLAGS.add(USER, \"USER\");\n+      KEY_FLAGS.add(ZONE, \"ZONE\");\n+      KEY_FLAGS.add(HOST, \"HOST\");\n+      KEY_FLAGS.add(NTYP3, \"NTYP3\");\n+      KEY_FLAGS.add(FLAG8, \"FLAG8\");\n+      KEY_FLAGS.add(FLAG9, \"FLAG9\");\n+      KEY_FLAGS.add(FLAG10, \"FLAG10\");\n+      KEY_FLAGS.add(FLAG11, \"FLAG11\");\n+      KEY_FLAGS.add(SIG0, \"SIG0\");\n+      KEY_FLAGS.add(SIG1, \"SIG1\");\n+      KEY_FLAGS.add(SIG2, \"SIG2\");\n+      KEY_FLAGS.add(SIG3, \"SIG3\");\n+      KEY_FLAGS.add(SIG4, \"SIG4\");\n+      KEY_FLAGS.add(SIG5, \"SIG5\");\n+      KEY_FLAGS.add(SIG6, \"SIG6\");\n+      KEY_FLAGS.add(SIG7, \"SIG7\");\n+      KEY_FLAGS.add(SIG8, \"SIG8\");\n+      KEY_FLAGS.add(SIG9, \"SIG9\");\n+      KEY_FLAGS.add(SIG10, \"SIG10\");\n+      KEY_FLAGS.add(SIG11, \"SIG11\");\n+      KEY_FLAGS.add(SIG12, \"SIG12\");\n+      KEY_FLAGS.add(SIG13, \"SIG13\");\n+      KEY_FLAGS.add(SIG14, \"SIG14\");\n+      KEY_FLAGS.add(SIG15, \"SIG15\");\n@@ -231 +231 @@ public class KEYRecord extends KEYBase {\n-        if (value >= 0 && value <= 0xFFFF) {\n+        if (Utils.isUInt16(value)) {\n@@ -235,0 +236 @@ public class KEYRecord extends KEYBase {\n+        // Ignore\n@@ -240 +241 @@ public class KEYRecord extends KEYBase {\n-        int val = flags.getValue(st.nextToken());\n+        int val = KEY_FLAGS.getValue(st.nextToken());\ndiff --git a/src/main/java/org/xbill/DNS/LOCRecord.java b/src/main/java/org/xbill/DNS/LOCRecord.java\nindex 25d06dbd..ca51dbb6 100644\n--- a/src/main/java/org/xbill/DNS/LOCRecord.java\n+++ b/src/main/java/org/xbill/DNS/LOCRecord.java\n@@ -20,2 +20,6 @@ public class LOCRecord extends Record {\n-  private long size, hPrecision, vPrecision;\n-  private long latitude, longitude, altitude;\n+  private long size;\n+  private long hPrecision;\n+  private long vPrecision;\n+  private long latitude;\n+  private long longitude;\n+  private long altitude;\n@@ -98 +102,2 @@ public class LOCRecord extends Record {\n-    int deg, min = 0;\n+    int deg;\n+    int min = 0;\ndiff --git a/src/main/java/org/xbill/DNS/Lookup.java b/src/main/java/org/xbill/DNS/Lookup.java\nindex d3d40b66..135be61e 100644\n--- a/src/main/java/org/xbill/DNS/Lookup.java\n+++ b/src/main/java/org/xbill/DNS/Lookup.java\n@@ -55 +55 @@ public final class Lookup {\n-  private boolean temporary_cache;\n+  private boolean temporaryCache;\n@@ -70 +70 @@ public final class Lookup {\n-  private String badresponse_error;\n+  private String badresponseError;\n@@ -271 +271 @@ public final class Lookup {\n-    badresponse_error = null;\n+    badresponseError = null;\n@@ -276 +276 @@ public final class Lookup {\n-    if (temporary_cache) {\n+    if (temporaryCache) {\n@@ -441 +441 @@ public final class Lookup {\n-      this.temporary_cache = true;\n+      this.temporaryCache = true;\n@@ -449 +449 @@ public final class Lookup {\n-      this.temporary_cache = false;\n+      this.temporaryCache = false;\n@@ -603 +603 @@ public final class Lookup {\n-      badresponse_error = Rcode.string(rcode);\n+      badresponseError = Rcode.string(rcode);\n@@ -610 +610 @@ public final class Lookup {\n-      badresponse_error = \"response does not match query\";\n+      badresponseError = \"response does not match query\";\n@@ -698 +698 @@ public final class Lookup {\n-        error = badresponse_error;\n+        error = badresponseError;\ndiff --git a/src/main/java/org/xbill/DNS/Master.java b/src/main/java/org/xbill/DNS/Master.java\nindex aebf3552..0c35de14 100644\n--- a/src/main/java/org/xbill/DNS/Master.java\n+++ b/src/main/java/org/xbill/DNS/Master.java\n@@ -127 +127 @@ public class Master implements AutoCloseable {\n-    boolean seen_class;\n+    boolean seenClass;\n@@ -135 +135 @@ public class Master implements AutoCloseable {\n-    seen_class = false;\n+    seenClass = false;\n@@ -139 +139 @@ public class Master implements AutoCloseable {\n-      seen_class = true;\n+      seenClass = true;\n@@ -154 +154 @@ public class Master implements AutoCloseable {\n-    if (!seen_class) {\n+    if (!seenClass) {\n@@ -184 +184 @@ public class Master implements AutoCloseable {\n-      if (l < 0 || l > 0xFFFFFFFFL) {\n+      if (!Utils.isUInt32(l)) {\n@@ -273 +273 @@ public class Master implements AutoCloseable {\n-  private Record _nextRecord() throws IOException {\n+  private Record nextRecordInternal() throws IOException {\n@@ -398 +398 @@ public class Master implements AutoCloseable {\n-      rec = _nextRecord();\n+      rec = nextRecordInternal();\ndiff --git a/src/main/java/org/xbill/DNS/Message.java b/src/main/java/org/xbill/DNS/Message.java\nindex c15a4550..bb214c8d 100644\n--- a/src/main/java/org/xbill/DNS/Message.java\n+++ b/src/main/java/org/xbill/DNS/Message.java\n@@ -1066 +1066 @@ public class Message implements Cloneable {\n-              format.replace(\"{}\", \"%s\") + this,\n+              format.replace(\"{}\", \"%s\"),\ndiff --git a/src/main/java/org/xbill/DNS/Mnemonic.java b/src/main/java/org/xbill/DNS/Mnemonic.java\nindex 2f3e1150..912ecab1 100644\n--- a/src/main/java/org/xbill/DNS/Mnemonic.java\n+++ b/src/main/java/org/xbill/DNS/Mnemonic.java\n@@ -86,0 +87 @@ class Mnemonic {\n+      // Ignore\n@@ -184,6 +185,4 @@ class Mnemonic {\n-    if (prefix != null) {\n-      if (str.startsWith(prefix)) {\n-        int val = parseNumeric(str.substring(prefix.length()));\n-        if (val >= 0) {\n-          return val;\n-        }\n+    if (prefix != null && str.startsWith(prefix)) {\n+      int val = parseNumeric(str.substring(prefix.length()));\n+      if (val >= 0) {\n+        return val;\ndiff --git a/src/main/java/org/xbill/DNS/NAPTRRecord.java b/src/main/java/org/xbill/DNS/NAPTRRecord.java\nindex 6b07fe8b..87d5f972 100644\n--- a/src/main/java/org/xbill/DNS/NAPTRRecord.java\n+++ b/src/main/java/org/xbill/DNS/NAPTRRecord.java\n@@ -17,2 +17,5 @@ public class NAPTRRecord extends Record {\n-  private int order, preference;\n-  private byte[] flags, service, regexp;\n+  private int order;\n+  private int preference;\n+  private byte[] flags;\n+  private byte[] service;\n+  private byte[] regexp;\ndiff --git a/src/main/java/org/xbill/DNS/NSEC3PARAMRecord.java b/src/main/java/org/xbill/DNS/NSEC3PARAMRecord.java\nindex f82f34c0..ce5ce4b9 100644\n--- a/src/main/java/org/xbill/DNS/NSEC3PARAMRecord.java\n+++ b/src/main/java/org/xbill/DNS/NSEC3PARAMRecord.java\n@@ -64,3 +64,3 @@ public class NSEC3PARAMRecord extends Record {\n-    int salt_length = in.readU8();\n-    if (salt_length > 0) {\n-      salt = in.readByteArray(salt_length);\n+    int saltLength = in.readU8();\n+    if (saltLength > 0) {\n+      salt = in.readByteArray(saltLength);\ndiff --git a/src/main/java/org/xbill/DNS/NSEC3Record.java b/src/main/java/org/xbill/DNS/NSEC3Record.java\nindex b97b3b58..aaad185b 100644\n--- a/src/main/java/org/xbill/DNS/NSEC3Record.java\n+++ b/src/main/java/org/xbill/DNS/NSEC3Record.java\n@@ -129,3 +129,3 @@ public class NSEC3Record extends Record {\n-    int salt_length = in.readU8();\n-    if (salt_length > 0) {\n-      salt = in.readByteArray(salt_length);\n+    int saltLength = in.readU8();\n+    if (saltLength > 0) {\n+      salt = in.readByteArray(saltLength);\n@@ -136,2 +136,2 @@ public class NSEC3Record extends Record {\n-    int next_length = in.readU8();\n-    next = in.readByteArray(next_length);\n+    int nextLength = in.readU8();\n+    next = in.readByteArray(nextLength);\ndiff --git a/src/main/java/org/xbill/DNS/OPENPGPKEYRecord.java b/src/main/java/org/xbill/DNS/OPENPGPKEYRecord.java\nindex 362a905c..ab43bfe6 100644\n--- a/src/main/java/org/xbill/DNS/OPENPGPKEYRecord.java\n+++ b/src/main/java/org/xbill/DNS/OPENPGPKEYRecord.java\n@@ -45 +45 @@ public class OPENPGPKEYRecord extends Record {\n-      if (Options.check(\"multiline\")) {\n+      if (Options.multiline()) {\ndiff --git a/src/main/java/org/xbill/DNS/Opcode.java b/src/main/java/org/xbill/DNS/Opcode.java\nindex b3d9a0da..55414b1f 100644\n--- a/src/main/java/org/xbill/DNS/Opcode.java\n+++ b/src/main/java/org/xbill/DNS/Opcode.java\n@@ -22,0 +23 @@ public final class Opcode {\n+  @SuppressWarnings(\"java:S1845\")\ndiff --git a/src/main/java/org/xbill/DNS/Options.java b/src/main/java/org/xbill/DNS/Options.java\nindex 7204b138..4459a632 100644\n--- a/src/main/java/org/xbill/DNS/Options.java\n+++ b/src/main/java/org/xbill/DNS/Options.java\n@@ -37,0 +38 @@ public final class Options {\n+      // Ignore\n@@ -66 +67 @@ public final class Options {\n-  /** Sets an option to \"true\" */\n+  /** Sets an option to {@code true}. */\n@@ -74 +75 @@ public final class Options {\n-  /** Sets an option to the the supplied value */\n+  /** Sets an option to the supplied value */\n@@ -115,0 +117 @@ public final class Options {\n+        // Ignore\n@@ -119,0 +122,8 @@ public final class Options {\n+\n+  static boolean multiline() {\n+    if (table == null) {\n+      return false;\n+    }\n+\n+    return table.get(\"multiline\") != null;\n+  }\ndiff --git a/src/main/java/org/xbill/DNS/RRset.java b/src/main/java/org/xbill/DNS/RRset.java\nindex feddfabf..afeef619 100644\n--- a/src/main/java/org/xbill/DNS/RRset.java\n+++ b/src/main/java/org/xbill/DNS/RRset.java\n@@ -36 +36 @@ public class RRset implements Serializable, Iterable<Record> {\n-  public RRset(Record record) {\n+  public RRset(Record r) {\n@@ -38 +38 @@ public class RRset implements Serializable, Iterable<Record> {\n-    addRR(record);\n+    addRR(r);\ndiff --git a/src/main/java/org/xbill/DNS/Record.java b/src/main/java/org/xbill/DNS/Record.java\nindex 90ebc195..a830a25b 100644\n--- a/src/main/java/org/xbill/DNS/Record.java\n+++ b/src/main/java/org/xbill/DNS/Record.java\n@@ -706 +706 @@ public abstract class Record implements Cloneable, Comparable<Record>, Serializa\n-    if (val < 0 || val > 0xFF) {\n+    if (!Utils.isUInt8(val)) {\n@@ -715 +715 @@ public abstract class Record implements Cloneable, Comparable<Record>, Serializa\n-    if (val < 0 || val > 0xFFFF) {\n+    if (!Utils.isUInt16(val)) {\n@@ -724 +724 @@ public abstract class Record implements Cloneable, Comparable<Record>, Serializa\n-    if (val < 0 || val > 0xFFFFFFFFL) {\n+    if (!Utils.isUInt32(val)) {\ndiff --git a/src/main/java/org/xbill/DNS/SIG0.java b/src/main/java/org/xbill/DNS/SIG0.java\nindex 06fb55d3..3ef7b270 100644\n--- a/src/main/java/org/xbill/DNS/SIG0.java\n+++ b/src/main/java/org/xbill/DNS/SIG0.java\n@@ -101,2 +101,2 @@ public class SIG0 {\n-    for (Record record : message.getSection(Section.ADDITIONAL)) {\n-      if (record.getType() != Type.SIG) {\n+    for (Record r : message.getSection(Section.ADDITIONAL)) {\n+      if (r.getType() != Type.SIG) {\n@@ -105 +105 @@ public class SIG0 {\n-      if (((SIGRecord) record).getTypeCovered() != 0) {\n+      if (((SIGRecord) r).getTypeCovered() != 0) {\n@@ -108 +108 @@ public class SIG0 {\n-      sig = (SIGRecord) record;\n+      sig = (SIGRecord) r;\ndiff --git a/src/main/java/org/xbill/DNS/SIGBase.java b/src/main/java/org/xbill/DNS/SIGBase.java\nindex 7a252617..58d80b10 100644\n--- a/src/main/java/org/xbill/DNS/SIGBase.java\n+++ b/src/main/java/org/xbill/DNS/SIGBase.java\n@@ -17 +17,2 @@ abstract class SIGBase extends Record {\n-  protected int alg, labels;\n+  protected int alg;\n+  protected int labels;\n@@ -27 +28 @@ abstract class SIGBase extends Record {\n-  public SIGBase(\n+  protected SIGBase(\n@@ -103 +104 @@ abstract class SIGBase extends Record {\n-    if (Options.check(\"multiline\")) {\n+    if (Options.multiline()) {\n@@ -113 +114 @@ abstract class SIGBase extends Record {\n-    if (Options.check(\"multiline\")) {\n+    if (Options.multiline()) {\ndiff --git a/src/main/java/org/xbill/DNS/SOARecord.java b/src/main/java/org/xbill/DNS/SOARecord.java\nindex 4eceb55d..9f327959 100644\n--- a/src/main/java/org/xbill/DNS/SOARecord.java\n+++ b/src/main/java/org/xbill/DNS/SOARecord.java\n@@ -16,2 +16,7 @@ public class SOARecord extends Record {\n-  private Name host, admin;\n-  private long serial, refresh, retry, expire, minimum;\n+  private Name host;\n+  private Name admin;\n+  private long serial;\n+  private long refresh;\n+  private long retry;\n+  private long expire;\n+  private long minimum;\n@@ -82 +87 @@ public class SOARecord extends Record {\n-    if (Options.check(\"multiline\")) {\n+    if (Options.multiline()) {\ndiff --git a/src/main/java/org/xbill/DNS/SRVRecord.java b/src/main/java/org/xbill/DNS/SRVRecord.java\nindex b48be11f..78f05ceb 100644\n--- a/src/main/java/org/xbill/DNS/SRVRecord.java\n+++ b/src/main/java/org/xbill/DNS/SRVRecord.java\n@@ -18 +18,3 @@ public class SRVRecord extends Record {\n-  private int priority, weight, port;\n+  private int priority;\n+  private int weight;\n+  private int port;\ndiff --git a/src/main/java/org/xbill/DNS/SVCBBase.java b/src/main/java/org/xbill/DNS/SVCBBase.java\nindex 24a60d04..cd5a8808 100644\n--- a/src/main/java/org/xbill/DNS/SVCBBase.java\n+++ b/src/main/java/org/xbill/DNS/SVCBBase.java\n@@ -4,0 +5 @@ import java.io.IOException;\n+import java.io.Serializable;\n@@ -126 +127 @@ public abstract class SVCBBase extends Record {\n-  public abstract static class ParameterBase {\n+  public abstract static class ParameterBase implements Serializable {\ndiff --git a/src/main/java/org/xbill/DNS/Serial.java b/src/main/java/org/xbill/DNS/Serial.java\nindex cd7bf29e..e7cc0daf 100644\n--- a/src/main/java/org/xbill/DNS/Serial.java\n+++ b/src/main/java/org/xbill/DNS/Serial.java\n@@ -10,0 +11,4 @@ package org.xbill.DNS;\n+ * @see <a href=\"https://datatracker.ietf.org/doc/html/rfc1982\">RFC 1982: Serial Number\n+ *     Arithmetic</a>\n+ * @see <a href=\"https://datatracker.ietf.org/doc/html/rfc2136\">RFC 2136: DDynamic Updates in the\n+ *     Domain Name System (DNS UPDATE)</a>\n@@ -14 +18 @@ public final class Serial {\n-\n+  private static final String ERROR_MESSAGE_SUFFIX = \" out of range\";\n@@ -31 +35 @@ public final class Serial {\n-      throw new IllegalArgumentException(serial1 + \" out of range\");\n+      throw new IllegalArgumentException(serial1 + ERROR_MESSAGE_SUFFIX);\n@@ -34 +38 @@ public final class Serial {\n-      throw new IllegalArgumentException(serial2 + \" out of range\");\n+      throw new IllegalArgumentException(serial2 + ERROR_MESSAGE_SUFFIX);\n@@ -39,2 +42,0 @@ public final class Serial {\n-    } else if (diff < -MAX32) {\n-      diff += MAX32 + 1;\n@@ -56 +58 @@ public final class Serial {\n-      throw new IllegalArgumentException(serial + \" out of range\");\n+      throw new IllegalArgumentException(serial + ERROR_MESSAGE_SUFFIX);\ndiff --git a/src/main/java/org/xbill/DNS/TCPClient.java b/src/main/java/org/xbill/DNS/TCPClient.java\nindex 282a24b2..ccc89369 100644\n--- a/src/main/java/org/xbill/DNS/TCPClient.java\n+++ b/src/main/java/org/xbill/DNS/TCPClient.java\n@@ -16,0 +17 @@ import java.time.temporal.ChronoUnit;\n+@SuppressWarnings(\"resource\")\n@@ -104 +105 @@ class TCPClient implements AutoCloseable {\n-  private byte[] _recv(int length) throws IOException {\n+  private byte[] recv(int length) throws IOException {\n@@ -154 +155 @@ class TCPClient implements AutoCloseable {\n-    byte[] buf = _recv(2);\n+    byte[] buf = recv(2);\n@@ -156 +157 @@ class TCPClient implements AutoCloseable {\n-    byte[] data = _recv(length);\n+    byte[] data = recv(length);\ndiff --git a/src/main/java/org/xbill/DNS/TKEYRecord.java b/src/main/java/org/xbill/DNS/TKEYRecord.java\nindex 27b5bb11..ee307eee 100644\n--- a/src/main/java/org/xbill/DNS/TKEYRecord.java\n+++ b/src/main/java/org/xbill/DNS/TKEYRecord.java\n@@ -167 +167 @@ public class TKEYRecord extends Record {\n-    if (Options.check(\"multiline\")) {\n+    if (Options.multiline()) {\n@@ -177 +177 @@ public class TKEYRecord extends Record {\n-    if (Options.check(\"multiline\")) {\n+    if (Options.multiline()) {\ndiff --git a/src/main/java/org/xbill/DNS/TSIG.java b/src/main/java/org/xbill/DNS/TSIG.java\nindex 15ef8ca2..baaa3299 100644\n--- a/src/main/java/org/xbill/DNS/TSIG.java\n+++ b/src/main/java/org/xbill/DNS/TSIG.java\n@@ -186 +186 @@ public class TSIG {\n-      throw new RuntimeException(e);\n+      throw new IllegalArgumentException(e);\ndiff --git a/src/main/java/org/xbill/DNS/TSIGRecord.java b/src/main/java/org/xbill/DNS/TSIGRecord.java\nindex fd00e0b1..533440e9 100644\n--- a/src/main/java/org/xbill/DNS/TSIGRecord.java\n+++ b/src/main/java/org/xbill/DNS/TSIGRecord.java\n@@ -143 +143 @@ public class TSIGRecord extends Record {\n-    if (Options.check(\"multiline\")) {\n+    if (Options.multiline()) {\n@@ -152 +152 @@ public class TSIGRecord extends Record {\n-    if (Options.check(\"multiline\")) {\n+    if (Options.multiline()) {\n@@ -166 +166 @@ public class TSIGRecord extends Record {\n-      if (Options.check(\"multiline\")) {\n+      if (Options.multiline()) {\n@@ -178 +178 @@ public class TSIGRecord extends Record {\n-                  + ((other[2] & 0xFF) << 24)\n+                  + ((long) (other[2] & 0xFF) << 24)\n@@ -192 +192 @@ public class TSIGRecord extends Record {\n-    if (Options.check(\"multiline\")) {\n+    if (Options.multiline()) {\ndiff --git a/src/main/java/org/xbill/DNS/TTL.java b/src/main/java/org/xbill/DNS/TTL.java\nindex 960992e4..0a5c6111 100644\n--- a/src/main/java/org/xbill/DNS/TTL.java\n+++ b/src/main/java/org/xbill/DNS/TTL.java\n@@ -98,2 +98 @@ public final class TTL {\n-    long secs, mins, hours, days, weeks;\n-    secs = ttl % 60;\n+    long secs = ttl % 60;\n@@ -101 +100 @@ public final class TTL {\n-    mins = ttl % 60;\n+    long mins = ttl % 60;\n@@ -103 +102 @@ public final class TTL {\n-    hours = ttl % 24;\n+    long hours = ttl % 24;\n@@ -105 +104 @@ public final class TTL {\n-    days = ttl % 7;\n+    long days = ttl % 7;\n@@ -107 +106 @@ public final class TTL {\n-    weeks = ttl;\n+    long weeks = ttl;\ndiff --git a/src/main/java/org/xbill/DNS/Tokenizer.java b/src/main/java/org/xbill/DNS/Tokenizer.java\nindex fa80c21b..f2d3ae49 100644\n--- a/src/main/java/org/xbill/DNS/Tokenizer.java\n+++ b/src/main/java/org/xbill/DNS/Tokenizer.java\n@@ -448 +448 @@ public class Tokenizer implements AutoCloseable {\n-    if (l < 0 || l > 0xFFFFFFFFL) {\n+    if (!Utils.isUInt32(l)) {\n@@ -463 +463 @@ public class Tokenizer implements AutoCloseable {\n-    if (l < 0 || l > 0xFFFFL) {\n+    if (!Utils.isUInt16(l)) {\n@@ -478 +478 @@ public class Tokenizer implements AutoCloseable {\n-    if (l < 0 || l > 0xFFL) {\n+    if (!Utils.isUInt8(l)) {\n@@ -552,3 +552,5 @@ public class Tokenizer implements AutoCloseable {\n-    byte[] bytes = Address.toByteArray(next, family);\n-    if (bytes == null) {\n-      throw exception(\"Invalid address: \" + next);\n+    byte[] bytes = null;\n+    if (family == IPAddressUtils.IPv4) {\n+      bytes = IPAddressUtils.parseV4(next);\n+    } else if (family == IPAddressUtils.IPv6) {\n+      bytes = IPAddressUtils.parseV6(next);\n@@ -556 +558,6 @@ public class Tokenizer implements AutoCloseable {\n-    return bytes;\n+\n+    if (bytes != null) {\n+      return bytes;\n+    }\n+\n+    throw exception(\"Invalid address: \" + next);\ndiff --git a/src/main/java/org/xbill/DNS/Type.java b/src/main/java/org/xbill/DNS/Type.java\nindex c579bf23..34b73222 100644\n--- a/src/main/java/org/xbill/DNS/Type.java\n+++ b/src/main/java/org/xbill/DNS/Type.java\n@@ -467 +467 @@ public final class Type {\n-    if (val < 0 || val > 0xFFFF) {\n+    if (!Utils.isUInt16(val)) {\ndiff --git a/src/main/java/org/xbill/DNS/URIRecord.java b/src/main/java/org/xbill/DNS/URIRecord.java\nindex f36e2587..3141f8e3 100644\n--- a/src/main/java/org/xbill/DNS/URIRecord.java\n+++ b/src/main/java/org/xbill/DNS/URIRecord.java\n@@ -17 +17,2 @@ public class URIRecord extends Record {\n-  private int priority, weight;\n+  private int priority;\n+  private int weight;\ndiff --git a/src/main/java/org/xbill/DNS/Update.java b/src/main/java/org/xbill/DNS/Update.java\nindex 146431bc..948f154b 100644\n--- a/src/main/java/org/xbill/DNS/Update.java\n+++ b/src/main/java/org/xbill/DNS/Update.java\n@@ -78,2 +78,2 @@ public class Update extends Message {\n-  public void present(Name name, int type, String record) throws IOException {\n-    newPrereq(Record.fromString(name, type, dclass, 0, record, origin));\n+  public void present(Name name, int type, String recordToCheck) throws IOException {\n+    newPrereq(Record.fromString(name, type, dclass, 0, recordToCheck, origin));\n@@ -100,2 +100,2 @@ public class Update extends Message {\n-  public void present(Record record) {\n-    newPrereq(record);\n+  public void present(Record recordToCheck) {\n+    newPrereq(recordToCheck);\n@@ -126,2 +126,2 @@ public class Update extends Message {\n-  public void add(Name name, int type, long ttl, String record) throws IOException {\n-    newUpdate(Record.fromString(name, type, dclass, ttl, record, origin));\n+  public void add(Name name, int type, long ttl, String recordToAdd) throws IOException {\n+    newUpdate(Record.fromString(name, type, dclass, ttl, recordToAdd, origin));\n@@ -141,2 +141,2 @@ public class Update extends Message {\n-  public void add(Record record) {\n-    newUpdate(record);\n+  public void add(Record recordToAdd) {\n+    newUpdate(recordToAdd);\n@@ -147,2 +147,2 @@ public class Update extends Message {\n-    for (Record record : records) {\n-      add(record);\n+    for (Record r : records) {\n+      add(r);\n@@ -152 +152 @@ public class Update extends Message {\n-  /** Indicates that all of the records in the rrset should be inserted into the zone. */\n+  /** Indicates that all the records in the rrset should be inserted into the zone. */\n@@ -172,2 +172,2 @@ public class Update extends Message {\n-  public void delete(Name name, int type, String record) throws IOException {\n-    newUpdate(Record.fromString(name, type, DClass.NONE, 0, record, origin));\n+  public void delete(Name name, int type, String recordToDelete) throws IOException {\n+    newUpdate(Record.fromString(name, type, DClass.NONE, 0, recordToDelete, origin));\n@@ -187,2 +187,2 @@ public class Update extends Message {\n-  public void delete(Record record) {\n-    newUpdate(record.withDClass(DClass.NONE, 0));\n+  public void delete(Record recordToDelete) {\n+    newUpdate(recordToDelete.withDClass(DClass.NONE, 0));\n@@ -193,2 +193,2 @@ public class Update extends Message {\n-    for (Record record : records) {\n-      delete(record);\n+    for (Record r : records) {\n+      delete(r);\n@@ -209 +209 @@ public class Update extends Message {\n-  public void replace(Name name, int type, long ttl, String record) throws IOException {\n+  public void replace(Name name, int type, long ttl, String recordToReplace) throws IOException {\n@@ -211 +211 @@ public class Update extends Message {\n-    add(name, type, ttl, record);\n+    add(name, type, ttl, recordToReplace);\n@@ -229,3 +229,3 @@ public class Update extends Message {\n-  public void replace(Record record) {\n-    delete(record.getName(), record.getType());\n-    add(record);\n+  public void replace(Record recordToReplace) {\n+    delete(recordToReplace.getName(), recordToReplace.getType());\n+    add(recordToReplace);\n@@ -239,2 +239,2 @@ public class Update extends Message {\n-    for (Record record : records) {\n-      replace(record);\n+    for (Record r : records) {\n+      replace(r);\n@@ -245 +245 @@ public class Update extends Message {\n-   * Indicates that all of the records in the rrset should be inserted into the zone replacing any\n+   * Indicates that all the records in the rrset should be inserted into the zone replacing any\ndiff --git a/src/main/java/org/xbill/DNS/Utils.java b/src/main/java/org/xbill/DNS/Utils.java\nnew file mode 100644\nindex 00000000..a968cd2e\n--- /dev/null\n+++ b/src/main/java/org/xbill/DNS/Utils.java\n@@ -0,0 +1,27 @@\n+// SPDX-License-Identifier: BSD-3-Clause\n+package org.xbill.DNS;\n+\n+import lombok.experimental.UtilityClass;\n+\n+@UtilityClass\n+class Utils {\n+  static boolean isUInt8(int value) {\n+    return value >= 0 && value <= 255;\n+  }\n+\n+  static boolean isUInt8(long value) {\n+    return value >= 0 && value <= 255;\n+  }\n+\n+  static boolean isUInt16(int value) {\n+    return value >= 0 && value <= 0xffff;\n+  }\n+\n+  static boolean isUInt16(long value) {\n+    return value >= 0 && value <= 0xffff;\n+  }\n+\n+  static boolean isUInt32(long value) {\n+    return value >= 0 && value <= 0xffffffffL;\n+  }\n+}\ndiff --git a/src/main/java/org/xbill/DNS/ZoneMDRecord.java b/src/main/java/org/xbill/DNS/ZoneMDRecord.java\nindex d44120b3..14e39ddb 100644\n--- a/src/main/java/org/xbill/DNS/ZoneMDRecord.java\n+++ b/src/main/java/org/xbill/DNS/ZoneMDRecord.java\n@@ -188 +188 @@ public class ZoneMDRecord extends Record {\n-    if (Options.check(\"multiline\")) {\n+    if (Options.multiline()) {\ndiff --git a/src/main/java/org/xbill/DNS/ZoneTransferIn.java b/src/main/java/org/xbill/DNS/ZoneTransferIn.java\nindex f8c0e707..eb90c5a2 100644\n--- a/src/main/java/org/xbill/DNS/ZoneTransferIn.java\n+++ b/src/main/java/org/xbill/DNS/ZoneTransferIn.java\n@@ -55,2 +55,2 @@ public class ZoneTransferIn {\n-  private final long ixfr_serial;\n-  private final boolean want_fallback;\n+  private final long ixfrSerial;\n+  private final boolean wantFallback;\n@@ -67,3 +67,3 @@ public class ZoneTransferIn {\n-  private long end_serial;\n-  private long current_serial;\n-  private Record initialsoa;\n+  private long endSerial;\n+  private long currentSerial;\n+  private Record initialSoaRecord;\n@@ -184,2 +184,2 @@ public class ZoneTransferIn {\n-    ixfr_serial = serial;\n-    want_fallback = fallback;\n+    ixfrSerial = serial;\n+    wantFallback = fallback;\n@@ -349 +349 @@ public class ZoneTransferIn {\n-      Record soa = new SOARecord(zname, dclass, 0, Name.root, Name.root, ixfr_serial, 0, 0, 0, 0);\n+      Record soa = new SOARecord(zname, dclass, 0, Name.root, Name.root, ixfrSerial, 0, 0, 0, 0);\n@@ -374 +374 @@ public class ZoneTransferIn {\n-    if (!want_fallback) {\n+    if (!wantFallback) {\n@@ -391 +391 @@ public class ZoneTransferIn {\n-        initialsoa = rec;\n+        initialSoaRecord = rec;\n@@ -394,2 +394,2 @@ public class ZoneTransferIn {\n-        end_serial = getSOASerial(rec);\n-        if (qtype == Type.IXFR && Serial.compare(end_serial, ixfr_serial) <= 0) {\n+        endSerial = getSOASerial(rec);\n+        if (qtype == Type.IXFR && Serial.compare(endSerial, ixfrSerial) <= 0) {\n@@ -406 +406 @@ public class ZoneTransferIn {\n-        if (qtype == Type.IXFR && type == Type.SOA && getSOASerial(rec) == ixfr_serial) {\n+        if (qtype == Type.IXFR && type == Type.SOA && getSOASerial(rec) == ixfrSerial) {\n@@ -414 +414 @@ public class ZoneTransferIn {\n-          handler.handleRecord(initialsoa);\n+          handler.handleRecord(initialSoaRecord);\n@@ -428 +428 @@ public class ZoneTransferIn {\n-          current_serial = getSOASerial(rec);\n+          currentSerial = getSOASerial(rec);\n@@ -444 +444 @@ public class ZoneTransferIn {\n-          if (soa_serial == end_serial) {\n+          if (soa_serial == endSerial) {\n@@ -447,2 +447,2 @@ public class ZoneTransferIn {\n-          } else if (soa_serial != current_serial) {\n-            fail(\"IXFR out of sync: expected serial \" + current_serial + \" , got \" + soa_serial);\n+          } else if (soa_serial != currentSerial) {\n+            fail(\"IXFR out of sync: expected serial \" + currentSerial + \" , got \" + soa_serial);\ndiff --git a/src/main/java/org/xbill/DNS/config/BaseResolverConfigProvider.java b/src/main/java/org/xbill/DNS/config/BaseResolverConfigProvider.java\nindex 48c79b68..0d5d0e5c 100644\n--- a/src/main/java/org/xbill/DNS/config/BaseResolverConfigProvider.java\n+++ b/src/main/java/org/xbill/DNS/config/BaseResolverConfigProvider.java\n@@ -23,2 +23,4 @@ public abstract class BaseResolverConfigProvider implements ResolverConfigProvid\n-  private static final boolean ipv4only = Boolean.getBoolean(\"java.net.preferIPv4Stack\");\n-  private static final boolean ipv6first = Boolean.getBoolean(\"java.net.preferIPv6Addresses\");\n+  private static final boolean IPV4_ONLY = Boolean.getBoolean(\"java.net.preferIPv4Stack\");\n+  private static final boolean IPV6_FIRST = Boolean.getBoolean(\"java.net.preferIPv6Addresses\");\n+\n+  protected static final int DEFAULT_PORT = 53;\n@@ -92 +94 @@ public abstract class BaseResolverConfigProvider implements ResolverConfigProvid\n-    if (ipv6first) {\n+    if (IPV6_FIRST) {\n@@ -100 +102 @@ public abstract class BaseResolverConfigProvider implements ResolverConfigProvid\n-    } else if (ipv4only) {\n+    } else if (IPV4_ONLY) {\ndiff --git a/src/main/java/org/xbill/DNS/config/IPHlpAPI.java b/src/main/java/org/xbill/DNS/config/IPHlpAPI.java\nindex 57c3b844..eab5c6c6 100644\n--- a/src/main/java/org/xbill/DNS/config/IPHlpAPI.java\n+++ b/src/main/java/org/xbill/DNS/config/IPHlpAPI.java\n@@ -15,0 +16,9 @@ import java.net.UnknownHostException;\n+@SuppressWarnings({\n+  \"java:S101\",\n+  \"java:S131\",\n+  \"java:S116\",\n+  \"java:S1104\",\n+  \"java:S2160\",\n+  \"java:S100\",\n+  \"unused\",\n+})\ndiff --git a/src/main/java/org/xbill/DNS/config/PropertyResolverConfigProvider.java b/src/main/java/org/xbill/DNS/config/PropertyResolverConfigProvider.java\nindex bedd6c22..e570d6cc 100644\n--- a/src/main/java/org/xbill/DNS/config/PropertyResolverConfigProvider.java\n+++ b/src/main/java/org/xbill/DNS/config/PropertyResolverConfigProvider.java\n@@ -8 +7,0 @@ import java.util.StringTokenizer;\n-import org.xbill.DNS.SimpleResolver;\n@@ -47 +46 @@ public class PropertyResolverConfigProvider extends BaseResolverConfigProvider {\n-            addNameserver(new InetSocketAddress(server, SimpleResolver.DEFAULT_PORT));\n+            addNameserver(new InetSocketAddress(server, DEFAULT_PORT));\n@@ -51 +50 @@ public class PropertyResolverConfigProvider extends BaseResolverConfigProvider {\n-              port = SimpleResolver.DEFAULT_PORT;\n+              port = DEFAULT_PORT;\ndiff --git a/src/main/java/org/xbill/DNS/dnssec/AlgorithmRequirements.java b/src/main/java/org/xbill/DNS/dnssec/AlgorithmRequirements.java\nindex 81b67f07..2b4a3169 100644\n--- a/src/main/java/org/xbill/DNS/dnssec/AlgorithmRequirements.java\n+++ b/src/main/java/org/xbill/DNS/dnssec/AlgorithmRequirements.java\n@@ -117,2 +117,2 @@ class AlgorithmRequirements {\n-    // check if a needed algo was bogus - report that;\n-    // check the first missing algo - report that;\n+    // check if a needed algo was bogus - report that,\n+    // check the first missing algo - report that,\ndiff --git a/src/main/java/org/xbill/DNS/dnssec/Nsec3ValidationState.java b/src/main/java/org/xbill/DNS/dnssec/Nsec3ValidationState.java\nindex c729831b..1771f0df 100644\n--- a/src/main/java/org/xbill/DNS/dnssec/Nsec3ValidationState.java\n+++ b/src/main/java/org/xbill/DNS/dnssec/Nsec3ValidationState.java\n@@ -23,2 +23,2 @@ class Nsec3ValidationState {\n-  public int numCalc;\n-  public int numCalcErrors;\n+  int numCalc;\n+  int numCalcErrors;\ndiff --git a/src/main/java/org/xbill/DNS/dnssec/SMessage.java b/src/main/java/org/xbill/DNS/dnssec/SMessage.java\nindex fb6f9b2c..eab60573 100644\n--- a/src/main/java/org/xbill/DNS/dnssec/SMessage.java\n+++ b/src/main/java/org/xbill/DNS/dnssec/SMessage.java\n@@ -49 +49 @@ final class SMessage {\n-    this.sections = new List[NUM_SECTIONS];\n+    this.sections = (List<SRRset>[]) new List<?>[NUM_SECTIONS];\ndiff --git a/src/main/java/org/xbill/DNS/hosts/HostsFileParser.java b/src/main/java/org/xbill/DNS/hosts/HostsFileParser.java\nindex f813dd0a..c617bc6d 100644\n--- a/src/main/java/org/xbill/DNS/hosts/HostsFileParser.java\n+++ b/src/main/java/org/xbill/DNS/hosts/HostsFileParser.java\n@@ -32 +32 @@ public final class HostsFileParser {\n-  private final int MAX_FULL_CACHE_FILE_SIZE_BYTES =\n+  private final int maxFullCacheFileSizeBytes =\n@@ -107 +107 @@ public final class HostsFileParser {\n-    if (Files.size(path) <= MAX_FULL_CACHE_FILE_SIZE_BYTES) {\n+    if (Files.size(path) <= maxFullCacheFileSizeBytes) {\ndiff --git a/src/main/java/org/xbill/DNS/lookup/LookupResult.java b/src/main/java/org/xbill/DNS/lookup/LookupResult.java\nindex 8911afd3..57e6e40f 100644\n--- a/src/main/java/org/xbill/DNS/lookup/LookupResult.java\n+++ b/src/main/java/org/xbill/DNS/lookup/LookupResult.java\n@@ -82 +82 @@ public final class LookupResult {\n-  LookupResult(Record query, boolean isAuthenticated, Record record) {\n+  LookupResult(Record query, boolean isAuthenticated, Record result) {\n@@ -85 +85 @@ public final class LookupResult {\n-    this.records = Collections.singletonList(record);\n+    this.records = Collections.singletonList(result);\ndiff --git a/src/main/java/org/xbill/DNS/lookup/LookupSession.java b/src/main/java/org/xbill/DNS/lookup/LookupSession.java\nindex 7f35acbc..89259478 100644\n--- a/src/main/java/org/xbill/DNS/lookup/LookupSession.java\n+++ b/src/main/java/org/xbill/DNS/lookup/LookupSession.java\n@@ -70 +70 @@ public class LookupSession {\n-  private IrrelevantRecordMode irrelevantRecordMode;\n+  private final IrrelevantRecordMode irrelevantRecordMode;\n@@ -573 +573 @@ public class LookupSession {\n-  @SuppressWarnings(\"deprecated\")\n+  @SuppressWarnings(\"deprecation\")\n@@ -629 +629 @@ public class LookupSession {\n-  @SuppressWarnings(\"deprecated\")\n+  @SuppressWarnings(\"deprecation\")\n@@ -692,0 +693 @@ public class LookupSession {\n+  @SuppressWarnings(\"deprecation\")\ndiff --git a/src/main/java/org/xbill/DNS/spi/DNSJavaNameService.java b/src/main/java/org/xbill/DNS/spi/DNSJavaNameService.java\nindex 49e41fa4..dcc11985 100644\n--- a/src/main/java/org/xbill/DNS/spi/DNSJavaNameService.java\n+++ b/src/main/java/org/xbill/DNS/spi/DNSJavaNameService.java\n@@ -54,0 +55 @@ public class DNSJavaNameService implements NameService {\n+  @SuppressWarnings(\"java:S3011\")\ndiff --git a/src/main/java/org/xbill/DNS/tools/dig.java b/src/main/java/org/xbill/DNS/tools/dig.java\nindex 1bf17c76..e080f2fa 100644\n--- a/src/main/java/org/xbill/DNS/tools/dig.java\n+++ b/src/main/java/org/xbill/DNS/tools/dig.java\n@@ -28 +28,2 @@ public class dig {\n-  static int type = Type.A, dclass = DClass.IN;\n+  static int type = Type.A;\n+  static int dclass = DClass.IN;\n@@ -43 +43,0 @@ public class dig {\n-    String server = null;\n@@ -45,5 +44,0 @@ public class dig {\n-    Message query, response;\n-    Record rec;\n-    SimpleResolver res = null;\n-    boolean printQuery = false;\n-    long startTime, endTime;\n@@ -54,0 +50,2 @@ public class dig {\n+    SimpleResolver res = null;\n+    boolean printQuery = false;\n@@ -56,0 +54 @@ public class dig {\n+      String server = null;\n@@ -193,2 +191,2 @@ public class dig {\n-    rec = Record.newRecord(name, type, dclass);\n-    query = Message.newQuery(rec);\n+    Record rec = Record.newRecord(name, type, dclass);\n+    Message query = Message.newQuery(rec);\n@@ -227,3 +225,3 @@ public class dig {\n-      startTime = System.currentTimeMillis();\n-      response = res.send(query);\n-      endTime = System.currentTimeMillis();\n+      long startTime = System.currentTimeMillis();\n+      Message response = res.send(query);\n+      long endTime = System.currentTimeMillis();\ndiff --git a/src/main/java/org/xbill/DNS/tools/jnamed.java b/src/main/java/org/xbill/DNS/tools/jnamed.java\nindex 38a786de..b111ce35 100644\n--- a/src/main/java/org/xbill/DNS/tools/jnamed.java\n+++ b/src/main/java/org/xbill/DNS/tools/jnamed.java\n@@ -61 +61 @@ public class jnamed {\n-  Map<Name, TSIG> TSIGs;\n+  Map<Name, TSIG> tsigs;\n@@ -85 +85 @@ public class jnamed {\n-      TSIGs = new HashMap<>();\n+      tsigs = new HashMap<>();\n@@ -174 +174 @@ public class jnamed {\n-    TSIGs.put(name, new TSIG(algstr, namestr, key));\n+    tsigs.put(name, new TSIG(algstr, namestr, key));\n@@ -434 +434 @@ public class jnamed {\n-      tsig = TSIGs.get(queryTSIG.getName());\n+      tsig = tsigs.get(queryTSIG.getName());\ndiff --git a/src/main/java/org/xbill/DNS/tools/update.java b/src/main/java/org/xbill/DNS/tools/update.java\nindex 465819a1..69461242 100644\n--- a/src/main/java/org/xbill/DNS/tools/update.java\n+++ b/src/main/java/org/xbill/DNS/tools/update.java\n@@ -41 +41,2 @@ public class update {\n-  Message query, response;\n+  Message query;\n+  Message response;\n@@ -330 +331 @@ public class update {\n-    Record record;\n+    Record r;\n@@ -343 +344 @@ public class update {\n-        record = Record.fromString(name, type, defaultClass, 0, st, zone);\n+        r = Record.fromString(name, type, defaultClass, 0, st, zone);\n@@ -345 +346 @@ public class update {\n-        record = Record.newRecord(name, type, DClass.ANY, 0);\n+        r = Record.newRecord(name, type, DClass.ANY, 0);\n@@ -348 +349 @@ public class update {\n-      record = Record.newRecord(name, Type.ANY, DClass.ANY, 0);\n+      r = Record.newRecord(name, Type.ANY, DClass.ANY, 0);\n@@ -351,2 +352,2 @@ public class update {\n-    query.addRecord(record, Section.PREREQ);\n-    print(record);\n+    query.addRecord(r, Section.PREREQ);\n+    print(r);\n@@ -358 +359 @@ public class update {\n-    Record record;\n+    Record r;\n@@ -370,3 +371,3 @@ public class update {\n-    record = Record.newRecord(name, type, DClass.NONE, 0);\n-    query.addRecord(record, Section.PREREQ);\n-    print(record);\n+    r = Record.newRecord(name, type, DClass.NONE, 0);\n+    query.addRecord(r, Section.PREREQ);\n+    print(r);\n@@ -376,3 +377,3 @@ public class update {\n-    Record record = parseRR(st, defaultClass, defaultTTL);\n-    query.addRecord(record, Section.UPDATE);\n-    print(record);\n+    Record r = parseRR(st, defaultClass, defaultTTL);\n+    query.addRecord(r, Section.UPDATE);\n+    print(r);\n@@ -385 +386 @@ public class update {\n-    Record record;\n+    Record r;\n@@ -402 +403 @@ public class update {\n-        record = Record.fromString(name, type, DClass.NONE, 0, st, zone);\n+        r = Record.fromString(name, type, DClass.NONE, 0, st, zone);\n@@ -404 +405 @@ public class update {\n-        record = Record.newRecord(name, type, DClass.ANY, 0);\n+        r = Record.newRecord(name, type, DClass.ANY, 0);\n@@ -407 +408 @@ public class update {\n-      record = Record.newRecord(name, Type.ANY, DClass.ANY, 0);\n+      r = Record.newRecord(name, Type.ANY, DClass.ANY, 0);\n@@ -410,2 +411,2 @@ public class update {\n-    query.addRecord(record, Section.UPDATE);\n-    print(record);\n+    query.addRecord(r, Section.UPDATE);\n+    print(r);\n@@ -415,3 +416,3 @@ public class update {\n-    Record record = parseRR(st, defaultClass, defaultTTL);\n-    query.addRecord(record, Section.ADDITIONAL);\n-    print(record);\n+    Record r = parseRR(st, defaultClass, defaultTTL);\n+    query.addRecord(r, Section.ADDITIONAL);\n+    print(r);\ndiff --git a/src/main/java/org/xbill/DNS/tools/xfrin.java b/src/main/java/org/xbill/DNS/tools/xfrin.java\nindex a5744105..dd3bdf2f 100644\n--- a/src/main/java/org/xbill/DNS/tools/xfrin.java\n+++ b/src/main/java/org/xbill/DNS/tools/xfrin.java\n@@ -28 +28 @@ public class xfrin {\n-    int ixfr_serial = -1;\n+    int ixfrSerial = -1;\n@@ -37,2 +37,2 @@ public class xfrin {\n-        ixfr_serial = Integer.parseInt(args[++arg]);\n-        if (ixfr_serial < 0) {\n+        ixfrSerial = Integer.parseInt(args[++arg]);\n+        if (ixfrSerial < 0) {\n@@ -80,2 +80,2 @@ public class xfrin {\n-    if (ixfr_serial >= 0) {\n-      xfrin = ZoneTransferIn.newIXFR(zname, ixfr_serial, fallback, server, port, key);\n+    if (ixfrSerial >= 0) {\n+      xfrin = ZoneTransferIn.newIXFR(zname, ixfrSerial, fallback, server, port, key);\n@@ -88 +88 @@ public class xfrin {\n-      if (ixfr_serial >= 0) {\n+      if (ixfrSerial >= 0) {\n@@ -93,2 +93,2 @@ public class xfrin {\n-      for (Record record : xfrin.getAXFR()) {\n-        System.out.println(record);\n+      for (Record r : xfrin.getAXFR()) {\n+        System.out.println(r);\ndiff --git a/src/main/java/org/xbill/DNS/utils/base32.java b/src/main/java/org/xbill/DNS/utils/base32.java\nindex b2f77b30..563e232a 100644\n--- a/src/main/java/org/xbill/DNS/utils/base32.java\n+++ b/src/main/java/org/xbill/DNS/utils/base32.java\n@@ -115 +115 @@ public class base32 {\n-      // lower 2 from 4th, upper 3 from 5th;\n+      // lower 2 from 4th, upper 3 from 5th\n@@ -117 +117 @@ public class base32 {\n-      // lower 5 from 5th;\n+      // lower 5 from 5th\ndiff --git a/src/main/java/org/xbill/DNS/utils/base64.java b/src/main/java/org/xbill/DNS/utils/base64.java\nindex 83c33898..a69b57e8 100644\n--- a/src/main/java/org/xbill/DNS/utils/base64.java\n+++ b/src/main/java/org/xbill/DNS/utils/base64.java\n@@ -17 +17 @@ public class base64 {\n-  private static final String Base64 =\n+  private static final String BASE_64 =\n@@ -19 +19 @@ public class base64 {\n-  private static final String Base64Url =\n+  private static final String BASE_64_URL =\n@@ -42 +42 @@ public class base64 {\n-    String base = useUrl ? Base64Url : Base64;\n+    String base = useUrl ? BASE_64_URL : BASE_64;\n@@ -120 +120 @@ public class base64 {\n-        s[j] = (short) Base64.indexOf(in[i * 4 + j]);\n+        s[j] = (short) BASE_64.indexOf(in[i * 4 + j]);\n@@ -146,0 +147 @@ public class base64 {\n+        // Ignore\ndiff --git a/src/main/java/org/xbill/DNS/utils/hexdump.java b/src/main/java/org/xbill/DNS/utils/hexdump.java\nindex d4a478e7..2ddde8a2 100644\n--- a/src/main/java/org/xbill/DNS/utils/hexdump.java\n+++ b/src/main/java/org/xbill/DNS/utils/hexdump.java\n@@ -44 +44 @@ public class hexdump {\n-      int value = (int) b[i + offset] & 0xFF;\n+      int value = b[i + offset] & 0xFF;"
+}

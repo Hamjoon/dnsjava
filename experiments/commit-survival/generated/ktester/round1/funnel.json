@@ -1,0 +1,27 @@
+{
+  "group": "ktester",
+  "round": "round1",
+  "files": 54,
+  "compiled": 26,
+  "methods": 716,
+  "stable_3_of_3": 225,
+  "duplicates": 0,
+  "kept_this_round": 225,
+  "total_kept": 225,
+  "developer_denominator": 1250,
+  "ratio_to_dev": 0.18,
+  "per_prompt": {
+    "KTester": {
+      "files": 54,
+      "compiled": 26,
+      "methods": 716,
+      "stable": 225,
+      "duplicates": 0,
+      "kept": 225
+    }
+  },
+  "dev_unmapped_excluded": 133,
+  "notes": [
+    "133 unmapped baseline cases excluded from all Dev denominators (dev.unmapped: exclude); see dev/dev-unmapped-excluded.csv."
+  ]
+}

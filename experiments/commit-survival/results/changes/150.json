@@ -1,0 +1,18 @@
+{
+  "index": 150,
+  "sha": "afda867340c5c3d5a2514b285d7b6dccefd6a9b3",
+  "parent": "2cb04ab45457437c3bb9756c29bc16f00fab7545",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/WKSRecord.java": [
+      682
+    ]
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/WKSRecord.java": [
+      618,
+      652,
+      684
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/WKSRecord.java b/src/main/java/org/xbill/DNS/WKSRecord.java\nindex 104b03ec..7ea8f335 100644\n--- a/src/main/java/org/xbill/DNS/WKSRecord.java\n+++ b/src/main/java/org/xbill/DNS/WKSRecord.java\n@@ -617,0 +618 @@ public class WKSRecord extends Record {\n+    Arrays.sort(services);\n@@ -650,0 +652 @@ public class WKSRecord extends Record {\n+    Arrays.sort(services);\n@@ -682 +684 @@ public class WKSRecord extends Record {\n-    return services;\n+    return services.clone();"
+}

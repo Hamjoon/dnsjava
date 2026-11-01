@@ -1,0 +1,15 @@
+{
+  "index": 178,
+  "sha": "87409c503cce7f6278ae71534668bffa05a10f65",
+  "parent": "b2af56649de55beb5eb88d13e20fa3196320f7a0",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/DNSSEC.java": []
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/DNSSEC.java": [
+      1432,
+      1433
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/DNSSEC.java b/src/main/java/org/xbill/DNS/DNSSEC.java\nindex ce74f35c..930d86bf 100644\n--- a/src/main/java/org/xbill/DNS/DNSSEC.java\n+++ b/src/main/java/org/xbill/DNS/DNSSEC.java\n@@ -1430,0 +1431,3 @@ public class DNSSEC {\n+        case Digest.SM3:\n+          digest = MessageDigest.getInstance(\"SM3\");\n+          break;"
+}

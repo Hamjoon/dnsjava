@@ -1,0 +1,526 @@
+{
+  "file": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java",
+  "compile": {
+    "command": [
+      "javac",
+      "-J-Xmx512m",
+      "-cp",
+      "/repo/experiments/commit-survival/work/checkouts/0/target/classes:/repo/experiments/commit-survival/work/libs/apiguardian-api-1.1.2.jar:/repo/experiments/commit-survival/work/libs/byte-buddy-1.17.7.jar:/repo/experiments/commit-survival/work/libs/byte-buddy-agent-1.17.7.jar:/repo/experiments/commit-survival/work/libs/commons-io-2.16.1.jar:/repo/experiments/commit-survival/work/libs/commons-lang3-3.14.0.jar:/repo/experiments/commit-survival/work/libs/hamcrest-2.2.jar:/repo/experiments/commit-survival/work/libs/junit-jupiter-5.11.4.jar:/repo/experiments/commit-survival/work/libs/junit-jupiter-api-5.10.2.jar:/repo/experiments/commit-survival/work/libs/junit-jupiter-engine-5.10.2.jar:/repo/experiments/commit-survival/work/libs/junit-jupiter-params-5.10.2.jar:/repo/experiments/commit-survival/work/libs/junit-platform-commons-1.10.2.jar:/repo/experiments/commit-survival/work/libs/junit-platform-engine-1.10.2.jar:/repo/experiments/commit-survival/work/libs/mockito-core-5.24.0.jar:/repo/experiments/commit-survival/work/libs/mockito-junit-jupiter-5.24.0.jar:/repo/experiments/commit-survival/work/libs/objenesis-3.3.jar:/repo/experiments/commit-survival/work/libs/opentest4j-1.3.0.jar:/repo/experiments/commit-survival/work/libs/junit-vintage-engine-5.10.2.jar:/repo/experiments/commit-survival/work/libs/junit-4.13.2.jar:/repo/experiments/commit-survival/work/libs/hamcrest-core-1.3.jar:/repo/experiments/commit-survival/work/libs/junit-platform-console-standalone-1.9.3.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/projectlombok/lombok/1.18.30/lombok-1.18.30.jar:/root/.m2/repository/net/java/dev/jna/jna/5.13.0/jna-5.13.0.jar:/root/.m2/repository/net/java/dev/jna/jna-platform/5.13.0/jna-platform-5.13.0.jar:/root/.m2/repository/org/bouncycastle/bcprov-jdk18on/1.76/bcprov-jdk18on-1.76.jar:/root/.m2/repository/org/mockito/mockito-core/5.7.0/mockito-core-5.7.0.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.14.9/byte-buddy-1.14.9.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.9/byte-buddy-agent-1.14.9.jar:/root/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/root/.m2/repository/org/mockito/mockito-junit-jupiter/5.7.0/mockito-junit-jupiter-5.7.0.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.36/slf4j-simple-1.7.36.jar:/root/.m2/repository/io/vertx/vertx-core/4.4.6/vertx-core-4.4.6.jar:/root/.m2/repository/io/netty/netty-common/4.1.100.Final/netty-common-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-buffer/4.1.100.Final/netty-buffer-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-transport/4.1.100.Final/netty-transport-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-handler/4.1.100.Final/netty-handler-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-transport-native-unix-common/4.1.100.Final/netty-transport-native-unix-common-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-codec/4.1.100.Final/netty-codec-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-handler-proxy/4.1.100.Final/netty-handler-proxy-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-codec-socks/4.1.100.Final/netty-codec-socks-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-codec-http/4.1.100.Final/netty-codec-http-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-codec-http2/4.1.100.Final/netty-codec-http2-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-resolver/4.1.100.Final/netty-resolver-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-resolver-dns/4.1.100.Final/netty-resolver-dns-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-codec-dns/4.1.100.Final/netty-codec-dns-4.1.100.Final.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.15.0/jackson-core-2.15.0.jar:/root/.m2/repository/io/vertx/vertx-junit5/4.4.6/vertx-junit5-4.4.6.jar:/root/.m2/repository/io/vertx/vertx-codegen/4.4.6/vertx-codegen-4.4.6.jar:/root/.m2/repository/commons-io/commons-io/2.15.0/commons-io-2.15.0.jar",
+      "-sourcepath",
+      "/repo/experiments/commit-survival/generated/ktester/round1/dnsjava/test_classes",
+      "-d",
+      "/repo/experiments/commit-survival/work/validation/ktester/round1/2/test/classes",
+      "/repo/experiments/commit-survival/generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java"
+    ],
+    "cwd": "/repo/experiments/commit-survival/work/checkouts/0",
+    "exit_code": 0,
+    "timeout": false,
+    "seconds": 3.643,
+    "log": "work/validation/ktester/round1/2/test/javac.txt"
+  },
+  "runs": [
+    {
+      "command": [
+        "java",
+        "-Xmx1g",
+        "-XX:+UseSerialGC",
+        "-cp",
+        "/repo/experiments/commit-survival/work/validation/ktester/round1/2/test/classes:/repo/experiments/commit-survival/work/checkouts/0/target/classes:/repo/experiments/commit-survival/work/libs/apiguardian-api-1.1.2.jar:/repo/experiments/commit-survival/work/libs/byte-buddy-1.17.7.jar:/repo/experiments/commit-survival/work/libs/byte-buddy-agent-1.17.7.jar:/repo/experiments/commit-survival/work/libs/commons-io-2.16.1.jar:/repo/experiments/commit-survival/work/libs/commons-lang3-3.14.0.jar:/repo/experiments/commit-survival/work/libs/hamcrest-2.2.jar:/repo/experiments/commit-survival/work/libs/junit-jupiter-5.11.4.jar:/repo/experiments/commit-survival/work/libs/junit-jupiter-api-5.10.2.jar:/repo/experiments/commit-survival/work/libs/junit-jupiter-engine-5.10.2.jar:/repo/experiments/commit-survival/work/libs/junit-jupiter-params-5.10.2.jar:/repo/experiments/commit-survival/work/libs/junit-platform-commons-1.10.2.jar:/repo/experiments/commit-survival/work/libs/junit-platform-engine-1.10.2.jar:/repo/experiments/commit-survival/work/libs/mockito-core-5.24.0.jar:/repo/experiments/commit-survival/work/libs/mockito-junit-jupiter-5.24.0.jar:/repo/experiments/commit-survival/work/libs/objenesis-3.3.jar:/repo/experiments/commit-survival/work/libs/opentest4j-1.3.0.jar:/repo/experiments/commit-survival/work/libs/junit-vintage-engine-5.10.2.jar:/repo/experiments/commit-survival/work/libs/junit-4.13.2.jar:/repo/experiments/commit-survival/work/libs/hamcrest-core-1.3.jar:/repo/experiments/commit-survival/work/libs/junit-platform-console-standalone-1.9.3.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/projectlombok/lombok/1.18.30/lombok-1.18.30.jar:/root/.m2/repository/net/java/dev/jna/jna/5.13.0/jna-5.13.0.jar:/root/.m2/repository/net/java/dev/jna/jna-platform/5.13.0/jna-platform-5.13.0.jar:/root/.m2/repository/org/bouncycastle/bcprov-jdk18on/1.76/bcprov-jdk18on-1.76.jar:/root/.m2/repository/org/mockito/mockito-core/5.7.0/mockito-core-5.7.0.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.14.9/byte-buddy-1.14.9.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.9/byte-buddy-agent-1.14.9.jar:/root/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/root/.m2/repository/org/mockito/mockito-junit-jupiter/5.7.0/mockito-junit-jupiter-5.7.0.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.36/slf4j-simple-1.7.36.jar:/root/.m2/repository/io/vertx/vertx-core/4.4.6/vertx-core-4.4.6.jar:/root/.m2/repository/io/netty/netty-common/4.1.100.Final/netty-common-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-buffer/4.1.100.Final/netty-buffer-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-transport/4.1.100.Final/netty-transport-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-handler/4.1.100.Final/netty-handler-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-transport-native-unix-common/4.1.100.Final/netty-transport-native-unix-common-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-codec/4.1.100.Final/netty-codec-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-handler-proxy/4.1.100.Final/netty-handler-proxy-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-codec-socks/4.1.100.Final/netty-codec-socks-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-codec-http/4.1.100.Final/netty-codec-http-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-codec-http2/4.1.100.Final/netty-codec-http2-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-resolver/4.1.100.Final/netty-resolver-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-resolver-dns/4.1.100.Final/netty-resolver-dns-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-codec-dns/4.1.100.Final/netty-codec-dns-4.1.100.Final.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.15.0/jackson-core-2.15.0.jar:/root/.m2/repository/io/vertx/vertx-junit5/4.4.6/vertx-junit5-4.4.6.jar:/root/.m2/repository/io/vertx/vertx-codegen/4.4.6/vertx-codegen-4.4.6.jar:/root/.m2/repository/commons-io/commons-io/2.15.0/commons-io-2.15.0.jar:/repo/experiments/commit-survival/dev/src-test-t/resources:/repo/experiments/commit-survival/dev/src-test-t/suite",
+        "org.junit.platform.console.ConsoleLauncher",
+        "--disable-banner",
+        "--disable-ansi-colors",
+        "--fail-if-no-tests",
+        "--details",
+        "summary",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_matchesInAnswerSection()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_matchesInAuthoritySection()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_matchesInAdditionalSection()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_returnsFalseWhenNoMatch()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_returnsFalseWhenTypeDoesNotMatch()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_isShortCircuitingAcrossSections()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#shortCircuit_firstSectionMatches()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#shortCircuit_secondSectionMatches()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#shortCircuit_thirdSectionMatches()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#shortCircuit_allSectionsFalse()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#nullNameArgument()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#negativeTypeArgument()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#zeroTypeArgument()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#maxTypeNoMatch()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#rootNameWithSOARecord()",
+        "--reports-dir",
+        "/repo/experiments/commit-survival/work/validation/ktester/round1/2/test/run1"
+      ],
+      "cwd": "/repo/experiments/commit-survival/work/runtime",
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 4.067,
+      "log": "work/validation/ktester/round1/2/test/run1/console.txt"
+    },
+    {
+      "command": [
+        "java",
+        "-Xmx1g",
+        "-XX:+UseSerialGC",
+        "-cp",
+        "/repo/experiments/commit-survival/work/validation/ktester/round1/2/test/classes:/repo/experiments/commit-survival/work/checkouts/0/target/classes:/repo/experiments/commit-survival/work/libs/apiguardian-api-1.1.2.jar:/repo/experiments/commit-survival/work/libs/byte-buddy-1.17.7.jar:/repo/experiments/commit-survival/work/libs/byte-buddy-agent-1.17.7.jar:/repo/experiments/commit-survival/work/libs/commons-io-2.16.1.jar:/repo/experiments/commit-survival/work/libs/commons-lang3-3.14.0.jar:/repo/experiments/commit-survival/work/libs/hamcrest-2.2.jar:/repo/experiments/commit-survival/work/libs/junit-jupiter-5.11.4.jar:/repo/experiments/commit-survival/work/libs/junit-jupiter-api-5.10.2.jar:/repo/experiments/commit-survival/work/libs/junit-jupiter-engine-5.10.2.jar:/repo/experiments/commit-survival/work/libs/junit-jupiter-params-5.10.2.jar:/repo/experiments/commit-survival/work/libs/junit-platform-commons-1.10.2.jar:/repo/experiments/commit-survival/work/libs/junit-platform-engine-1.10.2.jar:/repo/experiments/commit-survival/work/libs/mockito-core-5.24.0.jar:/repo/experiments/commit-survival/work/libs/mockito-junit-jupiter-5.24.0.jar:/repo/experiments/commit-survival/work/libs/objenesis-3.3.jar:/repo/experiments/commit-survival/work/libs/opentest4j-1.3.0.jar:/repo/experiments/commit-survival/work/libs/junit-vintage-engine-5.10.2.jar:/repo/experiments/commit-survival/work/libs/junit-4.13.2.jar:/repo/experiments/commit-survival/work/libs/hamcrest-core-1.3.jar:/repo/experiments/commit-survival/work/libs/junit-platform-console-standalone-1.9.3.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/projectlombok/lombok/1.18.30/lombok-1.18.30.jar:/root/.m2/repository/net/java/dev/jna/jna/5.13.0/jna-5.13.0.jar:/root/.m2/repository/net/java/dev/jna/jna-platform/5.13.0/jna-platform-5.13.0.jar:/root/.m2/repository/org/bouncycastle/bcprov-jdk18on/1.76/bcprov-jdk18on-1.76.jar:/root/.m2/repository/org/mockito/mockito-core/5.7.0/mockito-core-5.7.0.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.14.9/byte-buddy-1.14.9.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.9/byte-buddy-agent-1.14.9.jar:/root/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/root/.m2/repository/org/mockito/mockito-junit-jupiter/5.7.0/mockito-junit-jupiter-5.7.0.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.36/slf4j-simple-1.7.36.jar:/root/.m2/repository/io/vertx/vertx-core/4.4.6/vertx-core-4.4.6.jar:/root/.m2/repository/io/netty/netty-common/4.1.100.Final/netty-common-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-buffer/4.1.100.Final/netty-buffer-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-transport/4.1.100.Final/netty-transport-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-handler/4.1.100.Final/netty-handler-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-transport-native-unix-common/4.1.100.Final/netty-transport-native-unix-common-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-codec/4.1.100.Final/netty-codec-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-handler-proxy/4.1.100.Final/netty-handler-proxy-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-codec-socks/4.1.100.Final/netty-codec-socks-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-codec-http/4.1.100.Final/netty-codec-http-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-codec-http2/4.1.100.Final/netty-codec-http2-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-resolver/4.1.100.Final/netty-resolver-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-resolver-dns/4.1.100.Final/netty-resolver-dns-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-codec-dns/4.1.100.Final/netty-codec-dns-4.1.100.Final.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.15.0/jackson-core-2.15.0.jar:/root/.m2/repository/io/vertx/vertx-junit5/4.4.6/vertx-junit5-4.4.6.jar:/root/.m2/repository/io/vertx/vertx-codegen/4.4.6/vertx-codegen-4.4.6.jar:/root/.m2/repository/commons-io/commons-io/2.15.0/commons-io-2.15.0.jar:/repo/experiments/commit-survival/dev/src-test-t/resources:/repo/experiments/commit-survival/dev/src-test-t/suite",
+        "org.junit.platform.console.ConsoleLauncher",
+        "--disable-banner",
+        "--disable-ansi-colors",
+        "--fail-if-no-tests",
+        "--details",
+        "summary",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_matchesInAnswerSection()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_matchesInAuthoritySection()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_matchesInAdditionalSection()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_returnsFalseWhenNoMatch()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_returnsFalseWhenTypeDoesNotMatch()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_isShortCircuitingAcrossSections()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#shortCircuit_firstSectionMatches()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#shortCircuit_secondSectionMatches()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#shortCircuit_thirdSectionMatches()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#shortCircuit_allSectionsFalse()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#nullNameArgument()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#negativeTypeArgument()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#zeroTypeArgument()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#maxTypeNoMatch()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#rootNameWithSOARecord()",
+        "--reports-dir",
+        "/repo/experiments/commit-survival/work/validation/ktester/round1/2/test/run2"
+      ],
+      "cwd": "/repo/experiments/commit-survival/work/runtime",
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 2.648,
+      "log": "work/validation/ktester/round1/2/test/run2/console.txt"
+    },
+    {
+      "command": [
+        "java",
+        "-Xmx1g",
+        "-XX:+UseSerialGC",
+        "-cp",
+        "/repo/experiments/commit-survival/work/validation/ktester/round1/2/test/classes:/repo/experiments/commit-survival/work/checkouts/0/target/classes:/repo/experiments/commit-survival/work/libs/apiguardian-api-1.1.2.jar:/repo/experiments/commit-survival/work/libs/byte-buddy-1.17.7.jar:/repo/experiments/commit-survival/work/libs/byte-buddy-agent-1.17.7.jar:/repo/experiments/commit-survival/work/libs/commons-io-2.16.1.jar:/repo/experiments/commit-survival/work/libs/commons-lang3-3.14.0.jar:/repo/experiments/commit-survival/work/libs/hamcrest-2.2.jar:/repo/experiments/commit-survival/work/libs/junit-jupiter-5.11.4.jar:/repo/experiments/commit-survival/work/libs/junit-jupiter-api-5.10.2.jar:/repo/experiments/commit-survival/work/libs/junit-jupiter-engine-5.10.2.jar:/repo/experiments/commit-survival/work/libs/junit-jupiter-params-5.10.2.jar:/repo/experiments/commit-survival/work/libs/junit-platform-commons-1.10.2.jar:/repo/experiments/commit-survival/work/libs/junit-platform-engine-1.10.2.jar:/repo/experiments/commit-survival/work/libs/mockito-core-5.24.0.jar:/repo/experiments/commit-survival/work/libs/mockito-junit-jupiter-5.24.0.jar:/repo/experiments/commit-survival/work/libs/objenesis-3.3.jar:/repo/experiments/commit-survival/work/libs/opentest4j-1.3.0.jar:/repo/experiments/commit-survival/work/libs/junit-vintage-engine-5.10.2.jar:/repo/experiments/commit-survival/work/libs/junit-4.13.2.jar:/repo/experiments/commit-survival/work/libs/hamcrest-core-1.3.jar:/repo/experiments/commit-survival/work/libs/junit-platform-console-standalone-1.9.3.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/projectlombok/lombok/1.18.30/lombok-1.18.30.jar:/root/.m2/repository/net/java/dev/jna/jna/5.13.0/jna-5.13.0.jar:/root/.m2/repository/net/java/dev/jna/jna-platform/5.13.0/jna-platform-5.13.0.jar:/root/.m2/repository/org/bouncycastle/bcprov-jdk18on/1.76/bcprov-jdk18on-1.76.jar:/root/.m2/repository/org/mockito/mockito-core/5.7.0/mockito-core-5.7.0.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.14.9/byte-buddy-1.14.9.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.9/byte-buddy-agent-1.14.9.jar:/root/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/root/.m2/repository/org/mockito/mockito-junit-jupiter/5.7.0/mockito-junit-jupiter-5.7.0.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.36/slf4j-simple-1.7.36.jar:/root/.m2/repository/io/vertx/vertx-core/4.4.6/vertx-core-4.4.6.jar:/root/.m2/repository/io/netty/netty-common/4.1.100.Final/netty-common-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-buffer/4.1.100.Final/netty-buffer-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-transport/4.1.100.Final/netty-transport-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-handler/4.1.100.Final/netty-handler-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-transport-native-unix-common/4.1.100.Final/netty-transport-native-unix-common-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-codec/4.1.100.Final/netty-codec-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-handler-proxy/4.1.100.Final/netty-handler-proxy-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-codec-socks/4.1.100.Final/netty-codec-socks-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-codec-http/4.1.100.Final/netty-codec-http-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-codec-http2/4.1.100.Final/netty-codec-http2-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-resolver/4.1.100.Final/netty-resolver-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-resolver-dns/4.1.100.Final/netty-resolver-dns-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-codec-dns/4.1.100.Final/netty-codec-dns-4.1.100.Final.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.15.0/jackson-core-2.15.0.jar:/root/.m2/repository/io/vertx/vertx-junit5/4.4.6/vertx-junit5-4.4.6.jar:/root/.m2/repository/io/vertx/vertx-codegen/4.4.6/vertx-codegen-4.4.6.jar:/root/.m2/repository/commons-io/commons-io/2.15.0/commons-io-2.15.0.jar:/repo/experiments/commit-survival/dev/src-test-t/resources:/repo/experiments/commit-survival/dev/src-test-t/suite",
+        "org.junit.platform.console.ConsoleLauncher",
+        "--disable-banner",
+        "--disable-ansi-colors",
+        "--fail-if-no-tests",
+        "--details",
+        "summary",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_matchesInAnswerSection()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_matchesInAuthoritySection()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_matchesInAdditionalSection()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_returnsFalseWhenNoMatch()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_returnsFalseWhenTypeDoesNotMatch()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_isShortCircuitingAcrossSections()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#shortCircuit_firstSectionMatches()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#shortCircuit_secondSectionMatches()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#shortCircuit_thirdSectionMatches()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#shortCircuit_allSectionsFalse()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#nullNameArgument()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#negativeTypeArgument()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#zeroTypeArgument()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#maxTypeNoMatch()",
+        "--select-method",
+        "org.xbill.DNS.Message_findRRset_2_Test#rootNameWithSOARecord()",
+        "--reports-dir",
+        "/repo/experiments/commit-survival/work/validation/ktester/round1/2/test/run3"
+      ],
+      "cwd": "/repo/experiments/commit-survival/work/runtime",
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 2.944,
+      "log": "work/validation/ktester/round1/2/test/run3/console.txt"
+    }
+  ],
+  "methods": [
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java",
+      "class": "org.xbill.DNS.Message_findRRset_2_Test",
+      "method": "findRRset_matchesInAnswerSection",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java|org.xbill.DNS.Message_findRRset_2_Test|findRRset_matchesInAnswerSection",
+      "body_hash": "f5a46279482800df9f8e945edcd3202b608195b034a9172c67012a4d58eeb75d",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_matchesInAnswerSection()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java",
+      "class": "org.xbill.DNS.Message_findRRset_2_Test",
+      "method": "findRRset_matchesInAuthoritySection",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java|org.xbill.DNS.Message_findRRset_2_Test|findRRset_matchesInAuthoritySection",
+      "body_hash": "d9cdc399646aee6420a0d0766e08e07c5c98a147ef65475d0601be8e67a30111",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_matchesInAuthoritySection()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java",
+      "class": "org.xbill.DNS.Message_findRRset_2_Test",
+      "method": "findRRset_matchesInAdditionalSection",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java|org.xbill.DNS.Message_findRRset_2_Test|findRRset_matchesInAdditionalSection",
+      "body_hash": "6d345949ba775a090fbfc1c7ef7327d27aa72c3bcabebcf103e4620435685713",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_matchesInAdditionalSection()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java",
+      "class": "org.xbill.DNS.Message_findRRset_2_Test",
+      "method": "findRRset_returnsFalseWhenNoMatch",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java|org.xbill.DNS.Message_findRRset_2_Test|findRRset_returnsFalseWhenNoMatch",
+      "body_hash": "a9623584f848ce91ce3e7e0b8d49f4c9893fee675fdfbbde6d2327f756ff5988",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_returnsFalseWhenNoMatch()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java",
+      "class": "org.xbill.DNS.Message_findRRset_2_Test",
+      "method": "findRRset_returnsFalseWhenTypeDoesNotMatch",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java|org.xbill.DNS.Message_findRRset_2_Test|findRRset_returnsFalseWhenTypeDoesNotMatch",
+      "body_hash": "264cd60a6a8a9caf7ffdb64f9f51b5c899ab83b3a1c359a65e1d275240da3d16",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_returnsFalseWhenTypeDoesNotMatch()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java",
+      "class": "org.xbill.DNS.Message_findRRset_2_Test",
+      "method": "findRRset_isShortCircuitingAcrossSections",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java|org.xbill.DNS.Message_findRRset_2_Test|findRRset_isShortCircuitingAcrossSections",
+      "body_hash": "de52e843e5c7ec94f48a41f1102109b82c414641555920bd1afad0f5e66e492f",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_isShortCircuitingAcrossSections()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java",
+      "class": "org.xbill.DNS.Message_findRRset_2_Test",
+      "method": "shortCircuit_firstSectionMatches",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java|org.xbill.DNS.Message_findRRset_2_Test|shortCircuit_firstSectionMatches",
+      "body_hash": "7e828666cf5d62af9baca3621faf8a12dcdc45557c4dfcd0b4d4e67553e701a8",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_findRRset_2_Test#shortCircuit_firstSectionMatches()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java",
+      "class": "org.xbill.DNS.Message_findRRset_2_Test",
+      "method": "shortCircuit_secondSectionMatches",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java|org.xbill.DNS.Message_findRRset_2_Test|shortCircuit_secondSectionMatches",
+      "body_hash": "79e7d74b9efd8ee5c19f6fa4b1c33b56916640de236d07568aa85939323bb429",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_findRRset_2_Test#shortCircuit_secondSectionMatches()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java",
+      "class": "org.xbill.DNS.Message_findRRset_2_Test",
+      "method": "shortCircuit_thirdSectionMatches",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java|org.xbill.DNS.Message_findRRset_2_Test|shortCircuit_thirdSectionMatches",
+      "body_hash": "ecfb8662dbf0bb322bd314ca7b40663319f7f1cf04545e8c29587e41ac1caf90",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_findRRset_2_Test#shortCircuit_thirdSectionMatches()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java",
+      "class": "org.xbill.DNS.Message_findRRset_2_Test",
+      "method": "shortCircuit_allSectionsFalse",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java|org.xbill.DNS.Message_findRRset_2_Test|shortCircuit_allSectionsFalse",
+      "body_hash": "e6471f93c23a503441e4601f704a6e360ef2fef781c4609d908fcd476656e694",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_findRRset_2_Test#shortCircuit_allSectionsFalse()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java",
+      "class": "org.xbill.DNS.Message_findRRset_2_Test",
+      "method": "nullNameArgument",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java|org.xbill.DNS.Message_findRRset_2_Test|nullNameArgument",
+      "body_hash": "ac902b9d991a7853e3389880db7816e0d1a0ecbe6a47fe767b2080a9b0fdefb9",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_findRRset_2_Test#nullNameArgument()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java",
+      "class": "org.xbill.DNS.Message_findRRset_2_Test",
+      "method": "negativeTypeArgument",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java|org.xbill.DNS.Message_findRRset_2_Test|negativeTypeArgument",
+      "body_hash": "7d5ab12272262a0f7b00a3b0a412f2a286465102b777da680ae447791fab7c63",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_findRRset_2_Test#negativeTypeArgument()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java",
+      "class": "org.xbill.DNS.Message_findRRset_2_Test",
+      "method": "zeroTypeArgument",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java|org.xbill.DNS.Message_findRRset_2_Test|zeroTypeArgument",
+      "body_hash": "270da2bf986ff6b957ff9daae9b46237ef07fdd83138d3ac337540ce29e466d6",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_findRRset_2_Test#zeroTypeArgument()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java",
+      "class": "org.xbill.DNS.Message_findRRset_2_Test",
+      "method": "maxTypeNoMatch",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java|org.xbill.DNS.Message_findRRset_2_Test|maxTypeNoMatch",
+      "body_hash": "fd9140ffb8d347d50e8a163e1ff3cf0507fa95325854068b129b50418d93c8d1",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_findRRset_2_Test#maxTypeNoMatch()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java",
+      "class": "org.xbill.DNS.Message_findRRset_2_Test",
+      "method": "rootNameWithSOARecord",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java|org.xbill.DNS.Message_findRRset_2_Test|rootNameWithSOARecord",
+      "body_hash": "fe3930ba4ecdffa0aee68ec0d397ffc66c646e98bf0d7eb08a9b4d7568fbe75c",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_findRRset_2_Test#rootNameWithSOARecord()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    }
+  ],
+  "parse": {
+    "command": [
+      "java",
+      "-Xmx512m",
+      "/survival-package/adapters/java/SourceInventory.java",
+      "/repo/experiments/commit-survival/generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java",
+      "auto"
+    ],
+    "cwd": "/repo/experiments/commit-survival/work/checkouts/0",
+    "exit_code": 0,
+    "timeout": false,
+    "seconds": 1.707,
+    "log": "work/validation/ktester/round1/2/inventory.tsv"
+  },
+  "input_sha256": "529be913f3bf9bb5fbb9a43aa056f5eeb95acd7cc6c99c20dfcb849075944a6f"
+}

@@ -1,0 +1,252 @@
+[
+  {
+    "group": "Message without OPT and not signed",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "message",
+            "value": "Message instance with header (opcode != UPDATE), no OPTRecord, isSigned() returns false"
+          }
+        ],
+        "expected": "String starts with header.toString() followed by a newline, contains four section headers using Section.longString(i), does NOT contain \";; TSIG\", and ends with \"Message size: <numBytes()> bytes\"",
+        "description": "Verifies the default path when there is no OPT pseudo\u2011section and the message is not signed. The code should skip the OPT block, skip the TSIG block, use longString for section titles, and correctly append the size."
+      }
+    ]
+  },
+  {
+    "group": "Message with OPT and not signed",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "message",
+            "value": "Message instance with header (opcode != UPDATE), OPTRecord present, isSigned() returns false"
+          }
+        ],
+        "expected": "String starts with header.toStringWithRcode(rcode) + \"\\n\\n\", then the OPT pseudo\u2011section text (as produced by OPTRecord.printPseudoSection), followed by a newline, then the four longString section headers, and no \";; TSIG\" line.",
+        "description": "Covers the branch where opt != null. The method must call header.toStringWithRcode, append the pseudo\u2011section, and then continue with normal section output."
+      }
+    ]
+  },
+  {
+    "group": "Signed message \u2013 verified TSIG",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "message",
+            "value": "Message instance with header (opcode != UPDATE), no OPT, isSigned() returns true, isVerified() returns true"
+          }
+        ],
+        "expected": "String contains a line \";; TSIG ok\" (followed by a newline) after the header line and before the section headers.",
+        "description": "Tests the inner if\u2011else inside the TSIG block when the message is signed and the signature has been verified."
+      }
+    ]
+  },
+  {
+    "group": "Signed message \u2013 invalid TSIG",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "message",
+            "value": "Message instance with header (opcode != UPDATE), no OPT, isSigned() returns true, isVerified() returns false"
+          }
+        ],
+        "expected": "String contains a line \";; TSIG invalid\" (followed by a newline) after the header line and before the section headers.",
+        "description": "Tests the else branch of the TSIG verification block when the signature is present but not verified."
+      }
+    ]
+  },
+  {
+    "group": "Opcode UPDATE influences section titles",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "message",
+            "value": "Message instance with header.getOpcode() == Opcode.UPDATE, no OPT, not signed"
+          }
+        ],
+        "expected": "Each of the four section headers uses Section.updString(i) instead of Section.longString(i). For example the first header should be \";; \" + Section.updString(0) + \":\".",
+        "description": "Ensures that when the opcode is UPDATE the method selects the update\u2011specific section title strings."
+      },
+      {
+        "input": [
+          {
+            "parameter": "message",
+            "value": "Message instance with header.getOpcode() != Opcode.UPDATE, no OPT, not signed"
+          }
+        ],
+        "expected": "Each of the four section headers uses Section.longString(i).",
+        "description": "Ensures the normal path (non\u2011UPDATE opcode) uses the longString titles."
+      }
+    ]
+  },
+  {
+    "group": "Full combination (OPT + signed + verified + UPDATE opcode)",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "message",
+            "value": "Message with header.opcode = Opcode.UPDATE, OPTRecord present, isSigned() = true, isVerified() = true"
+          }
+        ],
+        "expected": "String starts with header.toStringWithRcode(rcode) + \"\\n\\n\", then OPT pseudo\u2011section, then a line \";; TSIG ok\", then four section headers using Section.updString(i), and finally the size line.",
+        "description": "Covers all conditional branches simultaneously to verify that the ordering of appended parts is correct when every optional feature is active."
+      }
+    ]
+  },
+  {
+    "group": "Signed message \u2013 verified TSIG with UPDATE opcode",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "message",
+            "value": "Message instance where header.getOpcode() == Opcode.UPDATE, no OPTRecord, isSigned() returns true, isVerified() returns true"
+          }
+        ],
+        "expected": "String contains a line \";; TSIG ok\" after the header line, then four section headers that use Section.updString(i) (e.g., \";; \" + Section.updString(0) + \":\"), and finally a line \";; Message size: <numBytes()> bytes\". No OPT pseudo\u2011section text should appear.",
+        "description": "Verifies that when the message is signed and the TSIG is verified, the TSIG line is emitted before the UPDATE\u2011specific section titles."
+      }
+    ]
+  },
+  {
+    "group": "Signed message \u2013 invalid TSIG with UPDATE opcode",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "message",
+            "value": "Message instance where header.getOpcode() == Opcode.UPDATE, no OPTRecord, isSigned() returns true, isVerified() returns false"
+          }
+        ],
+        "expected": "String contains a line \";; TSIG invalid\" after the header line, then four section headers that use Section.updString(i), and ends with \";; Message size: <numBytes()> bytes\". No OPT pseudo\u2011section text should appear.",
+        "description": "Ensures that the TSIG invalid branch is taken correctly when the message is signed but verification fails, even when the opcode is UPDATE."
+      }
+    ]
+  },
+  {
+    "group": "Message with OPT and signed verified (non\u2011UPDATE opcode)",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "message",
+            "value": "Message instance where header.getOpcode() != Opcode.UPDATE, OPTRecord present, isSigned() returns true, isVerified() returns true"
+          }
+        ],
+        "expected": "String starts with header.toStringWithRcode(rcode) + \"\\n\\n\", followed by the OPT pseudo\u2011section text (as produced by OPTRecord.printPseudoSection), then a newline, then a line \";; TSIG ok\", then four section headers that use Section.longString(i), and finally the size line.",
+        "description": "Tests the combination of an OPT pseudo\u2011section and a verified TSIG when the opcode is not UPDATE, checking ordering of header, OPT, TSIG, and section titles."
+      }
+    ]
+  },
+  {
+    "group": "Message with OPT and signed invalid (non\u2011UPDATE opcode)",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "message",
+            "value": "Message instance where header.getOpcode() != Opcode.UPDATE, OPTRecord present, isSigned() returns true, isVerified() returns false"
+          }
+        ],
+        "expected": "String starts with header.toStringWithRcode(rcode) + \"\\n\\n\", then the OPT pseudo\u2011section, then a newline, then a line \";; TSIG invalid\", then four section headers using Section.longString(i), and ends with the size line.",
+        "description": "Ensures that when a message contains an OPT pseudo\u2011section and an unsigned/invalid TSIG, the TSIG invalid line appears after the OPT block and before the normal section titles."
+      }
+    ]
+  },
+  {
+    "group": "Message with OPT and signed invalid with UPDATE opcode",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "message",
+            "value": "Message instance where header.getOpcode() == Opcode.UPDATE, OPTRecord present, isSigned() returns true, isVerified() returns false"
+          }
+        ],
+        "expected": "String starts with header.toStringWithRcode(rcode) + \"\\n\\n\", then the OPT pseudo\u2011section, then a newline, then a line \";; TSIG invalid\", then four section headers that use Section.updString(i), and finally \";; Message size: <numBytes()> bytes\".",
+        "description": "Covers the case where an UPDATE\u2011type message has both an OPT pseudo\u2011section and an invalid TSIG, verifying that the UPDATE\u2011specific section titles are used after the TSIG line."
+      }
+    ]
+  },
+  {
+    "group": "Null header \u2013 NPE without OPT",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "message",
+            "value": "Message instance where header == null, getOPT() returns null, isSigned() returns false"
+          }
+        ],
+        "expected": "NullPointerException is thrown when toString() attempts to access header methods",
+        "description": "The Message object lacks a Header. The toString() implementation accesses header.toString() (or header.toStringWithRcode) without a null\u2011check, causing a NPE. This verifies that a missing header results in an exception."
+      }
+    ]
+  },
+  {
+    "group": "Null header \u2013 NPE with OPT present",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "message",
+            "value": "Message instance where header == null, getOPT() returns a non\u2011null OPTRecord, isSigned() returns false"
+          }
+        ],
+        "expected": "NullPointerException is thrown when toString() attempts to call header.toStringWithRcode(...)",
+        "description": "Even when an OPT pseudo\u2011section exists, the method first calls header.toStringWithRcode before any OPT handling. With a null Header this call throws NPE."
+      }
+    ]
+  },
+  {
+    "group": "Null header \u2013 NPE with signed TSIG",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "message",
+            "value": "Message instance where header == null, getOPT() returns null, isSigned() returns true, isVerified() returns true"
+          }
+        ],
+        "expected": "NullPointerException is thrown while evaluating header.getOpcode() or header.toString()",
+        "description": "When the message is signed, toString() still accesses header (for opcode and size). A null Header should cause NPE regardless of TSIG state."
+      }
+    ]
+  },
+  {
+    "group": "Section internal error \u2013 NPE from sectionToString",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "message",
+            "value": "Message instance with a valid Header but internal section list for at least one section is null, causing sectionToString(sb, i) to throw NullPointerException"
+          }
+        ],
+        "expected": "NullPointerException is thrown from private method sectionToString during iteration over sections",
+        "description": "If a section's record list is null, the private helper that builds the textual representation will dereference it, leading to NPE. This case ensures that such internal corruption surfaces as an exception."
+      }
+    ]
+  },
+  {
+    "group": "OPTRecord printPseudoSection throws RuntimeException",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "message",
+            "value": "Message instance with non\u2011null Header, getOPT() returns an OPTRecord whose printPseudoSection(sb) throws a RuntimeException (e.g., IllegalStateException)"
+          }
+        ],
+        "expected": "RuntimeException (or specific subclass) propagates out of toString()",
+        "description": "The toString() method does not catch exceptions from OPTRecord.printPseudoSection. If that method throws, the exception should bubble up, which this test validates."
+      }
+    ]
+  }
+]

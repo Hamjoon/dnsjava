@@ -1,0 +1,27 @@
+{
+  "index": 2,
+  "sha": "206c9e51ac18e1ed6f82beb16cb6c0ff1f83b095",
+  "parent": "5da277075230e8a131edfefadfb119c0556fa904",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/dnssec/DnsSecVerifier.java": [
+      85,
+      86,
+      87,
+      90,
+      119
+    ],
+    "src/main/java/org/xbill/DNS/dnssec/ValidatingResolver.java": [
+      1006
+    ]
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/dnssec/DnsSecVerifier.java": [
+      112,
+      113
+    ],
+    "src/main/java/org/xbill/DNS/dnssec/ValidatingResolver.java": [
+      1006
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/dnssec/DnsSecVerifier.java b/src/main/java/org/xbill/DNS/dnssec/DnsSecVerifier.java\nindex 23895af1..09f60911 100644\n--- a/src/main/java/org/xbill/DNS/dnssec/DnsSecVerifier.java\n+++ b/src/main/java/org/xbill/DNS/dnssec/DnsSecVerifier.java\n@@ -85,7 +84,0 @@ final class DnsSecVerifier {\n-    if (keys.isEmpty()) {\n-      log.trace(\"Could not find appropriate key\");\n-      return new JustifiedSecStatus(\n-          SecurityStatus.BOGUS,\n-          ExtendedErrorCodeOption.DNSKEY_MISSING,\n-          R.get(\"dnskey.no_key\", sigrec.getSigner()));\n-    }\n@@ -119 +112,2 @@ final class DnsSecVerifier {\n-    return new JustifiedSecStatus(SecurityStatus.UNCHECKED, -1, null);\n+    log.trace(\"Could not find appropriate key\");\n+    return new JustifiedSecStatus(SecurityStatus.BOGUS, ExtendedErrorCodeOption.DNSKEY_MISSING, R.get(\"dnskey.no_key\", sigrec.getSigner()));\ndiff --git a/src/main/java/org/xbill/DNS/dnssec/ValidatingResolver.java b/src/main/java/org/xbill/DNS/dnssec/ValidatingResolver.java\nindex 8c67dda9..a94bc474 100644\n--- a/src/main/java/org/xbill/DNS/dnssec/ValidatingResolver.java\n+++ b/src/main/java/org/xbill/DNS/dnssec/ValidatingResolver.java\n@@ -1006 +1006 @@ public final class ValidatingResolver implements Resolver {\n-        return this.dsReponseToKeForNodata(response, request, keyRrset);\n+        return this.dsResponseToKeForNodata(response, request, keyRrset);\n@@ -1028 +1028 @@ public final class ValidatingResolver implements Resolver {\n-  private KeyEntry dsReponseToKeForNodata(SMessage response, Message request, SRRset keyRrset) {\n+  private KeyEntry dsResponseToKeForNodata(SMessage response, Message request, SRRset keyRrset) {"
+}

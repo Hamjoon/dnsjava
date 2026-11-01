@@ -1,0 +1,225 @@
+[
+  {
+    "group": "Argument validation - null name",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "null"
+          },
+          {
+            "parameter": "type",
+            "value": "1"
+          }
+        ],
+        "expected": "IllegalArgumentException with message \"name must not be null\"",
+        "description": "Calling removeRRset with a null Name should immediately throw an IllegalArgumentException before any other processing."
+      }
+    ]
+  },
+  {
+    "group": "Argument validation - invalid type",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "Name.fromString(\"example.com.\")"
+          },
+          {
+            "parameter": "type",
+            "value": "-1"
+          }
+        ],
+        "expected": "IllegalArgumentException thrown by Type.check",
+        "description": "When the supplied type is not a valid DNS type, Type.check should raise an IllegalArgumentException, preventing the write\u2011lock from being acquired."
+      },
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "Name.fromString(\"example.com.\")"
+          },
+          {
+            "parameter": "type",
+            "value": "65536"
+          }
+        ],
+        "expected": "IllegalArgumentException thrown by Type.check",
+        "description": "Type values larger than the 16\u2011bit DNS type range must also cause Type.check to throw."
+      }
+    ]
+  },
+  {
+    "group": "Removal behavior - RRset not present",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "Name.fromString(\"nonexistent.example.\")"
+          },
+          {
+            "parameter": "type",
+            "value": "Type.A"
+          }
+        ],
+        "expected": "no exception; zone state unchanged (findExactMatch returns null before and after)",
+        "description": "If the zone does not contain an RRset for the given name/type, removeRRset should succeed silently and leave the zone unchanged."
+      }
+    ]
+  },
+  {
+    "group": "Removal behavior - RRset present",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "Name.fromString(\"host.example.\")"
+          },
+          {
+            "parameter": "type",
+            "value": "Type.A"
+          }
+        ],
+        "expected": "RRset removed; subsequent findExactMatch(name, Type.A) returns null",
+        "description": "When an RRset exists for the supplied name and type, removeRRset must acquire the write lock, invoke removeRRsetWithoutLock, and the RRset should no longer be retrievable."
+      }
+    ]
+  },
+  {
+    "group": "Locking verification",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "Name.fromString(\"locked.example.\")"
+          },
+          {
+            "parameter": "type",
+            "value": "Type.A"
+          }
+        ],
+        "expected": "withWriteLock's Runnable is executed exactly once",
+        "description": "Using a test subclass of Zone that overrides withWriteLock to record invocation, verify that removeRRset delegates the removal to withWriteLock exactly once for a valid call."
+      }
+    ]
+  },
+  {
+    "group": "Removal behavior - multiple types same name",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "Name.fromString(\"multi.example.\")"
+          },
+          {
+            "parameter": "type",
+            "value": "Type.A"
+          }
+        ],
+        "expected": "Only the A RRset is removed; the TXT RRset for the same name remains (findExactMatch(name, Type.A) == null, findExactMatch(name, Type.TXT) != null)",
+        "description": "A zone contains two RRsets for the same owner name but different types (A and TXT). After removeRRset(name, Type.A) the A RRset must disappear while the TXT RRset stays intact."
+      }
+    ]
+  },
+  {
+    "group": "Removal behavior - case\u2011insensitive name",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "Name.fromString(\"HOST.EXAMPLE.\")"
+          },
+          {
+            "parameter": "type",
+            "value": "Type.A"
+          }
+        ],
+        "expected": "RRset removed; findExactMatch(Name.fromString(\"host.example.\"), Type.A) returns null",
+        "description": "DNS names are case\u2011insensitive. The zone stores an A RRset under a lower\u2011case name; calling removeRRset with an upper\u2011case representation must still locate and delete the RRset."
+      }
+    ]
+  },
+  {
+    "group": "Locking verification - invalid type does not acquire lock",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "Name.fromString(\"locked.example.\")"
+          },
+          {
+            "parameter": "type",
+            "value": "-5"
+          }
+        ],
+        "expected": "IllegalArgumentException from Type.check; withWriteLock is never invoked",
+        "description": "When the supplied type is invalid, removeRRset should fail before entering the write\u2011lock path. A Zone subclass that records calls to withWriteLock must show zero invocations."
+      }
+    ]
+  },
+  {
+    "group": "Removal behavior - apex NS RRset",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "Name.fromString(\"example.com.\")"
+          },
+          {
+            "parameter": "type",
+            "value": "Type.NS"
+          }
+        ],
+        "expected": "NS RRset removed from the zone apex; subsequent getNS() returns null (or a new empty NS RRset)",
+        "description": "The zone apex normally contains an NS RRset. Removing it via removeRRset should succeed and the zone's getNS() accessor must reflect the removal."
+      }
+    ]
+  },
+  {
+    "group": "Removal behavior - iterator reflects removal",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "Name.fromString(\"iter.example.\")"
+          },
+          {
+            "parameter": "type",
+            "value": "Type.A"
+          }
+        ],
+        "expected": "Iterator returned by zone.iterator() no longer yields the removed RRset, while other RRsets remain present",
+        "description": "After adding several RRsets (including the target A RRset) and invoking removeRRset, iterating over the zone must not produce the deleted RRset, confirming internal collection consistency."
+      }
+    ]
+  },
+  {
+    "group": "Removal behavior - zone empty",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "Name.fromString(\"nothing.example.\")"
+          },
+          {
+            "parameter": "type",
+            "value": "Type.A"
+          }
+        ],
+        "expected": "No exception; zone remains empty (findExactMatch returns null before and after)",
+        "description": "Calling removeRRset on an entirely empty zone should be a no\u2011op and must not throw any exception."
+      }
+    ]
+  }
+]

@@ -1,0 +1,17 @@
+/repo/experiments/commit-survival/generated/ouedraogo/round1/sources/TSIG/FSL/TSIGTest.java:34: error: cannot find symbol
+  private static final byte[] SECRET_BYTES = base64.fromString(BASE64_SECRET);
+                                             ^
+  symbol:   variable base64
+  location: class TSIGTest
+/repo/experiments/commit-survival/generated/ouedraogo/round1/sources/TSIG/FSL/TSIGTest.java:90: error: alg has private access in TSIG
+    assertEquals(TSIG.HMAC_MD5, tsig.alg);
+                                    ^
+/repo/experiments/commit-survival/generated/ouedraogo/round1/sources/TSIG/FSL/TSIGTest.java:97: error: alg has private access in TSIG
+    assertEquals(TSIG.HMAC_SHA256, tsig.alg);
+                                       ^
+/repo/experiments/commit-survival/generated/ouedraogo/round1/sources/TSIG/FSL/TSIGTest.java:130: error: macKey has private access in TSIG
+    assertArrayEquals(SECRET_BYTES, tsig.macKey.getEncoded());
+                                        ^
+Note: /repo/experiments/commit-survival/generated/ouedraogo/round1/sources/TSIG/FSL/TSIGTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+4 errors

@@ -1,0 +1,18 @@
+{
+  "index": 159,
+  "sha": "4f86d76cc24e3e5c0692314f2fca277f8d486537",
+  "parent": "acdfdcc5c815c476704520090f442bb2e054384e",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/Message.java": [
+      498
+    ]
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/Message.java": [
+      498,
+      510,
+      511
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/Message.java b/src/main/java/org/xbill/DNS/Message.java\nindex 93e23cee..08bac5a9 100644\n--- a/src/main/java/org/xbill/DNS/Message.java\n+++ b/src/main/java/org/xbill/DNS/Message.java\n@@ -498 +498 @@ public class Message implements Cloneable {\n-    int tempMaxLength = maxLength;\n+    int tempMaxLength = maxLength - Header.LENGTH;\n@@ -509,0 +510,9 @@ public class Message implements Cloneable {\n+    if (tempMaxLength < 0 || (maxLength - tempMaxLength) < 0) {\n+      throw new IllegalArgumentException(\n+          \"Message needs at least \"\n+              + (maxLength - tempMaxLength)\n+              + \" bytes, only allowed to render \"\n+              + maxLength,\n+          new MessageSizeExceededException(maxLength));\n+    }\n+"
+}

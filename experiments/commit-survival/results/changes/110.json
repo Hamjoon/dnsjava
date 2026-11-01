@@ -1,0 +1,53 @@
+{
+  "index": 110,
+  "sha": "06a0599933114f36efe59667cd80ee0246a1a882",
+  "parent": "e0fed164ce7f9307ab5f9b2f9e7fd30b3924efe3",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/TSIG.java": [
+      190,
+      553,
+      741,
+      742,
+      743,
+      745,
+      747,
+      749,
+      751,
+      753,
+      1038,
+      1053,
+      1058,
+      1063
+    ],
+    "src/main/java/org/xbill/DNS/TSIGRecord.java": []
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/TSIG.java": [
+      55,
+      196,
+      505,
+      510,
+      511,
+      512,
+      747,
+      748,
+      749,
+      750,
+      751,
+      752,
+      755,
+      757,
+      759,
+      761,
+      763,
+      764,
+      766,
+      1051,
+      1066,
+      1071,
+      1076
+    ],
+    "src/main/java/org/xbill/DNS/TSIGRecord.java": []
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/TSIG.java b/src/main/java/org/xbill/DNS/TSIG.java\nindex baaa3299..4d189c0d 100644\n--- a/src/main/java/org/xbill/DNS/TSIG.java\n+++ b/src/main/java/org/xbill/DNS/TSIG.java\n@@ -50,0 +51,6 @@ public class TSIG {\n+  /**\n+   * Alias for {@link TSIG#HMAC_MD5} to align with the newer algorithm names. Private as this is not\n+   * an official name.\n+   */\n+  private static final Name HMAC_MD5_ALIAS = Name.fromConstantString(\"hmac-md5.\");\n+\n@@ -190 +196 @@ public class TSIG {\n-    if (nameAlg.equals(Name.fromConstantString(\"hmac-md5.\"))) {\n+    if (nameAlg.equals(HMAC_MD5_ALIAS)) {\n@@ -218 +224,4 @@ public class TSIG {\n-  /** The default fudge value for outgoing packets. Can be overridden by the tsigfudge option. */\n+  /**\n+   * The default fudge value for outgoing packets. Can be overridden by the {@code tsigfudge} {@link\n+   * Options option}.\n+   */\n@@ -442 +451 @@ public class TSIG {\n-   * @param b The rendered message\n+   * @param b The rendered message. Implementations are allowed to modify the contents.\n@@ -455 +464 @@ public class TSIG {\n-   * @param b The rendered message\n+   * @param b The rendered message. Implementations are allowed to modify the contents.\n@@ -458,2 +467,2 @@ public class TSIG {\n-   * @param fullSignature {@code true} if this {@link TSIGRecord} is the to be added to the first of\n-   *     many messages in a TCP connection and all TSIG variables (rfc2845, 3.4.2.) should be\n+   * @param fullSignature {@code true} if this {@link TSIGRecord} is to be added to the first of\n+   *     many messages in a TCP connection and all TSIG variables (rfc8945, 4.3.3) should be\n@@ -461 +470 @@ public class TSIG {\n-   *     variables set (rfc2845, 4.4.).\n+   *     variables set (rfc8945, 5.3.1).\n@@ -482,2 +491,2 @@ public class TSIG {\n-   * @param fullSignature {@code true} if this {@link TSIGRecord} is the to be added to the first of\n-   *     many messages in a TCP connection and all TSIG variables (rfc2845, 3.4.2.) should be\n+   * @param fullSignature {@code true} if this {@link TSIGRecord} is to be added to the first of\n+   *     many messages in a TCP connection and all TSIG variables (rfc8945, 4.3.3) should be\n@@ -485 +494 @@ public class TSIG {\n-   *     variables set (rfc2845, 4.4.).\n+   *     variables set (rfc8945, 5.3.1).\n@@ -495,0 +505 @@ public class TSIG {\n+    int messageID = m.getHeader().getID();\n@@ -497,0 +508,5 @@ public class TSIG {\n+\n+      // rfc8945, 4.3.2: Use the original ID to sign replies\n+      messageID = old.getOriginalID();\n+      b[0] = (byte) ((messageID >>> 8) & 0xFF);\n+      b[1] = (byte) (messageID & 0xFF);\n@@ -508,2 +523,2 @@ public class TSIG {\n-    // rfc2845, 3.4.2 TSIG Variables\n-    // for section 4.4 TSIG on TCP connection: skip name, class, ttl, alg and other\n+    // rfc8945, 4.3.3 TSIG Variables\n+    // for section 5.3.1 TSIG on TCP connection: skip name, class, ttl, alg and other\n@@ -546,10 +561 @@ public class TSIG {\n-        name,\n-        DClass.ANY,\n-        0,\n-        alg,\n-        timeSigned,\n-        fudge,\n-        signature,\n-        m.getHeader().getID(),\n-        error,\n-        other);\n+        name, DClass.ANY, 0, alg, timeSigned, fudge, signature, messageID, error, other);\n@@ -594,2 +600,2 @@ public class TSIG {\n-   *     all TSIG variables (rfc2845, 3.4.2.) should be included in the signature. {@code false} for\n-   *     subsequent messages with reduced TSIG variables set (rfc2845, 4.4.).\n+   *     all TSIG variables (rfc8945, 4.3.3) should be included in the signature. {@code false} for\n+   *     subsequent messages with reduced TSIG variables set (rfc8945, 5.3.1).\n@@ -609,2 +615,2 @@ public class TSIG {\n-   *     all TSIG variables (rfc2845, 3.4.2.) should be included in the signature. {@code false} for\n-   *     subsequent messages with reduced TSIG variables set (rfc2845, 4.4.).\n+   *     all TSIG variables (rfc8945, 4.3.3) should be included in the signature. {@code false} for\n+   *     subsequent messages with reduced TSIG variables set (rfc8945, 5.3.1).\n@@ -625,2 +631,2 @@ public class TSIG {\n-   *     all TSIG variables (rfc2845, 3.4.2.) should be included in the signature. {@code false} for\n-   *     subsequent messages with reduced TSIG variables set (rfc2845, 4.4.).\n+   *     all TSIG variables (rfc8945, 4.3.3) should be included in the signature. {@code false} for\n+   *     subsequent messages with reduced TSIG variables set (rfc8945, 5.3.1).\n@@ -688,2 +694,2 @@ public class TSIG {\n-   *     all TSIG variables (rfc2845, 3.4.2.) should be included in the signature. {@code false} for\n-   *     subsequent messages with reduced TSIG variables set (rfc2845, 4.4.).\n+   *     all TSIG variables (rfc8945, 4.3.3) should be included in the signature. {@code false} for\n+   *     subsequent messages with reduced TSIG variables set (rfc8945, 5.3.1).\n@@ -709,2 +715,2 @@ public class TSIG {\n-   *     all TSIG variables (rfc2845, 3.4.2.) should be included in the signature. {@code false} for\n-   *     subsequent messages with reduced TSIG variables set (rfc2845, 4.4.).\n+   *     all TSIG variables (rfc8945, 4.3.3) should be included in the signature. {@code false} for\n+   *     subsequent messages with reduced TSIG variables set (rfc8945, 5.3.1).\n@@ -741,3 +747,9 @@ public class TSIG {\n-    m.getHeader().decCount(Section.ADDITIONAL);\n-    byte[] header = m.getHeader().toWire();\n-    m.getHeader().incCount(Section.ADDITIONAL);\n+    Header header = m.getHeader().clone();\n+    header.decCount(Section.ADDITIONAL);\n+    if (tsig.getOriginalID() != header.getID()) {\n+      log.debug(\n+          \"Using original TSIG message ID {} instead of {}\", tsig.getOriginalID(), header.getID());\n+      header.setID(tsig.getOriginalID());\n+    }\n+\n+    byte[] headerBytes = header.toWire();\n@@ -745 +757 @@ public class TSIG {\n-      log.trace(hexdump.dump(\"TSIG-HMAC header\", header));\n+      log.trace(hexdump.dump(\"TSIG-HMAC header\", headerBytes));\n@@ -747 +759 @@ public class TSIG {\n-    hmac.update(header);\n+    hmac.update(headerBytes);\n@@ -749 +761 @@ public class TSIG {\n-    int len = m.tsigstart - header.length;\n+    int len = m.tsigstart - headerBytes.length;\n@@ -751 +763,2 @@ public class TSIG {\n-      log.trace(hexdump.dump(\"TSIG-HMAC message after header\", messageBytes, header.length, len));\n+      log.trace(\n+          hexdump.dump(\"TSIG-HMAC message after header\", messageBytes, headerBytes.length, len));\n@@ -753 +766 @@ public class TSIG {\n-    hmac.update(messageBytes, header.length, len);\n+    hmac.update(messageBytes, headerBytes.length, len);\n@@ -804,3 +817,3 @@ public class TSIG {\n-    // rfc4635#section-3.1, 4.:\n-    // \"MAC size\" field is less than the larger of 10 (octets) and half\n-    // the length of the hash function in use\n+    // rfc8945, 5.2.2.1\n+    // If the \"MAC size\" field is less than the larger of 10 (octets) and half the length of the\n+    // hash function in use\n@@ -1038 +1051 @@ public class TSIG {\n-          log.debug(warningPrefix, errorMessage);\n+          log.trace(warningPrefix, errorMessage);\n@@ -1053 +1066 @@ public class TSIG {\n-          log.debug(warningPrefix, errorMessage);\n+          log.trace(warningPrefix, errorMessage);\n@@ -1058 +1071 @@ public class TSIG {\n-          log.debug(warningPrefix, errorMessage);\n+          log.trace(warningPrefix, errorMessage);\n@@ -1063 +1076 @@ public class TSIG {\n-          log.debug(warningPrefix, errorMessage);\n+          log.trace(warningPrefix, errorMessage);\ndiff --git a/src/main/java/org/xbill/DNS/TSIGRecord.java b/src/main/java/org/xbill/DNS/TSIGRecord.java\nindex 533440e9..2fa0bf49 100644\n--- a/src/main/java/org/xbill/DNS/TSIGRecord.java\n+++ b/src/main/java/org/xbill/DNS/TSIGRecord.java\n@@ -18 +18 @@ import org.xbill.DNS.utils.base64;\n- * @see <a href=\"https://datatracker.ietf.org/doc/html/rfc2845\">RFC 2845: Secret Key Transaction\n+ * @see <a href=\"https://datatracker.ietf.org/doc/html/rfc8945\">RFC 8945: Secret Key Transaction"
+}

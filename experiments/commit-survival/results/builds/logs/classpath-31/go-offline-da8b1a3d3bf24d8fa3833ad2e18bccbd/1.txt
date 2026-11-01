@@ -1,0 +1,20 @@
+[ERROR] [ERROR] Some problems were encountered while processing the POMs:
+[ERROR] Unresolveable build extension: Plugin org.sonatype.plugins:nexus-staging-maven-plugin:1.7.0 or one of its dependencies could not be resolved:
+	Cannot access central (https://repo.maven.apache.org/maven2) in offline mode and the artifact org.sonatype.plugins:nexus-staging-maven-plugin:jar:1.7.0 has not been downloaded from it before.
+ @ 
+[ERROR] Unknown packaging: bundle @ line 9, column 16
+ @ 
+[ERROR] The build could not read 1 project -> [Help 1]
+[ERROR]   
+[ERROR]   The project dnsjava:dnsjava:3.6.0-SNAPSHOT (/repo/experiments/commit-survival/work/checkouts/31/pom.xml) has 2 errors
+[ERROR]     Unresolveable build extension: Plugin org.sonatype.plugins:nexus-staging-maven-plugin:1.7.0 or one of its dependencies could not be resolved:
+[ERROR]     	Cannot access central (https://repo.maven.apache.org/maven2) in offline mode and the artifact org.sonatype.plugins:nexus-staging-maven-plugin:jar:1.7.0 has not been downloaded from it before.
+[ERROR]     -> [Help 2]
+[ERROR]     Unknown packaging: bundle @ line 9, column 16
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/ProjectBuildingException
+[ERROR] [Help 2] http://cwiki.apache.org/confluence/display/MAVEN/PluginManagerException

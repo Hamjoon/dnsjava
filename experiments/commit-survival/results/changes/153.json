@@ -1,0 +1,67 @@
+{
+  "index": 153,
+  "sha": "321cf393b53bb03dcf5647de54d0d2134fc82136",
+  "parent": "9c1610a78a12a1e92d38708dd49fa580ca98030b",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/CERTRecord.java": [],
+    "src/main/java/org/xbill/DNS/DHCIDRecord.java": [],
+    "src/main/java/org/xbill/DNS/HIPRecord.java": [
+      130
+    ],
+    "src/main/java/org/xbill/DNS/OPENPGPKEYRecord.java": [],
+    "src/main/java/org/xbill/DNS/SIGBase.java": []
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/CERTRecord.java": [
+      127,
+      128,
+      138,
+      139,
+      157,
+      158
+    ],
+    "src/main/java/org/xbill/DNS/DHCIDRecord.java": [
+      29,
+      30,
+      37,
+      38,
+      45,
+      46
+    ],
+    "src/main/java/org/xbill/DNS/HIPRecord.java": [
+      35,
+      36,
+      38,
+      39,
+      139,
+      140,
+      143,
+      144,
+      145,
+      148,
+      171,
+      172,
+      175,
+      176
+    ],
+    "src/main/java/org/xbill/DNS/OPENPGPKEYRecord.java": [
+      27,
+      28,
+      37,
+      38,
+      45,
+      46
+    ],
+    "src/main/java/org/xbill/DNS/SIGBase.java": [
+      69,
+      70,
+      93,
+      94,
+      101,
+      102,
+      203,
+      204
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/CERTRecord.java b/src/main/java/org/xbill/DNS/CERTRecord.java\nindex 3111bc6e..9252a5a0 100644\n--- a/src/main/java/org/xbill/DNS/CERTRecord.java\n+++ b/src/main/java/org/xbill/DNS/CERTRecord.java\n@@ -126,0 +127,3 @@ public class CERTRecord extends Record {\n+    if (cert == null || cert.length == 0) {\n+      throw new IllegalArgumentException(\"cert is required and must be non-empty\");\n+    }\n@@ -134,0 +138,3 @@ public class CERTRecord extends Record {\n+    if (cert == null || cert.length == 0) {\n+      throw new WireParseException(\"cert is required and must be non-empty\");\n+    }\n@@ -150,0 +157,3 @@ public class CERTRecord extends Record {\n+    if (cert == null || cert.length == 0) {\n+      throw new TextParseException(\"cert is required and must be non-empty\");\n+    }\ndiff --git a/src/main/java/org/xbill/DNS/DHCIDRecord.java b/src/main/java/org/xbill/DNS/DHCIDRecord.java\nindex be394707..c8f20241 100644\n--- a/src/main/java/org/xbill/DNS/DHCIDRecord.java\n+++ b/src/main/java/org/xbill/DNS/DHCIDRecord.java\n@@ -28,0 +29,3 @@ public class DHCIDRecord extends Record {\n+    if (data == null || data.length == 0) {\n+      throw new IllegalArgumentException(\"data is required and must be non-empty\");\n+    }\n@@ -32 +35 @@ public class DHCIDRecord extends Record {\n-  protected void rrFromWire(DNSInput in) {\n+  protected void rrFromWire(DNSInput in) throws WireParseException {\n@@ -33,0 +37,3 @@ public class DHCIDRecord extends Record {\n+    if (data == null || data.length == 0) {\n+      throw new WireParseException(\"data is required and must be non-empty\");\n+    }\n@@ -38,0 +45,3 @@ public class DHCIDRecord extends Record {\n+    if (data == null || data.length == 0) {\n+      throw new TextParseException(\"data is required and must be non-empty\");\n+    }\ndiff --git a/src/main/java/org/xbill/DNS/HIPRecord.java b/src/main/java/org/xbill/DNS/HIPRecord.java\nindex 257334d9..a5eb8d07 100644\n--- a/src/main/java/org/xbill/DNS/HIPRecord.java\n+++ b/src/main/java/org/xbill/DNS/HIPRecord.java\n@@ -19,0 +20,2 @@ import org.xbill.DNS.utils.base64;\n+ * @see <a href=\"https://datatracker.ietf.org/doc/html/rfc8005\">RFC 8005: Host Identity Protocol\n+ *     (HIP) Domain Name System (DNS) Extension</a>\n@@ -32,0 +35,7 @@ public class HIPRecord extends Record {\n+    if (hit == null || hit.length == 0) {\n+      throw new IllegalArgumentException(\"hit is required and must be non-empty\");\n+    }\n+    if (key == null || key.length == 0) {\n+      throw new IllegalArgumentException(\"key is required and must be non-empty\");\n+    }\n+\n@@ -130 +139,10 @@ public class HIPRecord extends Record {\n-    publicKey = base64.fromString(st.getString());\n+    if (hit == null || hit.length == 0) {\n+      throw new TextParseException(\"hit is required and must be non-empty\");\n+    }\n+\n+    String base64publicKey = st.getString();\n+    if (base64publicKey == null || base64publicKey.isEmpty()) {\n+      throw new TextParseException(\"public key is required and must be non-empty\");\n+    }\n+\n+    publicKey = base64.fromString(base64publicKey);\n@@ -152,0 +171,3 @@ public class HIPRecord extends Record {\n+    if (hit == null || hit.length == 0) {\n+      throw new WireParseException(\"hit is required and must be non-empty\");\n+    }\n@@ -153,0 +175,3 @@ public class HIPRecord extends Record {\n+    if (publicKey == null || publicKey.length == 0) {\n+      throw new WireParseException(\"public key is required and must be non-empty\");\n+    }\ndiff --git a/src/main/java/org/xbill/DNS/OPENPGPKEYRecord.java b/src/main/java/org/xbill/DNS/OPENPGPKEYRecord.java\nindex ab43bfe6..ad19cf0c 100644\n--- a/src/main/java/org/xbill/DNS/OPENPGPKEYRecord.java\n+++ b/src/main/java/org/xbill/DNS/OPENPGPKEYRecord.java\n@@ -26,0 +27,4 @@ public class OPENPGPKEYRecord extends Record {\n+    if (cert == null || cert.length == 0) {\n+      throw new IllegalArgumentException(\"cert is required and must be non-empty\");\n+    }\n+\n@@ -31 +35 @@ public class OPENPGPKEYRecord extends Record {\n-  protected void rrFromWire(DNSInput in) {\n+  protected void rrFromWire(DNSInput in) throws WireParseException {\n@@ -32,0 +37,3 @@ public class OPENPGPKEYRecord extends Record {\n+    if (cert == null || cert.length == 0) {\n+      throw new WireParseException(\"cert is required and must be non-empty\");\n+    }\n@@ -37,0 +45,3 @@ public class OPENPGPKEYRecord extends Record {\n+    if (cert == null || cert.length == 0) {\n+      throw new TextParseException(\"cert is required and must be non-empty\");\n+    }\ndiff --git a/src/main/java/org/xbill/DNS/SIGBase.java b/src/main/java/org/xbill/DNS/SIGBase.java\nindex 58d80b10..aa3d0ddb 100644\n--- a/src/main/java/org/xbill/DNS/SIGBase.java\n+++ b/src/main/java/org/xbill/DNS/SIGBase.java\n@@ -68,0 +69,3 @@ abstract class SIGBase extends Record {\n+    if (signature == null || signature.length == 0) {\n+      throw new WireParseException(\"signature is required and must be non-empty\");\n+    }\n@@ -89,0 +93,3 @@ abstract class SIGBase extends Record {\n+    if (signature == null || signature.length == 0) {\n+      throw new TextParseException(\"signature is required and must be non-empty\");\n+    }\n@@ -94,0 +101,5 @@ abstract class SIGBase extends Record {\n+    if (signature == null || signature.length == 0) {\n+      throw new IllegalStateException(\n+          \"Signature is not set. This is only valid to compute the signature, but not as the presentation format\");\n+    }\n+\n@@ -191,0 +203,5 @@ abstract class SIGBase extends Record {\n+    if (signature == null || signature.length == 0) {\n+      throw new IllegalStateException(\n+          \"Signature is not set. This is only valid to compute the signature, but not as the wire format\");\n+    }\n+"
+}

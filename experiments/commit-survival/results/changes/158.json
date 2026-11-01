@@ -1,0 +1,25 @@
+{
+  "index": 158,
+  "sha": "acdfdcc5c815c476704520090f442bb2e054384e",
+  "parent": "2695b1aadbf0597fdb3097ef7a05342a635f1b14",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/OPTRecord.java": [
+      83,
+      84,
+      228
+    ],
+    "src/main/java/org/xbill/DNS/Record.java": [
+      87
+    ]
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/OPTRecord.java": [
+      83,
+      227
+    ],
+    "src/main/java/org/xbill/DNS/Record.java": [
+      88
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/OPTRecord.java b/src/main/java/org/xbill/DNS/OPTRecord.java\nindex a8d7cae8..00e647db 100644\n--- a/src/main/java/org/xbill/DNS/OPTRecord.java\n+++ b/src/main/java/org/xbill/DNS/OPTRecord.java\n@@ -83,2 +83 @@ public class OPTRecord extends Record {\n-    super(Name.root, Type.OPT, payloadSize, 0);\n-    checkU16(\"payloadSize\", payloadSize);\n+    super(Name.root, Type.OPT, checkU16(\"payloadSize\", payloadSize), 0);\n@@ -228 +227 @@ public class OPTRecord extends Record {\n-    return super.equals(arg) && ttl == ((OPTRecord) arg).ttl;\n+    return super.equals(arg) && arg instanceof OPTRecord && ttl == ((OPTRecord) arg).ttl;\ndiff --git a/src/main/java/org/xbill/DNS/Record.java b/src/main/java/org/xbill/DNS/Record.java\nindex 5437974c..d31b4a7a 100644\n--- a/src/main/java/org/xbill/DNS/Record.java\n+++ b/src/main/java/org/xbill/DNS/Record.java\n@@ -87 +87,2 @@ public abstract class Record implements Cloneable, Comparable<Record>, Serializa\n-    if (hasData) {\n+    // OPT is valid if it's empty and has special meaning\n+    if (hasData || type == Type.OPT) {"
+}

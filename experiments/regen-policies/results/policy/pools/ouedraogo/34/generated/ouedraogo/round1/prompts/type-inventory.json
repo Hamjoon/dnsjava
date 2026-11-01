@@ -1,0 +1,2982 @@
+{
+  "android.content.Context": {
+    "package": "android.content",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "android.net.ConnectivityManager": {
+    "package": "android.net",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "android.net.LinkProperties": {
+    "package": "android.net",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "android.net.Network": {
+    "package": "android.net",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.A6Record": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "Record",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.AAAARecord": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "Record",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.AFSDBRecord": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "U16NameBase",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.APLRecord": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "Record",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.APLRecord.Element": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public static",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.ARecord": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "Record",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.Address": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public final",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.AsyncSemaphore": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "final",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.AsyncSemaphore.Permit": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "final",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.CAARecord": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "Record",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.CAARecord.Flags": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public static",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.CDNSKEYRecord": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "DNSKEYRecord",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.CDSRecord": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "DSRecord",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.CERTRecord": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "Record",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.CERTRecord.CertificateType": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public static",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.CNAMERecord": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "SingleCompressedNameBase",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.Cache": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.Cache.Element": {
+    "package": "org.xbill.DNS",
+    "kind": "INTERFACE",
+    "modifiers": "private",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.Cache.CacheRRset": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "static",
+    "parameters": "",
+    "extends": "RRset",
+    "implements": "Element",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.Cache.NegativeElement": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "private static",
+    "parameters": "",
+    "extends": "",
+    "implements": "Element",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.Cache.CacheMap": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "private static",
+    "parameters": "",
+    "extends": "LinkedHashMap<Name, Object>",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.ClientSubnetOption": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "EDNSOption",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.Compression": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.Compression.Entry": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "private static",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.CookieOption": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "EDNSOption",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.Credibility": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public final",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.DClass": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public final",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.DClass.DClassMnemonic": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "private static",
+    "parameters": "",
+    "extends": "Mnemonic",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.DHCIDRecord": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "Record",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.DLVRecord": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "Record",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.DNAMERecord": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "SingleNameBase",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.DNSInput": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.DNSKEYRecord": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "KEYBase",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.DNSKEYRecord.Protocol": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public static",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.DNSKEYRecord.Flags": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public static",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.DNSOutput": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.DNSSEC": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.DNSSEC.Algorithm": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public static",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.DNSSEC.Digest": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public static",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.DNSSEC.DNSSECException": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public static",
+    "parameters": "",
+    "extends": "Exception",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.DNSSEC.UnsupportedAlgorithmException": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public static",
+    "parameters": "",
+    "extends": "DNSSECException",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.DNSSEC.InvalidDnskeyException": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public static",
+    "parameters": "",
+    "extends": "DNSSECException",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.DNSSEC.MalformedKeyException": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public static",
+    "parameters": "",
+    "extends": "DNSSECException",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.DNSSEC.KeyMismatchException": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public static",
+    "parameters": "",
+    "extends": "DNSSECException",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.DNSSEC.SignatureExpiredException": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public static",
+    "parameters": "",
+    "extends": "DNSSECException",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.DNSSEC.SignatureNotYetValidException": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public static",
+    "parameters": "",
+    "extends": "DNSSECException",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.DNSSEC.SignatureVerificationException": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public static",
+    "parameters": "",
+    "extends": "DNSSECException",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.DNSSEC.IncompatibleKeyException": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public static",
+    "parameters": "",
+    "extends": "IllegalArgumentException",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.DNSSEC.NoSignatureException": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public static",
+    "parameters": "",
+    "extends": "DNSSECException",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.DNSSEC.ECKeyInfo": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "private static",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.DSRecord": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "Record",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.DSRecord.Digest": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public static",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.DefaultIoClient": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "",
+    "implements": "TcpIoClient,UdpIoClient",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.DnssecAlgorithmOption": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "EDNSOption",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.DohResolver": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public final",
+    "parameters": "",
+    "extends": "",
+    "implements": "Resolver",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.DohResolver.SendAndGetMessageBytesResponse": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "private static",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.EDNSOption": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public abstract",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.EDNSOption.Code": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public static",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.EmptyRecord": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "",
+    "parameters": "",
+    "extends": "Record",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.ExtendedErrorCodeOption": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "EDNSOption",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.ExtendedFlags": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public final",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.ExtendedResolver": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "",
+    "implements": "Resolver",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.ExtendedResolver.Resolution": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "private static",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.ExtendedResolver.ResolverEntry": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "private static",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.Flags": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public final",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.FormattedTime": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "final",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.GPOSRecord": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "Record",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.Generator": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.GenericEDNSOption": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "EDNSOption",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.HINFORecord": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "Record",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.HIPRecord": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "Record",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.HTTPSRecord": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "SVCBBase",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.Header": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "",
+    "implements": "Cloneable",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.IPSECKEYRecord": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "Record",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.IPSECKEYRecord.Algorithm": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public static",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.IPSECKEYRecord.Gateway": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public static",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.ISDNRecord": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "Record",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.InvalidDClassException": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "IllegalArgumentException",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.InvalidTTLException": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "IllegalArgumentException",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.InvalidTypeException": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "IllegalArgumentException",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.KEYBase": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "abstract",
+    "parameters": "",
+    "extends": "Record",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.KEYRecord": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "KEYBase",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.KEYRecord.Protocol": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public static",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.KEYRecord.Flags": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public static",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.KXRecord": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "U16NameBase",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.LOCRecord": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "Record",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.Lookup": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public final",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.MBRecord": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "SingleNameBase",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.MDRecord": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "SingleNameBase",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.MFRecord": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "SingleNameBase",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.MGRecord": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "SingleNameBase",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.MINFORecord": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "Record",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.MRRecord": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "SingleNameBase",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.MXRecord": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "U16NameBase",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.Master": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "",
+    "implements": "AutoCloseable",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.Message": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "",
+    "implements": "Cloneable",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.Mnemonic": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.NAPTRRecord": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "Record",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.NSAPRecord": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "Record",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.NSAP_PTRRecord": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "SingleNameBase",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.NSEC3PARAMRecord": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "Record",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.NSEC3Record": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "Record",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.NSEC3Record.Flags": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public static",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.NSEC3Record.Digest": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public static",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.NSECRecord": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "Record",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.NSIDOption": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "GenericEDNSOption",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.NSRecord": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "SingleCompressedNameBase",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.NULLRecord": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "Record",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.NXTRecord": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "Record",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.Name": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "",
+    "implements": "Comparable<Name>,Serializable",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.NameTooLongException": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "WireParseException",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.NioClient": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public abstract",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.NioClient.KeyProcessor": {
+    "package": "org.xbill.DNS",
+    "kind": "INTERFACE",
+    "modifiers": "",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.NioTcpClient": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "final",
+    "parameters": "",
+    "extends": "NioClient",
+    "implements": "TcpIoClient",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.NioTcpClient.Transaction": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "private static",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.NioTcpClient.ChannelState": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "private",
+    "parameters": "",
+    "extends": "",
+    "implements": "KeyProcessor",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.NioTcpClient.ChannelKey": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "private static",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.NioUdpClient": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "final",
+    "parameters": "",
+    "extends": "NioClient",
+    "implements": "UdpIoClient",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.NioUdpClient.Transaction": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "private",
+    "parameters": "",
+    "extends": "",
+    "implements": "KeyProcessor",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.OPENPGPKEYRecord": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "Record",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.OPTRecord": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "Record",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.Opcode": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public final",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.Options": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public final",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.PTRRecord": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "SingleCompressedNameBase",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.PXRecord": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "Record",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.PacketLogger": {
+    "package": "org.xbill.DNS",
+    "kind": "INTERFACE",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.RPRecord": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "Record",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.RRSIGRecord": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "SIGBase",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.RRset": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "",
+    "implements": "Serializable,Iterable<Record>",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.RTRecord": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "U16NameBase",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.Rcode": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public final",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.Record": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public abstract",
+    "parameters": "",
+    "extends": "",
+    "implements": "Cloneable,Comparable<Record>,Serializable",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.Record.RecordSerializationProxy": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "private static",
+    "parameters": "",
+    "extends": "",
+    "implements": "Serializable",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.RelativeNameException": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "IllegalArgumentException",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.Resolver": {
+    "package": "org.xbill.DNS",
+    "kind": "INTERFACE",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.ResolverConfig": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public final",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.ResolverListener": {
+    "package": "org.xbill.DNS",
+    "kind": "INTERFACE",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "",
+    "implements": "EventListener",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.ReverseMap": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public final",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.SIG0": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.SIGBase": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "abstract",
+    "parameters": "",
+    "extends": "Record",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.SIGRecord": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "SIGBase",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.SMIMEARecord": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "TLSARecord",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.SOARecord": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "Record",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.SPFRecord": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "TXTBase",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.SRVRecord": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "Record",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.SSHFPRecord": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "Record",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.SSHFPRecord.Algorithm": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public static",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.SSHFPRecord.Digest": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public static",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.SVCBBase": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public abstract",
+    "parameters": "",
+    "extends": "Record",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.SVCBBase.ParameterMnemonic": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "private static",
+    "parameters": "",
+    "extends": "Mnemonic",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.SVCBBase.ParameterBase": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public abstract static",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.SVCBBase.ParameterMandatory": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public static",
+    "parameters": "",
+    "extends": "ParameterBase",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.SVCBBase.ParameterAlpn": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public static",
+    "parameters": "",
+    "extends": "ParameterBase",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.SVCBBase.ParameterNoDefaultAlpn": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public static",
+    "parameters": "",
+    "extends": "ParameterBase",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.SVCBBase.ParameterPort": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public static",
+    "parameters": "",
+    "extends": "ParameterBase",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.SVCBBase.ParameterIpv4Hint": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public static",
+    "parameters": "",
+    "extends": "ParameterBase",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.SVCBBase.ParameterEch": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public static",
+    "parameters": "",
+    "extends": "ParameterBase",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.SVCBBase.ParameterEchConfig": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public static",
+    "parameters": "",
+    "extends": "ParameterBase",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.SVCBBase.ParameterIpv6Hint": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public static",
+    "parameters": "",
+    "extends": "ParameterBase",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.SVCBBase.ParameterUnknown": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public static",
+    "parameters": "",
+    "extends": "ParameterBase",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.SVCBRecord": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "SVCBBase",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.Section": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public final",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.Serial": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public final",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.SetResponse": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.SetResponseType": {
+    "package": "org.xbill.DNS",
+    "kind": "ENUM",
+    "modifiers": "",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.SimpleResolver": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "",
+    "implements": "Resolver",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.SingleCompressedNameBase": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "abstract",
+    "parameters": "",
+    "extends": "SingleNameBase",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.SingleNameBase": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "abstract",
+    "parameters": "",
+    "extends": "Record",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.TCPClient": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "",
+    "parameters": "",
+    "extends": "",
+    "implements": "AutoCloseable",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.TKEYRecord": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "Record",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.TLSARecord": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "Record",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.TLSARecord.CertificateUsage": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public static",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.TLSARecord.Selector": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public static",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.TLSARecord.MatchingType": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public static",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.TSIG": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.TSIG.StreamGenerator": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public static",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.TSIG.StreamVerifier": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public static",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.TSIGRecord": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "Record",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.TTL": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public final",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.TXTBase": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "abstract",
+    "parameters": "",
+    "extends": "Record",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.TXTRecord": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "TXTBase",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.TcpKeepaliveOption": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "EDNSOption",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.TextParseException": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "IOException",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.TimeoutCompletableFuture": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "",
+    "parameters": "T",
+    "extends": "CompletableFuture<T>",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.TimeoutCompletableFuture.TimeoutScheduler": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "private static final",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.Tokenizer": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "",
+    "implements": "AutoCloseable",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.Tokenizer.Token": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public static",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.Type": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public final",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.Type.TypeMnemonic": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "private static",
+    "parameters": "",
+    "extends": "Mnemonic",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.TypeBitmap": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "final",
+    "parameters": "",
+    "extends": "",
+    "implements": "Serializable",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.U16NameBase": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "abstract",
+    "parameters": "",
+    "extends": "Record",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.UNKRecord": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "Record",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.URIRecord": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "Record",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.Update": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "Message",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.WKSRecord": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "Record",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.WKSRecord.Protocol": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public static",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.WKSRecord.Service": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public static",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.WireParseException": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "IOException",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.X25Record": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "Record",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.Zone": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "",
+    "implements": "Serializable,Iterable<RRset>",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.Zone.ZoneIterator": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "",
+    "parameters": "",
+    "extends": "",
+    "implements": "Iterator<RRset>",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.ZoneMDRecord": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "Record",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.ZoneMDRecord.Scheme": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public static",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.ZoneMDRecord.Hash": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public static",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.ZoneTransferException": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "Exception",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.ZoneTransferIn": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.ZoneTransferIn.Delta": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "public static",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.ZoneTransferIn.ZoneTransferHandler": {
+    "package": "org.xbill.DNS",
+    "kind": "INTERFACE",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.ZoneTransferIn.BasicHandler": {
+    "package": "org.xbill.DNS",
+    "kind": "CLASS",
+    "modifiers": "private static",
+    "parameters": "",
+    "extends": "",
+    "implements": "ZoneTransferHandler",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.config.AndroidResolverConfigProvider": {
+    "package": "org.xbill.DNS.config",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "BaseResolverConfigProvider",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.config.BaseResolverConfigProvider": {
+    "package": "org.xbill.DNS.config",
+    "kind": "CLASS",
+    "modifiers": "public abstract",
+    "parameters": "",
+    "extends": "",
+    "implements": "ResolverConfigProvider",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.config.FallbackPropertyResolverConfigProvider": {
+    "package": "org.xbill.DNS.config",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "PropertyResolverConfigProvider",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.config.IPHlpAPI": {
+    "package": "org.xbill.DNS.config",
+    "kind": "INTERFACE",
+    "modifiers": "",
+    "parameters": "",
+    "extends": "",
+    "implements": "Library",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.config.IPHlpAPI.sockaddr_in": {
+    "package": "org.xbill.DNS.config",
+    "kind": "CLASS",
+    "modifiers": "public static",
+    "parameters": "",
+    "extends": "Structure",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.config.IPHlpAPI.sockaddr_in6": {
+    "package": "org.xbill.DNS.config",
+    "kind": "CLASS",
+    "modifiers": "public static",
+    "parameters": "",
+    "extends": "Structure",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.config.IPHlpAPI.SOCKET_ADDRESS": {
+    "package": "org.xbill.DNS.config",
+    "kind": "CLASS",
+    "modifiers": "public static",
+    "parameters": "",
+    "extends": "Structure",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.config.IPHlpAPI.IP_ADAPTER_UNICAST_ADDRESS_LH": {
+    "package": "org.xbill.DNS.config",
+    "kind": "CLASS",
+    "modifiers": "public static",
+    "parameters": "",
+    "extends": "Structure",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.config.IPHlpAPI.IP_ADAPTER_UNICAST_ADDRESS_LH.ByReference": {
+    "package": "org.xbill.DNS.config",
+    "kind": "CLASS",
+    "modifiers": "public static",
+    "parameters": "",
+    "extends": "IP_ADAPTER_UNICAST_ADDRESS_LH",
+    "implements": "Structure.ByReference",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.config.IPHlpAPI.IP_ADAPTER_DNS_SERVER_ADDRESS_XP": {
+    "package": "org.xbill.DNS.config",
+    "kind": "CLASS",
+    "modifiers": "public static",
+    "parameters": "",
+    "extends": "Structure",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.config.IPHlpAPI.IP_ADAPTER_DNS_SERVER_ADDRESS_XP.ByReference": {
+    "package": "org.xbill.DNS.config",
+    "kind": "CLASS",
+    "modifiers": "public static",
+    "parameters": "",
+    "extends": "IP_ADAPTER_DNS_SERVER_ADDRESS_XP",
+    "implements": "Structure.ByReference",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.config.IPHlpAPI.IP_ADAPTER_ANYCAST_ADDRESS_XP": {
+    "package": "org.xbill.DNS.config",
+    "kind": "CLASS",
+    "modifiers": "public static",
+    "parameters": "",
+    "extends": "Structure",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.config.IPHlpAPI.IP_ADAPTER_ANYCAST_ADDRESS_XP.ByReference": {
+    "package": "org.xbill.DNS.config",
+    "kind": "CLASS",
+    "modifiers": "public static",
+    "parameters": "",
+    "extends": "IP_ADAPTER_ANYCAST_ADDRESS_XP",
+    "implements": "Structure.ByReference",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.config.IPHlpAPI.IP_ADAPTER_MULTICAST_ADDRESS_XP": {
+    "package": "org.xbill.DNS.config",
+    "kind": "CLASS",
+    "modifiers": "public static",
+    "parameters": "",
+    "extends": "Structure",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.config.IPHlpAPI.IP_ADAPTER_MULTICAST_ADDRESS_XP.ByReference": {
+    "package": "org.xbill.DNS.config",
+    "kind": "CLASS",
+    "modifiers": "public static",
+    "parameters": "",
+    "extends": "IP_ADAPTER_MULTICAST_ADDRESS_XP",
+    "implements": "Structure.ByReference",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.config.IPHlpAPI.IP_ADAPTER_DNS_SUFFIX": {
+    "package": "org.xbill.DNS.config",
+    "kind": "CLASS",
+    "modifiers": "public static",
+    "parameters": "",
+    "extends": "Structure",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.config.IPHlpAPI.IP_ADAPTER_DNS_SUFFIX.ByReference": {
+    "package": "org.xbill.DNS.config",
+    "kind": "CLASS",
+    "modifiers": "public static",
+    "parameters": "",
+    "extends": "IP_ADAPTER_DNS_SUFFIX",
+    "implements": "Structure.ByReference",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.config.IPHlpAPI.LUID": {
+    "package": "org.xbill.DNS.config",
+    "kind": "CLASS",
+    "modifiers": "public static",
+    "parameters": "",
+    "extends": "Structure",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.config.IPHlpAPI.IP_ADAPTER_ADDRESSES_LH": {
+    "package": "org.xbill.DNS.config",
+    "kind": "CLASS",
+    "modifiers": "public static",
+    "parameters": "",
+    "extends": "Structure",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.config.IPHlpAPI.IP_ADAPTER_ADDRESSES_LH.ByReference": {
+    "package": "org.xbill.DNS.config",
+    "kind": "CLASS",
+    "modifiers": "public static",
+    "parameters": "",
+    "extends": "IP_ADAPTER_ADDRESSES_LH",
+    "implements": "Structure.ByReference",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.config.InitializationException": {
+    "package": "org.xbill.DNS.config",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "Exception",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.config.JndiContextResolverConfigProvider": {
+    "package": "org.xbill.DNS.config",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "",
+    "implements": "ResolverConfigProvider",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.config.JndiContextResolverConfigProvider.InnerJndiContextResolverConfigProvider": {
+    "package": "org.xbill.DNS.config",
+    "kind": "CLASS",
+    "modifiers": "private static final",
+    "parameters": "",
+    "extends": "BaseResolverConfigProvider",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.config.PropertyResolverConfigProvider": {
+    "package": "org.xbill.DNS.config",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "BaseResolverConfigProvider",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.config.ResolvConfResolverConfigProvider": {
+    "package": "org.xbill.DNS.config",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "BaseResolverConfigProvider",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.config.ResolverConfigProvider": {
+    "package": "org.xbill.DNS.config",
+    "kind": "INTERFACE",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.config.SunJvmResolverConfigProvider": {
+    "package": "org.xbill.DNS.config",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "BaseResolverConfigProvider",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.config.WindowsResolverConfigProvider": {
+    "package": "org.xbill.DNS.config",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "",
+    "implements": "ResolverConfigProvider",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.config.WindowsResolverConfigProvider.InnerWindowsResolverConfigProvider": {
+    "package": "org.xbill.DNS.config",
+    "kind": "CLASS",
+    "modifiers": "private static final",
+    "parameters": "",
+    "extends": "BaseResolverConfigProvider",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.dnssec.AlgorithmRequirements": {
+    "package": "org.xbill.DNS.dnssec",
+    "kind": "CLASS",
+    "modifiers": "",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.dnssec.ByteArrayComparator": {
+    "package": "org.xbill.DNS.dnssec",
+    "kind": "CLASS",
+    "modifiers": "final",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.dnssec.DefaultTrustAnchorStore": {
+    "package": "org.xbill.DNS.dnssec",
+    "kind": "CLASS",
+    "modifiers": "final",
+    "parameters": "",
+    "extends": "",
+    "implements": "TrustAnchorStore",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.dnssec.DnsSecVerifier": {
+    "package": "org.xbill.DNS.dnssec",
+    "kind": "CLASS",
+    "modifiers": "final",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.dnssec.FindKeyState": {
+    "package": "org.xbill.DNS.dnssec",
+    "kind": "CLASS",
+    "modifiers": "final",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.dnssec.JustifiedSecStatus": {
+    "package": "org.xbill.DNS.dnssec",
+    "kind": "CLASS",
+    "modifiers": "final",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.dnssec.KeyCache": {
+    "package": "org.xbill.DNS.dnssec",
+    "kind": "CLASS",
+    "modifiers": "final",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.dnssec.KeyCache.CacheEntry": {
+    "package": "org.xbill.DNS.dnssec",
+    "kind": "CLASS",
+    "modifiers": "private",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.dnssec.KeyEntry": {
+    "package": "org.xbill.DNS.dnssec",
+    "kind": "CLASS",
+    "modifiers": "final",
+    "parameters": "",
+    "extends": "SRRset",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.dnssec.NSEC3ValUtils": {
+    "package": "org.xbill.DNS.dnssec",
+    "kind": "CLASS",
+    "modifiers": "final",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.dnssec.NSEC3ValUtils.CEResponse": {
+    "package": "org.xbill.DNS.dnssec",
+    "kind": "CLASS",
+    "modifiers": "private static final",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.dnssec.Nsec3ValidationState": {
+    "package": "org.xbill.DNS.dnssec",
+    "kind": "CLASS",
+    "modifiers": "",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.dnssec.Nsec3ValidationState.Nsec3CacheEntry": {
+    "package": "org.xbill.DNS.dnssec",
+    "kind": "CLASS",
+    "modifiers": "static",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.dnssec.R": {
+    "package": "org.xbill.DNS.dnssec",
+    "kind": "CLASS",
+    "modifiers": "public final",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.dnssec.ResponseClassification": {
+    "package": "org.xbill.DNS.dnssec",
+    "kind": "ENUM",
+    "modifiers": "",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.dnssec.SMessage": {
+    "package": "org.xbill.DNS.dnssec",
+    "kind": "CLASS",
+    "modifiers": "final",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.dnssec.SRRset": {
+    "package": "org.xbill.DNS.dnssec",
+    "kind": "CLASS",
+    "modifiers": "",
+    "parameters": "",
+    "extends": "RRset",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.dnssec.SecurityStatus": {
+    "package": "org.xbill.DNS.dnssec",
+    "kind": "ENUM",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.dnssec.TrustAnchorStore": {
+    "package": "org.xbill.DNS.dnssec",
+    "kind": "INTERFACE",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.dnssec.ValUtils": {
+    "package": "org.xbill.DNS.dnssec",
+    "kind": "CLASS",
+    "modifiers": "final",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.dnssec.ValUtils.NsecProvesNodataResponse": {
+    "package": "org.xbill.DNS.dnssec",
+    "kind": "CLASS",
+    "modifiers": "public static",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.dnssec.ValidatingResolver": {
+    "package": "org.xbill.DNS.dnssec",
+    "kind": "CLASS",
+    "modifiers": "public final",
+    "parameters": "",
+    "extends": "",
+    "implements": "Resolver",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.hosts.HostsFileParser": {
+    "package": "org.xbill.DNS.hosts",
+    "kind": "CLASS",
+    "modifiers": "public final",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.hosts.HostsFileParser.LineData": {
+    "package": "org.xbill.DNS.hosts",
+    "kind": "CLASS",
+    "modifiers": "private static final",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.io.DefaultIoClientFactory": {
+    "package": "org.xbill.DNS.io",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "",
+    "implements": "IoClientFactory",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.io.IoClientFactory": {
+    "package": "org.xbill.DNS.io",
+    "kind": "INTERFACE",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.io.TcpIoClient": {
+    "package": "org.xbill.DNS.io",
+    "kind": "INTERFACE",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.io.UdpIoClient": {
+    "package": "org.xbill.DNS.io",
+    "kind": "INTERFACE",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.lookup.InvalidZoneDataException": {
+    "package": "org.xbill.DNS.lookup",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "LookupFailedException",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.lookup.IrrelevantRecordMode": {
+    "package": "org.xbill.DNS.lookup",
+    "kind": "ENUM",
+    "modifiers": "",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.lookup.LookupFailedException": {
+    "package": "org.xbill.DNS.lookup",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "RuntimeException",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.lookup.LookupResult": {
+    "package": "org.xbill.DNS.lookup",
+    "kind": "CLASS",
+    "modifiers": "public final",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.lookup.LookupSession": {
+    "package": "org.xbill.DNS.lookup",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.lookup.LookupSession.LookupSessionBuilder": {
+    "package": "org.xbill.DNS.lookup",
+    "kind": "CLASS",
+    "modifiers": "public static",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.lookup.NoSuchDomainException": {
+    "package": "org.xbill.DNS.lookup",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "LookupFailedException",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.lookup.NoSuchRRSetException": {
+    "package": "org.xbill.DNS.lookup",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "LookupFailedException",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.lookup.RedirectLoopException": {
+    "package": "org.xbill.DNS.lookup",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "RedirectOverflowException",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.lookup.RedirectOverflowException": {
+    "package": "org.xbill.DNS.lookup",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "LookupFailedException",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.lookup.ServerFailedException": {
+    "package": "org.xbill.DNS.lookup",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "LookupFailedException",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.spi.DNSJavaNameService": {
+    "package": "org.xbill.DNS.spi",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "",
+    "implements": "NameService",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.spi.DNSJavaNameServiceDescriptor": {
+    "package": "org.xbill.DNS.spi",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "",
+    "implements": "NameServiceDescriptor",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.tools.Tools": {
+    "package": "org.xbill.DNS.tools",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.tools.dig": {
+    "package": "org.xbill.DNS.tools",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.tools.jnamed": {
+    "package": "org.xbill.DNS.tools",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.tools.lookup": {
+    "package": "org.xbill.DNS.tools",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.tools.primary": {
+    "package": "org.xbill.DNS.tools",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.tools.update": {
+    "package": "org.xbill.DNS.tools",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.tools.xfrin": {
+    "package": "org.xbill.DNS.tools",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.utils.BaseUtils": {
+    "package": "org.xbill.DNS.utils",
+    "kind": "CLASS",
+    "modifiers": "",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.utils.base16": {
+    "package": "org.xbill.DNS.utils",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.utils.base32": {
+    "package": "org.xbill.DNS.utils",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.utils.base32.Alphabet": {
+    "package": "org.xbill.DNS.utils",
+    "kind": "CLASS",
+    "modifiers": "public static",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.utils.base64": {
+    "package": "org.xbill.DNS.utils",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "org.xbill.DNS.utils.hexdump": {
+    "package": "org.xbill.DNS.utils",
+    "kind": "CLASS",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "sun.net.spi.nameservice.NameService": {
+    "package": "sun.net.spi.nameservice",
+    "kind": "INTERFACE",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  },
+  "sun.net.spi.nameservice.NameServiceDescriptor": {
+    "package": "sun.net.spi.nameservice",
+    "kind": "INTERFACE",
+    "modifiers": "public",
+    "parameters": "",
+    "extends": "",
+    "implements": "",
+    "components": "",
+    "permits": ""
+  }
+}

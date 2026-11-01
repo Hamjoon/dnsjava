@@ -1,0 +1,143 @@
+[
+  {
+    "group": "Origin Retrieval - Default State",
+    "cases": [
+      {
+        "input": [],
+        "expected": "null",
+        "description": "When a new Zone instance is created without any initialization of the private 'origin' field, getOrigin() should return null."
+      }
+    ]
+  },
+  {
+    "group": "Origin Retrieval - After Setting Origin via Reflection",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "originName",
+            "value": "Name.fromString(\"example.com.\")"
+          }
+        ],
+        "expected": "Name.fromString(\"example.com.\")",
+        "description": "Using reflection to set the private 'origin' field to a valid Name object. getOrigin() must return the exact same Name instance (reference equality)."
+      },
+      {
+        "input": [
+          {
+            "parameter": "firstOrigin",
+            "value": "Name.fromString(\"first.com.\")"
+          },
+          {
+            "parameter": "secondOrigin",
+            "value": "Name.fromString(\"second.com.\")"
+          }
+        ],
+        "expected": "Name.fromString(\"second.com.\")",
+        "description": "Set the 'origin' field first to 'first.com.' and then to 'second.com.' via reflection. The final call to getOrigin() should return the most recently set Name ('second.com.')."
+      }
+    ]
+  },
+  {
+    "group": "Origin Retrieval - Immutability Check",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "originName",
+            "value": "Name.fromString(\"mutable.com.\")"
+          }
+        ],
+        "expected": "Name.fromString(\"mutable.com.\")",
+        "description": "After retrieving the origin with getOrigin(), modifying the returned Name object (if Name is mutable) should not affect the internal state of Zone. The test verifies that a subsequent call to getOrigin() still returns the original Name value."
+      }
+    ]
+  },
+  {
+    "group": "Origin Retrieval - Serialization Persistence",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "originName",
+            "value": "Name.fromString(\"persist.com.\")"
+          }
+        ],
+        "expected": "Name.fromString(\"persist.com.\")",
+        "description": "Set the private 'origin' field to a valid Name via reflection, serialize the Zone object to a byte array, deserialize it back, and verify that getOrigin() returns the same Name instance (value equality) after the round\u2011trip."
+      }
+    ]
+  },
+  {
+    "group": "Origin Retrieval - Repeated Calls Consistency",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "originName",
+            "value": "Name.fromString(\"repeat.com.\")"
+          }
+        ],
+        "expected": "Name.fromString(\"repeat.com.\")",
+        "description": "After setting the 'origin' field once via reflection, invoke getOrigin() multiple times in succession and assert that each call returns the identical Name object (reference equality) and that no side\u2011effects occur between calls."
+      }
+    ]
+  },
+  {
+    "group": "Origin Retrieval - Null Reset via Reflection",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "initialOrigin",
+            "value": "Name.fromString(\"temp.com.\")"
+          },
+          {
+            "parameter": "resetToNull",
+            "value": "null"
+          }
+        ],
+        "expected": "null",
+        "description": "First set the 'origin' field to a non\u2011null Name via reflection, then reset the same field to null via reflection. Verify that a subsequent call to getOrigin() returns null, confirming that the field can be cleared."
+      }
+    ]
+  },
+  {
+    "group": "Origin Retrieval - After Adding Record with Same Name",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "originName",
+            "value": "Name.fromString(\"record.com.\")"
+          },
+          {
+            "parameter": "record",
+            "value": "new ARecord(Name.fromString(\"record.com.\"), DClass.IN, 3600, InetAddress.getByName(\"192.0.2.1\"))"
+          }
+        ],
+        "expected": "Name.fromString(\"record.com.\")",
+        "description": "Set the Zone's origin via reflection, then add a Record whose name equals the origin using Zone.addRecord(). Verify that getOrigin() still returns the original Name unchanged, proving that addRecord() does not modify the origin field."
+      }
+    ]
+  },
+  {
+    "group": "Origin Retrieval - Concurrency Visibility",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "originNameThread1",
+            "value": "Name.fromString(\"thread1.com.\")"
+          },
+          {
+            "parameter": "originNameThread2",
+            "value": "Name.fromString(\"thread2.com.\")"
+          }
+        ],
+        "expected": "Name.fromString(\"thread2.com.\")",
+        "description": "Two threads concurrently set the private 'origin' field via reflection: thread\u202f1 sets it to 'thread1.com.', thread\u202f2 subsequently sets it to 'thread2.com.'. After both threads complete, a call to getOrigin() must return the value set by the last writer ('thread2.com.'), demonstrating visibility of the latest write."
+      }
+    ]
+  }
+]

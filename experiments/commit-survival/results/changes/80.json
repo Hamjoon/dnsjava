@@ -1,0 +1,37 @@
+{
+  "index": 80,
+  "sha": "9ae7e1d7bb1c65ab372dd2bfd8e0562b6a63e708",
+  "parent": "a1db74504d1bd7b4137d5c5dff4919d60b0d8ab9",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/Message.java": [],
+    "src/main/java/org/xbill/DNS/NioClient.java": [
+      49,
+      196,
+      212,
+      213,
+      215,
+      217,
+      231,
+      232,
+      233,
+      235,
+      236,
+      237
+    ]
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/Message.java": [],
+    "src/main/java/org/xbill/DNS/NioClient.java": [
+      196,
+      197,
+      199,
+      227,
+      228,
+      229,
+      231,
+      232,
+      233
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/Message.java b/src/main/java/org/xbill/DNS/Message.java\nindex 767450b8..dc24516c 100644\n--- a/src/main/java/org/xbill/DNS/Message.java\n+++ b/src/main/java/org/xbill/DNS/Message.java\n@@ -813 +813 @@ public class Message implements Cloneable {\n-    @SuppressWarnings(\"unchecked\")\n+    @SuppressWarnings({\"unchecked\", \"rawtypes\"})\ndiff --git a/src/main/java/org/xbill/DNS/NioClient.java b/src/main/java/org/xbill/DNS/NioClient.java\nindex 14211a29..5d529c04 100644\n--- a/src/main/java/org/xbill/DNS/NioClient.java\n+++ b/src/main/java/org/xbill/DNS/NioClient.java\n@@ -48,2 +48,2 @@ public abstract class NioClient {\n-  @SuppressWarnings(\"unchecked\")\n-  private static final Consumer<Selector>[] REGISTRATIONS_TASKS = new Consumer[2];\n+  private static Consumer<Selector> TCP_REGISTRATIONS_TASK;\n+  private static Consumer<Selector> UDP_REGISTRATIONS_TASK;\n@@ -196 +196,5 @@ public abstract class NioClient {\n-    addRegistrationTask(r, isTcpClient);\n+    if (isTcpClient) {\n+      TCP_REGISTRATIONS_TASK = r;\n+    } else {\n+      UDP_REGISTRATIONS_TASK = r;\n+    }\n@@ -211,8 +214,0 @@ public abstract class NioClient {\n-  private static void addRegistrationTask(Consumer<Selector> r, boolean isTcpClient) {\n-    if (isTcpClient) {\n-      REGISTRATIONS_TASKS[0] = r;\n-    } else {\n-      REGISTRATIONS_TASKS[1] = r;\n-    }\n-  }\n-\n@@ -231,3 +227,3 @@ public abstract class NioClient {\n-    Consumer<Selector> r0 = REGISTRATIONS_TASKS[0];\n-    if (r0 != null) {\n-      r0.accept(selector);\n+    Consumer<Selector> tcpTask = TCP_REGISTRATIONS_TASK;\n+    if (tcpTask != null) {\n+      tcpTask.accept(selector);\n@@ -235,3 +231,3 @@ public abstract class NioClient {\n-    Consumer<Selector> r1 = REGISTRATIONS_TASKS[1];\n-    if (r1 != null) {\n-      r1.accept(selector);\n+    Consumer<Selector> udpTask = UDP_REGISTRATIONS_TASK;\n+    if (udpTask != null) {\n+      udpTask.accept(selector);"
+}

@@ -1,0 +1,22 @@
+{
+  "index": 19,
+  "sha": "6f1ab2c603e5fefb36e38fe4b37e5288e2685b4f",
+  "parent": "3ddc45ce8cdb5c2274e10b7401416f497694e1cf",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/DNSSEC.java": [
+      114
+    ]
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/DNSSEC.java": [
+      126,
+      134,
+      135,
+      206,
+      207,
+      208,
+      209
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/DNSSEC.java b/src/main/java/org/xbill/DNS/DNSSEC.java\nindex f90fe6c7..30988b68 100644\n--- a/src/main/java/org/xbill/DNS/DNSSEC.java\n+++ b/src/main/java/org/xbill/DNS/DNSSEC.java\n@@ -92,0 +93,12 @@ public class DNSSEC {\n+    /**\n+     * SM2 signing algorithm with SM3 hashing algorithm. <a\n+     * href=\"https://datatracker.ietf.org/doc/draft-cuiling-dnsop-sm2-alg/15/\">draft-cuiling-dnsop-sm2-alg-15</a>\n+     */\n+    public static final int SM2SM3 = 17;\n+\n+    /**\n+     * GOST R 34.10-2012 <a\n+     * href=\"https://datatracker.ietf.org/doc/draft-makarenko-gost2012-dnssec/05/\">draft-makarenko-gost2012-dnssec-05</a>\n+     */\n+    public static final int ECC_GOST12 = 23;\n+\n@@ -114 +126 @@ public class DNSSEC {\n-      algs.add(RSA_NSEC3_SHA1, \"RSA-NSEC3-SHA1\");\n+      algs.add(RSA_NSEC3_SHA1, \"RSASHA1-NSEC3-SHA1\");\n@@ -121,0 +134,2 @@ public class DNSSEC {\n+      algs.add(SM2SM3, \"SM2SM3\");\n+      algs.add(ECC_GOST12, \"ECC-GOST12\");\n@@ -163,0 +178,12 @@ public class DNSSEC {\n+    /**\n+     * SM3 hashing algorithm. <a\n+     * href=\"https://datatracker.ietf.org/doc/draft-cuiling-dnsop-sm2-alg/15/\">draft-cuiling-dnsop-sm2-alg-15</a>\n+     */\n+    public static final int GOST3411_12 = 5;\n+\n+    /**\n+     * GOST R 34.10-2012 <a\n+     * href=\"https://datatracker.ietf.org/doc/draft-makarenko-gost2012-dnssec/05/\">draft-makarenko-gost2012-dnssec-05</a>\n+     */\n+    public static final int SM3 = 6;\n+\n@@ -179,0 +206,4 @@ public class DNSSEC {\n+      algs.add(GOST3411_12, \"GOST12\");\n+      algLengths.put(GOST3411_12, 64);\n+      algs.add(SM3, \"SM3\");\n+      algLengths.put(SM3, 32);"
+}

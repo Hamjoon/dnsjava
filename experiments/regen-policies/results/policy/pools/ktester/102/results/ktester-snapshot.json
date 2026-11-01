@@ -1,0 +1,63 @@
+{
+  "attempts": [
+    {
+      "command": [
+        "mvn",
+        "-q",
+        "-o",
+        "dependency:copy-dependencies",
+        "-DoutputDirectory=libs",
+        "-DincludeScope=test"
+      ],
+      "cwd": "/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/ktester/ktester/projects/dnsjava",
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 2.512,
+      "log": "results/ktester-prepare-1.txt"
+    }
+  ],
+  "jars_sha256": {
+    "apiguardian-api-1.1.2.jar": "b509448ac506d607319f182537f0b35d71007582ec741832a1f111e5b5b70b38",
+    "assertj-core-3.27.7.jar": "c4a445426c3c2861666863b842cc4ec7bbb1c4226fefd370b6d2fe83d6c4ff0f",
+    "bcprov-jdk18on-1.84.jar": "64d6c5a6121fcd927152dd182cbed39afe0fda641a970d9bcc0c9cb1858b2731",
+    "bcutil-jdk18on-1.84.jar": "b374e16963421fb9cfb01cc20d7ad8fd2f8b8188e3eef0ec0a8965e245f7619a",
+    "byte-buddy-1.18.3.jar": "d78396e3c5bce3f2865c9186647481e5589d34cacc632484715b686108d17c66",
+    "byte-buddy-agent-1.18.4.jar": "f22dd13a5a501fa84948d9332e9624794dbb3532f843a30d2faaeba5e5078953",
+    "commons-io-2.21.0.jar": "7d643a2afea8b058b762aa6fb90e5b256f6c729739f8b3784c3370ddc609e88d",
+    "jackson-core-2.16.1.jar": "f5f8ef90609e64fec82eb908e497dc7d81b2eb983fe509b870292a193cde4dfb",
+    "jcstress-core-0.16.jar": "58ee119c227bd02a86ad47f32b6165537e42502ef6cc8140d6454b0cac29f6ac",
+    "jna-5.18.1.jar": "260c4b1e22b1db9e110ee441c4f13ce115f841fa48c41d78750986214b395557",
+    "jna-platform-5.18.1.jar": "ad14c1b1ec4f43d396231219dfa635ebf828f738eac9f890ea1bc07795892d9a",
+    "jopt-simple-4.6.jar": "3fcfbe3203c2ea521bf7640484fd35d6303186ea2e08e72f032d640ca067ffda",
+    "jul-to-slf4j-1.7.36.jar": "9e641fb142c5f0b0623d6222c09ea87523a41bf6bed48ac79940724010b989de",
+    "junit-jupiter-api-5.14.2.jar": "704cda1857316bb791199b1a1bf8173b0778b938a8445c85be1154c5f8813a0a",
+    "junit-jupiter-engine-5.14.2.jar": "024d9b06d31b90fb9c5a7c0bc62cfa2d49c673a68a7a75be9b52548ba6283509",
+    "junit-jupiter-params-5.14.2.jar": "06d8673ab16174117ebaea7cc9dc08809db7a394f5d93efd240362d883d01df0",
+    "junit-platform-commons-1.14.2.jar": "9117f9aadc663ac550ae5e81d8d3ab9f1e09bb2e34c16e60a1eb1633a17bcc06",
+    "junit-platform-engine-1.14.2.jar": "5a45c430763a26c6c55471e192d8afbb6443956bc116b7e6796b8d789a5a146d",
+    "lombok-1.18.42.jar": "3488a4e9994c26596baaceebee58cad36a50e3bdaec5be72b5834d3c3b560306",
+    "mockito-core-5.21.0.jar": "03db23de742cbca42aa3d6127fdace560fac37b036d931870801f84c288bd286",
+    "mockito-junit-jupiter-5.21.0.jar": "107148b99e8cd0170302babc1f260123c405190ce83a0d2666b618be488c9b17",
+    "netty-buffer-4.1.130.Final.jar": "00a522b67ea35cb7b4dd9cf27f85c6c58f5e306785aa045302e5f6b2d4944a87",
+    "netty-codec-4.1.130.Final.jar": "52636bc29bd62120b97bbe5d1d21eab9b1cb2bef8efbb54d2221c5f3fa08d8cd",
+    "netty-codec-dns-4.1.130.Final.jar": "814bf9e764a2a9e4d7ace718f661e1f19d2a2cc35b2d3ac0065d4306cfec34ad",
+    "netty-codec-http-4.1.130.Final.jar": "5b6addc1df7b3397a193bd6544a8bfdb18ecac99fd13bee4ec75b1781a664e5e",
+    "netty-codec-http2-4.1.130.Final.jar": "f8ffdb550368fd5dee7c7f1393fa49552522f280ed8de96aebf4269cab0dc8f3",
+    "netty-codec-socks-4.1.130.Final.jar": "9b8f8b2fab256411936ddf5358c3eb6b184c49ea7b8b01f40d473fa94ed7b92c",
+    "netty-common-4.1.130.Final.jar": "53921f28dd5a352b1bed0e1cbcc54d013dc60ffebeae9b2b1e53eabef317e581",
+    "netty-handler-4.1.130.Final.jar": "98c78ec187ca30a4b9775bf6f632f5c9929db6bf06a60e6971f945813880ca0f",
+    "netty-handler-proxy-4.1.130.Final.jar": "33656875d0001587eea4a9778cf2242b418bc887ed03b2d37ef3969e0b7d3b5e",
+    "netty-resolver-4.1.130.Final.jar": "48c5b218a89d184e1b601d46433957f515fcefdb4464182b1348bce4f5a18f35",
+    "netty-resolver-dns-4.1.130.Final.jar": "bbc4d5ce181a2322941b480b1bbf01faa75254eee4d3a8e146317315f61a8283",
+    "netty-transport-4.1.130.Final.jar": "1bf573266d271f856705a9984d25449c56a1d73c02a16af12033ceccfe555dbb",
+    "netty-transport-native-unix-common-4.1.130.Final.jar": "cf5efc4168597d7cd14695b469418cac2a1134533f9a0c82ef0538d796fd39e1",
+    "objenesis-3.3.jar": "02dfd0b0439a5591e35b708ed2f5474eb0948f53abf74637e959b8e4ef69bfeb",
+    "opentest4j-1.3.0.jar": "48e2df636cab6563ced64dcdff8abb2355627cb236ef0bf37598682ddf742f1b",
+    "slf4j-api-1.7.36.jar": "d3ef575e3e4979678dc01bf1dcce51021493b4d11fb7f1be8ad982877c16a1c0",
+    "slf4j-simple-1.7.36.jar": "2f39bed943d624dfa8f4102d0571283a10870b6aa36f197a8a506f147010c10f",
+    "vertx-codegen-4.5.24.jar": "8e5e0570ac38a563ed6e9d0becd93a26c25bee2161c143892285c0045054d450",
+    "vertx-core-4.5.24.jar": "61293b447a367514925c5fec9fc390f6d4acfa731231775dfb32bccf41b638bb",
+    "vertx-junit5-4.5.24.jar": "f20ab57ef1fffa4e8dc2b6a73dd7aa66f4c021df543586087007e37d1011112c"
+  },
+  "jars_added_beyond_maven": 0
+}

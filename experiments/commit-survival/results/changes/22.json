@@ -1,0 +1,12 @@
+{
+  "index": 22,
+  "sha": "cb97ac67b4aaecc1c151a4ee015e5ca17e050e54",
+  "parent": "f25375c2981c4d4fa4092405b70540d4891b21a7",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/Name.java": []
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/Name.java": []
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/Name.java b/src/main/java/org/xbill/DNS/Name.java\nindex cec3bd3f..99580d3e 100644\n--- a/src/main/java/org/xbill/DNS/Name.java\n+++ b/src/main/java/org/xbill/DNS/Name.java\n@@ -577 +577 @@ public class Name implements Comparable<Name>, Serializable {\n-  /** Is the current Name a subdomain of the specified name? */\n+  /** Returns {@code true} if this {@link Name} a subdomain of {@code domain}. */"
+}

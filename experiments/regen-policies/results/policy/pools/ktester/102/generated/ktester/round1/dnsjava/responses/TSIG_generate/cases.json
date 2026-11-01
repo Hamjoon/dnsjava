@@ -1,0 +1,407 @@
+[
+  {
+    "group": "Exception during MAC initialization",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "m",
+            "value": "Message with a question section"
+          },
+          {
+            "parameter": "b",
+            "value": "byte[]{0x33,0x44}"
+          },
+          {
+            "parameter": "error",
+            "value": "0"
+          },
+          {
+            "parameter": "old",
+            "value": "TSIGRecord with an unsupported algorithm name (e.g., Name.fromString(\"unsupported-alg.\"))"
+          }
+        ],
+        "expected": "GeneralSecurityException wrapped in a RuntimeException (or a specific TSIGException if the library throws it).",
+        "description": "When the algorithm name cannot be mapped to a known HMAC algorithm, the internal generate method will attempt to create a Mac instance and fail, propagating an exception. This test validates that the exception path is exercised."
+      }
+    ]
+  },
+  {
+    "group": "Normal generation without prior TSIG (full signature)",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "m",
+            "value": "Message containing a single A query for example.com."
+          },
+          {
+            "parameter": "b",
+            "value": "byte[]{0x0A, 0x0B, 0x0C, 0x0D}"
+          },
+          {
+            "parameter": "error",
+            "value": "0"
+          },
+          {
+            "parameter": "old",
+            "value": "null"
+          }
+        ],
+        "expected": "TSIGRecord whose algorithm name is HMAC_SHA256, error code 0, and MAC equal to the result of HMAC\u2011SHA256(key=0x0A0B0C0D, data=Message.toWire()) (full length 32 bytes). The timeSigned field must be within \u00b1TSIG.FUDGE of the current Instant.",
+        "description": "Verifies that generate creates a correct TSIGRecord when no previous TSIG is supplied, using the default full\u2011signature path."
+      }
+    ]
+  },
+  {
+    "group": "Normal generation with prior TSIG (full signature)",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "m",
+            "value": "Message containing a DNS UPDATE request for zone example.com."
+          },
+          {
+            "parameter": "b",
+            "value": "byte[]{0x55, 0x66, 0x77, 0x88}"
+          },
+          {
+            "parameter": "error",
+            "value": "0"
+          },
+          {
+            "parameter": "old",
+            "value": "TSIGRecord with algorithm HMAC_SHA256, key byte[]{0x55,0x66,0x77,0x88}, and MAC from a previous generate call."
+          }
+        ],
+        "expected": "TSIGRecord with algorithm HMAC_SHA256, error 0, and MAC equal to HMAC\u2011SHA256(key=0x55667788, data=Message.toWire() || old.getMAC()) (full 32\u2011byte MAC). The timeSigned must be within the allowed fudge window.",
+        "description": "Ensures that when a previous TSIGRecord is supplied, its MAC is incorporated into the new MAC calculation as defined by the TSIG specification."
+      }
+    ]
+  },
+  {
+    "group": "Generation with non\u2011zero error code",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "m",
+            "value": "Message containing a standard query for www.example.org."
+          },
+          {
+            "parameter": "b",
+            "value": "byte[]{0x01, 0x23, 0x45, 0x67}"
+          },
+          {
+            "parameter": "error",
+            "value": "9",
+            "description": "TSIG error code BADKEY (value 9)."
+          },
+          {
+            "parameter": "old",
+            "value": "null"
+          }
+        ],
+        "expected": "TSIGRecord whose error field equals 9 (BADKEY) while all other fields (algorithm, MAC, timeSigned) are generated as usual.",
+        "description": "Checks that the error parameter is correctly stored in the resulting TSIGRecord."
+      }
+    ]
+  },
+  {
+    "group": "Generation with empty message payload",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "m",
+            "value": "Message with no sections (empty wire format)."
+          },
+          {
+            "parameter": "b",
+            "value": "byte[]{0xAA, 0xBB}"
+          },
+          {
+            "parameter": "error",
+            "value": "0"
+          },
+          {
+            "parameter": "old",
+            "value": "null"
+          }
+        ],
+        "expected": "TSIGRecord whose MAC equals HMAC\u2011SHA256(key=0xAABB, data=empty byte array). The MAC length must be 32 bytes and the algorithm name HMAC_SHA256.",
+        "description": "Validates that generate correctly handles an empty DNS message without throwing exceptions."
+      }
+    ]
+  },
+  {
+    "group": "Generation with fullSignature flag set to false (truncated MAC)",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "m",
+            "value": "Message containing a TXT query for test.example."
+          },
+          {
+            "parameter": "b",
+            "value": "byte[]{0xDE, 0xAD, 0xBE, 0xEF}"
+          },
+          {
+            "parameter": "error",
+            "value": "0"
+          },
+          {
+            "parameter": "old",
+            "value": "null"
+          },
+          {
+            "parameter": "fullSignature",
+            "value": "false"
+          }
+        ],
+        "expected": "TSIGRecord with algorithm HMAC_SHA256, error 0, and MAC truncated to 10 bytes (the first 10 bytes of the full 32\u2011byte HMAC\u2011SHA256). The truncated MAC length must be exactly 10 bytes.",
+        "description": "Ensures that when fullSignature is false, generate returns a TSIGRecord with a shortened MAC as required for DNS\u2011SEC style signatures."
+      }
+    ]
+  },
+  {
+    "group": "Null Message argument handling",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "m",
+            "value": "null"
+          },
+          {
+            "parameter": "b",
+            "value": "byte[]{0x00}"
+          },
+          {
+            "parameter": "error",
+            "value": "0"
+          },
+          {
+            "parameter": "old",
+            "value": "null"
+          }
+        ],
+        "expected": "NullPointerException (or IllegalArgumentException) thrown immediately, before any MAC processing.",
+        "description": "Confirms that generate validates its Message argument and fails fast when it is null."
+      }
+    ]
+  },
+  {
+    "group": "Algorithm mapping verification (HMAC\u2011SHA1)",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "m",
+            "value": "Message containing a MX query for mail.example.com."
+          },
+          {
+            "parameter": "b",
+            "value": "byte[]{0x11, 0x22, 0x33, 0x44}"
+          },
+          {
+            "parameter": "error",
+            "value": "0"
+          },
+          {
+            "parameter": "old",
+            "value": "TSIGRecord with algorithm HMAC_SHA1, key byte[]{0x11,0x22,0x33,0x44}"
+          }
+        ],
+        "expected": "TSIGRecord whose algorithm name is HMAC_SHA1 and whose MAC equals HMAC\u2011SHA1(key=0x11223344, data=Message.toWire()).",
+        "description": "Verifies that generate correctly resolves the HMAC\u2011SHA1 algorithm name and produces the expected MAC."
+      }
+    ]
+  },
+  {
+    "group": "Fudge window boundary test",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "m",
+            "value": "Message with a single SOA query."
+          },
+          {
+            "parameter": "b",
+            "value": "byte[]{0xFE, 0xED, 0xFA, 0xCE}"
+          },
+          {
+            "parameter": "error",
+            "value": "0"
+          },
+          {
+            "parameter": "old",
+            "value": "null"
+          }
+        ],
+        "expected": "TSIGRecord whose timeSigned field is exactly Instant.now().plus(TSIG.FUDGE) or Instant.now().minus(TSIG.FUDGE) (depending on the internal clock usage) but never outside the \u00b1300\u2011second window.",
+        "description": "Ensures that generate respects the TSIG.FUDGE duration when stamping the TSIGRecord."
+      }
+    ]
+  },
+  {
+    "group": "Null key array handling",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "m",
+            "value": "Message with a simple query"
+          },
+          {
+            "parameter": "b",
+            "value": "null"
+          },
+          {
+            "parameter": "error",
+            "value": "0"
+          },
+          {
+            "parameter": "old",
+            "value": "null"
+          }
+        ],
+        "expected": "NullPointerException (or IllegalArgumentException) thrown before any MAC processing",
+        "description": "The key byte array is null. generate should validate the key argument and fail fast."
+      }
+    ]
+  },
+  {
+    "group": "Old TSIGRecord with null MAC",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "m",
+            "value": "Message containing a standard query"
+          },
+          {
+            "parameter": "b",
+            "value": "byte[]{0x01,0x02,0x03,0x04}"
+          },
+          {
+            "parameter": "error",
+            "value": "0"
+          },
+          {
+            "parameter": "old",
+            "value": "TSIGRecord with algorithm HMAC_SHA256, key byte[]{0x01,0x02,0x03,0x04}, and MAC set to null"
+          }
+        ],
+        "expected": "NullPointerException thrown when the previous MAC is accessed",
+        "description": "When a prior TSIGRecord is supplied but its MAC field is null, generate attempts to concatenate the old MAC and throws NPE."
+      }
+    ]
+  },
+  {
+    "group": "Old TSIGRecord with null algorithm name",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "m",
+            "value": "Message containing a TXT query"
+          },
+          {
+            "parameter": "b",
+            "value": "byte[]{0x0A,0x0B,0x0C,0x0D}"
+          },
+          {
+            "parameter": "error",
+            "value": "0"
+          },
+          {
+            "parameter": "old",
+            "value": "TSIGRecord where getAlgorithm() returns null (algorithm name not set)"
+          }
+        ],
+        "expected": "NullPointerException (or IllegalArgumentException) during algorithm mapping",
+        "description": "generate uses the algorithm name from the old TSIGRecord to initialise the Mac. A null algorithm should cause an immediate exception."
+      }
+    ]
+  },
+  {
+    "group": "Invalid error code handling",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "m",
+            "value": "Message with a single A query"
+          },
+          {
+            "parameter": "b",
+            "value": "byte[]{0xAA,0xBB,0xCC,0xDD}"
+          },
+          {
+            "parameter": "error",
+            "value": "-1"
+          },
+          {
+            "parameter": "old",
+            "value": "null"
+          }
+        ],
+        "expected": "IllegalArgumentException thrown because error code is outside the valid TSIG range (0\u2011255)",
+        "description": "generate should validate the error code parameter; a negative value is illegal and must be rejected."
+      },
+      {
+        "input": [
+          {
+            "parameter": "m",
+            "value": "Message with a single A query"
+          },
+          {
+            "parameter": "b",
+            "value": "byte[]{0xAA,0xBB,0xCC,0xDD}"
+          },
+          {
+            "parameter": "error",
+            "value": "300"
+          },
+          {
+            "parameter": "old",
+            "value": "null"
+          }
+        ],
+        "expected": "IllegalArgumentException thrown because error code exceeds the 0\u2011255 range",
+        "description": "TSIG error codes are defined as unsigned 16\u2011bit values but the implementation restricts to the standard range; values >255 should be rejected."
+      }
+    ]
+  },
+  {
+    "group": "Message serialization exception handling",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "m",
+            "value": "MockMessage whose toWire() method throws IOException"
+          },
+          {
+            "parameter": "b",
+            "value": "byte[]{0x55,0x66,0x77,0x88}"
+          },
+          {
+            "parameter": "error",
+            "value": "0"
+          },
+          {
+            "parameter": "old",
+            "value": "null"
+          }
+        ],
+        "expected": "RuntimeException (or a specific TSIGException) wrapping the IOException from Message.toWire()",
+        "description": "If the DNS Message cannot be converted to wire format, generate must propagate the failure as a runtime exception."
+      }
+    ]
+  }
+]

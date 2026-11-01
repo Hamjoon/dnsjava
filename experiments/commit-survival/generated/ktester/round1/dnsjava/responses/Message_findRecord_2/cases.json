@@ -1,0 +1,172 @@
+[
+  {
+    "group": "Message.findRecord(Record) - branch coverage",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "record",
+            "value": "ARecord(name=\"example.com.\", type=A, ttl=3600, address=1.2.3.4)"
+          }
+        ],
+        "expected": "false",
+        "description": "The message has no sections initialised (all sections are null). The method should iterate over ANSWER\u2011ADDITIONAL, skip null sections and finally return false."
+      },
+      {
+        "input": [
+          {
+            "parameter": "record",
+            "value": "ARecord(name=\"example.com.\", type=A, ttl=3600, address=1.2.3.4)"
+          }
+        ],
+        "expected": "false",
+        "description": "Only the ANSWER section is non\u2011null but empty; the searched record is not contained. The method should return false after checking the empty list."
+      },
+      {
+        "input": [
+          {
+            "parameter": "record",
+            "value": "ARecord(name=\"example.com.\", type=A, ttl=3600, address=1.2.3.4)"
+          }
+        ],
+        "expected": "true",
+        "description": "The searched record is added to the ANSWER section. The loop finds a non\u2011null list that contains the record and returns true."
+      },
+      {
+        "input": [
+          {
+            "parameter": "record",
+            "value": "ARecord(name=\"example.org.\", type=A, ttl=3600, address=5.6.7.8)"
+          }
+        ],
+        "expected": "true",
+        "description": "The searched record is added to the AUTHORITY section (Section.AUTHORITY). The method should detect it during the iteration and return true."
+      },
+      {
+        "input": [
+          {
+            "parameter": "record",
+            "value": "TXTRecord(name=\"example.net.\", type=TXT, ttl=3600, text=\"test\")"
+          }
+        ],
+        "expected": "true",
+        "description": "The searched record is added to the ADDITIONAL section. Even though the earlier sections are null or do not contain the record, the method should return true when it reaches the ADDITIONAL list."
+      },
+      {
+        "input": [
+          {
+            "parameter": "record",
+            "value": "ARecord(name=\"example.com.\", type=A, ttl=3600, address=1.2.3.4)"
+          }
+        ],
+        "expected": "false",
+        "description": "A different record is present in the ANSWER section, but the searched record is absent from all sections. The method must continue looping and finally return false."
+      },
+      {
+        "input": [
+          {
+            "parameter": "record",
+            "value": "ARecord(name=\"example.com.\", type=A, ttl=3600, address=1.2.3.4)"
+          }
+        ],
+        "expected": "true",
+        "description": "Multiple sections are non\u2011null; the searched record appears in the ADDITIONAL section while ANSWER and AUTHORITY contain other records. The method should still return true as soon as it finds the match."
+      }
+    ]
+  },
+  {
+    "group": "Message.findRecord(Record) - edge cases",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "record",
+            "value": "ARecord(name=\"example.com.\", type=A, ttl=3600, address=1.2.3.4)"
+          }
+        ],
+        "expected": "false",
+        "description": "The record is added only to the QUESTION section (Section.QUESTION). The method iterates from ANSWER to ADDITIONAL, therefore it must ignore QUESTION and return false."
+      },
+      {
+        "input": [
+          {
+            "parameter": "record",
+            "value": "null"
+          }
+        ],
+        "expected": "false",
+        "description": "Calling findRecord with a null argument should not throw an exception; the internal loop will call List.contains(null) which returns false, so the method must return false."
+      },
+      {
+        "input": [
+          {
+            "parameter": "record",
+            "value": "ARecord(name=\"example.org.\", type=A, ttl=3600, address=5.6.7.8)"
+          }
+        ],
+        "expected": "true",
+        "description": "ANSWER section is left null, AUTHORITY section is initialised and contains the searched record. The method should find the record in AUTHORITY and return true."
+      },
+      {
+        "input": [
+          {
+            "parameter": "record",
+            "value": "ARecord(name=\"example.net.\", type=A, ttl=3600, address=9.10.11.12)"
+          }
+        ],
+        "expected": "false",
+        "description": "The record is added to ANSWER, then removed using removeRecord. After removal the record is no longer present in any section, so findRecord must return false."
+      }
+    ]
+  },
+  {
+    "group": "Message.findRecord(Record) - multiple\u2011section presence",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "record",
+            "value": "TXTRecord(name=\"example.com.\", type=TXT, ttl=3600, text=\"duplicate\")"
+          }
+        ],
+        "expected": "true",
+        "description": "The same record instance is added to both ANSWER and ADDITIONAL sections. The method should return true as soon as it encounters the first occurrence; the exact section does not matter."
+      }
+    ]
+  },
+  {
+    "group": "Message.findRecord(Record) - exception scenarios",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "record",
+            "value": "ARecord(name=\"example.com.\", type=A, ttl=3600, address=1.2.3.4)"
+          }
+        ],
+        "expected": "NullPointerException",
+        "description": "The internal `sections` array is null (e.g., after constructing a Message via reflection without initializing `sections`). The method attempts to index `sections[i]`, which throws a NullPointerException."
+      },
+      {
+        "input": [
+          {
+            "parameter": "record",
+            "value": "ARecord(name=\"example.org.\", type=A, ttl=3600, address=5.6.7.8)"
+          }
+        ],
+        "expected": "ArrayIndexOutOfBoundsException",
+        "description": "The `sections` array is deliberately created with insufficient length (e.g., `new List[2]`). When the loop reaches an index beyond the array size (Section.ADDITIONAL), an ArrayIndexOutOfBoundsException is thrown."
+      },
+      {
+        "input": [
+          {
+            "parameter": "record",
+            "value": "TXTRecord(name=\"example.net.\", type=TXT, ttl=3600, text=\"boom\")"
+          }
+        ],
+        "expected": "IllegalStateException",
+        "description": "A custom List implementation is placed in one of the sections; its `contains` method throws an IllegalStateException. The `findRecord` method does not catch this, so the exception propagates to the caller."
+      }
+    ]
+  }
+]

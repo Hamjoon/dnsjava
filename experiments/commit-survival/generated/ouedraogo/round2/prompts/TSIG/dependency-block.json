@@ -1,0 +1,40 @@
+{
+  "class_name": "org.xbill.DNS.TSIG",
+  "ordered_types": [
+    "org.xbill.DNS.Name",
+    "org.xbill.DNS.Message",
+    "org.xbill.DNS.TSIGRecord",
+    "org.xbill.DNS.DNSOutput",
+    "org.xbill.DNS.utils.base64",
+    "org.xbill.DNS.utils.hexdump",
+    "org.xbill.DNS.TSIG.StreamGenerator",
+    "org.xbill.DNS.TSIG.StreamVerifier"
+  ],
+  "included": [
+    "org.xbill.DNS.Name",
+    "org.xbill.DNS.Message",
+    "org.xbill.DNS.TSIGRecord",
+    "org.xbill.DNS.DNSOutput",
+    "org.xbill.DNS.utils.base64",
+    "org.xbill.DNS.utils.hexdump",
+    "org.xbill.DNS.TSIG.StreamGenerator",
+    "org.xbill.DNS.TSIG.StreamVerifier"
+  ],
+  "omitted": [],
+  "reasons": {
+    "org.xbill.DNS.Name": "constructor",
+    "org.xbill.DNS.Message": "method",
+    "org.xbill.DNS.TSIGRecord": "method",
+    "org.xbill.DNS.DNSOutput": "method",
+    "org.xbill.DNS.utils.base64": "import",
+    "org.xbill.DNS.utils.hexdump": "import",
+    "org.xbill.DNS.TSIG.StreamGenerator": "nested declaration",
+    "org.xbill.DNS.TSIG.StreamVerifier": "nested declaration"
+  },
+  "types": 8,
+  "lines": 137,
+  "limits": {
+    "types": 15,
+    "lines": 400
+  }
+}

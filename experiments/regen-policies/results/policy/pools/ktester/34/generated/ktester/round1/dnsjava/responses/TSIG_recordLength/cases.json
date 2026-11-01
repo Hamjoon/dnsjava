@@ -1,0 +1,112 @@
+[
+  {
+    "group": "recordLength calculations - typical values",
+    "cases": [
+      {
+        "input": [],
+        "expected": 74,
+        "description": "TSIG constructed with name \"example.com.\" and algorithm \"hmac-sha256.\". Both Name objects have a wire\u2011format length of 13 bytes. The method should compute (((((13+10)+13)+8)+18)+4)+8 = 74."
+      },
+      {
+        "input": [],
+        "expected": 59,
+        "description": "TSIG constructed with the root name \".\" (length 1) and algorithm \"hmac-md5.\" (length 10). Expected length: (((((1+10)+10)+8)+18)+4)+8 = 59."
+      },
+      {
+        "input": [],
+        "expected": 558,
+        "description": "TSIG constructed with a maximal DNS name (255 bytes) and a maximal algorithm name (255 bytes). Expected length: (((((255+10)+255)+8)+18)+4)+8 = 558."
+      }
+    ]
+  },
+  {
+    "group": "recordLength null handling",
+    "cases": [
+      {
+        "input": [],
+        "expected": "NullPointerException",
+        "description": "TSIG instance where the `name` field is forcibly set to null via reflection. Calling recordLength() should throw a NullPointerException because `name.length()` is invoked on a null reference."
+      },
+      {
+        "input": [],
+        "expected": "NullPointerException",
+        "description": "TSIG instance where the `alg` field is forcibly set to null via reflection. Calling recordLength() should throw a NullPointerException because `alg.length()` is invoked on a null reference."
+      }
+    ]
+  },
+  {
+    "group": "recordLength varying lengths - small values",
+    "cases": [
+      {
+        "input": [],
+        "expected": 55,
+        "description": "TSIG constructed with name \"a.\" (wire\u2011format length 2) and algorithm \"alg.\" (wire\u2011format length 5). Expected length = 2 + 5 + 48 = 55."
+      },
+      {
+        "input": [],
+        "expected": 78,
+        "description": "TSIG constructed with a name of length 10 (e.g., \"abcdefghij.\") and an algorithm name of length 20 (e.g., \"verylongalgorithmname.\"). Expected length = 10 + 20 + 48 = 78."
+      }
+    ]
+  },
+  {
+    "group": "recordLength idempotent behavior",
+    "cases": [
+      {
+        "input": [],
+        "expected": 74,
+        "description": "TSIG constructed with name \"example.com.\" and algorithm \"hmac-sha256.\" (both length 13). Calling recordLength() twice should return the same value 74 each time."
+      }
+    ]
+  },
+  {
+    "group": "recordLength after mutable field change",
+    "cases": [
+      {
+        "input": [],
+        "expected": 81,
+        "description": "Create a TSIG with name length 13 and algorithm length 13 (expected 74). Then, using reflection, change the `name` field to a Name whose wire\u2011format length is 20. recordLength() should now return 20 + 13 + 48 = 81."
+      }
+    ]
+  },
+  {
+    "group": "recordLength overflow guard",
+    "cases": [
+      {
+        "input": [],
+        "expected": -2147483544,
+        "description": "Using a mock Name that returns Integer.MAX_VALUE for length() and another mock Name returning 0 for algorithm length. The computed length overflows the int range: (2147483647 + 0 + 48) wraps to -2147483544. The method should return this wrapped value without throwing."
+      }
+    ]
+  },
+  {
+    "group": "recordLength name length throws exception",
+    "cases": [
+      {
+        "input": [],
+        "expected": "IllegalStateException",
+        "description": "TSIG instance where the `name` field is a mock Name whose `length()` method throws IllegalStateException. Calling `recordLength()` should propagate this exception."
+      }
+    ]
+  },
+  {
+    "group": "recordLength algorithm length throws exception",
+    "cases": [
+      {
+        "input": [],
+        "expected": "IllegalStateException",
+        "description": "TSIG instance where the `alg` field is a mock Name whose `length()` method throws IllegalStateException. Calling `recordLength()` should propagate this exception."
+      }
+    ]
+  },
+  {
+    "group": "recordLength both length methods throw exception",
+    "cases": [
+      {
+        "input": [],
+        "expected": "IllegalStateException",
+        "description": "TSIG instance where both `name` and `alg` fields are mocks whose `length()` methods throw IllegalStateException. The first invocation (`name.length()`) should cause the exception to be thrown and no further calls should be made."
+      }
+    ]
+  }
+]

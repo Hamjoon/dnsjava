@@ -1,0 +1,12 @@
+{
+  "index": 144,
+  "sha": "1758566e22185f417d6f9d2a9f30a44bb72f73dc",
+  "parent": "16786e27cfeda6db50718f0343c77815f242fbec",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/ExtendedFlags.java": []
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/ExtendedFlags.java": []
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/ExtendedFlags.java b/src/main/java/org/xbill/DNS/ExtendedFlags.java\nindex 019c859d..9e217c2c 100644\n--- a/src/main/java/org/xbill/DNS/ExtendedFlags.java\n+++ b/src/main/java/org/xbill/DNS/ExtendedFlags.java\n@@ -24 +24 @@ public final class ExtendedFlags {\n-  public static final int CO = 0x8001;\n+  public static final int CO = 0x4000;"
+}

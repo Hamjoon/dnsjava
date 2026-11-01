@@ -1,0 +1,13 @@
+/repo/experiments/commit-survival/generated/ouedraogo/round2/sources/Message/GToT/MessageTest.java:337: error: cannot find symbol
+    assertEquals(tsig.getName(), tsigRec.getName());
+                     ^
+  symbol:   method getName()
+  location: variable tsig of type TSIG
+/repo/experiments/commit-survival/generated/ouedraogo/round2/sources/Message/GToT/MessageTest.java:524: error: cannot find symbol
+    assertEquals(tsig.getName(), parsedTSIG.getName());
+                     ^
+  symbol:   method getName()
+  location: variable tsig of type TSIG
+Note: /repo/experiments/commit-survival/generated/ouedraogo/round2/sources/Message/GToT/MessageTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+2 errors

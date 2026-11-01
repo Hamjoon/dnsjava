@@ -1,0 +1,453 @@
+{
+  "index": 68,
+  "sha": "fbb6b097a7c78533fdcef0b640d15e665580826b",
+  "status": "evaluated",
+  "imported": false,
+  "coverage_version": 3,
+  "coverage_status": "complete",
+  "coverage_reason": "",
+  "methods": [
+    {
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_removeAllRecords_Test.java|org.xbill.DNS.Message_removeAllRecords_Test|removeAllRecords_clearsSpecifiedSection_andLeavesOthersIntact",
+      "file_hash": "a64150ccdb08e6bff47590260806e01941399995f6fbfa81fcfe63ae16c59e2c",
+      "execution_hash": "8b774c4aff0acf11223482a1939f6af4a21b5208d6a8ffa17cc7bd6036f72f77",
+      "class": "org.xbill.DNS.Message_removeAllRecords_Test",
+      "method": "removeAllRecords_clearsSpecifiedSection_andLeavesOthersIntact",
+      "state": "pass",
+      "message": "",
+      "lines": [
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          26
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          60
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          63
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          64
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          65
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          66
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          75
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          76
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          172
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          182
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          183
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          185
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          186
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          187
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          212
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          213
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          214
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          215
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          388
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          389
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          390
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          392
+        ]
+      ]
+    },
+    {
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_removeAllRecords_Test.java|org.xbill.DNS.Message_removeAllRecords_Test|removeAllRecords_multipleCalls_clearsAllSections",
+      "file_hash": "a64150ccdb08e6bff47590260806e01941399995f6fbfa81fcfe63ae16c59e2c",
+      "execution_hash": "8b774c4aff0acf11223482a1939f6af4a21b5208d6a8ffa17cc7bd6036f72f77",
+      "class": "org.xbill.DNS.Message_removeAllRecords_Test",
+      "method": "removeAllRecords_multipleCalls_clearsAllSections",
+      "state": "pass",
+      "message": "",
+      "lines": [
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          63
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          64
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          65
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          66
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          75
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          76
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          172
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          182
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          183
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          185
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          186
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          187
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          212
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          213
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          214
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          215
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          388
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          389
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          390
+        ]
+      ]
+    },
+    {
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_removeAllRecords_Test.java|org.xbill.DNS.Message_removeAllRecords_Test|removeAllRecords_invalidSection_throwsIllegalArgumentException",
+      "file_hash": "a64150ccdb08e6bff47590260806e01941399995f6fbfa81fcfe63ae16c59e2c",
+      "execution_hash": "8b774c4aff0acf11223482a1939f6af4a21b5208d6a8ffa17cc7bd6036f72f77",
+      "class": "org.xbill.DNS.Message_removeAllRecords_Test",
+      "method": "removeAllRecords_invalidSection_throwsIllegalArgumentException",
+      "state": "pass",
+      "message": "",
+      "lines": [
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          63
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          64
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          65
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          66
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          75
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          76
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          182
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          183
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          185
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          186
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          187
+        ]
+      ]
+    },
+    {
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_removeAllRecords_Test.java|org.xbill.DNS.Message_removeAllRecords_Test|removeAllRecords_validSection_updatesHeaderAndClearsArray",
+      "file_hash": "a64150ccdb08e6bff47590260806e01941399995f6fbfa81fcfe63ae16c59e2c",
+      "execution_hash": "8b774c4aff0acf11223482a1939f6af4a21b5208d6a8ffa17cc7bd6036f72f77",
+      "class": "org.xbill.DNS.Message_removeAllRecords_Test",
+      "method": "removeAllRecords_validSection_updatesHeaderAndClearsArray",
+      "state": "pass",
+      "message": "",
+      "lines": [
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          63
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          64
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          65
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          66
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          75
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          76
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          182
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          183
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          185
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          186
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          187
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          212
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          213
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          214
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          215
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          388
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          389
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          390
+        ]
+      ]
+    },
+    {
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_removeAllRecords_Test.java|org.xbill.DNS.Message_removeAllRecords_Test|removeAllRecords_nullHeader_throwsNullPointerException",
+      "file_hash": "a64150ccdb08e6bff47590260806e01941399995f6fbfa81fcfe63ae16c59e2c",
+      "execution_hash": "8b774c4aff0acf11223482a1939f6af4a21b5208d6a8ffa17cc7bd6036f72f77",
+      "class": "org.xbill.DNS.Message_removeAllRecords_Test",
+      "method": "removeAllRecords_nullHeader_throwsNullPointerException",
+      "state": "pass",
+      "message": "",
+      "lines": [
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          63
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          64
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          65
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          66
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          75
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          76
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          182
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          183
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          185
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          186
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          187
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          212
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          213
+        ]
+      ]
+    },
+    {
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_removeAllRecords_Test.java|org.xbill.DNS.Message_removeAllRecords_Test|removeAllRecords_nullSectionsArray_throwsNullPointerException",
+      "file_hash": "a64150ccdb08e6bff47590260806e01941399995f6fbfa81fcfe63ae16c59e2c",
+      "execution_hash": "8b774c4aff0acf11223482a1939f6af4a21b5208d6a8ffa17cc7bd6036f72f77",
+      "class": "org.xbill.DNS.Message_removeAllRecords_Test",
+      "method": "removeAllRecords_nullSectionsArray_throwsNullPointerException",
+      "state": "pass",
+      "message": "",
+      "lines": [
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          63
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          64
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          65
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          66
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          75
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          76
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          182
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          183
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          185
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          186
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          187
+        ]
+      ]
+    }
+  ]
+}

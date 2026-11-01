@@ -1,0 +1,147 @@
+[
+  {
+    "group": "Message.toWire(DNSOutput) - header and section handling",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "out",
+            "value": "mocked DNSOutput"
+          }
+        ],
+        "expected": "Header.toWire(out) is invoked exactly once; no Record.toWire is invoked because all sections are null.",
+        "description": "All sections are null \u2013 the method should only write the header and skip the outer loop without invoking any Record."
+      },
+      {
+        "input": [
+          {
+            "parameter": "out",
+            "value": "mocked DNSOutput"
+          }
+        ],
+        "expected": "Header.toWire(out) is invoked once; RecordA.toWire(out, 1, compression) and RecordB.toWire(out, 1, compression) are each invoked exactly once; sections[0] is null and therefore skipped.",
+        "description": "Section 0 is null, section 1 contains two records. The method must skip the null section and correctly write both records using the same Compression instance."
+      },
+      {
+        "input": [
+          {
+            "parameter": "out",
+            "value": "mocked DNSOutput"
+          }
+        ],
+        "expected": "Header.toWire(out) is invoked once; no Record.toWire is invoked because the only non\u2011null section contains an empty list.",
+        "description": "A non\u2011null but empty list should cause the inner loop to execute zero times, resulting in no record serialization."
+      },
+      {
+        "input": [
+          {
+            "parameter": "out",
+            "value": "mocked DNSOutput"
+          }
+        ],
+        "expected": "Header.toWire(out) is invoked once; RecordX.toWire(out, 0, compression) and RecordY.toWire(out, 2, compression) are each invoked once; the Compression instance passed to both calls is the same object (reference equality).",
+        "description": "Multiple non\u2011null sections (0 and 2) each contain one record. The test verifies that the same Compression object is reused across all Record.toWire calls, satisfying the contract of the method."
+      }
+    ]
+  },
+  {
+    "group": "Message.toWire(DNSOutput) - null record handling",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "out",
+            "value": "mocked DNSOutput"
+          }
+        ],
+        "expected": "Header.toWire(out) is invoked once; iteration encounters a null Record in a non\u2011empty section and throws NullPointerException, propagating the exception.",
+        "description": "A section list contains a null element; the method should not silently ignore it and must propagate the NPE caused by invoking rec.toWire on a null reference."
+      },
+      {
+        "input": [
+          {
+            "parameter": "out",
+            "value": "mocked DNSOutput"
+          }
+        ],
+        "expected": "Header.toWire(out) is invoked once; RecordA.toWire(out, 1, compression) is invoked once; RecordB is null and is skipped without exception.",
+        "description": "A section list contains a mix of a valid Record and a null element; the method should invoke toWire on the valid Record and ignore the null entry, not throwing an exception."
+      }
+    ]
+  },
+  {
+    "group": "Message.toWire(DNSOutput) - order of header and records",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "out",
+            "value": "mocked DNSOutput"
+          }
+        ],
+        "expected": "Header.toWire(out) is invoked before any Record.toWire; verification using InOrder confirms header call precedes RecordX and RecordY calls.",
+        "description": "Ensures that the header serialization occurs prior to serializing any records, regardless of how many sections are present."
+      }
+    ]
+  },
+  {
+    "group": "Message.toWire(DNSOutput) - separate Compression instances per call",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "out",
+            "value": "mocked DNSOutput"
+          }
+        ],
+        "expected": "Two consecutive calls to Message.toWire(out) each create a distinct Compression object; the Compression instance used in the first call is not the same (by reference) as the one used in the second call.",
+        "description": "Verifies that the method does not retain a static or cached Compression object across separate invocations, which could corrupt name compression state."
+      }
+    ]
+  },
+  {
+    "group": "Message.toWire(DNSOutput) - zero\u2011length sections array",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "out",
+            "value": "mocked DNSOutput"
+          }
+        ],
+        "expected": "Header.toWire(out) is invoked once; no Record.toWire is invoked because sections.length == 0, therefore the outer loop never executes.",
+        "description": "Tests the edge case where the Message is constructed with an empty sections array (length 0). The method should handle it gracefully and only write the header."
+      }
+    ]
+  },
+  {
+    "group": "Message.toWire(DNSOutput) - multiple sections with varying record counts",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "out",
+            "value": "mocked DNSOutput"
+          }
+        ],
+        "expected": "Header.toWire(out) is invoked once; RecordA.toWire(out, 0, compression) once; RecordB.toWire(out, 1, compression) twice; RecordC.toWire(out, 3, compression) once; all calls share the same Compression instance.",
+        "description": "Covers all four possible section indices (0\u20113) with different numbers of records per section, confirming correct section index is passed and the same Compression object is reused across all calls."
+      }
+    ]
+  },
+  {
+    "group": "Message.toWire(DNSOutput) - null DNSOutput argument",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "out",
+            "value": "null"
+          }
+        ],
+        "expected": "NullPointerException is thrown when header.toWire(null) is invoked",
+        "description": "The DNSOutput argument is null; the method should immediately fail with NPE while attempting to write the header."
+      }
+    ]
+  }
+]

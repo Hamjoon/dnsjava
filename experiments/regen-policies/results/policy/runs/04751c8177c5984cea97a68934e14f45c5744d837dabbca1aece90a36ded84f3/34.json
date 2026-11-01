@@ -1,0 +1,311 @@
+{
+  "index": 34,
+  "sha": "fd1d7c9280986ebb219c421695a902559aaeda22",
+  "status": "evaluated",
+  "imported": true,
+  "coverage_version": 3,
+  "coverage_status": "missing",
+  "coverage_reason": "imported evidence has no per-test coverage",
+  "methods": [
+    {
+      "file": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/Zone_findExactMatch_Test.java",
+      "class": "org.xbill.DNS.Zone_findExactMatch_Test",
+      "method": "findExactMatch_nullName_throwsIllegalArgumentException",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Zone_findExactMatch_Test.java|org.xbill.DNS.Zone_findExactMatch_Test|findExactMatch_nullName_throwsIllegalArgumentException",
+      "body_hash": "0b65e29f56af1372523c17a67e4c1ed257320ec6590b758c9685ede20f1ce1ac",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Zone_findExactMatch_Test#findExactMatch_nullName_throwsIllegalArgumentException()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "15e869841e4662d0fef25ce6e8b3efbd89b9d7135394e1781213279db5bdc516",
+      "execution_hash": "04751c8177c5984cea97a68934e14f45c5744d837dabbca1aece90a36ded84f3",
+      "source_root": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0a86ba63f7379cd03eeb83e8739e9cebcd20ac34830f8ae9f79ab6a8466f0110",
+      "resource_tree_hash": "de9617e6c9dd225fb49909e865a12a9415c63de3448234d2eb4d0a852a3dd419",
+      "unit": "org.xbill.DNS.Zone#findExactMatch(Name, int)",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Zone_findExactMatch_Test.java|org.xbill.DNS.Zone_findExactMatch_Test|findExactMatch_nullName_throwsIllegalArgumentException",
+      "resource_root": "results/policy/pools/ktester/34/dev/src-test-t"
+    },
+    {
+      "file": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/Zone_findExactMatch_Test.java",
+      "class": "org.xbill.DNS.Zone_findExactMatch_Test",
+      "method": "findExactMatch_invalidType_throwsInvalidTypeException",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Zone_findExactMatch_Test.java|org.xbill.DNS.Zone_findExactMatch_Test|findExactMatch_invalidType_throwsInvalidTypeException",
+      "body_hash": "330693ca4e888d75fba82781a6c76ac28e059a070c4ded11c14ca6c57073d6d9",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Zone_findExactMatch_Test#findExactMatch_invalidType_throwsInvalidTypeException()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "15e869841e4662d0fef25ce6e8b3efbd89b9d7135394e1781213279db5bdc516",
+      "execution_hash": "04751c8177c5984cea97a68934e14f45c5744d837dabbca1aece90a36ded84f3",
+      "source_root": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0a86ba63f7379cd03eeb83e8739e9cebcd20ac34830f8ae9f79ab6a8466f0110",
+      "resource_tree_hash": "de9617e6c9dd225fb49909e865a12a9415c63de3448234d2eb4d0a852a3dd419",
+      "unit": "org.xbill.DNS.Zone#findExactMatch(Name, int)",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Zone_findExactMatch_Test.java|org.xbill.DNS.Zone_findExactMatch_Test|findExactMatch_invalidType_throwsInvalidTypeException",
+      "resource_root": "results/policy/pools/ktester/34/dev/src-test-t"
+    },
+    {
+      "file": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/Zone_findExactMatch_Test.java",
+      "class": "org.xbill.DNS.Zone_findExactMatch_Test",
+      "method": "findExactMatch_existingRecord_returnsCopy",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Zone_findExactMatch_Test.java|org.xbill.DNS.Zone_findExactMatch_Test|findExactMatch_existingRecord_returnsCopy",
+      "body_hash": "311e022a1baf60f9db80e5f545221eb3812a2850bfec7986f31ffb42c174ed64",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Zone_findExactMatch_Test#findExactMatch_existingRecord_returnsCopy()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "15e869841e4662d0fef25ce6e8b3efbd89b9d7135394e1781213279db5bdc516",
+      "execution_hash": "04751c8177c5984cea97a68934e14f45c5744d837dabbca1aece90a36ded84f3",
+      "source_root": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0a86ba63f7379cd03eeb83e8739e9cebcd20ac34830f8ae9f79ab6a8466f0110",
+      "resource_tree_hash": "de9617e6c9dd225fb49909e865a12a9415c63de3448234d2eb4d0a852a3dd419",
+      "unit": "org.xbill.DNS.Zone#findExactMatch(Name, int)",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Zone_findExactMatch_Test.java|org.xbill.DNS.Zone_findExactMatch_Test|findExactMatch_existingRecord_returnsCopy",
+      "resource_root": "results/policy/pools/ktester/34/dev/src-test-t"
+    },
+    {
+      "file": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/Zone_findExactMatch_Test.java",
+      "class": "org.xbill.DNS.Zone_findExactMatch_Test",
+      "method": "findExactMatch_nonExistingName_returnsNull",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Zone_findExactMatch_Test.java|org.xbill.DNS.Zone_findExactMatch_Test|findExactMatch_nonExistingName_returnsNull",
+      "body_hash": "ca5b7944bcd39a915ffb3f4453e79f96bd6f8dc7d8e2f8dd74f4b028354e8355",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Zone_findExactMatch_Test#findExactMatch_nonExistingName_returnsNull()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "15e869841e4662d0fef25ce6e8b3efbd89b9d7135394e1781213279db5bdc516",
+      "execution_hash": "04751c8177c5984cea97a68934e14f45c5744d837dabbca1aece90a36ded84f3",
+      "source_root": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0a86ba63f7379cd03eeb83e8739e9cebcd20ac34830f8ae9f79ab6a8466f0110",
+      "resource_tree_hash": "de9617e6c9dd225fb49909e865a12a9415c63de3448234d2eb4d0a852a3dd419",
+      "unit": "org.xbill.DNS.Zone#findExactMatch(Name, int)",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Zone_findExactMatch_Test.java|org.xbill.DNS.Zone_findExactMatch_Test|findExactMatch_nonExistingName_returnsNull",
+      "resource_root": "results/policy/pools/ktester/34/dev/src-test-t"
+    },
+    {
+      "file": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/Zone_findExactMatch_Test.java",
+      "class": "org.xbill.DNS.Zone_findExactMatch_Test",
+      "method": "findExactMatch_existingNameWrongType_returnsNull",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Zone_findExactMatch_Test.java|org.xbill.DNS.Zone_findExactMatch_Test|findExactMatch_existingNameWrongType_returnsNull",
+      "body_hash": "4d5867b9480411fdd2afed5c3cd6f3c2ccfdfb20d1e25ce42348bbaf46361e36",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Zone_findExactMatch_Test#findExactMatch_existingNameWrongType_returnsNull()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "15e869841e4662d0fef25ce6e8b3efbd89b9d7135394e1781213279db5bdc516",
+      "execution_hash": "04751c8177c5984cea97a68934e14f45c5744d837dabbca1aece90a36ded84f3",
+      "source_root": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0a86ba63f7379cd03eeb83e8739e9cebcd20ac34830f8ae9f79ab6a8466f0110",
+      "resource_tree_hash": "de9617e6c9dd225fb49909e865a12a9415c63de3448234d2eb4d0a852a3dd419",
+      "unit": "org.xbill.DNS.Zone#findExactMatch(Name, int)",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Zone_findExactMatch_Test.java|org.xbill.DNS.Zone_findExactMatch_Test|findExactMatch_existingNameWrongType_returnsNull",
+      "resource_root": "results/policy/pools/ktester/34/dev/src-test-t"
+    },
+    {
+      "file": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/Zone_findExactMatch_Test.java",
+      "class": "org.xbill.DNS.Zone_findExactMatch_Test",
+      "method": "findExactMatch_invalidArguments_throwsException",
+      "kind": "parameterized",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Zone_findExactMatch_Test.java|org.xbill.DNS.Zone_findExactMatch_Test|findExactMatch_invalidArguments_throwsException",
+      "body_hash": "ac73e28e241831c3fee4f050da7254cbfadf1143dab96c379f211649ba1ae570",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Zone_findExactMatch_Test#findExactMatch_invalidArguments_throwsException(org.xbill.DNS.Name,int,java.lang.Class,java.lang.String)"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "15e869841e4662d0fef25ce6e8b3efbd89b9d7135394e1781213279db5bdc516",
+      "execution_hash": "04751c8177c5984cea97a68934e14f45c5744d837dabbca1aece90a36ded84f3",
+      "source_root": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0a86ba63f7379cd03eeb83e8739e9cebcd20ac34830f8ae9f79ab6a8466f0110",
+      "resource_tree_hash": "de9617e6c9dd225fb49909e865a12a9415c63de3448234d2eb4d0a852a3dd419",
+      "unit": "org.xbill.DNS.Zone#findExactMatch(Name, int)",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Zone_findExactMatch_Test.java|org.xbill.DNS.Zone_findExactMatch_Test|findExactMatch_invalidArguments_throwsException",
+      "resource_root": "results/policy/pools/ktester/34/dev/src-test-t"
+    },
+    {
+      "file": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/Zone_findExactMatch_Test.java",
+      "class": "org.xbill.DNS.Zone_findExactMatch_Test",
+      "method": "findExactMatch_multipleTypes_returnCorrectRRset",
+      "kind": "parameterized",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Zone_findExactMatch_Test.java|org.xbill.DNS.Zone_findExactMatch_Test|findExactMatch_multipleTypes_returnCorrectRRset",
+      "body_hash": "a142a58bfcf3147c48f5be5992f21ff1eecb8f0c7637c8b75aa4c89186c0d11c",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Zone_findExactMatch_Test#findExactMatch_multipleTypes_returnCorrectRRset(org.xbill.DNS.Name,int,org.xbill.DNS.Record)"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "15e869841e4662d0fef25ce6e8b3efbd89b9d7135394e1781213279db5bdc516",
+      "execution_hash": "04751c8177c5984cea97a68934e14f45c5744d837dabbca1aece90a36ded84f3",
+      "source_root": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0a86ba63f7379cd03eeb83e8739e9cebcd20ac34830f8ae9f79ab6a8466f0110",
+      "resource_tree_hash": "de9617e6c9dd225fb49909e865a12a9415c63de3448234d2eb4d0a852a3dd419",
+      "unit": "org.xbill.DNS.Zone#findExactMatch(Name, int)",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Zone_findExactMatch_Test.java|org.xbill.DNS.Zone_findExactMatch_Test|findExactMatch_multipleTypes_returnCorrectRRset",
+      "resource_root": "results/policy/pools/ktester/34/dev/src-test-t"
+    },
+    {
+      "file": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/Zone_findExactMatch_Test.java",
+      "class": "org.xbill.DNS.Zone_findExactMatch_Test",
+      "method": "findExactMatch_noMatchWhenNameExistsButDifferentType",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Zone_findExactMatch_Test.java|org.xbill.DNS.Zone_findExactMatch_Test|findExactMatch_noMatchWhenNameExistsButDifferentType",
+      "body_hash": "d5eaead68e1c79066c7abb6d5d302b280b150c40314df5e65f366744659e740b",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Zone_findExactMatch_Test#findExactMatch_noMatchWhenNameExistsButDifferentType()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "15e869841e4662d0fef25ce6e8b3efbd89b9d7135394e1781213279db5bdc516",
+      "execution_hash": "04751c8177c5984cea97a68934e14f45c5744d837dabbca1aece90a36ded84f3",
+      "source_root": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0a86ba63f7379cd03eeb83e8739e9cebcd20ac34830f8ae9f79ab6a8466f0110",
+      "resource_tree_hash": "de9617e6c9dd225fb49909e865a12a9415c63de3448234d2eb4d0a852a3dd419",
+      "unit": "org.xbill.DNS.Zone#findExactMatch(Name, int)",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Zone_findExactMatch_Test.java|org.xbill.DNS.Zone_findExactMatch_Test|findExactMatch_noMatchWhenNameExistsButDifferentType",
+      "resource_root": "results/policy/pools/ktester/34/dev/src-test-t"
+    },
+    {
+      "file": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/Zone_findExactMatch_Test.java",
+      "class": "org.xbill.DNS.Zone_findExactMatch_Test",
+      "method": "findExactMatch_afterRemoval_returnsNull",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Zone_findExactMatch_Test.java|org.xbill.DNS.Zone_findExactMatch_Test|findExactMatch_afterRemoval_returnsNull",
+      "body_hash": "10f54ba2421a7e6e08c90b4ccd4f0e95f21d35489a7969ef706c43abc48a9c5e",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Zone_findExactMatch_Test#findExactMatch_afterRemoval_returnsNull()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "15e869841e4662d0fef25ce6e8b3efbd89b9d7135394e1781213279db5bdc516",
+      "execution_hash": "04751c8177c5984cea97a68934e14f45c5744d837dabbca1aece90a36ded84f3",
+      "source_root": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0a86ba63f7379cd03eeb83e8739e9cebcd20ac34830f8ae9f79ab6a8466f0110",
+      "resource_tree_hash": "de9617e6c9dd225fb49909e865a12a9415c63de3448234d2eb4d0a852a3dd419",
+      "unit": "org.xbill.DNS.Zone#findExactMatch(Name, int)",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Zone_findExactMatch_Test.java|org.xbill.DNS.Zone_findExactMatch_Test|findExactMatch_afterRemoval_returnsNull",
+      "resource_root": "results/policy/pools/ktester/34/dev/src-test-t"
+    },
+    {
+      "file": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/Zone_findExactMatch_Test.java",
+      "class": "org.xbill.DNS.Zone_findExactMatch_Test",
+      "method": "findExactMatch_maxValidType_returnsNullWhenAbsent",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Zone_findExactMatch_Test.java|org.xbill.DNS.Zone_findExactMatch_Test|findExactMatch_maxValidType_returnsNullWhenAbsent",
+      "body_hash": "dbf21c29bd3e44444c7d08656cfb1962ed053554d22cfa24a64056d602e519c7",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Zone_findExactMatch_Test#findExactMatch_maxValidType_returnsNullWhenAbsent()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "15e869841e4662d0fef25ce6e8b3efbd89b9d7135394e1781213279db5bdc516",
+      "execution_hash": "04751c8177c5984cea97a68934e14f45c5744d837dabbca1aece90a36ded84f3",
+      "source_root": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0a86ba63f7379cd03eeb83e8739e9cebcd20ac34830f8ae9f79ab6a8466f0110",
+      "resource_tree_hash": "de9617e6c9dd225fb49909e865a12a9415c63de3448234d2eb4d0a852a3dd419",
+      "unit": "org.xbill.DNS.Zone#findExactMatch(Name, int)",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Zone_findExactMatch_Test.java|org.xbill.DNS.Zone_findExactMatch_Test|findExactMatch_maxValidType_returnsNullWhenAbsent",
+      "resource_root": "results/policy/pools/ktester/34/dev/src-test-t"
+    }
+  ]
+}

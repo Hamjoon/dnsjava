@@ -1,0 +1,19 @@
+{
+  "index": 53,
+  "sha": "f7a527779691d212b2a95f0d8925cf9954cc95ad",
+  "parent": "f714b16b54be181ab5365689b2b6d372ce97a82f",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/NioTcpClient.java": [
+      70
+    ]
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/NioTcpClient.java": [
+      70,
+      72,
+      73,
+      74
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/NioTcpClient.java b/src/main/java/org/xbill/DNS/NioTcpClient.java\nindex f2be98e5..7f699e53 100644\n--- a/src/main/java/org/xbill/DNS/NioTcpClient.java\n+++ b/src/main/java/org/xbill/DNS/NioTcpClient.java\n@@ -70 +70,5 @@ final class NioTcpClient extends NioClient implements TcpIoClient {\n-    channelMap.forEach((key, state) -> state.handleTransactionException(closing));\n+    channelMap.forEach(\n+        (key, state) -> {\n+          state.handleTransactionException(closing);\n+          state.handleChannelException(closing);\n+        });"
+}

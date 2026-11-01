@@ -1,0 +1,401 @@
+[
+  {
+    "group": "apply_nullOld_fullSignature_true",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "Message instance with no existing TSIG record"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "null"
+          }
+        ],
+        "expected": "Message m now contains a TSIGRecord with error code Rcode.NOERROR and a full signature (MAC over the entire message). No exception is thrown.",
+        "description": "Verify that when the old TSIGRecord is null, the method creates a new TSIGRecord using the default error code (NOERROR) and generates a full signature."
+      }
+    ]
+  },
+  {
+    "group": "apply_nonNullOld_fullSignature_true",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "Message instance with a pre\u2011populated question section"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "Valid TSIGRecord (algorithm HMAC_SHA256, key \"testkey\", time = now)"
+          }
+        ],
+        "expected": "Message m now contains a new TSIGRecord whose MAC is calculated using the key and algorithm from the provided old record, error code Rcode.NOERROR, and a full signature. The original old record is not modified.",
+        "description": "When an existing TSIGRecord is supplied, the method must reuse its algorithm, key name and key data to sign the new message, producing a full signature."
+      }
+    ]
+  },
+  {
+    "group": "apply_errorCode_nonZero_fullSignature_true",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "Message instance (any content)"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "Valid TSIGRecord"
+          }
+        ],
+        "expected": "Message m now contains a TSIGRecord with error code set to Rcode.FORMERR (or any non\u2011zero error supplied via the overloaded method). The MAC is still calculated over the full message because fullSignature flag is true.",
+        "description": "Although the public apply(Message, TSIGRecord) always passes Rcode.NOERROR, this test case documents the expected behaviour of the 4\u2011argument overload when a non\u2011zero error is supplied (full signature still generated)."
+      }
+    ]
+  },
+  {
+    "group": "apply_errorCode_nonZero_fullSignature_false",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "Message instance with a single answer record"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "Valid TSIGRecord"
+          }
+        ],
+        "expected": "Message m now contains a TSIGRecord with the supplied non\u2011zero error code and a truncated signature (only the first 10 bytes of the MAC) because fullSignature flag is false.",
+        "description": "When fullSignature is false the implementation should generate a shortened MAC (as defined by the TSIG spec). This branch validates that behaviour."
+      }
+    ]
+  },
+  {
+    "group": "apply_invalidAlgorithm_throwsException",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "Message instance"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "TSIGRecord with algorithm name \"unsupported-alg\""
+          }
+        ],
+        "expected": "IllegalArgumentException (or GeneralSecurityException) is thrown indicating the algorithm is not supported.",
+        "description": "The method should validate the algorithm name and reject unknown algorithms, raising an exception."
+      }
+    ]
+  },
+  {
+    "group": "apply_keyTooShort_throwsException",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "Message instance"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "TSIGRecord with a key shorter than the minimum required length (e.g., 1 byte)"
+          }
+        ],
+        "expected": "IllegalArgumentException is thrown because the secret key is too short for the selected HMAC algorithm.",
+        "description": "Ensures the method validates key length before creating the MAC instance."
+      }
+    ]
+  },
+  {
+    "group": "apply_clockSkewBeyondFudge_throwsException",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "Message instance"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "TSIGRecord whose timeSigned is older than now\u2011FUDGE (e.g., now minus 10 minutes) and whose error code is Rcode.NOERROR"
+          }
+        ],
+        "expected": "TSIGVerificationException (or a custom exception) is thrown indicating the timestamp is outside the allowed fudge window.",
+        "description": "The apply method must reject signing when the supplied old record\u2019s time is outside the acceptable +/- FUDGE range."
+      }
+    ]
+  },
+  {
+    "group": "apply_messageWithExistingTSIG_replacesTSIG",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "Message instance that already contains a TSIGRecord (algorithm HMAC_SHA1, key \"oldkey\")"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "Valid TSIGRecord (algorithm HMAC_SHA256, key \"newkey\")"
+          }
+        ],
+        "expected": "The original TSIGRecord in Message m is removed and replaced with a new TSIGRecord generated from the supplied old record (algorithm HMAC_SHA256, key \"newkey\"). No duplicate TSIG sections exist.",
+        "description": "When a message already carries a TSIG, the method should replace it with the newly generated one based on the supplied old record."
+      }
+    ]
+  },
+  {
+    "group": "apply_nullMessage_throwsNPE",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "null"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "null"
+          }
+        ],
+        "expected": "NullPointerException is thrown because the Message argument is mandatory.",
+        "description": "The method must guard against a null Message reference."
+      }
+    ]
+  },
+  {
+    "group": "apply_futureTimestampWithinFudge",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "Message instance with a single question record"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "Valid TSIGRecord (algorithm HMAC_SHA256, key \"testkey\", timeSigned = now + FUDGE - 1 second, error = Rcode.NOERROR)"
+          }
+        ],
+        "expected": "A new TSIGRecord is added to the message, the signature is calculated, and no exception is thrown. The timestamp of the generated TSIGRecord is the current time (within the allowed fudge window).",
+        "description": "When the supplied old TSIGRecord\u2019s timeSigned is in the future but still inside the allowed \u00b1FUDGE window, apply should accept it and produce a valid full\u2011signature TSIG."
+      }
+    ]
+  },
+  {
+    "group": "apply_futureTimestampBeyondFudge",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "Message instance with a single question record"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "Valid TSIGRecord (algorithm HMAC_SHA256, key \"testkey\", timeSigned = now + FUDGE + 1 second, error = Rcode.NOERROR)"
+          }
+        ],
+        "expected": "TSIGVerificationException (or IllegalArgumentException) is thrown indicating the timestamp is outside the allowed fudge window.",
+        "description": "If the old TSIGRecord\u2019s timeSigned is more than FUDGE seconds in the future, the apply method must reject the operation."
+      }
+    ]
+  },
+  {
+    "group": "apply_algorithmHMAC_MD5",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "Message instance containing a question and an answer section"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "Valid TSIGRecord (algorithm HMAC_MD5, key \"md5key\", timeSigned = now, error = Rcode.NOERROR)"
+          }
+        ],
+        "expected": "Message m now contains a TSIGRecord signed with HMAC\u2011MD5. The MAC length is 16 bytes and no exception is thrown.",
+        "description": "Verify that the apply method correctly handles the legacy HMAC\u2011MD5 algorithm and produces a full\u2011signature of the expected length."
+      }
+    ]
+  },
+  {
+    "group": "apply_keyExactMinimumLength_SHA256",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "Message instance with a single answer record"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "Valid TSIGRecord (algorithm HMAC_SHA256, key = 16\u2011byte array {0x00..0x0F}, timeSigned = now, error = Rcode.NOERROR)"
+          }
+        ],
+        "expected": "A TSIGRecord is added; the MAC is successfully generated (32\u2011byte length) and no exception is thrown.",
+        "description": "The minimum key size for HMAC\u2011SHA256 is 16 bytes. This test ensures that a key of exactly that length is accepted."
+      }
+    ]
+  },
+  {
+    "group": "apply_oldRecordImmutability",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "Empty Message instance (no sections)"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "Valid TSIGRecord (algorithm HMAC_SHA1, key \"immutable\", timeSigned = now, error = Rcode.NOERROR, MAC = {0xAA,0xBB})"
+          }
+        ],
+        "expected": "Message receives a new TSIGRecord; the original TSIGRecord passed as 'old' remains unchanged (same key, algorithm, timeSigned and MAC).",
+        "description": "apply must not mutate the supplied TSIGRecord; it should be treated as read\u2011only."
+      }
+    ]
+  },
+  {
+    "group": "apply_repeatApplyDifferentSignature",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "Message instance with a single question record"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "Valid TSIGRecord (algorithm HMAC_SHA256, key \"repeatkey\", timeSigned = now, error = Rcode.NOERROR)"
+          }
+        ],
+        "expected": "Two successive calls to apply on the same Message (after clearing the previous TSIG) produce TSIGRecords with different timestamps and therefore different MAC values.",
+        "description": "Because the signature includes the current time, invoking apply twice should yield distinct MACs even when the message content and key are identical."
+      }
+    ]
+  },
+  {
+    "group": "apply_emptyMessageFullSignatureLength",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "Message instance with no question, answer, authority or additional records"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "Valid TSIGRecord (algorithm HMAC_SHA384, key \"emptymsgkey\", timeSigned = now, error = Rcode.NOERROR)"
+          }
+        ],
+        "expected": "A TSIGRecord is added; the generated MAC length is 48 bytes (full HMAC\u2011SHA384 output) and no exception is thrown.",
+        "description": "Even when the DNS message is empty, apply must still compute a full\u2011signature MAC of the correct length for the selected algorithm."
+      }
+    ]
+  },
+  {
+    "group": "apply_oldRecordNullAlgorithm_throwsException",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "Message instance with a simple question section"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "TSIGRecord with algorithm = null, key name = Name.fromString(\"example.\") and valid key data"
+          }
+        ],
+        "expected": "IllegalArgumentException is thrown indicating that the algorithm name in the supplied TSIGRecord must not be null.",
+        "description": "The apply method must validate that the algorithm field of the old TSIGRecord is non\u2011null before attempting to map it to a MAC algorithm. Supplying a null algorithm should cause an immediate IllegalArgumentException."
+      }
+    ]
+  },
+  {
+    "group": "apply_oldRecordNullKeyName_throwsException",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "Message instance with a single answer record"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "TSIGRecord with algorithm = HMAC_SHA256, key name = null, key data = byte[16] {0x00..0x0F}"
+          }
+        ],
+        "expected": "IllegalArgumentException is thrown because the key name (owner name) of the TSIGRecord is required.",
+        "description": "Even when the algorithm and key material are valid, a null key name should be rejected by apply, as the name is part of the TSIG signing data."
+      }
+    ]
+  },
+  {
+    "group": "apply_oldRecordNullKeyData_throwsException",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "Message instance with no existing TSIG"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "TSIGRecord with algorithm = HMAC_SHA1, key name = Name.fromString(\"example.\"), key data = null"
+          }
+        ],
+        "expected": "IllegalArgumentException is thrown indicating that the secret key bytes must not be null.",
+        "description": "The signing routine requires a non\u2011null byte array for the secret key. Supplying a TSIGRecord with a null key should result in an IllegalArgumentException before any cryptographic operation is attempted."
+      }
+    ]
+  },
+  {
+    "group": "apply_oldRecordEmptyKeyData_throwsException",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "Message instance with a question section"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "TSIGRecord with algorithm = HMAC_SHA256, key name = Name.fromString(\"example.\"), key data = byte[0] {}"
+          }
+        ],
+        "expected": "IllegalArgumentException is thrown because the secret key length is zero, which is invalid for any HMAC algorithm.",
+        "description": "A zero\u2011length key is technically not null but still unusable; the method should detect this and reject it with an IllegalArgumentException."
+      }
+    ]
+  },
+  {
+    "group": "apply_messageImmutable_throwsException",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "Message instance that has been converted to wire format (via toWire()) and then marked as read\u2011only/immutable"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "Valid TSIGRecord (algorithm HMAC_SHA256, key \"immutablekey\", timeSigned = now, error = Rcode.NOERROR)"
+          }
+        ],
+        "expected": "IllegalStateException is thrown because the Message object is immutable and cannot be modified to add a TSIG record.",
+        "description": "apply attempts to insert a new TSIGRecord into the message. If the Message has been sealed (e.g., after serialization), the operation must fail with an IllegalStateException."
+      }
+    ]
+  }
+]

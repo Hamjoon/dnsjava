@@ -1,0 +1,180 @@
+index,sha,date,subject,evaluated,event,dev-scope_segment,dev-scope_segment_denominator,dev-scope_alive,dev-scope_lost,dev-scope_carried_alive,dev-scope_new_alive,ktester_segment,ktester_segment_denominator,ktester_alive,ktester_lost,ktester_carried_alive,ktester_new_alive,ouedraogo_segment,ouedraogo_segment_denominator,ouedraogo_alive,ouedraogo_lost,ouedraogo_carried_alive,ouedraogo_new_alive
+0,4c51bf24b320142edd2d3fe6932e767a22575bc4,2023-11-11T11:42:40+01:00,t = 4c51bf24b320142edd2d3fe6932e767a22575bc4,yes,evaluate,1,353,353,0,353,0,1,225,225,0,225,0,1,75,75,0,75,0
+1,5da277075230e8a131edfefadfb119c0556fa904,2023-11-11T12:01:49+01:00,Pluggable I/O for SimpleResolver,yes,evaluate,1,353,331,22,331,0,1,225,225,0,225,0,1,75,75,0,75,0
+2,206c9e51ac18e1ed6f82beb16cb6c0ff1f83b095,2024-01-30T07:55:31+01:00,Remove unreachable code.,yes,evaluate,1,353,331,0,331,0,1,225,225,0,225,0,1,75,75,0,75,0
+3,7b0abdc3084c2b83e36d205d0cccbb78522b2e97,2024-02-17T22:38:38+01:00,"Fix example, replace unsigned www.isc.org with signed nic.ch",no,evaluate,1,353,331,0,331,0,1,225,225,0,225,0,1,75,75,0,75,0
+4,6574cc2098a734c2b7f12f608caa279358f8c1dc,2024-02-18T19:52:57+01:00,Properly render Javadoc for Lombok generated getters,yes,evaluate,1,353,331,0,331,0,1,225,225,0,225,0,1,75,75,0,75,0
+5,85ff1c91f9fd980a3643ce8db46130e0d273eb7d,2024-02-18T19:52:57+01:00,Pass the executor from the initial to all subsequent requests,yes,evaluate,1,353,127,204,127,0,1,225,225,0,225,0,1,75,75,0,75,0
+6,ae50e1fd44db8b791df3a569165c74c89deca6b4,2024-02-18T19:52:57+01:00,Include detailed information in exceptions,yes,evaluate,1,353,127,0,127,0,1,225,225,0,225,0,1,75,75,0,75,0
+7,6204b0ea94868a71ad9369fc98ce953d270ff339,2024-02-18T19:52:57+01:00,Add ARecord ctor with byte[],yes,evaluate,1,353,127,0,127,0,1,225,225,0,225,0,1,75,75,0,75,0
+8,c194bf85be0095912d36aaa4b1f3b5e2de315d60,2024-04-07T14:30:46+02:00,Update dependencies,yes,evaluate,1,353,127,0,127,0,1,225,225,0,225,0,1,75,75,0,75,0
+9,04186e441a0b93e75c7d54ed291b742eeaa3b7b7,2024-04-07T14:46:39+02:00,Handle selector errors to close UDP sockets,yes,evaluate,1,353,127,0,127,0,1,225,225,0,225,0,1,75,75,0,75,0
+10,f6fa697f88eb0dd502a0bdf13df48b49ae451db7,2024-04-07T15:37:03+02:00,Do not throw if NioClient was never initialized,yes,evaluate,1,353,127,0,127,0,1,225,225,0,225,0,1,75,75,0,75,0
+11,e6302ef9d580f99f1704e29dfece28aef04e0579,2024-04-07T15:51:30+02:00,Remove mix of how SetResponse is constructed,yes,evaluate,1,353,127,0,127,0,1,225,225,0,225,0,1,75,75,0,75,0
+12,ce7f15baa7c88d8f37ac8f45e76be55f75752dcc,2024-04-07T15:51:30+02:00,Fix missing documentation and typos,yes,evaluate,1,353,127,0,127,0,1,225,225,0,225,0,1,75,75,0,75,0
+13,74e827d7f6520f815050f1c10b7eded66f89d790,2024-04-07T15:51:30+02:00,Extend exceptions for failed lookups,yes,evaluate,1,353,127,0,127,0,1,225,225,0,225,0,1,75,75,0,75,0
+14,774c17f12b3af1ab99de36e2711b7e14d0d24940,2024-04-07T15:53:54+02:00,Warn about using the ValidatingResolver directly,no,evaluate,1,353,127,0,127,0,1,225,225,0,225,0,1,75,75,0,75,0
+15,2073a0cdea2c560465f7ac0cc56f202e6fc39705,2024-06-02T14:42:50+02:00,CVE-2024-25638: Message normalization,yes,evaluate,1,353,122,5,122,0,1,225,212,13,212,0,1,75,74,1,74,0
+16,4a2869d12d1467f5e311d9bb78b12b127aeb99b8,2024-06-02T14:42:51+02:00,Extended logging for signature verification,yes,evaluate,1,353,122,0,122,0,1,225,212,0,212,0,1,75,74,0,74,0
+17,eddd2820fb91154a96fc51ad02ac12726954b02a,2024-06-02T14:42:51+02:00,Normalize message before DNSSEC validation,yes,evaluate,1,353,122,0,122,0,1,225,212,0,212,0,1,75,74,0,74,0
+18,3ddc45ce8cdb5c2274e10b7401416f497694e1cf,2024-06-02T17:13:28+02:00,CVE-2023-50387 / KeyTrap: Limit number of RRsigs validated,yes,evaluate,1,353,122,0,122,0,1,225,212,0,212,0,1,75,74,0,74,0
+19,6f1ab2c603e5fefb36e38fe4b37e5288e2685b4f,2024-06-02T17:13:28+02:00,Add new DNSSEC algorithms and digest mnemonics,yes,evaluate,1,353,122,0,122,0,1,225,212,0,212,0,1,75,74,0,74,0
+20,5cb03916a7a0139dd5220b326d5358b6fd7e55dc,2024-06-02T17:13:39+02:00,Enforce minimum RSA key size of 1024 by default,yes,evaluate,1,353,122,0,122,0,1,225,212,0,212,0,1,75,74,0,74,0
+21,f25375c2981c4d4fa4092405b70540d4891b21a7,2024-06-02T17:13:42+02:00,DNSKEYRecord rrdata tests,no,evaluate,1,353,122,0,122,0,1,225,212,0,212,0,1,75,74,0,74,0
+22,cb97ac67b4aaecc1c151a4ee015e5ca17e050e54,2024-06-02T17:13:42+02:00,Clarify documentation,yes,evaluate,1,353,122,0,122,0,1,225,212,0,212,0,1,75,74,0,74,0
+23,07ac36a11578cc1bce0cd8ddf2fe568f062aee78,2024-06-02T17:16:01+02:00,CVE-2023-50387 / KeyTrap: Limit number of DS record match attempts,no,evaluate,1,353,122,0,122,0,1,225,212,0,212,0,1,75,74,0,74,0
+24,0ce78d0433e7a2a631da307f53360c510b760c00,2024-06-22T17:08:34+02:00,Use dedicated RCode assertion method for output readability,no,evaluate,1,353,122,0,122,0,1,225,212,0,212,0,1,75,74,0,74,0
+25,711af79be3214f52daa5c846b95766dc0a075116,2024-06-22T17:09:35+02:00,CVE-2023-50868 / KeyTrap: NSEC3 closest encloser proof can exhaust CPU,yes,evaluate,1,353,120,2,120,0,1,225,212,0,212,0,1,75,74,0,74,0
+26,b842550e6c3046cdbd7969ac6ddf99af9ccdc637,2024-06-22T17:38:25+02:00,Remove junit-pioneer due to lack of Java 8 support,yes,evaluate,1,353,120,0,120,0,1,225,212,0,212,0,1,75,74,0,74,0
+27,36ba71156f86fd610771c33df17ecaea1f2f4924,2024-06-22T17:39:28+02:00,Prevent exceptions during concurrent selector runs,yes,evaluate,1,353,120,0,120,0,1,225,212,0,212,0,1,75,74,0,74,0
+28,a24a6bf4ee6a546dcfefeb869b0675206c563952,2024-06-22T18:02:27+02:00,DDNS response messages do not include the question,yes,evaluate,1,353,120,0,120,0,1,225,212,0,212,0,1,75,74,0,74,0
+29,e206796c91d54dc1a5993d71ef74ec89eebc4184,2024-07-20T18:26:58+02:00,Add AAAARecord ctor with byte[],yes,evaluate,1,353,120,0,120,0,1,225,212,0,212,0,1,75,74,0,74,0
+30,2f9b45ba6dd60e7b65ac29c81aa765b152029c8f,2024-07-20T18:52:45+02:00,Replace synchronization in Zone with locks,yes,evaluate,1,353,120,0,120,0,1,225,212,0,212,0,1,75,74,0,74,0
+31,5b01f5d0f500bb0f3fed472693b884243898b971,2024-07-21T11:54:56+02:00,Update dependencies,yes,evaluate,1,353,120,0,120,0,1,225,212,0,212,0,1,75,74,0,74,0
+32,bc51df1c455e6c9fb7cbd42fcb6d62d16047818d,2024-07-21T13:34:12+02:00,Fix links to RFCs and IANA registries,yes,evaluate,1,353,120,0,120,0,1,225,212,0,212,0,1,75,74,0,74,0
+33,9fbab85a42ac576d5455f388870c06aad991cf75,2024-07-21T14:43:37+02:00,Artifact v4 fixes,no,evaluate,1,353,120,0,120,0,1,225,212,0,212,0,1,75,74,0,74,0
+34,fd1d7c9280986ebb219c421695a902559aaeda22,2024-07-21T14:59:54+02:00,Release v3.6.0,yes,evaluate,1,353,120,0,120,0,1,225,212,0,212,0,1,75,74,0,74,0
+35,689c8ec9f1b49b74c18308c00e4041121b2656e4,2024-07-21T15:21:38+02:00,Return to -snapshot,yes,evaluate,1,353,120,0,120,0,1,225,212,0,212,0,1,75,74,0,74,0
+36,ba8a959bb16cdf8136b8fe47a23881a690e9ef2c,2024-07-27T12:48:22+02:00,Move JEP-418 SPI to Java 18 to support EOL workflows,yes,evaluate,1,353,120,0,120,0,1,225,212,0,212,0,1,75,74,0,74,0
+37,345e76cc433ef429df862d56e323d8e2babca760,2024-07-27T13:24:13+02:00,Properly handle cached xNAME responses in LookupSession,yes,evaluate,1,353,120,0,120,0,1,225,212,0,212,0,1,75,74,0,74,0
+38,081142b1bc89e07ba58d6a7a4d58646e33c873a6,2024-07-28T17:49:00+02:00,Release v3.6.1,yes,evaluate,1,353,120,0,120,0,1,225,212,0,212,0,1,75,74,0,74,0
+39,dcffe8c4659f8351c48e2d7c8db4507a404bb379,2024-07-28T18:13:13+02:00,Return to -snapshot,yes,evaluate,1,353,120,0,120,0,1,225,212,0,212,0,1,75,74,0,74,0
+40,7a2a599acf4f6631a1325ca8231213d8324683b2,2024-09-08T14:28:53+02:00,Add new IANA Trust Anchor,no,evaluate,1,353,120,0,120,0,1,225,212,0,212,0,1,75,74,0,74,0
+41,5af97d6735a3b4a4289ed0e58d62fe0624e4993e,2024-09-08T14:28:53+02:00,Added comment,no,evaluate,1,353,120,0,120,0,1,225,212,0,212,0,1,75,74,0,74,0
+42,fd054658ad6ece509bd56021c5ca7a57edd2febf,2024-09-08T15:08:26+02:00,Zone now constructs successfully even when the input records include a SOA with an RRSIG.,yes,evaluate,1,353,120,0,120,0,1,225,212,0,212,0,1,75,74,0,74,0
+43,6e1786e0545322ac75b5c4d947bb52ca95df7417,2024-09-08T15:08:26+02:00,"334, added test case demonstrating SOA replace.",no,evaluate,1,353,120,0,120,0,1,225,212,0,212,0,1,75,74,0,74,0
+44,1984e363b95b537ef78805fbd881b006aeb92ac6,2024-09-08T15:21:40+02:00,Additional test for #334,no,evaluate,1,353,120,0,120,0,1,225,212,0,212,0,1,75,74,0,74,0
+45,8f8f91ea78c7fe4f9cde1edfff5cbdcb93149c7e,2024-09-08T15:32:40+02:00,Allow loading cache from InputStream,no,evaluate,1,353,120,0,120,0,1,225,212,0,212,0,1,75,74,0,74,0
+46,2885bddf14b8f012d2c362bc00b0d4da4436b8d4,2024-09-08T15:44:43+02:00,Update example to include current and next IANA trust anchor,no,evaluate,1,353,120,0,120,0,1,225,212,0,212,0,1,75,74,0,74,0
+47,6c519f2053f3e3bf8345a0c2af09abcf213c7c2b,2024-09-12T13:45:55+02:00,Fix compiling on Java 8,yes,evaluate,1,353,120,0,120,0,1,225,212,0,212,0,1,75,74,0,74,0
+48,81148caa75e492f5f9fa4eba58c2292bf2239e05,2024-09-21T09:53:04+02:00,Release v3.6.2,yes,evaluate,1,353,120,0,120,0,1,225,212,0,212,0,1,75,74,0,74,0
+49,a6371af00867d13e5b3dbee040f640e93420fb21,2024-09-21T10:12:45+02:00,Return to -snapshot,yes,evaluate,1,353,120,0,120,0,1,225,212,0,212,0,1,75,74,0,74,0
+50,036a16f5d9345a22fb8e0327afb4ec6381f0d95d,2024-11-25T19:06:47+01:00,Support custom hosts file size (#349),yes,evaluate,1,353,120,0,120,0,1,225,212,0,212,0,1,75,74,0,74,0
+51,19e359c34e87844f8b8bd1d994b30ab1cfe9e6d7,2024-11-26T15:18:51+01:00,Fix origin handling in zone loaded from file or stream,yes,evaluate,1,353,120,0,120,0,1,225,212,0,212,0,1,75,74,0,74,0
+52,f714b16b54be181ab5365689b2b6d372ce97a82f,2024-11-26T15:19:13+01:00,Apply code formatting,yes,evaluate,1,353,120,0,120,0,1,225,212,0,212,0,1,75,74,0,74,0
+53,f7a527779691d212b2a95f0d8925cf9954cc95ad,2024-11-26T19:27:42+01:00,"Close TCP connections, not just transactions, when closing IO",yes,evaluate,1,353,120,0,120,0,1,225,212,0,212,0,1,75,74,0,74,0
+54,d445fe8da928260ee381add221090620025a8078,2024-11-29T12:05:53+01:00,Fixed confusing parameter name in CNAMERecord (#354),yes,evaluate,1,353,120,0,120,0,1,225,212,0,212,0,1,75,74,0,74,0
+55,6cdb8d0074c398fb56c9ed7f02aef84764b02227,2024-12-06T22:09:31+01:00,Optionally disable ShutdownHook in NioClient (#359),yes,evaluate,1,353,120,0,120,0,1,225,212,0,212,0,1,75,74,0,74,0
+56,c32a9b9a99fa098fd076469bc50e518b00fc7843,2024-12-15T18:20:15+01:00,Add support for new TSIG algorithms from RFC 8945,yes,evaluate,1,353,120,0,120,0,1,225,209,3,209,0,1,75,74,0,74,0
+57,bed96f60d5505d1d6cf99f0aea1ed2f47ca0cd99,2024-12-15T18:22:35+01:00,Fix TSIG record signature length and max length violation,yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+58,90289576555ba11633da961aabb4b0c4e8df0e1a,2024-12-15T18:51:28+01:00,"Apply code formatting, fix check in Actions",yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+59,abced1ba74280ce18a251882719dc3515aa604b7,2024-12-15T19:04:26+01:00,Handle missing classes in japicmp for builds on Java before 18,yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+60,83902b4ee47541924ad30b46d2ef0a81ab00e902,2024-12-15T19:07:05+01:00,Fix PR analyze permissions,no,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+61,d354e666828285f955e80cf1b5a65e876592a8a5,2024-12-15T19:10:14+01:00,Prevent comparison of multi-release files with japicmp,yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+62,36f582395ec092911ee3ac496ed2c2705fe52c52,2024-12-22T17:30:59+01:00,Properly handle write failures on full TCP output buffer,yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+63,8462e2b73fb73da79c410eedba878a987b4274bc,2024-12-22T18:07:06+01:00,Update dependencies,yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+64,8444680476c095299a76958144157667c4ed70d4,2025-01-05T13:49:45+01:00,Disable UPDATE message truncation,yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+65,9a748a04f6e39b348fb747bd8f03390abbfe450f,2025-01-05T15:39:16+01:00,Fix DoH initial request using recommended nanoTime calculation,yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+66,5fa4ccfad4dbf557bcfbc87f768d90e7790b1978,2025-01-05T16:19:25+01:00,Replace deprecated URL constructor,yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+67,77e049578334982794348885027261130e89b2d1,2025-01-05T16:19:48+01:00,Fix compiler warnings about unsigned conversions,yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+68,fbb6b097a7c78533fdcef0b640d15e665580826b,2025-01-05T23:15:36+01:00,Fix or suppress Sonar-reported issues,yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+69,52b59baf12d1a0760ce63ad667e9046885cf1b6d,2025-01-26T15:05:32+01:00,Release v3.6.3,yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+70,c1efd4e69f589964c598c384d8b2374479e0b629,2025-01-26T15:15:01+01:00,Return to -snapshot,yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+71,7411e13f34b30a875fab111c121a1f8bba50cb44,2025-06-14T17:01:39+02:00,Handle null in setSearchPath overloads equally,yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+72,1da8365e920f1051dbf25cf3aa905efda74bdd06,2025-06-22T22:58:34+02:00,Update dependencies,yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+73,59eb83b8be67223a2d217eb7081413bef633e5f7,2025-06-28T17:18:40+02:00,"Split DoH Resolver into Java versions, fix initial request and tests",yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+74,3efb25e0cc2414ef1491669bc56e409746c23f21,2025-06-28T17:30:12+02:00,Run NIO close in the selector thread to prevent CME,yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+75,2c5a352d35d66f15f5b74531e1a83e4892959e5d,2025-06-28T17:50:12+02:00,Reduce hosts file parsing warnings,yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+76,560999841b5041c76c57605b367aefd75a150620,2025-06-28T17:50:12+02:00,Reduce lock contention and disk access in hosts file parsing,yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+77,60e75e592014f1bc566722cdb2713d7509583ec6,2025-06-28T18:23:37+02:00,Fix section size in header after message normalization,yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+78,cd0bbdf991b375acbd72fa72df4fe8e3911380ec,2025-06-28T18:36:58+02:00,Unwrap completion exception for legacy async handling,yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+79,a1db74504d1bd7b4137d5c5dff4919d60b0d8ab9,2025-07-05T14:41:20+02:00,Fix Java cast warnings,yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+80,9ae7e1d7bb1c65ab372dd2bfd8e0562b6a63e708,2025-07-05T14:41:48+02:00,Suppress or replace generic array creation,yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+81,793cd22c5209142873135f791f96d187a7aec97d,2025-07-05T14:42:27+02:00,Improve log message,yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+82,5ac65c2e6be76f72061d3c79f5aa43aea0cb16fc,2025-07-05T14:42:48+02:00,Remove deprecated Maven flags,no,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+83,4b84d92812c9335dc271633ce045028a68f0108f,2025-07-05T14:55:20+02:00,Migrate ossrh to central publisher portal,yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+84,6a0a1d7f2532934d34b407fce8b146aab34d30e2,2025-07-20T14:04:05+02:00,Prevent identical queries for names exceeding ndots,yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+85,865240c11a63ff77c4c98a3595d0ac3a8346d4f9,2025-08-02T13:40:10+02:00,Fix and validate Zone serialization via Java objects,yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+86,34ba40e14de9403f5092e26132834caa607f31c3,2026-01-18T16:12:06+01:00,Prevent NPE during shutdown when the hook is already released,yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+87,f6608422df4414905978abbfb6ab5b5c39ba0833,2026-01-18T16:36:59+01:00,"Update dependencies, support Java 25 builds",yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+88,6f65a368cc7981ee94650045c6b7853c8ae1f185,2026-01-18T16:42:22+01:00,Replace defunct Maven Central badge,no,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+89,7b7c929e5b90b8c24f257d95aa8297767de143e8,2026-01-18T17:02:26+01:00,Downgrade/Upgrade spotless for various Java versions,yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+90,71fc4433a3910082c5458a85d2c68113f55987eb,2026-01-18T17:49:28+01:00,Release v3.6.4,yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+91,b9180e461d826ef526df7f968ce689cefe4701a4,2026-01-18T18:04:47+01:00,Return to -snapshot,yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+92,9f0fd8b5d68a0dcfac0c532251984d34e39d769d,2026-01-27T07:44:25+01:00,Bump org.assertj:assertj-core from 3.27.6 to 3.27.7,yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+93,ad35cd7041678dbc652a3f1f9e411b73e299cc26,2026-02-14T11:03:37+01:00,Handle interrupts on NIO selector thread,yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+94,75fcff1080e1224b5b3c9344c4bfd89a5e5a22ec,2026-02-20T19:26:46+01:00,Fix config option key names in README,no,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+95,c1478fa58f0e863d410d9c8f47122b1825722e40,2026-02-28T13:16:36+01:00,Handle canceled keys in UDP client,yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+96,c2d3b1b1bfcc73cbee699b5e578d7c5c1cc6e6d5,2026-02-28T14:49:50+01:00,Handle invalid/uninitialized file times,yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+97,627813316446772d3736bf67a1493fb9e74bd26a,2026-02-28T16:45:12+01:00,Windows' Selector impl doesn't like to be spied upon,no,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+98,5055ebb8a173ca0ec7d8ce39bc1a59f40759757d,2026-04-26T09:43:40+02:00,Bump org.bouncycastle:bcprov-jdk18on from 1.83 to 1.84,yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+99,8348de04b6c16fd2c97c46ff05ccd7e817c39306,2026-05-10T12:08:25+02:00,Add a few new types/flags/options,yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+100,378aa24cd157f50d7f8446ec77b0a08851f525e2,2026-05-10T13:16:37+02:00,"Rework code analysis steps, update action versions",no,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+101,d9327e8345217a889dc4247402a3c2a490c886a3,2026-05-10T13:26:48+02:00,Add getXxxAsByteArray() getters and overload with escape boolean,yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+102,ca25720c96f1c0ab07a63254ccba471d9785f781,2026-05-23T13:10:33+02:00,Release v3.6.5,yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+103,ab1d17b1fa3396db9fb1626bf7308537c6a9e0de,2026-05-23T13:28:21+02:00,Return to -snapshot,yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+104,bfe3c3d0fba3b1fff1045ad4a78f23d0aea0b822,2026-06-06T16:15:04+02:00,Bump io.vertx:vertx-core from 4.5.24 to 4.5.27,yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+105,ba361b8ebc18c7ee70626af792a10ed039e030e8,2026-06-06T16:42:50+02:00,nio: fix selector thread from self-joining,yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+106,3d889712a7333c3131d4cd12d2ab44fb0cf542cf,2026-06-13T14:45:33+02:00,Update dependencies,yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+107,38136c9a7eee0b8219cc54a2ab4b625845b599c6,2026-06-14T19:29:02+02:00,Javadoc: fix various (formatting) errors,yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+108,4bf330d9316759d87bc95375c6e2092afb260dee,2026-06-14T19:29:02+02:00,RCode: update documentation with current RFCs,yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+109,e0fed164ce7f9307ab5f9b2f9e7fd30b3924efe3,2026-06-14T19:29:02+02:00,UDP I/O client: prevent effects from tests to spill into other tests,no,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+110,06a0599933114f36efe59667cd80ee0246a1a882,2026-06-14T19:29:03+02:00,"TSIG: use original message ID in signature (RFC 8945, 4.3.2)",yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+111,64efa230175a77af8896393ce6b542ac6da49440,2026-08-30T17:04:02+02:00,hosts: resolve PTR queries from the local hosts database (#413),yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+112,eab9a17bc83e5d4200ea81c476639a1c997753bc,2026-08-30T17:35:04+02:00,Handle canceled keys in TCP client (#411),yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+113,8bed725c19e2c551b421771b27e851d521e16a4f,2026-08-30T21:03:41+02:00,fix typo,yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+114,be8d4470645d28395f72416f86bb03f4c26c47ee,2026-09-26T14:07:31+02:00,Update GitHub actions dependencies,no,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+115,bb5992421f2aed35396ffb7a5b8a262bb1a5628f,2026-09-26T14:18:54+02:00,Validate SSHFP fingerprint lengths (#415),yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+116,26a8d857a4c39a35eb7b0dee6d67d9ecfb1520ae,2026-10-03T15:43:55+02:00,Add dnsjava.secure_random_algorithm property to select SecureRandom,yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+117,148cc2a4cd22a243875ce4f33840a1651f0e15f2,2026-10-15T13:24:13+02:00,Set GOST R 34.11-2012 digest size to 32 bytes,yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+118,a0d02e23eddb9930cb488198c8698db57d67037c,2026-10-20T09:04:54+02:00,Generating GOST R 34.11-2012 digest,yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+119,8eab638d27905f54cafc559bc6b1cc749d37ed85,2026-10-20T23:11:25+02:00,Add unit tests (#412),yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+120,29ccdd0e917512c1ebde2f5a8ac45aa92d8ef510,2026-10-20T23:45:31+02:00,Fix publishing to Cental,no,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+121,7332661f99280e06003ea4d245b6bef8c19c7bb5,2026-10-21T00:11:31+02:00,Prevent the checkout to clean previously downloaded files,no,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+122,a47ea56d6f6b0d89a0e437905fc30f034ce23a19,2026-10-24T11:30:32+02:00,Prevent the checkout to clean previously downloaded files (v2),no,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+123,dfcba5dbd6dbf52fa1de7f0b3d86b4e3960cc4a6,2026-10-24T12:17:16+02:00,Include Other Data in BADTIME response signatures,yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+124,bd4cd483ac56d55829ca2efa51ad862996be0157,2026-10-24T16:44:28+02:00,Prevent accepting Unicode digits when ASCII is expected,yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+125,f966dee5eb20ae02d63828bf19b7b2d4ca7112b5,2026-10-24T16:44:28+02:00,Prevent unbounded pre-allocation via unvalidated DNS header count,yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+126,3a32ded13996ce1aa401c9adcfc8e62ef91321eb,2026-10-24T16:44:29+02:00,Fix CNAME processing in Message normalization,yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+127,7b2feec1b9cc48eca806f5ae24b968c83e38801a,2026-10-24T16:44:29+02:00,DoH Resolver: validate Name/DClass/QType of response against query,yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+128,7e2250647a25613502e349b958fe5c0964dd40c4,2026-10-24T18:25:47+02:00,Clean header counts of truncated messages,yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+129,d171cc11576cc49525f6713cb7dcd425f2290712,2026-10-24T18:25:48+02:00,Bump org.bouncycastle:bcprov-jdk18on from 1.84 to 1.86,yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+130,0c6a5d45adfb57051a6fb78692866eb69cf895ad,2026-10-24T18:27:28+02:00,Fix name compression when message is truncated,yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+131,a36766d2b8a45294e1c28409a9dfea49899335b9,2026-10-24T18:27:29+02:00,Fix Zone record removal when record data is not part of the Zone,yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+132,a9149d6353496535212a64576d91432efabc4652,2026-10-24T18:27:29+02:00,Skip invalid characters when parsing base64,yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+133,7dad10578c5fd603703eeb0cf4fb02335621b0bd,2026-10-24T18:27:29+02:00,IPv4-mapped IPv6 address must roundtrip,yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+134,deae087170898cf44309280777c705a499f2a17c,2026-10-24T18:27:29+02:00,Validate SVCB port range,yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+135,36a33012fcb06b57dbbc4b193ce309318de31d5f,2026-10-24T18:27:29+02:00,Fix CERT RR Certificate Types mnemonics mapping,yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+136,30cc9671ab53835c3141a2875c868475ec1594ce,2026-10-25T16:13:00+01:00,Document GPOS lat/long deviation from conventions,yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+137,eb5e0be7cd6b42c8e30d9087c55215c6f51fa131,2026-10-25T16:13:00+01:00,svcb: new parameters since RFC 9460 / RFC 9848,yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+138,92636d27da2ce981f1ccb8006780552e946b4531,2026-10-25T18:38:10+01:00,svcb: fix char-string / comma list parsing,yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+139,7abc4f7bd2a68030dd1c959926ccd74681bdebcc,2026-10-25T18:38:11+01:00,Validate empty hex/base32 encoded fields,yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+140,363a70a1b9fbb1a8845aef433d434d6068c16119,2026-10-25T18:38:11+01:00,Remove length limit for URI and CAA records,yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+141,c993f68a5f0a2f0453e2d3c6f3f9525ba2f6ef13,2026-10-25T18:38:11+01:00,ttl: reject BIND-style values without a unit at the end,yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+142,ebce5ed58d6521625b2731cdcd35fb00248dc998,2026-10-25T18:38:11+01:00,generator: fix range in expand(),yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+143,16786e27cfeda6db50718f0343c77815f242fbec,2026-10-25T18:38:11+01:00,Update: forward DClass to zone (question) record,yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+144,1758566e22185f417d6f9d2a9f30a44bb72f73dc,2026-10-25T18:38:11+01:00,ExtendedFlags: fix CO bit value,yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+145,ef208e2ca5f168bce2a614aa9842862fb02b7ff4,2026-10-25T18:38:11+01:00,reverse map: reject invalid IPv4 labels,yes,evaluate,1,353,120,0,120,0,1,225,209,0,209,0,1,75,74,0,74,0
+146,a943d8068a5341d6e74b8a6e852e68b3265800af,2026-10-25T18:38:11+01:00,Message: validate section in addRecord,yes,evaluate,1,353,120,0,120,0,1,225,206,3,206,0,1,75,74,0,74,0
+147,e64807ea6dbc314931b2c4ca546be4fd2cc1105d,2026-10-25T18:38:11+01:00,"Record: limit TTL to 2^31 - 1 as per RFC 2181, section 8",yes,evaluate,1,353,120,0,120,0,1,225,206,0,206,0,1,75,74,0,74,0
+148,0c929f5d23b7aed4972d0e7f55aeff264f23f2dc,2026-10-25T18:38:11+01:00,Header: allow 0xffff in randomly generated IDs,yes,evaluate,1,353,120,0,120,0,1,225,206,0,206,0,1,75,74,0,74,0
+149,2cb04ab45457437c3bb9756c29bc16f00fab7545,2026-10-25T18:38:12+01:00,"LOC: fix rdata formatting, validate size",yes,evaluate,1,353,120,0,120,0,1,225,206,0,206,0,1,75,74,0,74,0
+150,afda867340c5c3d5a2514b285d7b6dccefd6a9b3,2026-10-25T18:38:12+01:00,wks: fix sorting of services in ascending order,yes,evaluate,1,353,120,0,120,0,1,225,206,0,206,0,1,75,74,0,74,0
+151,1674d53ed6a8484e4426588cb0ebac0710ea595a,2026-10-25T18:38:12+01:00,Validate u8/u16/u32 output as 2^n-1,yes,evaluate,1,353,120,0,120,0,1,225,206,0,206,0,1,75,74,0,74,0
+152,9c1610a78a12a1e92d38708dd49fa580ca98030b,2026-10-25T18:38:12+01:00,dnssec: nsec(3): reject out-of-order Type Bitmap window blocks,yes,evaluate,1,353,120,0,120,0,1,225,206,0,206,0,1,75,74,0,74,0
+153,321cf393b53bb03dcf5647de54d0d2134fc82136,2026-10-25T18:38:12+01:00,Validate that required fields are present,yes,evaluate,1,353,120,0,120,0,1,225,206,0,206,0,1,75,74,0,74,0
+154,8750cd84fa6375a5afcafc0d38895651e3cf73e0,2026-10-25T18:38:12+01:00,nsap: ensure invalid input throws only TextParseExceptions,yes,evaluate,1,353,120,0,120,0,1,225,206,0,206,0,1,75,74,0,74,0
+155,f69725ee9997d04583466c32788313d8a5a1f212,2026-10-25T18:38:12+01:00,hip: ensure relative names are interpreted as absolute,yes,evaluate,1,353,120,0,120,0,1,225,206,0,206,0,1,75,74,0,74,0
+156,1336d33f4623cc8293e970cc8dcdddd60ce5701c,2026-10-25T18:38:12+01:00,sig: reject date/times before Unix Epoch,yes,evaluate,1,353,120,0,120,0,1,225,206,0,206,0,1,75,74,0,74,0
+157,2695b1aadbf0597fdb3097ef7a05342a635f1b14,2026-10-25T18:38:12+01:00,Parsing using tokenizers must report the error location,yes,evaluate,1,353,120,0,120,0,1,225,206,0,206,0,1,75,74,0,74,0
+158,acdfdcc5c815c476704520090f442bb2e054384e,2026-10-25T18:38:12+01:00,opt: ensure equals contract is fulfilled,yes,evaluate,1,353,120,0,120,0,1,225,206,0,206,0,1,75,74,0,74,0
+159,4f86d76cc24e3e5c0692314f2fca277f8d486537,2026-10-25T18:38:13+01:00,Message: enforce toWire length,yes,evaluate,1,353,120,0,120,0,1,225,206,0,206,0,1,75,74,0,74,0
+160,9260418e430b42f9fe8ee23be72abe2094c05d20,2026-10-25T18:38:13+01:00,"txt / tokenizer, records: clarify string encoding in doc",yes,evaluate,1,353,120,0,120,0,1,225,206,0,206,0,1,75,74,0,74,0
+161,54aa223c1060585a682c83fcff7782211bd64c90,2026-10-25T18:38:13+01:00,Use constant time comparison for TSIG macs,yes,evaluate,1,353,120,0,120,0,1,225,206,0,206,0,1,75,74,0,74,0
+162,0de25a93eb555bfd025a0af95b19c61d37b21709,2026-10-25T18:38:13+01:00,"CAA: validate contents of tag, must be lowercase ASCII and digits",yes,evaluate,1,353,120,0,120,0,1,225,206,0,206,0,1,75,74,0,74,0
+163,8a0f3347e075bccbff9453f288a2fe5bb4fa6eed,2026-10-25T18:38:13+01:00,Always use extended RCode instead of header-only,yes,evaluate,1,353,120,0,120,0,1,225,206,0,206,0,1,75,74,0,74,0
+164,52399e367fd31d52dffd27a29cd74f738d59910b,2026-10-25T18:38:13+01:00,Don't synthesize wildcard below an existing closer encloser,yes,evaluate,1,353,120,0,120,0,1,225,206,0,206,0,1,75,74,0,74,0
+165,dc1527f40fabfd753a5230b8a247d34017639a87,2026-10-25T18:38:13+01:00,zone: return NODATA for ENT and wildcards when another type exists,yes,evaluate,1,353,119,1,119,0,1,225,206,0,206,0,1,75,74,0,74,0
+166,8985908a54f5d7cf155057e46515e0db7988150e,2026-10-25T18:38:13+01:00,cache: positive entries should replace negatives,yes,evaluate,1,353,119,0,119,0,1,225,206,0,206,0,1,75,74,0,74,0
+167,1f3960bc4aa21e9ede2ce80f80e3a0d660c7bd5d,2026-10-25T18:38:13+01:00,RRset: document list-like behavior,yes,evaluate,1,353,119,0,119,0,1,225,206,0,206,0,1,75,74,0,74,0
+168,e378d6f7ef504e84838d4c042a19a3aef61302b6,2026-10-25T18:38:14+01:00,generator: refuse expansion resulting in invalid values,yes,evaluate,1,353,119,0,119,0,1,225,206,0,206,0,1,75,74,0,74,0
+169,9a611829649d15b49dcbe665ce829d7913c0488c,2026-10-25T18:38:14+01:00,generator: make modifiers optional,yes,evaluate,1,353,119,0,119,0,1,225,206,0,206,0,1,75,74,0,74,0
+170,a10b824d9a4e7f9ad6e83b5e2dac6560ec552339,2026-10-25T18:38:14+01:00,Message.toWire must not throw when TC is already set and it fits,yes,evaluate,1,353,119,0,119,0,1,225,206,0,206,0,1,75,74,0,74,0
+171,524b459d3a5677763683035d769d945a461e7c41,2026-10-25T18:38:14+01:00,"Various new flags, codes for EDNS, DNSKEY",yes,evaluate,1,353,119,0,119,0,1,225,206,0,206,0,1,75,74,0,74,0
+172,2184aa05e19953e07fd32d6177ad4420a415261d,2026-10-25T19:19:56+01:00,Release v3.7.0,yes,evaluate,1,353,119,0,119,0,1,225,206,0,206,0,1,75,74,0,74,0
+173,6ed496301bad39e224817386df942007270a1a8a,2026-10-25T19:41:27+01:00,Return to -snapshot,yes,evaluate,1,353,119,0,119,0,1,225,206,0,206,0,1,75,74,0,74,0
+174,1e08600c3f18547629bb5ace9f4cd251a409339f,2026-10-25T19:43:47+01:00,Remove unused field,yes,evaluate,1,353,119,0,119,0,1,225,206,0,206,0,1,75,74,0,74,0
+175,94ac1bf94d9073f6554f2cfd9b6c30595f66c38d,2026-10-25T22:54:31+01:00,Reuse the declaration of the array type,yes,evaluate,1,353,119,0,119,0,1,225,206,0,206,0,1,75,74,0,74,0
+176,ac94f9aa0cafe20040c0a8c00f4e7f461349c85b,2026-10-25T22:54:32+01:00,Convert tests to use AssertJ,no,evaluate,1,353,119,0,119,0,1,225,206,0,206,0,1,75,74,0,74,0
+177,b2af56649de55beb5eb88d13e20fa3196320f7a0,2026-10-28T08:43:27+01:00,Quoting TXT rdata containing semicolons and parentheses,yes,evaluate,1,353,119,0,119,0,1,225,206,0,206,0,1,75,74,0,74,0
+178,87409c503cce7f6278ae71534668bffa05a10f65,2026-10-29T08:29:58+01:00,Generating SM3 digest,yes,evaluate,1,353,119,0,119,0,1,225,206,0,206,0,1,75,74,0,74,0

@@ -1,0 +1,149 @@
+[
+  {
+    "group": "Normal behavior",
+    "cases": [
+      {
+        "input": [],
+        "expected": 74,
+        "description": "TSIG with standard name \"example.com.\" and algorithm HMAC_SHA256. Expected record length = name.length() + alg.length() + 48 = 13 + 13 + 48 = 74."
+      },
+      {
+        "input": [],
+        "expected": 64,
+        "description": "TSIG with minimal name \"a.\" (length 3) and algorithm HMAC_SHA256 (length 13). Expected record length = 3 + 13 + 48 = 64."
+      },
+      {
+        "input": [],
+        "expected": 102,
+        "description": "TSIG with a long name \"this.is.a.very.long.domain.name.example.\" (length 41) and algorithm HMAC_SHA256 (length 13). Expected record length = 41 + 13 + 48 = 102."
+      }
+    ]
+  },
+  {
+    "group": "Exception cases",
+    "cases": [
+      {
+        "input": [],
+        "expected": "NullPointerException",
+        "description": "TSIG constructed with a null `name` field. Calling recordLength() should throw NullPointerException because the method dereferences `name.length()`."
+      },
+      {
+        "input": [],
+        "expected": "NullPointerException",
+        "description": "TSIG constructed with a null `alg` field. Calling recordLength() should throw NullPointerException because the method dereferences `alg.length()`."
+      }
+    ]
+  },
+  {
+    "group": "Algorithm length variations",
+    "cases": [
+      {
+        "input": [],
+        "expected": 87,
+        "description": "TSIG with name \"example.com.\" (length 13) and algorithm HMAC_MD5 (length 26). Expected record length = 13 + 26 + 48 = 87."
+      },
+      {
+        "input": [],
+        "expected": 71,
+        "description": "TSIG with name \"example.com.\" (length 13) and algorithm GSS_TSIG (length 10). Expected record length = 13 + 10 + 48 = 71."
+      },
+      {
+        "input": [],
+        "expected": 72,
+        "description": "TSIG with name \"example.com.\" (length 13) and algorithm HMAC_SHA1 (length 11). Expected record length = 13 + 11 + 48 = 72."
+      },
+      {
+        "input": [],
+        "expected": 77,
+        "description": "TSIG with minimal name \"a.\" (length 3) and algorithm HMAC_MD5 (length 26). Expected record length = 3 + 26 + 48 = 77."
+      }
+    ]
+  },
+  {
+    "group": "Edge name length cases",
+    "cases": [
+      {
+        "input": [],
+        "expected": 62,
+        "description": "TSIG with root name \".\" (length 1) and algorithm HMAC_SHA256 (length 13). Expected record length = 1 + 13 + 48 = 62."
+      },
+      {
+        "input": [],
+        "expected": 59,
+        "description": "TSIG with root name \".\" (length 1) and algorithm GSS_TSIG (length 10). Expected record length = 1 + 10 + 48 = 59."
+      },
+      {
+        "input": [],
+        "expected": 316,
+        "description": "TSIG with a maximum\u2011size name (wire length 255) and algorithm HMAC_SHA256 (length 13). Expected record length = 255 + 13 + 48 = 316."
+      }
+    ]
+  },
+  {
+    "group": "Combined null fields",
+    "cases": [
+      {
+        "input": [],
+        "expected": "NullPointerException",
+        "description": "TSIG constructed with both `name` and `alg` set to null. Calling recordLength() should throw NullPointerException because the method dereferences both fields."
+      }
+    ]
+  },
+  {
+    "group": "Idempotent behavior",
+    "cases": [
+      {
+        "input": [],
+        "expected": 74,
+        "description": "Calling recordLength() twice on the same TSIG instance (name \"example.com.\", algorithm HMAC_SHA256) returns the same value (74) each time, confirming the method is side\u2011effect free."
+      }
+    ]
+  },
+  {
+    "group": "recordLength_exceptions",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "null"
+          },
+          {
+            "parameter": "alg",
+            "value": "HMAC_SHA256"
+          }
+        ],
+        "expected": "NullPointerException",
+        "description": "TSIG instance created with a null `name` field. Calling recordLength() dereferences `name.length()` and must throw NullPointerException."
+      },
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "example.com."
+          },
+          {
+            "parameter": "alg",
+            "value": "null"
+          }
+        ],
+        "expected": "NullPointerException",
+        "description": "TSIG instance created with a null `alg` field. Calling recordLength() dereferences `alg.length()` and must throw NullPointerException."
+      },
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "null"
+          },
+          {
+            "parameter": "alg",
+            "value": "null"
+          }
+        ],
+        "expected": "NullPointerException",
+        "description": "TSIG instance created with both `name` and `alg` set to null. Any dereference inside recordLength() triggers NullPointerException."
+      }
+    ]
+  }
+]

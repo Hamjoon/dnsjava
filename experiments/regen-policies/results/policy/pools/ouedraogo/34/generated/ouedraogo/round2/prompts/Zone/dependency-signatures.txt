@@ -1,0 +1,168 @@
+// public API of org.xbill.DNS.RRset
+public class RRset implements Serializable,Iterable<Record> {
+  public RRset();
+  public RRset(Record record);
+  public RRset(Record... records);
+  public RRset(Iterable<Record> records);
+  public RRset(RRset rrset);
+  public void addRR(RRSIGRecord r);
+  public void addRR(Record r);
+  public void deleteRR(RRSIGRecord r);
+  public void deleteRR(Record r);
+  public void clear();
+  public List<Record> rrs(boolean cycle);
+  public List<Record> rrs();
+  public List<RRSIGRecord> sigs();
+  public int size();
+  public int sigSize();
+  public boolean isEmpty();
+  public Name getName();
+  public int getType();
+  public int getDClass();
+  public long getTTL();
+  public Record first();
+  public String toString();
+  public Iterator<Record> iterator();
+}
+
+// public API of org.xbill.DNS.Record
+public abstract class Record implements Cloneable,Comparable<Record>,Serializable {
+  protected Record();
+  protected Record(Name name, int type, int dclass, long ttl);
+  protected abstract void rrFromWire(DNSInput in) throws IOException;
+  public static Record newRecord(Name name, int type, int dclass, long ttl, int length, byte[] data);
+  public static Record newRecord(Name name, int type, int dclass, long ttl, byte[] data);
+  public static Record newRecord(Name name, int type, int dclass, long ttl);
+  public static Record newRecord(Name name, int type, int dclass);
+  public static Record fromWire(byte[] b, int section) throws IOException;
+  public byte[] toWire(int section);
+  public byte[] toWireCanonical();
+  public byte[] rdataToWireCanonical();
+  protected abstract String rrToString();
+  public String rdataToString();
+  public String toString();
+  protected abstract void rdataFromString(Tokenizer st, Name origin) throws IOException;
+  protected static byte[] byteArrayFromString(String s) throws TextParseException;
+  protected static String byteArrayToString(byte[] array, boolean quote);
+  protected static String unknownToString(byte[] data);
+  public static Record fromString(Name name, int type, int dclass, long ttl, Tokenizer st, Name origin) throws IOException;
+  public static Record fromString(Name name, int type, int dclass, long ttl, String s, Name origin) throws IOException;
+  public Name getName();
+  public int getType();
+  public int getRRsetType();
+  public int getDClass();
+  public long getTTL();
+  protected abstract void rrToWire(DNSOutput out, Compression c, boolean canonical);
+  public boolean sameRRset(Record rec);
+  public boolean sameRRset(RRset set);
+  public boolean equals(Object arg);
+  public int hashCode();
+  public Record withName(Name name);
+  public int compareTo(Record arg);
+  public Name getAdditionalName();
+}
+
+// public API of org.xbill.DNS.Name
+public class Name implements Comparable<Name>,Serializable {
+  public static final Name root;
+  public static final Name empty;
+  public Name(String s, Name origin) throws TextParseException;
+  public Name(String s) throws TextParseException;
+  public static Name fromString(String s, Name origin) throws TextParseException;
+  public static Name fromString(String s) throws TextParseException;
+  public static Name fromConstantString(String s);
+  public Name(DNSInput in) throws WireParseException;
+  public Name(byte[] b) throws IOException;
+  public Name(Name src, int n);
+  public static Name concatenate(Name prefix, Name suffix) throws NameTooLongException;
+  public Name relativize(Name origin);
+  public Name wild(int n);
+  public Name canonicalize();
+  public Name fromDNAME(DNAMERecord dname) throws NameTooLongException;
+  public boolean isWild();
+  public boolean isAbsolute();
+  public short length();
+  public int labels();
+  public boolean subdomain(Name domain);
+  public String toString(boolean omitFinalDot);
+  public String toString();
+  public byte[] getLabel(int n);
+  public String getLabelString(int n);
+  public void toWire(DNSOutput out, Compression c);
+  public byte[] toWire();
+  public void toWireCanonical(DNSOutput out);
+  public byte[] toWireCanonical();
+  public void toWire(DNSOutput out, Compression c, boolean canonical);
+  public boolean equals(Object arg);
+  public int hashCode();
+  public int compareTo(Name arg);
+}
+
+// public API of org.xbill.DNS.ZoneTransferIn
+public class ZoneTransferIn {
+  public static ZoneTransferIn newAXFR(Name zone, SocketAddress address, TSIG key);
+  public static ZoneTransferIn newAXFR(Name zone, String host, int port, TSIG key);
+  public static ZoneTransferIn newAXFR(Name zone, String host, TSIG key);
+  public static ZoneTransferIn newIXFR(Name zone, long serial, boolean fallback, SocketAddress address, TSIG key);
+  public static ZoneTransferIn newIXFR(Name zone, long serial, boolean fallback, String host, int port, TSIG key);
+  public static ZoneTransferIn newIXFR(Name zone, long serial, boolean fallback, String host, TSIG key);
+  public Name getName();
+  public int getType();
+  public void setTimeout(int secs);
+  public void setTimeout(Duration t);
+  public void setDClass(int dclass);
+  public void setLocalAddress(SocketAddress addr);
+  public void run(ZoneTransferHandler handler) throws IOException, ZoneTransferException;
+  public void run() throws IOException, ZoneTransferException;
+  public boolean isAXFR();
+  public List<Record> getAXFR();
+  public boolean isIXFR();
+  public List<Delta> getIXFR();
+  public boolean isCurrent();
+}
+
+// public API of org.xbill.DNS.SOARecord
+public class SOARecord extends Record {
+  public SOARecord(Name name, int dclass, long ttl, Name host, Name admin, long serial, long refresh, long retry, long expire, long minimum);
+  protected void rrFromWire(DNSInput in) throws IOException;
+  protected void rdataFromString(Tokenizer st, Name origin) throws IOException;
+  protected String rrToString();
+  public Name getHost();
+  public Name getAdmin();
+  public long getSerial();
+  public long getRefresh();
+  public long getRetry();
+  public long getExpire();
+  public long getMinimum();
+  protected void rrToWire(DNSOutput out, Compression c, boolean canonical);
+}
+
+// public API of org.xbill.DNS.ZoneTransferException
+public class ZoneTransferException extends Exception {
+  public ZoneTransferException();
+  public ZoneTransferException(String s);
+}
+
+// public API of org.xbill.DNS.SetResponse
+public class SetResponse {
+  public boolean isUnknown();
+  public boolean isNXDOMAIN();
+  public boolean isNXRRSET();
+  public boolean isDelegation();
+  public boolean isCNAME();
+  public boolean isDNAME();
+  public boolean isSuccessful();
+  public List<RRset> answers();
+  public CNAMERecord getCNAME();
+  public DNAMERecord getDNAME();
+  public RRset getNS();
+  public String toString();
+}
+
+// public API of org.xbill.DNS.Zone.ZoneIterator
+class ZoneIterator implements Iterator<RRset> {
+  public boolean hasNext();
+  public RRset next();
+  public void remove();
+}
+

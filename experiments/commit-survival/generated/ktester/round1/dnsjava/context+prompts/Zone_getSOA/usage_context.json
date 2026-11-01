@@ -1,0 +1,6 @@
+{
+  "api document of class org.xbill.DNS.Zone": "\n * A DNS Zone. This encapsulates all data related to a Zone, and provides convenient lookup methods.\n *\n * @author Brian Wellington\n ",
+  "api document of method getSOA()": " Returns the Zone's SOA record ",
+  "return type": "org.xbill.DNS.SOARecord",
+  "dependent classes": "class `org.xbill.DNS.Zone`:\n\tdependent fields:\n\t\torg.xbill.DNS.SOARecord org.xbill.DNS.Zone.SOA;\n\trelated functions:\n\t\tmethod `public SOARecord getSOA()` returns `org.xbill.DNS.SOARecord`, related with `org.xbill.DNS.Zone.getSOA()`, api document:  Returns the Zone's SOA record ;\n\t\tmethod `private void validate()` returns `void`, related with `org.xbill.DNS.Zone.getSOA()`;\nclass `org.xbill.DNS.ExtendedFlags`:\n\trelated functions:\n\t\tmethod `public static String string(int)` returns `java.lang.String`, related with `org.xbill.DNS.Zone.getSOA()`, api document:  Converts a numeric extended flag into a String ;"
+}

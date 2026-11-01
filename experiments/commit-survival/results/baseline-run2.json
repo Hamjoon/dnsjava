@@ -1,0 +1,18 @@
+{
+  "index": 2,
+  "attempts": [
+    {
+      "command": [
+        "mvn",
+        "-q",
+        "-o",
+        "test"
+      ],
+      "cwd": "/repo/experiments/commit-survival/work/checkouts/0",
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 19.953,
+      "log": "results/baseline-run2-1.txt"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "index": 170,
+  "sha": "a10b824d9a4e7f9ad6e83b5e2dac6560ec552339",
+  "parent": "9a611829649d15b49dcbe665ce829d7913c0488c",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/Message.java": [
+      563
+    ]
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/Message.java": [
+      522,
+      532,
+      565
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/Message.java b/src/main/java/org/xbill/DNS/Message.java\nindex 08bac5a9..22f2d521 100644\n--- a/src/main/java/org/xbill/DNS/Message.java\n+++ b/src/main/java/org/xbill/DNS/Message.java\n@@ -521,0 +522 @@ public class Message implements Cloneable {\n+    boolean isTruncated = false;\n@@ -530,0 +532 @@ public class Message implements Cloneable {\n+        isTruncated = true;\n@@ -563 +565 @@ public class Message implements Cloneable {\n-    return !Header.getFlag(flags, Flags.TC);\n+    return !isTruncated;"
+}

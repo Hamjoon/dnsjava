@@ -1,0 +1,130 @@
+[
+  {
+    "group": "addRecord_initializesSectionAndIncrementsHeader",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "record",
+            "value": "ARecord(name=example.com., type=A, ttl=3600, address=1.2.3.4)"
+          },
+          {
+            "parameter": "section",
+            "value": 1
+          }
+        ],
+        "expected": "Header count for section 1 becomes 1; sections[1] is a non\u2011null List containing exactly the supplied ARecord.",
+        "description": "The target section is initially null. addRecord should allocate a new LinkedList, increment the header count, and store the record as the sole element."
+      }
+    ]
+  },
+  {
+    "group": "addRecord_appendsToExistingSectionAndIncrementsHeader",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "record",
+            "value": "ARecord(name=example.org., type=A, ttl=7200, address=5.6.7.8)"
+          },
+          {
+            "parameter": "section",
+            "value": 2
+          }
+        ],
+        "expected": "Header count for section 2 becomes 3; sections[2] contains three records, the new ARecord being the last element.",
+        "description": "Section 2 already holds two records. Adding a third record must not replace the existing list, must increase the header count by one, and must append the new record."
+      }
+    ]
+  },
+  {
+    "group": "addRecord_invalidSectionThrowsException",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "record",
+            "value": "ARecord(name=invalid.com., type=A, ttl=0, address=0.0.0.0)"
+          },
+          {
+            "parameter": "section",
+            "value": -1
+          }
+        ],
+        "expected": "ArrayIndexOutOfBoundsException",
+        "description": "Passing a negative section index should cause the underlying array access to throw an ArrayIndexOutOfBoundsException."
+      },
+      {
+        "input": [
+          {
+            "parameter": "record",
+            "value": "ARecord(name=invalid.com., type=A, ttl=0, address=0.0.0.0)"
+          },
+          {
+            "parameter": "section",
+            "value": 5
+          }
+        ],
+        "expected": "ArrayIndexOutOfBoundsException",
+        "description": "Passing a section index larger than the internal sections array length (which is 4) should result in an ArrayIndexOutOfBoundsException."
+      }
+    ]
+  },
+  {
+    "group": "addRecord_nullRecordHandled",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "record",
+            "value": null
+          },
+          {
+            "parameter": "section",
+            "value": 0
+          }
+        ],
+        "expected": "Header count for section 0 increments by 1; sections[0] contains a single null element.",
+        "description": "The method does not guard against a null Record. Verify that it still creates the list (if needed), increments the header count, and stores the null reference."
+      }
+    ]
+  },
+  {
+    "group": "addRecord_nullHeaderThrowsException",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "record",
+            "value": "ARecord(name=example.net., type=A, ttl=300, address=9.9.9.9)"
+          },
+          {
+            "parameter": "section",
+            "value": 0
+          }
+        ],
+        "expected": "NullPointerException",
+        "description": "The Message instance has its header field set to null (e.g., via setHeader(null)). When addRecord is invoked, the call to header.incCount(section) should throw a NullPointerException."
+      }
+    ]
+  },
+  {
+    "group": "addRecord_nullSectionsArrayThrowsException",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "record",
+            "value": "ARecord(name=example.org., type=A, ttl=600, address=8.8.8.8)"
+          },
+          {
+            "parameter": "section",
+            "value": 1
+          }
+        ],
+        "expected": "NullPointerException",
+        "description": "The internal sections array of the Message instance is null (e.g., the Message was constructed without initializing sections). Accessing sections[section] should result in a NullPointerException."
+      }
+    ]
+  }
+]

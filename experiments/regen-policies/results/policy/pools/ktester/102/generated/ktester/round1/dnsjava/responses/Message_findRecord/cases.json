@@ -1,0 +1,249 @@
+[
+  {
+    "group": "Valid section \u2013 empty list (null) \u2192 record not found",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "r",
+            "value": "new ARecord(Name.fromString(\"example.com.\"), DClass.IN, 3600, InetAddress.getByName(\"1.2.3.4\"))"
+          },
+          {
+            "parameter": "section",
+            "value": "Section.ANSWER"
+          }
+        ],
+        "expected": "false",
+        "description": "The requested section exists but its internal list is null (no records have been added). The method should return false."
+      }
+    ]
+  },
+  {
+    "group": "Valid section \u2013 non\u2011null list without the record \u2192 false",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "r",
+            "value": "new ARecord(Name.fromString(\"missing.com.\"), DClass.IN, 3600, InetAddress.getByName(\"5.6.7.8\"))"
+          },
+          {
+            "parameter": "section",
+            "value": "Section.AUTHORITY"
+          }
+        ],
+        "expected": "false",
+        "description": "The section contains a list of records, but the list does not contain the supplied record. The method should return false."
+      }
+    ]
+  },
+  {
+    "group": "Valid section \u2013 list contains the record \u2192 true",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "r",
+            "value": "record"
+          },
+          {
+            "parameter": "section",
+            "value": "Section.ADDITIONAL"
+          }
+        ],
+        "expected": "true",
+        "description": "The section contains a non\u2011null list and the supplied record is present in that list. The method should return true."
+      }
+    ]
+  },
+  {
+    "group": "Valid section \u2013 null record argument \u2192 false",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "r",
+            "value": "null"
+          },
+          {
+            "parameter": "section",
+            "value": "Section.QUESTION"
+          }
+        ],
+        "expected": "false",
+        "description": "A null record is passed. The section list is non\u2011null but does not contain null, so the method should return false (no exception is thrown)."
+      }
+    ]
+  },
+  {
+    "group": "Invalid section (negative) \u2192 IllegalArgumentException",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "r",
+            "value": "new ARecord(Name.fromString(\"example.com.\"), DClass.IN, 3600, InetAddress.getByName(\"1.2.3.4\"))"
+          },
+          {
+            "parameter": "section",
+            "value": "-1"
+          }
+        ],
+        "expected": "IllegalArgumentException",
+        "description": "Section.check should reject a negative section index and throw IllegalArgumentException."
+      }
+    ]
+  },
+  {
+    "group": "Invalid section (out of range) \u2192 IllegalArgumentException",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "r",
+            "value": "new ARecord(Name.fromString(\"example.com.\"), DClass.IN, 3600, InetAddress.getByName(\"1.2.3.4\"))"
+          },
+          {
+            "parameter": "section",
+            "value": "10"
+          }
+        ],
+        "expected": "IllegalArgumentException",
+        "description": "Section.check should reject a section index larger than the maximum allowed value and throw IllegalArgumentException."
+      }
+    ]
+  },
+  {
+    "group": "Valid section \u2013 empty (size 0) list \u2192 false",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "r",
+            "value": "new ARecord(Name.fromString(\"example.com.\"), DClass.IN, 3600, InetAddress.getByName(\"1.2.3.4\"))"
+          },
+          {
+            "parameter": "section",
+            "value": "Section.ANSWER"
+          }
+        ],
+        "expected": "false",
+        "description": "The requested section has been initialised with an empty ArrayList (size 0). No records are stored, so the method must return false."
+      }
+    ]
+  },
+  {
+    "group": "Record present in a different section \u2192 false",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "r",
+            "value": "recordInAnswer"
+          },
+          {
+            "parameter": "section",
+            "value": "Section.AUTHORITY"
+          }
+        ],
+        "expected": "false",
+        "description": "A record that exists in the ANSWER section is queried against the AUTHORITY section. The method should only look at the supplied section and therefore return false."
+      }
+    ]
+  },
+  {
+    "group": "Different instance with identical fields \u2192 true",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "r",
+            "value": "new ARecord(Name.fromString(\"example.com.\"), DClass.IN, 3600, InetAddress.getByName(\"1.2.3.4\"))"
+          },
+          {
+            "parameter": "section",
+            "value": "Section.ADDITIONAL"
+          }
+        ],
+        "expected": "true",
+        "description": "A record equal to one already stored in the ADDITIONAL section is created as a new object. Because Record.equals compares the logical fields, findRecord must return true."
+      }
+    ]
+  },
+  {
+    "group": "Null record with null list \u2192 false",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "r",
+            "value": "null"
+          },
+          {
+            "parameter": "section",
+            "value": "Section.QUESTION"
+          }
+        ],
+        "expected": "false",
+        "description": "Both the supplied record and the internal list for the QUESTION section are null. The method should safely return false without throwing an exception."
+      }
+    ]
+  },
+  {
+    "group": "List contains duplicate records \u2192 true",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "r",
+            "value": "duplicateRecord"
+          },
+          {
+            "parameter": "section",
+            "value": "Section.ANSWER"
+          }
+        ],
+        "expected": "true",
+        "description": "The ANSWER section holds the same record twice (duplicate entries). List.contains returns true as soon as it finds a match, so findRecord must return true."
+      }
+    ]
+  },
+  {
+    "group": "Same name/type but different data \u2192 false",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "r",
+            "value": "new ARecord(Name.fromString(\"example.com.\"), DClass.IN, 3600, InetAddress.getByName(\"9.9.9.9\"))"
+          },
+          {
+            "parameter": "section",
+            "value": "Section.AUTHORITY"
+          }
+        ],
+        "expected": "false",
+        "description": "A record with the same owner name and type as one stored in AUTHORITY exists, but its address differs. Because Record.equals includes the rdata, findRecord must return false."
+      }
+    ]
+  },
+  {
+    "group": "Uninitialized sections array \u2192 NullPointerException",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "r",
+            "value": "new ARecord(Name.fromString(\"example.com.\"), DClass.IN, 3600, InetAddress.getByName(\"1.2.3.4\"))"
+          },
+          {
+            "parameter": "section",
+            "value": "Section.ANSWER"
+          }
+        ],
+        "expected": "NullPointerException",
+        "description": "The Message object's internal `sections` field is deliberately set to null (e.g., via reflection) before invoking findRecord. Accessing `sections[section]` triggers a NullPointerException."
+      }
+    ]
+  }
+]

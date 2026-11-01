@@ -1,0 +1,30 @@
+{
+  "index": 84,
+  "sha": "6a0a1d7f2532934d34b407fce8b146aab34d30e2",
+  "parent": "4b84d92812c9335dc271633ce045028a68f0108f",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/Lookup.java": [
+      673,
+      676,
+      679,
+      682,
+      697,
+      700,
+      701,
+      713
+    ]
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/Lookup.java": [
+      672,
+      675,
+      695,
+      696,
+      698,
+      699,
+      712,
+      713
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/Lookup.java b/src/main/java/org/xbill/DNS/Lookup.java\nindex 875d03b0..6a7ae8fb 100644\n--- a/src/main/java/org/xbill/DNS/Lookup.java\n+++ b/src/main/java/org/xbill/DNS/Lookup.java\n@@ -671 +670,0 @@ public final class Lookup {\n-    Name tname;\n@@ -673 +672 @@ public final class Lookup {\n-      tname = current;\n+      lookup(current);\n@@ -676 +675 @@ public final class Lookup {\n-        tname = Name.concatenate(current, suffix);\n+        lookup(Name.concatenate(current, suffix));\n@@ -679 +677,0 @@ public final class Lookup {\n-        return;\n@@ -682 +679,0 @@ public final class Lookup {\n-    lookup(tname);\n@@ -697 +694,3 @@ public final class Lookup {\n-      if (name.labels() > ndots) {\n+      // Save absolute query attempt state to prevent a double absolute lookup\n+      boolean absoluteNameAttempted = name.labels() > ndots;\n+      if (absoluteNameAttempted) {\n@@ -699,3 +698,3 @@ public final class Lookup {\n-      }\n-      if (done) {\n-        return answers;\n+        if (done) {\n+          return answers;\n+        }\n@@ -713 +712,3 @@ public final class Lookup {\n-      resolve(name, Name.root);\n+      if (!absoluteNameAttempted) {\n+        resolve(name, Name.root);\n+      }\n@@ -714,0 +716 @@ public final class Lookup {\n+"
+}

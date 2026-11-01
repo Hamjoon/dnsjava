@@ -1,0 +1,582 @@
+{
+  "file": "generated/ktester/round1/dnsjava/test_classes/Zone_iterator_Test.java",
+  "compile": {
+    "command": [
+      "javac",
+      "-J-Xmx512m",
+      "-cp",
+      "/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/checkouts/0/target/classes:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/apiguardian-api-1.1.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/byte-buddy-1.17.7.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/byte-buddy-agent-1.17.7.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/commons-io-2.16.1.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/commons-lang3-3.14.0.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/hamcrest-2.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/junit-jupiter-5.11.4.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/junit-jupiter-api-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/junit-jupiter-engine-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/junit-jupiter-params-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/junit-platform-commons-1.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/junit-platform-engine-1.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/mockito-core-5.24.0.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/mockito-junit-jupiter-5.24.0.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/objenesis-3.3.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/opentest4j-1.3.0.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/junit-vintage-engine-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/junit-4.13.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/hamcrest-core-1.3.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/junit-platform-console-standalone-1.9.3.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/projectlombok/lombok/1.18.42/lombok-1.18.42.jar:/root/.m2/repository/net/java/dev/jna/jna/5.18.1/jna-5.18.1.jar:/root/.m2/repository/net/java/dev/jna/jna-platform/5.18.1/jna-platform-5.18.1.jar:/root/.m2/repository/org/bouncycastle/bcprov-jdk18on/1.84/bcprov-jdk18on-1.84.jar:/root/.m2/repository/org/bouncycastle/bcutil-jdk18on/1.84/bcutil-jdk18on-1.84.jar:/root/.m2/repository/org/assertj/assertj-core/3.27.7/assertj-core-3.27.7.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.18.3/byte-buddy-1.18.3.jar:/root/.m2/repository/org/mockito/mockito-core/5.21.0/mockito-core-5.21.0.jar:/root/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/root/.m2/repository/org/mockito/mockito-junit-jupiter/5.21.0/mockito-junit-jupiter-5.21.0.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.18.4/byte-buddy-agent-1.18.4.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.36/slf4j-simple-1.7.36.jar:/root/.m2/repository/org/slf4j/jul-to-slf4j/1.7.36/jul-to-slf4j-1.7.36.jar:/root/.m2/repository/io/vertx/vertx-core/4.5.24/vertx-core-4.5.24.jar:/root/.m2/repository/io/netty/netty-common/4.1.130.Final/netty-common-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-buffer/4.1.130.Final/netty-buffer-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-transport/4.1.130.Final/netty-transport-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-handler/4.1.130.Final/netty-handler-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-transport-native-unix-common/4.1.130.Final/netty-transport-native-unix-common-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-codec/4.1.130.Final/netty-codec-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-handler-proxy/4.1.130.Final/netty-handler-proxy-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-codec-socks/4.1.130.Final/netty-codec-socks-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-codec-http/4.1.130.Final/netty-codec-http-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-codec-http2/4.1.130.Final/netty-codec-http2-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-resolver/4.1.130.Final/netty-resolver-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-resolver-dns/4.1.130.Final/netty-resolver-dns-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-codec-dns/4.1.130.Final/netty-codec-dns-4.1.130.Final.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.16.1/jackson-core-2.16.1.jar:/root/.m2/repository/io/vertx/vertx-junit5/4.5.24/vertx-junit5-4.5.24.jar:/root/.m2/repository/io/vertx/vertx-codegen/4.5.24/vertx-codegen-4.5.24.jar:/root/.m2/repository/commons-io/commons-io/2.21.0/commons-io-2.21.0.jar:/root/.m2/repository/org/openjdk/jcstress/jcstress-core/0.16/jcstress-core-0.16.jar:/root/.m2/repository/net/sf/jopt-simple/jopt-simple/4.6/jopt-simple-4.6.jar",
+      "-sourcepath",
+      "/repo/experiments/regen-policies/results/policy/pools/ktester/102/generated/ktester/round1/dnsjava/test_classes",
+      "-d",
+      "/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/validation/ktester/round1/53/test/classes",
+      "/repo/experiments/regen-policies/results/policy/pools/ktester/102/generated/ktester/round1/dnsjava/test_classes/Zone_iterator_Test.java"
+    ],
+    "cwd": "/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/checkouts/0",
+    "exit_code": 0,
+    "timeout": false,
+    "seconds": 1.488,
+    "log": "work/validation/ktester/round1/53/test/javac.txt"
+  },
+  "runs": [
+    {
+      "command": [
+        "java",
+        "-Xmx1g",
+        "-XX:+UseSerialGC",
+        "-cp",
+        "/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/validation/ktester/round1/53/test/classes:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/checkouts/0/target/classes:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/apiguardian-api-1.1.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/byte-buddy-1.17.7.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/byte-buddy-agent-1.17.7.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/commons-io-2.16.1.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/commons-lang3-3.14.0.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/hamcrest-2.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/junit-jupiter-5.11.4.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/junit-jupiter-api-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/junit-jupiter-engine-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/junit-jupiter-params-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/junit-platform-commons-1.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/junit-platform-engine-1.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/mockito-core-5.24.0.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/mockito-junit-jupiter-5.24.0.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/objenesis-3.3.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/opentest4j-1.3.0.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/junit-vintage-engine-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/junit-4.13.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/hamcrest-core-1.3.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/junit-platform-console-standalone-1.9.3.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/projectlombok/lombok/1.18.42/lombok-1.18.42.jar:/root/.m2/repository/net/java/dev/jna/jna/5.18.1/jna-5.18.1.jar:/root/.m2/repository/net/java/dev/jna/jna-platform/5.18.1/jna-platform-5.18.1.jar:/root/.m2/repository/org/bouncycastle/bcprov-jdk18on/1.84/bcprov-jdk18on-1.84.jar:/root/.m2/repository/org/bouncycastle/bcutil-jdk18on/1.84/bcutil-jdk18on-1.84.jar:/root/.m2/repository/org/assertj/assertj-core/3.27.7/assertj-core-3.27.7.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.18.3/byte-buddy-1.18.3.jar:/root/.m2/repository/org/mockito/mockito-core/5.21.0/mockito-core-5.21.0.jar:/root/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/root/.m2/repository/org/mockito/mockito-junit-jupiter/5.21.0/mockito-junit-jupiter-5.21.0.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.18.4/byte-buddy-agent-1.18.4.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.36/slf4j-simple-1.7.36.jar:/root/.m2/repository/org/slf4j/jul-to-slf4j/1.7.36/jul-to-slf4j-1.7.36.jar:/root/.m2/repository/io/vertx/vertx-core/4.5.24/vertx-core-4.5.24.jar:/root/.m2/repository/io/netty/netty-common/4.1.130.Final/netty-common-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-buffer/4.1.130.Final/netty-buffer-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-transport/4.1.130.Final/netty-transport-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-handler/4.1.130.Final/netty-handler-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-transport-native-unix-common/4.1.130.Final/netty-transport-native-unix-common-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-codec/4.1.130.Final/netty-codec-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-handler-proxy/4.1.130.Final/netty-handler-proxy-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-codec-socks/4.1.130.Final/netty-codec-socks-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-codec-http/4.1.130.Final/netty-codec-http-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-codec-http2/4.1.130.Final/netty-codec-http2-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-resolver/4.1.130.Final/netty-resolver-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-resolver-dns/4.1.130.Final/netty-resolver-dns-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-codec-dns/4.1.130.Final/netty-codec-dns-4.1.130.Final.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.16.1/jackson-core-2.16.1.jar:/root/.m2/repository/io/vertx/vertx-junit5/4.5.24/vertx-junit5-4.5.24.jar:/root/.m2/repository/io/vertx/vertx-codegen/4.5.24/vertx-codegen-4.5.24.jar:/root/.m2/repository/commons-io/commons-io/2.21.0/commons-io-2.21.0.jar:/root/.m2/repository/org/openjdk/jcstress/jcstress-core/0.16/jcstress-core-0.16.jar:/root/.m2/repository/net/sf/jopt-simple/jopt-simple/4.6/jopt-simple-4.6.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/dev/src-test-t/resources:/repo/experiments/regen-policies/results/policy/pools/ktester/102/dev/src-test-t/suite",
+        "org.junit.platform.console.ConsoleLauncher",
+        "--disable-banner",
+        "--disable-ansi-colors",
+        "--fail-if-no-tests",
+        "--details",
+        "summary",
+        "--select-method",
+        "org.xbill.DNS.Zone_iterator_Test#iteratorRemoveBeforeNextFails()",
+        "--select-method",
+        "org.xbill.DNS.Zone_iterator_Test#iteratorRemoveASucceeds()",
+        "--select-method",
+        "org.xbill.DNS.Zone_iterator_Test#iteratorNextAfterLastFails()",
+        "--select-method",
+        "org.xbill.DNS.Zone_iterator_Test#iteratorIteratesAllElements()",
+        "--select-method",
+        "org.xbill.DNS.Zone_iterator_Test#emptyZoneIteratorHasNoElements()",
+        "--select-method",
+        "org.xbill.DNS.Zone_iterator_Test#iteratorSingleRRset()",
+        "--select-method",
+        "org.xbill.DNS.Zone_iterator_Test#iteratorThreeRRsetsOrder()",
+        "--select-method",
+        "org.xbill.DNS.Zone_iterator_Test#independentIterators()",
+        "--select-method",
+        "org.xbill.DNS.Zone_iterator_Test#nextOnEmptyThrows()",
+        "--select-method",
+        "org.xbill.DNS.Zone_iterator_Test#removeBeforeNextThrowsIllegalState()",
+        "--select-method",
+        "org.xbill.DNS.Zone_iterator_Test#iteratorIgnoresLaterAdditions()",
+        "--select-method",
+        "org.xbill.DNS.Zone_iterator_Test#iteratorSeesRemovedAfterCreation()",
+        "--select-method",
+        "org.xbill.DNS.Zone_iterator_Test#hasNextIdempotentBeforeNext()",
+        "--select-method",
+        "org.xbill.DNS.Zone_iterator_Test#hasNextAfterExhaustionRemainsFalse()",
+        "--select-method",
+        "org.xbill.DNS.Zone_iterator_Test#removeAfterNextThrowsUnsupported()",
+        "--select-method",
+        "org.xbill.DNS.Zone_iterator_Test#forEachTraversalOrder()",
+        "--select-method",
+        "org.xbill.DNS.Zone_iterator_Test#iteratorHandlesSameNameDifferentTypes()",
+        "--reports-dir",
+        "/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/validation/ktester/round1/53/test/run1"
+      ],
+      "cwd": "/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/runtime",
+      "exit_code": 1,
+      "timeout": false,
+      "seconds": 2.889,
+      "log": "work/validation/ktester/round1/53/test/run1/console.txt"
+    },
+    {
+      "command": [
+        "java",
+        "-Xmx1g",
+        "-XX:+UseSerialGC",
+        "-cp",
+        "/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/validation/ktester/round1/53/test/classes:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/checkouts/0/target/classes:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/apiguardian-api-1.1.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/byte-buddy-1.17.7.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/byte-buddy-agent-1.17.7.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/commons-io-2.16.1.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/commons-lang3-3.14.0.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/hamcrest-2.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/junit-jupiter-5.11.4.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/junit-jupiter-api-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/junit-jupiter-engine-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/junit-jupiter-params-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/junit-platform-commons-1.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/junit-platform-engine-1.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/mockito-core-5.24.0.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/mockito-junit-jupiter-5.24.0.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/objenesis-3.3.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/opentest4j-1.3.0.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/junit-vintage-engine-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/junit-4.13.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/hamcrest-core-1.3.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/junit-platform-console-standalone-1.9.3.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/projectlombok/lombok/1.18.42/lombok-1.18.42.jar:/root/.m2/repository/net/java/dev/jna/jna/5.18.1/jna-5.18.1.jar:/root/.m2/repository/net/java/dev/jna/jna-platform/5.18.1/jna-platform-5.18.1.jar:/root/.m2/repository/org/bouncycastle/bcprov-jdk18on/1.84/bcprov-jdk18on-1.84.jar:/root/.m2/repository/org/bouncycastle/bcutil-jdk18on/1.84/bcutil-jdk18on-1.84.jar:/root/.m2/repository/org/assertj/assertj-core/3.27.7/assertj-core-3.27.7.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.18.3/byte-buddy-1.18.3.jar:/root/.m2/repository/org/mockito/mockito-core/5.21.0/mockito-core-5.21.0.jar:/root/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/root/.m2/repository/org/mockito/mockito-junit-jupiter/5.21.0/mockito-junit-jupiter-5.21.0.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.18.4/byte-buddy-agent-1.18.4.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.36/slf4j-simple-1.7.36.jar:/root/.m2/repository/org/slf4j/jul-to-slf4j/1.7.36/jul-to-slf4j-1.7.36.jar:/root/.m2/repository/io/vertx/vertx-core/4.5.24/vertx-core-4.5.24.jar:/root/.m2/repository/io/netty/netty-common/4.1.130.Final/netty-common-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-buffer/4.1.130.Final/netty-buffer-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-transport/4.1.130.Final/netty-transport-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-handler/4.1.130.Final/netty-handler-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-transport-native-unix-common/4.1.130.Final/netty-transport-native-unix-common-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-codec/4.1.130.Final/netty-codec-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-handler-proxy/4.1.130.Final/netty-handler-proxy-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-codec-socks/4.1.130.Final/netty-codec-socks-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-codec-http/4.1.130.Final/netty-codec-http-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-codec-http2/4.1.130.Final/netty-codec-http2-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-resolver/4.1.130.Final/netty-resolver-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-resolver-dns/4.1.130.Final/netty-resolver-dns-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-codec-dns/4.1.130.Final/netty-codec-dns-4.1.130.Final.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.16.1/jackson-core-2.16.1.jar:/root/.m2/repository/io/vertx/vertx-junit5/4.5.24/vertx-junit5-4.5.24.jar:/root/.m2/repository/io/vertx/vertx-codegen/4.5.24/vertx-codegen-4.5.24.jar:/root/.m2/repository/commons-io/commons-io/2.21.0/commons-io-2.21.0.jar:/root/.m2/repository/org/openjdk/jcstress/jcstress-core/0.16/jcstress-core-0.16.jar:/root/.m2/repository/net/sf/jopt-simple/jopt-simple/4.6/jopt-simple-4.6.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/dev/src-test-t/resources:/repo/experiments/regen-policies/results/policy/pools/ktester/102/dev/src-test-t/suite",
+        "org.junit.platform.console.ConsoleLauncher",
+        "--disable-banner",
+        "--disable-ansi-colors",
+        "--fail-if-no-tests",
+        "--details",
+        "summary",
+        "--select-method",
+        "org.xbill.DNS.Zone_iterator_Test#iteratorRemoveBeforeNextFails()",
+        "--select-method",
+        "org.xbill.DNS.Zone_iterator_Test#iteratorRemoveASucceeds()",
+        "--select-method",
+        "org.xbill.DNS.Zone_iterator_Test#iteratorNextAfterLastFails()",
+        "--select-method",
+        "org.xbill.DNS.Zone_iterator_Test#iteratorIteratesAllElements()",
+        "--select-method",
+        "org.xbill.DNS.Zone_iterator_Test#emptyZoneIteratorHasNoElements()",
+        "--select-method",
+        "org.xbill.DNS.Zone_iterator_Test#iteratorSingleRRset()",
+        "--select-method",
+        "org.xbill.DNS.Zone_iterator_Test#iteratorThreeRRsetsOrder()",
+        "--select-method",
+        "org.xbill.DNS.Zone_iterator_Test#independentIterators()",
+        "--select-method",
+        "org.xbill.DNS.Zone_iterator_Test#nextOnEmptyThrows()",
+        "--select-method",
+        "org.xbill.DNS.Zone_iterator_Test#removeBeforeNextThrowsIllegalState()",
+        "--select-method",
+        "org.xbill.DNS.Zone_iterator_Test#iteratorIgnoresLaterAdditions()",
+        "--select-method",
+        "org.xbill.DNS.Zone_iterator_Test#iteratorSeesRemovedAfterCreation()",
+        "--select-method",
+        "org.xbill.DNS.Zone_iterator_Test#hasNextIdempotentBeforeNext()",
+        "--select-method",
+        "org.xbill.DNS.Zone_iterator_Test#hasNextAfterExhaustionRemainsFalse()",
+        "--select-method",
+        "org.xbill.DNS.Zone_iterator_Test#removeAfterNextThrowsUnsupported()",
+        "--select-method",
+        "org.xbill.DNS.Zone_iterator_Test#forEachTraversalOrder()",
+        "--select-method",
+        "org.xbill.DNS.Zone_iterator_Test#iteratorHandlesSameNameDifferentTypes()",
+        "--reports-dir",
+        "/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/validation/ktester/round1/53/test/run2"
+      ],
+      "cwd": "/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/runtime",
+      "exit_code": 1,
+      "timeout": false,
+      "seconds": 1.081,
+      "log": "work/validation/ktester/round1/53/test/run2/console.txt"
+    },
+    {
+      "command": [
+        "java",
+        "-Xmx1g",
+        "-XX:+UseSerialGC",
+        "-cp",
+        "/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/validation/ktester/round1/53/test/classes:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/checkouts/0/target/classes:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/apiguardian-api-1.1.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/byte-buddy-1.17.7.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/byte-buddy-agent-1.17.7.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/commons-io-2.16.1.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/commons-lang3-3.14.0.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/hamcrest-2.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/junit-jupiter-5.11.4.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/junit-jupiter-api-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/junit-jupiter-engine-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/junit-jupiter-params-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/junit-platform-commons-1.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/junit-platform-engine-1.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/mockito-core-5.24.0.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/mockito-junit-jupiter-5.24.0.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/objenesis-3.3.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/opentest4j-1.3.0.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/junit-vintage-engine-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/junit-4.13.2.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/hamcrest-core-1.3.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/libs/junit-platform-console-standalone-1.9.3.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/projectlombok/lombok/1.18.42/lombok-1.18.42.jar:/root/.m2/repository/net/java/dev/jna/jna/5.18.1/jna-5.18.1.jar:/root/.m2/repository/net/java/dev/jna/jna-platform/5.18.1/jna-platform-5.18.1.jar:/root/.m2/repository/org/bouncycastle/bcprov-jdk18on/1.84/bcprov-jdk18on-1.84.jar:/root/.m2/repository/org/bouncycastle/bcutil-jdk18on/1.84/bcutil-jdk18on-1.84.jar:/root/.m2/repository/org/assertj/assertj-core/3.27.7/assertj-core-3.27.7.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.18.3/byte-buddy-1.18.3.jar:/root/.m2/repository/org/mockito/mockito-core/5.21.0/mockito-core-5.21.0.jar:/root/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/root/.m2/repository/org/mockito/mockito-junit-jupiter/5.21.0/mockito-junit-jupiter-5.21.0.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.18.4/byte-buddy-agent-1.18.4.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.36/slf4j-simple-1.7.36.jar:/root/.m2/repository/org/slf4j/jul-to-slf4j/1.7.36/jul-to-slf4j-1.7.36.jar:/root/.m2/repository/io/vertx/vertx-core/4.5.24/vertx-core-4.5.24.jar:/root/.m2/repository/io/netty/netty-common/4.1.130.Final/netty-common-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-buffer/4.1.130.Final/netty-buffer-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-transport/4.1.130.Final/netty-transport-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-handler/4.1.130.Final/netty-handler-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-transport-native-unix-common/4.1.130.Final/netty-transport-native-unix-common-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-codec/4.1.130.Final/netty-codec-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-handler-proxy/4.1.130.Final/netty-handler-proxy-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-codec-socks/4.1.130.Final/netty-codec-socks-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-codec-http/4.1.130.Final/netty-codec-http-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-codec-http2/4.1.130.Final/netty-codec-http2-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-resolver/4.1.130.Final/netty-resolver-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-resolver-dns/4.1.130.Final/netty-resolver-dns-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-codec-dns/4.1.130.Final/netty-codec-dns-4.1.130.Final.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.16.1/jackson-core-2.16.1.jar:/root/.m2/repository/io/vertx/vertx-junit5/4.5.24/vertx-junit5-4.5.24.jar:/root/.m2/repository/io/vertx/vertx-codegen/4.5.24/vertx-codegen-4.5.24.jar:/root/.m2/repository/commons-io/commons-io/2.21.0/commons-io-2.21.0.jar:/root/.m2/repository/org/openjdk/jcstress/jcstress-core/0.16/jcstress-core-0.16.jar:/root/.m2/repository/net/sf/jopt-simple/jopt-simple/4.6/jopt-simple-4.6.jar:/repo/experiments/regen-policies/results/policy/pools/ktester/102/dev/src-test-t/resources:/repo/experiments/regen-policies/results/policy/pools/ktester/102/dev/src-test-t/suite",
+        "org.junit.platform.console.ConsoleLauncher",
+        "--disable-banner",
+        "--disable-ansi-colors",
+        "--fail-if-no-tests",
+        "--details",
+        "summary",
+        "--select-method",
+        "org.xbill.DNS.Zone_iterator_Test#iteratorRemoveBeforeNextFails()",
+        "--select-method",
+        "org.xbill.DNS.Zone_iterator_Test#iteratorRemoveASucceeds()",
+        "--select-method",
+        "org.xbill.DNS.Zone_iterator_Test#iteratorNextAfterLastFails()",
+        "--select-method",
+        "org.xbill.DNS.Zone_iterator_Test#iteratorIteratesAllElements()",
+        "--select-method",
+        "org.xbill.DNS.Zone_iterator_Test#emptyZoneIteratorHasNoElements()",
+        "--select-method",
+        "org.xbill.DNS.Zone_iterator_Test#iteratorSingleRRset()",
+        "--select-method",
+        "org.xbill.DNS.Zone_iterator_Test#iteratorThreeRRsetsOrder()",
+        "--select-method",
+        "org.xbill.DNS.Zone_iterator_Test#independentIterators()",
+        "--select-method",
+        "org.xbill.DNS.Zone_iterator_Test#nextOnEmptyThrows()",
+        "--select-method",
+        "org.xbill.DNS.Zone_iterator_Test#removeBeforeNextThrowsIllegalState()",
+        "--select-method",
+        "org.xbill.DNS.Zone_iterator_Test#iteratorIgnoresLaterAdditions()",
+        "--select-method",
+        "org.xbill.DNS.Zone_iterator_Test#iteratorSeesRemovedAfterCreation()",
+        "--select-method",
+        "org.xbill.DNS.Zone_iterator_Test#hasNextIdempotentBeforeNext()",
+        "--select-method",
+        "org.xbill.DNS.Zone_iterator_Test#hasNextAfterExhaustionRemainsFalse()",
+        "--select-method",
+        "org.xbill.DNS.Zone_iterator_Test#removeAfterNextThrowsUnsupported()",
+        "--select-method",
+        "org.xbill.DNS.Zone_iterator_Test#forEachTraversalOrder()",
+        "--select-method",
+        "org.xbill.DNS.Zone_iterator_Test#iteratorHandlesSameNameDifferentTypes()",
+        "--reports-dir",
+        "/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/validation/ktester/round1/53/test/run3"
+      ],
+      "cwd": "/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/runtime",
+      "exit_code": 1,
+      "timeout": false,
+      "seconds": 0.786,
+      "log": "work/validation/ktester/round1/53/test/run3/console.txt"
+    }
+  ],
+  "methods": [
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/Zone_iterator_Test.java",
+      "class": "org.xbill.DNS.Zone_iterator_Test",
+      "method": "iteratorRemoveBeforeNextFails",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Zone_iterator_Test.java|org.xbill.DNS.Zone_iterator_Test|iteratorRemoveBeforeNextFails",
+      "body_hash": "97fdfacdf0ac7af0a3af7c699ff0385acae9e15bae8cd291f6a2898eda71254e",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Zone_iterator_Test#iteratorRemoveBeforeNextFails()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/Zone_iterator_Test.java",
+      "class": "org.xbill.DNS.Zone_iterator_Test",
+      "method": "iteratorRemoveASucceeds",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Zone_iterator_Test.java|org.xbill.DNS.Zone_iterator_Test|iteratorRemoveASucceeds",
+      "body_hash": "518565d48e47725a0edf1da01aa2360b2496d62d5e1621805d3a02220ef06bda",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "error",
+      "message": "java.util.NoSuchElementException: No more elements",
+      "flaky": false,
+      "initial_state": "error",
+      "selector": [
+        "org.xbill.DNS.Zone_iterator_Test#iteratorRemoveASucceeds()"
+      ],
+      "baseline_states": [
+        "error",
+        "error",
+        "error"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/Zone_iterator_Test.java",
+      "class": "org.xbill.DNS.Zone_iterator_Test",
+      "method": "iteratorNextAfterLastFails",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Zone_iterator_Test.java|org.xbill.DNS.Zone_iterator_Test|iteratorNextAfterLastFails",
+      "body_hash": "04b6bf2b791fe49ccafe625482e19c418c5ba64ac6907d23ceaf2b429fa9ffec",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Zone_iterator_Test#iteratorNextAfterLastFails()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/Zone_iterator_Test.java",
+      "class": "org.xbill.DNS.Zone_iterator_Test",
+      "method": "iteratorIteratesAllElements",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Zone_iterator_Test.java|org.xbill.DNS.Zone_iterator_Test|iteratorIteratesAllElements",
+      "body_hash": "14244993734f325f90b63b12ee345e3a1568536b2df06f177f22a93df217b3e0",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "fail",
+      "message": "org.opentest4j.AssertionFailedError: expected: <example.  300 IN NS ns2.example.> but was: <test.example.  3600 IN A 127.0.0.1>",
+      "flaky": false,
+      "initial_state": "fail",
+      "selector": [
+        "org.xbill.DNS.Zone_iterator_Test#iteratorIteratesAllElements()"
+      ],
+      "baseline_states": [
+        "fail",
+        "fail",
+        "fail"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/Zone_iterator_Test.java",
+      "class": "org.xbill.DNS.Zone_iterator_Test",
+      "method": "emptyZoneIteratorHasNoElements",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Zone_iterator_Test.java|org.xbill.DNS.Zone_iterator_Test|emptyZoneIteratorHasNoElements",
+      "body_hash": "9fbb438671f11a235cc6f0c6aac29ae118be3cab050604099731d1218538d63c",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "error",
+      "message": "java.io.IOException: example.: no data specified",
+      "flaky": false,
+      "initial_state": "error",
+      "selector": [
+        "org.xbill.DNS.Zone_iterator_Test#emptyZoneIteratorHasNoElements()"
+      ],
+      "baseline_states": [
+        "error",
+        "error",
+        "error"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/Zone_iterator_Test.java",
+      "class": "org.xbill.DNS.Zone_iterator_Test",
+      "method": "iteratorSingleRRset",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Zone_iterator_Test.java|org.xbill.DNS.Zone_iterator_Test|iteratorSingleRRset",
+      "body_hash": "cb258022885359279402e0cfe9a762f005fdafaae2df328504a543416e04d528",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "error",
+      "message": "java.io.IOException: example.: no data specified",
+      "flaky": false,
+      "initial_state": "error",
+      "selector": [
+        "org.xbill.DNS.Zone_iterator_Test#iteratorSingleRRset()"
+      ],
+      "baseline_states": [
+        "error",
+        "error",
+        "error"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/Zone_iterator_Test.java",
+      "class": "org.xbill.DNS.Zone_iterator_Test",
+      "method": "iteratorThreeRRsetsOrder",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Zone_iterator_Test.java|org.xbill.DNS.Zone_iterator_Test|iteratorThreeRRsetsOrder",
+      "body_hash": "1493cfee3bc83b95e65c30d2560706adedd08d82867d96b288dc483e499d5d10",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "error",
+      "message": "java.io.IOException: example.: no data specified",
+      "flaky": false,
+      "initial_state": "error",
+      "selector": [
+        "org.xbill.DNS.Zone_iterator_Test#iteratorThreeRRsetsOrder()"
+      ],
+      "baseline_states": [
+        "error",
+        "error",
+        "error"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/Zone_iterator_Test.java",
+      "class": "org.xbill.DNS.Zone_iterator_Test",
+      "method": "independentIterators",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Zone_iterator_Test.java|org.xbill.DNS.Zone_iterator_Test|independentIterators",
+      "body_hash": "5f5c75c2da8fe674dffd0969b7454db8b0058cd1735d0c078c6f13b6b639bc04",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "error",
+      "message": "java.io.IOException: example.: no data specified",
+      "flaky": false,
+      "initial_state": "error",
+      "selector": [
+        "org.xbill.DNS.Zone_iterator_Test#independentIterators()"
+      ],
+      "baseline_states": [
+        "error",
+        "error",
+        "error"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/Zone_iterator_Test.java",
+      "class": "org.xbill.DNS.Zone_iterator_Test",
+      "method": "nextOnEmptyThrows",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Zone_iterator_Test.java|org.xbill.DNS.Zone_iterator_Test|nextOnEmptyThrows",
+      "body_hash": "4da1baa4d40f11c796c72fd31320999bc8c82b38e4c884bf27afe20b082253dd",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "error",
+      "message": "java.io.IOException: example.: no data specified",
+      "flaky": false,
+      "initial_state": "error",
+      "selector": [
+        "org.xbill.DNS.Zone_iterator_Test#nextOnEmptyThrows()"
+      ],
+      "baseline_states": [
+        "error",
+        "error",
+        "error"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/Zone_iterator_Test.java",
+      "class": "org.xbill.DNS.Zone_iterator_Test",
+      "method": "removeBeforeNextThrowsIllegalState",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Zone_iterator_Test.java|org.xbill.DNS.Zone_iterator_Test|removeBeforeNextThrowsIllegalState",
+      "body_hash": "87154651c8a200d72df9be054c838cd1229670d017e4f49474874f4042551ba6",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "error",
+      "message": "java.io.IOException: example.: no data specified",
+      "flaky": false,
+      "initial_state": "error",
+      "selector": [
+        "org.xbill.DNS.Zone_iterator_Test#removeBeforeNextThrowsIllegalState()"
+      ],
+      "baseline_states": [
+        "error",
+        "error",
+        "error"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/Zone_iterator_Test.java",
+      "class": "org.xbill.DNS.Zone_iterator_Test",
+      "method": "iteratorIgnoresLaterAdditions",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Zone_iterator_Test.java|org.xbill.DNS.Zone_iterator_Test|iteratorIgnoresLaterAdditions",
+      "body_hash": "2aee031c31ef5bb13b58e5ad8b61e5dd5ea0382400435b17089df7bda198b6be",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "error",
+      "message": "java.io.IOException: example.: no data specified",
+      "flaky": false,
+      "initial_state": "error",
+      "selector": [
+        "org.xbill.DNS.Zone_iterator_Test#iteratorIgnoresLaterAdditions()"
+      ],
+      "baseline_states": [
+        "error",
+        "error",
+        "error"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/Zone_iterator_Test.java",
+      "class": "org.xbill.DNS.Zone_iterator_Test",
+      "method": "iteratorSeesRemovedAfterCreation",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Zone_iterator_Test.java|org.xbill.DNS.Zone_iterator_Test|iteratorSeesRemovedAfterCreation",
+      "body_hash": "92e7ba6875bee8b650692799c470e17ff08eec0920a1458888d68e2835a5efe5",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "error",
+      "message": "java.io.IOException: example.: no data specified",
+      "flaky": false,
+      "initial_state": "error",
+      "selector": [
+        "org.xbill.DNS.Zone_iterator_Test#iteratorSeesRemovedAfterCreation()"
+      ],
+      "baseline_states": [
+        "error",
+        "error",
+        "error"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/Zone_iterator_Test.java",
+      "class": "org.xbill.DNS.Zone_iterator_Test",
+      "method": "hasNextIdempotentBeforeNext",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Zone_iterator_Test.java|org.xbill.DNS.Zone_iterator_Test|hasNextIdempotentBeforeNext",
+      "body_hash": "70f8ad024d7aec7a5151b7d3b35b2d21c92a178b9cb4ad8bb438704438cda283",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "error",
+      "message": "java.io.IOException: example.: no data specified",
+      "flaky": false,
+      "initial_state": "error",
+      "selector": [
+        "org.xbill.DNS.Zone_iterator_Test#hasNextIdempotentBeforeNext()"
+      ],
+      "baseline_states": [
+        "error",
+        "error",
+        "error"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/Zone_iterator_Test.java",
+      "class": "org.xbill.DNS.Zone_iterator_Test",
+      "method": "hasNextAfterExhaustionRemainsFalse",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Zone_iterator_Test.java|org.xbill.DNS.Zone_iterator_Test|hasNextAfterExhaustionRemainsFalse",
+      "body_hash": "3977d884f5b6c5ffec94e5b22dde47e8fade580855aa24f463d2fbf341e87989",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "error",
+      "message": "java.io.IOException: example.: no data specified",
+      "flaky": false,
+      "initial_state": "error",
+      "selector": [
+        "org.xbill.DNS.Zone_iterator_Test#hasNextAfterExhaustionRemainsFalse()"
+      ],
+      "baseline_states": [
+        "error",
+        "error",
+        "error"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/Zone_iterator_Test.java",
+      "class": "org.xbill.DNS.Zone_iterator_Test",
+      "method": "removeAfterNextThrowsUnsupported",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Zone_iterator_Test.java|org.xbill.DNS.Zone_iterator_Test|removeAfterNextThrowsUnsupported",
+      "body_hash": "a7aa92218ef3b83c7ebb87a69404e82b3b5d9e9015e62b86cc8a191af237ee04",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "error",
+      "message": "java.io.IOException: example.: no data specified",
+      "flaky": false,
+      "initial_state": "error",
+      "selector": [
+        "org.xbill.DNS.Zone_iterator_Test#removeAfterNextThrowsUnsupported()"
+      ],
+      "baseline_states": [
+        "error",
+        "error",
+        "error"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/Zone_iterator_Test.java",
+      "class": "org.xbill.DNS.Zone_iterator_Test",
+      "method": "forEachTraversalOrder",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Zone_iterator_Test.java|org.xbill.DNS.Zone_iterator_Test|forEachTraversalOrder",
+      "body_hash": "d74c98abccbc9ecf13070951aa08fa9a337253a5129c0cb825cfd679fb512efe",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "error",
+      "message": "java.io.IOException: example.: no data specified",
+      "flaky": false,
+      "initial_state": "error",
+      "selector": [
+        "org.xbill.DNS.Zone_iterator_Test#forEachTraversalOrder()"
+      ],
+      "baseline_states": [
+        "error",
+        "error",
+        "error"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/Zone_iterator_Test.java",
+      "class": "org.xbill.DNS.Zone_iterator_Test",
+      "method": "iteratorHandlesSameNameDifferentTypes",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Zone_iterator_Test.java|org.xbill.DNS.Zone_iterator_Test|iteratorHandlesSameNameDifferentTypes",
+      "body_hash": "350dcb051e615261bcfc309e163ca8115cb31b8a2a1afa96b7e6ea41065a5159",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "error",
+      "message": "java.io.IOException: example.: no data specified",
+      "flaky": false,
+      "initial_state": "error",
+      "selector": [
+        "org.xbill.DNS.Zone_iterator_Test#iteratorHandlesSameNameDifferentTypes()"
+      ],
+      "baseline_states": [
+        "error",
+        "error",
+        "error"
+      ]
+    }
+  ],
+  "parse": {
+    "command": [
+      "java",
+      "-Xmx512m",
+      "/survival-package/adapters/java/SourceInventory.java",
+      "/repo/experiments/regen-policies/results/policy/pools/ktester/102/generated/ktester/round1/dnsjava/test_classes/Zone_iterator_Test.java",
+      "auto"
+    ],
+    "cwd": "/repo/experiments/regen-policies/results/policy/pools/ktester/102/work/checkouts/0",
+    "exit_code": 0,
+    "timeout": false,
+    "seconds": 0.732,
+    "log": "work/validation/ktester/round1/53/inventory.tsv"
+  },
+  "input_sha256": "cbcbbad981581ee47dd2149c97cdbfcffaa5e3e93002f99f6b2a77f00f30f405"
+}

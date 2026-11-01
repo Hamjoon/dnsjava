@@ -1,0 +1,872 @@
+[
+  {
+    "class_name": "Message",
+    "technique": "ZSL",
+    "status": "ok",
+    "attempts": 1,
+    "calls": [
+      {
+        "timestamp": "2026-10-31T00:53:31.727486+00:00",
+        "latency": 35.555,
+        "status": "ok",
+        "http_status": 200,
+        "finish_reason": "stop",
+        "provider": "AkashML",
+        "model_requested": "openai/gpt-oss-120b",
+        "model_reported": "openai/gpt-oss-120b",
+        "request_id": "gen-1793408011-OHy8j85qP7v45dHTvqkU",
+        "usage": {
+          "prompt_tokens": 10948,
+          "completion_tokens": 4654,
+          "total_tokens": 15602,
+          "cost": 0.001198738,
+          "is_byok": false,
+          "prompt_tokens_details": {
+            "cached_tokens": 64,
+            "cache_write_tokens": 0,
+            "audio_tokens": 0,
+            "video_tokens": 0
+          },
+          "cost_details": {
+            "upstream_inference_cost": 0.001198738,
+            "upstream_inference_prompt_cost": 0.00032844,
+            "upstream_inference_completions_cost": 0.000870298
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 1628,
+            "image_tokens": 0,
+            "audio_tokens": 0
+          }
+        },
+        "error_type": null,
+        "prompt_sha256": "ec9da3c4f3bdaea7c842cb8e76a81bdab193d553be59a87d9e44fa1712907c18",
+        "response_sha256": "1a1418eb28054af2713b500c4525774072e98e1e3c29fa47512bcc91b1bd88e0"
+      }
+    ],
+    "extraction": {
+      "msr_detected": true,
+      "csr_v2": true,
+      "class_name": "MessageTest",
+      "package": "org.xbill.DNS",
+      "fqcn": "org.xbill.DNS.MessageTest",
+      "csr_success": null,
+      "selection": "markers",
+      "marker_pair": true,
+      "braces_balanced": true,
+      "html_detected": false
+    },
+    "file": "generated/ouedraogo/round2/sources/Message/ZSL/MessageTest.java"
+  },
+  {
+    "class_name": "Message",
+    "technique": "FSL",
+    "status": "ok",
+    "attempts": 1,
+    "calls": [
+      {
+        "timestamp": "2026-10-31T00:53:31.727901+00:00",
+        "latency": 54.086,
+        "status": "ok",
+        "http_status": 200,
+        "finish_reason": "stop",
+        "provider": "Near AI",
+        "model_requested": "openai/gpt-oss-120b",
+        "model_reported": "openai/gpt-oss-120b",
+        "request_id": "gen-1793408011-XS0L9jCFKpq9guIuKegV",
+        "usage": {
+          "prompt_tokens": 11348,
+          "completion_tokens": 3538,
+          "total_tokens": 14886,
+          "cost": 0.00087042,
+          "is_byok": false,
+          "prompt_tokens_details": {
+            "cached_tokens": 48,
+            "cache_write_tokens": 0,
+            "audio_tokens": 0,
+            "video_tokens": 0
+          },
+          "cost_details": {
+            "upstream_inference_cost": 0.00087042,
+            "upstream_inference_prompt_cost": 0.00033972,
+            "upstream_inference_completions_cost": 0.0005307
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 746,
+            "image_tokens": 0,
+            "audio_tokens": 0
+          }
+        },
+        "error_type": null,
+        "prompt_sha256": "33261232dc9de341078373c9d900f74a3c66a314a5de1d12eb4203c97a7c0942",
+        "response_sha256": "0eb19dc4ac1082eed09b35e5e81ee2fdee26d42614c354cb180545aedd8e4c9f"
+      }
+    ],
+    "extraction": {
+      "msr_detected": true,
+      "csr_v2": true,
+      "class_name": "MessageTest",
+      "package": "org.xbill.DNS",
+      "fqcn": "org.xbill.DNS.MessageTest",
+      "csr_success": null,
+      "selection": "markers",
+      "marker_pair": true,
+      "braces_balanced": true,
+      "html_detected": false
+    },
+    "file": "generated/ouedraogo/round2/sources/Message/FSL/MessageTest.java"
+  },
+  {
+    "class_name": "Message",
+    "technique": "CoT",
+    "status": "ok",
+    "attempts": 1,
+    "calls": [
+      {
+        "timestamp": "2026-10-31T00:54:07.292721+00:00",
+        "latency": 114.146,
+        "status": "ok",
+        "http_status": 200,
+        "finish_reason": "stop",
+        "provider": "Venice",
+        "model_requested": "openai/gpt-oss-120b",
+        "model_reported": "openai/gpt-oss-120b",
+        "request_id": "gen-1793408047-bbjLgO99y3lNIVqBmag4",
+        "usage": {
+          "prompt_tokens": 11052,
+          "completion_tokens": 6029,
+          "total_tokens": 17081,
+          "cost": 0.00123591,
+          "is_byok": false,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "cache_write_tokens": 0,
+            "audio_tokens": 0,
+            "video_tokens": 0
+          },
+          "cost_details": {
+            "upstream_inference_cost": 0.00123591,
+            "upstream_inference_prompt_cost": 0.00033156,
+            "upstream_inference_completions_cost": 0.00090435
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 1487,
+            "image_tokens": 0,
+            "audio_tokens": 0
+          }
+        },
+        "error_type": null,
+        "prompt_sha256": "3efc37a60254fda118b57caf46cf29549c6b3c5477c473e809f62234a42d8f11",
+        "response_sha256": "7190ab390fdf07a29f84f7e88ae1d24493bc349b798f880b76b93ce7e4a74e1e"
+      }
+    ],
+    "extraction": {
+      "msr_detected": true,
+      "csr_v2": true,
+      "class_name": "MessageTest",
+      "package": "org.xbill.DNS",
+      "fqcn": "org.xbill.DNS.MessageTest",
+      "csr_success": null,
+      "selection": "markers",
+      "marker_pair": true,
+      "braces_balanced": true,
+      "html_detected": false
+    },
+    "file": "generated/ouedraogo/round2/sources/Message/CoT/MessageTest.java"
+  },
+  {
+    "class_name": "Message",
+    "technique": "ToT",
+    "status": "ok",
+    "attempts": 1,
+    "calls": [
+      {
+        "timestamp": "2026-10-31T00:54:25.823800+00:00",
+        "latency": 29.896,
+        "status": "ok",
+        "http_status": 200,
+        "finish_reason": "stop",
+        "provider": "AkashML",
+        "model_requested": "openai/gpt-oss-120b",
+        "model_reported": "openai/gpt-oss-120b",
+        "request_id": "gen-1793408065-zexH2mT9Y4soYIFBVFUt",
+        "usage": {
+          "prompt_tokens": 11012,
+          "completion_tokens": 4720,
+          "total_tokens": 15732,
+          "cost": 0.001213,
+          "is_byok": false,
+          "prompt_tokens_details": {
+            "cached_tokens": 64,
+            "cache_write_tokens": 0,
+            "audio_tokens": 0,
+            "video_tokens": 0
+          },
+          "cost_details": {
+            "upstream_inference_cost": 0.001213,
+            "upstream_inference_prompt_cost": 0.00033036,
+            "upstream_inference_completions_cost": 0.00088264
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "image_tokens": 0,
+            "audio_tokens": 0
+          }
+        },
+        "error_type": null,
+        "prompt_sha256": "8b2ecf21bff28f5be2bf5914ab7be68517465e5133d8b282b4be89d9042e21c8",
+        "response_sha256": "3e77a92b5bd8d7ee9834ac0f13653efb09cd820e8fdcc8585ddc56c919a92093"
+      }
+    ],
+    "extraction": {
+      "msr_detected": true,
+      "csr_v2": true,
+      "class_name": "MessageTest",
+      "package": "org.xbill.DNS",
+      "fqcn": "org.xbill.DNS.MessageTest",
+      "csr_success": null,
+      "selection": "markers",
+      "marker_pair": true,
+      "braces_balanced": true,
+      "html_detected": false
+    },
+    "file": "generated/ouedraogo/round2/sources/Message/ToT/MessageTest.java"
+  },
+  {
+    "class_name": "Message",
+    "technique": "GToT",
+    "status": "ok",
+    "attempts": 1,
+    "calls": [
+      {
+        "timestamp": "2026-10-31T00:54:55.728782+00:00",
+        "latency": 67.889,
+        "status": "ok",
+        "http_status": 200,
+        "finish_reason": "stop",
+        "provider": "Near AI",
+        "model_requested": "openai/gpt-oss-120b",
+        "model_reported": "openai/gpt-oss-120b",
+        "request_id": "gen-1793408095-27ZlwGOXnOWkE5IfcaWs",
+        "usage": {
+          "prompt_tokens": 11133,
+          "completion_tokens": 4923,
+          "total_tokens": 16056,
+          "cost": 0.00107172,
+          "is_byok": false,
+          "prompt_tokens_details": {
+            "cached_tokens": 48,
+            "cache_write_tokens": 0,
+            "audio_tokens": 0,
+            "video_tokens": 0
+          },
+          "cost_details": {
+            "upstream_inference_cost": 0.00107172,
+            "upstream_inference_prompt_cost": 0.00033327,
+            "upstream_inference_completions_cost": 0.00073845
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 1026,
+            "image_tokens": 0,
+            "audio_tokens": 0
+          }
+        },
+        "error_type": null,
+        "prompt_sha256": "435787bce41e5f3a6d0b38998947bef5de993cf30de5b7f7032612dbd73bc34b",
+        "response_sha256": "a3d86b9104ff12da836a36ea9de56c89f6d6bfbf6b8e88a705459b2e98287ba0"
+      }
+    ],
+    "extraction": {
+      "msr_detected": true,
+      "csr_v2": true,
+      "class_name": "MessageTest",
+      "package": "org.xbill.DNS",
+      "fqcn": "org.xbill.DNS.MessageTest",
+      "csr_success": null,
+      "selection": "markers",
+      "marker_pair": true,
+      "braces_balanced": true,
+      "html_detected": false
+    },
+    "file": "generated/ouedraogo/round2/sources/Message/GToT/MessageTest.java"
+  },
+  {
+    "class_name": "Zone",
+    "technique": "ZSL",
+    "status": "ok",
+    "attempts": 1,
+    "calls": [
+      {
+        "timestamp": "2026-10-31T00:56:01.449945+00:00",
+        "latency": 72.979,
+        "status": "ok",
+        "http_status": 200,
+        "finish_reason": "stop",
+        "provider": "Venice",
+        "model_requested": "openai/gpt-oss-120b",
+        "model_reported": "openai/gpt-oss-120b",
+        "request_id": "gen-1793408161-Fdj1IFvWNu7yl5A2AkWf",
+        "usage": {
+          "prompt_tokens": 7801,
+          "completion_tokens": 4133,
+          "total_tokens": 11934,
+          "cost": 0.00085398,
+          "is_byok": false,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "cache_write_tokens": 0,
+            "audio_tokens": 0,
+            "video_tokens": 0
+          },
+          "cost_details": {
+            "upstream_inference_cost": 0.00085398,
+            "upstream_inference_prompt_cost": 0.00023403,
+            "upstream_inference_completions_cost": 0.00061995
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 1045,
+            "image_tokens": 0,
+            "audio_tokens": 0
+          }
+        },
+        "error_type": null,
+        "prompt_sha256": "8096d2de7fe259660f2029c21cd57ce2dbea3e427bc88a826a47dd406341e3c7",
+        "response_sha256": "eed674a16f7916aeab0f4e4621b3d4babfb1193e72dcab58617c3bd0173e8c8d"
+      }
+    ],
+    "extraction": {
+      "msr_detected": true,
+      "csr_v2": true,
+      "class_name": "ZoneTest",
+      "package": "org.xbill.DNS",
+      "fqcn": "org.xbill.DNS.ZoneTest",
+      "csr_success": null,
+      "selection": "markers",
+      "marker_pair": true,
+      "braces_balanced": true,
+      "html_detected": false
+    },
+    "file": "generated/ouedraogo/round2/sources/Zone/ZSL/ZoneTest.java"
+  },
+  {
+    "class_name": "Zone",
+    "technique": "FSL",
+    "status": "ok",
+    "attempts": 1,
+    "calls": [
+      {
+        "timestamp": "2026-10-31T00:56:03.624736+00:00",
+        "latency": 68.105,
+        "status": "ok",
+        "http_status": 200,
+        "finish_reason": "stop",
+        "provider": "Near AI",
+        "model_requested": "openai/gpt-oss-120b",
+        "model_reported": "openai/gpt-oss-120b",
+        "request_id": "gen-1793408163-4dLRpbmGyp2N4c2P1qcT",
+        "usage": {
+          "prompt_tokens": 8201,
+          "completion_tokens": 4644,
+          "total_tokens": 12845,
+          "cost": 0.00081999,
+          "is_byok": false,
+          "prompt_tokens_details": {
+            "cached_tokens": 8176,
+            "cache_write_tokens": 0,
+            "audio_tokens": 0,
+            "video_tokens": 0
+          },
+          "cost_details": {
+            "upstream_inference_cost": 0.00081999,
+            "upstream_inference_prompt_cost": 0.00012339,
+            "upstream_inference_completions_cost": 0.0006966
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 1230,
+            "image_tokens": 0,
+            "audio_tokens": 0
+          }
+        },
+        "error_type": null,
+        "prompt_sha256": "61af237a1fd0c69c68f0a84305c2353ff7ce9b2f37e8e12faa2b64ca28c7a051",
+        "response_sha256": "9b50912f2ffcdab519ae01e36578e8253f21b3ecc6dfe9a9db8ff45836be43cd"
+      }
+    ],
+    "extraction": {
+      "msr_detected": true,
+      "csr_v2": true,
+      "class_name": "ZoneTest",
+      "package": "org.xbill.DNS",
+      "fqcn": "org.xbill.DNS.ZoneTest",
+      "csr_success": null,
+      "selection": "markers",
+      "marker_pair": true,
+      "braces_balanced": true,
+      "html_detected": false
+    },
+    "file": "generated/ouedraogo/round2/sources/Zone/FSL/ZoneTest.java"
+  },
+  {
+    "class_name": "Zone",
+    "technique": "CoT",
+    "status": "ok",
+    "attempts": 1,
+    "calls": [
+      {
+        "timestamp": "2026-10-31T00:57:11.741673+00:00",
+        "latency": 131.585,
+        "status": "ok",
+        "http_status": 200,
+        "finish_reason": "stop",
+        "provider": "Near AI",
+        "model_requested": "openai/gpt-oss-120b",
+        "model_reported": "openai/gpt-oss-120b",
+        "request_id": "gen-1793408231-mRIcAJjwTe3EeccA9MYV",
+        "usage": {
+          "prompt_tokens": 7905,
+          "completion_tokens": 3972,
+          "total_tokens": 11877,
+          "cost": 0.00083223,
+          "is_byok": false,
+          "prompt_tokens_details": {
+            "cached_tokens": 48,
+            "cache_write_tokens": 0,
+            "audio_tokens": 0,
+            "video_tokens": 0
+          },
+          "cost_details": {
+            "upstream_inference_cost": 0.00083223,
+            "upstream_inference_prompt_cost": 0.00023643,
+            "upstream_inference_completions_cost": 0.0005958
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 1312,
+            "image_tokens": 0,
+            "audio_tokens": 0
+          }
+        },
+        "error_type": null,
+        "prompt_sha256": "308f7ba3196d0dba4b00e65ccfd505bc34a0267e86e2215fd9478465f9f1c577",
+        "response_sha256": "e1ed51e9ac86a11a2e1b86c8bd35f38b4f463593cc6ea140c6bfa1867605d720"
+      }
+    ],
+    "extraction": {
+      "msr_detected": true,
+      "csr_v2": true,
+      "class_name": "ZoneTest",
+      "package": "org.xbill.DNS",
+      "fqcn": "org.xbill.DNS.ZoneTest",
+      "csr_success": null,
+      "selection": "markers",
+      "marker_pair": true,
+      "braces_balanced": true,
+      "html_detected": false
+    },
+    "file": "generated/ouedraogo/round2/sources/Zone/CoT/ZoneTest.java"
+  },
+  {
+    "class_name": "Zone",
+    "technique": "ToT",
+    "status": "ok",
+    "attempts": 1,
+    "calls": [
+      {
+        "timestamp": "2026-10-31T00:57:14.435004+00:00",
+        "latency": 26.001,
+        "status": "ok",
+        "http_status": 200,
+        "finish_reason": "stop",
+        "provider": "Novita",
+        "model_requested": "openai/gpt-oss-120b",
+        "model_reported": "openai/gpt-oss-120b",
+        "request_id": "gen-1793408234-ViRwsX6pphF6wHdhmBsK",
+        "usage": {
+          "prompt_tokens": 7867,
+          "completion_tokens": 4444,
+          "total_tokens": 12311,
+          "cost": 0.00150435,
+          "is_byok": false,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "cache_write_tokens": 0,
+            "audio_tokens": 0,
+            "video_tokens": 0
+          },
+          "cost_details": {
+            "upstream_inference_cost": 0.00150435,
+            "upstream_inference_prompt_cost": 0.00039335,
+            "upstream_inference_completions_cost": 0.001111
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 931,
+            "image_tokens": 0,
+            "audio_tokens": 0
+          }
+        },
+        "error_type": null,
+        "prompt_sha256": "28975772a64da909f1c2f9a1761232d74466d9d788630d67ffed1bb093d58d0c",
+        "response_sha256": "46562cce92d6d6ed29b8d411533f26cd2d2eacc8390ce60666eddf6b41de970d"
+      }
+    ],
+    "extraction": {
+      "msr_detected": true,
+      "csr_v2": true,
+      "class_name": "ZoneTest",
+      "package": "org.xbill.DNS",
+      "fqcn": "org.xbill.DNS.ZoneTest",
+      "csr_success": null,
+      "selection": "markers",
+      "marker_pair": true,
+      "braces_balanced": true,
+      "html_detected": false
+    },
+    "file": "generated/ouedraogo/round2/sources/Zone/ToT/ZoneTest.java"
+  },
+  {
+    "class_name": "Zone",
+    "technique": "GToT",
+    "status": "ok",
+    "attempts": 1,
+    "calls": [
+      {
+        "timestamp": "2026-10-31T00:57:40.446226+00:00",
+        "latency": 130.605,
+        "status": "ok",
+        "http_status": 200,
+        "finish_reason": "stop",
+        "provider": "Near AI",
+        "model_requested": "openai/gpt-oss-120b",
+        "model_reported": "openai/gpt-oss-120b",
+        "request_id": "gen-1793408260-c1kiF0KPGJvq1xro0FlV",
+        "usage": {
+          "prompt_tokens": 7986,
+          "completion_tokens": 4846,
+          "total_tokens": 12832,
+          "cost": 0.00084696,
+          "is_byok": false,
+          "prompt_tokens_details": {
+            "cached_tokens": 7968,
+            "cache_write_tokens": 0,
+            "audio_tokens": 0,
+            "video_tokens": 0
+          },
+          "cost_details": {
+            "upstream_inference_cost": 0.00084696,
+            "upstream_inference_prompt_cost": 0.00012006,
+            "upstream_inference_completions_cost": 0.0007269
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 1626,
+            "image_tokens": 0,
+            "audio_tokens": 0
+          }
+        },
+        "error_type": null,
+        "prompt_sha256": "f5518cb7e7ee09079fb29030e370a5d740b83354153afcec2272c9f7a7c7112e",
+        "response_sha256": "b46ebd5f1e75658adf654e51682efca4ea6faf74931c193c6808e21f2affab2f"
+      }
+    ],
+    "extraction": {
+      "msr_detected": true,
+      "csr_v2": true,
+      "class_name": "ZoneTest",
+      "package": "org.xbill.DNS.test",
+      "fqcn": "org.xbill.DNS.test.ZoneTest",
+      "csr_success": null,
+      "selection": "markers",
+      "marker_pair": true,
+      "braces_balanced": true,
+      "html_detected": false
+    },
+    "file": "generated/ouedraogo/round2/sources/Zone/GToT/ZoneTest.java"
+  },
+  {
+    "class_name": "TSIG",
+    "technique": "ZSL",
+    "status": "ok",
+    "attempts": 1,
+    "calls": [
+      {
+        "timestamp": "2026-10-31T00:59:23.341995+00:00",
+        "latency": 58.747,
+        "status": "ok",
+        "http_status": 200,
+        "finish_reason": "stop",
+        "provider": "Venice",
+        "model_requested": "openai/gpt-oss-120b",
+        "model_reported": "openai/gpt-oss-120b",
+        "request_id": "gen-1793408363-J8KMeplcVlk5hrG0ZTU7",
+        "usage": {
+          "prompt_tokens": 10618,
+          "completion_tokens": 3178,
+          "total_tokens": 13796,
+          "cost": 0.00079524,
+          "is_byok": false,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "cache_write_tokens": 0,
+            "audio_tokens": 0,
+            "video_tokens": 0
+          },
+          "cost_details": {
+            "upstream_inference_cost": 0.00079524,
+            "upstream_inference_prompt_cost": 0.00031854,
+            "upstream_inference_completions_cost": 0.0004767
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 824,
+            "image_tokens": 0,
+            "audio_tokens": 0
+          }
+        },
+        "error_type": null,
+        "prompt_sha256": "66b8bb837d3d1c8246d52ace4254992a3fabdabd7848186ccb68930435dd8923",
+        "response_sha256": "cb6c4bd6590922fe4eb334a88bf6539bda7607759eec0bd777832534777707d6"
+      }
+    ],
+    "extraction": {
+      "msr_detected": true,
+      "csr_v2": true,
+      "class_name": "TSIGTest",
+      "package": "org.xbill.DNS",
+      "fqcn": "org.xbill.DNS.TSIGTest",
+      "csr_success": null,
+      "selection": "markers",
+      "marker_pair": true,
+      "braces_balanced": true,
+      "html_detected": false
+    },
+    "file": "generated/ouedraogo/round2/sources/TSIG/ZSL/TSIGTest.java"
+  },
+  {
+    "class_name": "TSIG",
+    "technique": "FSL",
+    "status": "ok",
+    "attempts": 1,
+    "calls": [
+      {
+        "timestamp": "2026-10-31T00:59:47.123149+00:00",
+        "latency": 100.075,
+        "status": "ok",
+        "http_status": 200,
+        "finish_reason": "stop",
+        "provider": "Near AI",
+        "model_requested": "openai/gpt-oss-120b",
+        "model_reported": "openai/gpt-oss-120b",
+        "request_id": "gen-1793408391-6zLsujQ0Wi72aqm92LM3",
+        "usage": {
+          "prompt_tokens": 11017,
+          "completion_tokens": 4367,
+          "total_tokens": 15384,
+          "cost": 0.00098484,
+          "is_byok": false,
+          "prompt_tokens_details": {
+            "cached_tokens": 48,
+            "cache_write_tokens": 0,
+            "audio_tokens": 0,
+            "video_tokens": 0
+          },
+          "cost_details": {
+            "upstream_inference_cost": 0.00098484,
+            "upstream_inference_prompt_cost": 0.00032979,
+            "upstream_inference_completions_cost": 0.00065505
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 1381,
+            "image_tokens": 0,
+            "audio_tokens": 0
+          }
+        },
+        "error_type": null,
+        "prompt_sha256": "8dc395e12fd20a79058fe67cda77dc0b7602165dbb04494fd43da9351ba2bbdc",
+        "response_sha256": "2a09cc27c6f371033b255c7171961d7941cc311e82be0513ec256410bf5574ae"
+      }
+    ],
+    "extraction": {
+      "msr_detected": true,
+      "csr_v2": true,
+      "class_name": "TSIGTest",
+      "package": "org.xbill.DNS",
+      "fqcn": "org.xbill.DNS.TSIGTest",
+      "csr_success": null,
+      "selection": "markers",
+      "marker_pair": true,
+      "braces_balanced": true,
+      "html_detected": false
+    },
+    "file": "generated/ouedraogo/round2/sources/TSIG/FSL/TSIGTest.java"
+  },
+  {
+    "class_name": "TSIG",
+    "technique": "CoT",
+    "status": "ok",
+    "attempts": 1,
+    "calls": [
+      {
+        "timestamp": "2026-10-31T01:00:18.158679+00:00",
+        "latency": 93.422,
+        "status": "ok",
+        "http_status": 200,
+        "finish_reason": "stop",
+        "provider": "Near AI",
+        "model_requested": "openai/gpt-oss-120b",
+        "model_reported": "openai/gpt-oss-120b",
+        "request_id": "gen-1793408422-z7bSUh5DVXV4epnxKQ8r",
+        "usage": {
+          "prompt_tokens": 10723,
+          "completion_tokens": 4059,
+          "total_tokens": 14782,
+          "cost": 0.00092982,
+          "is_byok": false,
+          "prompt_tokens_details": {
+            "cached_tokens": 48,
+            "cache_write_tokens": 0,
+            "audio_tokens": 0,
+            "video_tokens": 0
+          },
+          "cost_details": {
+            "upstream_inference_cost": 0.00092982,
+            "upstream_inference_prompt_cost": 0.00032097,
+            "upstream_inference_completions_cost": 0.00060885
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 1223,
+            "image_tokens": 0,
+            "audio_tokens": 0
+          }
+        },
+        "error_type": null,
+        "prompt_sha256": "8cedb8824dd217e89ad4a9c9e7a7d9dbcdbac28db330d7dd5759908ab2c8ae6f",
+        "response_sha256": "3d8785a819313e817bd6505acb7f35c99a66c6b5eefa29a1c84f8baa74e61ef7"
+      }
+    ],
+    "extraction": {
+      "msr_detected": true,
+      "csr_v2": true,
+      "class_name": "TSIGTest",
+      "package": "org.xbill.DNS",
+      "fqcn": "org.xbill.DNS.TSIGTest",
+      "csr_success": null,
+      "selection": "markers",
+      "marker_pair": true,
+      "braces_balanced": true,
+      "html_detected": false
+    },
+    "file": "generated/ouedraogo/round2/sources/TSIG/CoT/TSIGTest.java"
+  },
+  {
+    "class_name": "TSIG",
+    "technique": "ToT",
+    "status": "ok",
+    "attempts": 1,
+    "calls": [
+      {
+        "timestamp": "2026-10-31T01:01:27.211883+00:00",
+        "latency": 7.658,
+        "status": "ok",
+        "http_status": 200,
+        "finish_reason": "stop",
+        "provider": "Crusoe",
+        "model_requested": "openai/gpt-oss-120b",
+        "model_reported": "openai/gpt-oss-120b",
+        "request_id": "gen-1793408491-wABoiVeBrbATMEaASYVj",
+        "usage": {
+          "prompt_tokens": 10681,
+          "completion_tokens": 3239,
+          "total_tokens": 13920,
+          "cost": 0.0013438,
+          "is_byok": false,
+          "prompt_tokens_details": {
+            "cached_tokens": 48,
+            "cache_write_tokens": 0,
+            "audio_tokens": 0,
+            "video_tokens": 0
+          },
+          "cost_details": {
+            "upstream_inference_cost": 0.0013438,
+            "upstream_inference_prompt_cost": 0.00053405,
+            "upstream_inference_completions_cost": 0.00080975
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 1027,
+            "image_tokens": 0,
+            "audio_tokens": 0
+          }
+        },
+        "error_type": null,
+        "prompt_sha256": "84a6bd27e79417ac2c11d9c0bd7166b72ee4675e38ed051932a3225ac332d99f",
+        "response_sha256": "099a8318a85a94b654ee8cc42c9ff1545d32a368a54e8d647f9885852e48ecc3"
+      }
+    ],
+    "extraction": {
+      "msr_detected": true,
+      "csr_v2": true,
+      "class_name": "TSIGTest",
+      "package": "org.xbill.DNS",
+      "fqcn": "org.xbill.DNS.TSIGTest",
+      "csr_success": null,
+      "selection": "markers",
+      "marker_pair": true,
+      "braces_balanced": true,
+      "html_detected": false
+    },
+    "file": "generated/ouedraogo/round2/sources/TSIG/ToT/TSIGTest.java"
+  },
+  {
+    "class_name": "TSIG",
+    "technique": "GToT",
+    "status": "ok",
+    "attempts": 1,
+    "calls": [
+      {
+        "timestamp": "2026-10-31T01:01:34.880065+00:00",
+        "latency": 9.183,
+        "status": "ok",
+        "http_status": 200,
+        "finish_reason": "stop",
+        "provider": "Groq",
+        "model_requested": "openai/gpt-oss-120b",
+        "model_reported": "openai/gpt-oss-120b",
+        "request_id": "gen-1793408498-SjW0TAuhFha8NAQxTrea",
+        "usage": {
+          "prompt_tokens": 10808,
+          "completion_tokens": 3814,
+          "total_tokens": 14622,
+          "cost": 0.0039096,
+          "is_byok": false,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "cache_write_tokens": 0,
+            "audio_tokens": 0,
+            "video_tokens": 0
+          },
+          "cost_details": {
+            "upstream_inference_cost": 0.0039096,
+            "upstream_inference_prompt_cost": 0.0016212,
+            "upstream_inference_completions_cost": 0.0022884
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 1021,
+            "image_tokens": 0,
+            "audio_tokens": 0
+          }
+        },
+        "error_type": null,
+        "prompt_sha256": "807b6da5a63c6d400e016925d23faf6345f52b5fea44fb2b5c1b9965a9d9f453",
+        "response_sha256": "192899f0b2d47bf1085ffdfe9b20f4c7a28dbff51a9588941b9a093cba5abf27"
+      }
+    ],
+    "extraction": {
+      "msr_detected": true,
+      "csr_v2": true,
+      "class_name": "TSIGTest",
+      "package": "org.xbill.DNS",
+      "fqcn": "org.xbill.DNS.TSIGTest",
+      "csr_success": null,
+      "selection": "markers",
+      "marker_pair": true,
+      "braces_balanced": true,
+      "html_detected": false
+    },
+    "file": "generated/ouedraogo/round2/sources/TSIG/GToT/TSIGTest.java"
+  }
+]

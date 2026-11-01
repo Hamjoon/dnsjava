@@ -1,0 +1,778 @@
+{
+  "file": "generated/ouedraogo/round2/sources/Zone/FSL/ZoneTest.java",
+  "compile": {
+    "command": [
+      "javac",
+      "-J-Xmx512m",
+      "-cp",
+      "/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/checkouts/0/target/classes:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/apiguardian-api-1.1.2.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/byte-buddy-1.17.7.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/byte-buddy-agent-1.17.7.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/commons-io-2.16.1.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/commons-lang3-3.14.0.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/hamcrest-2.2.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/junit-jupiter-5.11.4.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/junit-jupiter-api-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/junit-jupiter-engine-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/junit-jupiter-params-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/junit-platform-commons-1.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/junit-platform-engine-1.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/mockito-core-5.24.0.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/mockito-junit-jupiter-5.24.0.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/objenesis-3.3.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/opentest4j-1.3.0.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/junit-vintage-engine-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/junit-4.13.2.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/hamcrest-core-1.3.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/junit-platform-console-standalone-1.9.3.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/projectlombok/lombok/1.18.42/lombok-1.18.42.jar:/root/.m2/repository/net/java/dev/jna/jna/5.18.1/jna-5.18.1.jar:/root/.m2/repository/net/java/dev/jna/jna-platform/5.18.1/jna-platform-5.18.1.jar:/root/.m2/repository/org/bouncycastle/bcprov-jdk18on/1.84/bcprov-jdk18on-1.84.jar:/root/.m2/repository/org/bouncycastle/bcutil-jdk18on/1.84/bcutil-jdk18on-1.84.jar:/root/.m2/repository/org/assertj/assertj-core/3.27.7/assertj-core-3.27.7.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.18.3/byte-buddy-1.18.3.jar:/root/.m2/repository/org/mockito/mockito-core/5.21.0/mockito-core-5.21.0.jar:/root/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/root/.m2/repository/org/mockito/mockito-junit-jupiter/5.21.0/mockito-junit-jupiter-5.21.0.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.18.4/byte-buddy-agent-1.18.4.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.36/slf4j-simple-1.7.36.jar:/root/.m2/repository/org/slf4j/jul-to-slf4j/1.7.36/jul-to-slf4j-1.7.36.jar:/root/.m2/repository/io/vertx/vertx-core/4.5.24/vertx-core-4.5.24.jar:/root/.m2/repository/io/netty/netty-common/4.1.130.Final/netty-common-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-buffer/4.1.130.Final/netty-buffer-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-transport/4.1.130.Final/netty-transport-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-handler/4.1.130.Final/netty-handler-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-transport-native-unix-common/4.1.130.Final/netty-transport-native-unix-common-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-codec/4.1.130.Final/netty-codec-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-handler-proxy/4.1.130.Final/netty-handler-proxy-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-codec-socks/4.1.130.Final/netty-codec-socks-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-codec-http/4.1.130.Final/netty-codec-http-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-codec-http2/4.1.130.Final/netty-codec-http2-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-resolver/4.1.130.Final/netty-resolver-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-resolver-dns/4.1.130.Final/netty-resolver-dns-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-codec-dns/4.1.130.Final/netty-codec-dns-4.1.130.Final.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.16.1/jackson-core-2.16.1.jar:/root/.m2/repository/io/vertx/vertx-junit5/4.5.24/vertx-junit5-4.5.24.jar:/root/.m2/repository/io/vertx/vertx-codegen/4.5.24/vertx-codegen-4.5.24.jar:/root/.m2/repository/commons-io/commons-io/2.21.0/commons-io-2.21.0.jar:/root/.m2/repository/org/openjdk/jcstress/jcstress-core/0.16/jcstress-core-0.16.jar:/root/.m2/repository/net/sf/jopt-simple/jopt-simple/4.6/jopt-simple-4.6.jar",
+      "-sourcepath",
+      "/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/generated/ouedraogo/round2/sources/Zone/FSL",
+      "-d",
+      "/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/validation/ouedraogo/round2/11/test/classes",
+      "/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/generated/ouedraogo/round2/sources/Zone/FSL/ZoneTest.java"
+    ],
+    "cwd": "/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/checkouts/0",
+    "exit_code": 0,
+    "timeout": false,
+    "seconds": 1.276,
+    "log": "work/validation/ouedraogo/round2/11/test/javac.txt"
+  },
+  "runs": [
+    {
+      "command": [
+        "java",
+        "-Xmx1g",
+        "-XX:+UseSerialGC",
+        "-cp",
+        "/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/validation/ouedraogo/round2/11/test/classes:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/checkouts/0/target/classes:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/apiguardian-api-1.1.2.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/byte-buddy-1.17.7.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/byte-buddy-agent-1.17.7.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/commons-io-2.16.1.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/commons-lang3-3.14.0.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/hamcrest-2.2.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/junit-jupiter-5.11.4.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/junit-jupiter-api-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/junit-jupiter-engine-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/junit-jupiter-params-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/junit-platform-commons-1.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/junit-platform-engine-1.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/mockito-core-5.24.0.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/mockito-junit-jupiter-5.24.0.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/objenesis-3.3.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/opentest4j-1.3.0.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/junit-vintage-engine-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/junit-4.13.2.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/hamcrest-core-1.3.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/junit-platform-console-standalone-1.9.3.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/projectlombok/lombok/1.18.42/lombok-1.18.42.jar:/root/.m2/repository/net/java/dev/jna/jna/5.18.1/jna-5.18.1.jar:/root/.m2/repository/net/java/dev/jna/jna-platform/5.18.1/jna-platform-5.18.1.jar:/root/.m2/repository/org/bouncycastle/bcprov-jdk18on/1.84/bcprov-jdk18on-1.84.jar:/root/.m2/repository/org/bouncycastle/bcutil-jdk18on/1.84/bcutil-jdk18on-1.84.jar:/root/.m2/repository/org/assertj/assertj-core/3.27.7/assertj-core-3.27.7.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.18.3/byte-buddy-1.18.3.jar:/root/.m2/repository/org/mockito/mockito-core/5.21.0/mockito-core-5.21.0.jar:/root/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/root/.m2/repository/org/mockito/mockito-junit-jupiter/5.21.0/mockito-junit-jupiter-5.21.0.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.18.4/byte-buddy-agent-1.18.4.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.36/slf4j-simple-1.7.36.jar:/root/.m2/repository/org/slf4j/jul-to-slf4j/1.7.36/jul-to-slf4j-1.7.36.jar:/root/.m2/repository/io/vertx/vertx-core/4.5.24/vertx-core-4.5.24.jar:/root/.m2/repository/io/netty/netty-common/4.1.130.Final/netty-common-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-buffer/4.1.130.Final/netty-buffer-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-transport/4.1.130.Final/netty-transport-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-handler/4.1.130.Final/netty-handler-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-transport-native-unix-common/4.1.130.Final/netty-transport-native-unix-common-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-codec/4.1.130.Final/netty-codec-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-handler-proxy/4.1.130.Final/netty-handler-proxy-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-codec-socks/4.1.130.Final/netty-codec-socks-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-codec-http/4.1.130.Final/netty-codec-http-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-codec-http2/4.1.130.Final/netty-codec-http2-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-resolver/4.1.130.Final/netty-resolver-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-resolver-dns/4.1.130.Final/netty-resolver-dns-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-codec-dns/4.1.130.Final/netty-codec-dns-4.1.130.Final.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.16.1/jackson-core-2.16.1.jar:/root/.m2/repository/io/vertx/vertx-junit5/4.5.24/vertx-junit5-4.5.24.jar:/root/.m2/repository/io/vertx/vertx-codegen/4.5.24/vertx-codegen-4.5.24.jar:/root/.m2/repository/commons-io/commons-io/2.21.0/commons-io-2.21.0.jar:/root/.m2/repository/org/openjdk/jcstress/jcstress-core/0.16/jcstress-core-0.16.jar:/root/.m2/repository/net/sf/jopt-simple/jopt-simple/4.6/jopt-simple-4.6.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/dev/src-test-t/resources:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/dev/src-test-t/suite",
+        "org.junit.platform.console.ConsoleLauncher",
+        "--disable-banner",
+        "--disable-ansi-colors",
+        "--fail-if-no-tests",
+        "--details",
+        "summary",
+        "--select-method",
+        "org.xbill.DNS.ZoneTest#testZoneConstructionAndBasicAccessors()",
+        "--select-method",
+        "org.xbill.DNS.ZoneTest#testConstructorNullName()",
+        "--select-method",
+        "org.xbill.DNS.ZoneTest#testConstructorNullRecordsArray()",
+        "--select-method",
+        "org.xbill.DNS.ZoneTest#testConstructorMissingSOA()",
+        "--select-method",
+        "org.xbill.DNS.ZoneTest#testConstructorMissingNS()",
+        "--select-method",
+        "org.xbill.DNS.ZoneTest#testAddAndFindExactMatch()",
+        "--select-method",
+        "org.xbill.DNS.ZoneTest#testRemoveRecordAndErrorConditions()",
+        "--select-method",
+        "org.xbill.DNS.ZoneTest#testAddRRsetReplacement()",
+        "--select-method",
+        "org.xbill.DNS.ZoneTest#testAddRRsetNull()",
+        "--select-method",
+        "org.xbill.DNS.ZoneTest#testAddRRsetInvalidSOAOwner()",
+        "--select-method",
+        "org.xbill.DNS.ZoneTest#testRemoveRRsetAndInvalidRemovals()",
+        "--select-method",
+        "org.xbill.DNS.ZoneTest#testFindRecordsExactMatchSuccess()",
+        "--select-method",
+        "org.xbill.DNS.ZoneTest#testFindRecordsCNAMEResponse()",
+        "--select-method",
+        "org.xbill.DNS.ZoneTest#testFindRecordsDNAMEResponse()",
+        "--select-method",
+        "org.xbill.DNS.ZoneTest#testFindRecordsDelegation()",
+        "--select-method",
+        "org.xbill.DNS.ZoneTest#testFindRecordsWildcardExpansion()",
+        "--select-method",
+        "org.xbill.DNS.ZoneTest#testFindRecordsAnyQuery()",
+        "--select-method",
+        "org.xbill.DNS.ZoneTest#testFindRecordsNxDomain()",
+        "--select-method",
+        "org.xbill.DNS.ZoneTest#testIteratorOrderAndRemoval()",
+        "--select-method",
+        "org.xbill.DNS.ZoneTest#testAXFRIteratorIncludesTrailingSOA()",
+        "--select-method",
+        "org.xbill.DNS.ZoneTest#testToMasterFileContainsAllRecords()",
+        "--select-method",
+        "org.xbill.DNS.ZoneTest#testAddRecordNull()",
+        "--select-method",
+        "org.xbill.DNS.ZoneTest#testAddRecordInvalidSubdomain()",
+        "--select-method",
+        "org.xbill.DNS.ZoneTest#testAddRecordSOAOwnerMismatch()",
+        "--reports-dir",
+        "/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/validation/ouedraogo/round2/11/test/run1"
+      ],
+      "cwd": "/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/runtime",
+      "exit_code": 1,
+      "timeout": false,
+      "seconds": 0.874,
+      "log": "work/validation/ouedraogo/round2/11/test/run1/console.txt"
+    },
+    {
+      "command": [
+        "java",
+        "-Xmx1g",
+        "-XX:+UseSerialGC",
+        "-cp",
+        "/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/validation/ouedraogo/round2/11/test/classes:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/checkouts/0/target/classes:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/apiguardian-api-1.1.2.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/byte-buddy-1.17.7.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/byte-buddy-agent-1.17.7.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/commons-io-2.16.1.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/commons-lang3-3.14.0.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/hamcrest-2.2.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/junit-jupiter-5.11.4.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/junit-jupiter-api-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/junit-jupiter-engine-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/junit-jupiter-params-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/junit-platform-commons-1.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/junit-platform-engine-1.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/mockito-core-5.24.0.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/mockito-junit-jupiter-5.24.0.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/objenesis-3.3.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/opentest4j-1.3.0.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/junit-vintage-engine-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/junit-4.13.2.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/hamcrest-core-1.3.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/junit-platform-console-standalone-1.9.3.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/projectlombok/lombok/1.18.42/lombok-1.18.42.jar:/root/.m2/repository/net/java/dev/jna/jna/5.18.1/jna-5.18.1.jar:/root/.m2/repository/net/java/dev/jna/jna-platform/5.18.1/jna-platform-5.18.1.jar:/root/.m2/repository/org/bouncycastle/bcprov-jdk18on/1.84/bcprov-jdk18on-1.84.jar:/root/.m2/repository/org/bouncycastle/bcutil-jdk18on/1.84/bcutil-jdk18on-1.84.jar:/root/.m2/repository/org/assertj/assertj-core/3.27.7/assertj-core-3.27.7.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.18.3/byte-buddy-1.18.3.jar:/root/.m2/repository/org/mockito/mockito-core/5.21.0/mockito-core-5.21.0.jar:/root/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/root/.m2/repository/org/mockito/mockito-junit-jupiter/5.21.0/mockito-junit-jupiter-5.21.0.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.18.4/byte-buddy-agent-1.18.4.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.36/slf4j-simple-1.7.36.jar:/root/.m2/repository/org/slf4j/jul-to-slf4j/1.7.36/jul-to-slf4j-1.7.36.jar:/root/.m2/repository/io/vertx/vertx-core/4.5.24/vertx-core-4.5.24.jar:/root/.m2/repository/io/netty/netty-common/4.1.130.Final/netty-common-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-buffer/4.1.130.Final/netty-buffer-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-transport/4.1.130.Final/netty-transport-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-handler/4.1.130.Final/netty-handler-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-transport-native-unix-common/4.1.130.Final/netty-transport-native-unix-common-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-codec/4.1.130.Final/netty-codec-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-handler-proxy/4.1.130.Final/netty-handler-proxy-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-codec-socks/4.1.130.Final/netty-codec-socks-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-codec-http/4.1.130.Final/netty-codec-http-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-codec-http2/4.1.130.Final/netty-codec-http2-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-resolver/4.1.130.Final/netty-resolver-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-resolver-dns/4.1.130.Final/netty-resolver-dns-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-codec-dns/4.1.130.Final/netty-codec-dns-4.1.130.Final.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.16.1/jackson-core-2.16.1.jar:/root/.m2/repository/io/vertx/vertx-junit5/4.5.24/vertx-junit5-4.5.24.jar:/root/.m2/repository/io/vertx/vertx-codegen/4.5.24/vertx-codegen-4.5.24.jar:/root/.m2/repository/commons-io/commons-io/2.21.0/commons-io-2.21.0.jar:/root/.m2/repository/org/openjdk/jcstress/jcstress-core/0.16/jcstress-core-0.16.jar:/root/.m2/repository/net/sf/jopt-simple/jopt-simple/4.6/jopt-simple-4.6.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/dev/src-test-t/resources:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/dev/src-test-t/suite",
+        "org.junit.platform.console.ConsoleLauncher",
+        "--disable-banner",
+        "--disable-ansi-colors",
+        "--fail-if-no-tests",
+        "--details",
+        "summary",
+        "--select-method",
+        "org.xbill.DNS.ZoneTest#testZoneConstructionAndBasicAccessors()",
+        "--select-method",
+        "org.xbill.DNS.ZoneTest#testConstructorNullName()",
+        "--select-method",
+        "org.xbill.DNS.ZoneTest#testConstructorNullRecordsArray()",
+        "--select-method",
+        "org.xbill.DNS.ZoneTest#testConstructorMissingSOA()",
+        "--select-method",
+        "org.xbill.DNS.ZoneTest#testConstructorMissingNS()",
+        "--select-method",
+        "org.xbill.DNS.ZoneTest#testAddAndFindExactMatch()",
+        "--select-method",
+        "org.xbill.DNS.ZoneTest#testRemoveRecordAndErrorConditions()",
+        "--select-method",
+        "org.xbill.DNS.ZoneTest#testAddRRsetReplacement()",
+        "--select-method",
+        "org.xbill.DNS.ZoneTest#testAddRRsetNull()",
+        "--select-method",
+        "org.xbill.DNS.ZoneTest#testAddRRsetInvalidSOAOwner()",
+        "--select-method",
+        "org.xbill.DNS.ZoneTest#testRemoveRRsetAndInvalidRemovals()",
+        "--select-method",
+        "org.xbill.DNS.ZoneTest#testFindRecordsExactMatchSuccess()",
+        "--select-method",
+        "org.xbill.DNS.ZoneTest#testFindRecordsCNAMEResponse()",
+        "--select-method",
+        "org.xbill.DNS.ZoneTest#testFindRecordsDNAMEResponse()",
+        "--select-method",
+        "org.xbill.DNS.ZoneTest#testFindRecordsDelegation()",
+        "--select-method",
+        "org.xbill.DNS.ZoneTest#testFindRecordsWildcardExpansion()",
+        "--select-method",
+        "org.xbill.DNS.ZoneTest#testFindRecordsAnyQuery()",
+        "--select-method",
+        "org.xbill.DNS.ZoneTest#testFindRecordsNxDomain()",
+        "--select-method",
+        "org.xbill.DNS.ZoneTest#testIteratorOrderAndRemoval()",
+        "--select-method",
+        "org.xbill.DNS.ZoneTest#testAXFRIteratorIncludesTrailingSOA()",
+        "--select-method",
+        "org.xbill.DNS.ZoneTest#testToMasterFileContainsAllRecords()",
+        "--select-method",
+        "org.xbill.DNS.ZoneTest#testAddRecordNull()",
+        "--select-method",
+        "org.xbill.DNS.ZoneTest#testAddRecordInvalidSubdomain()",
+        "--select-method",
+        "org.xbill.DNS.ZoneTest#testAddRecordSOAOwnerMismatch()",
+        "--reports-dir",
+        "/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/validation/ouedraogo/round2/11/test/run2"
+      ],
+      "cwd": "/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/runtime",
+      "exit_code": 1,
+      "timeout": false,
+      "seconds": 0.469,
+      "log": "work/validation/ouedraogo/round2/11/test/run2/console.txt"
+    },
+    {
+      "command": [
+        "java",
+        "-Xmx1g",
+        "-XX:+UseSerialGC",
+        "-cp",
+        "/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/validation/ouedraogo/round2/11/test/classes:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/checkouts/0/target/classes:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/apiguardian-api-1.1.2.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/byte-buddy-1.17.7.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/byte-buddy-agent-1.17.7.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/commons-io-2.16.1.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/commons-lang3-3.14.0.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/hamcrest-2.2.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/junit-jupiter-5.11.4.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/junit-jupiter-api-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/junit-jupiter-engine-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/junit-jupiter-params-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/junit-platform-commons-1.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/junit-platform-engine-1.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/mockito-core-5.24.0.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/mockito-junit-jupiter-5.24.0.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/objenesis-3.3.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/opentest4j-1.3.0.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/junit-vintage-engine-5.10.2.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/junit-4.13.2.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/hamcrest-core-1.3.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/libs/junit-platform-console-standalone-1.9.3.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/projectlombok/lombok/1.18.42/lombok-1.18.42.jar:/root/.m2/repository/net/java/dev/jna/jna/5.18.1/jna-5.18.1.jar:/root/.m2/repository/net/java/dev/jna/jna-platform/5.18.1/jna-platform-5.18.1.jar:/root/.m2/repository/org/bouncycastle/bcprov-jdk18on/1.84/bcprov-jdk18on-1.84.jar:/root/.m2/repository/org/bouncycastle/bcutil-jdk18on/1.84/bcutil-jdk18on-1.84.jar:/root/.m2/repository/org/assertj/assertj-core/3.27.7/assertj-core-3.27.7.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.18.3/byte-buddy-1.18.3.jar:/root/.m2/repository/org/mockito/mockito-core/5.21.0/mockito-core-5.21.0.jar:/root/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/root/.m2/repository/org/mockito/mockito-junit-jupiter/5.21.0/mockito-junit-jupiter-5.21.0.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.18.4/byte-buddy-agent-1.18.4.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.36/slf4j-simple-1.7.36.jar:/root/.m2/repository/org/slf4j/jul-to-slf4j/1.7.36/jul-to-slf4j-1.7.36.jar:/root/.m2/repository/io/vertx/vertx-core/4.5.24/vertx-core-4.5.24.jar:/root/.m2/repository/io/netty/netty-common/4.1.130.Final/netty-common-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-buffer/4.1.130.Final/netty-buffer-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-transport/4.1.130.Final/netty-transport-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-handler/4.1.130.Final/netty-handler-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-transport-native-unix-common/4.1.130.Final/netty-transport-native-unix-common-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-codec/4.1.130.Final/netty-codec-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-handler-proxy/4.1.130.Final/netty-handler-proxy-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-codec-socks/4.1.130.Final/netty-codec-socks-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-codec-http/4.1.130.Final/netty-codec-http-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-codec-http2/4.1.130.Final/netty-codec-http2-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-resolver/4.1.130.Final/netty-resolver-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-resolver-dns/4.1.130.Final/netty-resolver-dns-4.1.130.Final.jar:/root/.m2/repository/io/netty/netty-codec-dns/4.1.130.Final/netty-codec-dns-4.1.130.Final.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.16.1/jackson-core-2.16.1.jar:/root/.m2/repository/io/vertx/vertx-junit5/4.5.24/vertx-junit5-4.5.24.jar:/root/.m2/repository/io/vertx/vertx-codegen/4.5.24/vertx-codegen-4.5.24.jar:/root/.m2/repository/commons-io/commons-io/2.21.0/commons-io-2.21.0.jar:/root/.m2/repository/org/openjdk/jcstress/jcstress-core/0.16/jcstress-core-0.16.jar:/root/.m2/repository/net/sf/jopt-simple/jopt-simple/4.6/jopt-simple-4.6.jar:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/dev/src-test-t/resources:/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/dev/src-test-t/suite",
+        "org.junit.platform.console.ConsoleLauncher",
+        "--disable-banner",
+        "--disable-ansi-colors",
+        "--fail-if-no-tests",
+        "--details",
+        "summary",
+        "--select-method",
+        "org.xbill.DNS.ZoneTest#testZoneConstructionAndBasicAccessors()",
+        "--select-method",
+        "org.xbill.DNS.ZoneTest#testConstructorNullName()",
+        "--select-method",
+        "org.xbill.DNS.ZoneTest#testConstructorNullRecordsArray()",
+        "--select-method",
+        "org.xbill.DNS.ZoneTest#testConstructorMissingSOA()",
+        "--select-method",
+        "org.xbill.DNS.ZoneTest#testConstructorMissingNS()",
+        "--select-method",
+        "org.xbill.DNS.ZoneTest#testAddAndFindExactMatch()",
+        "--select-method",
+        "org.xbill.DNS.ZoneTest#testRemoveRecordAndErrorConditions()",
+        "--select-method",
+        "org.xbill.DNS.ZoneTest#testAddRRsetReplacement()",
+        "--select-method",
+        "org.xbill.DNS.ZoneTest#testAddRRsetNull()",
+        "--select-method",
+        "org.xbill.DNS.ZoneTest#testAddRRsetInvalidSOAOwner()",
+        "--select-method",
+        "org.xbill.DNS.ZoneTest#testRemoveRRsetAndInvalidRemovals()",
+        "--select-method",
+        "org.xbill.DNS.ZoneTest#testFindRecordsExactMatchSuccess()",
+        "--select-method",
+        "org.xbill.DNS.ZoneTest#testFindRecordsCNAMEResponse()",
+        "--select-method",
+        "org.xbill.DNS.ZoneTest#testFindRecordsDNAMEResponse()",
+        "--select-method",
+        "org.xbill.DNS.ZoneTest#testFindRecordsDelegation()",
+        "--select-method",
+        "org.xbill.DNS.ZoneTest#testFindRecordsWildcardExpansion()",
+        "--select-method",
+        "org.xbill.DNS.ZoneTest#testFindRecordsAnyQuery()",
+        "--select-method",
+        "org.xbill.DNS.ZoneTest#testFindRecordsNxDomain()",
+        "--select-method",
+        "org.xbill.DNS.ZoneTest#testIteratorOrderAndRemoval()",
+        "--select-method",
+        "org.xbill.DNS.ZoneTest#testAXFRIteratorIncludesTrailingSOA()",
+        "--select-method",
+        "org.xbill.DNS.ZoneTest#testToMasterFileContainsAllRecords()",
+        "--select-method",
+        "org.xbill.DNS.ZoneTest#testAddRecordNull()",
+        "--select-method",
+        "org.xbill.DNS.ZoneTest#testAddRecordInvalidSubdomain()",
+        "--select-method",
+        "org.xbill.DNS.ZoneTest#testAddRecordSOAOwnerMismatch()",
+        "--reports-dir",
+        "/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/validation/ouedraogo/round2/11/test/run3"
+      ],
+      "cwd": "/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/runtime",
+      "exit_code": 1,
+      "timeout": false,
+      "seconds": 0.373,
+      "log": "work/validation/ouedraogo/round2/11/test/run3/console.txt"
+    }
+  ],
+  "methods": [
+    {
+      "file": "generated/ouedraogo/round2/sources/Zone/FSL/ZoneTest.java",
+      "class": "org.xbill.DNS.ZoneTest",
+      "method": "testZoneConstructionAndBasicAccessors",
+      "kind": "plain",
+      "id": "generated/ouedraogo/round2/sources/Zone/FSL/ZoneTest.java|org.xbill.DNS.ZoneTest|testZoneConstructionAndBasicAccessors",
+      "body_hash": "30e5820053da2c8d127977cba36b74f21fd60ea024ae47fe5c86f536ec99dd37",
+      "round": "round2",
+      "technique": "FSL",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.ZoneTest#testZoneConstructionAndBasicAccessors()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ouedraogo/round2/sources/Zone/FSL/ZoneTest.java",
+      "class": "org.xbill.DNS.ZoneTest",
+      "method": "testConstructorNullName",
+      "kind": "plain",
+      "id": "generated/ouedraogo/round2/sources/Zone/FSL/ZoneTest.java|org.xbill.DNS.ZoneTest|testConstructorNullName",
+      "body_hash": "012c04c1fb875c117d873205b89f5736a0cdbacf3603acd677f8dcd2112d2b11",
+      "round": "round2",
+      "technique": "FSL",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.ZoneTest#testConstructorNullName()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ouedraogo/round2/sources/Zone/FSL/ZoneTest.java",
+      "class": "org.xbill.DNS.ZoneTest",
+      "method": "testConstructorNullRecordsArray",
+      "kind": "plain",
+      "id": "generated/ouedraogo/round2/sources/Zone/FSL/ZoneTest.java|org.xbill.DNS.ZoneTest|testConstructorNullRecordsArray",
+      "body_hash": "aae3b6f838aeaa279006c7aece0d6aef929b7e673d5f61a793df31331ba30ef4",
+      "round": "round2",
+      "technique": "FSL",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.ZoneTest#testConstructorNullRecordsArray()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ouedraogo/round2/sources/Zone/FSL/ZoneTest.java",
+      "class": "org.xbill.DNS.ZoneTest",
+      "method": "testConstructorMissingSOA",
+      "kind": "plain",
+      "id": "generated/ouedraogo/round2/sources/Zone/FSL/ZoneTest.java|org.xbill.DNS.ZoneTest|testConstructorMissingSOA",
+      "body_hash": "8f43f80e8eba6d55d7651641921500d0496605030d9c1a5082a20ab37ceed0d5",
+      "round": "round2",
+      "technique": "FSL",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.ZoneTest#testConstructorMissingSOA()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ouedraogo/round2/sources/Zone/FSL/ZoneTest.java",
+      "class": "org.xbill.DNS.ZoneTest",
+      "method": "testConstructorMissingNS",
+      "kind": "plain",
+      "id": "generated/ouedraogo/round2/sources/Zone/FSL/ZoneTest.java|org.xbill.DNS.ZoneTest|testConstructorMissingNS",
+      "body_hash": "8c03a780e9fe7daaee565b30e71044cc8a5a8e64428fd3577cf927cae42de469",
+      "round": "round2",
+      "technique": "FSL",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.ZoneTest#testConstructorMissingNS()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ouedraogo/round2/sources/Zone/FSL/ZoneTest.java",
+      "class": "org.xbill.DNS.ZoneTest",
+      "method": "testAddAndFindExactMatch",
+      "kind": "plain",
+      "id": "generated/ouedraogo/round2/sources/Zone/FSL/ZoneTest.java|org.xbill.DNS.ZoneTest|testAddAndFindExactMatch",
+      "body_hash": "0379ea88030f33ac4698d0156550e603aaedc9c972771a8722af490892a9884f",
+      "round": "round2",
+      "technique": "FSL",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.ZoneTest#testAddAndFindExactMatch()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ouedraogo/round2/sources/Zone/FSL/ZoneTest.java",
+      "class": "org.xbill.DNS.ZoneTest",
+      "method": "testRemoveRecordAndErrorConditions",
+      "kind": "plain",
+      "id": "generated/ouedraogo/round2/sources/Zone/FSL/ZoneTest.java|org.xbill.DNS.ZoneTest|testRemoveRecordAndErrorConditions",
+      "body_hash": "65f939f8f428c2b7127f782ed2641bd062246721a3a082c5a2c9ed1d2994c4c3",
+      "round": "round2",
+      "technique": "FSL",
+      "state": "fail",
+      "message": "java.lang.AssertionError\n\tat org.junit.Assert.fail(Assert.java:87)\n\tat org.junit.Assert.assertTrue(Assert.java:42)\n\tat org.junit.Assert.assertNotNull(Assert.java:713)\n\tat org.junit.Assert.assertNotNull(Assert.java:723)\n\tat org.xbill.DNS.ZoneTest.testRemoveRecordAndErrorConditions(ZoneTest.java:151)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:569)\n\tat org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)\n\tat org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)\n\tat org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)\n\tat org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)\n\tat org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)\n\tat org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)\n\tat org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)\n\tat org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)\n\tat org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)\n\tat org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)\n\tat org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)\n\tat org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)\n\tat org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)\n\tat org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)\n\tat org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)\n\tat org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)\n\tat org.junit.runners.ParentRunner.run(ParentRunner.java:413)\n\tat org.junit.runner.JUnitCore.run(JUnitCore.java:137)\n\tat org.junit.runner.JUnitCore.run(JUnitCore.java:115)\n\tat org.junit.vintage.engine.execution.RunnerExecutor.execute(RunnerExecutor.java:42)\n\tat org.junit.vintage.engine.VintageTestEngine.executeAllChildren(VintageTestEngine.java:80)\n\tat org.junit.vintage.engine.VintageTestEngine.execute(VintageTestEngine.java:72)\n\tat org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:147)\n\tat org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:127)\n\tat org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:90)\n\tat org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:55)\n\tat org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:102)\n\tat org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:54)\n\tat org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)\n\tat org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)\n\tat org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)\n\tat org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:53)\n\tat org.junit.platform.console.tasks.ConsoleTestExecutor.executeTests(ConsoleTestExecutor.java:66)\n\tat org.junit.platform.console.tasks.ConsoleTestExecutor.lambda$execute$0(ConsoleTestExecutor.java:58)\n\tat org.junit.platform.console.tasks.CustomContextClassLoaderExecutor.invoke(CustomContextClassLoaderExecutor.java:33)\n\tat org.junit.platform.console.tasks.ConsoleTestExecutor.execute(ConsoleTestExecutor.java:58)\n\tat org.junit.platform.console.ConsoleLauncher.executeTests(ConsoleLauncher.java:120)\n\tat org.junit.platform.console.ConsoleLauncher.execute(ConsoleLauncher.java:82)\n\tat org.",
+      "flaky": false,
+      "initial_state": "fail",
+      "selector": [
+        "org.xbill.DNS.ZoneTest#testRemoveRecordAndErrorConditions()"
+      ],
+      "baseline_states": [
+        "fail",
+        "fail",
+        "fail"
+      ]
+    },
+    {
+      "file": "generated/ouedraogo/round2/sources/Zone/FSL/ZoneTest.java",
+      "class": "org.xbill.DNS.ZoneTest",
+      "method": "testAddRRsetReplacement",
+      "kind": "plain",
+      "id": "generated/ouedraogo/round2/sources/Zone/FSL/ZoneTest.java|org.xbill.DNS.ZoneTest|testAddRRsetReplacement",
+      "body_hash": "059abdc7623167550defee81aeb4047aca61e85d35d0ecf34fa331e7b1cc3e2a",
+      "round": "round2",
+      "technique": "FSL",
+      "state": "fail",
+      "message": "java.lang.AssertionError: expected:<2> but was:<1>",
+      "flaky": false,
+      "initial_state": "fail",
+      "selector": [
+        "org.xbill.DNS.ZoneTest#testAddRRsetReplacement()"
+      ],
+      "baseline_states": [
+        "fail",
+        "fail",
+        "fail"
+      ]
+    },
+    {
+      "file": "generated/ouedraogo/round2/sources/Zone/FSL/ZoneTest.java",
+      "class": "org.xbill.DNS.ZoneTest",
+      "method": "testAddRRsetNull",
+      "kind": "plain",
+      "id": "generated/ouedraogo/round2/sources/Zone/FSL/ZoneTest.java|org.xbill.DNS.ZoneTest|testAddRRsetNull",
+      "body_hash": "7a7e395aef2aa100729f511753185e373f1981cadad1dc97cf9569d846c6f809",
+      "round": "round2",
+      "technique": "FSL",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.ZoneTest#testAddRRsetNull()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ouedraogo/round2/sources/Zone/FSL/ZoneTest.java",
+      "class": "org.xbill.DNS.ZoneTest",
+      "method": "testAddRRsetInvalidSOAOwner",
+      "kind": "plain",
+      "id": "generated/ouedraogo/round2/sources/Zone/FSL/ZoneTest.java|org.xbill.DNS.ZoneTest|testAddRRsetInvalidSOAOwner",
+      "body_hash": "737aa6ca1ecbdcd414dd304e42c534a8831e6b546bfd77943084a6f53ae3f5d2",
+      "round": "round2",
+      "technique": "FSL",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.ZoneTest#testAddRRsetInvalidSOAOwner()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ouedraogo/round2/sources/Zone/FSL/ZoneTest.java",
+      "class": "org.xbill.DNS.ZoneTest",
+      "method": "testRemoveRRsetAndInvalidRemovals",
+      "kind": "plain",
+      "id": "generated/ouedraogo/round2/sources/Zone/FSL/ZoneTest.java|org.xbill.DNS.ZoneTest|testRemoveRRsetAndInvalidRemovals",
+      "body_hash": "9a8e7947f18cf9bd3a067242fac0ba78cb3c2ba4652fd2cb68ff3d7ad6629f77",
+      "round": "round2",
+      "technique": "FSL",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.ZoneTest#testRemoveRRsetAndInvalidRemovals()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ouedraogo/round2/sources/Zone/FSL/ZoneTest.java",
+      "class": "org.xbill.DNS.ZoneTest",
+      "method": "testFindRecordsExactMatchSuccess",
+      "kind": "plain",
+      "id": "generated/ouedraogo/round2/sources/Zone/FSL/ZoneTest.java|org.xbill.DNS.ZoneTest|testFindRecordsExactMatchSuccess",
+      "body_hash": "91093e5e5b2339e93db5966ba407c77a0f7df481dec3eab75fa633405646b6cb",
+      "round": "round2",
+      "technique": "FSL",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.ZoneTest#testFindRecordsExactMatchSuccess()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ouedraogo/round2/sources/Zone/FSL/ZoneTest.java",
+      "class": "org.xbill.DNS.ZoneTest",
+      "method": "testFindRecordsCNAMEResponse",
+      "kind": "plain",
+      "id": "generated/ouedraogo/round2/sources/Zone/FSL/ZoneTest.java|org.xbill.DNS.ZoneTest|testFindRecordsCNAMEResponse",
+      "body_hash": "010a2b384be113237b70e4e96b2333293df7e887a25de41f22366be647fa1bc3",
+      "round": "round2",
+      "technique": "FSL",
+      "state": "error",
+      "message": "java.lang.ClassCastException: class org.xbill.DNS.EmptyRecord cannot be cast to class org.xbill.DNS.CNAMERecord (org.xbill.DNS.EmptyRecord and org.xbill.DNS.CNAMERecord are in unnamed module of loader 'app')",
+      "flaky": false,
+      "initial_state": "error",
+      "selector": [
+        "org.xbill.DNS.ZoneTest#testFindRecordsCNAMEResponse()"
+      ],
+      "baseline_states": [
+        "error",
+        "error",
+        "error"
+      ]
+    },
+    {
+      "file": "generated/ouedraogo/round2/sources/Zone/FSL/ZoneTest.java",
+      "class": "org.xbill.DNS.ZoneTest",
+      "method": "testFindRecordsDNAMEResponse",
+      "kind": "plain",
+      "id": "generated/ouedraogo/round2/sources/Zone/FSL/ZoneTest.java|org.xbill.DNS.ZoneTest|testFindRecordsDNAMEResponse",
+      "body_hash": "9ff34f8c40fddde287a3ebacffa8177b3d3ac044bb38f4a18b8bb18b6f27fbd0",
+      "round": "round2",
+      "technique": "FSL",
+      "state": "error",
+      "message": "java.lang.ClassCastException: class org.xbill.DNS.EmptyRecord cannot be cast to class org.xbill.DNS.DNAMERecord (org.xbill.DNS.EmptyRecord and org.xbill.DNS.DNAMERecord are in unnamed module of loader 'app')",
+      "flaky": false,
+      "initial_state": "error",
+      "selector": [
+        "org.xbill.DNS.ZoneTest#testFindRecordsDNAMEResponse()"
+      ],
+      "baseline_states": [
+        "error",
+        "error",
+        "error"
+      ]
+    },
+    {
+      "file": "generated/ouedraogo/round2/sources/Zone/FSL/ZoneTest.java",
+      "class": "org.xbill.DNS.ZoneTest",
+      "method": "testFindRecordsDelegation",
+      "kind": "plain",
+      "id": "generated/ouedraogo/round2/sources/Zone/FSL/ZoneTest.java|org.xbill.DNS.ZoneTest|testFindRecordsDelegation",
+      "body_hash": "103a97a6cb963306962df98fb10d4b7aaf0ef0fc02548d690ea9390e415a5a9f",
+      "round": "round2",
+      "technique": "FSL",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.ZoneTest#testFindRecordsDelegation()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ouedraogo/round2/sources/Zone/FSL/ZoneTest.java",
+      "class": "org.xbill.DNS.ZoneTest",
+      "method": "testFindRecordsWildcardExpansion",
+      "kind": "plain",
+      "id": "generated/ouedraogo/round2/sources/Zone/FSL/ZoneTest.java|org.xbill.DNS.ZoneTest|testFindRecordsWildcardExpansion",
+      "body_hash": "6dce3727b394193247eb7b834ec3dd1dce82c54d5bd38601063ed2dc5b261f85",
+      "round": "round2",
+      "technique": "FSL",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.ZoneTest#testFindRecordsWildcardExpansion()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ouedraogo/round2/sources/Zone/FSL/ZoneTest.java",
+      "class": "org.xbill.DNS.ZoneTest",
+      "method": "testFindRecordsAnyQuery",
+      "kind": "plain",
+      "id": "generated/ouedraogo/round2/sources/Zone/FSL/ZoneTest.java|org.xbill.DNS.ZoneTest|testFindRecordsAnyQuery",
+      "body_hash": "32438a1ae5e6647c87b77b3731500e68a0e089ccba658ead9ea7dd81b9bbeae1",
+      "round": "round2",
+      "technique": "FSL",
+      "state": "fail",
+      "message": "java.lang.AssertionError\n\tat org.junit.Assert.fail(Assert.java:87)\n\tat org.junit.Assert.assertTrue(Assert.java:42)\n\tat org.junit.Assert.assertTrue(Assert.java:53)\n\tat org.xbill.DNS.ZoneTest.testFindRecordsAnyQuery(ZoneTest.java:312)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:569)\n\tat org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)\n\tat org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)\n\tat org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)\n\tat org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)\n\tat org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)\n\tat org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)\n\tat org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)\n\tat org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)\n\tat org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)\n\tat org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)\n\tat org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)\n\tat org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)\n\tat org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)\n\tat org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)\n\tat org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)\n\tat org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)\n\tat org.junit.runners.ParentRunner.run(ParentRunner.java:413)\n\tat org.junit.runner.JUnitCore.run(JUnitCore.java:137)\n\tat org.junit.runner.JUnitCore.run(JUnitCore.java:115)\n\tat org.junit.vintage.engine.execution.RunnerExecutor.execute(RunnerExecutor.java:42)\n\tat org.junit.vintage.engine.VintageTestEngine.executeAllChildren(VintageTestEngine.java:80)\n\tat org.junit.vintage.engine.VintageTestEngine.execute(VintageTestEngine.java:72)\n\tat org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:147)\n\tat org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:127)\n\tat org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:90)\n\tat org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:55)\n\tat org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:102)\n\tat org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:54)\n\tat org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)\n\tat org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)\n\tat org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)\n\tat org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:53)\n\tat org.junit.platform.console.tasks.ConsoleTestExecutor.executeTests(ConsoleTestExecutor.java:66)\n\tat org.junit.platform.console.tasks.ConsoleTestExecutor.lambda$execute$0(ConsoleTestExecutor.java:58)\n\tat org.junit.platform.console.tasks.CustomContextClassLoaderExecutor.invoke(CustomContextClassLoaderExecutor.java:33)\n\tat org.junit.platform.console.tasks.ConsoleTestExecutor.execute(ConsoleTestExecutor.java:58)\n\tat org.junit.platform.console.ConsoleLauncher.executeTests(ConsoleLauncher.java:120)\n\tat org.junit.platform.console.ConsoleLauncher.execute(ConsoleLauncher.java:82)\n\tat org.junit.platform.console.ConsoleLauncher.execute(ConsoleLauncher.java",
+      "flaky": false,
+      "initial_state": "fail",
+      "selector": [
+        "org.xbill.DNS.ZoneTest#testFindRecordsAnyQuery()"
+      ],
+      "baseline_states": [
+        "fail",
+        "fail",
+        "fail"
+      ]
+    },
+    {
+      "file": "generated/ouedraogo/round2/sources/Zone/FSL/ZoneTest.java",
+      "class": "org.xbill.DNS.ZoneTest",
+      "method": "testFindRecordsNxDomain",
+      "kind": "plain",
+      "id": "generated/ouedraogo/round2/sources/Zone/FSL/ZoneTest.java|org.xbill.DNS.ZoneTest|testFindRecordsNxDomain",
+      "body_hash": "94f8b6c980c211533a11b5b4ad564b26a125890cdbd281413dededdfc097c221",
+      "round": "round2",
+      "technique": "FSL",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.ZoneTest#testFindRecordsNxDomain()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ouedraogo/round2/sources/Zone/FSL/ZoneTest.java",
+      "class": "org.xbill.DNS.ZoneTest",
+      "method": "testIteratorOrderAndRemoval",
+      "kind": "plain",
+      "id": "generated/ouedraogo/round2/sources/Zone/FSL/ZoneTest.java|org.xbill.DNS.ZoneTest|testIteratorOrderAndRemoval",
+      "body_hash": "b2905444f4b141b55c051f77b836db38d49cb6b10aa533ce0f5d9404ab9bea5d",
+      "round": "round2",
+      "technique": "FSL",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.ZoneTest#testIteratorOrderAndRemoval()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ouedraogo/round2/sources/Zone/FSL/ZoneTest.java",
+      "class": "org.xbill.DNS.ZoneTest",
+      "method": "testAXFRIteratorIncludesTrailingSOA",
+      "kind": "plain",
+      "id": "generated/ouedraogo/round2/sources/Zone/FSL/ZoneTest.java|org.xbill.DNS.ZoneTest|testAXFRIteratorIncludesTrailingSOA",
+      "body_hash": "6e07e54a3fd0c9e4863c08ff4ede6e28140980ca08655af18b252296e7adfef4",
+      "round": "round2",
+      "technique": "FSL",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.ZoneTest#testAXFRIteratorIncludesTrailingSOA()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ouedraogo/round2/sources/Zone/FSL/ZoneTest.java",
+      "class": "org.xbill.DNS.ZoneTest",
+      "method": "testToMasterFileContainsAllRecords",
+      "kind": "plain",
+      "id": "generated/ouedraogo/round2/sources/Zone/FSL/ZoneTest.java|org.xbill.DNS.ZoneTest|testToMasterFileContainsAllRecords",
+      "body_hash": "c06b4eb52ed8f9cf709c23b02b0591ce571660214dd4af7cfd83a9b942bc8320",
+      "round": "round2",
+      "technique": "FSL",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.ZoneTest#testToMasterFileContainsAllRecords()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ouedraogo/round2/sources/Zone/FSL/ZoneTest.java",
+      "class": "org.xbill.DNS.ZoneTest",
+      "method": "testAddRecordNull",
+      "kind": "plain",
+      "id": "generated/ouedraogo/round2/sources/Zone/FSL/ZoneTest.java|org.xbill.DNS.ZoneTest|testAddRecordNull",
+      "body_hash": "a423c368fc703eb8b7e522e390c78ca9f0ad4006b2f30d3d55ae97a3dc0c9f92",
+      "round": "round2",
+      "technique": "FSL",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.ZoneTest#testAddRecordNull()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ouedraogo/round2/sources/Zone/FSL/ZoneTest.java",
+      "class": "org.xbill.DNS.ZoneTest",
+      "method": "testAddRecordInvalidSubdomain",
+      "kind": "plain",
+      "id": "generated/ouedraogo/round2/sources/Zone/FSL/ZoneTest.java|org.xbill.DNS.ZoneTest|testAddRecordInvalidSubdomain",
+      "body_hash": "950ee9f8dcec2d7e7a40b5338c54faeb6b15ada6df38ceae40bc240d7d720296",
+      "round": "round2",
+      "technique": "FSL",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.ZoneTest#testAddRecordInvalidSubdomain()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ouedraogo/round2/sources/Zone/FSL/ZoneTest.java",
+      "class": "org.xbill.DNS.ZoneTest",
+      "method": "testAddRecordSOAOwnerMismatch",
+      "kind": "plain",
+      "id": "generated/ouedraogo/round2/sources/Zone/FSL/ZoneTest.java|org.xbill.DNS.ZoneTest|testAddRecordSOAOwnerMismatch",
+      "body_hash": "937fcf35706908d8ea819618d57e62f4d61726a3025d5f353a2565c2e0851fc8",
+      "round": "round2",
+      "technique": "FSL",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.ZoneTest#testAddRecordSOAOwnerMismatch()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    }
+  ],
+  "parse": {
+    "command": [
+      "java",
+      "-Xmx512m",
+      "/survival-package/adapters/java/SourceInventory.java",
+      "/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/generated/ouedraogo/round2/sources/Zone/FSL/ZoneTest.java",
+      "auto"
+    ],
+    "cwd": "/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/work/checkouts/0",
+    "exit_code": 0,
+    "timeout": false,
+    "seconds": 0.782,
+    "log": "work/validation/ouedraogo/round2/11/inventory.tsv"
+  },
+  "input_sha256": "f3baa514f624b634298b8b2701a031c5c8cfe1ccfba84982fd8ee032ebb40a38"
+}

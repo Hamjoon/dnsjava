@@ -1,0 +1,217 @@
+[
+  {
+    "group": "findRecord - record found in various sections",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "r",
+            "value": "Record{id=1, name=\"example.com.\", type=A}"
+          }
+        ],
+        "expected": true,
+        "description": "The target record is added to the ANSWER section. The loop checks Section.ANSWER first, finds a non\u2011null list containing the record, and returns true immediately."
+      },
+      {
+        "input": [
+          {
+            "parameter": "r",
+            "value": "Record{id=2, name=\"example.org.\", type=MX}"
+          }
+        ],
+        "expected": true,
+        "description": "The ANSWER section is null, the AUTHORITY section contains the target record. The method skips the null ANSWER, evaluates AUTHORITY, finds the record and returns true."
+      },
+      {
+        "input": [
+          {
+            "parameter": "r",
+            "value": "Record{id=3, name=\"example.net.\", type=TXT}"
+          }
+        ],
+        "expected": true,
+        "description": "Both ANSWER and AUTHORITY sections are either null or do not contain the record, but the ADDITIONAL section holds the record. The loop reaches ADDITIONAL, finds the record and returns true."
+      },
+      {
+        "input": [
+          {
+            "parameter": "r",
+            "value": "Record{id=4, name=\"example.edu.\", type=AAAA}"
+          }
+        ],
+        "expected": true,
+        "description": "The ANSWER section contains an empty list, the AUTHORITY section contains a non\u2011null list that does not contain the record, and the ADDITIONAL section contains the record. The method correctly continues past empty/non\u2011matching sections and finally returns true."
+      }
+    ]
+  },
+  {
+    "group": "findRecord - record not found",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "r",
+            "value": "Record{id=5, name=\"missing.com.\", type=SRV}"
+          }
+        ],
+        "expected": false,
+        "description": "All three sections (ANSWER, AUTHORITY, ADDITIONAL) are null. The loop never enters the inner condition and returns false after completing all iterations."
+      },
+      {
+        "input": [
+          {
+            "parameter": "r",
+            "value": "Record{id=6, name=\"absent.org.\", type=NS}"
+          }
+        ],
+        "expected": false,
+        "description": "Each section is non\u2011null but contains lists that do not include the target record. The method checks each list, finds `contains(r)` false each time, and finally returns false."
+      },
+      {
+        "input": [
+          {
+            "parameter": "r",
+            "value": "Record{id=7, name=\"empty.net.\", type=CNAME}"
+          }
+        ],
+        "expected": false,
+        "description": "ANSWER section is an empty list, AUTHORITY section is null, ADDITIONAL section is an empty list. No `contains` check succeeds, so the method returns false."
+      }
+    ]
+  },
+  {
+    "group": "findRecord - record found in multiple sections (early exit)",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "r",
+            "value": "Record{id=10, name=\"multi.com.\", type=A}"
+          }
+        ],
+        "expected": true,
+        "description": "The target record is added to both the ANSWER and AUTHORITY sections. The method should return true after checking the ANSWER section and must not continue to later sections."
+      },
+      {
+        "input": [
+          {
+            "parameter": "r",
+            "value": "Record{id=11, name=\"multi.org.\", type=MX}"
+          }
+        ],
+        "expected": true,
+        "description": "The target record appears in ANSWER, AUTHORITY and ADDITIONAL sections simultaneously. The loop should stop at the first match (ANSWER) and return true."
+      }
+    ]
+  },
+  {
+    "group": "findRecord - null record argument",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "r",
+            "value": null
+          }
+        ],
+        "expected": false,
+        "description": "A null Record is passed. All non\u2011null sections contain regular records, but `contains(null)` never matches, so the method should safely return false without throwing an exception."
+      },
+      {
+        "input": [
+          {
+            "parameter": "r",
+            "value": null
+          }
+        ],
+        "expected": false,
+        "description": "All three sections are null and the argument is null. The method should simply iterate, skip null sections and finally return false."
+      }
+    ]
+  },
+  {
+    "group": "findRecord - sections contain null entries",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "r",
+            "value": "Record{id=12, name=\"nullentry.com.\", type=TXT}"
+          }
+        ],
+        "expected": true,
+        "description": "The ANSWER list contains a `null` element followed by the target record. `List.contains` correctly identifies the record despite the preceding null, and the method returns true."
+      },
+      {
+        "input": [
+          {
+            "parameter": "r",
+            "value": "Record{id=13, name=\"onlynull.com.\", type=AAAA}"
+          }
+        ],
+        "expected": false,
+        "description": "The ANSWER list contains only a `null` element; the target record is not present in any section. The method should return false."
+      }
+    ]
+  },
+  {
+    "group": "findRecord - mixed null and empty sections with record in last section",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "r",
+            "value": "Record{id=14, name=\"last.com.\", type=SRV}"
+          }
+        ],
+        "expected": true,
+        "description": "ANSWER section is null, AUTHORITY section is an empty list, ADDITIONAL section contains the target record. The method must continue past null and empty sections and finally return true."
+      }
+    ]
+  },
+  {
+    "group": "findRecord - sections array null",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "r",
+            "value": "Record{id=100, name=\"test.com.\", type=A}"
+          }
+        ],
+        "expected": "NullPointerException",
+        "description": "The Message instance has its internal `sections` array set to null. Invoking `findRecord` attempts to read `sections[i]` and therefore throws a NullPointerException."
+      }
+    ]
+  },
+  {
+    "group": "findRecord - sections array too small",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "r",
+            "value": "Record{id=101, name=\"tiny.com.\", type=TXT}"
+          }
+        ],
+        "expected": "ArrayIndexOutOfBoundsException",
+        "description": "The `sections` array is created with a length smaller than `Section.ADDITIONAL + 1` (e.g., length 2). The loop iterates up to `Section.ADDITIONAL` and accesses an index beyond the array bounds, causing an ArrayIndexOutOfBoundsException."
+      }
+    ]
+  },
+  {
+    "group": "findRecord - record equals throws exception",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "r",
+            "value": "ExceptionalRecord{throwsOnEquals=true}"
+          }
+        ],
+        "expected": "RuntimeException",
+        "description": "A custom Record implementation overrides `equals(Object)` to deliberately throw a RuntimeException. When `findRecord` calls `sections[i].contains(r)`, the `contains` method invokes `equals`, propagating the RuntimeException."
+      }
+    ]
+  }
+]

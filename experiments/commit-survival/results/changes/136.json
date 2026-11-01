@@ -1,0 +1,12 @@
+{
+  "index": 136,
+  "sha": "30cc9671ab53835c3141a2875c868475ec1594ce",
+  "parent": "36a33012fcb06b57dbbc4b193ce309318de31d5f",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/GPOSRecord.java": []
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/GPOSRecord.java": []
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/GPOSRecord.java b/src/main/java/org/xbill/DNS/GPOSRecord.java\nindex e9fee7cc..3c39dde4 100644\n--- a/src/main/java/org/xbill/DNS/GPOSRecord.java\n+++ b/src/main/java/org/xbill/DNS/GPOSRecord.java\n@@ -11,0 +12,4 @@ import java.io.IOException;\n+ * <p>Latitude/Longitude are implemented as per RFC, without considering <a\n+ * href=\"https://errata.rfc-editor.org/eid541/\">Errata-ID 541</a>. So Longitude comes first, and is\n+ * validated against -90 / +90, and the Latitude comes second, validated as -180 / +180 degrees.\n+ *"
+}

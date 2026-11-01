@@ -1,0 +1,201 @@
+[
+  {
+    "group": "Invalid input \u2013 null RRset",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "rrset",
+            "value": null
+          }
+        ],
+        "expected": "IllegalArgumentException with message \"rrset must not be null\"",
+        "description": "Calling addRRset(null) must reject the call immediately because a null argument is not allowed."
+      }
+    ]
+  },
+  {
+    "group": "SOA specific validation \u2013 owner name mismatch",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "rrset",
+            "value": "RRset mock: type=SOA, name=Name(\"other.example.com.\"), origin=Name(\"example.com.\")"
+          }
+        ],
+        "expected": "IllegalArgumentException with message containing \"SOA owner other.example.com. does not match zone origin example.com.\"",
+        "description": "When the RRset type is SOA, the owner name must be exactly the zone origin. If it differs, the method must throw an IllegalArgumentException."
+      }
+    ]
+  },
+  {
+    "group": "SOA specific validation \u2013 wrong number of records",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "rrset",
+            "value": "RRset mock: type=SOA, name=origin (example.com.), size=2"
+          }
+        ],
+        "expected": "IllegalArgumentException with message containing \"example.com.: exactly 1 SOA must be specified\"",
+        "description": "A SOA RRset must contain exactly one record. If the size is not 1, the method must reject the RRset."
+      }
+    ]
+  },
+  {
+    "group": "Sub\u2011domain validation \u2013 name not under zone origin",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "rrset",
+            "value": "RRset mock: type=A, name=Name(\"other.com.\"), origin=Name(\"example.com.\")"
+          }
+        ],
+        "expected": "IllegalArgumentException with message containing \"name other.com. is absolute and not a subdomain of example.com.\"",
+        "description": "If the RRset name is not a sub\u2011domain of the zone origin, the method must throw an IllegalArgumentException."
+      }
+    ]
+  },
+  {
+    "group": "Successful addition \u2013 non\u2011SOA RRset",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "rrset",
+            "value": "RRset mock: type=A, name=Name(\"www.example.com.\"), size=1"
+          }
+        ],
+        "expected": "RRset is added to the zone without altering the stored SOA record; no exception is thrown.",
+        "description": "A regular (non\u2011SOA) RRset that passes the sub\u2011domain check should be added via addRRsetWithoutLock and leave the zone's soaRecord unchanged."
+      }
+    ]
+  },
+  {
+    "group": "Successful addition \u2013 SOA RRset",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "rrset",
+            "value": "RRset mock: type=SOA, name=origin (example.com.), size=1, firstRecord=SOARecord instance"
+          }
+        ],
+        "expected": "RRset is added and zone.soaRecord is set to the SOARecord contained in the RRset; no exception is thrown.",
+        "description": "A valid SOA RRset (owner equals zone origin and exactly one record) must be added and the zone's internal soaRecord field must be updated to the first record of the RRset."
+      }
+    ]
+  },
+  {
+    "group": "SOA specific validation \u2013 first record not an SOARecord",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "rrset",
+            "value": "RRset mock: type=SOA, name=origin (example.com.), size=1, firstRecord=generic Record instance (type=A)"
+          }
+        ],
+        "expected": "ClassCastException when the method attempts to cast the first record to SOARecord",
+        "description": "Even though the RRset reports type SOA and passes owner and size checks, the contained record is not an SOARecord. The method should throw a ClassCastException when assigning soaRecord."
+      }
+    ]
+  },
+  {
+    "group": "Non\u2011SOA RRset with zero records",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "rrset",
+            "value": "RRset mock: type=A, name=Name(\"www.example.com.\"), size=0"
+          }
+        ],
+        "expected": "RRset is added without exception; zone's soaRecord remains unchanged",
+        "description": "The method does not validate the size for non\u2011SOA RRsets, so an empty RRset should be accepted and stored."
+      }
+    ]
+  },
+  {
+    "group": "Non\u2011SOA RRset whose name equals zone origin",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "rrset",
+            "value": "RRset mock: type=NS, name=origin (example.com.), size=1"
+          }
+        ],
+        "expected": "RRset is added without exception; soaRecord is not modified",
+        "description": "A non\u2011SOA RRset may have the zone origin as its owner. The method should accept it after the sub\u2011domain check."
+      }
+    ]
+  },
+  {
+    "group": "Overwrite existing SOA record with a new valid SOA RRset",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "rrset",
+            "value": "first SOA RRset mock: type=SOA, name=origin (example.com.), size=1, firstRecord=SOARecord(serial=1)"
+          },
+          {
+            "parameter": "rrset",
+            "value": "second SOA RRset mock: type=SOA, name=origin (example.com.), size=1, firstRecord=SOARecord(serial=2)"
+          }
+        ],
+        "expected": "After the second call, zone.getSOA().getSerial() == 2",
+        "description": "Adding a valid SOA RRset updates the internal soaRecord; a subsequent valid SOA addition should replace the previous SOARecord."
+      }
+    ]
+  },
+  {
+    "group": "Sub\u2011domain validation \u2013 case\u2011insensitive name match",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "rrset",
+            "value": "RRset mock: type=A, name=Name(\"WWW.Example.Com.\"), size=1, origin=Name(\"example.com.\")"
+          }
+        ],
+        "expected": "RRset is added without exception; sub\u2011domain check passes regardless of case",
+        "description": "Domain name comparison should be case\u2011insensitive; a name that differs only in case from a sub\u2011domain of the origin must be accepted."
+      }
+    ]
+  },
+  {
+    "group": "Null RRset name \u2013 expect NullPointerException",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "rrset",
+            "value": "RRset mock: getName() returns null, type=Type.A, size=1"
+          }
+        ],
+        "expected": "NullPointerException",
+        "description": "When the RRset's name is null, the method attempts to call name.equals(origin) or name.subdomain(origin) which results in a NullPointerException. The test verifies that the exception is thrown before any lock acquisition."
+      }
+    ]
+  },
+  {
+    "group": "Zone with null origin \u2013 expect NullPointerException",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "rrset",
+            "value": "RRset mock: type=Type.A, name=Name(\"www.example.com.\"), size=1"
+          }
+        ],
+        "expected": "NullPointerException",
+        "description": "If a Zone instance is constructed (or manipulated via reflection) with its origin field set to null, any call to addRRset will trigger a NullPointerException when evaluating name.subdomain(origin) or when checking SOA owner equality. The test ensures the method does not mask this condition."
+      }
+    ]
+  }
+]

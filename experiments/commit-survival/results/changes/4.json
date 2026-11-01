@@ -1,0 +1,16 @@
+{
+  "index": 4,
+  "sha": "6574cc2098a734c2b7f12f608caa279358f8c1dc",
+  "parent": "7b0abdc3084c2b83e36d205d0cccbb78522b2e97",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/Rcode.java": [],
+    "src/main/java/org/xbill/DNS/ZoneMDRecord.java": [],
+    "src/main/java/org/xbill/DNS/lookup/LookupSession.java": []
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/Rcode.java": [],
+    "src/main/java/org/xbill/DNS/ZoneMDRecord.java": [],
+    "src/main/java/org/xbill/DNS/lookup/LookupSession.java": []
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/Rcode.java b/src/main/java/org/xbill/DNS/Rcode.java\nindex 6bd1e078..9f4bec7d 100644\n--- a/src/main/java/org/xbill/DNS/Rcode.java\n+++ b/src/main/java/org/xbill/DNS/Rcode.java\n@@ -32 +32 @@ public final class Rcode {\n-   * @deprecated use {{@link #NOTIMP}}\n+   * @deprecated Use {@link #NOTIMP}.\ndiff --git a/src/main/java/org/xbill/DNS/ZoneMDRecord.java b/src/main/java/org/xbill/DNS/ZoneMDRecord.java\nindex 115bb723..da7b4dbb 100644\n--- a/src/main/java/org/xbill/DNS/ZoneMDRecord.java\n+++ b/src/main/java/org/xbill/DNS/ZoneMDRecord.java\n@@ -143 +143 @@ public class ZoneMDRecord extends Record {\n-   * #getHashAlgorithm()}\n+   * #getHashAlgorithm()}.\ndiff --git a/src/main/java/org/xbill/DNS/lookup/LookupSession.java b/src/main/java/org/xbill/DNS/lookup/LookupSession.java\nindex 2236b15d..05b91428 100644\n--- a/src/main/java/org/xbill/DNS/lookup/LookupSession.java\n+++ b/src/main/java/org/xbill/DNS/lookup/LookupSession.java\n@@ -29,0 +30,2 @@ import org.xbill.DNS.DNAMERecord;\n+import org.xbill.DNS.EDNSOption;\n+import org.xbill.DNS.ExtendedErrorCodeOption;\n@@ -587 +589,3 @@ public class LookupSession {\n-  /** Returns a LookupResult if this response was a non-exceptional empty result, else null. */\n+  /**\n+   * Returns a LookupResult if this response was a non-exceptional empty result, throws otherwise.\n+   */"
+}

@@ -1,0 +1,79 @@
+{
+    "tests": [
+        {
+            "group": "First SOA Addition",
+            "cases": [
+                {
+                    "input": [
+                        {
+                            "parameter": "r",
+                            "value": "SOARecord with name = zone.getOrigin() (e.g., new Name(\"example.com.\")), serial = 2023100101, mname = new Name(\"ns.example.com.\"), rname = new Name(\"hostmaster.example.com.\"), refresh = 3600, retry = 600, expire = 604800, minimum = 86400"
+                        }
+                    ],
+                    "expected": "No exception thrown. Zone.soaRecord is set to the added SOARecord. A new RRset for name example.com. with type SOA exists containing exactly one record (the added SOA).",
+                    "description": "When the zone has no existing SOA, adding a valid SOA record should store it, update the internal soaRecord field, and create an RRset containing only that SOA."
+                }
+            ]
+        },
+        {
+            "group": "Apex NS Record",
+            "cases": [
+                {
+                    "input": [
+                        {
+                            "parameter": "r",
+                            "value": "NSRecord with name = zone.getOrigin() (e.g., new Name(\"example.com.\")), target = new Name(\"ns1.example.com.\")"
+                        }
+                    ],
+                    "expected": "No exception thrown. A new RRset for name example.com. with type NS is created and contains the added NSRecord. Zone.soaRecord (if previously set) remains unchanged.",
+                    "description": "Adding a non‑SOA record whose name equals the zone origin should be allowed; the record is stored in its own RRset and does not affect the SOA handling."
+                }
+            ]
+        },
+        {
+            "group": "Duplicate Record Ignored",
+            "cases": [
+                {
+                    "input": [
+                        {
+                            "parameter": "r",
+                            "value": "A Record with name = new Name(\"dup.example.com.\"), address = 192.0.2.1"
+                        }
+                    ],
+                    "expected": "First call: RRset for dup.example.com./A created with one record. Second call (same record): No exception; RRset still contains exactly one record (duplicate is ignored).",
+                    "description": "Adding the same Record object twice should not create duplicate entries inside the RRset; the RRset size remains unchanged after the second addition."
+                }
+            ]
+        },
+        {
+            "group": "Deep Subdomain Record",
+            "cases": [
+                {
+                    "input": [
+                        {
+                            "parameter": "r",
+                            "value": "A Record with name = new Name(\"host.deep.sub.example.com.\"), address = 198.51.100.42"
+                        }
+                    ],
+                    "expected": "No exception thrown. A new RRset for name host.deep.sub.example.com. with type A is created containing the record. The subdomain check passes because the name is a subdomain of the zone origin (example.com.).",
+                    "description": "Verifies that the method correctly recognises multi‑level subdomains as valid members of the zone."
+                }
+            ]
+        },
+        {
+            "group": "RRset Size Increment",
+            "cases": [
+                {
+                    "input": [
+                        {
+                            "parameter": "r",
+                            "value": "A Record with name = new Name(\"multi.example.com.\"), address = 203.0.113.5"
+                        }
+                    ],
+                    "expected": "First call creates RRset with one record. Second call with a different A record (address = 203.0.113.6) adds to the same RRset, resulting in exactly two records in the RRset. No exception thrown.",
+                    "description": "When an RRset already exists for a name/type, adding another record of the same type should increase the RRset size accordingly."
+                }
+            ]
+        }
+    ]
+}

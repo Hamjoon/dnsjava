@@ -1,0 +1,152 @@
+[
+  {
+    "group": "removeRecord",
+    "cases": [
+      {
+        "input": [],
+        "expected": "IllegalArgumentException: r must not be null",
+        "description": "Passing a null Record should cause the method to reject the call immediately with an IllegalArgumentException."
+      },
+      {
+        "input": [
+          {
+            "parameter": "r",
+            "value": "RecordMock_SOAtype (type=SOA)"
+          }
+        ],
+        "expected": "IllegalArgumentException: Cannot remove SOA record",
+        "description": "When the supplied Record is an SOA record, the method must refuse removal and throw an IllegalArgumentException."
+      },
+      {
+        "input": [
+          {
+            "parameter": "r",
+            "value": "RecordMock_NoRRset (type=A, name=example.com.)"
+          }
+        ],
+        "expected": "no exception, removeRRsetWithoutLock not invoked",
+        "description": "If the zone does not contain an RRset matching the record's name and type, findRRsetWithoutLock returns null and the method should simply return without altering the zone."
+      },
+      {
+        "input": [
+          {
+            "parameter": "r",
+            "value": "RecordMock_NS_Singleton (type=NS, name=example.com.)"
+          }
+        ],
+        "expected": "IllegalArgumentException: Cannot remove all NS",
+        "description": "When trying to delete the only NS record for a name, the method must protect the zone's integrity and throw an IllegalArgumentException."
+      },
+      {
+        "input": [
+          {
+            "parameter": "r",
+            "value": "RecordMock_Multi (type=A, name=example.com.)"
+          }
+        ],
+        "expected": "rrset.deleteRR(r) called, removeRRsetWithoutLock not invoked",
+        "description": "If the matching RRset contains more than one record (or signatures), the method should delete only the supplied Record via rrset.deleteRR and keep the RRset in the zone."
+      },
+      {
+        "input": [
+          {
+            "parameter": "r",
+            "value": "RecordMock_Single_NoNS (type=A, name=example.com.)"
+          }
+        ],
+        "expected": "removeRRsetWithoutLock(name, type) called",
+        "description": "When the RRset contains exactly one record (and no signatures) and it is not the sole NS record, the method should remove the whole RRset (and possibly the name) from the zone."
+      }
+    ]
+  },
+  {
+    "group": "removeRecord_withSignatureOnly",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "r",
+            "value": "RecordMock_A_Single_WithSig (type=A, name=example.com., sigSize=1)"
+          }
+        ],
+        "expected": "rrset.deleteRR(r) called, removeRRsetWithoutLock not invoked",
+        "description": "The RRset contains exactly one data record but also a DNSSEC signature (sigSize > 0). Because size + sigSize > 1, the method must delete only the supplied Record via rrset.deleteRR and must not remove the whole RRset."
+      }
+    ]
+  },
+  {
+    "group": "removeRecord_NS_multipleRecords",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "r",
+            "value": "RecordMock_NS_Multi (type=NS, name=example.com., setSize=3)"
+          }
+        ],
+        "expected": "rrset.deleteRR(r) called, removeRRsetWithoutLock not invoked",
+        "description": "The RRset for NS contains several NS records (size > 1). The method should delete only the supplied NS record and keep the RRset; it must not throw the \"Cannot remove all NS\" exception."
+      }
+    ]
+  },
+  {
+    "group": "removeRecord_NS_singleWithSignature",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "r",
+            "value": "RecordMock_NS_Single_WithSig (type=NS, name=example.com., sigSize=1)"
+          }
+        ],
+        "expected": "rrset.deleteRR(r) called, removeRRsetWithoutLock not invoked",
+        "description": "The RRset has a single NS record but also a signature. Because size + sigSize > 1, the method must treat it like a multi\u2011record set and delete only the NS record, not reject the removal."
+      }
+    ]
+  },
+  {
+    "group": "removeRecord_recordNotInRRset",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "r",
+            "value": "RecordMock_A_NotPresent (type=A, name=example.com.)"
+          }
+        ],
+        "expected": "rrset.deleteRR(r) called (no effect), removeRRsetWithoutLock not invoked",
+        "description": "An RRset for the given name/type exists, but the specific Record instance is not part of that RRset. The method still calls rrset.deleteRR(r); the RRset remains unchanged and no removal of the set occurs."
+      }
+    ]
+  },
+  {
+    "group": "removeRecord_lastRRsetRemovesName",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "r",
+            "value": "RecordMock_TXT_Single (type=TXT, name=orphan.example.com.)"
+          }
+        ],
+        "expected": "removeRRsetWithoutLock(name, type) called, name orphan.example.com. no longer present in zone",
+        "description": "The zone contains exactly one TXT record for the name orphan.example.com. After removal the RRset becomes empty, so the method must remove the RRset and the name entry from the zone."
+      }
+    ]
+  },
+  {
+    "group": "removeRecord_nonNS_singleWithOtherRRsetsPresent",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "r",
+            "value": "RecordMock_A_Single (type=A, name=example.com.)"
+          }
+        ],
+        "expected": "removeRRsetWithoutLock(name, type) called, other RRsets (e.g., NS) remain untouched",
+        "description": "Even though the zone has other RRsets (such as NS) for the same name, removing the sole A record should delete only the A RRset, leaving the remaining RRsets intact."
+      }
+    ]
+  }
+]

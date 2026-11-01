@@ -1,0 +1,21 @@
+{
+  "index": 51,
+  "sha": "19e359c34e87844f8b8bd1d994b30ab1cfe9e6d7",
+  "parent": "036a16f5d9345a22fb8e0327afb4ec6381f0d95d",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/Zone.java": [
+      92,
+      113,
+      179
+    ]
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/Zone.java": [
+      92,
+      93,
+      115,
+      116
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/Zone.java b/src/main/java/org/xbill/DNS/Zone.java\nindex 53658bc8..e6b430ed 100644\n--- a/src/main/java/org/xbill/DNS/Zone.java\n+++ b/src/main/java/org/xbill/DNS/Zone.java\n@@ -92 +92,2 @@ public class Zone implements Serializable, Iterable<RRset> {\n-    fromMasterFile(zone, new Master(input));\n+    this.origin = zone;\n+    fromMasterFile(new Master(input, origin));\n@@ -113 +114,3 @@ public class Zone implements Serializable, Iterable<RRset> {\n-    fromMasterFile(zone, new Master(file));\n+\n+    this.origin = zone;\n+    fromMasterFile(new Master(file, origin));\n@@ -128,0 +132 @@ public class Zone implements Serializable, Iterable<RRset> {\n+\n@@ -131,0 +136 @@ public class Zone implements Serializable, Iterable<RRset> {\n+\n@@ -135,0 +141 @@ public class Zone implements Serializable, Iterable<RRset> {\n+\n@@ -178,2 +184 @@ public class Zone implements Serializable, Iterable<RRset> {\n-  private void fromMasterFile(Name origin, Master m) throws IOException {\n-    this.origin = origin;\n+  private void fromMasterFile(Master m) throws IOException {"
+}

@@ -1,0 +1,95 @@
+{
+  "index": 18,
+  "sha": "3ddc45ce8cdb5c2274e10b7401416f497694e1cf",
+  "parent": "eddd2820fb91154a96fc51ad02ac12726954b02a",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/DNSKEYRecord.java": [],
+    "src/main/java/org/xbill/DNS/dnssec/DnsSecVerifier.java": [
+      106,
+      131,
+      135,
+      142,
+      151,
+      167,
+      171,
+      185,
+      190,
+      199
+    ],
+    "src/main/java/org/xbill/DNS/dnssec/KeyCache.java": [],
+    "src/main/java/org/xbill/DNS/dnssec/NSEC3ValUtils.java": [
+      68
+    ],
+    "src/main/java/org/xbill/DNS/dnssec/ValUtils.java": [],
+    "src/main/java/org/xbill/DNS/dnssec/ValidatingResolver.java": [
+      157
+    ]
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/DNSKEYRecord.java": [],
+    "src/main/java/org/xbill/DNS/dnssec/DnsSecVerifier.java": [
+      46,
+      47,
+      125,
+      126,
+      127,
+      154,
+      156,
+      157,
+      158,
+      162,
+      169,
+      170,
+      172,
+      179,
+      180,
+      181,
+      183,
+      184,
+      185,
+      186,
+      189,
+      193,
+      195,
+      196,
+      197,
+      214,
+      216,
+      217,
+      218,
+      222,
+      226,
+      233,
+      238,
+      240,
+      241,
+      242,
+      243,
+      248,
+      249,
+      251,
+      252,
+      253,
+      254,
+      257,
+      261,
+      263,
+      264,
+      265,
+      270,
+      273,
+      276
+    ],
+    "src/main/java/org/xbill/DNS/dnssec/KeyCache.java": [],
+    "src/main/java/org/xbill/DNS/dnssec/NSEC3ValUtils.java": [
+      70
+    ],
+    "src/main/java/org/xbill/DNS/dnssec/ValUtils.java": [
+      119
+    ],
+    "src/main/java/org/xbill/DNS/dnssec/ValidatingResolver.java": [
+      165
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/DNSKEYRecord.java b/src/main/java/org/xbill/DNS/DNSKEYRecord.java\nindex 438fa1dd..d9ae2b05 100644\n--- a/src/main/java/org/xbill/DNS/DNSKEYRecord.java\n+++ b/src/main/java/org/xbill/DNS/DNSKEYRecord.java\n@@ -26,0 +27,4 @@ public class DNSKEYRecord extends KEYBase {\n+  /**\n+   * {@code DNSKEY} flags as defined in the <a\n+   * href=\"https://www.iana.org/assignments/dnskey-flags/dnskey-flags.xhtml\">IANA registry</a>.\n+   */\ndiff --git a/src/main/java/org/xbill/DNS/dnssec/DnsSecVerifier.java b/src/main/java/org/xbill/DNS/dnssec/DnsSecVerifier.java\nindex a958b3db..5c96fa37 100644\n--- a/src/main/java/org/xbill/DNS/dnssec/DnsSecVerifier.java\n+++ b/src/main/java/org/xbill/DNS/dnssec/DnsSecVerifier.java\n@@ -9,0 +10 @@ import java.util.List;\n+import java.util.Properties;\n@@ -10,0 +12 @@ import lombok.extern.slf4j.Slf4j;\n+import org.xbill.DNS.DClass;\n@@ -30,0 +33,16 @@ final class DnsSecVerifier {\n+  public static final String MAX_VALIDATE_RRSIGS_PROPERTY = \"dnsjava.dnssec.max_validate_rrsigs\";\n+  private int maxValidateRRsigs;\n+\n+  /**\n+   * Initialize the module. The recognized configuration values are:\n+   *\n+   * <ul>\n+   *   <li>{@value #MAX_VALIDATE_RRSIGS_PROPERTY}\n+   * </ul>\n+   *\n+   * @param config The configuration data for this module.\n+   */\n+  public void init(Properties config) {\n+    maxValidateRRsigs = Integer.parseInt(config.getProperty(MAX_VALIDATE_RRSIGS_PROPERTY, \"8\"));\n+  }\n+\n@@ -106 +124,5 @@ final class DnsSecVerifier {\n-            \"Failed to validate RRset {}/{}\", rrset.getName(), Type.string(rrset.getType()), e);\n+            \"Failed to validate RRset <{}/{}/{}>\",\n+            rrset.getName(),\n+            DClass.string(rrset.getDClass()),\n+            Type.string(rrset.getType()),\n+            e);\n@@ -120 +142 @@ final class DnsSecVerifier {\n-   * Verifies an RRset. This routine does not modify the RRset. This RRset is presumed to be\n+   * Verifies an RRset. This routine does not modify the RRset. The RRset is presumed to be\n@@ -126 +148,2 @@ final class DnsSecVerifier {\n-   * @return SecurityStatus.SECURE if the rrest verified positively, SecurityStatus.BOGUS otherwise.\n+   * @return {@link SecurityStatus#SECURE} if the {@link RRset} verified positively, {@link\n+   *     SecurityStatus#BOGUS} otherwise.\n@@ -131 +154,5 @@ final class DnsSecVerifier {\n-      log.info(\"RRset failed to verify due to lack of signatures\");\n+      log.info(\n+          \"RRset <{}/{}/{}> failed to verify due to lack of signatures\",\n+          rrset.getName(),\n+          DClass.string(rrset.getDClass()),\n+          Type.string(rrset.getType()));\n@@ -135 +162 @@ final class DnsSecVerifier {\n-          R.get(\"validate.bogus.missingsig\"));\n+          R.get(\"validate.bogus.missingsig_named\", rrset.getName(), Type.string(rrset.getType())));\n@@ -142 +169,2 @@ final class DnsSecVerifier {\n-            R.get(\"validate.bogus.missingsig\"));\n+            R.get(\n+                \"validate.bogus.missingsig_named\", rrset.getName(), Type.string(rrset.getType())));\n@@ -143,0 +172 @@ final class DnsSecVerifier {\n+    int numVerified = 0;\n@@ -148,0 +178,13 @@ final class DnsSecVerifier {\n+\n+      numVerified++;\n+      if (numVerified > maxValidateRRsigs) {\n+        log.warn(\n+            \"RRset <{}/{}/{}> failed to verify: too many signatures\",\n+            rrset.getName(),\n+            DClass.string(rrset.getDClass()),\n+            Type.string(rrset.getType()));\n+        return new JustifiedSecStatus(\n+            SecurityStatus.BOGUS,\n+            ExtendedErrorCodeOption.DNSSEC_BOGUS,\n+            R.get(\"validate.bogus.rrsigtoomany\", rrset.getName(), Type.string(rrset.getType())));\n+      }\n@@ -151 +193,5 @@ final class DnsSecVerifier {\n-    log.info(\"RRset failed to verify: all signatures were BOGUS\");\n+    log.warn(\n+        \"RRset <{}/{}/{}> failed to verify: all signatures were BOGUS\",\n+        rrset.getName(),\n+        DClass.string(rrset.getDClass()),\n+        Type.string(rrset.getType()));\n@@ -162 +208,2 @@ final class DnsSecVerifier {\n-   * @return SecurityStatus.SECURE if the rrset verified, BOGUS otherwise.\n+   * @return {@link SecurityStatus#SECURE} if the {@link RRset} verified, {@link\n+   *     SecurityStatus#BOGUS} otherwise.\n@@ -167 +214,5 @@ final class DnsSecVerifier {\n-      log.info(\"RRset failed to verify due to lack of signatures\");\n+      log.warn(\n+          \"RRset <{}/{}/{}> failed to verify due to lack of signatures\",\n+          rrset.getName(),\n+          DClass.string(rrset.getDClass()),\n+          Type.string(rrset.getType()));\n@@ -171 +222 @@ final class DnsSecVerifier {\n-          R.get(\"dnskey.no_sigs\", rrset.getName()));\n+          R.get(\"validate.bogus.missingsig_named\", rrset.getName(), Type.string(rrset.getType())));\n@@ -174,0 +226 @@ final class DnsSecVerifier {\n+    int numVerified = 0;\n@@ -180,0 +233 @@ final class DnsSecVerifier {\n+      numVerified++;\n@@ -185 +238,7 @@ final class DnsSecVerifier {\n-        log.error(\"Failed to validate RRset\", e);\n+        log.warn(\n+            \"Failed to validate RRset <{}/{}/{}> with signature {}\",\n+            rrset.getName(),\n+            DClass.string(rrset.getDClass()),\n+            Type.string(rrset.getType()),\n+            sigrec.getFootprint(),\n+            e);\n@@ -187,0 +247,12 @@ final class DnsSecVerifier {\n+\n+      if (numVerified > maxValidateRRsigs) {\n+        log.warn(\n+            \"RRset <{}/{}/{}> failed to verify: too many signatures\",\n+            rrset.getName(),\n+            DClass.string(rrset.getDClass()),\n+            Type.string(rrset.getType()));\n+        return new JustifiedSecStatus(\n+            SecurityStatus.BOGUS,\n+            ExtendedErrorCodeOption.DNSSEC_BOGUS,\n+            R.get(\"validate.bogus.rrsigtoomany\", rrset.getName(), Type.string(rrset.getType())));\n+      }\n@@ -190 +261,5 @@ final class DnsSecVerifier {\n-    log.info(\"RRset failed to verify: all signatures were BOGUS\");\n+    log.warn(\n+        \"RRset <{}/{}/{}> failed to verify: all signatures were BOGUS\",\n+        rrset.getName(),\n+        DClass.string(rrset.getDClass()),\n+        Type.string(rrset.getType()));\n@@ -194,0 +270 @@ final class DnsSecVerifier {\n+      reason = \"dnskey.expired\";\n@@ -196,0 +273 @@ final class DnsSecVerifier {\n+      reason = \"dnskey.not_yet_valid\";\n@@ -199 +276 @@ final class DnsSecVerifier {\n-    return new JustifiedSecStatus(SecurityStatus.BOGUS, edeReason, reason);\n+    return new JustifiedSecStatus(SecurityStatus.BOGUS, edeReason, R.get(reason));\ndiff --git a/src/main/java/org/xbill/DNS/dnssec/KeyCache.java b/src/main/java/org/xbill/DNS/dnssec/KeyCache.java\nindex db1ad9ef..0d8d159b 100644\n--- a/src/main/java/org/xbill/DNS/dnssec/KeyCache.java\n+++ b/src/main/java/org/xbill/DNS/dnssec/KeyCache.java\n@@ -69 +69 @@ final class KeyCache {\n-   *   <dt>dnsjava.dnssec.keycache.max_ttl\n+   *   <dt>{@value #MAX_TTL_CONFIG}\n@@ -71 +71 @@ final class KeyCache {\n-   *   <dt>dnsjava.dnssec.keycache.max_size\n+   *   <dt>{@value #MAX_CACHE_SIZE_CONFIG}\ndiff --git a/src/main/java/org/xbill/DNS/dnssec/NSEC3ValUtils.java b/src/main/java/org/xbill/DNS/dnssec/NSEC3ValUtils.java\nindex 19b01f74..0be0d448 100644\n--- a/src/main/java/org/xbill/DNS/dnssec/NSEC3ValUtils.java\n+++ b/src/main/java/org/xbill/DNS/dnssec/NSEC3ValUtils.java\n@@ -39,0 +40,2 @@ final class NSEC3ValUtils {\n+  public static final String NSEC3_MAX_ITERATIONS_PROPERTY_PREFIX =\n+      \"dnsjava.dnssec.nsec3.iterations\";\n@@ -59 +61 @@ final class NSEC3ValUtils {\n-   *   <li>dnsjava.dnssec.nsec3.iterations.M=N\n+   *   <li>{@value #NSEC3_MAX_ITERATIONS_PROPERTY_PREFIX}.M=N\n@@ -68 +70 @@ final class NSEC3ValUtils {\n-      if (key.startsWith(\"dnsjava.dnssec.nsec3.iterations\")) {\n+      if (key.startsWith(NSEC3_MAX_ITERATIONS_PROPERTY_PREFIX)) {\n@@ -623 +625 @@ final class NSEC3ValUtils {\n-   * @return true if the NSEC3 records prove this case.\n+   * @return {@link SecurityStatus#SECURE} if the NSEC3 records prove this case.\ndiff --git a/src/main/java/org/xbill/DNS/dnssec/ValUtils.java b/src/main/java/org/xbill/DNS/dnssec/ValUtils.java\nindex 086a009c..5dc9fa65 100644\n--- a/src/main/java/org/xbill/DNS/dnssec/ValUtils.java\n+++ b/src/main/java/org/xbill/DNS/dnssec/ValUtils.java\n@@ -92,4 +92,4 @@ final class ValUtils {\n-   *   <li>{@link #DIGEST_PREFERENCE}\n-   *   <li>{@link #DIGEST_HARDEN_DOWNGRADE}\n-   *   <li>{@link #DIGEST_ENABLED}\n-   *   <li>{@link #ALGORITHM_ENABLED}\n+   *   <li>{@value #DIGEST_PREFERENCE}\n+   *   <li>{@value #DIGEST_HARDEN_DOWNGRADE}\n+   *   <li>{@value #DIGEST_ENABLED}\n+   *   <li>{@value #ALGORITHM_ENABLED}\n@@ -118,0 +119 @@ final class ValUtils {\n+    this.verifier.init(config);\n@@ -398,2 +399,2 @@ final class ValUtils {\n-   * Determine by looking at a signed RRset whether or not the RRset name was the result of a\n-   * wildcard expansion. If so, return the name of the generating wildcard.\n+   * Determine by looking at a signed RRset whether the RRset name was the result of a wildcard\n+   * expansion. If so, return the name of the generating wildcard.\ndiff --git a/src/main/java/org/xbill/DNS/dnssec/ValidatingResolver.java b/src/main/java/org/xbill/DNS/dnssec/ValidatingResolver.java\nindex 0597b3bc..b62b9ef5 100644\n--- a/src/main/java/org/xbill/DNS/dnssec/ValidatingResolver.java\n+++ b/src/main/java/org/xbill/DNS/dnssec/ValidatingResolver.java\n@@ -61,0 +62,7 @@ public final class ValidatingResolver implements Resolver {\n+  /**\n+   * Property name from where the trust anchors are loaded.\n+   *\n+   * @since 3.6\n+   */\n+  public static final String TRUST_ANCHOR_FILE_PROPERTY = \"dnsjava.dnssec.trust_anchor_file\";\n+\n@@ -139 +146 @@ public final class ValidatingResolver implements Resolver {\n-   *   <dt>dnsjava.dnssec.trust_anchor_file\n+   *   <dt>{@value #TRUST_ANCHOR_FILE_PROPERTY}\n@@ -147,0 +155 @@ public final class ValidatingResolver implements Resolver {\n+   * @see DnsSecVerifier#init(Properties)\n@@ -157 +165 @@ public final class ValidatingResolver implements Resolver {\n-    String s = config.getProperty(\"dnsjava.dnssec.trust_anchor_file\");\n+    String s = config.getProperty(TRUST_ANCHOR_FILE_PROPERTY);"
+}

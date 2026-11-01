@@ -1,0 +1,229 @@
+[
+  {
+    "group": "Message.removeRecord \u2013 branch coverage",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "record",
+            "value": "Record{id=1, name=\"example.com.\", type=A}"
+          },
+          {
+            "parameter": "section",
+            "value": "Message.ANSWER_SECTION (1)"
+          }
+        ],
+        "expected": "true \u2013 the record is removed from the section, header.decCount(section) is invoked and the method returns true",
+        "description": "Positive path: the target section array element is non\u2011null, contains the supplied Record, and List.remove(Object) succeeds. The method must decrement the corresponding count in the Header and return true."
+      },
+      {
+        "input": [
+          {
+            "parameter": "record",
+            "value": "Record{id=2, name=\"missing.com.\", type=MX}"
+          },
+          {
+            "parameter": "section",
+            "value": "Message.ANSWER_SECTION (1)"
+          }
+        ],
+        "expected": "false \u2013 the section exists but does not contain the record, so List.remove returns false and the method returns false without touching the header",
+        "description": "Negative path \u2013 section array element is non\u2011null but the list does not hold the supplied Record. The removal fails, header.decCount must not be called and the method returns false."
+      },
+      {
+        "input": [
+          {
+            "parameter": "record",
+            "value": "Record{id=3, name=\"any.com.\", type=TXT}"
+          },
+          {
+            "parameter": "section",
+            "value": "Message.ADDITIONAL_SECTION (3)"
+          }
+        ],
+        "expected": "false \u2013 the requested section is null, so the method immediately returns false",
+        "description": "Negative path \u2013 the sections[section] entry itself is null (no list has been created for that section). The method should bypass any removal attempt and return false."
+      },
+      {
+        "input": [
+          {
+            "parameter": "record",
+            "value": "Record{id=4, name=\"outofrange.com.\", type=AAAA}"
+          },
+          {
+            "parameter": "section",
+            "value": "-1"
+          }
+        ],
+        "expected": "ArrayIndexOutOfBoundsException",
+        "description": "Error path \u2013 an invalid section index (negative or greater than the array size) should cause the JVM to throw an ArrayIndexOutOfBoundsException before any logic is executed."
+      },
+      {
+        "input": [
+          {
+            "parameter": "record",
+            "value": "Record{id=5, name=\"outofrange.com.\", type=AAAA}"
+          },
+          {
+            "parameter": "section",
+            "value": "10"
+          }
+        ],
+        "expected": "ArrayIndexOutOfBoundsException",
+        "description": "Error path \u2013 an out\u2011of\u2011range positive index should also result in an ArrayIndexOutOfBoundsException."
+      }
+    ]
+  },
+  {
+    "group": "Message.removeRecord \u2013 empty section list",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "record",
+            "value": "Record{id=6, name=\"empty.com.\", type=A}"
+          },
+          {
+            "parameter": "section",
+            "value": "Message.ANSWER_SECTION (1)"
+          }
+        ],
+        "expected": "false \u2013 the section list exists but is empty, List.remove returns false, header.decCount is not called and the method returns false",
+        "description": "Ensures that an existing (non\u2011null) but empty List does not cause removal to succeed and that the header count remains unchanged."
+      }
+    ]
+  },
+  {
+    "group": "Message.removeRecord \u2013 null record parameter",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "record",
+            "value": "null"
+          },
+          {
+            "parameter": "section",
+            "value": "Message.AUTHORITY_SECTION (2)"
+          }
+        ],
+        "expected": "false \u2013 passing a null Record causes List.remove(null) to return false, header.decCount is not invoked and the method returns false",
+        "description": "Verifies that the method safely handles a null Record argument without throwing an exception."
+      }
+    ]
+  },
+  {
+    "group": "Message.removeRecord \u2013 duplicate records in section",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "record",
+            "value": "Record{id=7, name=\"dup.com.\", type=A}"
+          },
+          {
+            "parameter": "section",
+            "value": "Message.ADDITIONAL_SECTION (3)"
+          }
+        ],
+        "expected": "true \u2013 one of the duplicate records is removed, the list size decreases by one, header.decCount is called exactly once and the method returns true",
+        "description": "Checks that when a section contains two equal Record objects, removeRecord removes only the first occurrence, updates the header count once, and returns true."
+      }
+    ]
+  },
+  {
+    "group": "Message.removeRecord \u2013 removal from QUESTION_SECTION",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "record",
+            "value": "Record{id=8, name=\"question.com.\", type=TXT}"
+          },
+          {
+            "parameter": "section",
+            "value": "Message.QUESTION_SECTION (0)"
+          }
+        ],
+        "expected": "true \u2013 the question record is removed from the QUESTION_SECTION, header.decCount is invoked and the method returns true",
+        "description": "Validates that removeRecord works for the QUESTION_SECTION (index 0), which is less commonly exercised."
+      }
+    ]
+  },
+  {
+    "group": "Message.removeRecord \u2013 header is null leads to NPE",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "record",
+            "value": "Record{id=9, name=\"noheader.com.\", type=MX}"
+          },
+          {
+            "parameter": "section",
+            "value": "Message.ANSWER_SECTION (1)"
+          }
+        ],
+        "expected": "NullPointerException \u2013 after successful List.remove, header.decCount(section) is invoked on a null header, causing NPE",
+        "description": "Ensures that the method propagates a NullPointerException when the Message's header field is null and a removal would otherwise succeed."
+      }
+    ]
+  },
+  {
+    "group": "Message.removeRecord \u2013 sections array is null",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "record",
+            "value": "Record{id=10, name=\"nullsections.com.\", type=A}"
+          },
+          {
+            "parameter": "section",
+            "value": "Message.ANSWER_SECTION (1)"
+          }
+        ],
+        "expected": "NullPointerException",
+        "description": "The internal `sections` array of the Message instance is deliberately set to null. Accessing `sections[section]` triggers a NullPointerException before any null\u2011check or removal logic is executed."
+      }
+    ]
+  },
+  {
+    "group": "Message.removeRecord \u2013 unmodifiable section list",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "record",
+            "value": "Record{id=11, name=\"unmod.com.\", type=TXT}"
+          },
+          {
+            "parameter": "section",
+            "value": "Message.ADDITIONAL_SECTION (3)"
+          }
+        ],
+        "expected": "UnsupportedOperationException",
+        "description": "The target section contains an unmodifiable list (e.g., `Collections.unmodifiableList`). When `removeRecord` attempts `sections[section].remove(r)`, the list throws `UnsupportedOperationException`. The method should not catch it, so the exception propagates."
+      }
+    ]
+  },
+  {
+    "group": "Message.removeRecord \u2013 header.decCount throws exception",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "record",
+            "value": "Record{id=12, name=\"badheader.com.\", type=MX}"
+          },
+          {
+            "parameter": "section",
+            "value": "Message.AUTHORITY_SECTION (2)"
+          }
+        ],
+        "expected": "IllegalArgumentException",
+        "description": "A mock `Header` object is injected whose `decCount(int)` method deliberately throws `IllegalArgumentException`. After a successful `remove` (the record exists in the list), `removeRecord` calls `header.decCount(section)`, which propagates the exception."
+      }
+    ]
+  }
+]

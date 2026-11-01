@@ -1,0 +1,190 @@
+[
+  {
+    "group": "Message.toWire(DNSOutput) - branch coverage",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "message",
+            "value": "Message instance whose header is a mock Header (verifies toWire called) and sections array of length 3 where all entries are null"
+          },
+          {
+            "parameter": "out",
+            "value": "Mock DNSOutput (verifies no write operations beyond header)"
+          }
+        ],
+        "expected": "Header.toWire(out) is invoked exactly once; no Record.toWire calls are made because every section is null; method completes without exception",
+        "description": "All sections are null, exercising the `if (sections[i] == null) continue;` branch for every iteration, confirming that only the header is serialized."
+      },
+      {
+        "input": [
+          {
+            "parameter": "message",
+            "value": "Message instance with a mock Header and sections array of length 2:\n  - sections[0] contains two mock Record objects R0a, R0b\n  - sections[1] contains one mock Record object R1a"
+          },
+          {
+            "parameter": "out",
+            "value": "Mock DNSOutput"
+          }
+        ],
+        "expected": "Header.toWire(out) called once; Compression instance C created once and passed to each Record.toWire call; calls occur in order: R0a.toWire(out,0,C), R0b.toWire(out,0,C), R1a.toWire(out,1,C); total of three Record.toWire invocations; method completes without exception",
+        "description": "Non\u2011null sections contain records, testing the normal path where records are serialized and verifying that the same Compression object is reused across calls."
+      },
+      {
+        "input": [
+          {
+            "parameter": "message",
+            "value": "Message instance with a mock Header and sections array of length 3:\n  - sections[0] = null\n  - sections[1] contains one mock Record R1\n  - sections[2] = null"
+          },
+          {
+            "parameter": "out",
+            "value": "Mock DNSOutput"
+          }
+        ],
+        "expected": "Header.toWire(out) called once; only R1.toWire(out,1,C) invoked; sections[0] and sections[2] are skipped via the null\u2011check branch; method completes without exception",
+        "description": "Mixed null and non\u2011null sections, confirming that the `continue` correctly bypasses null entries while processing existing records."
+      },
+      {
+        "input": [
+          {
+            "parameter": "message",
+            "value": "Message instance with a mock Header and a non\u2011null sections array (any content)"
+          },
+          {
+            "parameter": "out",
+            "value": "null"
+          }
+        ],
+        "expected": "NullPointerException thrown (header.toWire receives null DNSOutput)",
+        "description": "Passing a null DNSOutput verifies that the method does not guard against null and propagates the NPE from Header.toWire."
+      }
+    ]
+  },
+  {
+    "group": "Message.toWire(DNSOutput) - edge cases and error handling",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "message",
+            "value": "Message instance whose `sections` field is **null** and whose header is a mock Header"
+          },
+          {
+            "parameter": "out",
+            "value": "Mock DNSOutput"
+          }
+        ],
+        "expected": "NullPointerException thrown when `header.toWire(out)` tries to access `sections.length` (the method does not guard against a null `sections` array).",
+        "description": "Verify that a Message with a null `sections` array causes an NPE, exercising the implicit null\u2011check before the loop."
+      },
+      {
+        "input": [
+          {
+            "parameter": "message",
+            "value": "Message instance with an **empty** `sections` array (length\u202f=\u202f0) and a mock Header"
+          },
+          {
+            "parameter": "out",
+            "value": "Mock DNSOutput"
+          }
+        ],
+        "expected": "Header.toWire(out) invoked exactly once; the for\u2011loop body is never entered; no Compression object is created; method completes without exception.",
+        "description": "Confirm that when `sections.length` is zero the method only serialises the header and skips all looping logic."
+      },
+      {
+        "input": [
+          {
+            "parameter": "message",
+            "value": "Message instance with `sections` length\u202f=\u202f2 where both entries are **non\u2011null empty lists** (e.g., `new ArrayList<>()`), and a mock Header"
+          },
+          {
+            "parameter": "out",
+            "value": "Mock DNSOutput"
+          }
+        ],
+        "expected": "Header.toWire(out) called once; a Compression instance is created once; no Record.toWire calls because the lists are empty; method finishes without exception.",
+        "description": "Exercise the path where sections are present but contain no records, ensuring the Compression object is still instantiated but not used."
+      },
+      {
+        "input": [
+          {
+            "parameter": "message",
+            "value": "Message instance with `sections` length\u202f=\u202f3:\n  - sections[0] = null\n  - sections[1] = null\n  - sections[2] contains a single mock Record **R2**\n  Header is a mock Header"
+          },
+          {
+            "parameter": "out",
+            "value": "Mock DNSOutput"
+          }
+        ],
+        "expected": "Header.toWire(out) called once; Compression created once; exactly one Record.toWire call: R2.toWire(out, 2, CompressionInstance); method completes normally.",
+        "description": "Validate that the correct section index (2) is passed to Record.toWire when the record resides in the third section."
+      },
+      {
+        "input": [
+          {
+            "parameter": "message",
+            "value": "Message instance with `sections` length\u202f=\u202f2 where sections[0] contains a mock Record **BadRec** whose `toWire` method throws a RuntimeException (e.g., new IllegalStateException(\"boom\")), and a mock Header"
+          },
+          {
+            "parameter": "out",
+            "value": "Mock DNSOutput"
+          }
+        ],
+        "expected": "Header.toWire(out) invoked once; Compression created; BadRec.toWire(out, 0, CompressionInstance) invoked and throws IllegalStateException; the exception propagates out of `Message.toWire` unchanged.",
+        "description": "Ensure that unchecked exceptions thrown by a Record during serialisation are not caught by `Message.toWire` and are allowed to bubble up."
+      }
+    ]
+  },
+  {
+    "group": "Message.toWire(DNSOutput) - header null handling",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "message",
+            "value": "Message instance with header == null and a non\u2011null empty sections array (e.g., new List[1] { new ArrayList<>() })"
+          },
+          {
+            "parameter": "out",
+            "value": "Mock DNSOutput (no behavior needed)"
+          }
+        ],
+        "expected": "NullPointerException thrown when invoking header.toWire(out)",
+        "description": "The Message has no Header; the method should attempt to call header.toWire and consequently throw an NPE."
+      },
+      {
+        "input": [
+          {
+            "parameter": "message",
+            "value": "Message instance with a mock Header whose toWire(DNSOutput) method throws IllegalStateException(\"header fail\") and a non\u2011null sections array (any size)"
+          },
+          {
+            "parameter": "out",
+            "value": "Mock DNSOutput"
+          }
+        ],
+        "expected": "IllegalStateException with message \"header fail\" propagates out of Message.toWire",
+        "description": "Verifies that unchecked exceptions thrown by Header.toWire are not caught by Message.toWire and are re\u2011thrown to the caller."
+      }
+    ]
+  },
+  {
+    "group": "Message.toWire(DNSOutput) - null Record element in section list",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "message",
+            "value": "Message instance with a mock Header, sections array of length 1 where sections[0] = new ArrayList<>(Arrays.asList((Record) null)) (i.e., list containing a single null Record)"
+          },
+          {
+            "parameter": "out",
+            "value": "Mock DNSOutput"
+          }
+        ],
+        "expected": "NullPointerException thrown when the loop attempts to invoke rec.toWire on a null Record",
+        "description": "Ensures that a null element inside a non\u2011null section list triggers an NPE, confirming that the method does not guard against null Records."
+      }
+    ]
+  }
+]

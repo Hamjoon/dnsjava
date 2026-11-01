@@ -1,0 +1,245 @@
+[
+  {
+    "group": "test_verify_nullMessage",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "m",
+            "value": "null"
+          },
+          {
+            "parameter": "messageBytes",
+            "value": "new byte[]{0x00}"
+          },
+          {
+            "parameter": "requestTSIG",
+            "value": "validTSIGRecord()"
+          },
+          {
+            "parameter": "fullSignature",
+            "value": "false"
+          }
+        ],
+        "expected": "NullPointerException",
+        "description": "Calling verify with a null Message should throw NullPointerException."
+      }
+    ]
+  },
+  {
+    "group": "test_verify_nullMessageBytes",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "m",
+            "value": "validMessage()"
+          },
+          {
+            "parameter": "messageBytes",
+            "value": "null"
+          },
+          {
+            "parameter": "requestTSIG",
+            "value": "validTSIGRecord()"
+          },
+          {
+            "parameter": "fullSignature",
+            "value": "false"
+          }
+        ],
+        "expected": "NullPointerException",
+        "description": "Calling verify with null messageBytes should throw NullPointerException."
+      }
+    ]
+  },
+  {
+    "group": "test_verify_nullTSIGRecord",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "m",
+            "value": "validMessage()"
+          },
+          {
+            "parameter": "messageBytes",
+            "value": "new byte[]{0x01,0x02}"
+          },
+          {
+            "parameter": "requestTSIG",
+            "value": "null"
+          },
+          {
+            "parameter": "fullSignature",
+            "value": "true"
+          }
+        ],
+        "expected": "NullPointerException",
+        "description": "Calling verify with a null TSIGRecord should throw NullPointerException."
+      }
+    ]
+  },
+  {
+    "group": "test_verify_nullAlgorithmName",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "m",
+            "value": "validMessage()"
+          },
+          {
+            "parameter": "messageBytes",
+            "value": "new byte[]{0x0A,0x0B}"
+          },
+          {
+            "parameter": "requestTSIG",
+            "value": "tsigRecordWithAlgorithm(null)"
+          },
+          {
+            "parameter": "fullSignature",
+            "value": "false"
+          }
+        ],
+        "expected": "IllegalArgumentException",
+        "description": "TSIGRecord with a null algorithm name should cause IllegalArgumentException."
+      }
+    ]
+  },
+  {
+    "group": "test_verify_unsupportedAlgorithm",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "m",
+            "value": "validMessage()"
+          },
+          {
+            "parameter": "messageBytes",
+            "value": "new byte[]{0x0C,0x0D}"
+          },
+          {
+            "parameter": "requestTSIG",
+            "value": "tsigRecordWithAlgorithm(\"UNKNOWN-ALG\")"
+          },
+          {
+            "parameter": "fullSignature",
+            "value": "true"
+          }
+        ],
+        "expected": "IllegalArgumentException",
+        "description": "Using an algorithm name that is not mapped to a known TSIG algorithm should throw IllegalArgumentException."
+      }
+    ]
+  },
+  {
+    "group": "test_verify_nullKey",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "m",
+            "value": "validMessage()"
+          },
+          {
+            "parameter": "messageBytes",
+            "value": "new byte[]{0x11,0x22}"
+          },
+          {
+            "parameter": "requestTSIG",
+            "value": "tsigRecordWithKey(null)"
+          },
+          {
+            "parameter": "fullSignature",
+            "value": "false"
+          }
+        ],
+        "expected": "IllegalArgumentException",
+        "description": "TSIGRecord with a null secret key should cause IllegalArgumentException."
+      }
+    ]
+  },
+  {
+    "group": "test_verify_invalidKeyLength",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "m",
+            "value": "validMessage()"
+          },
+          {
+            "parameter": "messageBytes",
+            "value": "new byte[]{0x33,0x44}"
+          },
+          {
+            "parameter": "requestTSIG",
+            "value": "tsigRecordWithKey(new byte[]{})"
+          },
+          {
+            "parameter": "fullSignature",
+            "value": "true"
+          }
+        ],
+        "expected": "IllegalArgumentException",
+        "description": "Providing an empty key (invalid length for HMAC) should raise IllegalArgumentException when the SecretKeySpec is created."
+      }
+    ]
+  },
+  {
+    "group": "test_verify_macAlgorithmNotAvailable",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "m",
+            "value": "validMessage()"
+          },
+          {
+            "parameter": "messageBytes",
+            "value": "new byte[]{0x55,0x66}"
+          },
+          {
+            "parameter": "requestTSIG",
+            "value": "tsigRecordWithAlgorithm(\"HMAC-UNSUPPORTED\")"
+          },
+          {
+            "parameter": "fullSignature",
+            "value": "false"
+          }
+        ],
+        "expected": "GeneralSecurityException",
+        "description": "When the algorithm string maps to a MAC algorithm that the JCE provider does not support, Mac.getInstance throws NoSuchAlgorithmException which is wrapped as GeneralSecurityException."
+      }
+    ]
+  },
+  {
+    "group": "test_verify_macNotInitialized",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "m",
+            "value": "validMessage()"
+          },
+          {
+            "parameter": "messageBytes",
+            "value": "new byte[]{0x77,0x88}"
+          },
+          {
+            "parameter": "requestTSIG",
+            "value": "tsigRecordWithAlgorithm(\"HMAC-MD5.SIG-ALG.REG.INT.\")"
+          },
+          {
+            "parameter": "fullSignature",
+            "value": "true"
+          }
+        ],
+        "expected": "IllegalStateException",
+        "description": "If the MAC instance fails to be initialized (e.g., due to an invalid key) and verify attempts to call doFinal, an IllegalStateException is thrown."
+      }
+    ]
+  }
+]

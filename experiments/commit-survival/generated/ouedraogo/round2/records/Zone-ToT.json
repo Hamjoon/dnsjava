@@ -1,0 +1,58 @@
+{
+  "class_name": "Zone",
+  "technique": "ToT",
+  "status": "ok",
+  "attempts": 1,
+  "calls": [
+    {
+      "timestamp": "2026-10-29T16:57:18.600923+00:00",
+      "latency": 36.647,
+      "status": "ok",
+      "http_status": 200,
+      "finish_reason": "stop",
+      "provider": "Sail Research",
+      "model_requested": "openai/gpt-oss-120b",
+      "model_reported": "openai/gpt-oss-120b",
+      "request_id": "gen-1793293038-CT2VEmWbtkr6dqyBK8zz",
+      "usage": {
+        "prompt_tokens": 5554,
+        "completion_tokens": 4640,
+        "total_tokens": 10194,
+        "cost": 0.00202265,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 5553,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00202265,
+          "upstream_inference_prompt_cost": 0.00016665,
+          "upstream_inference_completions_cost": 0.001856
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1026,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "error_type": null,
+      "prompt_sha256": "64ee49e79b061392aebf32f6e25e928665b6d53bec62b4882dd015933ebdf6d5",
+      "response_sha256": "60d4a9245dd2eb049e8f7181e830f1aa1ab7f6522e1fa0ba69c33a85359d959a"
+    }
+  ],
+  "extraction": {
+    "msr_detected": true,
+    "csr_v2": true,
+    "class_name": "ZoneTest",
+    "package": "org.xbill.DNS",
+    "fqcn": "org.xbill.DNS.ZoneTest",
+    "csr_success": null,
+    "selection": "markers",
+    "marker_pair": true,
+    "braces_balanced": true,
+    "html_detected": false
+  },
+  "file": "generated/ouedraogo/round2/sources/Zone/ToT/ZoneTest.java"
+}

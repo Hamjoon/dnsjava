@@ -1,0 +1,41 @@
+{
+  "index": 102,
+  "sha": "ca25720c96f1c0ab07a63254ccba471d9785f781",
+  "status": "evaluated",
+  "imported": true,
+  "coverage_version": 3,
+  "coverage_status": "missing",
+  "coverage_reason": "imported evidence has no per-test coverage",
+  "methods": [
+    {
+      "file": "results/policy/pools/ktester/102/generated/ktester/round1/dnsjava/test_classes/TSIG_apply_4_Test.java",
+      "class": "org.xbill.DNS.TSIG_apply_4_Test",
+      "method": "apply_nullMessage_throwsNullPointerException",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/TSIG_apply_4_Test.java|org.xbill.DNS.TSIG_apply_4_Test|apply_nullMessage_throwsNullPointerException",
+      "body_hash": "7f9fc09ea87c4000ff067e15584c2f1fefe940870c8cd8d140dd891a8d8ddd8e",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.TSIG_apply_4_Test#apply_nullMessage_throwsNullPointerException()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "9b937f45d25d277c5c8a8f9ef270cb179606dc70f7aadd0a7198a00b6bf11498",
+      "execution_hash": "0be76c5d97d72a29d823fa846c04812496f7e8c9127ee69ecfb765351836bf0d",
+      "source_root": "results/policy/pools/ktester/102/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0eba5ebdf54a98acb02c5c88591710c7979beb029bdf950c6216ab762f716eb8",
+      "resource_tree_hash": "f88843586247131f4223f9c954f3db1375b4c7cca60c75bc0c1106bc258e5b2a",
+      "unit": "org.xbill.DNS.TSIG#apply(Message, int, TSIGRecord, boolean)",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/TSIG_apply_4_Test.java|org.xbill.DNS.TSIG_apply_4_Test|apply_nullMessage_throwsNullPointerException",
+      "resource_root": "results/policy/pools/ktester/102/dev/src-test-t"
+    }
+  ]
+}

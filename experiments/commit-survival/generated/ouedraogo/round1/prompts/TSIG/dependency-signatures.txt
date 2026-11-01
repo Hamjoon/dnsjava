@@ -1,0 +1,137 @@
+// public API of org.xbill.DNS.Name
+public class Name implements Comparable<Name>,Serializable {
+  public static final Name root;
+  public static final Name empty;
+  public Name(String s, Name origin) throws TextParseException;
+  public Name(String s) throws TextParseException;
+  public static Name fromString(String s, Name origin) throws TextParseException;
+  public static Name fromString(String s) throws TextParseException;
+  public static Name fromConstantString(String s);
+  public Name(DNSInput in) throws WireParseException;
+  public Name(byte[] b) throws IOException;
+  public Name(Name src, int n);
+  public static Name concatenate(Name prefix, Name suffix) throws NameTooLongException;
+  public Name relativize(Name origin);
+  public Name wild(int n);
+  public Name canonicalize();
+  public Name fromDNAME(DNAMERecord dname) throws NameTooLongException;
+  public boolean isWild();
+  public boolean isAbsolute();
+  public short length();
+  public int labels();
+  public boolean subdomain(Name domain);
+  public String toString(boolean omitFinalDot);
+  public String toString();
+  public byte[] getLabel(int n);
+  public String getLabelString(int n);
+  public void toWire(DNSOutput out, Compression c);
+  public byte[] toWire();
+  public void toWireCanonical(DNSOutput out);
+  public byte[] toWireCanonical();
+  public void toWire(DNSOutput out, Compression c, boolean canonical);
+  public boolean equals(Object arg);
+  public int hashCode();
+  public int compareTo(Name arg);
+}
+
+// public API of org.xbill.DNS.Message
+public class Message implements Cloneable {
+  public static final int MAXLENGTH;
+  public Message(int id);
+  public Message();
+  public static Message newQuery(Record r);
+  public static Message newUpdate(Name zone);
+  public Message(byte[] b) throws IOException;
+  public Message(ByteBuffer byteBuffer) throws IOException;
+  public void setHeader(Header h);
+  public Header getHeader();
+  public void addRecord(Record r, int section);
+  public boolean removeRecord(Record r, int section);
+  public void removeAllRecords(int section);
+  public boolean findRecord(Record r, int section);
+  public boolean findRecord(Record r);
+  public boolean findRRset(Name name, int type, int section);
+  public boolean findRRset(Name name, int type);
+  public Record getQuestion();
+  public TSIGRecord getTSIG();
+  public boolean isSigned();
+  public boolean isVerified();
+  public OPTRecord getOPT();
+  public int getRcode();
+  public Record[] getSectionArray(int section);
+  public List<Record> getSection(int section);
+  public List<RRset> getSectionRRsets(int section);
+  public byte[] toWire();
+  public byte[] toWire(int maxLength);
+  public void setTSIG(TSIG key);
+  public void setTSIG(TSIG key, int error, TSIGRecord querytsig);
+  public int numBytes();
+  public String sectionToString(int i);
+  public String toString();
+  public Message clone();
+  public void setResolver(Resolver resolver);
+  public Optional<Resolver> getResolver();
+}
+
+// public API of org.xbill.DNS.TSIGRecord
+public class TSIGRecord extends Record {
+  public TSIGRecord(Name name, int dclass, long ttl, Name alg, Date timeSigned, int fudge, byte[] signature, int originalID, int error, byte[] other);
+  public TSIGRecord(Name name, int dclass, long ttl, Name alg, Instant timeSigned, Duration fudge, byte[] signature, int originalID, int error, byte[] other);
+  protected void rrFromWire(DNSInput in) throws IOException;
+  protected void rdataFromString(Tokenizer st, Name origin) throws IOException;
+  protected String rrToString();
+  public Name getAlgorithm();
+  public Instant getTimeSigned();
+  public Duration getFudge();
+  public byte[] getSignature();
+  public int getOriginalID();
+  public int getError();
+  public byte[] getOther();
+  protected void rrToWire(DNSOutput out, Compression c, boolean canonical);
+}
+
+// public API of org.xbill.DNS.DNSOutput
+public class DNSOutput {
+  public DNSOutput(int size);
+  public DNSOutput();
+  public int current();
+  public void jump(int index);
+  public void save();
+  public void restore();
+  public void writeU8(int val);
+  public void writeU16(int val);
+  public void writeU16At(int val, int where);
+  public void writeU32(long val);
+  public void writeByteArray(byte[] b, int off, int len);
+  public void writeByteArray(byte[] b);
+  public void writeCountedString(byte[] s);
+  public byte[] toByteArray();
+}
+
+// public API of org.xbill.DNS.utils.base64
+public class base64 {
+  public static String toString(byte[] b);
+  public static String toString(byte[] b, boolean useUrl);
+  public static String formatString(byte[] b, int lineLength, String prefix, boolean addClose);
+  public static byte[] fromString(String str);
+}
+
+// public API of org.xbill.DNS.utils.hexdump
+public class hexdump {
+  public static String dump(String description, byte[] b, int offset, int length);
+  public static String dump(String s, byte[] b);
+}
+
+// public API of org.xbill.DNS.TSIG.StreamGenerator
+public static class StreamGenerator {
+  public StreamGenerator(TSIG key, TSIGRecord queryTsig);
+  public void generate(Message message);
+}
+
+// public API of org.xbill.DNS.TSIG.StreamVerifier
+public static class StreamVerifier {
+  public StreamVerifier(TSIG tsig, TSIGRecord queryTsig);
+  public int verify(Message message, byte[] messageBytes);
+  public int verify(Message message, byte[] messageBytes, boolean isLastMessage);
+}
+

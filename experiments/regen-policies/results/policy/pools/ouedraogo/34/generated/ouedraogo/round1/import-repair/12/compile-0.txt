@@ -1,0 +1,19 @@
+/repo/experiments/regen-policies/results/policy/pools/ouedraogo/34/generated/ouedraogo/round1/sources/Zone/GToT/ZoneTest.java:249: error: unreported exception TextParseException; must be caught or declared to be thrown
+    SetResponse resp = basicZone.findRecords(Name.fromString("outside.com."), Type.A);
+                                                            ^
+/repo/experiments/regen-policies/results/policy/pools/ouedraogo/34/generated/ouedraogo/round1/sources/Zone/GToT/ZoneTest.java:304: error: unreported exception TextParseException; must be caught or declared to be thrown
+    Name other = Name.fromString("other.com.");
+                                ^
+/repo/experiments/regen-policies/results/policy/pools/ouedraogo/34/generated/ouedraogo/round1/sources/Zone/GToT/ZoneTest.java:307: error: unreported exception TextParseException; must be caught or declared to be thrown
+        Name.fromString("ns1.other.com."),
+                       ^
+/repo/experiments/regen-policies/results/policy/pools/ouedraogo/34/generated/ouedraogo/round1/sources/Zone/GToT/ZoneTest.java:308: error: unreported exception TextParseException; must be caught or declared to be thrown
+        Name.fromString("hostmaster.other.com."),
+                       ^
+/repo/experiments/regen-policies/results/policy/pools/ouedraogo/34/generated/ouedraogo/round1/sources/Zone/GToT/ZoneTest.java:316: error: unreported exception TextParseException; must be caught or declared to be thrown
+    Record r = Record.newRecord(Name.fromString("outside.com."), Type.A, DClass.IN, 3600);
+                                               ^
+/repo/experiments/regen-policies/results/policy/pools/ouedraogo/34/generated/ouedraogo/round1/sources/Zone/GToT/ZoneTest.java:357: error: unreported exception TextParseException; must be caught or declared to be thrown
+    Record outside = Record.newRecord(Name.fromString("outside.com."), Type.A, DClass.IN, 3600);
+                                                     ^
+6 errors

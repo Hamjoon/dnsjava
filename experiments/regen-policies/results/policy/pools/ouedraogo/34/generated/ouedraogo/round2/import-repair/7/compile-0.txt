@@ -1,0 +1,20 @@
+/repo/experiments/regen-policies/results/policy/pools/ouedraogo/34/generated/ouedraogo/round2/sources/TSIG/GToT/TSIGTest.java:36: error: cannot find symbol
+  private static final String SECRET_B64 = base64.toString(SECRET.getBytes());
+                                           ^
+  symbol:   variable base64
+  location: class TSIGTest
+/repo/experiments/regen-policies/results/policy/pools/ouedraogo/34/generated/ouedraogo/round2/sources/TSIG/GToT/TSIGTest.java:100: error: alg has private access in TSIG
+    assertEquals(TSIG.HMAC_MD5, t.alg);
+                                 ^
+/repo/experiments/regen-policies/results/policy/pools/ouedraogo/34/generated/ouedraogo/round2/sources/TSIG/GToT/TSIGTest.java:101: error: name has private access in TSIG
+    assertEquals(KEY_NAME, t.name);
+                            ^
+/repo/experiments/regen-policies/results/policy/pools/ouedraogo/34/generated/ouedraogo/round2/sources/TSIG/GToT/TSIGTest.java:109: error: alg has private access in TSIG
+    assertEquals(TSIG.HMAC_SHA256, t.alg);
+                                    ^
+/repo/experiments/regen-policies/results/policy/pools/ouedraogo/34/generated/ouedraogo/round2/sources/TSIG/GToT/TSIGTest.java:110: error: name has private access in TSIG
+    assertEquals(KEY_NAME, t.name);
+                            ^
+Note: /repo/experiments/regen-policies/results/policy/pools/ouedraogo/34/generated/ouedraogo/round2/sources/TSIG/GToT/TSIGTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+5 errors

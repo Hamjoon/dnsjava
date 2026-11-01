@@ -1,0 +1,152 @@
+[
+  {
+    "group": "getTSIG - No additional records",
+    "cases": [
+      {
+        "input": [],
+        "expected": "null",
+        "description": "Message has an empty ADDITIONAL section (header count for ADDITIONAL is 0). The method should return null."
+      }
+    ]
+  },
+  {
+    "group": "getTSIG - Last additional record is not a TSIG",
+    "cases": [
+      {
+        "input": [],
+        "expected": "null",
+        "description": "Message contains at least one record in the ADDITIONAL section, but the last record's type is not Type.TSIG. The method should return null."
+      }
+    ]
+  },
+  {
+    "group": "getTSIG - Valid TSIG record present",
+    "cases": [
+      {
+        "input": [],
+        "expected": "TSIGRecord instance",
+        "description": "Message's ADDITIONAL section contains one or more records and the last record is a TSIGRecord (type == Type.TSIG). The method should return that TSIGRecord."
+      }
+    ]
+  },
+  {
+    "group": "getTSIG - Multiple additional records, TSIG not last",
+    "cases": [
+      {
+        "input": [],
+        "expected": "null",
+        "description": "Message's ADDITIONAL section has several records where a TSIGRecord exists but is not the last element. Since the method only checks the last record, it should return null."
+      }
+    ]
+  },
+  {
+    "group": "getTSIG - Header count mismatch with actual list size",
+    "cases": [
+      {
+        "input": [],
+        "expected": "null",
+        "description": "Header reports a count greater than the actual size of the ADDITIONAL list (simulated by mocking Header). The method will attempt to access an index that does not exist, causing an IndexOutOfBoundsException. This test verifies that such a mismatch leads to an exception rather than returning a value."
+      }
+    ]
+  },
+  {
+    "group": "getTSIG - Header count zero but ADDITIONAL list non\u2011empty",
+    "cases": [
+      {
+        "input": [],
+        "expected": "null",
+        "description": "The Header reports a count of 0 for the ADDITIONAL section, but the internal list actually contains one or more records. The method should ignore the list and return null because it bases its decision solely on the header count."
+      }
+    ]
+  },
+  {
+    "group": "getTSIG - Header count smaller than list size, TSIG at counted index",
+    "cases": [
+      {
+        "input": [],
+        "expected": "TSIGRecord instance",
+        "description": "Header count is 2 while the ADDITIONAL list contains three records. The record at index (count\u20111) = 1 is a TSIGRecord, and the third record (index 2) is something else. The method should return the TSIGRecord found at the counted position, demonstrating that it does not look at the true last element of the list."
+      }
+    ]
+  },
+  {
+    "group": "getTSIG - Last record in list is null",
+    "cases": [
+      {
+        "input": [],
+        "expected": "NullPointerException",
+        "description": "The ADDITIONAL list size matches the header count, but the last element stored in the list is null. When the method accesses rec.type it will throw a NullPointerException. This tests robustness against null entries."
+      }
+    ]
+  },
+  {
+    "group": "getTSIG - Record type TSIG but not a TSIGRecord instance",
+    "cases": [
+      {
+        "input": [],
+        "expected": "ClassCastException",
+        "description": "The last record in the ADDITIONAL section has its type field set to Type.TSIG, yet the object is a plain Record (or a subclass that is not TSIGRecord). After the type check passes, the method casts to TSIGRecord, causing a ClassCastException. This verifies that the method assumes the type\u2011to\u2011class contract."
+      }
+    ]
+  },
+  {
+    "group": "getTSIG - Header count greater than list size (IndexOutOfBounds)",
+    "cases": [
+      {
+        "input": [],
+        "expected": "IndexOutOfBoundsException",
+        "description": "Header reports a count of 3 for ADDITIONAL, but the internal list only contains two elements. Accessing l.get(count\u20111) triggers an IndexOutOfBoundsException. This is a different mismatch scenario from the existing test that expects an exception due to count > actual size."
+      }
+    ]
+  },
+  {
+    "group": "getTSIG - Header is null",
+    "cases": [
+      {
+        "input": [],
+        "expected": "NullPointerException",
+        "description": "The Message instance has its internal `header` field set to null. When `getTSIG()` calls `header.getCount(...)`, a NullPointerException is thrown."
+      }
+    ]
+  },
+  {
+    "group": "getTSIG - Sections array is null",
+    "cases": [
+      {
+        "input": [],
+        "expected": "NullPointerException",
+        "description": "The Message instance's `sections` array reference is null. Accessing `sections[Section.ADDITIONAL]` causes a NullPointerException before any list operations."
+      }
+    ]
+  },
+  {
+    "group": "getTSIG - Sections array too short (ArrayIndexOutOfBounds)",
+    "cases": [
+      {
+        "input": [],
+        "expected": "ArrayIndexOutOfBoundsException",
+        "description": "The `sections` array is created with a length smaller than `Section.ADDITIONAL` (e.g., length 1). Accessing `sections[Section.ADDITIONAL]` results in an ArrayIndexOutOfBoundsException."
+      }
+    ]
+  },
+  {
+    "group": "getTSIG - Additional section list is null",
+    "cases": [
+      {
+        "input": [],
+        "expected": "NullPointerException",
+        "description": "The `sections[Section.ADDITIONAL]` entry is explicitly set to null while the header reports a positive count. When `getTSIG()` attempts to assign it to `List<Record> l`, a NullPointerException is thrown."
+      }
+    ]
+  },
+  {
+    "group": "getTSIG - Header reports negative count",
+    "cases": [
+      {
+        "input": [],
+        "expected": "IndexOutOfBoundsException",
+        "description": "A mocked Header returns a negative count (e.g., -2) for the ADDITIONAL section. The method computes `count - 1` and uses it as an index on the list, causing an IndexOutOfBoundsException."
+      }
+    ]
+  }
+]

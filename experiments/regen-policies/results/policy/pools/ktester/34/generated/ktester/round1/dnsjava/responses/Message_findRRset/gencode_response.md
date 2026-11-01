@@ -1,0 +1,226 @@
+```java
+package org.xbill.DNS;
+
+import org.junit.jupiter.api.*;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
+
+import java.lang.reflect.Field;
+import java.net.InetAddress;
+import java.util.*;
+import java.util.stream.Stream;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
+
+/**
+ * Unit tests for {@link Message#findRRset(Name, int, int)}.
+ *
+ * The tests cover:
+ * <ul>
+ *   <li>valid look‑ups (present / absent records)</li>
+ *   <li>edge cases where the internal {@code sections} array or its contents are {@code null}</li>
+ *   <li>validation of the {@code type} and {@code section} arguments</li>
+ *   <li>behaviour when a {@code null} {@link Name} is supplied</li>
+ * </ul>
+ *
+ * The test class follows the framework that was supplied – the {@code @BeforeAll},
+ * {@code @BeforeEach} and {@code @AfterEach} methods are left untouched.
+ */
+@ExtendWith(MockitoExtension.class)
+class Message_findRRset_Test {
+
+    /** Re‑usable name used in the tests. */
+    private static Name TEST_NAME;
+
+    /** Message instance created for each test. */
+    private Message message;
+
+    @BeforeAll
+    static void setupBeforeAll() throws TextParseException {
+        // a simple absolute name – the library guarantees that this never throws for a valid DNS name
+        TEST_NAME = Name.fromConstantString("example.com.");
+    }
+
+    @BeforeEach
+    void setupBeforeEach() {
+        // a fresh Message with an empty header for every test case
+        message = new Message();
+    }
+
+    @AfterEach
+    void teardownAfterEach() {
+        // nothing to clean up; the Message instance will be GC‑ed
+        message = null;
+    }
+
+    /* --------------------------------------------------------------
+     *  Helper methods for reflection manipulation of the private
+     *  `sections` field.
+     *  -------------------------------------------------------------- */
+    private static List<Record>[] getSectionsArray(Message msg) throws Exception {
+        Field f = Message.class.getDeclaredField("sections");
+        f.setAccessible(true);
+        //noinspection unchecked
+        return (List<Record>[]) f.get(msg);
+    }
+
+    private static void setSectionsArray(Message msg, List<Record>[] arr) throws Exception {
+        Field f = Message.class.getDeclaredField("sections");
+        f.setAccessible(true);
+        f.set(msg, arr);
+    }
+
+    private static void setSectionList(Message msg, int section, List<Record> list) throws Exception {
+        List<Record>[] sections = getSectionsArray(msg);
+        if (sections == null) {
+            // initialise the array with the size defined by Section (0‑3)
+            sections = new List[Section.SECTION_COUNT];
+            setSectionsArray(msg, sections);
+        }
+        sections[section] = list;
+    }
+
+    /* --------------------------------------------------------------
+     *  Valid scenarios – parameterised to keep the test suite concise.
+     *  -------------------------------------------------------------- */
+    private static Stream<Arguments> validScenarioProvider() throws Exception {
+        // 1) null section (ANSWER) → false
+        Message m1 = new Message(); // no records added, sections[ANSWER] stays null
+        // 2) empty AUTHORITY list → false
+        Message m2 = new Message();
+        setSectionList(m2, Section.AUTHORITY, new ArrayList<>());
+        // 3) non‑matching record in ADDITIONAL → false
+        Message m3 = new Message();
+        Record other = Record.newRecord(
+                Name.fromConstantString("other.net."),
+                Type.MX,
+                DClass.IN,
+                3600,
+                new MXRecord(Name.fromConstantString("mail.other.net."), DClass.IN, 3600, 10));
+        m3.addRecord(other, Section.ADDITIONAL);
+        // 4) matching A record in ANSWER → true
+        Message m4 = new Message();
+        Record a = Record.newRecord(
+                TEST_NAME,
+                Type.A,
+                DClass.IN,
+                3600,
+                InetAddress.getByName("127.0.0.1"));
+        m4.addRecord(a, Section.ANSWER);
+        // 5) several records, matching TXT later → true
+        Message m5 = new Message();
+        Record a2 = Record.newRecord(
+                Name.fromConstantString("example.org."),
+                Type.A,
+                DClass.IN,
+                3600,
+                InetAddress.getByName("192.0.2.1"));
+        Record txt = new TXTRecord(TEST_NAME, DClass.IN, 3600, "sample");
+        m5.addRecord(a2, Section.ANSWER);
+        m5.addRecord(txt, Section.ANSWER);
+        return Stream.of(
+                Arguments.of(m1, TEST_NAME, Type.A, Section.ANSWER, false,
+                        "null section (ANSWER) should yield false"),
+                Arguments.of(m2, Name.fromConstantString("example.org."), Type.AAAA, Section.AUTHORITY, false,
+                        "empty AUTHORITY list should yield false"),
+                Arguments.of(m3, Name.fromConstantString("example.net."), Type.MX, Section.ADDITIONAL, false,
+                        "non‑matching record in ADDITIONAL should yield false"),
+                Arguments.of(m4, TEST_NAME, Type.A, Section.ANSWER, true,
+                        "matching A record in ANSWER should yield true"),
+                Arguments.of(m5, TEST_NAME, Type.TXT, Section.ANSWER, true,
+                        "matching TXT record after other records should yield true")
+        );
+    }
+
+    @ParameterizedTest(name = "[{index}] {5}")
+    @MethodSource("validScenarioProvider")
+    void findRRset_validScenarios(Message msg, Name name, int type, int section,
+                                 boolean expected, String description) {
+        boolean result = msg.findRRset(name, type, section);
+        assertEquals(expected, result, description);
+    }
+
+    /* --------------------------------------------------------------
+     *  Invalid input scenarios – each expects an exception.
+     *  -------------------------------------------------------------- */
+    @Test
+    void findRRset_invalidType_negative_throwsIllegalArgumentException() {
+        assertThrows(IllegalArgumentException.class,
+                () -> message.findRRset(TEST_NAME, -1, Section.ANSWER),
+                "Negative type should trigger IllegalArgumentException");
+    }
+
+    @Test
+    void findRRset_invalidType_tooLarge_throwsIllegalArgumentException() {
+        assertThrows(IllegalArgumentException.class,
+                () -> message.findRRset(TEST_NAME, 70000, Section.ANSWER),
+                "Type larger than max should trigger IllegalArgumentException");
+    }
+
+    @Test
+    void findRRset_invalidSection_negative_throwsIllegalArgumentException() {
+        assertThrows(IllegalArgumentException.class,
+                () -> message.findRRset(TEST_NAME, Type.A, -1),
+                "Negative section index should trigger IllegalArgumentException");
+    }
+
+    @Test
+    void findRRset_invalidSection_tooLarge_throwsIllegalArgumentException() {
+        assertThrows(IllegalArgumentException.class,
+                () -> message.findRRset(TEST_NAME, Type.A, 10),
+                "Section index larger than allowed should trigger IllegalArgumentException");
+    }
+
+    @Test
+    void findRRset_nullName_throwsNullPointerException() {
+        Record a = Record.newRecord(
+                TEST_NAME,
+                Type.A,
+                DClass.IN,
+                3600,
+                InetAddress.getLoopbackAddress());
+        message.addRecord(a, Section.ANSWER);
+        assertThrows(NullPointerException.class,
+                () -> message.findRRset(null, Type.A, Section.ANSWER),
+                "Passing null Name should result in NullPointerException");
+    }
+
+    /* --------------------------------------------------------------
+     *  Additional exception scenarios that require reflection or mocks.
+     *  -------------------------------------------------------------- */
+    @Test
+    void findRRset_internalSectionsArrayNull_throwsNullPointerException() throws Exception {
+        // force the private `sections` field to null
+        setSectionsArray(message, null);
+        assertThrows(NullPointerException.class,
+                () -> message.findRRset(TEST_NAME, Type.A, Section.ANSWER),
+                "Null internal sections array should cause NullPointerException");
+    }
+
+    @Test
+    void findRRset_recordWithNullName_throwsNullPointerException() throws Exception {
+        // mock a Record whose getName() returns null
+        Record mockRecord = mock(Record.class);
+        when(mockRecord.getName()).thenReturn(null);
+        when(mockRecord.getType()).thenReturn(Type.A);
+        // place the mock into the ANSWER section
+        setSectionList(message, Section.ANSWER, new ArrayList<>(Collections.singletonList(mockRecord)));
+        assertThrows(NullPointerException.class,
+                () -> message.findRRset(TEST_NAME, Type.A, Section.ANSWER),
+                "Record with null name should cause NullPointerException");
+    }
+
+    @Test
+    void findRRset_sectionContainsNullElement_throwsNullPointerException() throws Exception {
+        // Initialise the ANSWER list with a null element
+        setSectionList(message, Section.ANSWER, new ArrayList<>(Collections.singletonList(null)));
+        assertThrows(NullPointerException.class,
+                () -> message.findRRset(TEST_NAME, Type.A, Section.ANSWER),
+                "Null element inside the section list should cause NullPointerException");
+    }
+}
+```

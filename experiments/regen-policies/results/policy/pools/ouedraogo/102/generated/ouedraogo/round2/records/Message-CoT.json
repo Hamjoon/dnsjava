@@ -1,0 +1,58 @@
+{
+  "class_name": "Message",
+  "technique": "CoT",
+  "status": "ok",
+  "attempts": 1,
+  "calls": [
+    {
+      "timestamp": "2026-10-31T00:55:59.019649+00:00",
+      "latency": 74.122,
+      "status": "ok",
+      "http_status": 200,
+      "finish_reason": "stop",
+      "provider": "DekaLLM",
+      "model_requested": "openai/gpt-oss-120b",
+      "model_reported": "openai/gpt-oss-120b",
+      "request_id": "gen-1793408159-fSDu6FjECqC7aY4npbOp",
+      "usage": {
+        "prompt_tokens": 11528,
+        "completion_tokens": 4871,
+        "total_tokens": 16399,
+        "cost": 0.00122262,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 64,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00122262,
+          "upstream_inference_prompt_cost": 0.00034584,
+          "upstream_inference_completions_cost": 0.00087678
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1351,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "error_type": null,
+      "prompt_sha256": "ab3b87da8e3db9fedff29b2687b80a67d6ada096d33ff54cb0969c0330f112c8",
+      "response_sha256": "b04abd26b409873933145756ad9b8433a986e1d4d77cc694a843c8354349c3b7"
+    }
+  ],
+  "extraction": {
+    "msr_detected": true,
+    "csr_v2": true,
+    "class_name": "MessageTest",
+    "package": "org.xbill.DNS.test",
+    "fqcn": "org.xbill.DNS.test.MessageTest",
+    "csr_success": null,
+    "selection": "markers",
+    "marker_pair": true,
+    "braces_balanced": true,
+    "html_detected": false
+  },
+  "file": "generated/ouedraogo/round2/sources/Message/CoT/MessageTest.java"
+}

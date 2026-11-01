@@ -1,0 +1,328 @@
+[
+  {
+    "group": "findRRset basic scenarios",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "example.com."
+          },
+          {
+            "parameter": "type",
+            "value": "Record.Type.A"
+          }
+        ],
+        "expected": "true",
+        "description": "Message contains an A record for example.com. in the ANSWER section. The first call to findRRset(name, type, Section.ANSWER) returns true, so the overall method returns true without checking other sections."
+      },
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "example.org."
+          },
+          {
+            "parameter": "type",
+            "value": "Record.Type.MX"
+          }
+        ],
+        "expected": "true",
+        "description": "No MX record for example.org. in ANSWER, but one exists in the AUTHORITY section. The first call returns false, the second call (AUTHORITY) returns true, causing the overall result to be true."
+      },
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "example.net."
+          },
+          {
+            "parameter": "type",
+            "value": "Record.Type.TXT"
+          }
+        ],
+        "expected": "true",
+        "description": "The TXT record for example.net. is absent from ANSWER and AUTHORITY sections but present in the ADDITIONAL section. The method returns true after the third call succeeds."
+      },
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "nonexistent.example."
+          },
+          {
+            "parameter": "type",
+            "value": "Record.Type.SOA"
+          }
+        ],
+        "expected": "false",
+        "description": "The queried name/type combination does not exist in any of the three sections. All three internal findRRset calls return false, so the method returns false."
+      }
+    ]
+  },
+  {
+    "group": "findRRset edge cases",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": null
+          },
+          {
+            "parameter": "type",
+            "value": "Record.Type.A"
+          }
+        ],
+        "expected": "NullPointerException",
+        "description": "Passing a null Name should cause a NullPointerException (or the method\u2019s internal validation to throw). The test verifies that the exception is thrown."
+      },
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "example.com."
+          },
+          {
+            "parameter": "type",
+            "value": "-1"
+          }
+        ],
+        "expected": "false",
+        "description": "An invalid DNS type (negative value) is supplied. The internal findRRset implementation treats it as not matching any record, so all three section checks return false and the method returns false."
+      }
+    ]
+  },
+  {
+    "group": "findRRset short\u2011circuit behavior",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "example.com."
+          },
+          {
+            "parameter": "type",
+            "value": "Record.Type.A"
+          }
+        ],
+        "expected": "true",
+        "description": "Message contains an A record for example.com. in both ANSWER and AUTHORITY sections. The first internal call (ANSWER) returns true, so the overall method returns true without invoking the AUTHORITY or ADDITIONAL checks."
+      }
+    ]
+  },
+  {
+    "group": "findRRset falls\u2011through to later sections",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "example.com."
+          },
+          {
+            "parameter": "type",
+            "value": "Record.Type.NS"
+          }
+        ],
+        "expected": "true",
+        "description": "No NS record in ANSWER, but one exists in AUTHORITY. The method returns false after the first check, true after the second, and never evaluates ADDITIONAL."
+      }
+    ]
+  },
+  {
+    "group": "findRRset with empty message",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "example.com."
+          },
+          {
+            "parameter": "type",
+            "value": "Record.Type.A"
+          }
+        ],
+        "expected": "false",
+        "description": "Message has no records in any section. All three internal findRRset calls return false, so the method returns false."
+      }
+    ]
+  },
+  {
+    "group": "findRRset ANY type matches any record",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "example.com."
+          },
+          {
+            "parameter": "type",
+            "value": "Record.Type.ANY"
+          }
+        ],
+        "expected": "true",
+        "description": "Message contains an MX record for example.com. in the ANSWER section. Using the ANY type (255) should match any existing RRset for the name, causing the method to return true."
+      }
+    ]
+  },
+  {
+    "group": "findRRset name case\u2011insensitivity",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "ExAmPlE.CoM."
+          },
+          {
+            "parameter": "type",
+            "value": "Record.Type.A"
+          }
+        ],
+        "expected": "true",
+        "description": "Message stores an A record with the canonical name \"example.com.\" in the ANSWER section. DNS names are case\u2011insensitive, so a mixed\u2011case query should still locate the RRset and return true."
+      }
+    ]
+  },
+  {
+    "group": "findRRset out\u2011of\u2011range positive type",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "example.com."
+          },
+          {
+            "parameter": "type",
+            "value": "65536"
+          }
+        ],
+        "expected": "false",
+        "description": "A type value larger than the maximum 16\u2011bit DNS type is supplied. The internal findRRset implementation treats it as non\u2011matching, resulting in false for all sections."
+      }
+    ]
+  },
+  {
+    "group": "findRRset subdomain mismatch",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "sub.example.com."
+          },
+          {
+            "parameter": "type",
+            "value": "Record.Type.A"
+          }
+        ],
+        "expected": "false",
+        "description": "Message contains an A record for the parent name \"example.com.\" but the query asks for the subdomain \"sub.example.com.\". No exact match exists in any section, so the method returns false."
+      }
+    ]
+  },
+  {
+    "group": "findRRset invalid name format",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "example.com"
+          },
+          {
+            "parameter": "type",
+            "value": "Record.Type.A"
+          }
+        ],
+        "expected": "IllegalArgumentException",
+        "description": "Name does not end with a trailing dot, therefore it is not an absolute DNS name. The method validates the name and throws IllegalArgumentException."
+      },
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "exa$mple.com."
+          },
+          {
+            "parameter": "type",
+            "value": "Record.Type.A"
+          }
+        ],
+        "expected": "IllegalArgumentException",
+        "description": "Name contains illegal characters. The DNS library rejects it during validation and the method throws IllegalArgumentException."
+      },
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": ""
+          },
+          {
+            "parameter": "type",
+            "value": "Record.Type.A"
+          }
+        ],
+        "expected": "IllegalArgumentException",
+        "description": "Empty string is not a valid DNS name; the method throws IllegalArgumentException."
+      }
+    ]
+  },
+  {
+    "group": "findRRset type out\u2011of\u2011range numeric values",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "example.com."
+          },
+          {
+            "parameter": "type",
+            "value": "70000"
+          }
+        ],
+        "expected": "IllegalArgumentException",
+        "description": "Type value exceeds the 16\u2011bit DNS type limit (0\u201165535). The implementation checks the range and throws IllegalArgumentException."
+      },
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "example.com."
+          },
+          {
+            "parameter": "type",
+            "value": "-5"
+          }
+        ],
+        "expected": "IllegalArgumentException",
+        "description": "Negative type values are invalid. The method validates the argument and throws IllegalArgumentException."
+      }
+    ]
+  },
+  {
+    "group": "findRRset type not allowed in section",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "example.com."
+          },
+          {
+            "parameter": "type",
+            "value": "Record.Type.SIG0"
+          }
+        ],
+        "expected": "IllegalArgumentException",
+        "description": "SIG0 records are not permitted in the ANSWER, AUTHORITY, or ADDITIONAL sections for a standard query. The internal check `isTypeAllowedInSection` throws IllegalArgumentException when the type is disallowed."
+      }
+    ]
+  }
+]

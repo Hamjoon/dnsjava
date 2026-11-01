@@ -1,0 +1,131 @@
+{
+  "index": 34,
+  "sha": "fd1d7c9280986ebb219c421695a902559aaeda22",
+  "status": "evaluated",
+  "imported": true,
+  "coverage_version": 3,
+  "coverage_status": "missing",
+  "coverage_reason": "imported evidence has no per-test coverage",
+  "methods": [
+    {
+      "file": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/Zone_toString_Test.java",
+      "class": "org.xbill.DNS.Zone_toString_Test",
+      "method": "toStringContainsAllRecords",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Zone_toString_Test.java|org.xbill.DNS.Zone_toString_Test|toStringContainsAllRecords",
+      "body_hash": "9e6b35bbff2d235be32cdbc0f9536476db1e069b8984d6528e6ac10457415e12",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Zone_toString_Test#toStringContainsAllRecords()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "84ba6e54c74de0dfeb18c50720082f1abb1a5bab374e758c396b4503c85c947b",
+      "execution_hash": "d6985bb96c0eab3c4754ce405e5f7bb85bfe66ce4d498bad27482c8e28a5e2b8",
+      "source_root": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0a86ba63f7379cd03eeb83e8739e9cebcd20ac34830f8ae9f79ab6a8466f0110",
+      "resource_tree_hash": "de9617e6c9dd225fb49909e865a12a9415c63de3448234d2eb4d0a852a3dd419",
+      "unit": "org.xbill.DNS.Zone#toString()",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Zone_toString_Test.java|org.xbill.DNS.Zone_toString_Test|toStringContainsAllRecords",
+      "resource_root": "results/policy/pools/ktester/34/dev/src-test-t"
+    },
+    {
+      "file": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/Zone_toString_Test.java",
+      "class": "org.xbill.DNS.Zone_toString_Test",
+      "method": "zoneWithSoaAndNsOnly",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Zone_toString_Test.java|org.xbill.DNS.Zone_toString_Test|zoneWithSoaAndNsOnly",
+      "body_hash": "6afddd05abb1d77b1983cdfe8036a19f39a93e178a62d58fba306c32ae475b6f",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Zone_toString_Test#zoneWithSoaAndNsOnly()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "84ba6e54c74de0dfeb18c50720082f1abb1a5bab374e758c396b4503c85c947b",
+      "execution_hash": "d6985bb96c0eab3c4754ce405e5f7bb85bfe66ce4d498bad27482c8e28a5e2b8",
+      "source_root": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0a86ba63f7379cd03eeb83e8739e9cebcd20ac34830f8ae9f79ab6a8466f0110",
+      "resource_tree_hash": "de9617e6c9dd225fb49909e865a12a9415c63de3448234d2eb4d0a852a3dd419",
+      "unit": "org.xbill.DNS.Zone#toString()",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Zone_toString_Test.java|org.xbill.DNS.Zone_toString_Test|zoneWithSoaAndNsOnly",
+      "resource_root": "results/policy/pools/ktester/34/dev/src-test-t"
+    },
+    {
+      "file": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/Zone_toString_Test.java",
+      "class": "org.xbill.DNS.Zone_toString_Test",
+      "method": "recordRemovalIsReflected",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Zone_toString_Test.java|org.xbill.DNS.Zone_toString_Test|recordRemovalIsReflected",
+      "body_hash": "7652eff8cec3fa0daa7cc11f4ee272c2439034cedf1e3d5b1853e9acef75f22b",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Zone_toString_Test#recordRemovalIsReflected()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "84ba6e54c74de0dfeb18c50720082f1abb1a5bab374e758c396b4503c85c947b",
+      "execution_hash": "d6985bb96c0eab3c4754ce405e5f7bb85bfe66ce4d498bad27482c8e28a5e2b8",
+      "source_root": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0a86ba63f7379cd03eeb83e8739e9cebcd20ac34830f8ae9f79ab6a8466f0110",
+      "resource_tree_hash": "de9617e6c9dd225fb49909e865a12a9415c63de3448234d2eb4d0a852a3dd419",
+      "unit": "org.xbill.DNS.Zone#toString()",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Zone_toString_Test.java|org.xbill.DNS.Zone_toString_Test|recordRemovalIsReflected",
+      "resource_root": "results/policy/pools/ktester/34/dev/src-test-t"
+    },
+    {
+      "file": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/Zone_toString_Test.java",
+      "class": "org.xbill.DNS.Zone_toString_Test",
+      "method": "nullOriginThrowsNPE",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Zone_toString_Test.java|org.xbill.DNS.Zone_toString_Test|nullOriginThrowsNPE",
+      "body_hash": "4f8431483f1c3b0e4a614a887eb7c31ab6c4bd796fbaeca2982825d8f37a6cae",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Zone_toString_Test#nullOriginThrowsNPE()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "84ba6e54c74de0dfeb18c50720082f1abb1a5bab374e758c396b4503c85c947b",
+      "execution_hash": "d6985bb96c0eab3c4754ce405e5f7bb85bfe66ce4d498bad27482c8e28a5e2b8",
+      "source_root": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0a86ba63f7379cd03eeb83e8739e9cebcd20ac34830f8ae9f79ab6a8466f0110",
+      "resource_tree_hash": "de9617e6c9dd225fb49909e865a12a9415c63de3448234d2eb4d0a852a3dd419",
+      "unit": "org.xbill.DNS.Zone#toString()",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Zone_toString_Test.java|org.xbill.DNS.Zone_toString_Test|nullOriginThrowsNPE",
+      "resource_root": "results/policy/pools/ktester/34/dev/src-test-t"
+    }
+  ]
+}

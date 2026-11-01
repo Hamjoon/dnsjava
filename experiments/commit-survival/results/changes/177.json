@@ -1,0 +1,16 @@
+{
+  "index": 177,
+  "sha": "b2af56649de55beb5eb88d13e20fa3196320f7a0",
+  "parent": "ac94f9aa0cafe20040c0a8c00f4e7f461349c85b",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/Record.java": [
+      455
+    ]
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/Record.java": [
+      455
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/Record.java b/src/main/java/org/xbill/DNS/Record.java\nindex 28252aed..d4bc6df8 100644\n--- a/src/main/java/org/xbill/DNS/Record.java\n+++ b/src/main/java/org/xbill/DNS/Record.java\n@@ -455 +455 @@ public abstract class Record implements Cloneable, Comparable<Record>, Serializa\n-      if (b == 0x20) {\n+      if (b == 0x20 || b == ';' || b == '(' || b == ')') {"
+}

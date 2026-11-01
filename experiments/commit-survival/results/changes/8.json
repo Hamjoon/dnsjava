@@ -1,0 +1,17 @@
+{
+  "index": 8,
+  "sha": "c194bf85be0095912d36aaa4b1f3b5e2de315d60",
+  "parent": "6204b0ea94868a71ad9369fc98ce953d270ff339",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/dnssec/DnsSecVerifier.java": [
+      113
+    ]
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/dnssec/DnsSecVerifier.java": [
+      113,
+      116
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/dnssec/DnsSecVerifier.java b/src/main/java/org/xbill/DNS/dnssec/DnsSecVerifier.java\nindex 09f60911..a958b3db 100644\n--- a/src/main/java/org/xbill/DNS/dnssec/DnsSecVerifier.java\n+++ b/src/main/java/org/xbill/DNS/dnssec/DnsSecVerifier.java\n@@ -113 +113,4 @@ final class DnsSecVerifier {\n-    return new JustifiedSecStatus(SecurityStatus.BOGUS, ExtendedErrorCodeOption.DNSKEY_MISSING, R.get(\"dnskey.no_key\", sigrec.getSigner()));\n+    return new JustifiedSecStatus(\n+        SecurityStatus.BOGUS,\n+        ExtendedErrorCodeOption.DNSKEY_MISSING,\n+        R.get(\"dnskey.no_key\", sigrec.getSigner()));"
+}

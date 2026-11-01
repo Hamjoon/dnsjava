@@ -1,0 +1,234 @@
+[
+  {
+    "group": "removeRecord",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "r",
+            "value": "mockRecordA"
+          },
+          {
+            "parameter": "section",
+            "value": "2"
+          }
+        ],
+        "expected": false,
+        "description": "Valid section index but the internal section list is null; removeRecord should return false and not touch the header."
+      },
+      {
+        "input": [
+          {
+            "parameter": "r",
+            "value": "mockRecordB"
+          },
+          {
+            "parameter": "section",
+            "value": "1"
+          }
+        ],
+        "expected": false,
+        "description": "Section list exists but does not contain the supplied record; remove returns false, so removeRecord should return false and header.decCount must not be invoked."
+      },
+      {
+        "input": [
+          {
+            "parameter": "r",
+            "value": "mockRecordC"
+          },
+          {
+            "parameter": "section",
+            "value": "0"
+          }
+        ],
+        "expected": true,
+        "description": "Section list contains the record; remove succeeds, so removeRecord should return true and invoke header.decCount once for the given section."
+      },
+      {
+        "input": [
+          {
+            "parameter": "r",
+            "value": "anyRecord"
+          },
+          {
+            "parameter": "section",
+            "value": "-1"
+          }
+        ],
+        "expected": "IllegalArgumentException",
+        "description": "Section index is out of the allowed range; Section.check should throw IllegalArgumentException, which propagates from removeRecord."
+      }
+    ]
+  },
+  {
+    "group": "removeRecord_invalidUpperBoundSection",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "r",
+            "value": "mockRecordX"
+          },
+          {
+            "parameter": "section",
+            "value": "5"
+          }
+        ],
+        "expected": "IllegalArgumentException",
+        "description": "Section index exceeds the maximum allowed value; Section.check should throw IllegalArgumentException and the method must not touch any internal state."
+      }
+    ]
+  },
+  {
+    "group": "removeRecord_emptySectionList",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "r",
+            "value": "mockRecordY"
+          },
+          {
+            "parameter": "section",
+            "value": "2"
+          }
+        ],
+        "expected": false,
+        "description": "The section list is non\u2011null but empty; remove returns false, so removeRecord should return false and header.decCount must not be invoked."
+      }
+    ]
+  },
+  {
+    "group": "removeRecord_duplicateRecord",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "r",
+            "value": "duplicateRecord"
+          },
+          {
+            "parameter": "section",
+            "value": "1"
+          }
+        ],
+        "expected": true,
+        "description": "The section contains the same record twice; removeRecord should remove only the first occurrence, return true, and call header.decCount exactly once."
+      }
+    ]
+  },
+  {
+    "group": "removeRecord_nullRecordInList",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "r",
+            "value": null
+          },
+          {
+            "parameter": "section",
+            "value": "3"
+          }
+        ],
+        "expected": true,
+        "description": "The section list contains a null entry and the caller passes null as the record; List.remove(null) succeeds, so removeRecord should return true and invoke header.decCount once."
+      }
+    ]
+  },
+  {
+    "group": "removeRecord_immutableSectionList",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "r",
+            "value": "mockRecordZ"
+          },
+          {
+            "parameter": "section",
+            "value": "0"
+          }
+        ],
+        "expected": "UnsupportedOperationException",
+        "description": "The section is backed by an immutable list (e.g., Collections.emptyList()); attempting to remove a record throws UnsupportedOperationException, which should propagate out of removeRecord."
+      }
+    ]
+  },
+  {
+    "group": "removeRecord_nullSectionsArray",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "r",
+            "value": "mockRecord"
+          },
+          {
+            "parameter": "section",
+            "value": "0"
+          }
+        ],
+        "expected": "NullPointerException",
+        "description": "The internal `sections` array is null. After `Section.check` passes, the method attempts to access `sections[section]` which throws a NullPointerException."
+      }
+    ]
+  },
+  {
+    "group": "removeRecord_nullHeader",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "r",
+            "value": "mockRecord"
+          },
+          {
+            "parameter": "section",
+            "value": "1"
+          }
+        ],
+        "expected": "NullPointerException",
+        "description": "The `header` field is null while the target section list contains the record. Removal succeeds, but the subsequent call to `header.decCount(section)` triggers a NullPointerException."
+      }
+    ]
+  },
+  {
+    "group": "removeRecord_headerDecCountThrows",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "r",
+            "value": "mockRecord"
+          },
+          {
+            "parameter": "section",
+            "value": "2"
+          }
+        ],
+        "expected": "IllegalArgumentException",
+        "description": "The header's count for the given section is already zero. After the record is removed, `header.decCount(section)` attempts to decrement below zero and throws IllegalArgumentException."
+      }
+    ]
+  },
+  {
+    "group": "removeRecord_sectionsArrayTooShort",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "r",
+            "value": "mockRecord"
+          },
+          {
+            "parameter": "section",
+            "value": "3"
+          }
+        ],
+        "expected": "ArrayIndexOutOfBoundsException",
+        "description": "The `sections` array is deliberately created with a length smaller than the valid section index (e.g., length 2). `Section.check` passes, but accessing `sections[section]` results in an ArrayIndexOutOfBoundsException."
+      }
+    ]
+  }
+]

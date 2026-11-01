@@ -1,0 +1,37 @@
+{
+  "timestamp": "2026-10-29T16:58:35.238920+00:00",
+  "latency": 8.983,
+  "status": "ok",
+  "http_status": 200,
+  "finish_reason": "stop",
+  "provider": "Nebius",
+  "model_requested": "openai/gpt-oss-120b",
+  "model_reported": "openai/gpt-oss-120b",
+  "request_id": "gen-1793293115-9i4XTKjM6YRA3850Ac0y",
+  "usage": {
+    "prompt_tokens": 10591,
+    "completion_tokens": 3277,
+    "total_tokens": 13868,
+    "cost": 0.00355165,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 64,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00355165,
+      "upstream_inference_prompt_cost": 0.00158545,
+      "upstream_inference_completions_cost": 0.0019662
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1445,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "error_type": null,
+  "prompt_sha256": "cc71ea074dd88f31af244a6a01b29fa482491a0b076f9e86340b69e0c689dd41",
+  "response_sha256": "c8f0a59c02e4c9c0bcac4010025be314e558b6095eedc451092a3598b450e497"
+}

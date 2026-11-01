@@ -1,0 +1,15 @@
+/repo/experiments/commit-survival/generated/ouedraogo/round2/sources/TSIG/CoT/TSIGTest.java:159: error: alg has private access in TSIG
+    assertEquals(tsig, msg.getTSIG().getAlgorithm().equals(tsig.alg) ? tsig : null);
+                                                               ^
+/repo/experiments/commit-survival/generated/ouedraogo/round2/sources/TSIG/CoT/TSIGTest.java:275: error: alg has private access in TSIG
+    assertEquals(tsig.alg, respTsig.getAlgorithm());
+                     ^
+/repo/experiments/commit-survival/generated/ouedraogo/round2/sources/TSIG/CoT/TSIGTest.java:350: error: alg has private access in TSIG
+    assertTrue(len > (tsig.alg.length() + tsig.name.length()));
+                          ^
+/repo/experiments/commit-survival/generated/ouedraogo/round2/sources/TSIG/CoT/TSIGTest.java:350: error: name has private access in TSIG
+    assertTrue(len > (tsig.alg.length() + tsig.name.length()));
+                                              ^
+Note: /repo/experiments/commit-survival/generated/ouedraogo/round2/sources/TSIG/CoT/TSIGTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+4 errors

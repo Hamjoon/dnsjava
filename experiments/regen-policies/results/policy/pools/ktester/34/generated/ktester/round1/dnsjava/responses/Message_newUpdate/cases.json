@@ -1,0 +1,77 @@
+[
+  {
+    "group": "Message.newUpdate",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "zone",
+            "value": "Name.fromString(\"example.com.\")"
+          }
+        ],
+        "expected": "Returns a non\u2011null Message that is an instance of Update and whose question name equals the supplied zone (example.com.)",
+        "description": "Typical use case \u2013 a valid, fully\u2011qualified domain name is supplied. The factory should create an Update message ready for further manipulation."
+      },
+      {
+        "input": [
+          {
+            "parameter": "zone",
+            "value": "null"
+          }
+        ],
+        "expected": "Throws NullPointerException",
+        "description": "The method must reject a null zone argument because a DNS update cannot be created without a target zone."
+      },
+      {
+        "input": [
+          {
+            "parameter": "zone",
+            "value": "Name.root"
+          }
+        ],
+        "expected": "Returns a non\u2011null Message that is an instance of Update and whose question name equals the root name (\".\")",
+        "description": "Edge case \u2013 the root zone (\".\") is a valid DNS name. The factory should still produce a valid Update object."
+      },
+      {
+        "input": [
+          {
+            "parameter": "zone",
+            "value": "Name.fromString(\"a\" + \"b\".repeat(250) + \".com.\")"
+          }
+        ],
+        "expected": "Returns a non\u2011null Message that is an instance of Update and whose question name equals the long zone name",
+        "description": "Boundary test \u2013 the maximum length of a DNS name is 255 octets. This verifies that the factory accepts a name at the length limit without error."
+      },
+      {
+        "input": [
+          {
+            "parameter": "zone",
+            "value": "Name.fromString(\"a\".repeat(64) + \".example.com.\")"
+          }
+        ],
+        "expected": "Throws IllegalArgumentException",
+        "description": "A label longer than the DNS maximum of 63 octets is supplied. The Update constructor should reject the name and throw an IllegalArgumentException."
+      },
+      {
+        "input": [
+          {
+            "parameter": "zone",
+            "value": "Name.fromString(\"*.example.com.\")"
+          }
+        ],
+        "expected": "Throws IllegalArgumentException",
+        "description": "A wildcard name is supplied as the zone. DNS UPDATE messages cannot target a wildcard zone, so the factory must throw an IllegalArgumentException."
+      },
+      {
+        "input": [
+          {
+            "parameter": "zone",
+            "value": "Name.fromString(\"example..com.\")"
+          }
+        ],
+        "expected": "Throws IllegalArgumentException",
+        "description": "The name contains an empty label (two consecutive dots). This violates DNS name syntax and should cause the Update constructor to throw an IllegalArgumentException."
+      }
+    ]
+  }
+]

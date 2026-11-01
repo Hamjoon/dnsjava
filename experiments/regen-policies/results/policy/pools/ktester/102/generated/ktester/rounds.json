@@ -1,0 +1,36 @@
+{
+  "config_hash": "1f6e996087428db29e63301f4ff66eb568434c4f0ccb2092652c8151efd0ce04",
+  "rounds": [
+    {
+      "round": 1,
+      "directory": "round1",
+      "funnel": {
+        "group": "ktester",
+        "round": "round1",
+        "files": 58,
+        "compiled": 25,
+        "methods": 636,
+        "stable_3_of_3": 120,
+        "duplicates": 0,
+        "kept_this_round": 120,
+        "total_kept": 120,
+        "developer_denominator": 1250,
+        "ratio_to_dev": 0.096,
+        "per_prompt": {
+          "KTester": {
+            "files": 58,
+            "compiled": 25,
+            "methods": 636,
+            "stable": 120,
+            "duplicates": 0,
+            "kept": 120
+          }
+        },
+        "dev_unmapped_excluded": 0,
+        "notes": []
+      },
+      "model_calls": 338
+    }
+  ],
+  "stopped": "max-rounds"
+}

@@ -1,0 +1,152 @@
+[
+  {
+    "group": "Empty zone",
+    "cases": [
+      {
+        "input": [],
+        "expected": "\"\"",
+        "description": "A newly created Zone with no records should produce an empty master\u2011file representation. toString() must return the same empty string as toMasterFile()."
+      }
+    ]
+  },
+  {
+    "group": "Zone with a single SOA record",
+    "cases": [
+      {
+        "input": [],
+        "expected": "\"example.com. 3600 IN SOA ns1.example.com. hostmaster.example.com. 2023101501 7200 3600 1209600 3600\\n\"",
+        "description": "Create a Zone, add a single SOARecord (domain example.com, TTL 3600, primary NS ns1.example.com, etc.). The master\u2011file format for a SOA is a single line ending with a newline. toString() must return exactly that line."
+      }
+    ]
+  },
+  {
+    "group": "Zone with NS and A records",
+    "cases": [
+      {
+        "input": [],
+        "expected": "\"example.org. 3600 IN NS ns1.example.org.\\nexample.org. 3600 IN NS ns2.example.org.\\nwww.example.org. 3600 IN A 192.0.2.1\\n\"",
+        "description": "Populate a Zone with two NS records for the zone apex and one A record for a host. The master\u2011file representation consists of three lines in the order they were added. toString() must return the concatenated string."
+      }
+    ]
+  },
+  {
+    "group": "Zone with mixed record types (SOA, NS, MX, TXT)",
+    "cases": [
+      {
+        "input": [],
+        "expected": "\"example.net. 7200 IN SOA ns1.example.net. hostmaster.example.net. 2023110101 10800 3600 604800 10800\\nexample.net. 7200 IN NS ns1.example.net.\\nexample.net. 7200 IN MX 10 mail.example.net.\\nexample.net. 7200 IN TXT \\\"v=spf1 include:_spf.example.net ~all\\\"\\n\"",
+        "description": "Add a full set of typical records (SOA, NS, MX, TXT) to verify that toString() correctly concatenates different RR types while preserving the order and proper spacing."
+      }
+    ]
+  },
+  {
+    "group": "Exception propagation",
+    "cases": [
+      {
+        "input": [],
+        "expected": "java.io.IOException",
+        "description": "Force toMasterFile() to throw an IOException (e.g., by mocking a Zone subclass where toMasterFile() throws). toString() should not catch the exception; the same IOException must be propagated to the caller."
+      }
+    ]
+  },
+  {
+    "group": "Idempotent toString",
+    "cases": [
+      {
+        "input": [],
+        "expected": "identical strings on successive calls",
+        "description": "Create a Zone, add a few records (e.g., SOA, NS, A). Call toString() twice and verify that both returned strings are exactly equal, proving that toString() does not mutate internal state."
+      }
+    ]
+  },
+  {
+    "group": "Zone after removal of a record",
+    "cases": [
+      {
+        "input": [],
+        "expected": "\"example.org. 3600 IN NS ns1.example.org.\\nexample.org. 3600 IN NS ns2.example.org.\\n\"",
+        "description": "Add two NS records and one A record, then remove the A record via removeRecord(). The master\u2011file representation returned by toString() must contain only the two NS lines, confirming that removal is reflected."
+      }
+    ]
+  },
+  {
+    "group": "Multiple records of the same name and type (A)",
+    "cases": [
+      {
+        "input": [],
+        "expected": "\"www.example.com. 300 IN A 192.0.2.1\\nwww.example.com. 300 IN A 192.0.2.2\\n\"",
+        "description": "Add two A records for the same host name. toString() must emit both lines in the order they were added, demonstrating that the zone stores multiple RRs of the same type."
+      }
+    ]
+  },
+  {
+    "group": "Order preservation when mixing addRRset and addRecord",
+    "cases": [
+      {
+        "input": [],
+        "expected": "\"example.net. 7200 IN MX 10 mail.example.net.\\nexample.net. 7200 IN A 203.0.113.5\\n\"",
+        "description": "Create an RRset containing an MX record and add it with addRRset(). Then add an A record with addRecord(). toString() must list the MX line first followed by the A line, confirming that insertion order across the two APIs is respected."
+      }
+    ]
+  },
+  {
+    "group": "Zero\u2011TTL record handling",
+    "cases": [
+      {
+        "input": [],
+        "expected": "\"host.example.org. 0 IN A 198.51.100.7\\n\"",
+        "description": "Add an A record with a TTL of 0. The master\u2011file line produced by toString() must contain the literal \"0\" as the TTL, proving that zero TTLs are serialized correctly."
+      }
+    ]
+  },
+  {
+    "group": "Large zone line\u2011count verification",
+    "cases": [
+      {
+        "input": [],
+        "expected": "50 lines",
+        "description": "Add 50 distinct A records (e.g., host0.example.com \u2026 host49.example.com). toString() should contain exactly 50 newline\u2011terminated lines. The test asserts the count of '\\n' characters equals 50, ensuring scalability."
+      }
+    ]
+  },
+  {
+    "group": "Consistency with toMasterFile()",
+    "cases": [
+      {
+        "input": [],
+        "expected": "identical to zone.toMasterFile()",
+        "description": "After populating a Zone with a variety of records, invoke both zone.toString() and zone.toMasterFile(). The two returned strings must be equal, confirming that toString() is a pure delegate."
+      }
+    ]
+  },
+  {
+    "group": "RuntimeException propagation",
+    "cases": [
+      {
+        "input": [],
+        "expected": "java.lang.IllegalStateException",
+        "description": "Create a subclass of Zone that overrides toMasterFile() to throw a new IllegalStateException. Calling toString() must propagate this unchecked exception unchanged."
+      }
+    ]
+  },
+  {
+    "group": "ConcurrentModificationException during toString",
+    "cases": [
+      {
+        "input": [],
+        "expected": "java.util.ConcurrentModificationException",
+        "description": "Populate a Zone with several records, then start a background thread that adds/removes records while the main thread invokes zone.toString(). The internal iteration performed by toMasterFile() should detect the concurrent modification and throw ConcurrentModificationException, which must be propagated by toString()."
+      }
+    ]
+  },
+  {
+    "group": "NullPointerException from internal state",
+    "cases": [
+      {
+        "input": [],
+        "expected": "java.lang.NullPointerException",
+        "description": "Create a subclass of Zone that sets its internal data structures (e.g., the map that stores RRsets) to null before calling toString(). When toMasterFile() attempts to iterate over the null collection, a NullPointerException should be thrown and propagated."
+      }
+    ]
+  }
+]

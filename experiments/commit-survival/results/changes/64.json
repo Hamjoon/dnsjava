@@ -1,0 +1,49 @@
+{
+  "index": 64,
+  "sha": "8444680476c095299a76958144157667c4ed70d4",
+  "parent": "8462e2b73fb73da79c410eedba878a987b4274bc",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/Header.java": [
+      126,
+      128
+    ],
+    "src/main/java/org/xbill/DNS/Message.java": [
+      473
+    ],
+    "src/main/java/org/xbill/DNS/SimpleResolver.java": [
+      356
+    ]
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/Header.java": [
+      101,
+      104,
+      133
+    ],
+    "src/main/java/org/xbill/DNS/Message.java": [
+      473,
+      533,
+      590,
+      591,
+      592,
+      593,
+      596,
+      597
+    ],
+    "src/main/java/org/xbill/DNS/MessageSizeExceededException.java": [
+      13,
+      14,
+      15
+    ],
+    "src/main/java/org/xbill/DNS/SimpleResolver.java": [
+      356,
+      359,
+      360,
+      361,
+      362,
+      363,
+      364
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/Header.java b/src/main/java/org/xbill/DNS/Header.java\nindex 8cc21c96..114bf21a 100644\n--- a/src/main/java/org/xbill/DNS/Header.java\n+++ b/src/main/java/org/xbill/DNS/Header.java\n@@ -99,0 +100,7 @@ public class Header implements Cloneable {\n+  static boolean getFlag(int flags, int bit) {\n+    checkFlag(bit);\n+\n+    // bits are indexed from left to right\n+    return (flags & (1 << (15 - bit))) != 0;\n+  }\n+\n@@ -126,3 +133 @@ public class Header implements Cloneable {\n-    checkFlag(bit);\n-    // bits are indexed from left to right\n-    return (flags & (1 << (15 - bit))) != 0;\n+    return getFlag(flags, bit);\ndiff --git a/src/main/java/org/xbill/DNS/Message.java b/src/main/java/org/xbill/DNS/Message.java\nindex beb52078..81af1a9c 100644\n--- a/src/main/java/org/xbill/DNS/Message.java\n+++ b/src/main/java/org/xbill/DNS/Message.java\n@@ -470,2 +470,2 @@ public class Message implements Cloneable {\n-  /* Returns true if the message could be rendered. */\n-  private void toWire(DNSOutput out, int maxLength) {\n+  /* Returns true if the message could be completely rendered (i.e. not truncated). */\n+  private boolean toWire(DNSOutput out, int maxLength) {\n@@ -473 +473 @@ public class Message implements Cloneable {\n-      return;\n+      return false;\n@@ -531,0 +532,2 @@ public class Message implements Cloneable {\n+\n+    return !Header.getFlag(flags, Flags.TC);\n@@ -549,4 +551,2 @@ public class Message implements Cloneable {\n-   * maximum length. This will generate a truncated message (with the TC bit) if the message doesn't\n-   * fit, and will also sign the message with the TSIG key set by a call to {@link #setTSIG(TSIG,\n-   * int, TSIGRecord)}. This method may return an empty byte array if the message could not be\n-   * rendered at all; this could happen if maxLength is smaller than a DNS header, for example.\n+   * maximum length. Equivalent to calling {@link #toWire(int maxLength, boolean truncate)\n+   * toWire(maxLength, true)}.\n@@ -569,0 +570,30 @@ public class Message implements Cloneable {\n+  /**\n+   * Returns an array containing the wire format representation of the Message with the specified\n+   * maximum length. If {@code truncate} is {@code true} it will generate a truncated message (with\n+   * the TC bit) if the message doesn't fit, otherwise an exception will be thrown. It will also\n+   * sign the message with the TSIG key set by a call to {@link #setTSIG(TSIG, int, TSIGRecord)}.\n+   * This method may return an empty byte array if the message could not be rendered at all; this\n+   * could happen if maxLength is smaller than a DNS header, for example.\n+   *\n+   * <p>Do NOT use this method in conjunction with {@link TSIG#apply(Message, TSIGRecord)}, it\n+   * produces inconsistent results! Use {@link #setTSIG(TSIG, int, TSIGRecord)} instead.\n+   *\n+   * @param maxLength The maximum length of the message.\n+   * @return The wire format of the message, or an empty array if the message could not be rendered\n+   *     into the specified length.\n+   * @throws MessageSizeExceededException When the message size would exceed the specified {@code\n+   *     maxLength}.\n+   * @see Flags\n+   * @see TSIG\n+   */\n+  public byte[] toWire(int maxLength, boolean truncate) throws MessageSizeExceededException {\n+    DNSOutput out = new DNSOutput();\n+    boolean completelyRendered = toWire(out, maxLength);\n+    if (!completelyRendered && !truncate) {\n+      throw new MessageSizeExceededException(maxLength);\n+    }\n+\n+    size = out.current();\n+    return out.toByteArray();\n+  }\n+\ndiff --git a/src/main/java/org/xbill/DNS/MessageSizeExceededException.java b/src/main/java/org/xbill/DNS/MessageSizeExceededException.java\nnew file mode 100644\nindex 00000000..4387bee4\n--- /dev/null\n+++ b/src/main/java/org/xbill/DNS/MessageSizeExceededException.java\n@@ -0,0 +1,16 @@\n+// SPDX-License-Identifier: BSD-3-Clause\n+package org.xbill.DNS;\n+\n+import lombok.Getter;\n+\n+/** Indicates that converting a {@link Message} to wire format exceeded the maximum length. */\n+@Getter\n+public final class MessageSizeExceededException extends Exception {\n+  /** Gets the maximum allowed size (in bytes). */\n+  private final int maxSize;\n+\n+  MessageSizeExceededException(int maxSize) {\n+    super(\"Message size would exceed the allowed maximum of \" + maxSize + \" bytes\");\n+    this.maxSize = maxSize;\n+  }\n+}\ndiff --git a/src/main/java/org/xbill/DNS/SimpleResolver.java b/src/main/java/org/xbill/DNS/SimpleResolver.java\nindex b5e876cc..4f5fd72a 100644\n--- a/src/main/java/org/xbill/DNS/SimpleResolver.java\n+++ b/src/main/java/org/xbill/DNS/SimpleResolver.java\n@@ -356 +356,10 @@ public class SimpleResolver implements Resolver {\n-    byte[] out = query.toWire(Message.MAXLENGTH);\n+    boolean truncate = query.getHeader().getOpcode() != Opcode.UPDATE;\n+    byte[] out;\n+    try {\n+      out = query.toWire(Message.MAXLENGTH, truncate);\n+    } catch (MessageSizeExceededException e) {\n+      CompletableFuture<Message> f = new CompletableFuture<>();\n+      f.completeExceptionally(e);\n+      return f;\n+    }\n+"
+}

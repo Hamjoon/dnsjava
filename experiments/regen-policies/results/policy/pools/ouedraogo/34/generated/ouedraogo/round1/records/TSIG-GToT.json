@@ -1,0 +1,58 @@
+{
+  "class_name": "TSIG",
+  "technique": "GToT",
+  "status": "ok",
+  "attempts": 1,
+  "calls": [
+    {
+      "timestamp": "2026-10-31T00:52:06.429528+00:00",
+      "latency": 63.095,
+      "status": "ok",
+      "http_status": 200,
+      "finish_reason": "stop",
+      "provider": "Mancer 2",
+      "model_requested": "openai/gpt-oss-120b",
+      "model_reported": "openai/gpt-oss-120b",
+      "request_id": "gen-1793407926-MFciBrerPb32cicRPvJI",
+      "usage": {
+        "prompt_tokens": 10804,
+        "completion_tokens": 3549,
+        "total_tokens": 14353,
+        "cost": 0.001425,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.001425,
+          "upstream_inference_prompt_cost": 0.0005392728291708992,
+          "upstream_inference_completions_cost": 0.0008857271708291009
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 637,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "error_type": null,
+      "prompt_sha256": "807b6da5a63c6d400e016925d23faf6345f52b5fea44fb2b5c1b9965a9d9f453",
+      "response_sha256": "c2de7ca027a2aad96b3dcc70e9f9a6067e656b8710d2aeb61daaefb9328d1216"
+    }
+  ],
+  "extraction": {
+    "msr_detected": true,
+    "csr_v2": true,
+    "class_name": "TSIGTest",
+    "package": "org.xbill.DNS",
+    "fqcn": "org.xbill.DNS.TSIGTest",
+    "csr_success": null,
+    "selection": "markers",
+    "marker_pair": true,
+    "braces_balanced": true,
+    "html_detected": false
+  },
+  "file": "generated/ouedraogo/round1/sources/TSIG/GToT/TSIGTest.java"
+}

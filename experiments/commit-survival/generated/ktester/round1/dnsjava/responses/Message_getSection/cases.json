@@ -1,0 +1,92 @@
+[
+  {
+    "group": "Message.getSection - normal behavior",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "section",
+            "value": 1
+          }
+        ],
+        "expected": "Collections.emptyList() (immutable, size 0)",
+        "description": "When the internal `sections[1]` is null (no records have been added to section 1), `getSection(1)` should return an immutable empty list."
+      },
+      {
+        "input": [
+          {
+            "parameter": "section",
+            "value": 2
+          }
+        ],
+        "expected": "Unmodifiable list containing two dummy Record objects in insertion order",
+        "description": "After adding two records to section 2 via `addRecord(recordA, 2)` and `addRecord(recordB, 2)`, `getSection(2)` must return an unmodifiable view of the underlying list preserving the order of insertion."
+      }
+    ]
+  },
+  {
+    "group": "Message.getSection - immutability enforcement",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "section",
+            "value": 2
+          }
+        ],
+        "expected": "UnsupportedOperationException when attempting to add a Record to the returned list",
+        "description": "After adding a record to section 2, `getSection(2)` returns an unmodifiable view. Trying to modify this view (e.g., `list.add(dummy)`) must throw `UnsupportedOperationException`."
+      },
+      {
+        "input": [
+          {
+            "parameter": "section",
+            "value": 1
+          }
+        ],
+        "expected": "UnsupportedOperationException when attempting to remove an element from the returned empty list",
+        "description": "When the internal `sections[1]` is null, `getSection(1)` returns `Collections.emptyList()`. Any mutating operation on this list (e.g., `remove(0)`) should raise `UnsupportedOperationException`."
+      }
+    ]
+  },
+  {
+    "group": "Message.getSection - index bounds validation",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "section",
+            "value": -1
+          }
+        ],
+        "expected": "ArrayIndexOutOfBoundsException",
+        "description": "Calling getSection with a negative index should throw ArrayIndexOutOfBoundsException because the internal sections array is accessed directly without validation."
+      },
+      {
+        "input": [
+          {
+            "parameter": "section",
+            "value": 4
+          }
+        ],
+        "expected": "ArrayIndexOutOfBoundsException",
+        "description": "Calling getSection with an index equal to or greater than the length of the internal sections array (which is 4 in a standard Message) must throw ArrayIndexOutOfBoundsException."
+      }
+    ]
+  },
+  {
+    "group": "Message.getSection - internal null array handling",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "section",
+            "value": 0
+          }
+        ],
+        "expected": "NullPointerException",
+        "description": "If the internal `sections` field is unexpectedly null (e.g., forced via reflection), any call to getSection should result in a NullPointerException when attempting to index the null array."
+      }
+    ]
+  }
+]

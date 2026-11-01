@@ -1,0 +1,18 @@
+{
+  "index": 154,
+  "sha": "8750cd84fa6375a5afcafc0d38895651e3cf73e0",
+  "parent": "321cf393b53bb03dcf5647de54d0d2134fc82136",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/NSAPRecord.java": [
+      23
+    ]
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/NSAPRecord.java": [
+      23,
+      24,
+      25
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/NSAPRecord.java b/src/main/java/org/xbill/DNS/NSAPRecord.java\nindex e33263bb..454f3c5c 100644\n--- a/src/main/java/org/xbill/DNS/NSAPRecord.java\n+++ b/src/main/java/org/xbill/DNS/NSAPRecord.java\n@@ -23 +23,3 @@ public class NSAPRecord extends Record {\n-    if (!address.substring(0, 2).equalsIgnoreCase(\"0x\")) {\n+    if (address == null\n+        || address.length() < 2\n+        || !address.substring(0, 2).equalsIgnoreCase(\"0x\")) {\n@@ -25,0 +28 @@ public class NSAPRecord extends Record {\n+"
+}

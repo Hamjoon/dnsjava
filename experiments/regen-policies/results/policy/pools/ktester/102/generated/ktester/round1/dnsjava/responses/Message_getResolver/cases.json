@@ -1,0 +1,22 @@
+[
+  {
+    "group": "Message.getResolver",
+    "cases": [
+      {
+        "input": [],
+        "expected": "Optional.empty()",
+        "description": "When a newly constructed Message has never had a Resolver assigned, the internal field `resolver` is null. `getResolver()` should therefore return an empty Optional."
+      },
+      {
+        "input": [],
+        "expected": "Optional.of(mockResolver)",
+        "description": "After a Resolver instance is injected via `setResolver(mockResolver)`, `getResolver()` must return an Optional containing the exact same Resolver object."
+      },
+      {
+        "input": [],
+        "expected": "Optional.empty()",
+        "description": "If the Resolver is explicitly cleared by calling `setResolver(null)`, `getResolver()` should again return an empty Optional."
+      }
+    ]
+  }
+]

@@ -1,0 +1,97 @@
+[
+  {
+    "group": "Valid section \u2013 empty list (null) \u2192 false",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "r",
+            "value": "RecordMock{id=1}"
+          },
+          {
+            "parameter": "section",
+            "value": "Message.Section.ANSWER"
+          }
+        ],
+        "expected": false,
+        "description": "The requested section exists but its List<Record> is null. findRecord should return false without throwing."
+      }
+    ]
+  },
+  {
+    "group": "Valid section \u2013 list present but does not contain record \u2192 false",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "r",
+            "value": "RecordMock{id=2}"
+          },
+          {
+            "parameter": "section",
+            "value": "Message.Section.AUTHORITY"
+          }
+        ],
+        "expected": false,
+        "description": "The section list is non\u2011null but does not contain the supplied Record. The method must return false."
+      }
+    ]
+  },
+  {
+    "group": "Valid section \u2013 list contains record \u2192 true",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "r",
+            "value": "RecordMock{id=3}"
+          },
+          {
+            "parameter": "section",
+            "value": "Message.Section.ADDITIONAL"
+          }
+        ],
+        "expected": true,
+        "description": "The section list is non\u2011null and contains the supplied Record. The method must return true."
+      }
+    ]
+  },
+  {
+    "group": "Invalid section (negative) \u2192 IllegalArgumentException",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "r",
+            "value": "RecordMock{id=4}"
+          },
+          {
+            "parameter": "section",
+            "value": "-1"
+          }
+        ],
+        "expected": "IllegalArgumentException",
+        "description": "Section.check should reject a negative section index and throw IllegalArgumentException."
+      }
+    ]
+  },
+  {
+    "group": "Invalid section (out of range) \u2192 IllegalArgumentException",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "r",
+            "value": "RecordMock{id=5}"
+          },
+          {
+            "parameter": "section",
+            "value": "5"
+          }
+        ],
+        "expected": "IllegalArgumentException",
+        "description": "Section.check should reject an index larger than the maximum allowed (4) and throw IllegalArgumentException."
+      }
+    ]
+  }
+]

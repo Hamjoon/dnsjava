@@ -1,0 +1,16 @@
+{
+  "index": 125,
+  "sha": "f966dee5eb20ae02d63828bf19b7b2d4ca7112b5",
+  "parent": "bd4cd483ac56d55829ca2efa51ad862996be0157",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/Message.java": [
+      109
+    ]
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/Message.java": [
+      110
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/Message.java b/src/main/java/org/xbill/DNS/Message.java\nindex dc24516c..0d88325a 100644\n--- a/src/main/java/org/xbill/DNS/Message.java\n+++ b/src/main/java/org/xbill/DNS/Message.java\n@@ -109 +109,2 @@ public class Message implements Cloneable {\n-          sections[i] = new ArrayList<>(count);\n+          // Don't pre-allocate unlimited, count may be under attacker control\n+          sections[i] = new ArrayList<>(Math.min(count, 4));"
+}

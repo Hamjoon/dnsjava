@@ -1,0 +1,108 @@
+{
+  "version": 1,
+  "baseline": "/Users/donggi/_projects/experiment-projects/dnsjava/experiments/commit-survival",
+  "groups": [
+    "dev-scope",
+    "ktester",
+    "ouedraogo"
+  ],
+  "policies": [
+    {
+      "name": "release-reset",
+      "trigger": "release",
+      "action": "reset"
+    },
+    {
+      "name": "half-reset",
+      "trigger": "threshold",
+      "action": "reset"
+    },
+    {
+      "name": "half-fill",
+      "trigger": "threshold",
+      "action": "fill"
+    }
+  ],
+  "points": [
+    {
+      "group": "ktester",
+      "trigger": "release",
+      "tag": "v3.6.0",
+      "tag_sha": "fd1d7c9280986ebb219c421695a902559aaeda22",
+      "requested_index": 34,
+      "index": 34,
+      "sha": "fd1d7c9280986ebb219c421695a902559aaeda22",
+      "baseline_alive": 212,
+      "baseline_denominator": 225,
+      "missing_classes": []
+    },
+    {
+      "group": "ktester",
+      "trigger": "release",
+      "tag": "v3.6.5-1",
+      "tag_sha": "ca25720c96f1c0ab07a63254ccba471d9785f781",
+      "requested_index": 102,
+      "index": 102,
+      "sha": "ca25720c96f1c0ab07a63254ccba471d9785f781",
+      "baseline_alive": 209,
+      "baseline_denominator": 225,
+      "missing_classes": []
+    },
+    {
+      "group": "ouedraogo",
+      "trigger": "release",
+      "tag": "v3.6.0",
+      "tag_sha": "fd1d7c9280986ebb219c421695a902559aaeda22",
+      "requested_index": 34,
+      "index": 34,
+      "sha": "fd1d7c9280986ebb219c421695a902559aaeda22",
+      "baseline_alive": 74,
+      "baseline_denominator": 75,
+      "missing_classes": []
+    },
+    {
+      "group": "ouedraogo",
+      "trigger": "release",
+      "tag": "v3.6.5-1",
+      "tag_sha": "ca25720c96f1c0ab07a63254ccba471d9785f781",
+      "requested_index": 102,
+      "index": 102,
+      "sha": "ca25720c96f1c0ab07a63254ccba471d9785f781",
+      "baseline_alive": 74,
+      "baseline_denominator": 75,
+      "missing_classes": []
+    }
+  ],
+  "pools": [
+    {
+      "group": "ktester",
+      "index": 34,
+      "sha": "fd1d7c9280986ebb219c421695a902559aaeda22",
+      "missing_classes": []
+    },
+    {
+      "group": "ktester",
+      "index": 102,
+      "sha": "ca25720c96f1c0ab07a63254ccba471d9785f781",
+      "missing_classes": []
+    },
+    {
+      "group": "ouedraogo",
+      "index": 34,
+      "sha": "fd1d7c9280986ebb219c421695a902559aaeda22",
+      "missing_classes": []
+    },
+    {
+      "group": "ouedraogo",
+      "index": 102,
+      "sha": "ca25720c96f1c0ab07a63254ccba471d9785f781",
+      "missing_classes": []
+    }
+  ],
+  "denominators": {
+    "dev-scope": 353,
+    "ktester": 225,
+    "ouedraogo": 75
+  },
+  "threshold_basis": "baseline survival; after a trigger, remaining baseline alive is the planning segment denominator"
+}

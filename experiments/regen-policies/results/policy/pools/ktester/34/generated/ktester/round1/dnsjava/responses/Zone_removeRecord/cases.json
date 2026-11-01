@@ -1,0 +1,197 @@
+[
+  {
+    "group": "NullRecord",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "r",
+            "value": "null"
+          }
+        ],
+        "expected": "IllegalArgumentException with message \"r must not be null\"",
+        "description": "Calling removeRecord with a null argument should immediately throw an IllegalArgumentException before any lock is acquired."
+      }
+    ]
+  },
+  {
+    "group": "SOARecord",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "r",
+            "value": "Record of type Type.SOA (any name, any data)"
+          }
+        ],
+        "expected": "IllegalArgumentException with message \"Cannot remove SOA record\"",
+        "description": "Even if the record exists in the zone, attempting to remove an SOA record is prohibited and must raise an IllegalArgumentException."
+      }
+    ]
+  },
+  {
+    "group": "NoRRsetFound",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "r",
+            "value": "Record with name \"nonexistent.example.\", type Type.A"
+          }
+        ],
+        "expected": "No exception; method returns normally without modifying the zone",
+        "description": "When the zone does not contain any RRset matching the record's name and type, findRRsetWithoutLock returns null and the method exits silently."
+      }
+    ]
+  },
+  {
+    "group": "RemoveAllNS",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "r",
+            "value": "Record of type Type.NS that is the only NS in its RRset (rrset.size() == 1, sigSize() == 0)"
+          }
+        ],
+        "expected": "IllegalArgumentException with message \"Cannot remove all NS\"",
+        "description": "If the RRset for NS records contains exactly one record, removing it would leave the zone without any NS records; the method must reject this with an IllegalArgumentException."
+      }
+    ]
+  },
+  {
+    "group": "DeleteRRWhenMultiple",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "r",
+            "value": "Record of type Type.A that belongs to an RRset where (size + sigSize) > 1 (e.g., 2 A records, no signatures)"
+          }
+        ],
+        "expected": "rrset.deleteRR(r) is invoked; the RRset remains in the zone with one fewer record",
+        "description": "When the RRset contains more than one record (or signatures), the method should delete only the supplied record via RRset.deleteRR and keep the RRset intact."
+      }
+    ]
+  },
+  {
+    "group": "RemoveRRsetWhenSingle",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "r",
+            "value": "Record of type Type.A that belongs to an RRset where (size + sigSize) == 1 (e.g., a single A record, no signatures)"
+          }
+        ],
+        "expected": "removeRRsetWithoutLock(name, Type.A) is invoked; the RRset is removed from the zone",
+        "description": "If the RRset would become empty after removing the record, the method should remove the entire RRset (and possibly the name) by calling removeRRsetWithoutLock."
+      }
+    ]
+  },
+  {
+    "group": "NSMultipleRecords",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "r",
+            "value": "Record of type Type.NS with name \"example.com.\", belonging to an RRset that contains two NS records and no signatures (rrset.size() == 2, rrset.sigSize() == 0)"
+          }
+        ],
+        "expected": "rrset.deleteRR(r) is invoked; the RRset remains in the zone with one NS record left",
+        "description": "When an NS RRset contains more than one NS record, removing one of them should delete only that record via RRset.deleteRR and must not raise an exception."
+      }
+    ]
+  },
+  {
+    "group": "NSSingleWithSignature",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "r",
+            "value": "Record of type Type.NS with name \"example.org.\", belonging to an RRset that has exactly one NS record and one RRSIG signature (rrset.size() == 1, rrset.sigSize() == 1)"
+          }
+        ],
+        "expected": "rrset.deleteRR(r) is invoked; the NS RRset still exists because total (size+sigSize) == 2 > 1",
+        "description": "Even if the NS RRset has only one NS record, the presence of a signature makes the total count > 1, so removal of the NS record is allowed and should be performed via deleteRR rather than throwing an exception."
+      }
+    ]
+  },
+  {
+    "group": "SignatureRemovalMultiple",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "r",
+            "value": "Record of type Type.RRSIG (a DNSSEC signature) for name \"secure.example.\", belonging to an RRset that contains one A record and one RRSIG (rrset.size() == 1, rrset.sigSize() == 1)"
+          }
+        ],
+        "expected": "rrset.deleteRR(r) is invoked; the RRset remains with the A record only",
+        "description": "Removing a signature (RRSIG) from an RRset that also contains a data record should trigger deleteRR because the combined count is > 1, leaving the data record intact."
+      }
+    ]
+  },
+  {
+    "group": "RemoveRecordNotInRRset",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "r",
+            "value": "Record of type Type.A with name \"missing.example.\", which is not present in the RRset returned by findRRsetWithoutLock (the RRset contains a different A record for the same name)"
+          }
+        ],
+        "expected": "rrset.deleteRR(r) is invoked; if the record is not present, RRset.deleteRR silently does nothing and no exception is thrown",
+        "description": "When the RRset exists but does not actually contain the supplied record, removeRecord should still call deleteRR; the operation must be a no\u2011op without throwing an exception."
+      }
+    ]
+  },
+  {
+    "group": "RemoveRRsetAndNameCleanup",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "r",
+            "value": "Record of type Type.A with name \"lonely.example.\", belonging to an RRset where (size + sigSize) == 1 (single A record, no signatures)"
+          }
+        ],
+        "expected": "removeRRsetWithoutLock(name, Type.A) is invoked; subsequent findExactMatch(\"lonely.example.\", Type.A) returns null, indicating the name entry has been removed from the zone",
+        "description": "When removing the only record of a name (and it is not an NS set), the method must delete the whole RRset and clean up the name from the zone's internal structures."
+      }
+    ]
+  },
+  {
+    "group": "NullRecordName",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "r",
+            "value": "Record whose getName() returns null (any type other than SOA)"
+          }
+        ],
+        "expected": "NullPointerException (thrown when findRRsetWithoutLock is invoked with a null name)",
+        "description": "If a Record supplies a null Name, the method proceeds to the lock block and eventually calls findRRsetWithoutLock(null, rtype). The underlying implementation is expected to throw a NullPointerException, which propagates out of removeRecord."
+      }
+    ]
+  },
+  {
+    "group": "NSSingleWithSignatureException",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "r",
+            "value": "Record of type Type.NS that is the only NS in its RRset (rrset.size() == 1) but the RRset also contains at least one RRSIG (rrset.sigSize() > 0)"
+          }
+        ],
+        "expected": "IllegalArgumentException with message \"Cannot remove all NS\"",
+        "description": "The method only checks rrset.size() == 1 for NS removal, ignoring signatures. Therefore even when a signature exists, attempting to remove the sole NS record triggers the IllegalArgumentException."
+      }
+    ]
+  }
+]

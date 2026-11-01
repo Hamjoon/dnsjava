@@ -1,0 +1,78 @@
+{
+  "index": 95,
+  "sha": "c1478fa58f0e863d410d9c8f47122b1825722e40",
+  "parent": "75fcff1080e1224b5b3c9344c4bfd89a5e5a22ec",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/NioClient.java": [
+      51,
+      209,
+      211,
+      239,
+      243
+    ],
+    "src/main/java/org/xbill/DNS/NioTcpClient.java": [
+      151
+    ],
+    "src/main/java/org/xbill/DNS/NioUdpClient.java": [
+      124,
+      126,
+      180,
+      182,
+      183,
+      184,
+      185,
+      188,
+      189,
+      190,
+      193,
+      196,
+      197,
+      198,
+      199
+    ]
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/NioClient.java": [
+      47,
+      209,
+      211,
+      239,
+      243
+    ],
+    "src/main/java/org/xbill/DNS/NioTcpClient.java": [
+      151,
+      155,
+      192,
+      202,
+      218,
+      225,
+      278
+    ],
+    "src/main/java/org/xbill/DNS/NioUdpClient.java": [
+      113,
+      114,
+      115,
+      116,
+      122,
+      132,
+      134,
+      137,
+      149,
+      190,
+      191,
+      219,
+      220,
+      221,
+      222,
+      225,
+      226,
+      227,
+      230,
+      233,
+      234,
+      235,
+      239
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/NioClient.java b/src/main/java/org/xbill/DNS/NioClient.java\nindex 076fd7d7..1a4311d6 100644\n--- a/src/main/java/org/xbill/DNS/NioClient.java\n+++ b/src/main/java/org/xbill/DNS/NioClient.java\n@@ -46,0 +47 @@ public abstract class NioClient {\n+  private static final Runnable[] CLOSE_TASKS = new Runnable[2];\n@@ -48,2 +49,2 @@ public abstract class NioClient {\n-  private static Consumer<Selector> TCP_REGISTRATIONS_TASK;\n-  private static Consumer<Selector> UDP_REGISTRATIONS_TASK;\n+  private static Consumer<Selector> tcpRegistrationsTask;\n+  private static Consumer<Selector> udpRegistrationsTask;\n@@ -51 +51,0 @@ public abstract class NioClient {\n-  private static final Runnable[] CLOSE_TASKS = new Runnable[2];\n@@ -209 +209 @@ public abstract class NioClient {\n-      TCP_REGISTRATIONS_TASK = r;\n+      tcpRegistrationsTask = r;\n@@ -211 +211 @@ public abstract class NioClient {\n-      UDP_REGISTRATIONS_TASK = r;\n+      udpRegistrationsTask = r;\n@@ -239 +239 @@ public abstract class NioClient {\n-    Consumer<Selector> tcpTask = TCP_REGISTRATIONS_TASK;\n+    Consumer<Selector> tcpTask = tcpRegistrationsTask;\n@@ -243 +243 @@ public abstract class NioClient {\n-    Consumer<Selector> udpTask = UDP_REGISTRATIONS_TASK;\n+    Consumer<Selector> udpTask = udpRegistrationsTask;\ndiff --git a/src/main/java/org/xbill/DNS/NioTcpClient.java b/src/main/java/org/xbill/DNS/NioTcpClient.java\nindex 50f9c131..72df9827 100644\n--- a/src/main/java/org/xbill/DNS/NioTcpClient.java\n+++ b/src/main/java/org/xbill/DNS/NioTcpClient.java\n@@ -77 +77 @@ final class NioTcpClient extends NioClient implements TcpIoClient {\n-  private static class Transaction {\n+  private static final class Transaction {\n@@ -151 +151 @@ final class NioTcpClient extends NioClient implements TcpIoClient {\n-            processRead();\n+            processRead(key);\n@@ -153,0 +154,2 @@ final class NioTcpClient extends NioClient implements TcpIoClient {\n+      } else {\n+        handleTransactionException(new EOFException(\"Invalid key\"));\n@@ -189,0 +192 @@ final class NioTcpClient extends NioClient implements TcpIoClient {\n+        key.cancel();\n@@ -193 +196 @@ final class NioTcpClient extends NioClient implements TcpIoClient {\n-    private void processRead() {\n+    private void processRead(SelectionKey key) {\n@@ -198,0 +202 @@ final class NioTcpClient extends NioClient implements TcpIoClient {\n+            key.cancel();\n@@ -213,0 +218 @@ final class NioTcpClient extends NioClient implements TcpIoClient {\n+          key.cancel();\n@@ -219,0 +225 @@ final class NioTcpClient extends NioClient implements TcpIoClient {\n+        key.cancel();\n@@ -271,0 +278 @@ final class NioTcpClient extends NioClient implements TcpIoClient {\n+          key.cancel();\ndiff --git a/src/main/java/org/xbill/DNS/NioUdpClient.java b/src/main/java/org/xbill/DNS/NioUdpClient.java\nindex e2ccfef2..bfd2da3e 100644\n--- a/src/main/java/org/xbill/DNS/NioUdpClient.java\n+++ b/src/main/java/org/xbill/DNS/NioUdpClient.java\n@@ -10,0 +11 @@ import java.nio.channels.DatagramChannel;\n+import java.nio.channels.NotYetConnectedException;\n@@ -85 +86 @@ final class NioUdpClient extends NioClient implements UdpIoClient {\n-  private class Transaction implements KeyProcessor {\n+  private final class Transaction implements KeyProcessor {\n@@ -111,0 +113,6 @@ final class NioUdpClient extends NioClient implements UdpIoClient {\n+      if (!key.isValid()) {\n+        completeExceptionally(new EOFException(\"Key for transaction \" + id + \" is invalid\"));\n+        pendingTransactions.remove(this);\n+        return;\n+      }\n+\n@@ -114,0 +122 @@ final class NioUdpClient extends NioClient implements UdpIoClient {\n+        key.cancel();\n@@ -124 +132 @@ final class NioUdpClient extends NioClient implements UdpIoClient {\n-          throw new EOFException();\n+          throw new EOFException(\"Could not read expected data for transaction \" + id);\n@@ -126 +134 @@ final class NioUdpClient extends NioClient implements UdpIoClient {\n-      } catch (IOException e) {\n+      } catch (IOException | NotYetConnectedException e) {\n@@ -128,0 +137 @@ final class NioUdpClient extends NioClient implements UdpIoClient {\n+        key.cancel();\n@@ -139,0 +149 @@ final class NioUdpClient extends NioClient implements UdpIoClient {\n+      key.cancel();\n@@ -180,22 +190,2 @@ final class NioUdpClient extends NioClient implements UdpIoClient {\n-        for (int i = 0; i < 1024; i++) {\n-          try {\n-            InetSocketAddress addr = null;\n-            if (local == null) {\n-              if (prng != null) {\n-                addr = new InetSocketAddress(prng.nextInt(ephemeralRange) + ephemeralStart);\n-              }\n-            } else {\n-              int port = local.getPort();\n-              if (port == 0 && prng != null) {\n-                port = prng.nextInt(ephemeralRange) + ephemeralStart;\n-              }\n-\n-              addr = new InetSocketAddress(local.getAddress(), port);\n-            }\n-\n-            channel.bind(addr);\n-            bound = true;\n-            break;\n-          } catch (SocketException e) {\n-            // ignore, we'll try another random port\n-          }\n+        for (int i = 0; i < 1024 && !bound; i++) {\n+          bound = tryBindToSocket(local, channel);\n@@ -225,0 +216,26 @@ final class NioUdpClient extends NioClient implements UdpIoClient {\n+  private boolean tryBindToSocket(InetSocketAddress local, DatagramChannel channel)\n+      throws IOException {\n+    try {\n+      InetSocketAddress address = null;\n+      if (local == null) {\n+        if (prng != null) {\n+          address = new InetSocketAddress(prng.nextInt(ephemeralRange) + ephemeralStart);\n+        }\n+      } else {\n+        int port = local.getPort();\n+        if (port == 0 && prng != null) {\n+          port = prng.nextInt(ephemeralRange) + ephemeralStart;\n+        }\n+\n+        address = new InetSocketAddress(local.getAddress(), port);\n+      }\n+\n+      channel.bind(address);\n+      return true;\n+    } catch (SocketException e) {\n+      // ignore, we'll try another random port\n+    }\n+\n+    return false;\n+  }\n+"
+}

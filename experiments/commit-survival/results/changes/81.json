@@ -1,0 +1,16 @@
+{
+  "index": 81,
+  "sha": "793cd22c5209142873135f791f96d187a7aec97d",
+  "parent": "9ae7e1d7bb1c65ab372dd2bfd8e0562b6a63e708",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/DohResolverCommon.java": [
+      62
+    ]
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/DohResolverCommon.java": [
+      62
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/DohResolverCommon.java b/src/main/java/org/xbill/DNS/DohResolverCommon.java\nindex 0fb8ac07..c584fa2d 100644\n--- a/src/main/java/org/xbill/DNS/DohResolverCommon.java\n+++ b/src/main/java/org/xbill/DNS/DohResolverCommon.java\n@@ -62 +62,2 @@ abstract class DohResolverCommon implements Resolver {\n-    this.maxConcurrentRequests = new AsyncSemaphore(maxConcurrentRequests, \"concurrent\");\n+    this.maxConcurrentRequests =\n+        new AsyncSemaphore(maxConcurrentRequests, \"concurrent request limit\");"
+}

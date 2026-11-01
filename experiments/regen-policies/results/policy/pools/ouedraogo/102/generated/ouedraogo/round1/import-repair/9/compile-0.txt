@@ -1,0 +1,22 @@
+/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/generated/ouedraogo/round1/sources/TSIG/ZSL/TSIGTest.java:93: error: algLengthMap has private access in TSIG
+            + TSIG.algLengthMap.get(TSIG.HMAC_SHA256) // full SHA‑256 MAC size
+                  ^
+/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/generated/ouedraogo/round1/sources/TSIG/ZSL/TSIGTest.java:133: error: incompatible types: String cannot be converted to SecretKey
+    TSIG tsigPast = new TSIG(TSIG.HMAC_SHA256, keyName, BASE64_KEY, pastClock);
+                                                        ^
+/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/generated/ouedraogo/round1/sources/TSIG/ZSL/TSIGTest.java:205: error: alg has private access in TSIG
+    assertEquals(TSIG.HMAC_MD5, deprecated.alg);
+                                          ^
+/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/generated/ouedraogo/round1/sources/TSIG/ZSL/TSIGTest.java:206: error: name has private access in TSIG
+    assertEquals(keyName, deprecated.name);
+                                    ^
+/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/generated/ouedraogo/round1/sources/TSIG/ZSL/TSIGTest.java:213: error: alg has private access in TSIG
+    assertEquals(TSIG.HMAC_SHA1, fromStr.alg);
+                                        ^
+/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/generated/ouedraogo/round1/sources/TSIG/ZSL/TSIGTest.java:214: error: name has private access in TSIG
+    assertEquals(keyName, fromStr.name);
+                                 ^
+Note: /repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/generated/ouedraogo/round1/sources/TSIG/ZSL/TSIGTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+6 errors

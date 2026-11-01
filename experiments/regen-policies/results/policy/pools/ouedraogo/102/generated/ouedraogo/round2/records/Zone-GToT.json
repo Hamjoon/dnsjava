@@ -1,0 +1,58 @@
+{
+  "class_name": "Zone",
+  "technique": "GToT",
+  "status": "ok",
+  "attempts": 1,
+  "calls": [
+    {
+      "timestamp": "2026-10-31T01:00:58.068165+00:00",
+      "latency": 96.176,
+      "status": "ok",
+      "http_status": 200,
+      "finish_reason": "stop",
+      "provider": "Near AI",
+      "model_requested": "openai/gpt-oss-120b",
+      "model_reported": "openai/gpt-oss-120b",
+      "request_id": "gen-1793408462-V51z7QIhfHJq98NaIIzf",
+      "usage": {
+        "prompt_tokens": 8365,
+        "completion_tokens": 4163,
+        "total_tokens": 12528,
+        "cost": 0.00087468,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 48,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00087468,
+          "upstream_inference_prompt_cost": 0.00025023,
+          "upstream_inference_completions_cost": 0.00062445
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 321,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "error_type": null,
+      "prompt_sha256": "e1a0de5d03f2102c76ba997ae842b9aad9968153b6c8f7c03043492b3e81c951",
+      "response_sha256": "47267cba72208e59361c873c489f2ac4c0e6aad69b7ab30b6000fcf53bf28256"
+    }
+  ],
+  "extraction": {
+    "msr_detected": true,
+    "csr_v2": true,
+    "class_name": "ZoneTest",
+    "package": "org.xbill.DNS",
+    "fqcn": "org.xbill.DNS.ZoneTest",
+    "csr_success": null,
+    "selection": "markers",
+    "marker_pair": true,
+    "braces_balanced": true,
+    "html_detected": false
+  },
+  "file": "generated/ouedraogo/round2/sources/Zone/GToT/ZoneTest.java"
+}

@@ -1,0 +1,311 @@
+{
+  "index": 34,
+  "sha": "fd1d7c9280986ebb219c421695a902559aaeda22",
+  "status": "evaluated",
+  "imported": true,
+  "coverage_version": 3,
+  "coverage_status": "missing",
+  "coverage_reason": "imported evidence has no per-test coverage",
+  "methods": [
+    {
+      "file": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/Zone_addRRset_Test.java",
+      "class": "org.xbill.DNS.Zone_addRRset_Test",
+      "method": "addRRset_NullArgument_Throws",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Zone_addRRset_Test.java|org.xbill.DNS.Zone_addRRset_Test|addRRset_NullArgument_Throws",
+      "body_hash": "9537a2577a8b71450261ca3794daa52b99eeb1102acb43381c9c2244a6e92c37",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Zone_addRRset_Test#addRRset_NullArgument_Throws()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "1bc6ce59ab572236d2dc2225b7adb159c7a259e455edcbcbae5d03cf0f372de9",
+      "execution_hash": "501f8aa95bb60d3042fc1eeafd9bcfd6f7e081d2192d653a364f46bbccd8d559",
+      "source_root": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0a86ba63f7379cd03eeb83e8739e9cebcd20ac34830f8ae9f79ab6a8466f0110",
+      "resource_tree_hash": "de9617e6c9dd225fb49909e865a12a9415c63de3448234d2eb4d0a852a3dd419",
+      "unit": "org.xbill.DNS.Zone#addRRset(RRset)",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Zone_addRRset_Test.java|org.xbill.DNS.Zone_addRRset_Test|addRRset_NullArgument_Throws",
+      "resource_root": "results/policy/pools/ktester/34/dev/src-test-t"
+    },
+    {
+      "file": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/Zone_addRRset_Test.java",
+      "class": "org.xbill.DNS.Zone_addRRset_Test",
+      "method": "addRRset_SOAOwnerMismatch_Throws",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Zone_addRRset_Test.java|org.xbill.DNS.Zone_addRRset_Test|addRRset_SOAOwnerMismatch_Throws",
+      "body_hash": "b88a70042f4d8e5cbe0f4814274ccb1a551f1f0b5e5134cb8c2563880d063206",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Zone_addRRset_Test#addRRset_SOAOwnerMismatch_Throws()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "1bc6ce59ab572236d2dc2225b7adb159c7a259e455edcbcbae5d03cf0f372de9",
+      "execution_hash": "501f8aa95bb60d3042fc1eeafd9bcfd6f7e081d2192d653a364f46bbccd8d559",
+      "source_root": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0a86ba63f7379cd03eeb83e8739e9cebcd20ac34830f8ae9f79ab6a8466f0110",
+      "resource_tree_hash": "de9617e6c9dd225fb49909e865a12a9415c63de3448234d2eb4d0a852a3dd419",
+      "unit": "org.xbill.DNS.Zone#addRRset(RRset)",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Zone_addRRset_Test.java|org.xbill.DNS.Zone_addRRset_Test|addRRset_SOAOwnerMismatch_Throws",
+      "resource_root": "results/policy/pools/ktester/34/dev/src-test-t"
+    },
+    {
+      "file": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/Zone_addRRset_Test.java",
+      "class": "org.xbill.DNS.Zone_addRRset_Test",
+      "method": "addRRset_SOAInvalidSize_Throws",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Zone_addRRset_Test.java|org.xbill.DNS.Zone_addRRset_Test|addRRset_SOAInvalidSize_Throws",
+      "body_hash": "66bd92fd92dad148b48d621427377e0001ce06d589fd58380c6387f17a06c466",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Zone_addRRset_Test#addRRset_SOAInvalidSize_Throws()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "1bc6ce59ab572236d2dc2225b7adb159c7a259e455edcbcbae5d03cf0f372de9",
+      "execution_hash": "501f8aa95bb60d3042fc1eeafd9bcfd6f7e081d2192d653a364f46bbccd8d559",
+      "source_root": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0a86ba63f7379cd03eeb83e8739e9cebcd20ac34830f8ae9f79ab6a8466f0110",
+      "resource_tree_hash": "de9617e6c9dd225fb49909e865a12a9415c63de3448234d2eb4d0a852a3dd419",
+      "unit": "org.xbill.DNS.Zone#addRRset(RRset)",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Zone_addRRset_Test.java|org.xbill.DNS.Zone_addRRset_Test|addRRset_SOAInvalidSize_Throws",
+      "resource_root": "results/policy/pools/ktester/34/dev/src-test-t"
+    },
+    {
+      "file": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/Zone_addRRset_Test.java",
+      "class": "org.xbill.DNS.Zone_addRRset_Test",
+      "method": "addRRset_NameNotSubdomain_Throws",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Zone_addRRset_Test.java|org.xbill.DNS.Zone_addRRset_Test|addRRset_NameNotSubdomain_Throws",
+      "body_hash": "ca7adbc82ac6e44512bde27d51b109a9b5b05253e06274357041f89fce23fe27",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Zone_addRRset_Test#addRRset_NameNotSubdomain_Throws()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "1bc6ce59ab572236d2dc2225b7adb159c7a259e455edcbcbae5d03cf0f372de9",
+      "execution_hash": "501f8aa95bb60d3042fc1eeafd9bcfd6f7e081d2192d653a364f46bbccd8d559",
+      "source_root": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0a86ba63f7379cd03eeb83e8739e9cebcd20ac34830f8ae9f79ab6a8466f0110",
+      "resource_tree_hash": "de9617e6c9dd225fb49909e865a12a9415c63de3448234d2eb4d0a852a3dd419",
+      "unit": "org.xbill.DNS.Zone#addRRset(RRset)",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Zone_addRRset_Test.java|org.xbill.DNS.Zone_addRRset_Test|addRRset_NameNotSubdomain_Throws",
+      "resource_root": "results/policy/pools/ktester/34/dev/src-test-t"
+    },
+    {
+      "file": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/Zone_addRRset_Test.java",
+      "class": "org.xbill.DNS.Zone_addRRset_Test",
+      "method": "addRRset_RegularRecord_Succeeds",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Zone_addRRset_Test.java|org.xbill.DNS.Zone_addRRset_Test|addRRset_RegularRecord_Succeeds",
+      "body_hash": "dfd790bbcfa815903501a2a1cac184646befee3765d5bd63d21892785f4161ad",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Zone_addRRset_Test#addRRset_RegularRecord_Succeeds()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "1bc6ce59ab572236d2dc2225b7adb159c7a259e455edcbcbae5d03cf0f372de9",
+      "execution_hash": "501f8aa95bb60d3042fc1eeafd9bcfd6f7e081d2192d653a364f46bbccd8d559",
+      "source_root": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0a86ba63f7379cd03eeb83e8739e9cebcd20ac34830f8ae9f79ab6a8466f0110",
+      "resource_tree_hash": "de9617e6c9dd225fb49909e865a12a9415c63de3448234d2eb4d0a852a3dd419",
+      "unit": "org.xbill.DNS.Zone#addRRset(RRset)",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Zone_addRRset_Test.java|org.xbill.DNS.Zone_addRRset_Test|addRRset_RegularRecord_Succeeds",
+      "resource_root": "results/policy/pools/ktester/34/dev/src-test-t"
+    },
+    {
+      "file": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/Zone_addRRset_Test.java",
+      "class": "org.xbill.DNS.Zone_addRRset_Test",
+      "method": "addRRset_NewSOA_UpdatesZoneSOA",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Zone_addRRset_Test.java|org.xbill.DNS.Zone_addRRset_Test|addRRset_NewSOA_UpdatesZoneSOA",
+      "body_hash": "8f3052f615463ff4ea5b1118972807870398f9ff96fa4696466768a9f1cdabe7",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Zone_addRRset_Test#addRRset_NewSOA_UpdatesZoneSOA()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "1bc6ce59ab572236d2dc2225b7adb159c7a259e455edcbcbae5d03cf0f372de9",
+      "execution_hash": "501f8aa95bb60d3042fc1eeafd9bcfd6f7e081d2192d653a364f46bbccd8d559",
+      "source_root": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0a86ba63f7379cd03eeb83e8739e9cebcd20ac34830f8ae9f79ab6a8466f0110",
+      "resource_tree_hash": "de9617e6c9dd225fb49909e865a12a9415c63de3448234d2eb4d0a852a3dd419",
+      "unit": "org.xbill.DNS.Zone#addRRset(RRset)",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Zone_addRRset_Test.java|org.xbill.DNS.Zone_addRRset_Test|addRRset_NewSOA_UpdatesZoneSOA",
+      "resource_root": "results/policy/pools/ktester/34/dev/src-test-t"
+    },
+    {
+      "file": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/Zone_addRRset_Test.java",
+      "class": "org.xbill.DNS.Zone_addRRset_Test",
+      "method": "addRRset_SOAZeroRecords_Throws",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Zone_addRRset_Test.java|org.xbill.DNS.Zone_addRRset_Test|addRRset_SOAZeroRecords_Throws",
+      "body_hash": "926776caccf7f774e48f026787a36fb52e0584a97a66c3dc65bf979e5505df19",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Zone_addRRset_Test#addRRset_SOAZeroRecords_Throws()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "1bc6ce59ab572236d2dc2225b7adb159c7a259e455edcbcbae5d03cf0f372de9",
+      "execution_hash": "501f8aa95bb60d3042fc1eeafd9bcfd6f7e081d2192d653a364f46bbccd8d559",
+      "source_root": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0a86ba63f7379cd03eeb83e8739e9cebcd20ac34830f8ae9f79ab6a8466f0110",
+      "resource_tree_hash": "de9617e6c9dd225fb49909e865a12a9415c63de3448234d2eb4d0a852a3dd419",
+      "unit": "org.xbill.DNS.Zone#addRRset(RRset)",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Zone_addRRset_Test.java|org.xbill.DNS.Zone_addRRset_Test|addRRset_SOAZeroRecords_Throws",
+      "resource_root": "results/policy/pools/ktester/34/dev/src-test-t"
+    },
+    {
+      "file": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/Zone_addRRset_Test.java",
+      "class": "org.xbill.DNS.Zone_addRRset_Test",
+      "method": "addRRset_NonSOANameEqualsOrigin_Succeeds",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Zone_addRRset_Test.java|org.xbill.DNS.Zone_addRRset_Test|addRRset_NonSOANameEqualsOrigin_Succeeds",
+      "body_hash": "349ee4ba121cbe624010d660ad93a4379aa0e0a132bec1d66b6befe99dd66907",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Zone_addRRset_Test#addRRset_NonSOANameEqualsOrigin_Succeeds()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "1bc6ce59ab572236d2dc2225b7adb159c7a259e455edcbcbae5d03cf0f372de9",
+      "execution_hash": "501f8aa95bb60d3042fc1eeafd9bcfd6f7e081d2192d653a364f46bbccd8d559",
+      "source_root": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0a86ba63f7379cd03eeb83e8739e9cebcd20ac34830f8ae9f79ab6a8466f0110",
+      "resource_tree_hash": "de9617e6c9dd225fb49909e865a12a9415c63de3448234d2eb4d0a852a3dd419",
+      "unit": "org.xbill.DNS.Zone#addRRset(RRset)",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Zone_addRRset_Test.java|org.xbill.DNS.Zone_addRRset_Test|addRRset_NonSOANameEqualsOrigin_Succeeds",
+      "resource_root": "results/policy/pools/ktester/34/dev/src-test-t"
+    },
+    {
+      "file": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/Zone_addRRset_Test.java",
+      "class": "org.xbill.DNS.Zone_addRRset_Test",
+      "method": "addRRset_ReplaceExistingSOA",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Zone_addRRset_Test.java|org.xbill.DNS.Zone_addRRset_Test|addRRset_ReplaceExistingSOA",
+      "body_hash": "cd012aef2ab4dac35774ac93c0cbac27a50d71e8ef5fafc8b990d26441327edb",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Zone_addRRset_Test#addRRset_ReplaceExistingSOA()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "1bc6ce59ab572236d2dc2225b7adb159c7a259e455edcbcbae5d03cf0f372de9",
+      "execution_hash": "501f8aa95bb60d3042fc1eeafd9bcfd6f7e081d2192d653a364f46bbccd8d559",
+      "source_root": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0a86ba63f7379cd03eeb83e8739e9cebcd20ac34830f8ae9f79ab6a8466f0110",
+      "resource_tree_hash": "de9617e6c9dd225fb49909e865a12a9415c63de3448234d2eb4d0a852a3dd419",
+      "unit": "org.xbill.DNS.Zone#addRRset(RRset)",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Zone_addRRset_Test.java|org.xbill.DNS.Zone_addRRset_Test|addRRset_ReplaceExistingSOA",
+      "resource_root": "results/policy/pools/ktester/34/dev/src-test-t"
+    },
+    {
+      "file": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/Zone_addRRset_Test.java",
+      "class": "org.xbill.DNS.Zone_addRRset_Test",
+      "method": "addRRset_ZoneWithNullOrigin_ThrowsNPE",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Zone_addRRset_Test.java|org.xbill.DNS.Zone_addRRset_Test|addRRset_ZoneWithNullOrigin_ThrowsNPE",
+      "body_hash": "254c3c7cb475634540b7a67b9d6cd3231d7072d597132ffa562d578bd8b407c9",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Zone_addRRset_Test#addRRset_ZoneWithNullOrigin_ThrowsNPE()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "1bc6ce59ab572236d2dc2225b7adb159c7a259e455edcbcbae5d03cf0f372de9",
+      "execution_hash": "501f8aa95bb60d3042fc1eeafd9bcfd6f7e081d2192d653a364f46bbccd8d559",
+      "source_root": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0a86ba63f7379cd03eeb83e8739e9cebcd20ac34830f8ae9f79ab6a8466f0110",
+      "resource_tree_hash": "de9617e6c9dd225fb49909e865a12a9415c63de3448234d2eb4d0a852a3dd419",
+      "unit": "org.xbill.DNS.Zone#addRRset(RRset)",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Zone_addRRset_Test.java|org.xbill.DNS.Zone_addRRset_Test|addRRset_ZoneWithNullOrigin_ThrowsNPE",
+      "resource_root": "results/policy/pools/ktester/34/dev/src-test-t"
+    }
+  ]
+}

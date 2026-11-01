@@ -1,0 +1,57 @@
+{
+  "index": 105,
+  "sha": "ba361b8ebc18c7ee70626af792a10ed039e030e8",
+  "parent": "bfe3c3d0fba3b1fff1045ad4a78f23d0aea0b822",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/NioClient.java": [
+      73,
+      74,
+      98,
+      99,
+      101,
+      116,
+      121,
+      123,
+      124,
+      126,
+      127,
+      129,
+      165,
+      177,
+      178,
+      179,
+      180,
+      181,
+      182,
+      183,
+      184,
+      194,
+      196,
+      197,
+      198,
+      199
+    ]
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/NioClient.java": [
+      73,
+      74,
+      98,
+      99,
+      100,
+      101,
+      102,
+      105,
+      120,
+      126,
+      127,
+      128,
+      163,
+      183,
+      184,
+      185,
+      186
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/NioClient.java b/src/main/java/org/xbill/DNS/NioClient.java\nindex 1a4311d6..f4fea343 100644\n--- a/src/main/java/org/xbill/DNS/NioClient.java\n+++ b/src/main/java/org/xbill/DNS/NioClient.java\n@@ -56 +55,0 @@ public abstract class NioClient {\n-  private static volatile boolean closeDone;\n@@ -73,2 +71,0 @@ public abstract class NioClient {\n-          closeThread = new Thread(() -> close(true));\n-          closeThread.setName(\"dnsjava NIO shutdown hook\");\n@@ -75,0 +73,2 @@ public abstract class NioClient {\n+            closeThread = new Thread(() -> close(true));\n+            closeThread.setName(\"dnsjava NIO shutdown hook\");\n@@ -88,2 +86,0 @@ public abstract class NioClient {\n-   * @implNote Does not wait until the selector thread has stopped. But users may immediately start\n-   *     using the {@link NioClient} again.\n@@ -98,2 +95,9 @@ public abstract class NioClient {\n-    run = false;\n-    Selector localSelector = selector;\n+\n+    Selector localSelector;\n+    Thread localSelectorThread;\n+    synchronized (NIO_CLIENT_LOCK) {\n+      run = false;\n+      localSelector = selector;\n+      localSelectorThread = selectorThread;\n+    }\n+\n@@ -101 +105 @@ public abstract class NioClient {\n-      selector.wakeup();\n+      localSelector.wakeup();\n@@ -116 +120 @@ public abstract class NioClient {\n-    if (localSelector == null) {\n+    if (localSelector == null || localSelectorThread == null) {\n@@ -121,10 +125,4 @@ public abstract class NioClient {\n-    synchronized (NIO_CLIENT_LOCK) {\n-      try {\n-        while (!closeDone) {\n-          NIO_CLIENT_LOCK.wait();\n-        }\n-      } catch (InterruptedException e) {\n-        Thread.currentThread().interrupt();\n-      } finally {\n-        closeDone = false;\n-      }\n+    try {\n+      localSelectorThread.join();\n+    } catch (InterruptedException e) {\n+      Thread.currentThread().interrupt();\n@@ -165 +163 @@ public abstract class NioClient {\n-    runClose();\n+    cleanupAfterRun();\n@@ -169 +167 @@ public abstract class NioClient {\n-  private static void runClose() {\n+  private static void cleanupAfterRun() {\n@@ -177,9 +174,0 @@ public abstract class NioClient {\n-    Thread localSelectorThread = selectorThread;\n-    synchronized (NIO_CLIENT_LOCK) {\n-      selector = null;\n-      selectorThread = null;\n-      closeThread = null;\n-      closeDone = true;\n-      NIO_CLIENT_LOCK.notifyAll();\n-    }\n-\n@@ -194,6 +183,4 @@ public abstract class NioClient {\n-    if (localSelectorThread != null) {\n-      try {\n-        localSelectorThread.join();\n-      } catch (InterruptedException e) {\n-        Thread.currentThread().interrupt();\n-      }\n+    synchronized (NIO_CLIENT_LOCK) {\n+      selector = null;\n+      selectorThread = null;\n+      closeThread = null;"
+}

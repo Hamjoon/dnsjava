@@ -1,0 +1,72 @@
+[
+  {
+    "group": "Message.isVerified - true when TSIG state is VERIFIED",
+    "cases": [
+      {
+        "input": [],
+        "expected": true,
+        "description": "Create a Message instance, set its package\u2011private field `tsigState` to `Message.TSIG_VERIFIED` (value 1) and verify that `isVerified()` returns true."
+      },
+      {
+        "input": [],
+        "expected": true,
+        "description": "Create a Message, set `tsigState` to `Message.TSIG_VERIFIED`, then call `isVerified()`, change `tsigState` to another value, call again, and finally reset to `TSIG_VERIFIED` to confirm the method reflects the current state and returns true only when the state equals VERIFIED."
+      }
+    ]
+  },
+  {
+    "group": "Message.isVerified - false for non\u2011verified TSIG states",
+    "cases": [
+      {
+        "input": [],
+        "expected": false,
+        "description": "Create a Message instance, set its package\u2011private field `tsigState` to `Message.TSIG_UNSIGNED` (0) via reflection, and verify that `isVerified()` returns false."
+      },
+      {
+        "input": [],
+        "expected": false,
+        "description": "Create a Message instance, set `tsigState` to `Message.TSIG_INTERMEDIATE` (2) via reflection, and verify that `isVerified()` returns false."
+      },
+      {
+        "input": [],
+        "expected": false,
+        "description": "Create a Message instance, set `tsigState` to `Message.TSIG_SIGNED` (3) via reflection, and verify that `isVerified()` returns false."
+      },
+      {
+        "input": [],
+        "expected": false,
+        "description": "Create a Message instance, set `tsigState` to `Message.TSIG_FAILED` (4) via reflection, and verify that `isVerified()` returns false."
+      }
+    ]
+  },
+  {
+    "group": "Message.isVerified - false for out\u2011of\u2011range TSIG states",
+    "cases": [
+      {
+        "input": [],
+        "expected": false,
+        "description": "Create a Message instance, set `tsigState` to a negative value (e.g., -1) via reflection, and verify that `isVerified()` returns false."
+      },
+      {
+        "input": [],
+        "expected": false,
+        "description": "Create a Message instance, set `tsigState` to a value greater than the defined constants (e.g., 5) via reflection, and verify that `isVerified()` returns false."
+      },
+      {
+        "input": [],
+        "expected": false,
+        "description": "Create a Message instance, set `tsigState` to `Integer.MAX_VALUE` via reflection, and verify that `isVerified()` returns false."
+      }
+    ]
+  },
+  {
+    "group": "Message.isVerified - default state",
+    "cases": [
+      {
+        "input": [],
+        "expected": false,
+        "description": "Instantiate a new Message with no modifications; the default `tsigState` should be `TSIG_UNSIGNED` (0). Verify that `isVerified()` returns false."
+      }
+    ]
+  }
+]

@@ -1,0 +1,251 @@
+[
+  {
+    "group": "Message.findRRset(Name, int, int) - branch coverage",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "Name.fromString(\"example.com.\")"
+          },
+          {
+            "parameter": "type",
+            "value": "Type.A"
+          },
+          {
+            "parameter": "section",
+            "value": "Message.Section.ANSWER"
+          }
+        ],
+        "expected": false,
+        "description": "The requested section array entry is null. The method should hit the first `if (sections[section] == null)` branch and return false."
+      },
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "Name.fromString(\"example.com.\")"
+          },
+          {
+            "parameter": "type",
+            "value": "Type.A"
+          },
+          {
+            "parameter": "section",
+            "value": "Message.Section.ANSWER"
+          }
+        ],
+        "expected": false,
+        "description": "The section exists but contains an empty list. The loop executes zero times and the method falls through to the final `return false`."
+      },
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "Name.fromString(\"example.com.\")"
+          },
+          {
+            "parameter": "type",
+            "value": "Type.A"
+          },
+          {
+            "parameter": "section",
+            "value": "Message.Section.ANSWER"
+          }
+        ],
+        "expected": false,
+        "description": "The section contains records, but none have both the requested type and name. The loop iterates over all records, never satisfying the `if ((r.getType() == type) && name.equals(r.getName()))` condition, and the method returns false."
+      },
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "Name.fromString(\"example.com.\")"
+          },
+          {
+            "parameter": "type",
+            "value": "Type.A"
+          },
+          {
+            "parameter": "section",
+            "value": "Message.Section.ANSWER"
+          }
+        ],
+        "expected": true,
+        "description": "The first record in the section matches both the requested name and type. The method enters the loop, the condition is true on the first iteration, and it returns true immediately."
+      },
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "Name.fromString(\"example.com.\")"
+          },
+          {
+            "parameter": "type",
+            "value": "Type.A"
+          },
+          {
+            "parameter": "section",
+            "value": "Message.Section.ANSWER"
+          }
+        ],
+        "expected": true,
+        "description": "The matching record is not the first element (e.g., second or later). The loop iterates past non\u2011matching records, eventually satisfies the condition, and returns true."
+      }
+    ]
+  },
+  {
+    "group": "Message.findRRset(Name, int, int) - additional edge cases",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "null"
+          },
+          {
+            "parameter": "type",
+            "value": "Type.A"
+          },
+          {
+            "parameter": "section",
+            "value": "Message.Section.ANSWER"
+          }
+        ],
+        "expected": "NullPointerException",
+        "description": "Passing a null `Name` should cause a NPE when the method evaluates `name.equals(r.getName())`."
+      },
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "Name.fromString(\"example.com.\")"
+          },
+          {
+            "parameter": "type",
+            "value": "Type.A"
+          },
+          {
+            "parameter": "section",
+            "value": "-1"
+          }
+        ],
+        "expected": "ArrayIndexOutOfBoundsException",
+        "description": "A negative section index is outside the bounds of the internal `sections` array, leading to an AIOOBE on the first array access."
+      },
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "Name.fromString(\"example.com.\")"
+          },
+          {
+            "parameter": "type",
+            "value": "Type.A"
+          },
+          {
+            "parameter": "section",
+            "value": "Message.Section.MAX + 1"
+          }
+        ],
+        "expected": "ArrayIndexOutOfBoundsException",
+        "description": "An index larger than the highest defined section triggers an AIOOBE when `sections[section]` is accessed."
+      },
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "Name.fromString(\"example.com.\")"
+          },
+          {
+            "parameter": "type",
+            "value": "Type.ANY"
+          },
+          {
+            "parameter": "section",
+            "value": "Message.Section.ANSWER"
+          }
+        ],
+        "expected": false,
+        "description": "Even though a record with the requested name exists, its concrete type (e.g., A) does not equal `Type.ANY` (0), so the method must return false."
+      },
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "Name.fromString(\"example.com.\")"
+          },
+          {
+            "parameter": "type",
+            "value": "Type.ANY"
+          },
+          {
+            "parameter": "section",
+            "value": "Message.Section.ANSWER"
+          }
+        ],
+        "expected": true,
+        "description": "A record of type `ANY` (0) with the matching name is present; the equality check succeeds and the method returns true."
+      },
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "Name.fromString(\"example.com.\")"
+          },
+          {
+            "parameter": "type",
+            "value": "Type.A"
+          },
+          {
+            "parameter": "section",
+            "value": "Message.Section.ANSWER"
+          }
+        ],
+        "expected": true,
+        "description": "The section contains many records; the matching record appears after several non\u2011matching entries, confirming that the loop continues until a match is found."
+      },
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "Name.fromString(\"example.com.\")"
+          },
+          {
+            "parameter": "type",
+            "value": "Type.A"
+          },
+          {
+            "parameter": "section",
+            "value": "Message.Section.ANSWER"
+          }
+        ],
+        "expected": "NullPointerException",
+        "description": "The section list contains a `null` element; when the loop reaches this element, `r.getType()` throws NPE."
+      }
+    ]
+  },
+  {
+    "group": "Message.findRRset(Name, int, int) - internal state anomalies",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "Name.fromString(\"example.com.\")"
+          },
+          {
+            "parameter": "type",
+            "value": "Type.A"
+          },
+          {
+            "parameter": "section",
+            "value": "Message.Section.ANSWER"
+          }
+        ],
+        "expected": "NullPointerException",
+        "description": "The internal `sections` array of the Message instance is deliberately set to null before invoking `findRRset`. Accessing `sections[section]` triggers a NPE, regardless of the supplied arguments."
+      }
+    ]
+  }
+]

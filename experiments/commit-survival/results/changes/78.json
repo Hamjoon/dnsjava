@@ -1,0 +1,15 @@
+{
+  "index": 78,
+  "sha": "cd0bbdf991b375acbd72fa72df4fe8e3911380ec",
+  "parent": "60e75e592014f1bc566722cdb2713d7509583ec6",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/Resolver.java": []
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/Resolver.java": [
+      243,
+      244
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/Resolver.java b/src/main/java/org/xbill/DNS/Resolver.java\nindex 5d3c0ff3..5b6ce511 100644\n--- a/src/main/java/org/xbill/DNS/Resolver.java\n+++ b/src/main/java/org/xbill/DNS/Resolver.java\n@@ -11,0 +12 @@ import java.util.concurrent.CompletableFuture;\n+import java.util.concurrent.CompletionException;\n@@ -241,0 +243,4 @@ public interface Resolver {\n+            if (throwable instanceof CompletionException && throwable.getCause() != null) {\n+              throwable = throwable.getCause();\n+            }\n+\n@@ -246,0 +252 @@ public interface Resolver {\n+"
+}

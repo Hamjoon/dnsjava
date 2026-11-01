@@ -1,0 +1,15 @@
+/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/generated/ouedraogo/round2/sources/TSIG/GToT/TSIGTest.java:57: error: cannot find symbol
+  private static final String VALID_BASE64_KEY = base64.toString(
+                                                 ^
+  symbol:   variable base64
+  location: class TSIGTest
+/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/generated/ouedraogo/round2/sources/TSIG/GToT/TSIGTest.java:190: error: incompatible types: String cannot be converted to SecretKey
+    TSIG signer = new TSIG(TSIG.HMAC_SHA256, name("keyname."), VALID_BASE64_KEY, past);
+                                                               ^
+/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/generated/ouedraogo/round2/sources/TSIG/GToT/TSIGTest.java:191: error: incompatible types: String cannot be converted to SecretKey
+    TSIG verifier = new TSIG(TSIG.HMAC_SHA256, name("keyname."), VALID_BASE64_KEY, future);
+                                                                 ^
+Note: /repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/generated/ouedraogo/round2/sources/TSIG/GToT/TSIGTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+3 errors

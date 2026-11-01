@@ -1,0 +1,39 @@
+{
+  "index": 75,
+  "sha": "2c5a352d35d66f15f5b74531e1a83e4892959e5d",
+  "parent": "3efb25e0cc2414ef1491669bc56e409746c23f21",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/hosts/HostsFileParser.java": [
+      121,
+      140,
+      177,
+      184,
+      194
+    ]
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/hosts/HostsFileParser.java": [
+      41,
+      121,
+      122,
+      125,
+      136,
+      137,
+      140,
+      142,
+      151,
+      152,
+      155,
+      170,
+      171,
+      175,
+      177,
+      203,
+      204,
+      211,
+      221,
+      222
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/hosts/HostsFileParser.java b/src/main/java/org/xbill/DNS/hosts/HostsFileParser.java\nindex c617bc6d..e0e0a7d4 100644\n--- a/src/main/java/org/xbill/DNS/hosts/HostsFileParser.java\n+++ b/src/main/java/org/xbill/DNS/hosts/HostsFileParser.java\n@@ -16,0 +17 @@ import java.util.Optional;\n+import java.util.concurrent.atomic.AtomicInteger;\n@@ -39,0 +41 @@ public final class HostsFileParser {\n+  private boolean hostsFileWarningLogged = false;\n@@ -118,0 +121,2 @@ public final class HostsFileParser {\n+    AtomicInteger addressFailures = new AtomicInteger(0);\n+    AtomicInteger nameFailures = new AtomicInteger(0);\n@@ -121 +125 @@ public final class HostsFileParser {\n-        LineData lineData = parseLine(++lineNumber, line);\n+        LineData lineData = parseLine(++lineNumber, line, addressFailures, nameFailures);\n@@ -131,0 +136,9 @@ public final class HostsFileParser {\n+    if (!hostsFileWarningLogged && (addressFailures.get() > 0 || nameFailures.get() > 0)) {\n+      log.warn(\n+          \"Failed to parse entire hosts file {}, address failures={}, name failures={}\",\n+          path,\n+          addressFailures.get(),\n+          nameFailures);\n+      hostsFileWarningLogged = true;\n+    }\n+\n@@ -137,0 +151,2 @@ public final class HostsFileParser {\n+    AtomicInteger addressFailures = new AtomicInteger(0);\n+    AtomicInteger nameFailures = new AtomicInteger(0);\n@@ -140 +155 @@ public final class HostsFileParser {\n-        LineData lineData = parseLine(++lineNumber, line);\n+        LineData lineData = parseLine(++lineNumber, line, addressFailures, nameFailures);\n@@ -153,0 +169,10 @@ public final class HostsFileParser {\n+\n+    if (!hostsFileWarningLogged && (addressFailures.get() > 0 || nameFailures.get() > 0)) {\n+      log.warn(\n+          \"Failed to find {} in hosts file {}, address failures={}, name failures={}\",\n+          name,\n+          path,\n+          addressFailures.get(),\n+          nameFailures);\n+      hostsFileWarningLogged = true;\n+    }\n@@ -163 +188,2 @@ public final class HostsFileParser {\n-  private LineData parseLine(int lineNumber, String line) {\n+  private LineData parseLine(\n+      int lineNumber, String line, AtomicInteger addressFailures, AtomicInteger nameFailures) {\n@@ -177 +203,2 @@ public final class HostsFileParser {\n-      log.warn(\"Could not decode address {}, {}#L{}\", lineTokens[0], path, lineNumber);\n+      log.debug(\"Could not decode address {}, {}#L{}\", lineTokens[0], path, lineNumber);\n+      addressFailures.incrementAndGet();\n@@ -184 +211 @@ public final class HostsFileParser {\n-                .map(lineTokenName -> safeName(lineTokenName, lineNumber))\n+                .map(lineTokenName -> safeName(lineTokenName, lineNumber, nameFailures))\n@@ -190 +217 @@ public final class HostsFileParser {\n-  private Name safeName(String name, int lineNumber) {\n+  private Name safeName(String name, int lineNumber, AtomicInteger nameFailures) {\n@@ -194 +221,2 @@ public final class HostsFileParser {\n-      log.warn(\"Could not decode name {}, {}#L{}, skipping\", name, path, lineNumber);\n+      log.debug(\"Could not decode name {}, {}#L{}, skipping\", name, path, lineNumber);\n+      nameFailures.incrementAndGet();"
+}

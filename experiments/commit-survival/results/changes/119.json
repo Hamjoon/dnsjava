@@ -1,0 +1,62 @@
+{
+  "index": 119,
+  "sha": "8eab638d27905f54cafc559bc6b1cc749d37ed85",
+  "parent": "a0d02e23eddb9930cb488198c8698db57d67037c",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/Cache.java": [
+      43,
+      47,
+      55,
+      57,
+      65,
+      71,
+      99,
+      102,
+      103,
+      104,
+      107,
+      118,
+      202,
+      211,
+      215,
+      270,
+      383,
+      421,
+      457,
+      500
+    ]
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/Cache.java": [
+      44,
+      48,
+      56,
+      58,
+      66,
+      72,
+      99,
+      103,
+      114,
+      184,
+      185,
+      187,
+      188,
+      203,
+      204,
+      208,
+      217,
+      218,
+      221,
+      225,
+      280,
+      393,
+      394,
+      432,
+      433,
+      469,
+      470,
+      513
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/Cache.java b/src/main/java/org/xbill/DNS/Cache.java\nindex 3a6da65c..3f979f2d 100644\n--- a/src/main/java/org/xbill/DNS/Cache.java\n+++ b/src/main/java/org/xbill/DNS/Cache.java\n@@ -7,0 +8 @@ import java.io.InputStream;\n+import java.time.Clock;\n@@ -30 +31 @@ public class Cache {\n-    boolean expired();\n+    boolean expired(Clock clock);\n@@ -39 +40 @@ public class Cache {\n-  private static int limitExpire(long ttl, long maxttl) {\n+  private long limitExpire(long ttl, long maxttl) {\n@@ -43 +44 @@ public class Cache {\n-    long expire = (System.currentTimeMillis() / 1000) + ttl;\n+    long expire = (clock.millis() / 1000) + ttl;\n@@ -47 +48 @@ public class Cache {\n-    return (int) expire;\n+    return expire;\n@@ -52 +53 @@ public class Cache {\n-    int expire;\n+    long expire;\n@@ -55 +56 @@ public class Cache {\n-    public CacheRRset(Record rec, int cred, long maxttl, boolean isAuthenticated) {\n+    public CacheRRset(Record rec, int cred, long expire, boolean isAuthenticated) {\n@@ -57 +58 @@ public class Cache {\n-      this.expire = limitExpire(rec.getTTL(), maxttl);\n+      this.expire = expire;\n@@ -62 +63 @@ public class Cache {\n-    public CacheRRset(RRset rrset, int cred, long maxttl, boolean isAuthenticated) {\n+    public CacheRRset(RRset rrset, int cred, long expire, boolean isAuthenticated) {\n@@ -65 +66 @@ public class Cache {\n-      this.expire = limitExpire(rrset.getTTL(), maxttl);\n+      this.expire = expire;\n@@ -70,2 +71,2 @@ public class Cache {\n-    public final boolean expired() {\n-      int now = (int) (System.currentTimeMillis() / 1000);\n+    public final boolean expired(Clock clock) {\n+      int now = (int) (clock.millis() / 1000);\n@@ -95 +96 @@ public class Cache {\n-    int expire;\n+    long expire;\n@@ -98,2 +99 @@ public class Cache {\n-    public NegativeElement(\n-        Name name, int type, SOARecord soa, int cred, long maxttl, boolean isAuthenticated) {\n+    public NegativeElement(Name name, int type, int cred, long expire, boolean isAuthenticated) {\n@@ -102,4 +101,0 @@ public class Cache {\n-      long cttl = 0;\n-      if (soa != null) {\n-        cttl = Math.min(soa.getMinimum(), soa.getTTL());\n-      }\n@@ -107 +103 @@ public class Cache {\n-      this.expire = limitExpire(cttl, maxttl);\n+      this.expire = expire;\n@@ -117,2 +113,2 @@ public class Cache {\n-    public final boolean expired() {\n-      int now = (int) (System.currentTimeMillis() / 1000);\n+    public final boolean expired(Clock clock) {\n+      int now = (int) (clock.millis() / 1000);\n@@ -174,0 +171 @@ public class Cache {\n+  private final Clock clock;\n@@ -186,0 +184,5 @@ public class Cache {\n+    this(Clock.systemUTC(), dclass);\n+  }\n+\n+  Cache(Clock clock, int dclass) {\n+    this.clock = clock;\n@@ -199,0 +202,4 @@ public class Cache {\n+  Cache(Clock clock) {\n+    this(clock, DClass.IN);\n+  }\n+\n@@ -202 +208 @@ public class Cache {\n-    this(new Master(file));\n+    this(Clock.systemUTC(), new Master(file));\n@@ -211 +217,5 @@ public class Cache {\n-    this(new Master(input));\n+    this(Clock.systemUTC(), new Master(input));\n+  }\n+\n+  Cache(Clock clock, InputStream input) throws IOException {\n+    this(clock, new Master(input));\n@@ -214,2 +224,2 @@ public class Cache {\n-  private <T> Cache(Master m) throws IOException {\n-    this();\n+  private <T> Cache(Clock clock, Master m) throws IOException {\n+    this(clock);\n@@ -270 +280 @@ public class Cache {\n-    if (found.expired()) {\n+    if (found.expired(clock)) {\n@@ -383 +393,2 @@ public class Cache {\n-      CacheRRset crrset = new CacheRRset(r, cred, maxcache, isAuthenticated);\n+      CacheRRset crrset =\n+          new CacheRRset(r, cred, limitExpire(r.getTTL(), maxcache), isAuthenticated);\n@@ -421 +432,2 @@ public class Cache {\n-          crrset = new CacheRRset(rrset, cred, maxcache, isAuthenticated);\n+          crrset =\n+              new CacheRRset(rrset, cred, limitExpire(rrset.getTTL(), maxcache), isAuthenticated);\n@@ -457 +469,2 @@ public class Cache {\n-        addElement(name, new NegativeElement(name, type, soa, cred, maxncache, isAuthenticated));\n+        long expire = limitExpire(Math.min(soa.getMinimum(), soa.getTTL()), maxncache);\n+        addElement(name, new NegativeElement(name, type, cred, expire, isAuthenticated));\n@@ -500 +513 @@ public class Cache {\n-          if (element.expired()) {\n+          if (element.expired(clock)) {"
+}

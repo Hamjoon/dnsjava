@@ -1,0 +1,166 @@
+[
+  {
+    "group": "Null TSIG key handling",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "key",
+            "value": "null"
+          }
+        ],
+        "expected": "IllegalArgumentException thrown",
+        "description": "Calling setTSIG(null) should reject a null TSIG key and throw an IllegalArgumentException (or NullPointerException depending on implementation). This exercises the null\u2011check branch in the overloaded setTSIG method."
+      }
+    ]
+  },
+  {
+    "group": "Valid TSIG key handling",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "key",
+            "value": "new TSIG(Name.fromString(\"example.com.\"), \"hmac-sha256\", \"dGVzdFNlY3JldA==\")"
+          }
+        ],
+        "expected": "No exception thrown; Message.isSigned() returns false; Message.isVerified() returns false; internal tsigState equals Message.TSIG_UNSIGNED (0); Message.getTSIG() returns null",
+        "description": "Calling setTSIG with a properly constructed non\u2011null TSIG key should succeed without throwing and leave the message in an unsigned state. The observable behavior is that the message reports not signed and not verified, and no TSIGRecord is present yet."
+      },
+      {
+        "input": [
+          {
+            "parameter": "key",
+            "value": "new TSIG(Name.fromString(\"_test._tsig.example.com.\"), \"hmac-md5\", \"YWJjZDEyMzQ1\")"
+          }
+        ],
+        "expected": "No exception thrown; after setTSIG, Message.getHeader().getAdditionalCount() remains unchanged (no TSIG added yet)",
+        "description": "A TSIG key whose name is an explicit TSIG name should be accepted. The method should not automatically add a TSIGRecord to the additional section; the count stays the same."
+      }
+    ]
+  },
+  {
+    "group": "Replace existing TSIG key",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "key",
+            "value": "firstKey = new TSIG(Name.fromString(\"first.example.com.\"), \"hmac-sha1\", \"c2VjcmV0MQ==\")"
+          },
+          {
+            "parameter": "key",
+            "value": "secondKey = new TSIG(Name.fromString(\"second.example.com.\"), \"hmac-sha256\", \"c2VjcmV0Mg==\")"
+          }
+        ],
+        "expected": "First call to setTSIG(firstKey) succeeds; second call to setTSIG(secondKey) succeeds; internal tsigState is TSIG_UNSIGNED after each call; the key stored after the second call equals secondKey; no exception is thrown",
+        "description": "When setTSIG is invoked twice with different keys, the second invocation should replace the previous key and reset the TSIG state. This verifies that the method does not retain the old key."
+      }
+    ]
+  },
+  {
+    "group": "TSIG state after setting",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "key",
+            "value": "new TSIG(Name.fromString(\"state.example.com.\"), \"hmac-sha256\", \"c2VjcmV0\")"
+          }
+        ],
+        "expected": "After setTSIG, reflective access to private field tsigState yields value Message.TSIG_UNSIGNED (0); tsigstart equals -1; isSigned() returns false; isVerified() returns false",
+        "description": "The overloaded setTSIG(TSIG) delegates to setTSIG(key, Rcode.NOERROR, null) which should initialise the internal TSIG bookkeeping fields. The test confirms the exact values of tsigState and tsigstart."
+      }
+    ]
+  },
+  {
+    "group": "Idempotent call with same TSIG key",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "key",
+            "value": "sharedKey = new TSIG(Name.fromString(\"same.example.com.\"), \"hmac-md5\", \"c2VjcmV0\")"
+          }
+        ],
+        "expected": "Calling setTSIG(sharedKey) twice does not change the internal state after the first call; tsigState remains TSIG_UNSIGNED and tsigstart stays -1; no exception is thrown",
+        "description": "Ensures that invoking setTSIG repeatedly with the same key is safe and does not corrupt internal bookkeeping."
+      }
+    ]
+  },
+  {
+    "group": "TSIG key with empty secret",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "key",
+            "value": "new TSIG(Name.fromString(\"emptysecret.example.com.\"), \"hmac-sha256\", \"\")"
+          }
+        ],
+        "expected": "IllegalArgumentException thrown (TSIG constructor validates secret length)",
+        "description": "Even though setTSIG itself only checks for null, constructing a TSIG with an empty secret is illegal; this case verifies that such a key cannot be passed to setTSIG."
+      }
+    ]
+  },
+  {
+    "group": "Unsupported TSIG algorithm",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "key",
+            "value": "new TSIG(Name.fromString(\"example.com.\"), \"unsupported-algo\", \"dGVzdFNlY3JldA==\")"
+          }
+        ],
+        "expected": "IllegalArgumentException thrown",
+        "description": "Calling setTSIG with a TSIG whose algorithm string is not recognized by the library should cause an IllegalArgumentException. This tests the algorithm validation branch inside setTSIG."
+      }
+    ]
+  },
+  {
+    "group": "Duplicate TSIG record already present",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "key",
+            "value": "new TSIG(Name.fromString(\"dup.example.com.\"), \"hmac-sha256\", \"dGVzdFNlY3JldA==\")"
+          }
+        ],
+        "expected": "IllegalStateException thrown",
+        "description": "If a TSIGRecord is already present in the message's additional section (added via addRecord), a subsequent call to setTSIG should reject the operation and throw IllegalStateException, preventing multiple TSIGs."
+      }
+    ]
+  },
+  {
+    "group": "Null TSIG key after message already contains TSIGRecord",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "key",
+            "value": "null"
+          }
+        ],
+        "expected": "IllegalArgumentException thrown",
+        "description": "Even when a TSIGRecord already exists in the message, passing a null key to setTSIG must still trigger the null\u2011check and throw IllegalArgumentException."
+      }
+    ]
+  },
+  {
+    "group": "TSIG key with null name",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "key",
+            "value": "new TSIG(null, \"hmac-sha256\", \"dGVzdFNlY3JldA==\")"
+          }
+        ],
+        "expected": "NullPointerException thrown",
+        "description": "Constructing a TSIG with a null Name is illegal; setTSIG should propagate the NullPointerException thrown by the TSIG constructor."
+      }
+    ]
+  }
+]

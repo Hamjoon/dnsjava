@@ -1,0 +1,67 @@
+{
+  "index": 89,
+  "sha": "7b7c929e5b90b8c24f257d95aa8297767de143e8",
+  "build": "ok",
+  "attempts": [
+    {
+      "command": [
+        "mvn",
+        "-q",
+        "-o",
+        "-DskipTests",
+        "compile"
+      ],
+      "cwd": "/repo/experiments/commit-survival/work/checkouts/89",
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 12.625,
+      "log": "results/builds/logs/89-1.txt"
+    }
+  ],
+  "input_sha256": "267f532d91f7645fb94b10c3cbc967bfd42403ae5e124079f4adbe59020f4ca0",
+  "pom_sha256": "3bf7a0231a0af22144836bdfc5d7c7ff5855bb0f7cca84db734b2220769d5527",
+  "classpath": "work/classpaths/3bf7a0231a0af22144836bdfc5d7c7ff5855bb0f7cca84db734b2220769d5527.txt",
+  "classpath_attempts": [
+    {
+      "command": [
+        "mvn",
+        "-q",
+        "-o",
+        "dependency:go-offline"
+      ],
+      "cwd": "/repo/experiments/commit-survival/work/checkouts/89",
+      "exit_code": 1,
+      "timeout": false,
+      "seconds": 2.305,
+      "log": "results/builds/logs/classpath-89/go-offline-c9f618fad43b4a88b378fb4763624098/1.txt"
+    },
+    {
+      "command": [
+        "mvn",
+        "-q",
+        "-U",
+        "dependency:go-offline"
+      ],
+      "cwd": "/repo/experiments/commit-survival/work/checkouts/89",
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 4.198,
+      "log": "results/builds/logs/classpath-89/go-offline-c9f618fad43b4a88b378fb4763624098/2.txt"
+    },
+    {
+      "command": [
+        "mvn",
+        "-q",
+        "-o",
+        "dependency:build-classpath",
+        "-DincludeScope=test",
+        "-Dmdep.outputFile=/repo/experiments/commit-survival/work/classpaths/3bf7a0231a0af22144836bdfc5d7c7ff5855bb0f7cca84db734b2220769d5527-56c66ce814b2418d8c007e2b4d5def5b.tmp"
+      ],
+      "cwd": "/repo/experiments/commit-survival/work/checkouts/89",
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 2.189,
+      "log": "results/builds/logs/classpath-89/build-classpath-3630ea96722047a9aa20540f0dee5a7a/1.txt"
+    }
+  ]
+}

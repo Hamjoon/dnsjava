@@ -1,0 +1,1092 @@
+class	method	line	accessor	body
+android.content.Context	getSystemService	5	false	
+android.net.ConnectivityManager	getActiveNetwork	5	false	
+android.net.ConnectivityManager	getLinkProperties	9	false	
+android.net.LinkProperties	getDnsServers	8	false	
+android.net.LinkProperties	getDomains	12	false	
+org.xbill.DNS.A6Record	rrFromWire	43	false	
+org.xbill.DNS.A6Record	rdataFromString	58	false	
+org.xbill.DNS.A6Record	rrToString	77	false	
+org.xbill.DNS.A6Record	getPrefixBits	93	true	{ return prefixBits; }
+org.xbill.DNS.A6Record	getSuffix	98	true	{ return suffix; }
+org.xbill.DNS.A6Record	getPrefix	103	true	{ return prefix; }
+org.xbill.DNS.A6Record	rrToWire	107	false	
+org.xbill.DNS.AAAARecord	rrFromWire	35	false	
+org.xbill.DNS.AAAARecord	rdataFromString	40	false	
+org.xbill.DNS.AAAARecord	rrToString	46	false	
+org.xbill.DNS.AAAARecord	getAddress	62	false	
+org.xbill.DNS.AAAARecord	rrToWire	74	false	
+org.xbill.DNS.AFSDBRecord	getSubtype	26	true	{ return getU16Field(); }
+org.xbill.DNS.AFSDBRecord	getHost	31	true	{ return getNameField(); }
+org.xbill.DNS.APLRecord	rrFromWire	131	false	
+org.xbill.DNS.APLRecord	rdataFromString	158	false	
+org.xbill.DNS.APLRecord	rrToString	220	false	
+org.xbill.DNS.APLRecord	getElements	234	true	{ return elements; }
+org.xbill.DNS.APLRecord	rrToWire	247	false	
+org.xbill.DNS.ARecord	rrFromWire	51	false	
+org.xbill.DNS.ARecord	rdataFromString	56	false	
+org.xbill.DNS.ARecord	rrToString	62	false	
+org.xbill.DNS.ARecord	getAddress	68	false	
+org.xbill.DNS.ARecord	rrToWire	80	false	
+org.xbill.DNS.Address	toArray	184	false	
+org.xbill.DNS.Address	toArray	202	false	
+org.xbill.DNS.Address	toByteArray	213	false	
+org.xbill.DNS.Address	isDottedQuad	229	false	
+org.xbill.DNS.Address	toDottedQuad	240	false	
+org.xbill.DNS.Address	toDottedQuad	256	false	
+org.xbill.DNS.Address	getByName	307	false	
+org.xbill.DNS.Address	getAllByName	323	false	
+org.xbill.DNS.Address	getByAddress	345	false	
+org.xbill.DNS.Address	getByAddress	367	false	
+org.xbill.DNS.Address	getHostName	386	false	
+org.xbill.DNS.Address	familyOf	402	false	
+org.xbill.DNS.Address	addressLength	418	false	
+org.xbill.DNS.Address	truncate	435	false	
+org.xbill.DNS.AsyncSemaphore	acquire	35	false	
+org.xbill.DNS.CAARecord	rrFromWire	46	false	
+org.xbill.DNS.CAARecord	rdataFromString	53	false	
+org.xbill.DNS.CAARecord	rrToString	64	false	
+org.xbill.DNS.CAARecord	getFlags	76	true	{ return flags; }
+org.xbill.DNS.CAARecord	getTag	81	true	{ return byteArrayToString(tag, false); }
+org.xbill.DNS.CAARecord	getValue	86	true	{ return byteArrayToString(value, false); }
+org.xbill.DNS.CAARecord	rrToWire	90	false	
+org.xbill.DNS.CERTRecord	rrFromWire	128	false	
+org.xbill.DNS.CERTRecord	rdataFromString	136	false	
+org.xbill.DNS.CERTRecord	rrToString	153	false	
+org.xbill.DNS.CERTRecord	getCertType	174	true	{ return certType; }
+org.xbill.DNS.CERTRecord	getKeyTag	179	true	{ return keyTag; }
+org.xbill.DNS.CERTRecord	getAlgorithm	184	true	{ return alg; }
+org.xbill.DNS.CERTRecord	getCert	189	true	{ return cert; }
+org.xbill.DNS.CERTRecord	rrToWire	193	false	
+org.xbill.DNS.CNAMERecord	getTarget	26	true	{ return getSingleName(); }
+org.xbill.DNS.Cache	clearCache	316	false	
+org.xbill.DNS.Cache	addRecord	340	false	
+org.xbill.DNS.Cache	addRRset	365	false	
+org.xbill.DNS.Cache	addNegative	399	false	
+org.xbill.DNS.Cache	lookup	420	false	
+org.xbill.DNS.Cache	lookupRecords	524	false	
+org.xbill.DNS.Cache	findRecords	546	false	
+org.xbill.DNS.Cache	findAnyRecords	559	false	
+org.xbill.DNS.Cache	addMessage	606	false	
+org.xbill.DNS.Cache	flushSet	749	false	
+org.xbill.DNS.Cache	flushName	759	false	
+org.xbill.DNS.Cache	setMaxNCache	767	true	{ maxncache = seconds; }
+org.xbill.DNS.Cache	getMaxNCache	775	true	{ return maxncache; }
+org.xbill.DNS.Cache	setMaxCache	783	true	{ maxcache = seconds; }
+org.xbill.DNS.Cache	getMaxCache	791	true	{ return maxcache; }
+org.xbill.DNS.Cache	getSize	799	true	{ return data.size(); }
+org.xbill.DNS.Cache	getMaxEntries	807	true	{ return data.getMaxSize(); }
+org.xbill.DNS.Cache	setMaxEntries	822	false	
+org.xbill.DNS.Cache	getDClass	827	true	{ return dclass; }
+org.xbill.DNS.Cache	toString	832	false	
+org.xbill.DNS.ClientSubnetOption	getFamily	84	true	{ return family; }
+org.xbill.DNS.ClientSubnetOption	getSourcePrefixLength	89	true	{ return sourcePrefixLength; }
+org.xbill.DNS.ClientSubnetOption	getScopePrefixLength	94	true	{ return scopePrefixLength; }
+org.xbill.DNS.ClientSubnetOption	getAddress	99	true	{ return address; }
+org.xbill.DNS.ClientSubnetOption	optionFromWire	103	false	
+org.xbill.DNS.ClientSubnetOption	optionToWire	140	false	
+org.xbill.DNS.ClientSubnetOption	optionToString	148	false	
+org.xbill.DNS.Compression	add	39	false	
+org.xbill.DNS.Compression	get	58	false	
+org.xbill.DNS.CookieOption	getClientCookie	66	true	{ return clientCookie; }
+org.xbill.DNS.CookieOption	getServerCookie	75	true	{ return Optional.ofNullable(serverCookie); }
+org.xbill.DNS.CookieOption	optionFromWire	85	false	
+org.xbill.DNS.CookieOption	optionToWire	105	false	
+org.xbill.DNS.CookieOption	optionToString	118	false	
+org.xbill.DNS.DClass	check	66	false	
+org.xbill.DNS.DClass	string	78	false	
+org.xbill.DNS.DClass	value	87	false	
+org.xbill.DNS.DHCIDRecord	rrFromWire	31	false	
+org.xbill.DNS.DHCIDRecord	rdataFromString	36	false	
+org.xbill.DNS.DHCIDRecord	rrToWire	41	false	
+org.xbill.DNS.DHCIDRecord	rrToString	46	false	
+org.xbill.DNS.DHCIDRecord	getData	52	true	{ return data; }
+org.xbill.DNS.DLVRecord	rrFromWire	60	false	
+org.xbill.DNS.DLVRecord	rdataFromString	68	false	
+org.xbill.DNS.DLVRecord	rrToString	77	false	
+org.xbill.DNS.DLVRecord	getAlgorithm	94	true	{ return alg; }
+org.xbill.DNS.DLVRecord	getDigestID	99	true	{ return digestid; }
+org.xbill.DNS.DLVRecord	getDigest	104	true	{ return digest; }
+org.xbill.DNS.DLVRecord	getFootprint	109	true	{ return footprint; }
+org.xbill.DNS.DLVRecord	rrToWire	113	false	
+org.xbill.DNS.DNAMERecord	getTarget	25	true	{ return getSingleName(); }
+org.xbill.DNS.DNSInput	current	43	false	
+org.xbill.DNS.DNSInput	remaining	48	false	
+org.xbill.DNS.DNSInput	setActive	65	false	
+org.xbill.DNS.DNSInput	clearActive	76	false	
+org.xbill.DNS.DNSInput	saveActive	81	false	
+org.xbill.DNS.DNSInput	restoreActive	92	false	
+org.xbill.DNS.DNSInput	jump	106	false	
+org.xbill.DNS.DNSInput	save	120	false	
+org.xbill.DNS.DNSInput	restore	126	false	
+org.xbill.DNS.DNSInput	readU8	142	false	
+org.xbill.DNS.DNSInput	readU16	153	false	
+org.xbill.DNS.DNSInput	readU32	164	false	
+org.xbill.DNS.DNSInput	readByteArray	177	false	
+org.xbill.DNS.DNSInput	readByteArray	188	false	
+org.xbill.DNS.DNSInput	readByteArray	201	false	
+org.xbill.DNS.DNSInput	readCountedString	215	false	
+org.xbill.DNS.DNSKEYRecord	rdataFromString	82	false	
+org.xbill.DNS.DNSOutput	current	34	false	
+org.xbill.DNS.DNSOutput	jump	65	false	
+org.xbill.DNS.DNSOutput	save	77	false	
+org.xbill.DNS.DNSOutput	restore	82	false	
+org.xbill.DNS.DNSOutput	writeU8	95	false	
+org.xbill.DNS.DNSOutput	writeU16	106	false	
+org.xbill.DNS.DNSOutput	writeU16At	119	false	
+org.xbill.DNS.DNSOutput	writeU32	133	false	
+org.xbill.DNS.DNSOutput	writeByteArray	149	false	
+org.xbill.DNS.DNSOutput	writeByteArray	160	false	
+org.xbill.DNS.DNSOutput	writeCountedString	170	false	
+org.xbill.DNS.DNSOutput	toByteArray	180	false	
+org.xbill.DNS.DNSOutput	toU16	186	false	
+org.xbill.DNS.DNSSEC	digestRRset	231	false	
+org.xbill.DNS.DNSSEC	digestMessage	277	false	
+org.xbill.DNS.DNSSEC	toPublicKey	612	false	
+org.xbill.DNS.DNSSEC	toPublicKey	617	false	
+org.xbill.DNS.DNSSEC	fromPublicKey	715	false	
+org.xbill.DNS.DNSSEC	algString	764	false	
+org.xbill.DNS.DNSSEC	verify	964	false	
+org.xbill.DNS.DNSSEC	verify	1006	false	
+org.xbill.DNS.DNSSEC	sign	1024	false	
+org.xbill.DNS.DNSSEC	checkAlgorithm	1073	false	
+org.xbill.DNS.DNSSEC	sign	1175	false	
+org.xbill.DNS.DNSSEC	sign	1197	false	
+org.xbill.DNS.DNSSEC	signMessage	1226	false	
+org.xbill.DNS.DNSSEC	verifyMessage	1261	false	
+org.xbill.DNS.DNSSEC	generateDSDigest	1303	false	
+org.xbill.DNS.DSRecord	rrFromWire	144	false	
+org.xbill.DNS.DSRecord	rdataFromString	152	false	
+org.xbill.DNS.DSRecord	rrToString	171	false	
+org.xbill.DNS.DSRecord	getAlgorithm	188	true	{ return alg; }
+org.xbill.DNS.DSRecord	getDigestID	193	true	{ return digestid; }
+org.xbill.DNS.DSRecord	getDigest	198	true	{ return digest; }
+org.xbill.DNS.DSRecord	getFootprint	203	true	{ return footprint; }
+org.xbill.DNS.DSRecord	rrToWire	207	false	
+org.xbill.DNS.DnssecAlgorithmOption	getAlgorithms	47	true	{ return Collections.unmodifiableList(algCodes); }
+org.xbill.DNS.DnssecAlgorithmOption	optionFromWire	51	false	
+org.xbill.DNS.DnssecAlgorithmOption	optionToWire	59	false	
+org.xbill.DNS.DnssecAlgorithmOption	optionToString	64	false	
+org.xbill.DNS.DohResolver	setPort	244	false	
+org.xbill.DNS.DohResolver	setTCP	250	false	
+org.xbill.DNS.DohResolver	setIgnoreTruncation	256	false	
+org.xbill.DNS.DohResolver	setEDNS	269	false	
+org.xbill.DNS.DohResolver	setTSIGKey	285	true	{ this.tsig = key; }
+org.xbill.DNS.DohResolver	setTimeout	290	false	
+org.xbill.DNS.DohResolver	getTimeout	296	true	{ return timeout; }
+org.xbill.DNS.DohResolver	sendAsync	301	false	
+org.xbill.DNS.DohResolver	sendAsync	306	false	
+org.xbill.DNS.DohResolver	isUsePost	653	true	{ return usePost; }
+org.xbill.DNS.DohResolver	setUsePost	662	true	{ this.usePost = usePost; }
+org.xbill.DNS.DohResolver	getUriTemplate	667	true	{ return uriTemplate; }
+org.xbill.DNS.DohResolver	setUriTemplate	672	true	{ this.uriTemplate = uriTemplate; }
+org.xbill.DNS.DohResolver	toString	702	false	
+org.xbill.DNS.EDNSOption	toString	123	false	
+org.xbill.DNS.EDNSOption	getCode	133	true	{ return code; }
+org.xbill.DNS.EDNSOption	getData	142	false	
+org.xbill.DNS.EDNSOption	fromWire	162	false	
+org.xbill.DNS.EDNSOption	fromWire	210	false	
+org.xbill.DNS.EDNSOption	toWire	226	false	
+org.xbill.DNS.EDNSOption	toWire	240	false	
+org.xbill.DNS.EDNSOption	equals	252	false	
+org.xbill.DNS.EDNSOption	hashCode	265	false	
+org.xbill.DNS.EmptyRecord	rrFromWire	15	false	
+org.xbill.DNS.EmptyRecord	rdataFromString	18	false	
+org.xbill.DNS.EmptyRecord	rrToString	21	false	
+org.xbill.DNS.EmptyRecord	rrToWire	26	false	
+org.xbill.DNS.ExtendedErrorCodeOption	text	243	false	
+org.xbill.DNS.ExtendedErrorCodeOption	code	252	false	
+org.xbill.DNS.ExtendedErrorCodeOption	optionFromWire	282	false	
+org.xbill.DNS.ExtendedErrorCodeOption	optionToWire	298	false	
+org.xbill.DNS.ExtendedErrorCodeOption	optionToString	306	false	
+org.xbill.DNS.ExtendedFlags	string	29	false	
+org.xbill.DNS.ExtendedFlags	stringFromBit	38	false	
+org.xbill.DNS.ExtendedFlags	value	43	false	
+org.xbill.DNS.ExtendedResolver	setPort	230	false	
+org.xbill.DNS.ExtendedResolver	setTCP	237	false	
+org.xbill.DNS.ExtendedResolver	setIgnoreTruncation	244	false	
+org.xbill.DNS.ExtendedResolver	setEDNS	251	false	
+org.xbill.DNS.ExtendedResolver	setTSIGKey	258	false	
+org.xbill.DNS.ExtendedResolver	getTimeout	265	true	{ return timeout; }
+org.xbill.DNS.ExtendedResolver	setTimeout	282	true	{ this.timeout = timeout; }
+org.xbill.DNS.ExtendedResolver	sendAsync	294	false	
+org.xbill.DNS.ExtendedResolver	sendAsync	307	false	
+org.xbill.DNS.ExtendedResolver	getResolver	314	false	
+org.xbill.DNS.ExtendedResolver	getResolvers	322	true	{ return resolvers.stream().map((re)->re.resolver).toArray(Resolver[]::new); }
+org.xbill.DNS.ExtendedResolver	addResolver	327	false	
+org.xbill.DNS.ExtendedResolver	deleteResolver	332	false	
+org.xbill.DNS.ExtendedResolver	getLoadBalance	341	true	{ return loadBalance; }
+org.xbill.DNS.ExtendedResolver	setLoadBalance	351	true	{ loadBalance = flag; }
+org.xbill.DNS.ExtendedResolver	getRetries	360	true	{ return retries; }
+org.xbill.DNS.ExtendedResolver	setRetries	365	true	{ this.retries = retries; }
+org.xbill.DNS.ExtendedResolver	toString	369	false	
+org.xbill.DNS.Flags	string	56	false	
+org.xbill.DNS.Flags	value	61	false	
+org.xbill.DNS.Flags	isFlag	69	false	
+org.xbill.DNS.FormattedTime	format	28	false	
+org.xbill.DNS.FormattedTime	parse	40	false	
+org.xbill.DNS.GPOSRecord	rrFromWire	66	false	
+org.xbill.DNS.GPOSRecord	rdataFromString	78	false	
+org.xbill.DNS.GPOSRecord	rrToString	95	false	
+org.xbill.DNS.GPOSRecord	getLongitudeString	107	true	{ return byteArrayToString(longitude, false); }
+org.xbill.DNS.GPOSRecord	getLongitude	116	true	{ return Double.parseDouble(getLongitudeString()); }
+org.xbill.DNS.GPOSRecord	getLatitudeString	121	true	{ return byteArrayToString(latitude, false); }
+org.xbill.DNS.GPOSRecord	getLatitude	130	true	{ return Double.parseDouble(getLatitudeString()); }
+org.xbill.DNS.GPOSRecord	getAltitudeString	135	true	{ return byteArrayToString(altitude, false); }
+org.xbill.DNS.GPOSRecord	getAltitude	144	true	{ return Double.parseDouble(getAltitudeString()); }
+org.xbill.DNS.GPOSRecord	rrToWire	148	false	
+org.xbill.DNS.Generator	supportedType	51	false	
+org.xbill.DNS.Generator	nextRecord	229	false	
+org.xbill.DNS.Generator	expand	246	false	
+org.xbill.DNS.Generator	toString	261	false	
+org.xbill.DNS.GenericEDNSOption	optionFromWire	31	false	
+org.xbill.DNS.GenericEDNSOption	optionToWire	36	false	
+org.xbill.DNS.GenericEDNSOption	optionToString	41	false	
+org.xbill.DNS.HINFORecord	rrFromWire	37	false	
+org.xbill.DNS.HINFORecord	rdataFromString	43	false	
+org.xbill.DNS.HINFORecord	getCPU	54	true	{ return byteArrayToString(cpu, false); }
+org.xbill.DNS.HINFORecord	getOS	59	true	{ return byteArrayToString(os, false); }
+org.xbill.DNS.HINFORecord	rrToWire	63	false	
+org.xbill.DNS.HINFORecord	rrToString	70	false	
+org.xbill.DNS.HIPRecord	getHit	56	true	{ return hit; }
+org.xbill.DNS.HIPRecord	getAlgorithm	67	true	{ return pkAlgorithm; }
+org.xbill.DNS.HIPRecord	getKey	72	true	{ return publicKey; }
+org.xbill.DNS.HIPRecord	getPublicKey	80	true	{ return DNSSEC.toPublicKey(mapAlgTypeToDnssec(pkAlgorithm), publicKey, this); }
+org.xbill.DNS.HIPRecord	getRvServers	84	true	{ return Collections.unmodifiableList(rvServers); }
+org.xbill.DNS.HIPRecord	rrToString	100	false	
+org.xbill.DNS.HIPRecord	rdataFromString	126	false	
+org.xbill.DNS.HIPRecord	rrToWire	137	false	
+org.xbill.DNS.HIPRecord	rrFromWire	147	false	
+org.xbill.DNS.Header	toWire	65	false	
+org.xbill.DNS.Header	toWire	73	false	
+org.xbill.DNS.Header	setFlag	89	false	
+org.xbill.DNS.Header	setFlag	105	false	
+org.xbill.DNS.Header	unsetFlag	115	false	
+org.xbill.DNS.Header	getFlag	125	false	
+org.xbill.DNS.Header	getFlags	131	false	
+org.xbill.DNS.Header	getID	142	true	{ return id; }
+org.xbill.DNS.Header	setID	147	false	
+org.xbill.DNS.Header	setRcode	159	false	
+org.xbill.DNS.Header	getRcode	172	true	{ return flags & 15; }
+org.xbill.DNS.Header	setOpcode	181	false	
+org.xbill.DNS.Header	getOpcode	194	true	{ return (flags >> 11) & 15; }
+org.xbill.DNS.Header	setCount	198	false	
+org.xbill.DNS.Header	incCount	205	false	
+org.xbill.DNS.Header	decCount	212	false	
+org.xbill.DNS.Header	getCount	224	true	{ return counts[field]; }
+org.xbill.DNS.Header	getFlagsByte	228	true	{ return flags; }
+org.xbill.DNS.Header	printFlags	233	false	
+org.xbill.DNS.Header	toStringWithRcode	248	false	
+org.xbill.DNS.Header	toString	267	false	
+org.xbill.DNS.Header	clone	273	false	
+org.xbill.DNS.IPSECKEYRecord	rrFromWire	117	false	
+org.xbill.DNS.IPSECKEYRecord	rdataFromString	143	false	
+org.xbill.DNS.IPSECKEYRecord	rrToString	171	false	
+org.xbill.DNS.IPSECKEYRecord	getPrecedence	201	true	{ return precedence; }
+org.xbill.DNS.IPSECKEYRecord	getGatewayType	206	true	{ return gatewayType; }
+org.xbill.DNS.IPSECKEYRecord	getAlgorithmType	211	true	{ return algorithmType; }
+org.xbill.DNS.IPSECKEYRecord	getGateway	216	true	{ return gateway; }
+org.xbill.DNS.IPSECKEYRecord	getKey	221	true	{ return key; }
+org.xbill.DNS.IPSECKEYRecord	rrToWire	225	false	
+org.xbill.DNS.ISDNRecord	rrFromWire	39	false	
+org.xbill.DNS.ISDNRecord	rdataFromString	47	false	
+org.xbill.DNS.ISDNRecord	getAddress	63	true	{ return byteArrayToString(address, false); }
+org.xbill.DNS.ISDNRecord	getSubAddress	68	false	
+org.xbill.DNS.ISDNRecord	rrToWire	75	false	
+org.xbill.DNS.ISDNRecord	rrToString	83	false	
+org.xbill.DNS.KEYBase	rrFromWire	32	false	
+org.xbill.DNS.KEYBase	rrToString	43	false	
+org.xbill.DNS.KEYBase	getFlags	66	true	{ return flags; }
+org.xbill.DNS.KEYBase	getProtocol	71	true	{ return proto; }
+org.xbill.DNS.KEYBase	getAlgorithm	76	true	{ return alg; }
+org.xbill.DNS.KEYBase	getKey	81	true	{ return key; }
+org.xbill.DNS.KEYBase	getFootprint	86	false	
+org.xbill.DNS.KEYBase	getPublicKey	123	false	
+org.xbill.DNS.KEYBase	rrToWire	132	false	
+org.xbill.DNS.KEYRecord	rdataFromString	314	false	
+org.xbill.DNS.KXRecord	getTarget	27	true	{ return getNameField(); }
+org.xbill.DNS.KXRecord	getPreference	32	true	{ return getU16Field(); }
+org.xbill.DNS.KXRecord	getAdditionalName	36	true	{ return getNameField(); }
+org.xbill.DNS.LOCRecord	rrFromWire	62	false	
+org.xbill.DNS.LOCRecord	rdataFromString	167	false	
+org.xbill.DNS.LOCRecord	rrToString	216	false	
+org.xbill.DNS.LOCRecord	getLatitude	248	true	{ return (double)(latitude - (1L << 31)) / (3600 * 1000); }
+org.xbill.DNS.LOCRecord	getLongitude	253	true	{ return (double)(longitude - (1L << 31)) / (3600 * 1000); }
+org.xbill.DNS.LOCRecord	getAltitude	258	true	{ return (double)(altitude - 10000000) / 100; }
+org.xbill.DNS.LOCRecord	getSize	263	true	{ return (double)size / 100; }
+org.xbill.DNS.LOCRecord	getHPrecision	268	true	{ return (double)hPrecision / 100; }
+org.xbill.DNS.LOCRecord	getVPrecision	273	true	{ return (double)vPrecision / 100; }
+org.xbill.DNS.LOCRecord	rrToWire	277	false	
+org.xbill.DNS.Lookup	refreshDefault	102	false	
+org.xbill.DNS.Lookup	getDefaultResolver	119	true	{ return defaultResolver; }
+org.xbill.DNS.Lookup	setDefaultResolver	128	true	{ defaultResolver = resolver; }
+org.xbill.DNS.Lookup	getDefaultCache	138	false	
+org.xbill.DNS.Lookup	setDefaultCache	154	false	
+org.xbill.DNS.Lookup	getDefaultSearchPath	164	true	{ return defaultSearchPath; }
+org.xbill.DNS.Lookup	setDefaultSearchPath	175	true	{ defaultSearchPath = convertSearchPathDomainList(domains); }
+org.xbill.DNS.Lookup	setDefaultSearchPath	186	false	
+org.xbill.DNS.Lookup	setDefaultSearchPath	196	false	
+org.xbill.DNS.Lookup	getDefaultHostsFileParser	216	true	{ return defaultHostsFileParser; }
+org.xbill.DNS.Lookup	setDefaultHostsFileParser	225	true	{ defaultHostsFileParser = hostsFileParser; }
+org.xbill.DNS.Lookup	setPacketLogger	255	false	
+org.xbill.DNS.Lookup	setResolver	385	true	{ this.resolver = resolver; }
+org.xbill.DNS.Lookup	setSearchPath	396	true	{ this.searchPath = convertSearchPathDomainList(domains); }
+org.xbill.DNS.Lookup	setSearchPath	407	false	
+org.xbill.DNS.Lookup	setSearchPath	417	false	
+org.xbill.DNS.Lookup	setCache	436	false	
+org.xbill.DNS.Lookup	setDefaultNdots	453	false	
+org.xbill.DNS.Lookup	setNdots	467	false	
+org.xbill.DNS.Lookup	setCredibility	480	true	{ this.credibility = credibility; }
+org.xbill.DNS.Lookup	setCycleResults	490	true	{ this.cycleResults = cycleResults; }
+org.xbill.DNS.Lookup	run	661	false	
+org.xbill.DNS.Lookup	getAnswers	735	false	
+org.xbill.DNS.Lookup	getAliases	748	false	
+org.xbill.DNS.Lookup	getResult	763	false	
+org.xbill.DNS.Lookup	getErrorString	774	false	
+org.xbill.DNS.MBRecord	getMailbox	26	true	{ return getSingleName(); }
+org.xbill.DNS.MBRecord	getAdditionalName	30	true	{ return getSingleName(); }
+org.xbill.DNS.MDRecord	getMailAgent	26	true	{ return getSingleName(); }
+org.xbill.DNS.MDRecord	getAdditionalName	30	true	{ return getSingleName(); }
+org.xbill.DNS.MFRecord	getMailAgent	26	true	{ return getSingleName(); }
+org.xbill.DNS.MFRecord	getAdditionalName	30	true	{ return getSingleName(); }
+org.xbill.DNS.MGRecord	getMailbox	26	true	{ return getSingleName(); }
+org.xbill.DNS.MINFORecord	rrFromWire	35	false	
+org.xbill.DNS.MINFORecord	rdataFromString	41	false	
+org.xbill.DNS.MINFORecord	rrToString	48	false	
+org.xbill.DNS.MINFORecord	getResponsibleAddress	58	true	{ return responsibleAddress; }
+org.xbill.DNS.MINFORecord	getErrorAddress	63	true	{ return errorAddress; }
+org.xbill.DNS.MINFORecord	rrToWire	67	false	
+org.xbill.DNS.MRRecord	getNewName	26	true	{ return getSingleName(); }
+org.xbill.DNS.MXRecord	getTarget	29	true	{ return getNameField(); }
+org.xbill.DNS.MXRecord	getPriority	34	true	{ return getU16Field(); }
+org.xbill.DNS.MXRecord	rrToWire	38	false	
+org.xbill.DNS.MXRecord	getAdditionalName	44	true	{ return getNameField(); }
+org.xbill.DNS.Master	nextRecord	395	false	
+org.xbill.DNS.Master	disableIncludes	412	false	
+org.xbill.DNS.Master	disableIncludes	423	false	
+org.xbill.DNS.Master	expandGenerate	433	false	
+org.xbill.DNS.Master	generators	443	false	
+org.xbill.DNS.Master	close	451	false	
+org.xbill.DNS.Message	newQuery	82	false	
+org.xbill.DNS.Message	newUpdate	96	false	
+org.xbill.DNS.Message	setHeader	161	true	{ header = h; }
+org.xbill.DNS.Message	getHeader	170	true	{ return header; }
+org.xbill.DNS.Message	addRecord	180	false	
+org.xbill.DNS.Message	removeRecord	194	false	
+org.xbill.DNS.Message	removeAllRecords	209	false	
+org.xbill.DNS.Message	findRecord	220	false	
+org.xbill.DNS.Message	findRecord	230	false	
+org.xbill.DNS.Message	findRRset	245	false	
+org.xbill.DNS.Message	findRRset	264	false	
+org.xbill.DNS.Message	getQuestion	276	false	
+org.xbill.DNS.Message	getTSIG	291	false	
+org.xbill.DNS.Message	getGeneratedTSIG	310	true	{ return generatedTsig; }
+org.xbill.DNS.Message	isSigned	319	true	{ return tsigState == TSIG_SIGNED || tsigState == TSIG_VERIFIED || tsigState == TSIG_FAILED; }
+org.xbill.DNS.Message	isVerified	328	true	{ return tsigState == TSIG_VERIFIED; }
+org.xbill.DNS.Message	getOPT	338	false	
+org.xbill.DNS.Message	getRcode	348	false	
+org.xbill.DNS.Message	getSection	380	false	
+org.xbill.DNS.Message	getSectionRRsets	399	false	
+org.xbill.DNS.Message	toWire	429	false	
+org.xbill.DNS.Message	toWire	541	false	
+org.xbill.DNS.Message	toWire	564	false	
+org.xbill.DNS.Message	setTSIG	577	false	
+org.xbill.DNS.Message	setTSIG	588	false	
+org.xbill.DNS.Message	numBytes	598	false	
+org.xbill.DNS.Message	sectionToString	607	false	
+org.xbill.DNS.Message	toString	637	false	
+org.xbill.DNS.Message	clone	678	false	
+org.xbill.DNS.Message	setResolver	700	true	{ this.resolver = resolver; }
+org.xbill.DNS.Message	getResolver	705	true	{ return Optional.ofNullable(resolver); }
+org.xbill.DNS.Mnemonic	setMaximum	49	true	{ this.max = max; }
+org.xbill.DNS.Mnemonic	setPrefix	54	true	{ this.prefix = sanitize(prefix); }
+org.xbill.DNS.Mnemonic	setNumericAllowed	59	true	{ this.numericok = numeric; }
+org.xbill.DNS.Mnemonic	check	64	false	
+org.xbill.DNS.Mnemonic	add	97	false	
+org.xbill.DNS.Mnemonic	remove	110	false	
+org.xbill.DNS.Mnemonic	addAlias	122	false	
+org.xbill.DNS.Mnemonic	removeAlias	134	false	
+org.xbill.DNS.Mnemonic	addAll	145	false	
+org.xbill.DNS.Mnemonic	getText	159	false	
+org.xbill.DNS.Mnemonic	getValue	178	false	
+org.xbill.DNS.NAPTRRecord	rrFromWire	58	false	
+org.xbill.DNS.NAPTRRecord	rdataFromString	68	false	
+org.xbill.DNS.NAPTRRecord	rrToString	83	false	
+org.xbill.DNS.NAPTRRecord	getOrder	101	true	{ return order; }
+org.xbill.DNS.NAPTRRecord	getPreference	106	true	{ return preference; }
+org.xbill.DNS.NAPTRRecord	getFlags	111	true	{ return byteArrayToString(flags, false); }
+org.xbill.DNS.NAPTRRecord	getService	116	true	{ return byteArrayToString(service, false); }
+org.xbill.DNS.NAPTRRecord	getRegexp	121	true	{ return byteArrayToString(regexp, false); }
+org.xbill.DNS.NAPTRRecord	getReplacement	126	true	{ return replacement; }
+org.xbill.DNS.NAPTRRecord	rrToWire	130	false	
+org.xbill.DNS.NAPTRRecord	getAdditionalName	140	true	{ return replacement; }
+org.xbill.DNS.NSAPRecord	rrFromWire	66	false	
+org.xbill.DNS.NSAPRecord	rdataFromString	71	false	
+org.xbill.DNS.NSAPRecord	getAddress	81	true	{ return byteArrayToString(address, false); }
+org.xbill.DNS.NSAPRecord	rrToWire	85	false	
+org.xbill.DNS.NSAPRecord	rrToString	90	false	
+org.xbill.DNS.NSAP_PTRRecord	getTarget	25	true	{ return getSingleName(); }
+org.xbill.DNS.NSEC3PARAMRecord	rrFromWire	58	false	
+org.xbill.DNS.NSEC3PARAMRecord	rrToWire	72	false	
+org.xbill.DNS.NSEC3PARAMRecord	rdataFromString	86	false	
+org.xbill.DNS.NSEC3PARAMRecord	rrToString	105	false	
+org.xbill.DNS.NSEC3PARAMRecord	getHashAlgorithm	124	true	{ return hashAlg; }
+org.xbill.DNS.NSEC3PARAMRecord	getFlags	129	true	{ return flags; }
+org.xbill.DNS.NSEC3PARAMRecord	getIterations	134	true	{ return iterations; }
+org.xbill.DNS.NSEC3PARAMRecord	getSalt	139	true	{ return salt; }
+org.xbill.DNS.NSEC3PARAMRecord	hashName	150	true	{ return NSEC3Record.hashName(name, hashAlg, iterations, salt); }
+org.xbill.DNS.NSEC3Record	rrFromWire	123	false	
+org.xbill.DNS.NSEC3Record	rrToWire	141	false	
+org.xbill.DNS.NSEC3Record	rdataFromString	159	false	
+org.xbill.DNS.NSEC3Record	rrToString	181	false	
+org.xbill.DNS.NSEC3Record	getHashAlgorithm	207	true	{ return hashAlg; }
+org.xbill.DNS.NSEC3Record	getFlags	212	true	{ return flags; }
+org.xbill.DNS.NSEC3Record	getIterations	217	true	{ return iterations; }
+org.xbill.DNS.NSEC3Record	getSalt	222	true	{ return salt; }
+org.xbill.DNS.NSEC3Record	getNext	227	true	{ return next; }
+org.xbill.DNS.NSEC3Record	getTypes	232	true	{ return types.toArray(); }
+org.xbill.DNS.NSEC3Record	hasType	237	true	{ return types.contains(type); }
+org.xbill.DNS.NSEC3Record	hashName	241	false	
+org.xbill.DNS.NSEC3Record	hashName	272	true	{ return hashName(name, hashAlg, iterations, salt); }
+org.xbill.DNS.NSECRecord	rrFromWire	41	false	
+org.xbill.DNS.NSECRecord	rrToWire	47	false	
+org.xbill.DNS.NSECRecord	rdataFromString	54	false	
+org.xbill.DNS.NSECRecord	rrToString	61	false	
+org.xbill.DNS.NSECRecord	getNext	73	true	{ return next; }
+org.xbill.DNS.NSECRecord	getTypes	78	true	{ return types.toArray(); }
+org.xbill.DNS.NSECRecord	hasType	83	true	{ return types.contains(type); }
+org.xbill.DNS.NSRecord	getTarget	26	true	{ return getSingleName(); }
+org.xbill.DNS.NSRecord	getAdditionalName	30	true	{ return getSingleName(); }
+org.xbill.DNS.NULLRecord	rrFromWire	34	false	
+org.xbill.DNS.NULLRecord	rdataFromString	39	false	
+org.xbill.DNS.NULLRecord	rrToString	44	false	
+org.xbill.DNS.NULLRecord	getData	50	true	{ return data; }
+org.xbill.DNS.NULLRecord	rrToWire	54	false	
+org.xbill.DNS.NXTRecord	rrFromWire	36	false	
+org.xbill.DNS.NXTRecord	rdataFromString	51	false	
+org.xbill.DNS.NXTRecord	rrToString	70	false	
+org.xbill.DNS.NXTRecord	getNext	85	true	{ return next; }
+org.xbill.DNS.NXTRecord	getBitmap	90	true	{ return bitmap; }
+org.xbill.DNS.NXTRecord	rrToWire	94	false	
+org.xbill.DNS.Name	fromString	307	false	
+org.xbill.DNS.Name	fromString	325	false	
+org.xbill.DNS.Name	fromConstantString	336	false	
+org.xbill.DNS.Name	concatenate	435	false	
+org.xbill.DNS.Name	relativize	452	false	
+org.xbill.DNS.Name	wild	470	false	
+org.xbill.DNS.Name	canonicalize	488	false	
+org.xbill.DNS.Name	fromDNAME	519	false	
+org.xbill.DNS.Name	isWild	549	false	
+org.xbill.DNS.Name	isAbsolute	557	false	
+org.xbill.DNS.Name	length	565	false	
+org.xbill.DNS.Name	labels	573	false	
+org.xbill.DNS.Name	subdomain	578	false	
+org.xbill.DNS.Name	toString	619	false	
+org.xbill.DNS.Name	toString	648	false	
+org.xbill.DNS.Name	getLabel	659	false	
+org.xbill.DNS.Name	getLabelString	670	false	
+org.xbill.DNS.Name	toWire	682	false	
+org.xbill.DNS.Name	toWire	718	false	
+org.xbill.DNS.Name	toWireCanonical	729	false	
+org.xbill.DNS.Name	toWireCanonical	739	false	
+org.xbill.DNS.Name	toWire	762	false	
+org.xbill.DNS.Name	equals	787	false	
+org.xbill.DNS.Name	hashCode	806	false	
+org.xbill.DNS.Name	compareTo	828	false	
+org.xbill.DNS.NioClient	selector	50	false	
+org.xbill.DNS.NioClient	close	72	false	
+org.xbill.DNS.NioClient	runSelector	114	false	
+org.xbill.DNS.NioClient	setTimeoutTask	140	false	
+org.xbill.DNS.NioClient	setRegistrationsTask	144	false	
+org.xbill.DNS.NioClient	setCloseTask	148	false	
+org.xbill.DNS.NioClient	verboseLog	181	false	
+org.xbill.DNS.NioClient	setPacketLogger	190	true	{ packetLogger = logger; }
+org.xbill.DNS.NioTcpClient	sendrecv	262	false	
+org.xbill.DNS.NioUdpClient	sendrecv	162	false	
+org.xbill.DNS.OPENPGPKEYRecord	rrFromWire	30	false	
+org.xbill.DNS.OPENPGPKEYRecord	rdataFromString	35	false	
+org.xbill.DNS.OPENPGPKEYRecord	rrToString	41	false	
+org.xbill.DNS.OPENPGPKEYRecord	getCert	56	true	{ return cert; }
+org.xbill.DNS.OPENPGPKEYRecord	rrToWire	60	false	
+org.xbill.DNS.OPTRecord	rrFromWire	98	false	
+org.xbill.DNS.OPTRecord	rdataFromString	109	false	
+org.xbill.DNS.OPTRecord	rrToString	115	false	
+org.xbill.DNS.OPTRecord	toString	134	false	
+org.xbill.DNS.OPTRecord	printPseudoSection	139	false	
+org.xbill.DNS.OPTRecord	getPayloadSize	162	true	{ return dclass; }
+org.xbill.DNS.OPTRecord	getExtendedRcode	171	true	{ return (int)(ttl >>> 24); }
+org.xbill.DNS.OPTRecord	getVersion	176	true	{ return (int)((ttl >>> 16) & 255); }
+org.xbill.DNS.OPTRecord	getFlags	181	true	{ return (int)(ttl & 65535); }
+org.xbill.DNS.OPTRecord	rrToWire	185	false	
+org.xbill.DNS.OPTRecord	getOptions	196	false	
+org.xbill.DNS.OPTRecord	getOptions	204	false	
+org.xbill.DNS.OPTRecord	equals	225	false	
+org.xbill.DNS.OPTRecord	hashCode	230	false	
+org.xbill.DNS.Opcode	string	49	false	
+org.xbill.DNS.Opcode	value	54	false	
+org.xbill.DNS.Options	refresh	43	false	
+org.xbill.DNS.Options	clear	62	false	
+org.xbill.DNS.Options	set	67	false	
+org.xbill.DNS.Options	set	75	false	
+org.xbill.DNS.Options	unset	83	false	
+org.xbill.DNS.Options	check	91	false	
+org.xbill.DNS.Options	value	99	false	
+org.xbill.DNS.Options	intValue	107	false	
+org.xbill.DNS.PTRRecord	getTarget	26	true	{ return getSingleName(); }
+org.xbill.DNS.PXRecord	rrFromWire	37	false	
+org.xbill.DNS.PXRecord	rdataFromString	44	false	
+org.xbill.DNS.PXRecord	rrToString	52	false	
+org.xbill.DNS.PXRecord	rrToWire	63	false	
+org.xbill.DNS.PXRecord	getPreference	71	true	{ return preference; }
+org.xbill.DNS.PXRecord	getMap822	76	true	{ return map822; }
+org.xbill.DNS.PXRecord	getMapX400	81	true	{ return mapX400; }
+org.xbill.DNS.RPRecord	rrFromWire	35	false	
+org.xbill.DNS.RPRecord	rdataFromString	41	false	
+org.xbill.DNS.RPRecord	rrToString	48	false	
+org.xbill.DNS.RPRecord	getMailbox	58	true	{ return mailbox; }
+org.xbill.DNS.RPRecord	getTextDomain	63	true	{ return textDomain; }
+org.xbill.DNS.RPRecord	rrToWire	67	false	
+org.xbill.DNS.RRset	addRR	70	false	
+org.xbill.DNS.RRset	addRR	82	false	
+org.xbill.DNS.RRset	deleteRR	140	false	
+org.xbill.DNS.RRset	deleteRR	145	false	
+org.xbill.DNS.RRset	clear	155	false	
+org.xbill.DNS.RRset	rrs	166	false	
+org.xbill.DNS.RRset	rrs	185	false	
+org.xbill.DNS.RRset	sigs	190	false	
+org.xbill.DNS.RRset	size	195	false	
+org.xbill.DNS.RRset	getName	204	true	{ return first().getName(); }
+org.xbill.DNS.RRset	getType	213	true	{ return first().getRRsetType(); }
+org.xbill.DNS.RRset	getDClass	222	true	{ return first().getDClass(); }
+org.xbill.DNS.RRset	getTTL	227	true	{ return first().getTTL(); }
+org.xbill.DNS.RRset	first	236	false	
+org.xbill.DNS.RRset	toString	260	false	
+org.xbill.DNS.RTRecord	getPreference	28	true	{ return getU16Field(); }
+org.xbill.DNS.RTRecord	getIntermediateHost	33	true	{ return getNameField(); }
+org.xbill.DNS.Rcode	string	113	false	
+org.xbill.DNS.Rcode	TSIGstring	118	false	
+org.xbill.DNS.Rcode	value	127	false	
+org.xbill.DNS.Record	writeReplace	76	false	
+org.xbill.DNS.Record	newRecord	142	false	
+org.xbill.DNS.Record	newRecord	173	false	
+org.xbill.DNS.Record	newRecord	186	false	
+org.xbill.DNS.Record	newRecord	206	false	
+org.xbill.DNS.Record	fromWire	210	false	
+org.xbill.DNS.Record	fromWire	235	false	
+org.xbill.DNS.Record	fromWire	240	false	
+org.xbill.DNS.Record	toWire	244	false	
+org.xbill.DNS.Record	toWire	260	false	
+org.xbill.DNS.Record	toWireCanonical	296	false	
+org.xbill.DNS.Record	rdataToWireCanonical	304	false	
+org.xbill.DNS.Record	rdataToString	318	false	
+org.xbill.DNS.Record	toString	323	false	
+org.xbill.DNS.Record	byteArrayFromString	361	false	
+org.xbill.DNS.Record	byteArrayToString	422	false	
+org.xbill.DNS.Record	unknownToString	446	false	
+org.xbill.DNS.Record	fromString	462	false	
+org.xbill.DNS.Record	fromString	508	false	
+org.xbill.DNS.Record	getName	518	true	{ return name; }
+org.xbill.DNS.Record	getType	527	true	{ return type; }
+org.xbill.DNS.Record	getRRsetType	540	true	{ return type; }
+org.xbill.DNS.Record	getDClass	545	true	{ return dclass; }
+org.xbill.DNS.Record	getTTL	550	true	{ return ttl; }
+org.xbill.DNS.Record	sameRRset	565	false	
+org.xbill.DNS.Record	equals	576	false	
+org.xbill.DNS.Record	hashCode	591	false	
+org.xbill.DNS.Record	cloneRecord	601	false	
+org.xbill.DNS.Record	withName	613	false	
+org.xbill.DNS.Record	withDClass	626	false	
+org.xbill.DNS.Record	setTTL	634	true	{ this.ttl = ttl; }
+org.xbill.DNS.Record	compareTo	648	false	
+org.xbill.DNS.Record	getAdditionalName	688	true	{ return null; }
+org.xbill.DNS.Record	checkU8	693	false	
+org.xbill.DNS.Record	checkU16	702	false	
+org.xbill.DNS.Record	checkU32	711	false	
+org.xbill.DNS.Record	checkName	720	false	
+org.xbill.DNS.Record	checkByteArrayLength	728	false	
+org.xbill.DNS.ResolverConfig	getCurrentConfig	68	false	
+org.xbill.DNS.ResolverConfig	getConfigProviders	78	false	
+org.xbill.DNS.ResolverConfig	setConfigProviders	84	true	{ configProviders = new ArrayList<>(providers); }
+org.xbill.DNS.ResolverConfig	refresh	89	false	
+org.xbill.DNS.ResolverConfig	servers	145	false	
+org.xbill.DNS.ResolverConfig	server	150	false	
+org.xbill.DNS.ResolverConfig	searchPath	155	false	
+org.xbill.DNS.ResolverConfig	ndots	167	false	
+org.xbill.DNS.ReverseMap	fromAddress	31	false	
+org.xbill.DNS.ReverseMap	fromAddress	76	false	
+org.xbill.DNS.ReverseMap	fromAddress	93	false	
+org.xbill.DNS.ReverseMap	fromAddress	104	false	
+org.xbill.DNS.ReverseMap	fromAddress	119	false	
+org.xbill.DNS.ReverseMap	fromName	138	false	
+org.xbill.DNS.ReverseMap	fromName	150	false	
+org.xbill.DNS.SIG0	signMessage	36	false	
+org.xbill.DNS.SIG0	signMessage	52	false	
+org.xbill.DNS.SIG0	verifyMessage	81	false	
+org.xbill.DNS.SIG0	verifyMessage	97	false	
+org.xbill.DNS.SIGBase	rrFromWire	57	false	
+org.xbill.DNS.SIGBase	rdataFromString	70	false	
+org.xbill.DNS.SIGBase	rrToString	92	false	
+org.xbill.DNS.SIGBase	getTypeCovered	124	true	{ return covered; }
+org.xbill.DNS.SIGBase	getRRsetType	137	true	{ return covered; }
+org.xbill.DNS.SIGBase	getAlgorithm	143	true	{ return alg; }
+org.xbill.DNS.SIGBase	getLabels	151	true	{ return labels; }
+org.xbill.DNS.SIGBase	getOrigTTL	156	true	{ return origttl; }
+org.xbill.DNS.SIGBase	getExpire	161	true	{ return expire; }
+org.xbill.DNS.SIGBase	getTimeSigned	166	true	{ return timeSigned; }
+org.xbill.DNS.SIGBase	getFootprint	171	true	{ return footprint; }
+org.xbill.DNS.SIGBase	getSigner	176	true	{ return signer; }
+org.xbill.DNS.SIGBase	getSignature	181	true	{ return signature; }
+org.xbill.DNS.SIGBase	setSignature	185	true	{ this.signature = signature; }
+org.xbill.DNS.SIGBase	rrToWire	189	false	
+org.xbill.DNS.SOARecord	rrFromWire	53	false	
+org.xbill.DNS.SOARecord	rdataFromString	64	false	
+org.xbill.DNS.SOARecord	rrToString	76	false	
+org.xbill.DNS.SOARecord	getHost	110	true	{ return host; }
+org.xbill.DNS.SOARecord	getAdmin	115	true	{ return admin; }
+org.xbill.DNS.SOARecord	getSerial	120	true	{ return serial; }
+org.xbill.DNS.SOARecord	getRefresh	125	true	{ return refresh; }
+org.xbill.DNS.SOARecord	getRetry	130	true	{ return retry; }
+org.xbill.DNS.SOARecord	getExpire	135	true	{ return expire; }
+org.xbill.DNS.SOARecord	getMinimum	140	true	{ return minimum; }
+org.xbill.DNS.SOARecord	rrToWire	144	false	
+org.xbill.DNS.SRVRecord	rrFromWire	40	false	
+org.xbill.DNS.SRVRecord	rdataFromString	48	false	
+org.xbill.DNS.SRVRecord	rrToString	57	false	
+org.xbill.DNS.SRVRecord	getPriority	68	true	{ return priority; }
+org.xbill.DNS.SRVRecord	getWeight	73	true	{ return weight; }
+org.xbill.DNS.SRVRecord	getPort	78	true	{ return port; }
+org.xbill.DNS.SRVRecord	getTarget	83	true	{ return target; }
+org.xbill.DNS.SRVRecord	rrToWire	87	false	
+org.xbill.DNS.SRVRecord	getAdditionalName	95	true	{ return target; }
+org.xbill.DNS.SSHFPRecord	rrFromWire	50	false	
+org.xbill.DNS.SSHFPRecord	rdataFromString	57	false	
+org.xbill.DNS.SSHFPRecord	rrToString	64	false	
+org.xbill.DNS.SSHFPRecord	getAlgorithm	76	true	{ return alg; }
+org.xbill.DNS.SSHFPRecord	getDigestType	81	true	{ return digestType; }
+org.xbill.DNS.SSHFPRecord	getFingerPrint	86	true	{ return fingerprint; }
+org.xbill.DNS.SSHFPRecord	rrToWire	90	false	
+org.xbill.DNS.SVCBBase	getSvcPriority	76	true	{ return svcPriority; }
+org.xbill.DNS.SVCBBase	getTargetName	80	true	{ return targetName; }
+org.xbill.DNS.SVCBBase	getSvcParamKeys	84	true	{ return svcParams.keySet(); }
+org.xbill.DNS.SVCBBase	getSvcParamValue	88	true	{ return svcParams.get(key); }
+org.xbill.DNS.SVCBBase	checkMandatoryParams	692	false	
+org.xbill.DNS.SVCBBase	rrFromWire	704	false	
+org.xbill.DNS.SVCBBase	rrToString	731	false	
+org.xbill.DNS.SVCBBase	rdataFromString	750	false	
+org.xbill.DNS.SVCBBase	rrToWire	809	false	
+org.xbill.DNS.Section	string	62	false	
+org.xbill.DNS.Section	longString	67	false	
+org.xbill.DNS.Section	updString	73	false	
+org.xbill.DNS.Section	value	79	false	
+org.xbill.DNS.Serial	compare	29	false	
+org.xbill.DNS.Serial	increment	54	false	
+org.xbill.DNS.SetResponse	ofType	80	false	
+org.xbill.DNS.SetResponse	addRRset	101	false	
+org.xbill.DNS.SetResponse	isUnknown	109	true	{ return type == UNKNOWN; }
+org.xbill.DNS.SetResponse	isNXDOMAIN	114	true	{ return type == NXDOMAIN; }
+org.xbill.DNS.SetResponse	isNXRRSET	119	true	{ return type == NXRRSET; }
+org.xbill.DNS.SetResponse	isDelegation	124	true	{ return type == DELEGATION; }
+org.xbill.DNS.SetResponse	isCNAME	129	true	{ return type == CNAME; }
+org.xbill.DNS.SetResponse	isDNAME	134	true	{ return type == DNAME; }
+org.xbill.DNS.SetResponse	isSuccessful	139	true	{ return type == SUCCESSFUL; }
+org.xbill.DNS.SetResponse	answers	144	false	
+org.xbill.DNS.SetResponse	getCNAME	152	true	{ return (CNAMERecord)data.get(0).first(); }
+org.xbill.DNS.SetResponse	getDNAME	157	true	{ return (DNAMERecord)data.get(0).first(); }
+org.xbill.DNS.SetResponse	getNS	162	true	{ return (data != null) ? data.get(0) : null; }
+org.xbill.DNS.SetResponse	toString	167	false	
+org.xbill.DNS.SimpleResolver	getAddress	103	true	{ return address; }
+org.xbill.DNS.SimpleResolver	setDefaultResolver	108	true	{ defaultResolver = hostname; }
+org.xbill.DNS.SimpleResolver	setDefaultResolver	113	true	{ defaultResolver = new InetSocketAddress(hostname, DEFAULT_PORT); }
+org.xbill.DNS.SimpleResolver	getPort	122	true	{ return address.getPort(); }
+org.xbill.DNS.SimpleResolver	setPort	126	true	{ address = new InetSocketAddress(address.getAddress(), port); }
+org.xbill.DNS.SimpleResolver	setAddress	136	true	{ address = addr; }
+org.xbill.DNS.SimpleResolver	setAddress	145	true	{ address = new InetSocketAddress(addr, address.getPort()); }
+org.xbill.DNS.SimpleResolver	setLocalAddress	154	true	{ localAddress = addr; }
+org.xbill.DNS.SimpleResolver	setLocalAddress	163	true	{ localAddress = new InetSocketAddress(addr, 0); }
+org.xbill.DNS.SimpleResolver	getTCP	172	true	{ return useTCP; }
+org.xbill.DNS.SimpleResolver	setTCP	176	true	{ this.useTCP = flag; }
+org.xbill.DNS.SimpleResolver	getIgnoreTruncation	186	true	{ return ignoreTruncation; }
+org.xbill.DNS.SimpleResolver	setIgnoreTruncation	190	true	{ this.ignoreTruncation = flag; }
+org.xbill.DNS.SimpleResolver	getEDNS	201	true	{ return queryOPT; }
+org.xbill.DNS.SimpleResolver	setEDNS	212	true	{ queryOPT = optRecord; }
+org.xbill.DNS.SimpleResolver	setEDNS	216	false	
+org.xbill.DNS.SimpleResolver	getTSIGKey	241	true	{ return tsig; }
+org.xbill.DNS.SimpleResolver	setTSIGKey	245	true	{ tsig = key; }
+org.xbill.DNS.SimpleResolver	setTimeout	250	true	{ timeoutValue = timeout; }
+org.xbill.DNS.SimpleResolver	getTimeout	255	true	{ return timeoutValue; }
+org.xbill.DNS.SimpleResolver	sendAsync	302	false	
+org.xbill.DNS.SimpleResolver	sendAsync	314	false	
+org.xbill.DNS.SimpleResolver	sendAsync	343	false	
+org.xbill.DNS.SimpleResolver	toString	483	false	
+org.xbill.DNS.SingleCompressedNameBase	rrToWire	20	false	
+org.xbill.DNS.SingleNameBase	rrFromWire	28	false	
+org.xbill.DNS.SingleNameBase	rdataFromString	33	false	
+org.xbill.DNS.SingleNameBase	rrToString	38	false	
+org.xbill.DNS.SingleNameBase	getSingleName	43	true	{ return singleName; }
+org.xbill.DNS.SingleNameBase	rrToWire	47	false	
+org.xbill.DNS.TCPClient	bind	43	false	
+org.xbill.DNS.TCPClient	connect	48	false	
+org.xbill.DNS.TCPClient	send	67	false	
+org.xbill.DNS.TCPClient	close	147	false	
+org.xbill.DNS.TCPClient	recv	153	false	
+org.xbill.DNS.TKEYRecord	rrFromWire	116	false	
+org.xbill.DNS.TKEYRecord	rdataFromString	139	false	
+org.xbill.DNS.TKEYRecord	modeString	144	false	
+org.xbill.DNS.TKEYRecord	rrToString	162	false	
+org.xbill.DNS.TKEYRecord	getAlgorithm	201	true	{ return alg; }
+org.xbill.DNS.TKEYRecord	getTimeInception	206	true	{ return timeInception; }
+org.xbill.DNS.TKEYRecord	getTimeExpire	211	true	{ return timeExpire; }
+org.xbill.DNS.TKEYRecord	getMode	216	true	{ return mode; }
+org.xbill.DNS.TKEYRecord	getError	221	true	{ return error; }
+org.xbill.DNS.TKEYRecord	getKey	226	true	{ return key; }
+org.xbill.DNS.TKEYRecord	getOther	231	true	{ return other; }
+org.xbill.DNS.TKEYRecord	rrToWire	235	false	
+org.xbill.DNS.TLSARecord	rrFromWire	115	false	
+org.xbill.DNS.TLSARecord	rdataFromString	126	false	
+org.xbill.DNS.TLSARecord	rrToString	135	false	
+org.xbill.DNS.TLSARecord	rrToWire	146	false	
+org.xbill.DNS.TLSARecord	getCertificateUsage	155	true	{ return certificateUsage; }
+org.xbill.DNS.TLSARecord	getSelector	160	true	{ return selector; }
+org.xbill.DNS.TLSARecord	getMatchingType	165	true	{ return matchingType; }
+org.xbill.DNS.TLSARecord	getCertificateAssociationData	170	true	{ return certificateAssociationData; }
+org.xbill.DNS.TSIG	algorithmToName	82	false	
+org.xbill.DNS.TSIG	generate	353	false	
+org.xbill.DNS.TSIG	generate	371	false	
+org.xbill.DNS.TSIG	apply	476	false	
+org.xbill.DNS.TSIG	apply	487	false	
+org.xbill.DNS.TSIG	apply	501	false	
+org.xbill.DNS.TSIG	apply	516	false	
+org.xbill.DNS.TSIG	verify	574	false	
+org.xbill.DNS.TSIG	verify	597	false	
+org.xbill.DNS.TSIG	recordLength	756	false	
+org.xbill.DNS.TSIGRecord	rrFromWire	108	false	
+org.xbill.DNS.TSIGRecord	rdataFromString	132	false	
+org.xbill.DNS.TSIGRecord	rrToString	138	false	
+org.xbill.DNS.TSIGRecord	getAlgorithm	199	true	{ return alg; }
+org.xbill.DNS.TSIGRecord	getTimeSigned	204	true	{ return timeSigned; }
+org.xbill.DNS.TSIGRecord	getFudge	209	true	{ return fudge; }
+org.xbill.DNS.TSIGRecord	getSignature	214	true	{ return signature; }
+org.xbill.DNS.TSIGRecord	getOriginalID	219	true	{ return originalID; }
+org.xbill.DNS.TSIGRecord	getError	224	true	{ return error; }
+org.xbill.DNS.TSIGRecord	getOther	229	true	{ return other; }
+org.xbill.DNS.TSIGRecord	rrToWire	233	false	
+org.xbill.DNS.TTL	check	18	false	
+org.xbill.DNS.TTL	parse	34	false	
+org.xbill.DNS.TTL	parseTTL	91	false	
+org.xbill.DNS.TTL	format	95	false	
+org.xbill.DNS.TXTBase	rrFromWire	47	false	
+org.xbill.DNS.TXTBase	rdataFromString	56	false	
+org.xbill.DNS.TXTBase	rrToString	74	false	
+org.xbill.DNS.TXTBase	getStrings	97	false	
+org.xbill.DNS.TXTBase	getStringsAsByteArrays	110	true	{ return strings; }
+org.xbill.DNS.TXTBase	rrToWire	114	false	
+org.xbill.DNS.TcpKeepaliveOption	getTimeout	62	true	{ return timeout == null ? OptionalInt.empty() : OptionalInt.of(timeout); }
+org.xbill.DNS.TcpKeepaliveOption	getTimeoutDuration	71	true	{ return timeout != null ? Optional.of(Duration.ofMillis(timeout * 100L)) : Optional.empty(); }
+org.xbill.DNS.TcpKeepaliveOption	optionFromWire	81	false	
+org.xbill.DNS.TcpKeepaliveOption	optionToWire	103	false	
+org.xbill.DNS.TcpKeepaliveOption	optionToString	115	false	
+org.xbill.DNS.TimeoutCompletableFuture	compatTimeout	39	false	
+org.xbill.DNS.TimeoutCompletableFuture	compatTimeout	43	false	
+org.xbill.DNS.Tokenizer	get	244	false	
+org.xbill.DNS.Tokenizer	get	366	true	{ return get(false, false); }
+org.xbill.DNS.Tokenizer	unget	375	false	
+org.xbill.DNS.Tokenizer	getString	392	false	
+org.xbill.DNS.Tokenizer	getIdentifier	416	true	{ return getIdentifier("an identifier"); }
+org.xbill.DNS.Tokenizer	getLong	427	false	
+org.xbill.DNS.Tokenizer	getUInt32	446	false	
+org.xbill.DNS.Tokenizer	getUInt16	461	false	
+org.xbill.DNS.Tokenizer	getUInt8	476	false	
+org.xbill.DNS.Tokenizer	getTTL	492	false	
+org.xbill.DNS.Tokenizer	getTTLLike	509	false	
+org.xbill.DNS.Tokenizer	getName	528	false	
+org.xbill.DNS.Tokenizer	getAddressBytes	550	false	
+org.xbill.DNS.Tokenizer	getAddress	568	false	
+org.xbill.DNS.Tokenizer	getEOL	583	false	
+org.xbill.DNS.Tokenizer	getBase64	621	false	
+org.xbill.DNS.Tokenizer	getBase64	646	true	{ return getBase64(false); }
+org.xbill.DNS.Tokenizer	getHex	661	false	
+org.xbill.DNS.Tokenizer	getHex	686	true	{ return getHex(false); }
+org.xbill.DNS.Tokenizer	getHexString	697	false	
+org.xbill.DNS.Tokenizer	getBase32String	714	false	
+org.xbill.DNS.Tokenizer	exception	729	false	
+org.xbill.DNS.Tokenizer	close	734	false	
+org.xbill.DNS.Type	check	467	false	
+org.xbill.DNS.Type	register	486	false	
+org.xbill.DNS.Type	string	497	false	
+org.xbill.DNS.Type	value	508	false	
+org.xbill.DNS.Type	value	521	false	
+org.xbill.DNS.Type	getFactory	525	true	{ return types.getFactory(val); }
+org.xbill.DNS.Type	isRR	530	false	
+org.xbill.DNS.TypeBitmap	toArray	93	false	
+org.xbill.DNS.TypeBitmap	toString	102	false	
+org.xbill.DNS.TypeBitmap	toWire	129	false	
+org.xbill.DNS.TypeBitmap	empty	152	false	
+org.xbill.DNS.TypeBitmap	contains	156	false	
+org.xbill.DNS.U16NameBase	rrFromWire	38	false	
+org.xbill.DNS.U16NameBase	rdataFromString	44	false	
+org.xbill.DNS.U16NameBase	rrToString	50	false	
+org.xbill.DNS.U16NameBase	getU16Field	59	true	{ return u16Field; }
+org.xbill.DNS.U16NameBase	getNameField	63	true	{ return nameField; }
+org.xbill.DNS.U16NameBase	rrToWire	67	false	
+org.xbill.DNS.UNKRecord	rrFromWire	19	false	
+org.xbill.DNS.UNKRecord	rdataFromString	24	false	
+org.xbill.DNS.UNKRecord	rrToString	30	false	
+org.xbill.DNS.UNKRecord	getData	36	true	{ return data; }
+org.xbill.DNS.UNKRecord	rrToWire	40	false	
+org.xbill.DNS.URIRecord	rrFromWire	42	false	
+org.xbill.DNS.URIRecord	rdataFromString	49	false	
+org.xbill.DNS.URIRecord	rrToString	61	false	
+org.xbill.DNS.URIRecord	getPriority	71	true	{ return priority; }
+org.xbill.DNS.URIRecord	getWeight	76	true	{ return weight; }
+org.xbill.DNS.URIRecord	getTarget	81	true	{ return byteArrayToString(target, false); }
+org.xbill.DNS.URIRecord	rrToWire	85	false	
+org.xbill.DNS.Update	present	58	false	
+org.xbill.DNS.Update	present	66	false	
+org.xbill.DNS.Update	present	78	false	
+org.xbill.DNS.Update	present	90	false	
+org.xbill.DNS.Update	present	100	false	
+org.xbill.DNS.Update	absent	108	false	
+org.xbill.DNS.Update	absent	116	false	
+org.xbill.DNS.Update	add	126	false	
+org.xbill.DNS.Update	add	136	false	
+org.xbill.DNS.Update	add	141	false	
+org.xbill.DNS.Update	add	146	false	
+org.xbill.DNS.Update	add	153	false	
+org.xbill.DNS.Update	delete	158	false	
+org.xbill.DNS.Update	delete	163	false	
+org.xbill.DNS.Update	delete	172	false	
+org.xbill.DNS.Update	delete	182	false	
+org.xbill.DNS.Update	delete	187	false	
+org.xbill.DNS.Update	delete	192	false	
+org.xbill.DNS.Update	delete	199	false	
+org.xbill.DNS.Update	replace	209	false	
+org.xbill.DNS.Update	replace	220	false	
+org.xbill.DNS.Update	replace	229	false	
+org.xbill.DNS.Update	replace	238	false	
+org.xbill.DNS.Update	replace	248	false	
+org.xbill.DNS.WKSRecord	rrFromWire	600	false	
+org.xbill.DNS.WKSRecord	rdataFromString	620	false	
+org.xbill.DNS.WKSRecord	rrToString	654	false	
+org.xbill.DNS.WKSRecord	getAddress	667	false	
+org.xbill.DNS.WKSRecord	getProtocol	676	true	{ return protocol; }
+org.xbill.DNS.WKSRecord	getServices	681	true	{ return services; }
+org.xbill.DNS.WKSRecord	rrToWire	685	false	
+org.xbill.DNS.X25Record	rrFromWire	47	false	
+org.xbill.DNS.X25Record	rdataFromString	52	false	
+org.xbill.DNS.X25Record	getAddress	62	true	{ return byteArrayToString(address, false); }
+org.xbill.DNS.X25Record	rrToWire	66	false	
+org.xbill.DNS.X25Record	rrToString	71	false	
+org.xbill.DNS.Zone	getOrigin	215	true	{ return origin; }
+org.xbill.DNS.Zone	getNS	220	true	{ return NS; }
+org.xbill.DNS.Zone	getSOA	225	true	{ return SOA; }
+org.xbill.DNS.Zone	getDClass	230	true	{ return DClass.IN; }
+org.xbill.DNS.Zone	findRecords	454	false	
+org.xbill.DNS.Zone	findExactMatch	466	false	
+org.xbill.DNS.Zone	addRRset	480	false	
+org.xbill.DNS.Zone	addRecord	491	false	
+org.xbill.DNS.Zone	removeRecord	511	false	
+org.xbill.DNS.Zone	iterator	528	false	
+org.xbill.DNS.Zone	AXFR	537	false	
+org.xbill.DNS.Zone	toMasterFile	550	false	
+org.xbill.DNS.Zone	toString	562	false	
+org.xbill.DNS.ZoneMDRecord	rrToWire	164	false	
+org.xbill.DNS.ZoneMDRecord	rrFromWire	172	false	
+org.xbill.DNS.ZoneMDRecord	rrToString	184	false	
+org.xbill.DNS.ZoneMDRecord	rdataFromString	196	false	
+org.xbill.DNS.ZoneTransferIn	newAXFR	197	false	
+org.xbill.DNS.ZoneTransferIn	newAXFR	210	false	
+org.xbill.DNS.ZoneTransferIn	newAXFR	225	false	
+org.xbill.DNS.ZoneTransferIn	newIXFR	239	false	
+org.xbill.DNS.ZoneTransferIn	newIXFR	255	false	
+org.xbill.DNS.ZoneTransferIn	newIXFR	273	false	
+org.xbill.DNS.ZoneTransferIn	getName	279	true	{ return zname; }
+org.xbill.DNS.ZoneTransferIn	getType	284	true	{ return qtype; }
+org.xbill.DNS.ZoneTransferIn	setTimeout	307	true	{ timeout = t; }
+org.xbill.DNS.ZoneTransferIn	setDClass	316	false	
+org.xbill.DNS.ZoneTransferIn	setLocalAddress	326	true	{ this.localAddress = addr; }
+org.xbill.DNS.ZoneTransferIn	createTcpClient	338	false	
+org.xbill.DNS.ZoneTransferIn	run	560	false	
+org.xbill.DNS.ZoneTransferIn	run	578	false	
+org.xbill.DNS.ZoneTransferIn	isAXFR	595	true	{ return rtype == Type.AXFR; }
+org.xbill.DNS.ZoneTransferIn	getAXFR	605	false	
+org.xbill.DNS.ZoneTransferIn	isIXFR	614	true	{ return rtype == Type.IXFR; }
+org.xbill.DNS.ZoneTransferIn	getIXFR	624	false	
+org.xbill.DNS.ZoneTransferIn	isCurrent	636	false	
+org.xbill.DNS.config.AndroidResolverConfigProvider	setContext	28	true	{ context = ctx; }
+org.xbill.DNS.config.AndroidResolverConfigProvider	initialize	32	false	
+org.xbill.DNS.config.AndroidResolverConfigProvider	isEnabled	59	true	{ return System.getProperty("java.vendor").contains("Android"); }
+org.xbill.DNS.config.BaseResolverConfigProvider	reset	31	false	
+org.xbill.DNS.config.BaseResolverConfigProvider	parseSearchPathList	37	false	
+org.xbill.DNS.config.BaseResolverConfigProvider	addSearchPath	46	false	
+org.xbill.DNS.config.BaseResolverConfigProvider	addNameserver	62	false	
+org.xbill.DNS.config.BaseResolverConfigProvider	parseNdots	69	false	
+org.xbill.DNS.config.BaseResolverConfigProvider	servers	90	false	
+org.xbill.DNS.config.BaseResolverConfigProvider	searchPaths	111	false	
+org.xbill.DNS.config.FallbackPropertyResolverConfigProvider	initialize	16	false	
+org.xbill.DNS.config.JndiContextResolverConfigProvider	initialize	87	false	
+org.xbill.DNS.config.JndiContextResolverConfigProvider	servers	92	false	
+org.xbill.DNS.config.JndiContextResolverConfigProvider	searchPaths	97	false	
+org.xbill.DNS.config.JndiContextResolverConfigProvider	isEnabled	102	true	{ return inner != null; }
+org.xbill.DNS.config.PropertyResolverConfigProvider	initialize	22	false	
+org.xbill.DNS.config.PropertyResolverConfigProvider	initialize	36	false	
+org.xbill.DNS.config.PropertyResolverConfigProvider	ndots	69	false	
+org.xbill.DNS.config.ResolvConfResolverConfigProvider	initialize	18	false	
+org.xbill.DNS.config.ResolvConfResolverConfigProvider	parseResolvConf	42	false	
+org.xbill.DNS.config.ResolvConfResolverConfigProvider	ndots	116	false	
+org.xbill.DNS.config.ResolvConfResolverConfigProvider	isEnabled	121	true	{ return !System.getProperty("os.name").contains("Windows") && !System.getProperty("java.specification.vendor").toLowerCase().contains("android"); }
+org.xbill.DNS.config.SunJvmResolverConfigProvider	initialize	23	false	
+org.xbill.DNS.config.SunJvmResolverConfigProvider	isEnabled	49	true	{ return Boolean.getBoolean("dnsjava.configprovider.sunjvm.enabled"); }
+org.xbill.DNS.config.WindowsResolverConfigProvider	initialize	116	false	
+org.xbill.DNS.config.WindowsResolverConfigProvider	servers	121	false	
+org.xbill.DNS.config.WindowsResolverConfigProvider	searchPaths	126	false	
+org.xbill.DNS.config.WindowsResolverConfigProvider	isEnabled	131	true	{ return inner != null; }
+org.xbill.DNS.dnssec.ByteArrayComparator	compare	26	false	
+org.xbill.DNS.dnssec.DefaultTrustAnchorStore	store	33	false	
+org.xbill.DNS.dnssec.DefaultTrustAnchorStore	find	65	false	
+org.xbill.DNS.dnssec.DefaultTrustAnchorStore	clear	81	false	
+org.xbill.DNS.dnssec.DefaultTrustAnchorStore	items	87	false	
+org.xbill.DNS.dnssec.DnsSecVerifier	verify	131	false	
+org.xbill.DNS.dnssec.DnsSecVerifier	verify	167	false	
+org.xbill.DNS.dnssec.JustifiedSecStatus	applyToResponse	31	false	
+org.xbill.DNS.dnssec.KeyCache	init	77	false	
+org.xbill.DNS.dnssec.KeyCache	find	100	false	
+org.xbill.DNS.dnssec.KeyCache	store	120	false	
+org.xbill.DNS.dnssec.KeyEntry	newKeyEntry	51	false	
+org.xbill.DNS.dnssec.KeyEntry	newNullKeyEntry	64	false	
+org.xbill.DNS.dnssec.KeyEntry	newBadKeyEntry	76	false	
+org.xbill.DNS.dnssec.KeyEntry	isNull	85	true	{ return this.isEmpty && this.getSecurityStatus() == SecurityStatus.UNCHECKED; }
+org.xbill.DNS.dnssec.KeyEntry	isBad	94	true	{ return this.isEmpty && this.getSecurityStatus() == SecurityStatus.BOGUS; }
+org.xbill.DNS.dnssec.KeyEntry	isGood	103	true	{ return !this.isEmpty && this.getSecurityStatus() == SecurityStatus.SECURE; }
+org.xbill.DNS.dnssec.KeyEntry	setBadReason	112	false	
+org.xbill.DNS.dnssec.KeyEntry	validateKeyFor	124	false	
+org.xbill.DNS.dnssec.NSEC3ValUtils	init	64	false	
+org.xbill.DNS.dnssec.NSEC3ValUtils	stripUnknownAlgNSEC3s	118	false	
+org.xbill.DNS.dnssec.NSEC3ValUtils	allNSEC3sIgnoreable	391	false	
+org.xbill.DNS.dnssec.NSEC3ValUtils	proveNameError	443	false	
+org.xbill.DNS.dnssec.NSEC3ValUtils	proveNodata	499	false	
+org.xbill.DNS.dnssec.NSEC3ValUtils	proveWildcard	625	false	
+org.xbill.DNS.dnssec.NSEC3ValUtils	proveNoDS	669	false	
+org.xbill.DNS.dnssec.R	setBundle	24	true	{ R.rb = resourceBundle; }
+org.xbill.DNS.dnssec.R	setUseNeutralMessages	34	true	{ R.useNeutral = useNeutral; }
+org.xbill.DNS.dnssec.R	get	45	false	
+org.xbill.DNS.dnssec.SMessage	getHeader	87	true	{ return this.header; }
+org.xbill.DNS.dnssec.SMessage	getQuestion	96	true	{ return this.question; }
+org.xbill.DNS.dnssec.SMessage	getSectionRRsets	106	false	
+org.xbill.DNS.dnssec.SMessage	getSectionRRsets	141	false	
+org.xbill.DNS.dnssec.SMessage	getRcode	163	false	
+org.xbill.DNS.dnssec.SMessage	getStatus	177	true	{ return this.securityStatus; }
+org.xbill.DNS.dnssec.SMessage	setStatus	186	false	
+org.xbill.DNS.dnssec.SMessage	setStatus	196	false	
+org.xbill.DNS.dnssec.SMessage	setBogus	210	false	
+org.xbill.DNS.dnssec.SMessage	setBogus	219	false	
+org.xbill.DNS.dnssec.SMessage	getBogusReason	228	true	{ return this.bogusReason; }
+org.xbill.DNS.dnssec.SMessage	getEdeReason	236	true	{ return this.edeReason; }
+org.xbill.DNS.dnssec.SMessage	getMessage	245	false	
+org.xbill.DNS.dnssec.SMessage	getCount	296	false	
+org.xbill.DNS.dnssec.SMessage	findRRset	323	false	
+org.xbill.DNS.dnssec.SMessage	findAnswerRRset	344	false	
+org.xbill.DNS.dnssec.SRRset	getSecurityStatus	71	true	{ return this.securityStatus; }
+org.xbill.DNS.dnssec.SRRset	setSecurityStatus	80	true	{ this.securityStatus = status; }
+org.xbill.DNS.dnssec.SRRset	getSignerName	85	false	
+org.xbill.DNS.dnssec.SRRset	getName	94	true	{ return this.ownerName == null ? super.getName() : this.ownerName; }
+org.xbill.DNS.dnssec.SRRset	setName	104	true	{ this.ownerName = ownerName; }
+org.xbill.DNS.dnssec.ValUtils	setCanonicalNsecOwner	68	false	
+org.xbill.DNS.dnssec.ValUtils	init	100	false	
+org.xbill.DNS.dnssec.ValUtils	classifyResponse	128	false	
+org.xbill.DNS.dnssec.ValUtils	verifyNewDNSKEYs	234	false	
+org.xbill.DNS.dnssec.ValUtils	favoriteDSDigestID	346	false	
+org.xbill.DNS.dnssec.ValUtils	verifySRRset	382	false	
+org.xbill.DNS.dnssec.ValUtils	rrsetWildcard	404	false	
+org.xbill.DNS.dnssec.ValUtils	longestCommonName	440	false	
+org.xbill.DNS.dnssec.ValUtils	strictSubdomain	461	false	
+org.xbill.DNS.dnssec.ValUtils	closestEncloser	479	false	
+org.xbill.DNS.dnssec.ValUtils	nsecWildcard	497	false	
+org.xbill.DNS.dnssec.ValUtils	nsecProvesNameError	511	false	
+org.xbill.DNS.dnssec.ValUtils	nsecProvesNoWC	563	false	
+org.xbill.DNS.dnssec.ValUtils	nsecProvesNodata	594	false	
+org.xbill.DNS.dnssec.ValUtils	nsecProvesNodataDsReply	700	false	
+org.xbill.DNS.dnssec.ValUtils	hasSignedNsecs	787	false	
+org.xbill.DNS.dnssec.ValUtils	nsecProvesNoDS	807	false	
+org.xbill.DNS.dnssec.ValUtils	atLeastOneSupportedAlgorithm	835	false	
+org.xbill.DNS.dnssec.ValUtils	isAlgorithmSupported	853	false	
+org.xbill.DNS.dnssec.ValUtils	atLeastOneDigestSupported	889	false	
+org.xbill.DNS.dnssec.ValUtils	isDigestSupported	907	false	
+org.xbill.DNS.dnssec.ValidatingResolver	init	150	false	
+org.xbill.DNS.dnssec.ValidatingResolver	loadTrustAnchors	170	false	
+org.xbill.DNS.dnssec.ValidatingResolver	getTrustAnchors	225	true	{ return this.trustAnchors; }
+org.xbill.DNS.dnssec.ValidatingResolver	setPort	1282	false	
+org.xbill.DNS.dnssec.ValidatingResolver	setTCP	1293	false	
+org.xbill.DNS.dnssec.ValidatingResolver	setIgnoreTruncation	1303	false	
+org.xbill.DNS.dnssec.ValidatingResolver	setEDNS	1321	false	
+org.xbill.DNS.dnssec.ValidatingResolver	setTSIGKey	1336	false	
+org.xbill.DNS.dnssec.ValidatingResolver	getTimeout	1341	true	{ return this.headResolver.getTimeout(); }
+org.xbill.DNS.dnssec.ValidatingResolver	setTimeout	1346	false	
+org.xbill.DNS.dnssec.ValidatingResolver	sendAsync	1357	false	
+org.xbill.DNS.hosts.HostsFileParser	getAddressForHost	88	false	
+org.xbill.DNS.hosts.HostsFileParser	cacheSize	232	false	
+org.xbill.DNS.lookup.LookupFailedException	getName	38	true	{ return name; }
+org.xbill.DNS.lookup.LookupFailedException	getType	43	true	{ return type; }
+org.xbill.DNS.lookup.LookupSession	builder	329	false	
+org.xbill.DNS.lookup.LookupSession	defaultBuilder	347	false	
+org.xbill.DNS.lookup.LookupSession	lookupAsync	366	false	
+org.xbill.DNS.lookup.LookupSession	lookupAsync	378	false	
+org.xbill.DNS.lookup.LookupSession	expandName	393	false	
+org.xbill.DNS.spi.DNSJavaNameService	lookupAllHostAddr	115	false	
+org.xbill.DNS.spi.DNSJavaNameService	getHostByAddr	167	false	
+org.xbill.DNS.spi.DNSJavaNameServiceDescriptor	createNameService	17	false	
+org.xbill.DNS.spi.DNSJavaNameServiceDescriptor	getType	22	true	{ return "dns"; }
+org.xbill.DNS.spi.DNSJavaNameServiceDescriptor	getProviderName	27	true	{ return "dnsjava"; }
+org.xbill.DNS.tools.Tools	main	5	false	
+org.xbill.DNS.tools.dig	usage	30	false	
+org.xbill.DNS.tools.dig	doQuery	36	false	
+org.xbill.DNS.tools.dig	main	42	false	
+org.xbill.DNS.tools.jnamed	addPrimaryZone	156	false	
+org.xbill.DNS.tools.jnamed	addSecondaryZone	165	false	
+org.xbill.DNS.tools.jnamed	addTSIG	172	false	
+org.xbill.DNS.tools.jnamed	getCache	177	true	{ return caches.computeIfAbsent(dclass, Cache::new); }
+org.xbill.DNS.tools.jnamed	findBestZone	181	false	
+org.xbill.DNS.tools.jnamed	findExactMatch	198	false	
+org.xbill.DNS.tools.jnamed	addRRset	218	false	
+org.xbill.DNS.tools.jnamed	addAnswer	284	false	
+org.xbill.DNS.tools.jnamed	doAXFR	370	false	
+org.xbill.DNS.tools.jnamed	generateReply	413	false	
+org.xbill.DNS.tools.jnamed	buildErrorMessage	487	false	
+org.xbill.DNS.tools.jnamed	formerrMessage	500	false	
+org.xbill.DNS.tools.jnamed	errorMessage	510	false	
+org.xbill.DNS.tools.jnamed	TCPclient	514	false	
+org.xbill.DNS.tools.jnamed	serveTCP	546	false	
+org.xbill.DNS.tools.jnamed	serveUDP	559	false	
+org.xbill.DNS.tools.jnamed	addTCP	598	false	
+org.xbill.DNS.tools.jnamed	addUDP	603	false	
+org.xbill.DNS.tools.jnamed	main	608	false	
+org.xbill.DNS.tools.lookup	printAnswer	18	false	
+org.xbill.DNS.tools.lookup	main	44	false	
+org.xbill.DNS.tools.primary	main	18	false	
+org.xbill.DNS.tools.update	print	49	false	
+org.xbill.DNS.tools.update	newMessage	56	false	
+org.xbill.DNS.tools.update	sendUpdate	266	false	
+org.xbill.DNS.tools.update	parseRR	301	false	
+org.xbill.DNS.tools.update	doRequire	327	false	
+org.xbill.DNS.tools.update	doProhibit	355	false	
+org.xbill.DNS.tools.update	doAdd	375	false	
+org.xbill.DNS.tools.update	doDelete	381	false	
+org.xbill.DNS.tools.update	doGlue	414	false	
+org.xbill.DNS.tools.update	doQuery	420	false	
+org.xbill.DNS.tools.update	doFile	453	false	
+org.xbill.DNS.tools.update	doLog	470	false	
+org.xbill.DNS.tools.update	doAssert	479	false	
+org.xbill.DNS.tools.update	help	545	false	
+org.xbill.DNS.tools.update	main	677	false	
+org.xbill.DNS.tools.xfrin	main	25	false	
+org.xbill.DNS.utils.BaseUtils	wrapLines	17	false	
+org.xbill.DNS.utils.base16	toString	26	false	
+org.xbill.DNS.utils.base16	toString	48	false	
+org.xbill.DNS.utils.base16	fromString	65	false	
+org.xbill.DNS.utils.base32	toString	83	false	
+org.xbill.DNS.utils.base32	fromString	146	false	
+org.xbill.DNS.utils.base64	toString	30	false	
+org.xbill.DNS.utils.base64	toString	41	false	
+org.xbill.DNS.utils.base64	formatString	89	false	
+org.xbill.DNS.utils.base64	fromString	99	false	
+org.xbill.DNS.utils.hexdump	dump	23	false	
+org.xbill.DNS.utils.hexdump	dump	53	false	

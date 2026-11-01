@@ -1,0 +1,67 @@
+{
+  "index": 63,
+  "sha": "8462e2b73fb73da79c410eedba878a987b4274bc",
+  "build": "ok",
+  "attempts": [
+    {
+      "command": [
+        "mvn",
+        "-q",
+        "-o",
+        "-DskipTests",
+        "compile"
+      ],
+      "cwd": "/repo/experiments/commit-survival/work/checkouts/63",
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 12.377,
+      "log": "results/builds/logs/63-1.txt"
+    }
+  ],
+  "input_sha256": "c58bb1fecd95fc605be1f78496bd7693ffc0c574d579864e61639b04550e9e33",
+  "pom_sha256": "37a29a7f0b02ab0ef93aa7431e89d9ff5d849ef6e38114cbc880560be08a6a23",
+  "classpath": "work/classpaths/37a29a7f0b02ab0ef93aa7431e89d9ff5d849ef6e38114cbc880560be08a6a23.txt",
+  "classpath_attempts": [
+    {
+      "command": [
+        "mvn",
+        "-q",
+        "-o",
+        "dependency:go-offline"
+      ],
+      "cwd": "/repo/experiments/commit-survival/work/checkouts/63",
+      "exit_code": 1,
+      "timeout": false,
+      "seconds": 4.919,
+      "log": "results/builds/logs/classpath-63/go-offline-043080e7b5ee48b0973be2c3a41f8873/1.txt"
+    },
+    {
+      "command": [
+        "mvn",
+        "-q",
+        "-U",
+        "dependency:go-offline"
+      ],
+      "cwd": "/repo/experiments/commit-survival/work/checkouts/63",
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 11.795,
+      "log": "results/builds/logs/classpath-63/go-offline-043080e7b5ee48b0973be2c3a41f8873/2.txt"
+    },
+    {
+      "command": [
+        "mvn",
+        "-q",
+        "-o",
+        "dependency:build-classpath",
+        "-DincludeScope=test",
+        "-Dmdep.outputFile=/repo/experiments/commit-survival/work/classpaths/37a29a7f0b02ab0ef93aa7431e89d9ff5d849ef6e38114cbc880560be08a6a23-426a4fd904694bae919260f53a67e509.tmp"
+      ],
+      "cwd": "/repo/experiments/commit-survival/work/checkouts/63",
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 1.453,
+      "log": "results/builds/logs/classpath-63/build-classpath-fb6974f43ade4099b03875f431d06b93/1.txt"
+    }
+  ]
+}

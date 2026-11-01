@@ -1,0 +1,47 @@
+[
+  {
+    "group": "Message.setResolver",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "resolver",
+            "value": "new MockResolver(\"resolverA\")"
+          }
+        ],
+        "expected": "Optional.of(resolver) returned by getResolver()",
+        "description": "Set a non\u2011null Resolver instance and verify that the Message stores it; getResolver() should return an Optional containing the same instance."
+      },
+      {
+        "input": [
+          {
+            "parameter": "resolver",
+            "value": "null"
+          }
+        ],
+        "expected": "Optional.empty() returned by getResolver()",
+        "description": "Set a null Resolver; the internal field should be cleared and getResolver() must return an empty Optional."
+      },
+      {
+        "input": [
+          {
+            "parameter": "resolver",
+            "value": "new MockResolver(\"resolverB\")"
+          }
+        ],
+        "expected": "Optional.of(resolver) returned by getResolver()",
+        "description": "Override an existing Resolver with a new one; after the second call, getResolver() should contain the newly set Resolver, not the previous one."
+      },
+      {
+        "input": [
+          {
+            "parameter": "resolver",
+            "value": "new MockResolver(\"resolverF\")"
+          }
+        ],
+        "expected": "Optional.of(resolver) returned by getResolver(); no methods on resolver are invoked during setResolver",
+        "description": "Pass a mock Resolver that records interactions; after setResolver() the mock should have zero interactions, confirming that setResolver only stores the reference without calling any of its methods."
+      }
+    ]
+  }
+]

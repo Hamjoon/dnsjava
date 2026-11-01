@@ -1,0 +1,67 @@
+{
+  "index": 68,
+  "sha": "fbb6b097a7c78533fdcef0b640d15e665580826b",
+  "build": "ok",
+  "attempts": [
+    {
+      "command": [
+        "mvn",
+        "-q",
+        "-o",
+        "-DskipTests",
+        "compile"
+      ],
+      "cwd": "/repo/experiments/commit-survival/work/checkouts/68",
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 11.656,
+      "log": "results/builds/logs/68-1.txt"
+    }
+  ],
+  "input_sha256": "8e174aa07b5e26b02419dc7f0a58155817073e1ebaf45b81a9b92104d8129c32",
+  "pom_sha256": "9ca76cd89e9247984e9158e1ae93d23ce2a00445bb2d314fc9011b68c3ee921f",
+  "classpath": "work/classpaths/9ca76cd89e9247984e9158e1ae93d23ce2a00445bb2d314fc9011b68c3ee921f.txt",
+  "classpath_attempts": [
+    {
+      "command": [
+        "mvn",
+        "-q",
+        "-o",
+        "dependency:go-offline"
+      ],
+      "cwd": "/repo/experiments/commit-survival/work/checkouts/68",
+      "exit_code": 1,
+      "timeout": false,
+      "seconds": 3.715,
+      "log": "results/builds/logs/classpath-68/go-offline-1dc94d93b90344f3800ebe34c2030ff0/1.txt"
+    },
+    {
+      "command": [
+        "mvn",
+        "-q",
+        "-U",
+        "dependency:go-offline"
+      ],
+      "cwd": "/repo/experiments/commit-survival/work/checkouts/68",
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 2.538,
+      "log": "results/builds/logs/classpath-68/go-offline-1dc94d93b90344f3800ebe34c2030ff0/2.txt"
+    },
+    {
+      "command": [
+        "mvn",
+        "-q",
+        "-o",
+        "dependency:build-classpath",
+        "-DincludeScope=test",
+        "-Dmdep.outputFile=/repo/experiments/commit-survival/work/classpaths/9ca76cd89e9247984e9158e1ae93d23ce2a00445bb2d314fc9011b68c3ee921f-2a0dc889335f43ccb23cc942c8261c2c.tmp"
+      ],
+      "cwd": "/repo/experiments/commit-survival/work/checkouts/68",
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 1.306,
+      "log": "results/builds/logs/classpath-68/build-classpath-9f8385d6143040d1b5fa75eaba8bf656/1.txt"
+    }
+  ]
+}

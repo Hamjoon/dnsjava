@@ -1,0 +1,71 @@
+{
+  "index": 34,
+  "sha": "fd1d7c9280986ebb219c421695a902559aaeda22",
+  "status": "evaluated",
+  "imported": true,
+  "coverage_version": 3,
+  "coverage_status": "missing",
+  "coverage_reason": "imported evidence has no per-test coverage",
+  "methods": [
+    {
+      "file": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/Message_isSigned_Test.java",
+      "class": "org.xbill.DNS.Message_isSigned_Test",
+      "method": "isSigned_defaultIsUnsigned",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_isSigned_Test.java|org.xbill.DNS.Message_isSigned_Test|isSigned_defaultIsUnsigned",
+      "body_hash": "f2de725dac49691b9f2db2b7b851b483f1f4a2cd89600ec534d785a091d383ee",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_isSigned_Test#isSigned_defaultIsUnsigned()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "da5365b9e70681eaef0e39b9f0d11f1c23c04ffadfe9fb284bda3115e59cb2c1",
+      "execution_hash": "959e90f8fd274b85e66a16665ba4269f3d83385242965739cc695b22a3f0891c",
+      "source_root": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0a86ba63f7379cd03eeb83e8739e9cebcd20ac34830f8ae9f79ab6a8466f0110",
+      "resource_tree_hash": "de9617e6c9dd225fb49909e865a12a9415c63de3448234d2eb4d0a852a3dd419",
+      "unit": "org.xbill.DNS.Message#isSigned()",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Message_isSigned_Test.java|org.xbill.DNS.Message_isSigned_Test|isSigned_defaultIsUnsigned",
+      "resource_root": "results/policy/pools/ktester/34/dev/src-test-t"
+    },
+    {
+      "file": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/Message_isSigned_Test.java",
+      "class": "org.xbill.DNS.Message_isSigned_Test",
+      "method": "isSigned_variousStates",
+      "kind": "parameterized",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_isSigned_Test.java|org.xbill.DNS.Message_isSigned_Test|isSigned_variousStates",
+      "body_hash": "e76db322d1fb885aacd4bea486aab22511d32870685a99e84fa8285fd835ae0e",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_isSigned_Test#isSigned_variousStates(int,boolean,java.lang.String)"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "da5365b9e70681eaef0e39b9f0d11f1c23c04ffadfe9fb284bda3115e59cb2c1",
+      "execution_hash": "959e90f8fd274b85e66a16665ba4269f3d83385242965739cc695b22a3f0891c",
+      "source_root": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0a86ba63f7379cd03eeb83e8739e9cebcd20ac34830f8ae9f79ab6a8466f0110",
+      "resource_tree_hash": "de9617e6c9dd225fb49909e865a12a9415c63de3448234d2eb4d0a852a3dd419",
+      "unit": "org.xbill.DNS.Message#isSigned()",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Message_isSigned_Test.java|org.xbill.DNS.Message_isSigned_Test|isSigned_variousStates",
+      "resource_root": "results/policy/pools/ktester/34/dev/src-test-t"
+    }
+  ]
+}

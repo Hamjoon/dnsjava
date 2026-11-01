@@ -1,0 +1,67 @@
+{
+  "index": 106,
+  "sha": "3d889712a7333c3131d4cd12d2ab44fb0cf542cf",
+  "build": "ok",
+  "attempts": [
+    {
+      "command": [
+        "mvn",
+        "-q",
+        "-o",
+        "-DskipTests",
+        "compile"
+      ],
+      "cwd": "/repo/experiments/commit-survival/work/checkouts/106",
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 10.214,
+      "log": "results/builds/logs/106-1.txt"
+    }
+  ],
+  "input_sha256": "53de6566b51930977d9faeb4d82b95bfe2293cc2a0f952c7050a4ae76053cc78",
+  "pom_sha256": "03325eb4de44e7389da441fdda3220484c2f749eb1ef8f2c588ae8c626edf795",
+  "classpath": "work/classpaths/03325eb4de44e7389da441fdda3220484c2f749eb1ef8f2c588ae8c626edf795.txt",
+  "classpath_attempts": [
+    {
+      "command": [
+        "mvn",
+        "-q",
+        "-o",
+        "dependency:go-offline"
+      ],
+      "cwd": "/repo/experiments/commit-survival/work/checkouts/106",
+      "exit_code": 1,
+      "timeout": false,
+      "seconds": 1.693,
+      "log": "results/builds/logs/classpath-106/go-offline-58240310626d4de4b0344e2232370901/1.txt"
+    },
+    {
+      "command": [
+        "mvn",
+        "-q",
+        "-U",
+        "dependency:go-offline"
+      ],
+      "cwd": "/repo/experiments/commit-survival/work/checkouts/106",
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 9.485,
+      "log": "results/builds/logs/classpath-106/go-offline-58240310626d4de4b0344e2232370901/2.txt"
+    },
+    {
+      "command": [
+        "mvn",
+        "-q",
+        "-o",
+        "dependency:build-classpath",
+        "-DincludeScope=test",
+        "-Dmdep.outputFile=/repo/experiments/commit-survival/work/classpaths/03325eb4de44e7389da441fdda3220484c2f749eb1ef8f2c588ae8c626edf795-870174f4e7d643c0b6c8f7189ebd74c5.tmp"
+      ],
+      "cwd": "/repo/experiments/commit-survival/work/checkouts/106",
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 1.658,
+      "log": "results/builds/logs/classpath-106/build-classpath-774194592578419583d1b733ec53556b/1.txt"
+    }
+  ]
+}

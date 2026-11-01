@@ -1,0 +1,16 @@
+{
+  "index": 126,
+  "sha": "3a32ded13996ce1aa401c9adcfc8e62ef91321eb",
+  "parent": "f966dee5eb20ae02d63828bf19b7b2d4ca7112b5",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/Message.java": [
+      944
+    ]
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/Message.java": [
+      944
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/Message.java b/src/main/java/org/xbill/DNS/Message.java\nindex 0d88325a..bdff5f4b 100644\n--- a/src/main/java/org/xbill/DNS/Message.java\n+++ b/src/main/java/org/xbill/DNS/Message.java\n@@ -944 +944 @@ public class Message implements Cloneable {\n-            rrset.deleteRR(cnameRRset.get(i));\n+            rrset.deleteRR(cnameRRset.get(cnameIndex));"
+}

@@ -1,0 +1,19 @@
+{
+  "index": 134,
+  "sha": "deae087170898cf44309280777c705a499f2a17c",
+  "parent": "7dad10578c5fd603703eeb0cf4fb02335621b0bd",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/SVCBBase.java": [
+      366
+    ]
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/SVCBBase.java": [
+      367,
+      368,
+      369,
+      371
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/SVCBBase.java b/src/main/java/org/xbill/DNS/SVCBBase.java\nindex cd5a8808..a2698881 100644\n--- a/src/main/java/org/xbill/DNS/SVCBBase.java\n+++ b/src/main/java/org/xbill/DNS/SVCBBase.java\n@@ -366 +366,7 @@ public abstract class SVCBBase extends Record {\n-      port = Integer.parseInt(string);\n+\n+      int parsedPort = Integer.parseInt(string);\n+      if (parsedPort >= 0 && parsedPort <= 65535) {\n+        port = parsedPort;\n+      } else {\n+        throw new IllegalArgumentException(\"Invalid port number: \" + string);\n+      }"
+}

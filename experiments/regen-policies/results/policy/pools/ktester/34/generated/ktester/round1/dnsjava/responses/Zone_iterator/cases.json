@@ -1,0 +1,67 @@
+[
+  {
+    "group": "Zone.iterator() behavior",
+    "cases": [
+      {
+        "input": [],
+        "expected": "Iterator<RRset> is not null, hasNext() returns false (empty zone)",
+        "description": "Calling iterator() on a newly created Zone that contains no RRsets should return a non\u2011null iterator whose hasNext() immediately reports false."
+      },
+      {
+        "input": [],
+        "expected": "Iterator<RRset> returns the single added RRset, then hasNext() returns false",
+        "description": "Add one RRset to the Zone, then call iterator(). The iterator must yield exactly that RRset on the first next() call and report no further elements."
+      },
+      {
+        "input": [],
+        "expected": "Iterator<RRset> yields all added RRsets in the order they were added",
+        "description": "Populate the Zone with three distinct RRsets. The iterator returned by iterator() should traverse all three RRsets, each exactly once, preserving insertion order (as defined by ZoneIterator)."
+      },
+      {
+        "input": [],
+        "expected": "Calling remove() on the iterator throws UnsupportedOperationException",
+        "description": "The iterator returned by iterator() is read\u2011only. Invoking its remove() method must raise UnsupportedOperationException."
+      },
+      {
+        "input": [],
+        "expected": "Two iterators obtained from the same Zone operate independently; consumption of one does not affect the other",
+        "description": "Obtain two iterators from the same Zone (which contains multiple RRsets). Advance the first iterator partially and verify that the second iterator still sees the full set of RRsets."
+      }
+    ]
+  },
+  {
+    "group": "Zone.iterator() after zone modification",
+    "cases": [
+      {
+        "input": [],
+        "expected": "Iterator<RRset> does not throw ConcurrentModificationException when a new RRset is added after the iterator is obtained; iteration continues normally and may or may not include the newly added RRset (implementation\u2011defined). The test asserts that no exception is thrown and that the iterator can still be used after the modification.",
+        "description": "Obtain an iterator from a Zone containing one RRset, then add a second RRset to the Zone before calling next() on the iterator. Verify that the iterator remains functional (no CME) and that calling hasNext()/next() after the modification does not cause a failure."
+      },
+      {
+        "input": [],
+        "expected": "Iterator<RRset> does not throw ConcurrentModificationException when an existing RRset is removed after the iterator is obtained; iteration continues safely.",
+        "description": "Create a Zone with two RRsets, obtain an iterator, remove one RRset from the Zone, then continue iterating. The iterator should still operate without throwing an exception, demonstrating the weakly\u2011consistent behavior of ZoneIterator."
+      }
+    ]
+  },
+  {
+    "group": "Zone.iterator() exception scenarios",
+    "cases": [
+      {
+        "input": [],
+        "expected": "NoSuchElementException",
+        "description": "Calling next() on the iterator of a newly created, empty Zone should immediately throw NoSuchElementException because there are no RRsets to return."
+      },
+      {
+        "input": [],
+        "expected": "NoSuchElementException",
+        "description": "After adding a single RRset to the Zone and iterating it once, a subsequent call to next() (when hasNext() is false) must throw NoSuchElementException."
+      },
+      {
+        "input": [],
+        "expected": "UnsupportedOperationException",
+        "description": "Invoking remove() on the iterator after a successful next() call (i.e., after the iterator has been advanced) must still throw UnsupportedOperationException because the iterator is read\u2011only."
+      }
+    ]
+  }
+]

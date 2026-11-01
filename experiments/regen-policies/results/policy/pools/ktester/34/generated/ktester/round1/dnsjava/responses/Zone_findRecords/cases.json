@@ -1,0 +1,73 @@
+[
+  {
+    "group": "Null name parameter",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": null
+          },
+          {
+            "parameter": "type",
+            "value": 1
+          }
+        ],
+        "expected": "IllegalArgumentException with message \"name must not be null\"",
+        "description": "Calling findRecords with a null Name should immediately throw IllegalArgumentException before any other checks."
+      }
+    ]
+  },
+  {
+    "group": "Invalid type parameter",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "example.com."
+          },
+          {
+            "parameter": "type",
+            "value": -1
+          }
+        ],
+        "expected": "IllegalArgumentException thrown by Type.check",
+        "description": "Calling findRecords with a negative DNS type should trigger Type.check and throw IllegalArgumentException before any zone lookup."
+      },
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "example.com."
+          },
+          {
+            "parameter": "type",
+            "value": 65536
+          }
+        ],
+        "expected": "IllegalArgumentException thrown by Type.check",
+        "description": "Calling findRecords with a type value larger than the 16\u2011bit DNS type range should cause Type.check to throw IllegalArgumentException."
+      }
+    ]
+  },
+  {
+    "group": "Null origin in Zone",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "sub.example.com."
+          },
+          {
+            "parameter": "type",
+            "value": 1
+          }
+        ],
+        "expected": "NullPointerException",
+        "description": "When the Zone instance has a null 'origin' field, the call to name.subdomain(origin) throws a NullPointerException. This test verifies that findRecords propagates the NPE for a zone with no origin."
+      }
+    ]
+  }
+]

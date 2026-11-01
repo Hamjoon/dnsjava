@@ -1,0 +1,16 @@
+{
+  "index": 148,
+  "sha": "0c929f5d23b7aed4972d0e7f55aeff264f23f2dc",
+  "parent": "e64807ea6dbc314931b2c4ca546be4fd2cc1105d",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/Header.java": [
+      43
+    ]
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/Header.java": [
+      44
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/Header.java b/src/main/java/org/xbill/DNS/Header.java\nindex 4fefdbc4..b367d7b0 100644\n--- a/src/main/java/org/xbill/DNS/Header.java\n+++ b/src/main/java/org/xbill/DNS/Header.java\n@@ -43 +43,2 @@ public class Header implements Cloneable {\n-    this(random.nextInt(0xffff));\n+    // The bound of nextInt is exclusive, thus +1 to include 0xffff as possible IDs\n+    this(random.nextInt(0xffff + 1));"
+}

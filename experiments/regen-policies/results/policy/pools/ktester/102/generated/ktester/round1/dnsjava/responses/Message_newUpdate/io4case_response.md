@@ -1,0 +1,109 @@
+{
+  "tests": [
+    {
+      "group": "newUpdate_validName",
+      "cases": [
+        {
+          "input": [
+            {
+              "parameter": "zone",
+              "value": "example.com."
+            }
+          ],
+          "expected": "non‑null Update instance; getHeader().getOpcode() == Opcode.UPDATE; getQuestion().getName().equals(Name.fromString(\"example.com.\"))",
+          "description": "Creates an Update message for a typical fully‑qualified domain name. The returned object must be an Update, its opcode must be UPDATE and its question section must contain the supplied zone name."
+        },
+        {
+          "input": [
+            {
+              "parameter": "zone",
+              "value": "sub.domain.example.org."
+            }
+          ],
+          "expected": "non‑null Update instance; getHeader().getOpcode() == Opcode.UPDATE; getQuestion().getName().equals(Name.fromString(\"sub.domain.example.org.\"))",
+          "description": "Creates an Update message for a multi‑label domain name. Verifies that the zone name is preserved exactly."
+        }
+      ]
+    },
+    {
+      "group": "newUpdate_rootName",
+      "cases": [
+        {
+          "input": [
+            {
+              "parameter": "zone",
+              "value": "."
+            }
+          ],
+          "expected": "non‑null Update instance; getQuestion().getName().equals(Name.root)",
+          "description": "Creates an Update message for the DNS root zone (\".\"). The question name should be the root Name object."
+        }
+      ]
+    },
+    {
+      "group": "newUpdate_nullName",
+      "cases": [
+        {
+          "input": [
+            {
+              "parameter": "zone",
+              "value": null
+            }
+          ],
+          "expected": "NullPointerException",
+          "description": "Passing a null Name to newUpdate should result in a NullPointerException (the Update constructor validates its argument)."
+        }
+      ]
+    },
+    {
+      "group": "newUpdate_initialState",
+      "cases": [
+        {
+          "input": [
+            {
+              "parameter": "zone",
+              "value": "example.com."
+            }
+          ],
+          "expected": "update.getSection(Message.SECTION_ANSWER).isEmpty() && update.getSection(Message.SECTION_AUTHORITY).isEmpty() && update.getSection(Message.SECTION_ADDITIONAL).isEmpty()",
+          "description": "An Update created via newUpdate must start with empty answer, authority and additional sections."
+        },
+        {
+          "input": [
+            {
+              "parameter": "zone",
+              "value": "example.com."
+            }
+          ],
+          "expected": "update.isSigned() == false && update.getTSIG() == null",
+          "description": "A freshly created Update must not be signed and must have no TSIG record attached."
+        }
+      ]
+    },
+    {
+      "group": "newUpdate_headerFlags",
+      "cases": [
+        {
+          "input": [
+            {
+              "parameter": "zone",
+              "value": "example.com."
+            }
+          ],
+          "expected": "update.getHeader().getFlag(Flags.QR) == false && update.getHeader().getFlag(Flags.AA) == false",
+          "description": "The header of a newly created Update should have QR (response) cleared and AA (authoritative answer) cleared, matching a typical DNS UPDATE query."
+        },
+        {
+          "input": [
+            {
+              "parameter": "zone",
+              "value": "example.com."
+            }
+          ],
+          "expected": "update.getHeader().getRcode() == Rcode.NOERROR",
+          "description": "The RCODE of a newly created Update must be NOERROR (0) before any processing."
+        }
+      ]
+    }
+  ]
+}

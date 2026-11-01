@@ -1,0 +1,339 @@
+[
+  {
+    "group": "findExactMatch - name not present (types == null)",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "new Name(\"nonexistent.example.\")"
+          },
+          {
+            "parameter": "type",
+            "value": "Type.A"
+          }
+        ],
+        "expected": "null",
+        "description": "When the zone does not contain any RRsets for the supplied name, `exactName(name)` returns null, causing `findExactMatch` to return null regardless of the requested type."
+      }
+    ]
+  },
+  {
+    "group": "findExactMatch - exact type match (oneRRset returns RRset)",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "new Name(\"www.example.\")"
+          },
+          {
+            "parameter": "type",
+            "value": "Type.A"
+          }
+        ],
+        "expected": "RRset instance containing the A record for www.example.",
+        "description": "The zone contains an A record for `www.example.`. `exactName(name)` returns a non\u2011null object, and `oneRRset(types, type)` finds the RRset matching the requested type, so the method returns that RRset."
+      }
+    ]
+  },
+  {
+    "group": "findExactMatch - name present but type absent (oneRRset returns null)",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "new Name(\"mail.example.\")"
+          },
+          {
+            "parameter": "type",
+            "value": "Type.SRV"
+          }
+        ],
+        "expected": "null",
+        "description": "The zone contains records for `mail.example.` (e.g., MX), but no SRV records. `exactName(name)` returns a non\u2011null object, however `oneRRset(types, type)` cannot find an RRset for the SRV type and returns null, which `findExactMatch` propagates."
+      }
+    ]
+  },
+  {
+    "group": "findExactMatch - null name argument",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "null"
+          },
+          {
+            "parameter": "type",
+            "value": "Type.A"
+          }
+        ],
+        "expected": "NullPointerException",
+        "description": "Passing a null `Name` should cause `exactName(name)` to throw a NullPointerException (or the method to fail early). The test verifies that the exception is thrown."
+      }
+    ]
+  },
+  {
+    "group": "findExactMatch - origin name with SOA type",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "new Name(\"example.\")"
+          },
+          {
+            "parameter": "type",
+            "value": "Type.SOA"
+          }
+        ],
+        "expected": "RRset instance containing the SOA record for the zone apex (example.)",
+        "description": "The zone apex (origin) always has an SOA RRset. When `findExactMatch` is called with the origin name and type SOA, `exactName` returns a non\u2011null object and `oneRRset` finds the SOA RRset, which should be returned."
+      }
+    ]
+  },
+  {
+    "group": "findExactMatch - origin name with NS type",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "new Name(\"example.\")"
+          },
+          {
+            "parameter": "type",
+            "value": "Type.NS"
+          }
+        ],
+        "expected": "RRset instance containing the NS records for the zone apex (example.)",
+        "description": "The zone apex also contains NS records. The method should return the NS RRset when queried with the origin name and type NS."
+      }
+    ]
+  },
+  {
+    "group": "findExactMatch - name with multiple RRsets, each type retrieved correctly",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "new Name(\"www.example.\")"
+          },
+          {
+            "parameter": "type",
+            "value": "Type.A"
+          }
+        ],
+        "expected": "RRset instance containing the A record(s) for www.example.",
+        "description": "The name `www.example.` has both A and AAAA records. Requesting type A must return the A RRset."
+      },
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "new Name(\"www.example.\")"
+          },
+          {
+            "parameter": "type",
+            "value": "Type.AAAA"
+          }
+        ],
+        "expected": "RRset instance containing the AAAA record(s) for www.example.",
+        "description": "The same name queried for AAAA must return the AAAA RRset, proving that `findExactMatch` can distinguish between multiple RRsets belonging to the same name."
+      }
+    ]
+  },
+  {
+    "group": "findExactMatch - request TYPE_ANY (0) returns null",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "new Name(\"www.example.\")"
+          },
+          {
+            "parameter": "type",
+            "value": "Type.ANY"
+          }
+        ],
+        "expected": "null",
+        "description": "`Type.ANY` (value 0) is not a concrete RR type. `oneRRset` cannot match it, so `findExactMatch` should return null even though the name exists in the zone."
+      }
+    ]
+  },
+  {
+    "group": "findExactMatch - request invalid negative type returns null",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "new Name(\"www.example.\")"
+          },
+          {
+            "parameter": "type",
+            "value": "-1"
+          }
+        ],
+        "expected": "null",
+        "description": "A negative type value is not a valid DNS RR type. The implementation should treat it as not found and return null rather than throwing."
+      }
+    ]
+  },
+  {
+    "group": "findExactMatch - name with CNAME, request CNAME type returns RRset",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "new Name(\"alias.example.\")"
+          },
+          {
+            "parameter": "type",
+            "value": "Type.CNAME"
+          }
+        ],
+        "expected": "RRset instance containing the CNAME record for alias.example.",
+        "description": "The name `alias.example.` is defined as a CNAME. When queried for type CNAME the method must return the corresponding RRset."
+      }
+    ]
+  },
+  {
+    "group": "findExactMatch - name with CNAME, request A type returns null",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "new Name(\"alias.example.\")"
+          },
+          {
+            "parameter": "type",
+            "value": "Type.A"
+          }
+        ],
+        "expected": "null",
+        "description": "Even though `alias.example.` exists, it only has a CNAME record. Requesting type A should yield null because `oneRRset` cannot find an A RRset for that name."
+      }
+    ]
+  },
+  {
+    "group": "findExactMatch - empty zone returns null for any name",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "new Name(\"any.example.\")"
+          },
+          {
+            "parameter": "type",
+            "value": "Type.A"
+          }
+        ],
+        "expected": "null",
+        "description": "When the `Zone` instance contains no records at all, `exactName` will always return null, causing `findExactMatch` to return null for any name/type combination."
+      }
+    ]
+  },
+  {
+    "group": "findExactMatch - name with DNSSEC RRSIG type returns RRset",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "new Name(\"www.example.\")"
+          },
+          {
+            "parameter": "type",
+            "value": "Type.RRSIG"
+          }
+        ],
+        "expected": "RRset instance containing the RRSIG records for www.example.",
+        "description": "If DNSSEC signatures are present for `www.example.`, a request for type RRSIG should retrieve the corresponding RRset."
+      }
+    ]
+  },
+  {
+    "group": "findExactMatch - type value exceeds DNS maximum (65535)",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "new Name(\"www.example.\")"
+          },
+          {
+            "parameter": "type",
+            "value": "70000"
+          }
+        ],
+        "expected": "IllegalArgumentException",
+        "description": "The DNS type field is limited to 16 bits (0\u201165535). Supplying a value larger than the maximum should cause the internal `oneRRset` validation to throw an IllegalArgumentException, which propagates out of `findExactMatch`."
+      }
+    ]
+  },
+  {
+    "group": "findExactMatch - type value is Integer.MAX_VALUE",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "new Name(\"example.\")"
+          },
+          {
+            "parameter": "type",
+            "value": "2147483647"
+          }
+        ],
+        "expected": "IllegalArgumentException",
+        "description": "Using an extreme integer for the type argument should be rejected by the method (or by `oneRRset`) as it is not a valid DNS RR type, resulting in an IllegalArgumentException."
+      }
+    ]
+  },
+  {
+    "group": "findExactMatch - non\u2011absolute Name argument",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "new Name(\"relative\", false)"
+          },
+          {
+            "parameter": "type",
+            "value": "Type.A"
+          }
+        ],
+        "expected": "IllegalArgumentException",
+        "description": "The `Name` class requires an absolute (fully\u2011qualified) name for zone look\u2011ups. Passing a relative name should cause `exactName` (or an earlier validation step) to throw an IllegalArgumentException."
+      }
+    ]
+  },
+  {
+    "group": "findExactMatch - internal state corruption triggers IllegalStateException",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "new Name(\"www.example.\")"
+          },
+          {
+            "parameter": "type",
+            "value": "Type.A"
+          }
+        ],
+        "expected": "IllegalStateException",
+        "description": "If the zone's internal data structures are corrupted (e.g., the map used by `exactName` is null), the private method may throw IllegalStateException. The test forces this condition (by mocking or reflection) and verifies that the exception propagates."
+      }
+    ]
+  }
+]

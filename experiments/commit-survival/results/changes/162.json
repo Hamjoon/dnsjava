@@ -1,0 +1,38 @@
+{
+  "index": 162,
+  "sha": "0de25a93eb555bfd025a0af95b19c61d37b21709",
+  "parent": "54aa223c1060585a682c83fcff7782211bd64c90",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/CAARecord.java": [
+      39,
+      40,
+      44,
+      54,
+      62,
+      64,
+      74,
+      87,
+      118
+    ]
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/CAARecord.java": [
+      31,
+      140,
+      151,
+      152,
+      154,
+      155,
+      156,
+      157,
+      161,
+      167,
+      176,
+      178,
+      188,
+      201,
+      232
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/CAARecord.java b/src/main/java/org/xbill/DNS/CAARecord.java\nindex c03b487e..0b4b956b 100644\n--- a/src/main/java/org/xbill/DNS/CAARecord.java\n+++ b/src/main/java/org/xbill/DNS/CAARecord.java\n@@ -7,0 +8 @@ import java.nio.charset.StandardCharsets;\n+import java.util.function.Function;\n@@ -13 +14 @@ import java.nio.charset.StandardCharsets;\n- * @see <a href=\"https://datatracker.ietf.org/doc/html/rfc6844\">RFC 6844: DNS Certification\n+ * @see <a href=\"https://datatracker.ietf.org/doc/html/rfc8659\">RFC 8659: DNS Certification\n@@ -22,0 +24,100 @@ public class CAARecord extends Record {\n+  /**\n+   * Know tag values in IANA registry Public Key Infrastructure using X.509 (PKIX) Parameters,\n+   * Certification Authority Restriction Properties.\n+   *\n+   * @see <a href=\"https://www.iana.org/assignments/pkix-parameters\">Public Key Infrastructure using\n+   *     X.509 (PKIX) Parameters</a>\n+   */\n+  public static class Tags {\n+    /**\n+     * Authorization Entry by Domain.\n+     *\n+     * @see <a href=\"https://datatracker.ietf.org/doc/html/rfc8659#section-7.2\">RFC 8659, Section\n+     *     7.2</a>\n+     */\n+    public static final String ISSUE = \"issue\";\n+\n+    /**\n+     * Authorization Entry by Wildcard Domain.\n+     *\n+     * @see <a href=\"https://datatracker.ietf.org/doc/html/rfc8659#section-7.2\">RFC 8659, Section\n+     *     7.2</a>\n+     */\n+    public static final String ISSUEWILD = \"issuewild\";\n+\n+    /**\n+     * Report incident by IODEF report.\n+     *\n+     * @see <a href=\"https://datatracker.ietf.org/doc/html/rfc8659#section-7.2\">RFC 8659, Section\n+     *     7.2</a>\n+     */\n+    public static final String IODEF = \"iodef\";\n+\n+    /**\n+     * Reserved in RFC 8659.\n+     *\n+     * @see <a href=\"https://datatracker.ietf.org/doc/html/rfc8659#section-7.2\">RFC 8659, Section\n+     *     7.2</a>\n+     */\n+    public static final String AUTH = \"auth\";\n+\n+    /**\n+     * Reserved in RFC 8659; Authorization Entry by Signature Path in\n+     * draft-hallambaker-donotissue-04.\n+     *\n+     * @see <a\n+     *     href=\"https://datatracker.ietf.org/doc/html/draft-hallambaker-donotissue-04#rfc.section.5.2\">draft-hallambaker-donotissue-04,\n+     *     Section 5.2</a>\n+     * @see <a href=\"https://datatracker.ietf.org/doc/html/rfc8659#section-7.2\">RFC 8659, Section\n+     *     7.2</a>\n+     */\n+    public static final String PATH = \"path\";\n+\n+    /**\n+     * Reserved in RFC 8659; Authorization Entry by Certificate Policy in\n+     * draft-hallambaker-donotissue-04.\n+     *\n+     * @see <a\n+     *     href=\"https://datatracker.ietf.org/doc/html/draft-hallambaker-donotissue-04#rfc.section.5.2\">draft-hallambaker-donotissue-04,\n+     *     Section 5.2</a>\n+     * @see <a href=\"https://datatracker.ietf.org/doc/html/rfc8659#section-7.2\">RFC 8659, Section\n+     *     7.2</a>\n+     */\n+    public static final String POLICY = \"policy\";\n+\n+    /**\n+     * Authorized e-mail contact for domain validation.\n+     *\n+     * @see <a\n+     *     href=\"https://cabforum.org/wp-content/uploads/CA-Browser-Forum-BR-1.6.3.pdf\">CA/Browser\n+     *     Forum 1.6.3</a>\n+     * @see <a href=\"https://cabforum.org/\">CA/Browser Forum</a>\n+     */\n+    public static final String CONTACTEMAIL = \"contactemail\";\n+\n+    /**\n+     * Authorized phone contact for DNS validation.\n+     *\n+     * @see <a href=\"https://cabforum.org/pipermail/public/2019-January/014498.html\">CA/Browser\n+     *     Forum Ballot SC14</a>\n+     * @see <a href=\"https://cabforum.org/\">CA/Browser Forum</a>\n+     */\n+    public static final String CONTACTPHONE = \"contactphone\";\n+\n+    /**\n+     * Authorization Entry by Domain for Verified Mark Certificates.\n+     *\n+     * @see <a href=\"https://bimigroup.org/resources/VMC_Guidelines_latest.pdf\">VMC Requirements\n+     *     v1.0</a>\n+     * @see <a href=\"mailto:corey.bonnell@digicert.com\">Corey Bonnell</a>\n+     */\n+    public static final String ISSUEVMC = \"issuevmc\";\n+\n+    /**\n+     * Authorization Entry by Email Address.\n+     *\n+     * @see <a href=\"https://datatracker.ietf.org/doc/html/rfc9495\">RFC 9495</a>\n+     */\n+    public static final String ISSUEMAIL = \"issuemail\";\n+  }\n+\n@@ -24 +125 @@ public class CAARecord extends Record {\n-  private byte[] tag;\n+  private String tag;\n@@ -39,3 +140 @@ public class CAARecord extends Record {\n-    if (tag == null || tag.isEmpty() || tag.length() > 255) {\n-      throw new IllegalArgumentException(\"invalid tag\");\n-    }\n+    this.tag = validateTag(IllegalArgumentException::new, tag);\n@@ -44 +142,0 @@ public class CAARecord extends Record {\n-      this.tag = byteArrayFromString(tag);\n@@ -50,0 +149,15 @@ public class CAARecord extends Record {\n+  private static <T extends Throwable> String validateTag(\n+      Function<String, T> getException, String tag) throws T {\n+    if (tag == null || tag.isEmpty() || tag.length() > 255) {\n+      throw getException.apply(\"invalid tag\");\n+    }\n+    for (int i = 0; i < tag.length(); i++) {\n+      char c = tag.charAt(i);\n+      if ((c < '0' || c > '9') && (c < 'a' || c > 'z')) {\n+        throw getException.apply(\"invalid tag; must be ASCII letters and numbers in lowercase\");\n+      }\n+    }\n+\n+    return tag;\n+  }\n+\n@@ -54 +167 @@ public class CAARecord extends Record {\n-    tag = in.readCountedString();\n+    tag = validateTag(WireParseException::new, byteArrayToString(in.readCountedString(), false));\n@@ -60,0 +174 @@ public class CAARecord extends Record {\n+\n@@ -62 +176 @@ public class CAARecord extends Record {\n-      tag = byteArrayFromString(st.getString());\n+      tag = validateTag(TextParseException::new, st.getString());\n@@ -64 +178 @@ public class CAARecord extends Record {\n-    } catch (TextParseException e) {\n+    } catch (TextParseException | IllegalArgumentException e) {\n@@ -74 +188 @@ public class CAARecord extends Record {\n-    sb.append(byteArrayToString(tag, false));\n+    sb.append(tag);\n@@ -87 +201 @@ public class CAARecord extends Record {\n-    return new String(tag, StandardCharsets.US_ASCII);\n+    return tag;\n@@ -118 +232 @@ public class CAARecord extends Record {\n-    out.writeCountedString(tag);\n+    out.writeCountedString(tag.getBytes(StandardCharsets.US_ASCII));"
+}

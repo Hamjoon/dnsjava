@@ -1,0 +1,14 @@
+{
+  "index": 174,
+  "sha": "1e08600c3f18547629bb5ace9f4cd251a409339f",
+  "parent": "6ed496301bad39e224817386df942007270a1a8a",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/AAAARecord.java": [
+      19
+    ]
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/AAAARecord.java": []
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/AAAARecord.java b/src/main/java/org/xbill/DNS/AAAARecord.java\nindex 6d9706bd..792f045d 100644\n--- a/src/main/java/org/xbill/DNS/AAAARecord.java\n+++ b/src/main/java/org/xbill/DNS/AAAARecord.java\n@@ -19,2 +18,0 @@ public class AAAARecord extends Record {\n-  private static final byte[] IPV4_MAPPED_IPV6_PREFIX =\n-      new byte[] {0, 0, 0, 0, 0, 0, 0, 0, (byte) 0xff, (byte) 0xff, (byte) 0xff, (byte) 0xff};"
+}

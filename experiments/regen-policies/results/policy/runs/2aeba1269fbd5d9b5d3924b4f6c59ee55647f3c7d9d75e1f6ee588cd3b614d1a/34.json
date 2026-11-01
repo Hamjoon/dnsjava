@@ -1,0 +1,371 @@
+{
+  "index": 34,
+  "sha": "fd1d7c9280986ebb219c421695a902559aaeda22",
+  "status": "evaluated",
+  "imported": true,
+  "coverage_version": 3,
+  "coverage_status": "missing",
+  "coverage_reason": "imported evidence has no per-test coverage",
+  "methods": [
+    {
+      "file": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/Zone_removeRRset_Test.java",
+      "class": "org.xbill.DNS.Zone_removeRRset_Test",
+      "method": "removeRRset_nameIsNull_throwsIllegalArgumentException",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Zone_removeRRset_Test.java|org.xbill.DNS.Zone_removeRRset_Test|removeRRset_nameIsNull_throwsIllegalArgumentException",
+      "body_hash": "e6c086f77d6bbb6cdbb7569b957bde2fd6adf18f2379dfb9c982cd4edc8b94c9",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Zone_removeRRset_Test#removeRRset_nameIsNull_throwsIllegalArgumentException()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "2f9ccecf653075c6f32b94b5f7946718495ebcdb1bb5e5bda0c15ad08d545320",
+      "execution_hash": "2aeba1269fbd5d9b5d3924b4f6c59ee55647f3c7d9d75e1f6ee588cd3b614d1a",
+      "source_root": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0a86ba63f7379cd03eeb83e8739e9cebcd20ac34830f8ae9f79ab6a8466f0110",
+      "resource_tree_hash": "de9617e6c9dd225fb49909e865a12a9415c63de3448234d2eb4d0a852a3dd419",
+      "unit": "org.xbill.DNS.Zone#removeRRset(Name, int)",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Zone_removeRRset_Test.java|org.xbill.DNS.Zone_removeRRset_Test|removeRRset_nameIsNull_throwsIllegalArgumentException",
+      "resource_root": "results/policy/pools/ktester/34/dev/src-test-t"
+    },
+    {
+      "file": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/Zone_removeRRset_Test.java",
+      "class": "org.xbill.DNS.Zone_removeRRset_Test",
+      "method": "removeRRset_invalidType_throwsInvalidTypeException",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Zone_removeRRset_Test.java|org.xbill.DNS.Zone_removeRRset_Test|removeRRset_invalidType_throwsInvalidTypeException",
+      "body_hash": "a9e1c7b9cb9a7c43cd69f0bd1c98392c97babbd2ed1cfd22d15bd77e9fc3a428",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Zone_removeRRset_Test#removeRRset_invalidType_throwsInvalidTypeException()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "2f9ccecf653075c6f32b94b5f7946718495ebcdb1bb5e5bda0c15ad08d545320",
+      "execution_hash": "2aeba1269fbd5d9b5d3924b4f6c59ee55647f3c7d9d75e1f6ee588cd3b614d1a",
+      "source_root": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0a86ba63f7379cd03eeb83e8739e9cebcd20ac34830f8ae9f79ab6a8466f0110",
+      "resource_tree_hash": "de9617e6c9dd225fb49909e865a12a9415c63de3448234d2eb4d0a852a3dd419",
+      "unit": "org.xbill.DNS.Zone#removeRRset(Name, int)",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Zone_removeRRset_Test.java|org.xbill.DNS.Zone_removeRRset_Test|removeRRset_invalidType_throwsInvalidTypeException",
+      "resource_root": "results/policy/pools/ktester/34/dev/src-test-t"
+    },
+    {
+      "file": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/Zone_removeRRset_Test.java",
+      "class": "org.xbill.DNS.Zone_removeRRset_Test",
+      "method": "removeRRset_existingARecord_successfulRemoval",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Zone_removeRRset_Test.java|org.xbill.DNS.Zone_removeRRset_Test|removeRRset_existingARecord_successfulRemoval",
+      "body_hash": "b32e80e24255a952a3175f34d25e502051e513c4c4b1e1bb716e582be2953eed",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Zone_removeRRset_Test#removeRRset_existingARecord_successfulRemoval()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "2f9ccecf653075c6f32b94b5f7946718495ebcdb1bb5e5bda0c15ad08d545320",
+      "execution_hash": "2aeba1269fbd5d9b5d3924b4f6c59ee55647f3c7d9d75e1f6ee588cd3b614d1a",
+      "source_root": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0a86ba63f7379cd03eeb83e8739e9cebcd20ac34830f8ae9f79ab6a8466f0110",
+      "resource_tree_hash": "de9617e6c9dd225fb49909e865a12a9415c63de3448234d2eb4d0a852a3dd419",
+      "unit": "org.xbill.DNS.Zone#removeRRset(Name, int)",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Zone_removeRRset_Test.java|org.xbill.DNS.Zone_removeRRset_Test|removeRRset_existingARecord_successfulRemoval",
+      "resource_root": "results/policy/pools/ktester/34/dev/src-test-t"
+    },
+    {
+      "file": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/Zone_removeRRset_Test.java",
+      "class": "org.xbill.DNS.Zone_removeRRset_Test",
+      "method": "removeRRset_nonExistingRRset_noExceptionAndStateUnchanged",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Zone_removeRRset_Test.java|org.xbill.DNS.Zone_removeRRset_Test|removeRRset_nonExistingRRset_noExceptionAndStateUnchanged",
+      "body_hash": "a036c01cef32c66c554792bf01c106da0470a0d3774b8cfd353b7d9e52b49494",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Zone_removeRRset_Test#removeRRset_nonExistingRRset_noExceptionAndStateUnchanged()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "2f9ccecf653075c6f32b94b5f7946718495ebcdb1bb5e5bda0c15ad08d545320",
+      "execution_hash": "2aeba1269fbd5d9b5d3924b4f6c59ee55647f3c7d9d75e1f6ee588cd3b614d1a",
+      "source_root": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0a86ba63f7379cd03eeb83e8739e9cebcd20ac34830f8ae9f79ab6a8466f0110",
+      "resource_tree_hash": "de9617e6c9dd225fb49909e865a12a9415c63de3448234d2eb4d0a852a3dd419",
+      "unit": "org.xbill.DNS.Zone#removeRRset(Name, int)",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Zone_removeRRset_Test.java|org.xbill.DNS.Zone_removeRRset_Test|removeRRset_nonExistingRRset_noExceptionAndStateUnchanged",
+      "resource_root": "results/policy/pools/ktester/34/dev/src-test-t"
+    },
+    {
+      "file": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/Zone_removeRRset_Test.java",
+      "class": "org.xbill.DNS.Zone_removeRRset_Test",
+      "method": "removeRRset_multipleTypesSameName_onlyAIsRemoved",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Zone_removeRRset_Test.java|org.xbill.DNS.Zone_removeRRset_Test|removeRRset_multipleTypesSameName_onlyAIsRemoved",
+      "body_hash": "e3a3d38afb329857da4bb8d6d0293754c9901cdd0b9dbea10b15578909649f87",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Zone_removeRRset_Test#removeRRset_multipleTypesSameName_onlyAIsRemoved()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "2f9ccecf653075c6f32b94b5f7946718495ebcdb1bb5e5bda0c15ad08d545320",
+      "execution_hash": "2aeba1269fbd5d9b5d3924b4f6c59ee55647f3c7d9d75e1f6ee588cd3b614d1a",
+      "source_root": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0a86ba63f7379cd03eeb83e8739e9cebcd20ac34830f8ae9f79ab6a8466f0110",
+      "resource_tree_hash": "de9617e6c9dd225fb49909e865a12a9415c63de3448234d2eb4d0a852a3dd419",
+      "unit": "org.xbill.DNS.Zone#removeRRset(Name, int)",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Zone_removeRRset_Test.java|org.xbill.DNS.Zone_removeRRset_Test|removeRRset_multipleTypesSameName_onlyAIsRemoved",
+      "resource_root": "results/policy/pools/ktester/34/dev/src-test-t"
+    },
+    {
+      "file": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/Zone_removeRRset_Test.java",
+      "class": "org.xbill.DNS.Zone_removeRRset_Test",
+      "method": "removeRRset_caseInsensitiveName_removesRRset",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Zone_removeRRset_Test.java|org.xbill.DNS.Zone_removeRRset_Test|removeRRset_caseInsensitiveName_removesRRset",
+      "body_hash": "bc327aa6d4d35719c790d5069bea72aead6fc20516363491ced66e7876295728",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Zone_removeRRset_Test#removeRRset_caseInsensitiveName_removesRRset()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "2f9ccecf653075c6f32b94b5f7946718495ebcdb1bb5e5bda0c15ad08d545320",
+      "execution_hash": "2aeba1269fbd5d9b5d3924b4f6c59ee55647f3c7d9d75e1f6ee588cd3b614d1a",
+      "source_root": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0a86ba63f7379cd03eeb83e8739e9cebcd20ac34830f8ae9f79ab6a8466f0110",
+      "resource_tree_hash": "de9617e6c9dd225fb49909e865a12a9415c63de3448234d2eb4d0a852a3dd419",
+      "unit": "org.xbill.DNS.Zone#removeRRset(Name, int)",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Zone_removeRRset_Test.java|org.xbill.DNS.Zone_removeRRset_Test|removeRRset_caseInsensitiveName_removesRRset",
+      "resource_root": "results/policy/pools/ktester/34/dev/src-test-t"
+    },
+    {
+      "file": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/Zone_removeRRset_Test.java",
+      "class": "org.xbill.DNS.Zone_removeRRset_Test",
+      "method": "removeRRset_iteratorReflectsRemoval",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Zone_removeRRset_Test.java|org.xbill.DNS.Zone_removeRRset_Test|removeRRset_iteratorReflectsRemoval",
+      "body_hash": "2dd0fa4be87abaef48a5d22ac4f489276679650f5d1f8d9f77ed6c4504cb55ce",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Zone_removeRRset_Test#removeRRset_iteratorReflectsRemoval()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "2f9ccecf653075c6f32b94b5f7946718495ebcdb1bb5e5bda0c15ad08d545320",
+      "execution_hash": "2aeba1269fbd5d9b5d3924b4f6c59ee55647f3c7d9d75e1f6ee588cd3b614d1a",
+      "source_root": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0a86ba63f7379cd03eeb83e8739e9cebcd20ac34830f8ae9f79ab6a8466f0110",
+      "resource_tree_hash": "de9617e6c9dd225fb49909e865a12a9415c63de3448234d2eb4d0a852a3dd419",
+      "unit": "org.xbill.DNS.Zone#removeRRset(Name, int)",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Zone_removeRRset_Test.java|org.xbill.DNS.Zone_removeRRset_Test|removeRRset_iteratorReflectsRemoval",
+      "resource_root": "results/policy/pools/ktester/34/dev/src-test-t"
+    },
+    {
+      "file": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/Zone_removeRRset_Test.java",
+      "class": "org.xbill.DNS.Zone_removeRRset_Test",
+      "method": "removeRRset_onEmptyZone_isNoOp",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Zone_removeRRset_Test.java|org.xbill.DNS.Zone_removeRRset_Test|removeRRset_onEmptyZone_isNoOp",
+      "body_hash": "8a3656509fb94a9617b5abe49e033b2a02a5d40c90c5db2342e38f165d06b20a",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Zone_removeRRset_Test#removeRRset_onEmptyZone_isNoOp()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "2f9ccecf653075c6f32b94b5f7946718495ebcdb1bb5e5bda0c15ad08d545320",
+      "execution_hash": "2aeba1269fbd5d9b5d3924b4f6c59ee55647f3c7d9d75e1f6ee588cd3b614d1a",
+      "source_root": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0a86ba63f7379cd03eeb83e8739e9cebcd20ac34830f8ae9f79ab6a8466f0110",
+      "resource_tree_hash": "de9617e6c9dd225fb49909e865a12a9415c63de3448234d2eb4d0a852a3dd419",
+      "unit": "org.xbill.DNS.Zone#removeRRset(Name, int)",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Zone_removeRRset_Test.java|org.xbill.DNS.Zone_removeRRset_Test|removeRRset_onEmptyZone_isNoOp",
+      "resource_root": "results/policy/pools/ktester/34/dev/src-test-t"
+    },
+    {
+      "file": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/Zone_removeRRset_Test.java",
+      "class": "org.xbill.DNS.Zone_removeRRset_Test",
+      "method": "removeRRset_removeSOA_throwsInvalidTypeException",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Zone_removeRRset_Test.java|org.xbill.DNS.Zone_removeRRset_Test|removeRRset_removeSOA_throwsInvalidTypeException",
+      "body_hash": "dbc30baa56efa29a578712d1dfa81f46e62f5dbcedd9e0b773277e66c80e345c",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Zone_removeRRset_Test#removeRRset_removeSOA_throwsInvalidTypeException()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "2f9ccecf653075c6f32b94b5f7946718495ebcdb1bb5e5bda0c15ad08d545320",
+      "execution_hash": "2aeba1269fbd5d9b5d3924b4f6c59ee55647f3c7d9d75e1f6ee588cd3b614d1a",
+      "source_root": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0a86ba63f7379cd03eeb83e8739e9cebcd20ac34830f8ae9f79ab6a8466f0110",
+      "resource_tree_hash": "de9617e6c9dd225fb49909e865a12a9415c63de3448234d2eb4d0a852a3dd419",
+      "unit": "org.xbill.DNS.Zone#removeRRset(Name, int)",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Zone_removeRRset_Test.java|org.xbill.DNS.Zone_removeRRset_Test|removeRRset_removeSOA_throwsInvalidTypeException",
+      "resource_root": "results/policy/pools/ktester/34/dev/src-test-t"
+    },
+    {
+      "file": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/Zone_removeRRset_Test.java",
+      "class": "org.xbill.DNS.Zone_removeRRset_Test",
+      "method": "removeRRset_removeNS_throwsInvalidTypeException",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Zone_removeRRset_Test.java|org.xbill.DNS.Zone_removeRRset_Test|removeRRset_removeNS_throwsInvalidTypeException",
+      "body_hash": "365e813cee918dbd0daa4879aa7feffd9b61b4bfc38b9c7eac82db6c0ed7b2ac",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Zone_removeRRset_Test#removeRRset_removeNS_throwsInvalidTypeException()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "2f9ccecf653075c6f32b94b5f7946718495ebcdb1bb5e5bda0c15ad08d545320",
+      "execution_hash": "2aeba1269fbd5d9b5d3924b4f6c59ee55647f3c7d9d75e1f6ee588cd3b614d1a",
+      "source_root": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0a86ba63f7379cd03eeb83e8739e9cebcd20ac34830f8ae9f79ab6a8466f0110",
+      "resource_tree_hash": "de9617e6c9dd225fb49909e865a12a9415c63de3448234d2eb4d0a852a3dd419",
+      "unit": "org.xbill.DNS.Zone#removeRRset(Name, int)",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Zone_removeRRset_Test.java|org.xbill.DNS.Zone_removeRRset_Test|removeRRset_removeNS_throwsInvalidTypeException",
+      "resource_root": "results/policy/pools/ktester/34/dev/src-test-t"
+    },
+    {
+      "file": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/Zone_removeRRset_Test.java",
+      "class": "org.xbill.DNS.Zone_removeRRset_Test",
+      "method": "removeRRset_removeAllNS_throwsIllegalArgumentException",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Zone_removeRRset_Test.java|org.xbill.DNS.Zone_removeRRset_Test|removeRRset_removeAllNS_throwsIllegalArgumentException",
+      "body_hash": "3e8cb7482ff36808da21f238be8ab3e54da9df66ebec5336e72fa349bad77e7f",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Zone_removeRRset_Test#removeRRset_removeAllNS_throwsIllegalArgumentException()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "2f9ccecf653075c6f32b94b5f7946718495ebcdb1bb5e5bda0c15ad08d545320",
+      "execution_hash": "2aeba1269fbd5d9b5d3924b4f6c59ee55647f3c7d9d75e1f6ee588cd3b614d1a",
+      "source_root": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0a86ba63f7379cd03eeb83e8739e9cebcd20ac34830f8ae9f79ab6a8466f0110",
+      "resource_tree_hash": "de9617e6c9dd225fb49909e865a12a9415c63de3448234d2eb4d0a852a3dd419",
+      "unit": "org.xbill.DNS.Zone#removeRRset(Name, int)",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Zone_removeRRset_Test.java|org.xbill.DNS.Zone_removeRRset_Test|removeRRset_removeAllNS_throwsIllegalArgumentException",
+      "resource_root": "results/policy/pools/ktester/34/dev/src-test-t"
+    },
+    {
+      "file": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/Zone_removeRRset_Test.java",
+      "class": "org.xbill.DNS.Zone_removeRRset_Test",
+      "method": "removeRRset_removeSOA_throwsIllegalArgumentException",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Zone_removeRRset_Test.java|org.xbill.DNS.Zone_removeRRset_Test|removeRRset_removeSOA_throwsIllegalArgumentException",
+      "body_hash": "b6dc8b6f9ba59c10c3c8ca7ce8f449338fa10f1510b8ee2b6cb8cd918c7a437f",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Zone_removeRRset_Test#removeRRset_removeSOA_throwsIllegalArgumentException()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "2f9ccecf653075c6f32b94b5f7946718495ebcdb1bb5e5bda0c15ad08d545320",
+      "execution_hash": "2aeba1269fbd5d9b5d3924b4f6c59ee55647f3c7d9d75e1f6ee588cd3b614d1a",
+      "source_root": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0a86ba63f7379cd03eeb83e8739e9cebcd20ac34830f8ae9f79ab6a8466f0110",
+      "resource_tree_hash": "de9617e6c9dd225fb49909e865a12a9415c63de3448234d2eb4d0a852a3dd419",
+      "unit": "org.xbill.DNS.Zone#removeRRset(Name, int)",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Zone_removeRRset_Test.java|org.xbill.DNS.Zone_removeRRset_Test|removeRRset_removeSOA_throwsIllegalArgumentException",
+      "resource_root": "results/policy/pools/ktester/34/dev/src-test-t"
+    }
+  ]
+}

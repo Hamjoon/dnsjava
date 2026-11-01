@@ -1,0 +1,172 @@
+{
+    "testCases": [
+        {
+            "group": "Timestamp Edge Cases",
+            "cases": [
+                {
+                    "input": [
+                        { "parameter": "Message m", "value": "new Message()" },
+                        { "parameter": "int error", "value": "0" },
+                        { "parameter": "TSIGRecord old", "value": "TSIGRecord(keyName='example.com.', algorithm=HMAC_SHA256, time=Instant.now().minusSeconds(300))" }
+                    ],
+                    "expected": "TSIGRecord is added; its time field equals Instant.now() (within a few ms) and no exception is thrown",
+                    "description": "Old TSIGRecord timestamp exactly at the lower bound of the allowed fudge (300 s) should be accepted."
+                },
+                {
+                    "input": [
+                        { "parameter": "Message m", "value": "new Message()" },
+                        { "parameter": "int error", "value": "0" },
+                        { "parameter": "TSIGRecord old", "value": "TSIGRecord(keyName='example.com.', algorithm=HMAC_SHA256, time=Instant.now().minusSeconds(301))" }
+                    ],
+                    "expected": "IllegalArgumentException thrown because the old record is older than the allowed FUDGE (300 s)",
+                    "description": "Old TSIGRecord timestamp just beyond the fudge window must be rejected."
+                }
+            ]
+        },
+        {
+            "group": "Future Timestamp Rejection",
+            "cases": [
+                {
+                    "input": [
+                        { "parameter": "Message m", "value": "new Message()" },
+                        { "parameter": "int error", "value": "0" },
+                        { "parameter": "TSIGRecord old", "value": "TSIGRecord(keyName='example.com.', algorithm=HMAC_SHA256, time=Instant.now().plusSeconds(10))" }
+                    ],
+                    "expected": "IllegalArgumentException thrown because the old record timestamp is in the future",
+                    "description": "TSIG must not accept a record whose time is ahead of the current time."
+                }
+            ]
+        },
+        {
+            "group": "Algorithm Variety",
+            "cases": [
+                {
+                    "input": [
+                        { "parameter": "Message m", "value": "new Message()" },
+                        { "parameter": "int error", "value": "0" },
+                        { "parameter": "TSIGRecord old", "value": "TSIGRecord(keyName='example.org.', algorithm=HMAC_SHA512, time=Instant.now())" }
+                    ],
+                    "expected": "TSIGRecord is generated using HMAC‑SHA‑512; MAC length equals 64 bytes",
+                    "description": "Verify that the method correctly selects the SHA‑512 algorithm when the old record specifies it."
+                },
+                {
+                    "input": [
+                        { "parameter": "Message m", "value": "new Message()" },
+                        { "parameter": "int error", "value": "0" },
+                        { "parameter": "TSIGRecord old", "value": "TSIGRecord(keyName='example.org.', algorithm=null, time=Instant.now())" }
+                    ],
+                    "expected": "IllegalArgumentException thrown because algorithm is null",
+                    "description": "A null algorithm in the old TSIGRecord must cause immediate failure."
+                }
+            ]
+        },
+        {
+            "group": "Key Name Validation",
+            "cases": [
+                {
+                    "input": [
+                        { "parameter": "Message m", "value": "new Message()" },
+                        { "parameter": "int error", "value": "0" },
+                        { "parameter": "TSIGRecord old", "value": "TSIGRecord(keyName='', algorithm=HMAC_SHA256, time=Instant.now())" }
+                    ],
+                    "expected": "IllegalArgumentException thrown because key name is empty or invalid",
+                    "description": "Empty key names are not permitted for TSIG."
+                },
+                {
+                    "input": [
+                        { "parameter": "Message m", "value": "new Message()" },
+                        { "parameter": "int error", "value": "0" },
+                        { "parameter": "TSIGRecord old", "value": "TSIGRecord(keyName='custom.example.', algorithm=HMAC_SHA1, time=Instant.now())" }
+                    ],
+                    "expected": "New TSIGRecord re‑uses key name 'custom.example.' and algorithm HMAC_SHA1; timestamp is refreshed",
+                    "description": "When a valid old record is supplied, its key name and algorithm must be preserved."
+                }
+            ]
+        },
+        {
+            "group": "Error Code Propagation (Additional Codes)",
+            "cases": [
+                {
+                    "input": [
+                        { "parameter": "Message m", "value": "new Message()" },
+                        { "parameter": "int error", "value": "16" },
+                        { "parameter": "TSIGRecord old", "value": "null" }
+                    ],
+                    "expected": "Message contains a TSIGRecord whose error field equals 16 (BADKEY)",
+                    "description": "The method must propagate any valid DNS error code, not only 0 or 9."
+                }
+            ]
+        },
+        {
+            "group": "Message Already Contains TSIG",
+            "cases": [
+                {
+                    "input": [
+                        { "parameter": "Message m", "value": "Message with existing TSIGRecord (algorithm=HMAC_SHA256, mac='oldMac')" },
+                        { "parameter": "int error", "value": "0" },
+                        { "parameter": "TSIGRecord old", "value": "null" }
+                    ],
+                    "expected": "Message ends with exactly one TSIGRecord; its MAC differs from 'oldMac' (new signature replaces the old one)",
+                    "description": "apply should overwrite any pre‑existing TSIGRecord rather than leaving duplicates."
+                }
+            ]
+        },
+        {
+            "group": "Large Message Handling",
+            "cases": [
+                {
+                    "input": [
+                        { "parameter": "Message m", "value": "Message containing 1000 random DNS records" },
+                        { "parameter": "int error", "value": "0" },
+                        { "parameter": "TSIGRecord old", "value": "null" }
+                    ],
+                    "expected": "TSIGRecord is successfully added; no exception is thrown and MAC length matches algorithm digest size",
+                    "description": "Ensures that MAC calculation works for messages with a large number of records."
+                }
+            ]
+        },
+        {
+            "group": "Empty Secret Key",
+            "cases": [
+                {
+                    "input": [
+                        { "parameter": "Message m", "value": "new Message()" },
+                        { "parameter": "int error", "value": "0" },
+                        { "parameter": "TSIGRecord old", "value": "TSIGRecord(keyName='example.com.', algorithm=HMAC_SHA256, secretKey=byte[0], time=Instant.now())" }
+                    ],
+                    "expected": "IllegalArgumentException thrown because secret key length is zero",
+                    "description": "A TSIGRecord with an empty secret cannot be used to generate a MAC."
+                }
+            ]
+        },
+        {
+            "group": "FullSignature Flag Overload (Truncated MAC)",
+            "cases": [
+                {
+                    "input": [
+                        { "parameter": "Message m", "value": "new Message()" },
+                        { "parameter": "int error", "value": "0" },
+                        { "parameter": "TSIGRecord old", "value": "null" },
+                        { "parameter": "boolean fullSignature", "value": "false" }
+                    ],
+                    "expected": "TSIGRecord added with a MAC that is exactly 10 bytes long (truncated signature)",
+                    "description": "When fullSignature is false, the MAC must be truncated to the first 10 bytes as required by the TSIG spec."
+                }
+            ]
+        },
+        {
+            "group": "Default Algorithm When Old Is Null",
+            "cases": [
+                {
+                    "input": [
+                        { "parameter": "Message m", "value": "new Message()" },
+                        { "parameter": "int error", "value": "0" },
+                        { "parameter": "TSIGRecord old", "value": "null" }
+                    ],
+                    "expected": "Generated TSIGRecord uses algorithm HMAC_SHA256 (the library default)",
+                    "description": "If no previous TSIGRecord is supplied, the method should fall back to HMAC‑SHA‑256."
+                }
+            ]
+        }
+    ]
+}

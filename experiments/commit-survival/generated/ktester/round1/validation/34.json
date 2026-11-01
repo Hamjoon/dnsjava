@@ -1,0 +1,470 @@
+{
+  "file": "generated/ktester/round1/dnsjava/test_classes/TSIG_apply_4_Test.java",
+  "compile": {
+    "command": [
+      "javac",
+      "-J-Xmx512m",
+      "-cp",
+      "/repo/experiments/commit-survival/work/checkouts/0/target/classes:/repo/experiments/commit-survival/work/libs/apiguardian-api-1.1.2.jar:/repo/experiments/commit-survival/work/libs/byte-buddy-1.17.7.jar:/repo/experiments/commit-survival/work/libs/byte-buddy-agent-1.17.7.jar:/repo/experiments/commit-survival/work/libs/commons-io-2.16.1.jar:/repo/experiments/commit-survival/work/libs/commons-lang3-3.14.0.jar:/repo/experiments/commit-survival/work/libs/hamcrest-2.2.jar:/repo/experiments/commit-survival/work/libs/junit-jupiter-5.11.4.jar:/repo/experiments/commit-survival/work/libs/junit-jupiter-api-5.10.2.jar:/repo/experiments/commit-survival/work/libs/junit-jupiter-engine-5.10.2.jar:/repo/experiments/commit-survival/work/libs/junit-jupiter-params-5.10.2.jar:/repo/experiments/commit-survival/work/libs/junit-platform-commons-1.10.2.jar:/repo/experiments/commit-survival/work/libs/junit-platform-engine-1.10.2.jar:/repo/experiments/commit-survival/work/libs/mockito-core-5.24.0.jar:/repo/experiments/commit-survival/work/libs/mockito-junit-jupiter-5.24.0.jar:/repo/experiments/commit-survival/work/libs/objenesis-3.3.jar:/repo/experiments/commit-survival/work/libs/opentest4j-1.3.0.jar:/repo/experiments/commit-survival/work/libs/junit-vintage-engine-5.10.2.jar:/repo/experiments/commit-survival/work/libs/junit-4.13.2.jar:/repo/experiments/commit-survival/work/libs/hamcrest-core-1.3.jar:/repo/experiments/commit-survival/work/libs/junit-platform-console-standalone-1.9.3.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/projectlombok/lombok/1.18.30/lombok-1.18.30.jar:/root/.m2/repository/net/java/dev/jna/jna/5.13.0/jna-5.13.0.jar:/root/.m2/repository/net/java/dev/jna/jna-platform/5.13.0/jna-platform-5.13.0.jar:/root/.m2/repository/org/bouncycastle/bcprov-jdk18on/1.76/bcprov-jdk18on-1.76.jar:/root/.m2/repository/org/mockito/mockito-core/5.7.0/mockito-core-5.7.0.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.14.9/byte-buddy-1.14.9.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.9/byte-buddy-agent-1.14.9.jar:/root/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/root/.m2/repository/org/mockito/mockito-junit-jupiter/5.7.0/mockito-junit-jupiter-5.7.0.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.36/slf4j-simple-1.7.36.jar:/root/.m2/repository/io/vertx/vertx-core/4.4.6/vertx-core-4.4.6.jar:/root/.m2/repository/io/netty/netty-common/4.1.100.Final/netty-common-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-buffer/4.1.100.Final/netty-buffer-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-transport/4.1.100.Final/netty-transport-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-handler/4.1.100.Final/netty-handler-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-transport-native-unix-common/4.1.100.Final/netty-transport-native-unix-common-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-codec/4.1.100.Final/netty-codec-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-handler-proxy/4.1.100.Final/netty-handler-proxy-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-codec-socks/4.1.100.Final/netty-codec-socks-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-codec-http/4.1.100.Final/netty-codec-http-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-codec-http2/4.1.100.Final/netty-codec-http2-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-resolver/4.1.100.Final/netty-resolver-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-resolver-dns/4.1.100.Final/netty-resolver-dns-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-codec-dns/4.1.100.Final/netty-codec-dns-4.1.100.Final.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.15.0/jackson-core-2.15.0.jar:/root/.m2/repository/io/vertx/vertx-junit5/4.4.6/vertx-junit5-4.4.6.jar:/root/.m2/repository/io/vertx/vertx-codegen/4.4.6/vertx-codegen-4.4.6.jar:/root/.m2/repository/commons-io/commons-io/2.15.0/commons-io-2.15.0.jar",
+      "-sourcepath",
+      "/repo/experiments/commit-survival/generated/ktester/round1/dnsjava/test_classes",
+      "-d",
+      "/repo/experiments/commit-survival/work/validation/ktester/round1/34/test/classes",
+      "/repo/experiments/commit-survival/generated/ktester/round1/dnsjava/test_classes/TSIG_apply_4_Test.java"
+    ],
+    "cwd": "/repo/experiments/commit-survival/work/checkouts/0",
+    "exit_code": 0,
+    "timeout": false,
+    "seconds": 1.277,
+    "log": "work/validation/ktester/round1/34/test/javac.txt"
+  },
+  "runs": [
+    {
+      "command": [
+        "java",
+        "-Xmx1g",
+        "-XX:+UseSerialGC",
+        "-cp",
+        "/repo/experiments/commit-survival/work/validation/ktester/round1/34/test/classes:/repo/experiments/commit-survival/work/checkouts/0/target/classes:/repo/experiments/commit-survival/work/libs/apiguardian-api-1.1.2.jar:/repo/experiments/commit-survival/work/libs/byte-buddy-1.17.7.jar:/repo/experiments/commit-survival/work/libs/byte-buddy-agent-1.17.7.jar:/repo/experiments/commit-survival/work/libs/commons-io-2.16.1.jar:/repo/experiments/commit-survival/work/libs/commons-lang3-3.14.0.jar:/repo/experiments/commit-survival/work/libs/hamcrest-2.2.jar:/repo/experiments/commit-survival/work/libs/junit-jupiter-5.11.4.jar:/repo/experiments/commit-survival/work/libs/junit-jupiter-api-5.10.2.jar:/repo/experiments/commit-survival/work/libs/junit-jupiter-engine-5.10.2.jar:/repo/experiments/commit-survival/work/libs/junit-jupiter-params-5.10.2.jar:/repo/experiments/commit-survival/work/libs/junit-platform-commons-1.10.2.jar:/repo/experiments/commit-survival/work/libs/junit-platform-engine-1.10.2.jar:/repo/experiments/commit-survival/work/libs/mockito-core-5.24.0.jar:/repo/experiments/commit-survival/work/libs/mockito-junit-jupiter-5.24.0.jar:/repo/experiments/commit-survival/work/libs/objenesis-3.3.jar:/repo/experiments/commit-survival/work/libs/opentest4j-1.3.0.jar:/repo/experiments/commit-survival/work/libs/junit-vintage-engine-5.10.2.jar:/repo/experiments/commit-survival/work/libs/junit-4.13.2.jar:/repo/experiments/commit-survival/work/libs/hamcrest-core-1.3.jar:/repo/experiments/commit-survival/work/libs/junit-platform-console-standalone-1.9.3.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/projectlombok/lombok/1.18.30/lombok-1.18.30.jar:/root/.m2/repository/net/java/dev/jna/jna/5.13.0/jna-5.13.0.jar:/root/.m2/repository/net/java/dev/jna/jna-platform/5.13.0/jna-platform-5.13.0.jar:/root/.m2/repository/org/bouncycastle/bcprov-jdk18on/1.76/bcprov-jdk18on-1.76.jar:/root/.m2/repository/org/mockito/mockito-core/5.7.0/mockito-core-5.7.0.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.14.9/byte-buddy-1.14.9.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.9/byte-buddy-agent-1.14.9.jar:/root/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/root/.m2/repository/org/mockito/mockito-junit-jupiter/5.7.0/mockito-junit-jupiter-5.7.0.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.36/slf4j-simple-1.7.36.jar:/root/.m2/repository/io/vertx/vertx-core/4.4.6/vertx-core-4.4.6.jar:/root/.m2/repository/io/netty/netty-common/4.1.100.Final/netty-common-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-buffer/4.1.100.Final/netty-buffer-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-transport/4.1.100.Final/netty-transport-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-handler/4.1.100.Final/netty-handler-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-transport-native-unix-common/4.1.100.Final/netty-transport-native-unix-common-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-codec/4.1.100.Final/netty-codec-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-handler-proxy/4.1.100.Final/netty-handler-proxy-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-codec-socks/4.1.100.Final/netty-codec-socks-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-codec-http/4.1.100.Final/netty-codec-http-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-codec-http2/4.1.100.Final/netty-codec-http2-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-resolver/4.1.100.Final/netty-resolver-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-resolver-dns/4.1.100.Final/netty-resolver-dns-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-codec-dns/4.1.100.Final/netty-codec-dns-4.1.100.Final.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.15.0/jackson-core-2.15.0.jar:/root/.m2/repository/io/vertx/vertx-junit5/4.4.6/vertx-junit5-4.4.6.jar:/root/.m2/repository/io/vertx/vertx-codegen/4.4.6/vertx-codegen-4.4.6.jar:/root/.m2/repository/commons-io/commons-io/2.15.0/commons-io-2.15.0.jar:/repo/experiments/commit-survival/dev/src-test-t/resources:/repo/experiments/commit-survival/dev/src-test-t/suite",
+        "org.junit.platform.console.ConsoleLauncher",
+        "--disable-banner",
+        "--disable-ansi-colors",
+        "--fail-if-no-tests",
+        "--details",
+        "summary",
+        "--select-method",
+        "org.xbill.DNS.TSIG_apply_4_Test#applyAddsTSIGRecordAndSetsState()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_apply_4_Test#applyWithOldRecordAndPartialSignature()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_apply_4_Test#applyGenerateReturnsNull_throwsNPE()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_apply_4_Test#applyForwardsAllParameters_correctly()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_apply_4_Test#applyOverwritesExistingTsigState()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_apply_4_Test#applyPropagatesExceptionFromAddRecord()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_apply_4_Test#apply_oldNonNull_errorNonZero_fullSignatureTrue()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_apply_4_Test#apply_oldNull_errorNonZero_fullSignatureTrue()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_apply_4_Test#apply_nullMessage_throwsNPE()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_apply_4_Test#apply_messageToWireThrows_exceptionPropagates()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_apply_4_Test#apply_generateThrowsRuntimeException()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_apply_4_Test#apply_negativeErrorCode_throwsIllegalArgumentException()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_apply_4_Test#apply_oldRecordWithNullAlgorithm_throwsIllegalArgumentException()",
+        "--reports-dir",
+        "/repo/experiments/commit-survival/work/validation/ktester/round1/34/test/run1"
+      ],
+      "cwd": "/repo/experiments/commit-survival/work/runtime",
+      "exit_code": 1,
+      "timeout": false,
+      "seconds": 3.906,
+      "log": "work/validation/ktester/round1/34/test/run1/console.txt"
+    },
+    {
+      "command": [
+        "java",
+        "-Xmx1g",
+        "-XX:+UseSerialGC",
+        "-cp",
+        "/repo/experiments/commit-survival/work/validation/ktester/round1/34/test/classes:/repo/experiments/commit-survival/work/checkouts/0/target/classes:/repo/experiments/commit-survival/work/libs/apiguardian-api-1.1.2.jar:/repo/experiments/commit-survival/work/libs/byte-buddy-1.17.7.jar:/repo/experiments/commit-survival/work/libs/byte-buddy-agent-1.17.7.jar:/repo/experiments/commit-survival/work/libs/commons-io-2.16.1.jar:/repo/experiments/commit-survival/work/libs/commons-lang3-3.14.0.jar:/repo/experiments/commit-survival/work/libs/hamcrest-2.2.jar:/repo/experiments/commit-survival/work/libs/junit-jupiter-5.11.4.jar:/repo/experiments/commit-survival/work/libs/junit-jupiter-api-5.10.2.jar:/repo/experiments/commit-survival/work/libs/junit-jupiter-engine-5.10.2.jar:/repo/experiments/commit-survival/work/libs/junit-jupiter-params-5.10.2.jar:/repo/experiments/commit-survival/work/libs/junit-platform-commons-1.10.2.jar:/repo/experiments/commit-survival/work/libs/junit-platform-engine-1.10.2.jar:/repo/experiments/commit-survival/work/libs/mockito-core-5.24.0.jar:/repo/experiments/commit-survival/work/libs/mockito-junit-jupiter-5.24.0.jar:/repo/experiments/commit-survival/work/libs/objenesis-3.3.jar:/repo/experiments/commit-survival/work/libs/opentest4j-1.3.0.jar:/repo/experiments/commit-survival/work/libs/junit-vintage-engine-5.10.2.jar:/repo/experiments/commit-survival/work/libs/junit-4.13.2.jar:/repo/experiments/commit-survival/work/libs/hamcrest-core-1.3.jar:/repo/experiments/commit-survival/work/libs/junit-platform-console-standalone-1.9.3.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/projectlombok/lombok/1.18.30/lombok-1.18.30.jar:/root/.m2/repository/net/java/dev/jna/jna/5.13.0/jna-5.13.0.jar:/root/.m2/repository/net/java/dev/jna/jna-platform/5.13.0/jna-platform-5.13.0.jar:/root/.m2/repository/org/bouncycastle/bcprov-jdk18on/1.76/bcprov-jdk18on-1.76.jar:/root/.m2/repository/org/mockito/mockito-core/5.7.0/mockito-core-5.7.0.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.14.9/byte-buddy-1.14.9.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.9/byte-buddy-agent-1.14.9.jar:/root/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/root/.m2/repository/org/mockito/mockito-junit-jupiter/5.7.0/mockito-junit-jupiter-5.7.0.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.36/slf4j-simple-1.7.36.jar:/root/.m2/repository/io/vertx/vertx-core/4.4.6/vertx-core-4.4.6.jar:/root/.m2/repository/io/netty/netty-common/4.1.100.Final/netty-common-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-buffer/4.1.100.Final/netty-buffer-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-transport/4.1.100.Final/netty-transport-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-handler/4.1.100.Final/netty-handler-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-transport-native-unix-common/4.1.100.Final/netty-transport-native-unix-common-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-codec/4.1.100.Final/netty-codec-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-handler-proxy/4.1.100.Final/netty-handler-proxy-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-codec-socks/4.1.100.Final/netty-codec-socks-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-codec-http/4.1.100.Final/netty-codec-http-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-codec-http2/4.1.100.Final/netty-codec-http2-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-resolver/4.1.100.Final/netty-resolver-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-resolver-dns/4.1.100.Final/netty-resolver-dns-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-codec-dns/4.1.100.Final/netty-codec-dns-4.1.100.Final.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.15.0/jackson-core-2.15.0.jar:/root/.m2/repository/io/vertx/vertx-junit5/4.4.6/vertx-junit5-4.4.6.jar:/root/.m2/repository/io/vertx/vertx-codegen/4.4.6/vertx-codegen-4.4.6.jar:/root/.m2/repository/commons-io/commons-io/2.15.0/commons-io-2.15.0.jar:/repo/experiments/commit-survival/dev/src-test-t/resources:/repo/experiments/commit-survival/dev/src-test-t/suite",
+        "org.junit.platform.console.ConsoleLauncher",
+        "--disable-banner",
+        "--disable-ansi-colors",
+        "--fail-if-no-tests",
+        "--details",
+        "summary",
+        "--select-method",
+        "org.xbill.DNS.TSIG_apply_4_Test#applyAddsTSIGRecordAndSetsState()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_apply_4_Test#applyWithOldRecordAndPartialSignature()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_apply_4_Test#applyGenerateReturnsNull_throwsNPE()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_apply_4_Test#applyForwardsAllParameters_correctly()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_apply_4_Test#applyOverwritesExistingTsigState()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_apply_4_Test#applyPropagatesExceptionFromAddRecord()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_apply_4_Test#apply_oldNonNull_errorNonZero_fullSignatureTrue()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_apply_4_Test#apply_oldNull_errorNonZero_fullSignatureTrue()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_apply_4_Test#apply_nullMessage_throwsNPE()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_apply_4_Test#apply_messageToWireThrows_exceptionPropagates()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_apply_4_Test#apply_generateThrowsRuntimeException()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_apply_4_Test#apply_negativeErrorCode_throwsIllegalArgumentException()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_apply_4_Test#apply_oldRecordWithNullAlgorithm_throwsIllegalArgumentException()",
+        "--reports-dir",
+        "/repo/experiments/commit-survival/work/validation/ktester/round1/34/test/run2"
+      ],
+      "cwd": "/repo/experiments/commit-survival/work/runtime",
+      "exit_code": 1,
+      "timeout": false,
+      "seconds": 3.45,
+      "log": "work/validation/ktester/round1/34/test/run2/console.txt"
+    },
+    {
+      "command": [
+        "java",
+        "-Xmx1g",
+        "-XX:+UseSerialGC",
+        "-cp",
+        "/repo/experiments/commit-survival/work/validation/ktester/round1/34/test/classes:/repo/experiments/commit-survival/work/checkouts/0/target/classes:/repo/experiments/commit-survival/work/libs/apiguardian-api-1.1.2.jar:/repo/experiments/commit-survival/work/libs/byte-buddy-1.17.7.jar:/repo/experiments/commit-survival/work/libs/byte-buddy-agent-1.17.7.jar:/repo/experiments/commit-survival/work/libs/commons-io-2.16.1.jar:/repo/experiments/commit-survival/work/libs/commons-lang3-3.14.0.jar:/repo/experiments/commit-survival/work/libs/hamcrest-2.2.jar:/repo/experiments/commit-survival/work/libs/junit-jupiter-5.11.4.jar:/repo/experiments/commit-survival/work/libs/junit-jupiter-api-5.10.2.jar:/repo/experiments/commit-survival/work/libs/junit-jupiter-engine-5.10.2.jar:/repo/experiments/commit-survival/work/libs/junit-jupiter-params-5.10.2.jar:/repo/experiments/commit-survival/work/libs/junit-platform-commons-1.10.2.jar:/repo/experiments/commit-survival/work/libs/junit-platform-engine-1.10.2.jar:/repo/experiments/commit-survival/work/libs/mockito-core-5.24.0.jar:/repo/experiments/commit-survival/work/libs/mockito-junit-jupiter-5.24.0.jar:/repo/experiments/commit-survival/work/libs/objenesis-3.3.jar:/repo/experiments/commit-survival/work/libs/opentest4j-1.3.0.jar:/repo/experiments/commit-survival/work/libs/junit-vintage-engine-5.10.2.jar:/repo/experiments/commit-survival/work/libs/junit-4.13.2.jar:/repo/experiments/commit-survival/work/libs/hamcrest-core-1.3.jar:/repo/experiments/commit-survival/work/libs/junit-platform-console-standalone-1.9.3.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/projectlombok/lombok/1.18.30/lombok-1.18.30.jar:/root/.m2/repository/net/java/dev/jna/jna/5.13.0/jna-5.13.0.jar:/root/.m2/repository/net/java/dev/jna/jna-platform/5.13.0/jna-platform-5.13.0.jar:/root/.m2/repository/org/bouncycastle/bcprov-jdk18on/1.76/bcprov-jdk18on-1.76.jar:/root/.m2/repository/org/mockito/mockito-core/5.7.0/mockito-core-5.7.0.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.14.9/byte-buddy-1.14.9.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.9/byte-buddy-agent-1.14.9.jar:/root/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/root/.m2/repository/org/mockito/mockito-junit-jupiter/5.7.0/mockito-junit-jupiter-5.7.0.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.36/slf4j-simple-1.7.36.jar:/root/.m2/repository/io/vertx/vertx-core/4.4.6/vertx-core-4.4.6.jar:/root/.m2/repository/io/netty/netty-common/4.1.100.Final/netty-common-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-buffer/4.1.100.Final/netty-buffer-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-transport/4.1.100.Final/netty-transport-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-handler/4.1.100.Final/netty-handler-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-transport-native-unix-common/4.1.100.Final/netty-transport-native-unix-common-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-codec/4.1.100.Final/netty-codec-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-handler-proxy/4.1.100.Final/netty-handler-proxy-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-codec-socks/4.1.100.Final/netty-codec-socks-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-codec-http/4.1.100.Final/netty-codec-http-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-codec-http2/4.1.100.Final/netty-codec-http2-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-resolver/4.1.100.Final/netty-resolver-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-resolver-dns/4.1.100.Final/netty-resolver-dns-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-codec-dns/4.1.100.Final/netty-codec-dns-4.1.100.Final.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.15.0/jackson-core-2.15.0.jar:/root/.m2/repository/io/vertx/vertx-junit5/4.4.6/vertx-junit5-4.4.6.jar:/root/.m2/repository/io/vertx/vertx-codegen/4.4.6/vertx-codegen-4.4.6.jar:/root/.m2/repository/commons-io/commons-io/2.15.0/commons-io-2.15.0.jar:/repo/experiments/commit-survival/dev/src-test-t/resources:/repo/experiments/commit-survival/dev/src-test-t/suite",
+        "org.junit.platform.console.ConsoleLauncher",
+        "--disable-banner",
+        "--disable-ansi-colors",
+        "--fail-if-no-tests",
+        "--details",
+        "summary",
+        "--select-method",
+        "org.xbill.DNS.TSIG_apply_4_Test#applyAddsTSIGRecordAndSetsState()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_apply_4_Test#applyWithOldRecordAndPartialSignature()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_apply_4_Test#applyGenerateReturnsNull_throwsNPE()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_apply_4_Test#applyForwardsAllParameters_correctly()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_apply_4_Test#applyOverwritesExistingTsigState()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_apply_4_Test#applyPropagatesExceptionFromAddRecord()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_apply_4_Test#apply_oldNonNull_errorNonZero_fullSignatureTrue()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_apply_4_Test#apply_oldNull_errorNonZero_fullSignatureTrue()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_apply_4_Test#apply_nullMessage_throwsNPE()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_apply_4_Test#apply_messageToWireThrows_exceptionPropagates()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_apply_4_Test#apply_generateThrowsRuntimeException()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_apply_4_Test#apply_negativeErrorCode_throwsIllegalArgumentException()",
+        "--select-method",
+        "org.xbill.DNS.TSIG_apply_4_Test#apply_oldRecordWithNullAlgorithm_throwsIllegalArgumentException()",
+        "--reports-dir",
+        "/repo/experiments/commit-survival/work/validation/ktester/round1/34/test/run3"
+      ],
+      "cwd": "/repo/experiments/commit-survival/work/runtime",
+      "exit_code": 1,
+      "timeout": false,
+      "seconds": 4.699,
+      "log": "work/validation/ktester/round1/34/test/run3/console.txt"
+    }
+  ],
+  "methods": [
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/TSIG_apply_4_Test.java",
+      "class": "org.xbill.DNS.TSIG_apply_4_Test",
+      "method": "applyAddsTSIGRecordAndSetsState",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/TSIG_apply_4_Test.java|org.xbill.DNS.TSIG_apply_4_Test|applyAddsTSIGRecordAndSetsState",
+      "body_hash": "53b26e3f38845c55d6260cb9f09d290ee43883fc3efbbfc4948f1bdd7fa72b26",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.TSIG_apply_4_Test#applyAddsTSIGRecordAndSetsState()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/TSIG_apply_4_Test.java",
+      "class": "org.xbill.DNS.TSIG_apply_4_Test",
+      "method": "applyWithOldRecordAndPartialSignature",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/TSIG_apply_4_Test.java|org.xbill.DNS.TSIG_apply_4_Test|applyWithOldRecordAndPartialSignature",
+      "body_hash": "deb6c923b6eb950d6dde254bc963a4c1e6f0e9cdaaf86f1dbed0313935f25364",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.TSIG_apply_4_Test#applyWithOldRecordAndPartialSignature()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/TSIG_apply_4_Test.java",
+      "class": "org.xbill.DNS.TSIG_apply_4_Test",
+      "method": "applyGenerateReturnsNull_throwsNPE",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/TSIG_apply_4_Test.java|org.xbill.DNS.TSIG_apply_4_Test|applyGenerateReturnsNull_throwsNPE",
+      "body_hash": "fda4ed021b9ad8fc554d54d3c7c8864c63529dd1b1b11ca64da91e8623ed89b3",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "fail",
+      "message": "org.opentest4j.AssertionFailedError: apply should throw NullPointerException when generate returns null ==> Expected java.lang.NullPointerException to be thrown, but nothing was thrown.",
+      "flaky": false,
+      "initial_state": "fail",
+      "selector": [
+        "org.xbill.DNS.TSIG_apply_4_Test#applyGenerateReturnsNull_throwsNPE()"
+      ],
+      "baseline_states": [
+        "fail",
+        "fail",
+        "fail"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/TSIG_apply_4_Test.java",
+      "class": "org.xbill.DNS.TSIG_apply_4_Test",
+      "method": "applyForwardsAllParameters_correctly",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/TSIG_apply_4_Test.java|org.xbill.DNS.TSIG_apply_4_Test|applyForwardsAllParameters_correctly",
+      "body_hash": "1190639663b469d38f2d689ceac673cf1681c4d7e82d9f7606c4310f18a9d2eb",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "error",
+      "message": "org.mockito.exceptions.misusing.UnfinishedVerificationException:  Missing method call for verify(mock) here: -> at org.xbill.DNS.TSIG_apply_4_Test.applyForwardsAllParameters_correctly(TSIG_apply_4_Test.java:135)  Example of correct verification:     verify(mock).doSomething()  Also, this error might show up because you verify either of: final/private/equals()/hashCode() methods. Those methods *cannot* be stubbed/verified. Mocking methods declared on non-public parent classes is not supported. ",
+      "flaky": false,
+      "initial_state": "error",
+      "selector": [
+        "org.xbill.DNS.TSIG_apply_4_Test#applyForwardsAllParameters_correctly()"
+      ],
+      "baseline_states": [
+        "error",
+        "error",
+        "error"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/TSIG_apply_4_Test.java",
+      "class": "org.xbill.DNS.TSIG_apply_4_Test",
+      "method": "applyOverwritesExistingTsigState",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/TSIG_apply_4_Test.java|org.xbill.DNS.TSIG_apply_4_Test|applyOverwritesExistingTsigState",
+      "body_hash": "a7f97d2473725a89334be8c4c2359f37df60ffda3ad303cdc541d2c6063d9739",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.TSIG_apply_4_Test#applyOverwritesExistingTsigState()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/TSIG_apply_4_Test.java",
+      "class": "org.xbill.DNS.TSIG_apply_4_Test",
+      "method": "applyPropagatesExceptionFromAddRecord",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/TSIG_apply_4_Test.java|org.xbill.DNS.TSIG_apply_4_Test|applyPropagatesExceptionFromAddRecord",
+      "body_hash": "d86ea3b2de58bac5e5987156a0619b0811536cdcc2ffc10942ac3ff73b2ae479",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "fail",
+      "message": "org.opentest4j.AssertionFailedError: Exception from Message.addRecord should propagate ==> Unexpected exception type thrown, expected: <java.lang.IllegalStateException> but was: <java.lang.NullPointerException>",
+      "flaky": false,
+      "initial_state": "fail",
+      "selector": [
+        "org.xbill.DNS.TSIG_apply_4_Test#applyPropagatesExceptionFromAddRecord()"
+      ],
+      "baseline_states": [
+        "fail",
+        "fail",
+        "fail"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/TSIG_apply_4_Test.java",
+      "class": "org.xbill.DNS.TSIG_apply_4_Test",
+      "method": "apply_oldNonNull_errorNonZero_fullSignatureTrue",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/TSIG_apply_4_Test.java|org.xbill.DNS.TSIG_apply_4_Test|apply_oldNonNull_errorNonZero_fullSignatureTrue",
+      "body_hash": "cf9bae44dba79f1377119d4eeeb8f0dbf8b997ce464e326ffb49a1593bda166b",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.TSIG_apply_4_Test#apply_oldNonNull_errorNonZero_fullSignatureTrue()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/TSIG_apply_4_Test.java",
+      "class": "org.xbill.DNS.TSIG_apply_4_Test",
+      "method": "apply_oldNull_errorNonZero_fullSignatureTrue",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/TSIG_apply_4_Test.java|org.xbill.DNS.TSIG_apply_4_Test|apply_oldNull_errorNonZero_fullSignatureTrue",
+      "body_hash": "8e21c2e984ec712220983fc67726920b50ad2a9ca1342c14cba43fd03d3240a8",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.TSIG_apply_4_Test#apply_oldNull_errorNonZero_fullSignatureTrue()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/TSIG_apply_4_Test.java",
+      "class": "org.xbill.DNS.TSIG_apply_4_Test",
+      "method": "apply_nullMessage_throwsNPE",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/TSIG_apply_4_Test.java|org.xbill.DNS.TSIG_apply_4_Test|apply_nullMessage_throwsNPE",
+      "body_hash": "f158cdbd0e565805eb92c90ef2a4385a8c4a254cc25c13d7deb6a24eff927857",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.TSIG_apply_4_Test#apply_nullMessage_throwsNPE()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/TSIG_apply_4_Test.java",
+      "class": "org.xbill.DNS.TSIG_apply_4_Test",
+      "method": "apply_messageToWireThrows_exceptionPropagates",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/TSIG_apply_4_Test.java|org.xbill.DNS.TSIG_apply_4_Test|apply_messageToWireThrows_exceptionPropagates",
+      "body_hash": "3a5a99bbed6dceee4f3ef352e674a08f4ad6285899a548190c95cde318e01aec",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.TSIG_apply_4_Test#apply_messageToWireThrows_exceptionPropagates()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/TSIG_apply_4_Test.java",
+      "class": "org.xbill.DNS.TSIG_apply_4_Test",
+      "method": "apply_generateThrowsRuntimeException",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/TSIG_apply_4_Test.java|org.xbill.DNS.TSIG_apply_4_Test|apply_generateThrowsRuntimeException",
+      "body_hash": "19c15428b9cb501391dbcd21516cb36810435cd006b81159a9a03c4fa16c953a",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "fail",
+      "message": "org.opentest4j.AssertionFailedError: expected: <generation failure> but was: < Strict stubbing argument mismatch. Please check:  - this invocation of 'generate' method:     tSIG.generate(     Mock for Message, hashCode: 1254827280,     [],     0,     null,     false );     -> at org.xbill.DNS.TSIG.apply(TSIG.java:517)  - has following stubbing(s) with different arguments:     1. tSIG.generate(     <any org.xbill.DNS.Message>,     <any byte[]>,     <any integer>,     <any org.xbill.DNS.TSIGRecord>,     <any boolean> ); stubbed with: [org.mockito.internal.stubbing.answers.ThrowsException@1abfe081]       -> at org.xbill.DNS.TSIG_apply_4_Test.apply_generateThrowsRuntimeException(TSIG_apply_4_Test.java:230) Typically, stubbing argument mismatch indicates user mistake when writing tests. Mockito fails early so that you can debug potential problem easily. However, there are legit scenarios when this exception generates false negative signal:   - stubbing the same method multiple times using 'given().will()' or 'when().then()' API     Please use 'will().given()' or 'doReturn().when()' API for stubbing.   - stubbed method is intentionally invoked with different arguments by code under test     Please use default or 'silent' JUnit Rule (equivalent of Strictness.LENIENT). For more information see javadoc for PotentialStubbingProblem class.>",
+      "flaky": false,
+      "initial_state": "fail",
+      "selector": [
+        "org.xbill.DNS.TSIG_apply_4_Test#apply_generateThrowsRuntimeException()"
+      ],
+      "baseline_states": [
+        "fail",
+        "fail",
+        "fail"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/TSIG_apply_4_Test.java",
+      "class": "org.xbill.DNS.TSIG_apply_4_Test",
+      "method": "apply_negativeErrorCode_throwsIllegalArgumentException",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/TSIG_apply_4_Test.java|org.xbill.DNS.TSIG_apply_4_Test|apply_negativeErrorCode_throwsIllegalArgumentException",
+      "body_hash": "d39ed4ca735b7210027f3988232d9febd1ccee29424b5b84a067442cc6f5d4ec",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.TSIG_apply_4_Test#apply_negativeErrorCode_throwsIllegalArgumentException()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/TSIG_apply_4_Test.java",
+      "class": "org.xbill.DNS.TSIG_apply_4_Test",
+      "method": "apply_oldRecordWithNullAlgorithm_throwsIllegalArgumentException",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/TSIG_apply_4_Test.java|org.xbill.DNS.TSIG_apply_4_Test|apply_oldRecordWithNullAlgorithm_throwsIllegalArgumentException",
+      "body_hash": "5805609bf934c94ad898c82344ff4e3dd7b87c804e861b7948c7f39119dc68a2",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "fail",
+      "message": "org.opentest4j.AssertionFailedError: Old TSIGRecord with null algorithm should cause IllegalArgumentException ==> Unexpected exception type thrown, expected: <java.lang.IllegalArgumentException> but was: <java.lang.NullPointerException>",
+      "flaky": false,
+      "initial_state": "fail",
+      "selector": [
+        "org.xbill.DNS.TSIG_apply_4_Test#apply_oldRecordWithNullAlgorithm_throwsIllegalArgumentException()"
+      ],
+      "baseline_states": [
+        "fail",
+        "fail",
+        "fail"
+      ]
+    }
+  ],
+  "parse": {
+    "command": [
+      "java",
+      "-Xmx512m",
+      "/survival-package/adapters/java/SourceInventory.java",
+      "/repo/experiments/commit-survival/generated/ktester/round1/dnsjava/test_classes/TSIG_apply_4_Test.java",
+      "auto"
+    ],
+    "cwd": "/repo/experiments/commit-survival/work/checkouts/0",
+    "exit_code": 0,
+    "timeout": false,
+    "seconds": 0.726,
+    "log": "work/validation/ktester/round1/34/inventory.tsv"
+  },
+  "input_sha256": "e6962eadc9efdc400c53b34fddffa38d804e3039b4bc128f131555cd7e7c747e"
+}

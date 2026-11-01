@@ -1,0 +1,623 @@
+[
+  {
+    "group": "Successful verification (full signature)",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "Message instance with a valid TSIG RR and matching MAC"
+          },
+          {
+            "parameter": "byte[] messageBytes",
+            "value": "byte[] containing the raw DNS message bytes that were signed"
+          },
+          {
+            "parameter": "TSIGRecord requestTSIG",
+            "value": "TSIGRecord with algorithm HMAC_SHA256, correct time, and correct MAC"
+          },
+          {
+            "parameter": "boolean fullSignature",
+            "value": "true"
+          }
+        ],
+        "expected": "0 (Rcode.NOERROR) \u2013 verification succeeds",
+        "description": "When the request contains a TSIG record that matches the computed HMAC and the fullSignature flag is true, verify should return NOERROR."
+      }
+    ]
+  },
+  {
+    "group": "Successful verification (partial signature)",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "Message instance with a valid TSIG RR but without the additional signature fields"
+          },
+          {
+            "parameter": "byte[] messageBytes",
+            "value": "byte[] containing the raw DNS message bytes that were signed"
+          },
+          {
+            "parameter": "TSIGRecord requestTSIG",
+            "value": "TSIGRecord with algorithm HMAC_SHA1, correct time, and correct MAC"
+          },
+          {
+            "parameter": "boolean fullSignature",
+            "value": "false"
+          }
+        ],
+        "expected": "0 (Rcode.NOERROR) \u2013 verification succeeds",
+        "description": "When fullSignature is false the method should verify only the base MAC; a matching MAC yields NOERROR."
+      }
+    ]
+  },
+  {
+    "group": "Signature mismatch",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "Message instance with a TSIG RR whose MAC does not match the computed value"
+          },
+          {
+            "parameter": "byte[] messageBytes",
+            "value": "byte[] containing the raw DNS message bytes"
+          },
+          {
+            "parameter": "TSIGRecord requestTSIG",
+            "value": "TSIGRecord with algorithm HMAC_SHA256, correct time, but altered MAC bytes"
+          },
+          {
+            "parameter": "boolean fullSignature",
+            "value": "true"
+          }
+        ],
+        "expected": "16 (Rcode.BADSIG) \u2013 verification fails due to bad signature",
+        "description": "If the MAC stored in the TSIGRecord does not match the calculated MAC, verify should return BADSIG."
+      }
+    ]
+  },
+  {
+    "group": "Bad time (outside fudge window)",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "Message instance with a TSIG RR"
+          },
+          {
+            "parameter": "byte[] messageBytes",
+            "value": "byte[] containing the raw DNS message bytes"
+          },
+          {
+            "parameter": "TSIGRecord requestTSIG",
+            "value": "TSIGRecord with a timestamp older than now\u2011FUDGE or newer than now+FUDGE"
+          },
+          {
+            "parameter": "boolean fullSignature",
+            "value": "true"
+          }
+        ],
+        "expected": "18 (Rcode.BADTIME) \u2013 verification fails due to time skew",
+        "description": "When the TSIG timestamp is outside the allowed fudge period, verify should return BADTIME."
+      }
+    ]
+  },
+  {
+    "group": "Null requestTSIG",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "Message instance (any valid message)"
+          },
+          {
+            "parameter": "byte[] messageBytes",
+            "value": "byte[] containing the raw DNS message bytes"
+          },
+          {
+            "parameter": "TSIGRecord requestTSIG",
+            "value": "null"
+          },
+          {
+            "parameter": "boolean fullSignature",
+            "value": "true"
+          }
+        ],
+        "expected": "1 (Rcode.FORMERR) \u2013 verification fails because TSIG record is missing",
+        "description": "If the requestTSIG argument is null, the method should treat the message as malformed and return FORMERR."
+      }
+    ]
+  },
+  {
+    "group": "Null messageBytes",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "Message instance (any valid message)"
+          },
+          {
+            "parameter": "byte[] messageBytes",
+            "value": "null"
+          },
+          {
+            "parameter": "TSIGRecord requestTSIG",
+            "value": "valid TSIGRecord"
+          },
+          {
+            "parameter": "boolean fullSignature",
+            "value": "false"
+          }
+        ],
+        "expected": "1 (Rcode.FORMERR) \u2013 verification fails because the raw message bytes are missing",
+        "description": "When the raw message byte array is null, verify should return FORMERR."
+      }
+    ]
+  },
+  {
+    "group": "Unsupported algorithm",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "Message instance with a TSIG RR"
+          },
+          {
+            "parameter": "byte[] messageBytes",
+            "value": "byte[] containing the raw DNS message bytes"
+          },
+          {
+            "parameter": "TSIGRecord requestTSIG",
+            "value": "TSIGRecord whose algorithm name is not one of the known HMAC_* constants (e.g., \"unknown-alg.\")"
+          },
+          {
+            "parameter": "boolean fullSignature",
+            "value": "true"
+          }
+        ],
+        "expected": "1 (Rcode.FORMERR) \u2013 verification fails because algorithm cannot be mapped to a MAC",
+        "description": "If the algorithm specified in the TSIGRecord cannot be resolved to a known MAC algorithm, verify should return FORMERR."
+      }
+    ]
+  },
+  {
+    "group": "Mac initialization exception",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "Message instance with a TSIG RR"
+          },
+          {
+            "parameter": "byte[] messageBytes",
+            "value": "byte[] containing the raw DNS message bytes"
+          },
+          {
+            "parameter": "TSIGRecord requestTSIG",
+            "value": "TSIGRecord with a valid algorithm but an invalid secret key that causes Mac.getInstance to throw GeneralSecurityException"
+          },
+          {
+            "parameter": "boolean fullSignature",
+            "value": "true"
+          }
+        ],
+        "expected": "1 (Rcode.FORMERR) \u2013 verification fails due to cryptographic error",
+        "description": "When initializing the Mac instance throws an exception (e.g., unsupported algorithm or bad key), verify should catch it and return FORMERR."
+      }
+    ]
+  },
+  {
+    "group": "Exact fudge boundary (lower limit)",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "Message instance containing a TSIG RR with algorithm HMAC_SHA256"
+          },
+          {
+            "parameter": "byte[] messageBytes",
+            "value": "raw DNS message bytes that were signed"
+          },
+          {
+            "parameter": "TSIGRecord requestTSIG",
+            "value": "TSIGRecord whose timestamp equals Instant.now() minus TSIG.FUDGE, correct MAC"
+          },
+          {
+            "parameter": "boolean fullSignature",
+            "value": "true"
+          }
+        ],
+        "expected": "0 (Rcode.NOERROR) \u2013 verification succeeds at the lower fudge boundary",
+        "description": "The request timestamp is exactly now\u2011FUDGE; it should still be considered within the allowed window and verification must succeed."
+      }
+    ]
+  },
+  {
+    "group": "Exact fudge boundary (upper limit)",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "Message instance containing a TSIG RR with algorithm HMAC_SHA256"
+          },
+          {
+            "parameter": "byte[] messageBytes",
+            "value": "raw DNS message bytes that were signed"
+          },
+          {
+            "parameter": "TSIGRecord requestTSIG",
+            "value": "TSIGRecord whose timestamp equals Instant.now() plus TSIG.FUDGE, correct MAC"
+          },
+          {
+            "parameter": "boolean fullSignature",
+            "value": "true"
+          }
+        ],
+        "expected": "0 (Rcode.NOERROR) \u2013 verification succeeds at the upper fudge boundary",
+        "description": "The request timestamp is exactly now+FUDGE; it should still be accepted and verification must succeed."
+      }
+    ]
+  },
+  {
+    "group": "Empty raw message bytes",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "Message instance with a valid TSIG RR"
+          },
+          {
+            "parameter": "byte[] messageBytes",
+            "value": "new byte[0] (empty array)"
+          },
+          {
+            "parameter": "TSIGRecord requestTSIG",
+            "value": "valid TSIGRecord (algorithm HMAC_SHA1, correct MAC)"
+          },
+          {
+            "parameter": "boolean fullSignature",
+            "value": "false"
+          }
+        ],
+        "expected": "1 (Rcode.FORMERR) \u2013 verification fails because the raw message is empty",
+        "description": "An empty byte array cannot be used to compute the HMAC; the method should treat this as a malformed request."
+      }
+    ]
+  },
+  {
+    "group": "Zero\u2011length MAC in TSIGRecord",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "Message instance with a TSIG RR"
+          },
+          {
+            "parameter": "byte[] messageBytes",
+            "value": "raw DNS message bytes"
+          },
+          {
+            "parameter": "TSIGRecord requestTSIG",
+            "value": "TSIGRecord with algorithm HMAC_SHA256 and mac = new byte[0]"
+          },
+          {
+            "parameter": "boolean fullSignature",
+            "value": "true"
+          }
+        ],
+        "expected": "16 (Rcode.BADSIG) \u2013 verification fails because MAC length is zero",
+        "description": "A TSIG record that contains an empty MAC cannot be valid; verification must return BADSIG."
+      }
+    ]
+  },
+  {
+    "group": "Supported algorithm HMAC_MD5 \u2013 successful verification",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "Message instance with a TSIG RR using algorithm HMAC_MD5"
+          },
+          {
+            "parameter": "byte[] messageBytes",
+            "value": "raw DNS message bytes signed with HMAC\u2011MD5"
+          },
+          {
+            "parameter": "TSIGRecord requestTSIG",
+            "value": "TSIGRecord with algorithm HMAC_MD5, correct time, correct MAC"
+          },
+          {
+            "parameter": "boolean fullSignature",
+            "value": "true"
+          }
+        ],
+        "expected": "0 (Rcode.NOERROR) \u2013 verification succeeds for HMAC\u2011MD5",
+        "description": "Ensures that the older HMAC\u2011MD5 algorithm is still recognised and verified correctly."
+      }
+    ]
+  },
+  {
+    "group": "Mismatched secret key",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "Message instance with a TSIG RR signed using secret key A"
+          },
+          {
+            "parameter": "byte[] messageBytes",
+            "value": "raw DNS message bytes signed with key A"
+          },
+          {
+            "parameter": "TSIGRecord requestTSIG",
+            "value": "TSIGRecord built with the same algorithm but secret key B (different from the one used to sign)"
+          },
+          {
+            "parameter": "boolean fullSignature",
+            "value": "true"
+          }
+        ],
+        "expected": "16 (Rcode.BADSIG) \u2013 verification fails because the MAC does not match the provided key",
+        "description": "Even when algorithm and timestamp are correct, using a different secret should cause a bad\u2011signature result."
+      }
+    ]
+  },
+  {
+    "group": "Message without TSIG RR but requestTSIG supplied",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "Message instance that does NOT contain a TSIG RR"
+          },
+          {
+            "parameter": "byte[] messageBytes",
+            "value": "raw DNS message bytes"
+          },
+          {
+            "parameter": "TSIGRecord requestTSIG",
+            "value": "valid TSIGRecord (algorithm HMAC_SHA256, correct MAC)"
+          },
+          {
+            "parameter": "boolean fullSignature",
+            "value": "true"
+          }
+        ],
+        "expected": "1 (Rcode.FORMERR) \u2013 verification fails because the message lacks the TSIG RR expected by the caller",
+        "description": "The verifier expects a TSIG RR in the DNS message; its absence should be treated as a format error."
+      }
+    ]
+  },
+  {
+    "group": "Null algorithm name in TSIGRecord",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "Message instance with a TSIG RR"
+          },
+          {
+            "parameter": "byte[] messageBytes",
+            "value": "raw DNS message bytes"
+          },
+          {
+            "parameter": "TSIGRecord requestTSIG",
+            "value": "TSIGRecord whose algorithm field is null"
+          },
+          {
+            "parameter": "boolean fullSignature",
+            "value": "true"
+          }
+        ],
+        "expected": "1 (Rcode.FORMERR) \u2013 verification fails because algorithm cannot be resolved",
+        "description": "A null algorithm name cannot be mapped to a MAC implementation, so the method must return FORMERR."
+      }
+    ]
+  },
+  {
+    "group": "Null Message object",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "null"
+          },
+          {
+            "parameter": "byte[] messageBytes",
+            "value": "valid non\u2011null byte array representing a signed DNS message"
+          },
+          {
+            "parameter": "TSIGRecord requestTSIG",
+            "value": "valid TSIGRecord (algorithm HMAC_SHA256, correct time, correct MAC)"
+          },
+          {
+            "parameter": "boolean fullSignature",
+            "value": "true"
+          }
+        ],
+        "expected": "1 (Rcode.FORMERR) \u2013 verification fails because the Message argument is null",
+        "description": "The verify method should detect a null Message and return FORMERR rather than throwing a NullPointerException."
+      }
+    ]
+  },
+  {
+    "group": "Null MAC in TSIGRecord",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "Message instance containing a TSIG RR"
+          },
+          {
+            "parameter": "byte[] messageBytes",
+            "value": "valid raw DNS message bytes"
+          },
+          {
+            "parameter": "TSIGRecord requestTSIG",
+            "value": "TSIGRecord with algorithm HMAC_SHA256, correct time, mac = null"
+          },
+          {
+            "parameter": "boolean fullSignature",
+            "value": "true"
+          }
+        ],
+        "expected": "1 (Rcode.FORMERR) \u2013 verification fails because the MAC field in the TSIG record is null",
+        "description": "A null MAC cannot be compared; the method should treat this as a malformed request and return FORMERR."
+      }
+    ]
+  },
+  {
+    "group": "Null secret key in TSIGRecord",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "Message instance with a TSIG RR"
+          },
+          {
+            "parameter": "byte[] messageBytes",
+            "value": "valid raw DNS message bytes"
+          },
+          {
+            "parameter": "TSIGRecord requestTSIG",
+            "value": "TSIGRecord whose secret key (key field) is null, algorithm HMAC_SHA1, correct time, correct MAC"
+          },
+          {
+            "parameter": "boolean fullSignature",
+            "value": "false"
+          }
+        ],
+        "expected": "1 (Rcode.FORMERR) \u2013 verification fails because the secret key is null",
+        "description": "When the secret key required to initialise the Mac instance is null, the method should catch the resulting exception and return FORMERR."
+      }
+    ]
+  },
+  {
+    "group": "Zero\u2011length secret key (InvalidKeyException)",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "Message instance with a TSIG RR"
+          },
+          {
+            "parameter": "byte[] messageBytes",
+            "value": "valid raw DNS message bytes"
+          },
+          {
+            "parameter": "TSIGRecord requestTSIG",
+            "value": "TSIGRecord with algorithm HMAC_SHA256, correct time, secret key = new byte[0], correct MAC"
+          },
+          {
+            "parameter": "boolean fullSignature",
+            "value": "true"
+          }
+        ],
+        "expected": "1 (Rcode.FORMERR) \u2013 verification fails due to InvalidKeyException during Mac initialisation",
+        "description": "A zero\u2011length secret key is not a valid HMAC key; Mac.init throws InvalidKeyException which should be caught and result in FORMERR."
+      }
+    ]
+  },
+  {
+    "group": "Null timeSigned in TSIGRecord",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "Message instance with a TSIG RR"
+          },
+          {
+            "parameter": "byte[] messageBytes",
+            "value": "valid raw DNS message bytes"
+          },
+          {
+            "parameter": "TSIGRecord requestTSIG",
+            "value": "TSIGRecord with algorithm HMAC_SHA256, timeSigned = null, correct MAC"
+          },
+          {
+            "parameter": "boolean fullSignature",
+            "value": "true"
+          }
+        ],
+        "expected": "1 (Rcode.FORMERR) \u2013 verification fails because the timestamp is missing",
+        "description": "If the TSIGRecord does not contain a timestamp, the verifier cannot perform the time\u2011skew check and must return FORMERR."
+      }
+    ]
+  },
+  {
+    "group": "Message without TSIG RR but requestTSIG null",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "Message instance that does NOT contain a TSIG RR"
+          },
+          {
+            "parameter": "byte[] messageBytes",
+            "value": "valid raw DNS message bytes"
+          },
+          {
+            "parameter": "TSIGRecord requestTSIG",
+            "value": "null"
+          },
+          {
+            "parameter": "boolean fullSignature",
+            "value": "false"
+          }
+        ],
+        "expected": "1 (Rcode.FORMERR) \u2013 verification fails because both the message and requestTSIG lack TSIG information",
+        "description": "When the DNS message has no TSIG RR and the caller also supplies a null requestTSIG, the method should treat the request as malformed."
+      }
+    ]
+  },
+  {
+    "group": "Message bytes length of one (insufficient data)",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "Message instance with a TSIG RR"
+          },
+          {
+            "parameter": "byte[] messageBytes",
+            "value": "new byte[1] (single\u2011byte array)"
+          },
+          {
+            "parameter": "TSIGRecord requestTSIG",
+            "value": "valid TSIGRecord (algorithm HMAC_SHA1, correct time, correct MAC)"
+          },
+          {
+            "parameter": "boolean fullSignature",
+            "value": "false"
+          }
+        ],
+        "expected": "1 (Rcode.FORMERR) \u2013 verification fails because the raw message is too short to contain a valid DNS header",
+        "description": "The verifier expects at least the DNS header length; a one\u2011byte array should trigger a format error."
+      }
+    ]
+  }
+]

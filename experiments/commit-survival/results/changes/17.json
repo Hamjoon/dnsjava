@@ -1,0 +1,31 @@
+{
+  "index": 17,
+  "sha": "eddd2820fb91154a96fc51ad02ac12726954b02a",
+  "parent": "4a2869d12d1467f5e311d9bb78b12b127aeb99b8",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/Message.java": [
+      1041,
+      1051
+    ],
+    "src/main/java/org/xbill/DNS/dnssec/KeyEntry.java": [],
+    "src/main/java/org/xbill/DNS/dnssec/ValidatingResolver.java": [
+      862
+    ]
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/Message.java": [
+      1042,
+      1053
+    ],
+    "src/main/java/org/xbill/DNS/dnssec/KeyEntry.java": [
+      131,
+      132
+    ],
+    "src/main/java/org/xbill/DNS/dnssec/ValidatingResolver.java": [
+      863,
+      864,
+      865
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/Message.java b/src/main/java/org/xbill/DNS/Message.java\nindex 909570a2..beb52078 100644\n--- a/src/main/java/org/xbill/DNS/Message.java\n+++ b/src/main/java/org/xbill/DNS/Message.java\n@@ -1041 +1040,0 @@ public class Message implements Cloneable {\n-              Type.string(query.getQuestion().getType()),\n@@ -1042,0 +1042 @@ public class Message implements Cloneable {\n+              Type.string(query.getQuestion().getType()),\n@@ -1044,0 +1045 @@ public class Message implements Cloneable {\n+\n@@ -1051 +1051,0 @@ public class Message implements Cloneable {\n-        Type.string(query.getQuestion().getType()),\n@@ -1052,0 +1053 @@ public class Message implements Cloneable {\n+        Type.string(query.getQuestion().getType()),\ndiff --git a/src/main/java/org/xbill/DNS/dnssec/KeyEntry.java b/src/main/java/org/xbill/DNS/dnssec/KeyEntry.java\nindex d043739d..912e09f2 100644\n--- a/src/main/java/org/xbill/DNS/dnssec/KeyEntry.java\n+++ b/src/main/java/org/xbill/DNS/dnssec/KeyEntry.java\n@@ -129,0 +130,5 @@ final class KeyEntry extends SRRset {\n+      // A synthesized CNAME has no key, but since it was created from a signed DNAME, it's valid\n+      if (set.getType() == Type.CNAME && set.getSecurityStatus() == SecurityStatus.SECURE) {\n+        return new JustifiedSecStatus(set.getSecurityStatus(), -1, null);\n+      }\n+\ndiff --git a/src/main/java/org/xbill/DNS/dnssec/ValidatingResolver.java b/src/main/java/org/xbill/DNS/dnssec/ValidatingResolver.java\nindex 17c0221f..0597b3bc 100644\n--- a/src/main/java/org/xbill/DNS/dnssec/ValidatingResolver.java\n+++ b/src/main/java/org/xbill/DNS/dnssec/ValidatingResolver.java\n@@ -223,0 +224 @@ public final class ValidatingResolver implements Resolver {\n+   * @since 3.6\n@@ -862 +863,3 @@ public final class ValidatingResolver implements Resolver {\n-    return this.headResolver.sendAsync(localRequest, executor).thenApply(SMessage::new);\n+    return this.headResolver\n+        .sendAsync(localRequest, executor)\n+        .thenApply(message -> new SMessage(message.normalize(localRequest)));"
+}

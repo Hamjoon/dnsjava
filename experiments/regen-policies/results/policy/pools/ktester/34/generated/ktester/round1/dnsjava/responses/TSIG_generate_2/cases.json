@@ -1,0 +1,606 @@
+[
+  {
+    "group": "TSIG.generate(Message, byte[], int, TSIGRecord, boolean) - error handling",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "m",
+            "value": "validMessage"
+          },
+          {
+            "parameter": "b",
+            "value": "new byte[]{0x01,0x02}"
+          },
+          {
+            "parameter": "error",
+            "value": "Rcode.NOERROR"
+          },
+          {
+            "parameter": "old",
+            "value": "null"
+          },
+          {
+            "parameter": "fullSignature",
+            "value": "false"
+          }
+        ],
+        "expected": "initHmac() is called, a non\u2011null TSIGRecord is returned from the private generate method",
+        "description": "When error equals NOERROR the condition is true, the HMAC is initialized and the full signature path is exercised with fullSignature=false."
+      },
+      {
+        "input": [
+          {
+            "parameter": "m",
+            "value": "validMessage"
+          },
+          {
+            "parameter": "b",
+            "value": "new byte[]{0x0A,0x0B,0x0C}"
+          },
+          {
+            "parameter": "error",
+            "value": "Rcode.BADTIME"
+          },
+          {
+            "parameter": "old",
+            "value": "null"
+          },
+          {
+            "parameter": "fullSignature",
+            "value": "true"
+          }
+        ],
+        "expected": "initHmac() is called, a non\u2011null TSIGRecord is returned from the private generate method",
+        "description": "When error equals BADTIME the condition is true, the HMAC is initialized and the method is invoked with fullSignature=true."
+      },
+      {
+        "input": [
+          {
+            "parameter": "m",
+            "value": "validMessage"
+          },
+          {
+            "parameter": "b",
+            "value": "new byte[]{ }"
+          },
+          {
+            "parameter": "error",
+            "value": "Rcode.BADTRUNC"
+          },
+          {
+            "parameter": "old",
+            "value": "null"
+          },
+          {
+            "parameter": "fullSignature",
+            "value": "false"
+          }
+        ],
+        "expected": "initHmac() is called, a non\u2011null TSIGRecord is returned from the private generate method",
+        "description": "When error equals BADTRUNC the condition is true, the HMAC is initialized even though the payload is empty."
+      },
+      {
+        "input": [
+          {
+            "parameter": "m",
+            "value": "validMessage"
+          },
+          {
+            "parameter": "b",
+            "value": "new byte[]{0x55}"
+          },
+          {
+            "parameter": "error",
+            "value": "Rcode.FORMERR"
+          },
+          {
+            "parameter": "old",
+            "value": "null"
+          },
+          {
+            "parameter": "fullSignature",
+            "value": "true"
+          }
+        ],
+        "expected": "initHmac() is NOT called (hmac argument is null), the private generate method returns a TSIGRecord appropriate for the error (may be null or a record with error code)",
+        "description": "When error is any value other than NOERROR, BADTIME, or BADTRUNC the condition is false, so initHmac() must not be invoked and the method proceeds with a null Mac."
+      },
+      {
+        "input": [
+          {
+            "parameter": "m",
+            "value": "null"
+          },
+          {
+            "parameter": "b",
+            "value": "null"
+          },
+          {
+            "parameter": "error",
+            "value": "Rcode.NOERROR"
+          },
+          {
+            "parameter": "old",
+            "value": "null"
+          },
+          {
+            "parameter": "fullSignature",
+            "value": "false"
+          }
+        ],
+        "expected": "initHmac() is called, the private generate method throws NullPointerException or handles null Message gracefully (depending on implementation)",
+        "description": "Edge case: passing null for Message and byte[] should still trigger the same branch decision; the test verifies that the method does not mask the null\u2011pointer error and that the branch is still exercised."
+      }
+    ]
+  },
+  {
+    "group": "TSIG.generate - old TSIGRecord handling",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "m",
+            "value": "validMessage"
+          },
+          {
+            "parameter": "b",
+            "value": "new byte[]{0x11,0x22,0x33}"
+          },
+          {
+            "parameter": "error",
+            "value": "Rcode.NOERROR"
+          },
+          {
+            "parameter": "old",
+            "value": "previousTSIGRecord"
+          },
+          {
+            "parameter": "fullSignature",
+            "value": "false"
+          }
+        ],
+        "expected": "initHmac() is called; a non\u2011null TSIGRecord is returned whose MAC incorporates the supplied old TSIGRecord (previous MAC is part of the calculation) and error code equals NOERROR",
+        "description": "When a previous TSIGRecord is supplied together with a NOERROR error, the method must still initialise the HMAC and compute a full signature that chains to the old record."
+      },
+      {
+        "input": [
+          {
+            "parameter": "m",
+            "value": "validMessage"
+          },
+          {
+            "parameter": "b",
+            "value": "new byte[]{0x44,0x55}"
+          },
+          {
+            "parameter": "error",
+            "value": "Rcode.BADTIME"
+          },
+          {
+            "parameter": "old",
+            "value": "previousTSIGRecord"
+          },
+          {
+            "parameter": "fullSignature",
+            "value": "true"
+          }
+        ],
+        "expected": "initHmac() is called; a non\u2011null TSIGRecord is returned; the returned record\u2019s error field is BADTIME and its MAC reflects the old record and the new payload",
+        "description": "Old TSIGRecord with error BADTIME and fullSignature=true forces the full\u2011signature path while still initialising the HMAC."
+      },
+      {
+        "input": [
+          {
+            "parameter": "m",
+            "value": "validMessage"
+          },
+          {
+            "parameter": "b",
+            "value": "new byte[]{}"
+          },
+          {
+            "parameter": "error",
+            "value": "Rcode.BADTRUNC"
+          },
+          {
+            "parameter": "old",
+            "value": "previousTSIGRecord"
+          },
+          {
+            "parameter": "fullSignature",
+            "value": "false"
+          }
+        ],
+        "expected": "initHmac() is called; a non\u2011null TSIGRecord is returned; error field is BADTRUNC and MAC is computed over the empty payload plus the old record",
+        "description": "Even with an empty payload the presence of an old TSIGRecord should not prevent HMAC initialisation for BADTRUNC."
+      },
+      {
+        "input": [
+          {
+            "parameter": "m",
+            "value": "validMessage"
+          },
+          {
+            "parameter": "b",
+            "value": "new byte[]{0x66}"
+          },
+          {
+            "parameter": "error",
+            "value": "Rcode.FORMERR"
+          },
+          {
+            "parameter": "old",
+            "value": "previousTSIGRecord"
+          },
+          {
+            "parameter": "fullSignature",
+            "value": "true"
+          }
+        ],
+        "expected": "initHmac() is NOT called (hmac argument is null); the returned TSIGRecord contains the FORMERR code and does not contain a MAC derived from the old record",
+        "description": "When the error is not one of the three that trigger HMAC initialisation, the method must skip MAC generation even if an old TSIGRecord is supplied."
+      }
+    ]
+  },
+  {
+    "group": "TSIG.generate - fullSignature variations for each error branch",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "m",
+            "value": "validMessage"
+          },
+          {
+            "parameter": "b",
+            "value": "new byte[]{0x01}"
+          },
+          {
+            "parameter": "error",
+            "value": "Rcode.NOERROR"
+          },
+          {
+            "parameter": "old",
+            "value": "null"
+          },
+          {
+            "parameter": "fullSignature",
+            "value": "true"
+          }
+        ],
+        "expected": "initHmac() is called; a non\u2011null TSIGRecord is returned with a full\u2011length MAC (as fullSignature=true) and error code NOERROR",
+        "description": "Validate that the fullSignature flag influences the size/contents of the MAC when the error permits HMAC initialisation."
+      },
+      {
+        "input": [
+          {
+            "parameter": "m",
+            "value": "validMessage"
+          },
+          {
+            "parameter": "b",
+            "value": "new byte[]{0x02,0x03}"
+          },
+          {
+            "parameter": "error",
+            "value": "Rcode.BADTIME"
+          },
+          {
+            "parameter": "old",
+            "value": "null"
+          },
+          {
+            "parameter": "fullSignature",
+            "value": "false"
+          }
+        ],
+        "expected": "initHmac() is called; a non\u2011null TSIGRecord is returned with a truncated MAC (as fullSignature=false) and error code BADTIME",
+        "description": "Check that for BADTIME the fullSignature flag is respected and a shorter MAC is produced."
+      },
+      {
+        "input": [
+          {
+            "parameter": "m",
+            "value": "validMessage"
+          },
+          {
+            "parameter": "b",
+            "value": "new byte[]{0x04,0x05,0x06}"
+          },
+          {
+            "parameter": "error",
+            "value": "Rcode.BADTRUNC"
+          },
+          {
+            "parameter": "old",
+            "value": "null"
+          },
+          {
+            "parameter": "fullSignature",
+            "value": "true"
+          }
+        ],
+        "expected": "initHmac() is called; a non\u2011null TSIGRecord is returned with a full\u2011length MAC and error code BADTRUNC",
+        "description": "Ensure that for BADTRUNC the method can generate a full\u2011signature MAC when requested."
+      }
+    ]
+  },
+  {
+    "group": "TSIG.generate - null byte[] handling",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "m",
+            "value": "validMessage"
+          },
+          {
+            "parameter": "b",
+            "value": "null"
+          },
+          {
+            "parameter": "error",
+            "value": "Rcode.NOERROR"
+          },
+          {
+            "parameter": "old",
+            "value": "null"
+          },
+          {
+            "parameter": "fullSignature",
+            "value": "false"
+          }
+        ],
+        "expected": "initHmac() is called; the private generate method handles the null byte array gracefully (treated as zero\u2011length) and returns a non\u2011null TSIGRecord with error NOERROR",
+        "description": "Even when the payload byte array is null, the decision to initialise HMAC depends only on the error code; the method should not throw NPE before reaching the private generate logic."
+      },
+      {
+        "input": [
+          {
+            "parameter": "m",
+            "value": "validMessage"
+          },
+          {
+            "parameter": "b",
+            "value": "null"
+          },
+          {
+            "parameter": "error",
+            "value": "Rcode.FORMERR"
+          },
+          {
+            "parameter": "old",
+            "value": "null"
+          },
+          {
+            "parameter": "fullSignature",
+            "value": "true"
+          }
+        ],
+        "expected": "initHmac() is NOT called; the method returns a TSIGRecord (or null) that reflects the FORMERR error; no NullPointerException is thrown due to the null byte array",
+        "description": "When HMAC is not required, a null payload must not cause a failure."
+      }
+    ]
+  },
+  {
+    "group": "TSIG.generate - unknown/unsupported error code",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "m",
+            "value": "validMessage"
+          },
+          {
+            "parameter": "b",
+            "value": "new byte[]{0x07}"
+          },
+          {
+            "parameter": "error",
+            "value": "9999"
+          },
+          {
+            "parameter": "old",
+            "value": "null"
+          },
+          {
+            "parameter": "fullSignature",
+            "value": "false"
+          }
+        ],
+        "expected": "initHmac() is NOT called (hmac argument is null); the method returns a TSIGRecord whose error field equals 9999 (or a generic error) and contains no MAC",
+        "description": "Validate that the method treats any error value outside the three recognised constants as a non\u2011HMAC path."
+      },
+      {
+        "input": [
+          {
+            "parameter": "m",
+            "value": "validMessage"
+          },
+          {
+            "parameter": "b",
+            "value": "new byte[]{0x08,0x09}"
+          },
+          {
+            "parameter": "error",
+            "value": "-1"
+          },
+          {
+            "parameter": "old",
+            "value": "null"
+          },
+          {
+            "parameter": "fullSignature",
+            "value": "true"
+          }
+        ],
+        "expected": "initHmac() is NOT called; a TSIGRecord reflecting the negative error code is returned (or null) without MAC computation",
+        "description": "Test that negative or otherwise invalid error codes still bypass HMAC initialisation."
+      }
+    ]
+  },
+  {
+    "group": "TSIG.generate - initHmac failure due to missing secret key",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "m",
+            "value": "validMessage"
+          },
+          {
+            "parameter": "b",
+            "value": "new byte[]{0x01, 0x02}"
+          },
+          {
+            "parameter": "error",
+            "value": "Rcode.NOERROR"
+          },
+          {
+            "parameter": "old",
+            "value": "null"
+          },
+          {
+            "parameter": "fullSignature",
+            "value": "false"
+          },
+          {
+            "parameter": "tsigSecretKey",
+            "value": "null"
+          }
+        ],
+        "expected": "IllegalStateException (or GeneralSecurityException wrapped in RuntimeException) is thrown because initHmac() cannot be created without a secret key",
+        "description": "When the TSIG instance has no secret key configured (tsigSecretKey=null) and the error code triggers HMAC initialisation, initHmac() throws an exception which must propagate out of generate()."
+      }
+    ]
+  },
+  {
+    "group": "TSIG.generate - initHmac failure due to unsupported algorithm",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "m",
+            "value": "validMessage"
+          },
+          {
+            "parameter": "b",
+            "value": "new byte[]{0x0A}"
+          },
+          {
+            "parameter": "error",
+            "value": "Rcode.NOERROR"
+          },
+          {
+            "parameter": "old",
+            "value": "null"
+          },
+          {
+            "parameter": "fullSignature",
+            "value": "true"
+          },
+          {
+            "parameter": "tsigAlgorithm",
+            "value": "\"UNSUPPORTED-ALG\""
+          }
+        ],
+        "expected": "NoSuchAlgorithmException (or IllegalArgumentException) is thrown when initHmac() attempts to obtain a Mac instance for an unknown algorithm",
+        "description": "The TSIG object is configured with an algorithm name that the JCE provider does not recognise. generate() should trigger initHmac(), which fails and propagates the exception."
+      }
+    ]
+  },
+  {
+    "group": "TSIG.generate - null Message leads to NullPointerException",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "m",
+            "value": "null"
+          },
+          {
+            "parameter": "b",
+            "value": "new byte[]{0x01}"
+          },
+          {
+            "parameter": "error",
+            "value": "Rcode.NOERROR"
+          },
+          {
+            "parameter": "old",
+            "value": "null"
+          },
+          {
+            "parameter": "fullSignature",
+            "value": "false"
+          }
+        ],
+        "expected": "NullPointerException is thrown because the private generate method dereferences the null Message",
+        "description": "Passing a null Message should cause a NullPointerException when the method attempts to read fields such as the header or question section."
+      }
+    ]
+  },
+  {
+    "group": "TSIG.generate - null payload byte[] with HMAC required",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "m",
+            "value": "validMessage"
+          },
+          {
+            "parameter": "b",
+            "value": "null"
+          },
+          {
+            "parameter": "error",
+            "value": "Rcode.NOERROR"
+          },
+          {
+            "parameter": "old",
+            "value": "null"
+          },
+          {
+            "parameter": "fullSignature",
+            "value": "true"
+          }
+        ],
+        "expected": "NullPointerException is thrown when the private generate method attempts to process the null byte[] while HMAC is being computed",
+        "description": "Even though the error code triggers HMAC initialisation, a null payload should cause an NPE during MAC update if the implementation does not guard against null."
+      }
+    ]
+  },
+  {
+    "group": "TSIG.generate - malformed old TSIGRecord (null name) causes IllegalArgumentException",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "m",
+            "value": "validMessage"
+          },
+          {
+            "parameter": "b",
+            "value": "new byte[]{0x11, 0x22}"
+          },
+          {
+            "parameter": "error",
+            "value": "Rcode.NOERROR"
+          },
+          {
+            "parameter": "old",
+            "value": "TSIGRecordWithNullName"
+          },
+          {
+            "parameter": "fullSignature",
+            "value": "false"
+          }
+        ],
+        "expected": "IllegalArgumentException is thrown because the supplied old TSIGRecord lacks a valid Name (algorithm identifier)",
+        "description": "When an old TSIGRecord with a null Name is supplied, the generate method should validate the record and reject it with an IllegalArgumentException."
+      }
+    ]
+  }
+]

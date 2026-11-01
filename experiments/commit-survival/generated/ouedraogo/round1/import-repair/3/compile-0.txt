@@ -1,0 +1,20 @@
+/repo/experiments/commit-survival/generated/ouedraogo/round1/sources/Message/ToT/MessageTest.java:204: error: emptyRecordArray has private access in Message
+        assertSame(Message.emptyRecordArray, empty);
+                          ^
+/repo/experiments/commit-survival/generated/ouedraogo/round1/sources/Message/ToT/MessageTest.java:252: error: cannot find symbol
+        assertEquals(key.getName(), tsigRec.getName());
+                        ^
+  symbol:   method getName()
+  location: variable key of type TSIG
+/repo/experiments/commit-survival/generated/ouedraogo/round1/sources/Message/ToT/MessageTest.java:384: error: querytsig has private access in Message
+        assertNotSame(emptyMessage.querytsig, copy.querytsig);
+                                  ^
+/repo/experiments/commit-survival/generated/ouedraogo/round1/sources/Message/ToT/MessageTest.java:384: error: querytsig has private access in Message
+        assertNotSame(emptyMessage.querytsig, copy.querytsig);
+                                                  ^
+/repo/experiments/commit-survival/generated/ouedraogo/round1/sources/Message/ToT/MessageTest.java:395: error: <anonymous org.xbill.DNS.MessageTest$2> is not abstract and does not override abstract method setTimeout(Duration) in Resolver
+        Resolver resolver = new Resolver() {
+                                           ^
+Note: /repo/experiments/commit-survival/generated/ouedraogo/round1/sources/Message/ToT/MessageTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+5 errors

@@ -1,0 +1,172 @@
+[
+  {
+    "group": "clone() - full object with all branches exercised",
+    "cases": [
+      {
+        "input": [],
+        "expected": "A new Message instance is returned. The returned instance is not the same object as the original. All sections that were non\u2011null in the original are deep\u2011copied into LinkedList objects (so modifications to the clone\u2019s lists do not affect the original). The Header is cloned (different instance but equal content). Both querytsig and generatedTsig are cloned via cloneRecord() (different instances but equal content).",
+        "description": "Original Message has a non\u2011empty sections array (all three sections contain a List<Record> with at least one Record), a non\u2011null Header, a non\u2011null querytsig and a non\u2011null generatedTsig. This exercises the `if (sections[i] != null)`, `if (querytsig != null)`, and `if (generatedTsig != null)` branches."
+      },
+      {
+        "input": [],
+        "expected": "A new Message instance is returned. The returned instance is not the same object as the original. Sections that were null in the original remain null in the clone; sections that were non\u2011null are deep\u2011copied. Header is cloned. Both querytsig and generatedTsig are null in the clone, matching the original.",
+        "description": "Original Message has a sections array where some entries are null (e.g., sections[0] = null, sections[1] = non\u2011null List, sections[2] = null). querytsig and generatedTsig are null. This tests the `if (sections[i] != null)` branch for true and false, and the two TSIG null checks."
+      },
+      {
+        "input": [],
+        "expected": "A new Message instance is returned. Header is cloned. All sections are deep\u2011copied (none are null). querytsig is cloned (different instance, equal content). generatedTsig remains null in the clone because it was null in the original.",
+        "description": "Original Message has a non\u2011null querytsig but generatedTsig is null. This exercises the `if (querytsig != null)` true branch and the `if (generatedTsig != null)` false branch."
+      },
+      {
+        "input": [],
+        "expected": "A new Message instance is returned. Header is cloned. All sections are deep\u2011copied (none are null). generatedTsig is cloned (different instance, equal content). querytsig remains null in the clone because it was null in the original.",
+        "description": "Original Message has a non\u2011null generatedTsig but querytsig is null. This exercises the `if (querytsig != null)` false branch and the `if (generatedTsig != null)` true branch."
+      },
+      {
+        "input": [],
+        "expected": "A new Message instance is returned. Header is cloned. All sections are deep\u2011copied (none are null). Both querytsig and generatedTsig are null in the clone, matching the original.",
+        "description": "Original Message has both TSIG fields null. This verifies that the method safely skips both TSIG cloning blocks."
+      }
+    ]
+  },
+  {
+    "group": "clone() - header null handling",
+    "cases": [
+      {
+        "input": [],
+        "expected": "Throws NullPointerException because the original Message's header field is null and the method attempts to call header.clone().",
+        "description": "Create a Message instance with a null header (possible via reflection or a constructor that allows it). Call clone() and verify that a NullPointerException is thrown, confirming that the method does not guard against a null header."
+      }
+    ]
+  },
+  {
+    "group": "clone() - empty sections array",
+    "cases": [
+      {
+        "input": [],
+        "expected": "A new Message instance is returned. Its sections array has length 0 (identical to the original). Header is cloned (different instance, equal content). Both querytsig and generatedTsig are null (as in the original). No exception is thrown.",
+        "description": "Construct a Message where the internal `sections` array is created with length 0 (e.g., via reflection). Verify that clone() succeeds, produces a Message with an empty sections array, and that the clone is a distinct object from the original."
+      }
+    ]
+  },
+  {
+    "group": "clone() - null sections array",
+    "cases": [
+      {
+        "input": [],
+        "expected": "Throws NullPointerException because the original Message's sections field is null and the method accesses sections.length.",
+        "description": "Create a Message instance whose internal `sections` field is set to null (using reflection). Invoke clone() and assert that a NullPointerException is thrown, demonstrating that the method assumes `sections` is never null."
+      }
+    ]
+  },
+  {
+    "group": "clone() - deep copy independence of sections",
+    "cases": [
+      {
+        "input": [],
+        "expected": "The cloned Message contains its own List<Record> objects. Adding a Record to a section in the clone does NOT affect the same section in the original Message.",
+        "description": "Create a Message with a non\u2011null List<Record> in section 0 containing a single Record. Clone the Message, then add a different Record to the cloned Message's section 0. Verify that the original Message's section 0 still contains only the original Record, proving that the lists were deep\u2011copied."
+      }
+    ]
+  },
+  {
+    "group": "clone() - clone with empty non\u2011null lists",
+    "cases": [
+      {
+        "input": [],
+        "expected": "A new Message instance is returned. All sections that were non\u2011null but empty in the original are cloned into new empty LinkedList objects (different instances). Header is cloned. TSIG fields remain null.",
+        "description": "Construct a Message where each section array entry is a non\u2011null empty `LinkedList<Record>` (no records). Call clone() and verify that the cloned Message has empty lists that are distinct objects from the original lists."
+      }
+    ]
+  },
+  {
+    "group": "clone() - clone preserves order with multiple records",
+    "cases": [
+      {
+        "input": [],
+        "expected": "The cloned Message contains the same records in each section in the same order as the original. The List objects are different instances.",
+        "description": "Create a Message with section 1 containing three Records (A, B, C) added in that order. Clone the Message and assert that `clone.getSection(1)` returns a list of size 3 with records A, B, C in the same order, and that the list instance is not the same as the original's list."
+      }
+    ]
+  },
+  {
+    "group": "clone() - querytsig cloneRecord throws IOException",
+    "cases": [
+      {
+        "input": [],
+        "expected": "IOException",
+        "description": "Create a Message where `querytsig` is a TSIGRecord whose `cloneRecord()` method is overridden (via a test double or subclass) to throw an IOException. `generatedTsig` is null. When `clone()` is invoked, the call to `querytsig.cloneRecord()` propagates the IOException, causing the method to abort with that exception."
+      }
+    ]
+  },
+  {
+    "group": "clone() - querytsig cloneRecord throws RuntimeException",
+    "cases": [
+      {
+        "input": [],
+        "expected": "IllegalStateException",
+        "description": "Create a Message with a non\u2011null `querytsig` whose `cloneRecord()` method throws an IllegalStateException (unchecked). Verify that `clone()` does not catch it and the IllegalStateException is thrown to the caller."
+      }
+    ]
+  },
+  {
+    "group": "clone() - generatedTsig cloneRecord throws IOException",
+    "cases": [
+      {
+        "input": [],
+        "expected": "IOException",
+        "description": "Create a Message where `generatedTsig` is a TSIGRecord whose `cloneRecord()` method throws an IOException, while `querytsig` is null. The `clone()` call should propagate the IOException."
+      }
+    ]
+  },
+  {
+    "group": "clone() - generatedTsig cloneRecord throws RuntimeException",
+    "cases": [
+      {
+        "input": [],
+        "expected": "NullPointerException",
+        "description": "Create a Message with a non\u2011null `generatedTsig` whose `cloneRecord()` method throws a NullPointerException (unchecked). Ensure that the exception bubbles up from `clone()`."
+      }
+    ]
+  },
+  {
+    "group": "clone() - both TSIG fields non\u2011null, querytsig throws",
+    "cases": [
+      {
+        "input": [],
+        "expected": "IOException",
+        "description": "Both `querytsig` and `generatedTsig` are non\u2011null. The `querytsig.cloneRecord()` is stubbed to throw an IOException, while `generatedTsig.cloneRecord()` would succeed if reached. The test verifies that the IOException from `querytsig` aborts cloning before `generatedTsig` is processed."
+      }
+    ]
+  },
+  {
+    "group": "clone() - both TSIG fields non\u2011null, generatedTsig throws",
+    "cases": [
+      {
+        "input": [],
+        "expected": "RuntimeException",
+        "description": "Both TSIG fields are present. `querytsig.cloneRecord()` succeeds, but `generatedTsig.cloneRecord()` throws a RuntimeException (e.g., IllegalArgumentException). Verify that the RuntimeException propagates from `clone()`."
+      }
+    ]
+  },
+  {
+    "group": "clone() - exception during section list copy",
+    "cases": [
+      {
+        "input": [],
+        "expected": "UnsupportedOperationException",
+        "description": "Create a Message whose `sections` array contains a custom List implementation for one section that throws UnsupportedOperationException when its iterator is used (e.g., in the `LinkedList` copy constructor). The `clone()` method should propagate this exception when attempting `new LinkedList<>(sections[i])`."
+      }
+    ]
+  },
+  {
+    "group": "clone() - super.clone() throws CloneNotSupportedException (unlikely but possible via subclass)",
+    "cases": [
+      {
+        "input": [],
+        "expected": "CloneNotSupportedException",
+        "description": "Create a subclass of Message that does NOT implement Cloneable (or overrides `clone()` to call `super.clone()` which throws CloneNotSupportedException). Invoke `clone()` on an instance of this subclass and verify that the SneakyThrows annotation re\u2011throws the CloneNotSupportedException."
+      }
+    ]
+  }
+]

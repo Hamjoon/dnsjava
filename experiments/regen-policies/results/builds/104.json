@@ -1,0 +1,54 @@
+{
+  "index": 104,
+  "sha": "bfe3c3d0fba3b1fff1045ad4a78f23d0aea0b822",
+  "build": "ok",
+  "attempts": [
+    {
+      "command": [
+        "mvn",
+        "-q",
+        "-o",
+        "-DskipTests",
+        "compile"
+      ],
+      "cwd": "/repo/experiments/regen-policies/work/checkouts/104",
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 12.34,
+      "log": "results/builds/logs/104-1.txt"
+    }
+  ],
+  "input_sha256": "fc687975a7b0e9549ff203efd0c5a301a651a940a567dd3c882dd0e3b9a5a6d5",
+  "pom_sha256": "0f0b2b3e69a63158b9f97ff4b6bee0ef918168186f5e480edac11815dcd95e9f",
+  "classpath": "work/classpaths/0f0b2b3e69a63158b9f97ff4b6bee0ef918168186f5e480edac11815dcd95e9f.txt",
+  "classpath_attempts": [
+    {
+      "command": [
+        "mvn",
+        "-q",
+        "-o",
+        "dependency:go-offline"
+      ],
+      "cwd": "/repo/experiments/regen-policies/work/checkouts/104",
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 2.117,
+      "log": "results/builds/logs/classpath-104/go-offline-baa5ea33142143a3ae92a8d902dd5453/1.txt"
+    },
+    {
+      "command": [
+        "mvn",
+        "-q",
+        "-o",
+        "dependency:build-classpath",
+        "-DincludeScope=test",
+        "-Dmdep.outputFile=/repo/experiments/regen-policies/work/classpaths/0f0b2b3e69a63158b9f97ff4b6bee0ef918168186f5e480edac11815dcd95e9f-669807e0e54a4c98820ecdbd7ddb9f40.tmp"
+      ],
+      "cwd": "/repo/experiments/regen-policies/work/checkouts/104",
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 1.745,
+      "log": "results/builds/logs/classpath-104/build-classpath-adfc609747f4441b99ca4466e934f2fa/1.txt"
+    }
+  ]
+}

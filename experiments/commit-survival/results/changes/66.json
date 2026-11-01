@@ -1,0 +1,18 @@
+{
+  "index": 66,
+  "sha": "5fa4ccfad4dbf557bcfbc87f768d90e7790b1978",
+  "parent": "9a748a04f6e39b348fb747bd8f03390abbfe450f",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/DohResolver.java": [
+      347,
+      366
+    ]
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/DohResolver.java": [
+      347,
+      366
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/DohResolver.java b/src/main/java/org/xbill/DNS/DohResolver.java\nindex 23dc871a..b6707bbd 100644\n--- a/src/main/java/org/xbill/DNS/DohResolver.java\n+++ b/src/main/java/org/xbill/DNS/DohResolver.java\n@@ -13 +13 @@ import java.net.URI;\n-import java.net.URL;\n+import java.net.URISyntaxException;\n@@ -347 +347 @@ public final class DohResolver implements Resolver {\n-                } catch (IOException e) {\n+                } catch (IOException | URISyntaxException e) {\n@@ -365,2 +365,2 @@ public final class DohResolver implements Resolver {\n-      String url, byte[] queryBytes, long startTime) throws IOException {\n-    HttpURLConnection conn = (HttpURLConnection) new URL(url).openConnection();\n+      String url, byte[] queryBytes, long startTime) throws IOException, URISyntaxException {\n+    HttpURLConnection conn = (HttpURLConnection) new URI(url).toURL().openConnection();"
+}

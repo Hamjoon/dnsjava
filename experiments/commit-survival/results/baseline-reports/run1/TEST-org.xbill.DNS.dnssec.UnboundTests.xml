@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="org.xbill.DNS.dnssec.UnboundTests" time="1.28" tests="155" errors="0" skipped="22" failures="0">
+  <properties>
+    <property name="java.specification.version" value="17"/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.class.path" value="/repo/experiments/commit-survival/work/checkouts/0/target/test-classes:/repo/experiments/commit-survival/work/checkouts/0/target/classes:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/projectlombok/lombok/1.18.30/lombok-1.18.30.jar:/root/.m2/repository/net/java/dev/jna/jna/5.13.0/jna-5.13.0.jar:/root/.m2/repository/net/java/dev/jna/jna-platform/5.13.0/jna-platform-5.13.0.jar:/root/.m2/repository/org/bouncycastle/bcprov-jdk18on/1.76/bcprov-jdk18on-1.76.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.10.1/junit-jupiter-api-5.10.1.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.10.1/junit-platform-commons-1.10.1.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.10.1/junit-jupiter-engine-5.10.1.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.10.1/junit-platform-engine-1.10.1.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.10.1/junit-jupiter-params-5.10.1.jar:/root/.m2/repository/org/mockito/mockito-core/5.7.0/mockito-core-5.7.0.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.14.9/byte-buddy-1.14.9.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.9/byte-buddy-agent-1.14.9.jar:/root/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/root/.m2/repository/org/mockito/mockito-junit-jupiter/5.7.0/mockito-junit-jupiter-5.7.0.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.36/slf4j-simple-1.7.36.jar:/root/.m2/repository/io/vertx/vertx-core/4.4.6/vertx-core-4.4.6.jar:/root/.m2/repository/io/netty/netty-common/4.1.100.Final/netty-common-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-buffer/4.1.100.Final/netty-buffer-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-transport/4.1.100.Final/netty-transport-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-handler/4.1.100.Final/netty-handler-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-transport-native-unix-common/4.1.100.Final/netty-transport-native-unix-common-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-codec/4.1.100.Final/netty-codec-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-handler-proxy/4.1.100.Final/netty-handler-proxy-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-codec-socks/4.1.100.Final/netty-codec-socks-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-codec-http/4.1.100.Final/netty-codec-http-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-codec-http2/4.1.100.Final/netty-codec-http2-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-resolver/4.1.100.Final/netty-resolver-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-resolver-dns/4.1.100.Final/netty-resolver-dns-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-codec-dns/4.1.100.Final/netty-codec-dns-4.1.100.Final.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.15.0/jackson-core-2.15.0.jar:/root/.m2/repository/io/vertx/vertx-junit5/4.4.6/vertx-junit5-4.4.6.jar:/root/.m2/repository/io/vertx/vertx-codegen/4.4.6/vertx-codegen-4.4.6.jar:/root/.m2/repository/commons-io/commons-io/2.15.0/commons-io-2.15.0.jar:/repo/experiments/commit-survival/work/checkouts/0/target/classes/META-INF/versions/11:"/>
+    <property name="java.vm.vendor" value="Eclipse Adoptium"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.vendor.url" value="https://adoptium.net/"/>
+    <property name="user.timezone" value="Etc/UTC"/>
+    <property name="os.name" value="Linux"/>
+    <property name="java.vm.specification.version" value="17"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.boot.library.path" value="/opt/java/openjdk/lib"/>
+    <property name="sun.java.command" value="/repo/experiments/commit-survival/work/checkouts/0/target/surefire/surefirebooter-20261029122402734_3.jar /repo/experiments/commit-survival/work/checkouts/0/target/surefire 2026-10-29T12-24-02_238-jvmRun1 surefire-20261029122402734_1tmp surefire_0-20261029122402734_2tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="/repo/experiments/commit-survival/work/checkouts/0/target/test-classes:/repo/experiments/commit-survival/work/checkouts/0/target/classes:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/projectlombok/lombok/1.18.30/lombok-1.18.30.jar:/root/.m2/repository/net/java/dev/jna/jna/5.13.0/jna-5.13.0.jar:/root/.m2/repository/net/java/dev/jna/jna-platform/5.13.0/jna-platform-5.13.0.jar:/root/.m2/repository/org/bouncycastle/bcprov-jdk18on/1.76/bcprov-jdk18on-1.76.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.10.1/junit-jupiter-api-5.10.1.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.10.1/junit-platform-commons-1.10.1.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.10.1/junit-jupiter-engine-5.10.1.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.10.1/junit-platform-engine-1.10.1.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.10.1/junit-jupiter-params-5.10.1.jar:/root/.m2/repository/org/mockito/mockito-core/5.7.0/mockito-core-5.7.0.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.14.9/byte-buddy-1.14.9.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.9/byte-buddy-agent-1.14.9.jar:/root/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/root/.m2/repository/org/mockito/mockito-junit-jupiter/5.7.0/mockito-junit-jupiter-5.7.0.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.36/slf4j-simple-1.7.36.jar:/root/.m2/repository/io/vertx/vertx-core/4.4.6/vertx-core-4.4.6.jar:/root/.m2/repository/io/netty/netty-common/4.1.100.Final/netty-common-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-buffer/4.1.100.Final/netty-buffer-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-transport/4.1.100.Final/netty-transport-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-handler/4.1.100.Final/netty-handler-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-transport-native-unix-common/4.1.100.Final/netty-transport-native-unix-common-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-codec/4.1.100.Final/netty-codec-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-handler-proxy/4.1.100.Final/netty-handler-proxy-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-codec-socks/4.1.100.Final/netty-codec-socks-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-codec-http/4.1.100.Final/netty-codec-http-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-codec-http2/4.1.100.Final/netty-codec-http2-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-resolver/4.1.100.Final/netty-resolver-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-resolver-dns/4.1.100.Final/netty-resolver-dns-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-codec-dns/4.1.100.Final/netty-codec-dns-4.1.100.Final.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.15.0/jackson-core-2.15.0.jar:/root/.m2/repository/io/vertx/vertx-junit5/4.4.6/vertx-junit5-4.4.6.jar:/root/.m2/repository/io/vertx/vertx-codegen/4.4.6/vertx-codegen-4.4.6.jar:/root/.m2/repository/commons-io/commons-io/2.15.0/commons-io-2.15.0.jar:/repo/experiments/commit-survival/work/checkouts/0/target/classes/META-INF/versions/11:"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="/root"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2026-08-18"/>
+    <property name="java.home" value="/opt/java/openjdk"/>
+    <property name="file.separator" value="/"/>
+    <property name="basedir" value="/repo/experiments/commit-survival/work/checkouts/0"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="surefire.real.class.path" value="/repo/experiments/commit-survival/work/checkouts/0/target/surefire/surefirebooter-20261029122402734_3.jar"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="17.0.20.1+1"/>
+    <property name="user.name" value="root"/>
+    <property name="path.separator" value=":"/>
+    <property name="os.version" value="7.0.12-linuxkit"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="java.vendor.version" value="Temurin-17.0.20.1+1"/>
+    <property name="localRepository" value="/root/.m2/repository"/>
+    <property name="java.vendor.url.bug" value="https://github.com/adoptium/adoptium-support/issues"/>
+    <property name="java.io.tmpdir" value="/tmp"/>
+    <property name="java.version" value="17.0.20.1"/>
+    <property name="user.dir" value="/repo/experiments/commit-survival/work/checkouts/0"/>
+    <property name="os.arch" value="aarch64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="native.encoding" value="UTF-8"/>
+    <property name="java.library.path" value="/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib"/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="java.vendor" value="Eclipse Adoptium"/>
+    <property name="java.vm.version" value="17.0.20.1+1"/>
+    <property name="java.specification.maintenance.version" value="1"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="61.0"/>
+  </properties>
+  <testcase name="val_faildnskey_ok" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.0">
+    <skipped message="tests an unbound specific config option"/>
+  </testcase>
+  <testcase name="val_unalgo_ds" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.019"/>
+  <testcase name="val_nsec3_entnodata_optout_match" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.012"/>
+  <testcase name="val_cnametocloser" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.008"/>
+  <testcase name="val_nsec3_b5_wcnodata" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.021"/>
+  <testcase name="val_ans_dsent" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.016"/>
+  <testcase name="val_cnamenx_dblnsec" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.013"/>
+  <testcase name="val_positive_wc_nodeny" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.008"/>
+  <testcase name="val_cnametodnametocnametopos" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.021"/>
+  <testcase name="val_cnametonodata_nonsec" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.012"/>
+  <testcase name="val_cnametonodata" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.01"/>
+  <testcase name="val_cnametooptout" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.007"/>
+  <testcase name="val_ds_afterprime" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.008"/>
+  <testcase name="val_unsecds_qtypeds" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.0">
+    <skipped message="tests the iterative resolver"/>
+  </testcase>
+  <testcase name="val_noadwhennodo" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.0">
+    <skipped message="irrelevant - if we wouldn&apos;t want AD, we wouldn&apos;t be using this stuff"/>
+  </testcase>
+  <testcase name="val_ds_gost_downgrade" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.037"/>
+  <testcase name="val_nodata_ent" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.009"/>
+  <testcase name="val_adbit" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.009"/>
+  <testcase name="val_entds" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.016"/>
+  <testcase name="val_fwdds" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.0">
+    <skipped message="irrelevant, we&apos;re not a recursive resolver"/>
+  </testcase>
+  <testcase name="val_rrsig" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.007"/>
+  <testcase name="val_ds_sha2_downgrade_override" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.014"/>
+  <testcase name="val_secds" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.009"/>
+  <testcase name="val_nsec3_wcany_nodeny" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.008"/>
+  <testcase name="val_nsec3_b5_wcnodata_noce" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.016"/>
+  <testcase name="val_nsec3_b5_wcnodata_nonc" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.009"/>
+  <testcase name="val_nsec3_b5_wcnodata_nowc" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.01"/>
+  <testcase name="val_nsec3_entnodata_optout" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.008"/>
+  <testcase name="val_dnametopos" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.013"/>
+  <testcase name="val_qds_badanc" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.008"/>
+  <testcase name="val_nx_nsec3_collision" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.007"/>
+  <testcase name="val_dnamewc" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.011"/>
+  <testcase name="val_spurious_ns" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.006"/>
+  <testcase name="val_unalgo_dlv" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.019"/>
+  <testcase name="val_nodatawc_wcns" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.009"/>
+  <testcase name="val_nodata_failsig" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.007"/>
+  <testcase name="val_ds_gost" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.118"/>
+  <testcase name="val_ds_sha2" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.01"/>
+  <testcase name="val_cnameqtype" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.009"/>
+  <testcase name="val_cnametopos" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.008"/>
+  <testcase name="val_ta_algo_dnskey" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.008"/>
+  <testcase name="val_nsec3_cname_ds" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.009"/>
+  <testcase name="val_wild_pos" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.006"/>
+  <testcase name="val_nsec3_b3_optout_negcache" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.0">
+    <skipped message="we don&apos;t do negative caching"/>
+  </testcase>
+  <testcase name="val_cnametocloser_nosig" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.005"/>
+  <testcase name="val_ds_sha2_downgrade" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.009"/>
+  <testcase name="val_qds_oneanc" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.008"/>
+  <testcase name="val_any_cname" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.006"/>
+  <testcase name="val_any_dname" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.009"/>
+  <testcase name="val_nodata_failwc" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.003"/>
+  <testcase name="val_negcache_nxdomain" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.0">
+    <skipped message="aggressive NSEC is not supported"/>
+  </testcase>
+  <testcase name="val_nx" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.006"/>
+  <testcase name="val_nx_nsec3_hashalg" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.007"/>
+  <testcase name="val_qds_twoanc" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.01"/>
+  <testcase name="val_nsec3_cnametocnamewctoposwc" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.009"/>
+  <testcase name="val_ds_cnamesubbogus" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.01"/>
+  <testcase name="val_nodatawc_badce" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.007"/>
+  <testcase name="val_nx_nowc" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.011"/>
+  <testcase name="val_nsec3_nods_negcache" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.0">
+    <skipped message="we don&apos;t do negative caching"/>
+  </testcase>
+  <testcase name="val_keyprefetch" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.01"/>
+  <testcase name="val_cnamewctonodata" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.008"/>
+  <testcase name="val_keyprefetch_verify" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.009"/>
+  <testcase name="val_adcopy" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.005"/>
+  <testcase name="val_ans_nx" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.011"/>
+  <testcase name="val_nsec3_b2_nodata" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.006"/>
+  <testcase name="val_dsnsec" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.0">
+    <skipped message="we don&apos;t do negative caching"/>
+  </testcase>
+  <testcase name="val_ta_algo_missing" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.008"/>
+  <testcase name="val_anchor_nx_nosig" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.0">
+    <skipped message="tests caching of NX from a parent resolver"/>
+  </testcase>
+  <testcase name="val_unsecds_negcache" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.0">
+    <skipped message="we don&apos;t do negative caching"/>
+  </testcase>
+  <testcase name="val_nsec3_b21_nodataent" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.005"/>
+  <testcase name="val_nx_nsec3_collision2" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.006"/>
+  <testcase name="val_nx_nsec3_collision3" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.006"/>
+  <testcase name="val_nx_nsec3_collision4" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.007"/>
+  <testcase name="val_positive_nosigs" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.007"/>
+  <testcase name="val_nsec3_optout_ad" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.011"/>
+  <testcase name="val_cname_loop1" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.006"/>
+  <testcase name="val_cname_loop2" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.006"/>
+  <testcase name="val_cname_loop3" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.007"/>
+  <testcase name="val_nodata_zonecut" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.006"/>
+  <testcase name="val_ds_cnamesub" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.009"/>
+  <testcase name="val_stub_noroot" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.007"/>
+  <testcase name="val_mal_wc" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.007"/>
+  <testcase name="val_nodata" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.008"/>
+  <testcase name="val_cnametocnamewctoposwc" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.008"/>
+  <testcase name="val_nsec3_entnodata_optout_badopt" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.008"/>
+  <testcase name="val_nx_nsec3_params" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.007"/>
+  <testcase name="val_referd" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.0">
+    <skipped message="NSEC records missing for validation, tests caching stuff"/>
+  </testcase>
+  <testcase name="val_nsec3_iter_high" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.007"/>
+  <testcase name="val_negcache_nta" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.0">
+    <skipped message="tests unbound option domain-insecure, not available here"/>
+  </testcase>
+  <testcase name="val_stubds" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.0">
+    <skipped message="tests unbound specific config (stub zones)"/>
+  </testcase>
+  <testcase name="val_cnamewctoposwc" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.009"/>
+  <testcase name="val_ta_algo_missing_dp" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.007"/>
+  <testcase name="val_ds_cname" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.007"/>
+  <testcase name="val_refer_unsignadd" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.0">
+    <skipped message="we don&apos;t do negative caching"/>
+  </testcase>
+  <testcase name="val_any" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.008"/>
+  <testcase name="val_nx_failwc" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.003"/>
+  <testcase name="val_nodata_entnx" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.006"/>
+  <testcase name="val_nodata_entwc" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.006"/>
+  <testcase name="val_nsec3_wcany" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.005"/>
+  <testcase name="val_secds_nosig" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.007"/>
+  <testcase name="val_cnametonx" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.009"/>
+  <testcase name="val_cnametonsec" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.0">
+    <skipped message="incomplete CNAME answer"/>
+  </testcase>
+  <testcase name="val_referglue" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.0">
+    <skipped message="we don&apos;t do negative caching"/>
+  </testcase>
+  <testcase name="val_faildnskey" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.005"/>
+  <testcase name="val_nx_nodeny" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.007"/>
+  <testcase name="val_nsec3_b3_optout_noce" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.01"/>
+  <testcase name="val_nsec3_b3_optout_nonc" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.01"/>
+  <testcase name="val_cnamewctonx" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.01"/>
+  <testcase name="val_ds_sha2_lenient" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.015"/>
+  <testcase name="val_negcache_dssoa" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.0">
+    <skipped message="we don&apos;t do negative caching"/>
+  </testcase>
+  <testcase name="val_nodata_hasdata" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.007"/>
+  <testcase name="val_nsec3_b1_nameerror" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.006"/>
+  <testcase name="val_nodatawc_nodeny" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.01"/>
+  <testcase name="val_unalgo_anchor" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.007"/>
+  <testcase name="val_negcache_nodata" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.0">
+    <skipped message="aggressive NSEC is not supported"/>
+  </testcase>
+  <testcase name="val_cnametodname" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.011"/>
+  <testcase name="val_cnametooptin" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.0">
+    <skipped message="incomplete CNAME answer"/>
+  </testcase>
+  <testcase name="val_nx_nsec3_nsecmix" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.005"/>
+  <testcase name="val_cnametoposwc" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.008"/>
+  <testcase name="val_nsec3_b21_nodataent_wr" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.006"/>
+  <testcase name="val_unsec_cname" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.012"/>
+  <testcase name="val_dnametoolong" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.007"/>
+  <testcase name="val_dnametoposwc" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.008"/>
+  <testcase name="val_ta_algo_dnskey_dp" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.006"/>
+  <testcase name="val_positive" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.005"/>
+  <testcase name="val_nodatawc_one" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.005"/>
+  <testcase name="val_unsecds" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.005"/>
+  <testcase name="val_nsec3_nods_badopt" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.008"/>
+  <testcase name="val_nsec3_nods_badsig" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.009"/>
+  <testcase name="val_nsec3_b4_wild" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.007"/>
+  <testcase name="val_nsec3_cname_par" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.007"/>
+  <testcase name="val_nsec3_cname_sub" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.01"/>
+  <testcase name="val_nsec3_nodatawccname" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.007"/>
+  <testcase name="val_nodatawc" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.005"/>
+  <testcase name="val_anchor_nx" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.0">
+    <skipped message="tests caching of NX from a parent resolver"/>
+  </testcase>
+  <testcase name="val_cnametoinsecure" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.0">
+    <skipped message="incomplete CNAME answer"/>
+  </testcase>
+  <testcase name="val_nsec3_optout_cache" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.0">
+    <skipped message="more cache stuff"/>
+  </testcase>
+  <testcase name="val_nsec3_b3_optout" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.007"/>
+  <testcase name="val_cnametoposnowc" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.009"/>
+  <testcase name="val_cnameinsectopos" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.008"/>
+  <testcase name="val_nsec3_nods" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.013"/>
+  <testcase name="val_nokeyprime" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.008"/>
+  <testcase name="val_nsec3_b2_nodata_nons" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.008"/>
+  <testcase name="val_negcache_ds" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.008"/>
+  <testcase name="val_nx_overreach" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.007"/>
+  <testcase name="val_nsec3_b1_nameerror_noce" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.006"/>
+  <testcase name="val_nsec3_b1_nameerror_nonc" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.006"/>
+  <testcase name="val_nsec3_b1_nameerror_nowc" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.004"/>
+  <testcase name="val_nsec3_nods_soa" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.008"/>
+  <testcase name="val_positive_wc" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.005"/>
+  <testcase name="val_pos_truncns" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.005"/>
+  <testcase name="val_twocname" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.006"/>
+  <testcase name="val_cnamenx_rcodenx" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.008"/>
+  <testcase name="val_nsec3_b4_wild_wr" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.006"/>
+  <testcase name="val_nodatawc_wrongdeleg" classname="org.xbill.DNS.dnssec.UnboundTests" time="0.005"/>
+</testsuite>

@@ -1,0 +1,191 @@
+{
+  "index": 34,
+  "sha": "fd1d7c9280986ebb219c421695a902559aaeda22",
+  "status": "evaluated",
+  "imported": true,
+  "coverage_version": 3,
+  "coverage_status": "missing",
+  "coverage_reason": "imported evidence has no per-test coverage",
+  "methods": [
+    {
+      "file": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/Message_removeAllRecords_Test.java",
+      "class": "org.xbill.DNS.Message_removeAllRecords_Test",
+      "method": "removeAllRecords_clearsSpecifiedSection_andLeavesOthersIntact",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_removeAllRecords_Test.java|org.xbill.DNS.Message_removeAllRecords_Test|removeAllRecords_clearsSpecifiedSection_andLeavesOthersIntact",
+      "body_hash": "4691945ee05e7cdab5015196186a643abe5db68323bac04bc04c1917b54b525a",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_removeAllRecords_Test#removeAllRecords_clearsSpecifiedSection_andLeavesOthersIntact()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "a64150ccdb08e6bff47590260806e01941399995f6fbfa81fcfe63ae16c59e2c",
+      "execution_hash": "8b774c4aff0acf11223482a1939f6af4a21b5208d6a8ffa17cc7bd6036f72f77",
+      "source_root": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0a86ba63f7379cd03eeb83e8739e9cebcd20ac34830f8ae9f79ab6a8466f0110",
+      "resource_tree_hash": "de9617e6c9dd225fb49909e865a12a9415c63de3448234d2eb4d0a852a3dd419",
+      "unit": "org.xbill.DNS.Message#removeAllRecords(int)",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Message_removeAllRecords_Test.java|org.xbill.DNS.Message_removeAllRecords_Test|removeAllRecords_clearsSpecifiedSection_andLeavesOthersIntact",
+      "resource_root": "results/policy/pools/ktester/34/dev/src-test-t"
+    },
+    {
+      "file": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/Message_removeAllRecords_Test.java",
+      "class": "org.xbill.DNS.Message_removeAllRecords_Test",
+      "method": "removeAllRecords_multipleCalls_clearsAllSections",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_removeAllRecords_Test.java|org.xbill.DNS.Message_removeAllRecords_Test|removeAllRecords_multipleCalls_clearsAllSections",
+      "body_hash": "e177f32c06995ce088c53ecc7c02b0cbef92698097dea6d395b17e19f5457213",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_removeAllRecords_Test#removeAllRecords_multipleCalls_clearsAllSections()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "a64150ccdb08e6bff47590260806e01941399995f6fbfa81fcfe63ae16c59e2c",
+      "execution_hash": "8b774c4aff0acf11223482a1939f6af4a21b5208d6a8ffa17cc7bd6036f72f77",
+      "source_root": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0a86ba63f7379cd03eeb83e8739e9cebcd20ac34830f8ae9f79ab6a8466f0110",
+      "resource_tree_hash": "de9617e6c9dd225fb49909e865a12a9415c63de3448234d2eb4d0a852a3dd419",
+      "unit": "org.xbill.DNS.Message#removeAllRecords(int)",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Message_removeAllRecords_Test.java|org.xbill.DNS.Message_removeAllRecords_Test|removeAllRecords_multipleCalls_clearsAllSections",
+      "resource_root": "results/policy/pools/ktester/34/dev/src-test-t"
+    },
+    {
+      "file": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/Message_removeAllRecords_Test.java",
+      "class": "org.xbill.DNS.Message_removeAllRecords_Test",
+      "method": "removeAllRecords_invalidSection_throwsIllegalArgumentException",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_removeAllRecords_Test.java|org.xbill.DNS.Message_removeAllRecords_Test|removeAllRecords_invalidSection_throwsIllegalArgumentException",
+      "body_hash": "d9bcf1c760712f3dd36c927967aeb55cf9b36ec5e0770df8fa4ea3542fdad120",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_removeAllRecords_Test#removeAllRecords_invalidSection_throwsIllegalArgumentException()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "a64150ccdb08e6bff47590260806e01941399995f6fbfa81fcfe63ae16c59e2c",
+      "execution_hash": "8b774c4aff0acf11223482a1939f6af4a21b5208d6a8ffa17cc7bd6036f72f77",
+      "source_root": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0a86ba63f7379cd03eeb83e8739e9cebcd20ac34830f8ae9f79ab6a8466f0110",
+      "resource_tree_hash": "de9617e6c9dd225fb49909e865a12a9415c63de3448234d2eb4d0a852a3dd419",
+      "unit": "org.xbill.DNS.Message#removeAllRecords(int)",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Message_removeAllRecords_Test.java|org.xbill.DNS.Message_removeAllRecords_Test|removeAllRecords_invalidSection_throwsIllegalArgumentException",
+      "resource_root": "results/policy/pools/ktester/34/dev/src-test-t"
+    },
+    {
+      "file": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/Message_removeAllRecords_Test.java",
+      "class": "org.xbill.DNS.Message_removeAllRecords_Test",
+      "method": "removeAllRecords_validSection_updatesHeaderAndClearsArray",
+      "kind": "parameterized",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_removeAllRecords_Test.java|org.xbill.DNS.Message_removeAllRecords_Test|removeAllRecords_validSection_updatesHeaderAndClearsArray",
+      "body_hash": "d5549e942e523f08dd2ce563b9b486ed49c4cf6af229a6dcca868b8776dd949b",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_removeAllRecords_Test#removeAllRecords_validSection_updatesHeaderAndClearsArray(int)"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "a64150ccdb08e6bff47590260806e01941399995f6fbfa81fcfe63ae16c59e2c",
+      "execution_hash": "8b774c4aff0acf11223482a1939f6af4a21b5208d6a8ffa17cc7bd6036f72f77",
+      "source_root": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0a86ba63f7379cd03eeb83e8739e9cebcd20ac34830f8ae9f79ab6a8466f0110",
+      "resource_tree_hash": "de9617e6c9dd225fb49909e865a12a9415c63de3448234d2eb4d0a852a3dd419",
+      "unit": "org.xbill.DNS.Message#removeAllRecords(int)",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Message_removeAllRecords_Test.java|org.xbill.DNS.Message_removeAllRecords_Test|removeAllRecords_validSection_updatesHeaderAndClearsArray",
+      "resource_root": "results/policy/pools/ktester/34/dev/src-test-t"
+    },
+    {
+      "file": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/Message_removeAllRecords_Test.java",
+      "class": "org.xbill.DNS.Message_removeAllRecords_Test",
+      "method": "removeAllRecords_nullHeader_throwsNullPointerException",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_removeAllRecords_Test.java|org.xbill.DNS.Message_removeAllRecords_Test|removeAllRecords_nullHeader_throwsNullPointerException",
+      "body_hash": "07de7e421cc2d7302ae2b80aabf4c664ac403f687ed7835f0fb3fda396b916fe",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_removeAllRecords_Test#removeAllRecords_nullHeader_throwsNullPointerException()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "a64150ccdb08e6bff47590260806e01941399995f6fbfa81fcfe63ae16c59e2c",
+      "execution_hash": "8b774c4aff0acf11223482a1939f6af4a21b5208d6a8ffa17cc7bd6036f72f77",
+      "source_root": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0a86ba63f7379cd03eeb83e8739e9cebcd20ac34830f8ae9f79ab6a8466f0110",
+      "resource_tree_hash": "de9617e6c9dd225fb49909e865a12a9415c63de3448234d2eb4d0a852a3dd419",
+      "unit": "org.xbill.DNS.Message#removeAllRecords(int)",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Message_removeAllRecords_Test.java|org.xbill.DNS.Message_removeAllRecords_Test|removeAllRecords_nullHeader_throwsNullPointerException",
+      "resource_root": "results/policy/pools/ktester/34/dev/src-test-t"
+    },
+    {
+      "file": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/Message_removeAllRecords_Test.java",
+      "class": "org.xbill.DNS.Message_removeAllRecords_Test",
+      "method": "removeAllRecords_nullSectionsArray_throwsNullPointerException",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_removeAllRecords_Test.java|org.xbill.DNS.Message_removeAllRecords_Test|removeAllRecords_nullSectionsArray_throwsNullPointerException",
+      "body_hash": "4d98340e5d909d45d4b33e855a58a0a301208276bba3199e8dfadcc0cd86e44c",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_removeAllRecords_Test#removeAllRecords_nullSectionsArray_throwsNullPointerException()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "a64150ccdb08e6bff47590260806e01941399995f6fbfa81fcfe63ae16c59e2c",
+      "execution_hash": "8b774c4aff0acf11223482a1939f6af4a21b5208d6a8ffa17cc7bd6036f72f77",
+      "source_root": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0a86ba63f7379cd03eeb83e8739e9cebcd20ac34830f8ae9f79ab6a8466f0110",
+      "resource_tree_hash": "de9617e6c9dd225fb49909e865a12a9415c63de3448234d2eb4d0a852a3dd419",
+      "unit": "org.xbill.DNS.Message#removeAllRecords(int)",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Message_removeAllRecords_Test.java|org.xbill.DNS.Message_removeAllRecords_Test|removeAllRecords_nullSectionsArray_throwsNullPointerException",
+      "resource_root": "results/policy/pools/ktester/34/dev/src-test-t"
+    }
+  ]
+}

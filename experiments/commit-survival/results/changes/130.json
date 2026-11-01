@@ -1,0 +1,32 @@
+{
+  "index": 130,
+  "sha": "0c6a5d45adfb57051a6fb78692866eb69cf895ad",
+  "parent": "d171cc11576cc49525f6713cb7dcd425f2290712",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/Compression.java": [],
+    "src/main/java/org/xbill/DNS/Message.java": [
+      498
+    ]
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/Compression.java": [
+      59,
+      60,
+      61,
+      62,
+      63,
+      65,
+      67,
+      68,
+      71
+    ],
+    "src/main/java/org/xbill/DNS/Message.java": [
+      471,
+      472,
+      473,
+      474,
+      488
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/Compression.java b/src/main/java/org/xbill/DNS/Compression.java\nindex 5effa800..21bf9922 100644\n--- a/src/main/java/org/xbill/DNS/Compression.java\n+++ b/src/main/java/org/xbill/DNS/Compression.java\n@@ -51,0 +52,21 @@ public class Compression {\n+  /**\n+   * Removes a compression entry mapping of a name in a message.\n+   *\n+   * @param name The name to remove.\n+   * @since 3.6.6\n+   */\n+  public void remove(Name name) {\n+    int row = (name.hashCode() & 0x7FFFFFFF) % TABLE_SIZE;\n+    for (Entry entry = table[row], prev = null; entry != null; prev = entry, entry = entry.next) {\n+      if (entry.name.equals(name)) {\n+        if (prev == null) {\n+          table[row] = entry.next;\n+        } else {\n+          prev.next = entry.next;\n+        }\n+        log.trace(\"Removed {}\", name);\n+        return;\n+      }\n+    }\n+  }\n+\ndiff --git a/src/main/java/org/xbill/DNS/Message.java b/src/main/java/org/xbill/DNS/Message.java\nindex 09e64b74..b72f708a 100644\n--- a/src/main/java/org/xbill/DNS/Message.java\n+++ b/src/main/java/org/xbill/DNS/Message.java\n@@ -469,0 +470,8 @@ public class Message implements Cloneable {\n+        // If we just added a new name to the compression lookup table, we need to remove that again\n+        if (c != null) {\n+          int cPos = c.get(rec.name);\n+          if (cPos >= pos) {\n+            c.remove(rec.name);\n+          }\n+        }\n+\n@@ -479,0 +488,5 @@ public class Message implements Cloneable {\n+    return toWire(out, new Compression(), maxLength);\n+  }\n+\n+  /* Returns true if the message could be completely rendered (i.e. not truncated). */\n+  boolean toWire(DNSOutput out, Compression c, int maxLength) {\n@@ -498 +510,0 @@ public class Message implements Cloneable {\n-    Compression c = new Compression();"
+}

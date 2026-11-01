@@ -1,0 +1,41 @@
+{
+  "index": 164,
+  "sha": "52399e367fd31d52dffd27a29cd74f738d59910b",
+  "parent": "8a0f3347e075bccbff9453f288a2fe5bb4fa6eed",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/Zone.java": [
+      678,
+      679,
+      680,
+      681,
+      682,
+      685,
+      686,
+      687,
+      688,
+      689,
+      690,
+      692,
+      693,
+      694
+    ]
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/Zone.java": [
+      678,
+      679,
+      680,
+      681,
+      684,
+      685,
+      686,
+      687,
+      688,
+      689,
+      691,
+      692,
+      693
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/Zone.java b/src/main/java/org/xbill/DNS/Zone.java\nindex b574d6c5..3f525875 100644\n--- a/src/main/java/org/xbill/DNS/Zone.java\n+++ b/src/main/java/org/xbill/DNS/Zone.java\n@@ -678,6 +678,5 @@ public class Zone implements Serializable, Iterable<RRset> {\n-      for (int i = 0; i < labels - olabels; i++) {\n-        Name tname = name.wild(i + 1);\n-        Object types = exactName(tname);\n-        if (types == null) {\n-          continue;\n-        }\n+      Name tname = name.wild(1);\n+      Object types = exactName(tname);\n+      if (types == null) {\n+        return SetResponse.ofType(SetResponseType.NXDOMAIN);\n+      }\n@@ -685,11 +684,10 @@ public class Zone implements Serializable, Iterable<RRset> {\n-        if (type == Type.ANY) {\n-          SetResponse sr = SetResponse.ofType(SetResponseType.SUCCESSFUL);\n-          for (RRset set : allRRsetsWithoutLock(types)) {\n-            sr.addRRset(expandSet(set, name));\n-          }\n-          return sr;\n-        } else {\n-          RRset rrset = oneRRsetWithoutLock(types, type);\n-          if (rrset != null) {\n-            return SetResponse.ofType(SetResponseType.SUCCESSFUL, expandSet(rrset, name));\n-          }\n+      if (type == Type.ANY) {\n+        SetResponse sr = SetResponse.ofType(SetResponseType.SUCCESSFUL);\n+        for (RRset set : allRRsetsWithoutLock(types)) {\n+          sr.addRRset(expandSet(set, name));\n+        }\n+        return sr;\n+      } else {\n+        RRset rrset = oneRRsetWithoutLock(types, type);\n+        if (rrset != null) {\n+          return SetResponse.ofType(SetResponseType.SUCCESSFUL, expandSet(rrset, name));"
+}

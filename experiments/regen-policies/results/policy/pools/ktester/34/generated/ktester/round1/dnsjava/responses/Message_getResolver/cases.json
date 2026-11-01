@@ -1,0 +1,92 @@
+[
+  {
+    "group": "Resolver is null (no resolver set)",
+    "cases": [
+      {
+        "input": [],
+        "expected": "Optional.empty()",
+        "description": "Create a new Message instance without calling setResolver(). The internal resolver field remains null, so getResolver() should return Optional.empty()."
+      }
+    ]
+  },
+  {
+    "group": "Resolver is non\u2011null (resolver set)",
+    "cases": [
+      {
+        "input": [],
+        "expected": "Optional.of(resolverInstance)",
+        "description": "Create a new Message instance, create a mock or stub implementation of the Resolver interface (e.g., using Mockito), assign it via setResolver(resolverInstance). Calling getResolver() must return an Optional containing the same resolver instance."
+      }
+    ]
+  },
+  {
+    "group": "Resolver reference is unchanged after retrieval",
+    "cases": [
+      {
+        "input": [],
+        "expected": "Optional.of(resolverInstance) and resolverInstance == retrievedResolver",
+        "description": "After setting a resolver, invoke getResolver() and store the returned Optional. Verify that the Optional is present and that the contained resolver object is the exact same instance that was set (reference equality)."
+      }
+    ]
+  },
+  {
+    "group": "Resolver can be cleared after being set",
+    "cases": [
+      {
+        "input": [],
+        "expected": "Optional.empty()",
+        "description": "Set a resolver on a Message, then call setResolver(null) (or use reflection to set the private field to null). Subsequent call to getResolver() should return Optional.empty(), confirming that the method reflects the current state of the resolver field."
+      }
+    ]
+  },
+  {
+    "group": "Resolver is copied on clone",
+    "cases": [
+      {
+        "input": [],
+        "expected": "Optional.of(resolverInstance) where resolverInstance == clonedMessage.getResolver().get()",
+        "description": "Create a Message, set a mock Resolver, clone the Message using the clone() method, and verify that the cloned instance returns an Optional containing the same Resolver instance (reference equality)."
+      }
+    ]
+  },
+  {
+    "group": "Independent resolver per Message instance",
+    "cases": [
+      {
+        "input": [],
+        "expected": "Optional.empty() for secondMessage, Optional.of(firstResolver) for firstMessage",
+        "description": "Create two separate Message objects. Set a Resolver on the first one only. Verify that getResolver() on the second Message returns Optional.empty() while the first still returns the Resolver that was set."
+      }
+    ]
+  },
+  {
+    "group": "Resolver overwritten by subsequent setResolver call",
+    "cases": [
+      {
+        "input": [],
+        "expected": "Optional.of(secondResolver)",
+        "description": "Create a Message, set a first Resolver (resolverA), then set a different Resolver (resolverB). Verify that getResolver() returns an Optional containing resolverB, confirming that the field is overwritten."
+      }
+    ]
+  },
+  {
+    "group": "Resolver absent after constructing via static factory methods",
+    "cases": [
+      {
+        "input": [],
+        "expected": "Optional.empty()",
+        "description": "Create a Message using Message.newQuery(Record) and another using Message.newUpdate(Name). Neither factory method sets a Resolver. Verify that getResolver() returns Optional.empty() for both instances."
+      }
+    ]
+  },
+  {
+    "group": "Resolver remains unchanged after multiple getResolver calls",
+    "cases": [
+      {
+        "input": [],
+        "expected": "Optional.of(resolverInstance) on every call",
+        "description": "Set a Resolver on a Message, then invoke getResolver() several times in a row. Ensure each call returns an Optional that is present and contains the same Resolver instance, confirming that the method is side\u2011effect free."
+      }
+    ]
+  }
+]

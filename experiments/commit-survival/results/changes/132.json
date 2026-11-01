@@ -1,0 +1,30 @@
+{
+  "index": 132,
+  "sha": "a9149d6353496535212a64576d91432efabc4652",
+  "parent": "a36766d2b8a45294e1c28409a9dfea49899335b9",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/utils/base64.java": [
+      103,
+      107,
+      108,
+      116,
+      117,
+      120
+    ]
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/utils/base64.java": [
+      102,
+      113,
+      117,
+      122,
+      126,
+      130,
+      131,
+      133,
+      134,
+      137
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/utils/base64.java b/src/main/java/org/xbill/DNS/utils/base64.java\nindex a69b57e8..e7928717 100644\n--- a/src/main/java/org/xbill/DNS/utils/base64.java\n+++ b/src/main/java/org/xbill/DNS/utils/base64.java\n@@ -8,0 +9 @@ import java.io.IOException;\n+import java.util.Arrays;\n@@ -94 +95,2 @@ public class base64 {\n-   * Convert a base64-encoded String to binary data\n+   * Convert a base64-encoded String to binary data. Assumes standard Base64 encoding, use {@link\n+   * #fromString(String, boolean)} for Base64 URL decoding.\n@@ -99,0 +102,12 @@ public class base64 {\n+    return fromString(str, false);\n+  }\n+\n+  /**\n+   * Convert a base64-encoded String to binary data\n+   *\n+   * @param str A String containing the encoded data\n+   * @param useUrl True to use Base64URL encoding (i.e. no trailing =, -_ instead of +/)\n+   * @return An array containing the binary data, or null if the string is invalid\n+   */\n+  public static byte[] fromString(String str, boolean useUrl) {\n+    String base = useUrl ? BASE_64_URL : BASE_64;\n@@ -103 +117 @@ public class base64 {\n-      if (!Character.isWhitespace((char) b)) {\n+      if (base.indexOf((char) b) > -1) {\n@@ -107,2 +121,2 @@ public class base64 {\n-    byte[] in = bs.toByteArray();\n-    if (in.length % 4 != 0) {\n+\n+    if (bs.size() % 4 != 0) {\n@@ -111,0 +126 @@ public class base64 {\n+    byte[] in = bs.toByteArray();\n@@ -114,0 +130,2 @@ public class base64 {\n+    short[] s = new short[4];\n+    short[] t = new short[3];\n@@ -116,2 +133,2 @@ public class base64 {\n-      short[] s = new short[4];\n-      short[] t = new short[3];\n+      Arrays.fill(s, (short) 0);\n+      Arrays.fill(t, (short) 0);\n@@ -120 +137 @@ public class base64 {\n-        s[j] = (short) BASE_64.indexOf(in[i * 4 + j]);\n+        s[j] = (short) base.indexOf(in[i * 4 + j]);"
+}

@@ -1,0 +1,26 @@
+{
+  "index": 27,
+  "sha": "36ba71156f86fd610771c33df17ecaea1f2f4924",
+  "parent": "b842550e6c3046cdbd7969ac6ddf99af9ccdc637",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/NioTcpClient.java": [
+      37
+    ],
+    "src/main/java/org/xbill/DNS/NioUdpClient.java": [
+      59
+    ]
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/NioTcpClient.java": [
+      37,
+      38,
+      39
+    ],
+    "src/main/java/org/xbill/DNS/NioUdpClient.java": [
+      59,
+      60,
+      61
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/NioTcpClient.java b/src/main/java/org/xbill/DNS/NioTcpClient.java\nindex 759a2a29..cbea164a 100644\n--- a/src/main/java/org/xbill/DNS/NioTcpClient.java\n+++ b/src/main/java/org/xbill/DNS/NioTcpClient.java\n@@ -37 +37,5 @@ final class NioTcpClient extends NioClient implements TcpIoClient {\n-      ChannelState state = registrationQueue.remove();\n+      ChannelState state = registrationQueue.poll();\n+      if (state == null) {\n+        continue;\n+      }\n+\ndiff --git a/src/main/java/org/xbill/DNS/NioUdpClient.java b/src/main/java/org/xbill/DNS/NioUdpClient.java\nindex 2699e755..8a1d387c 100644\n--- a/src/main/java/org/xbill/DNS/NioUdpClient.java\n+++ b/src/main/java/org/xbill/DNS/NioUdpClient.java\n@@ -59 +59,5 @@ final class NioUdpClient extends NioClient implements UdpIoClient {\n-      Transaction t = registrationQueue.remove();\n+      Transaction t = registrationQueue.poll();\n+      if (t == null) {\n+        continue;\n+      }\n+"
+}

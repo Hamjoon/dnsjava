@@ -1,0 +1,67 @@
+{
+  "index": 4,
+  "sha": "6574cc2098a734c2b7f12f608caa279358f8c1dc",
+  "build": "ok",
+  "attempts": [
+    {
+      "command": [
+        "mvn",
+        "-q",
+        "-o",
+        "-DskipTests",
+        "compile"
+      ],
+      "cwd": "/repo/experiments/commit-survival/work/checkouts/4",
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 16.843,
+      "log": "results/builds/logs/4-1.txt"
+    }
+  ],
+  "input_sha256": "ed5bb64f5043ace8dac95d959b747d31ee953404e11a4b8d19a070d39cf9cb7e",
+  "pom_sha256": "4ef84ceea697d5503027ad59cfe1cbe271e31c115736289e5056cdf858280009",
+  "classpath": "work/classpaths/4ef84ceea697d5503027ad59cfe1cbe271e31c115736289e5056cdf858280009.txt",
+  "classpath_attempts": [
+    {
+      "command": [
+        "mvn",
+        "-q",
+        "-o",
+        "dependency:go-offline"
+      ],
+      "cwd": "/repo/experiments/commit-survival/work/checkouts/4",
+      "exit_code": 1,
+      "timeout": false,
+      "seconds": 1.838,
+      "log": "results/builds/logs/classpath-4/go-offline-8ebaf879be69409581521e541967104c/1.txt"
+    },
+    {
+      "command": [
+        "mvn",
+        "-q",
+        "-U",
+        "dependency:go-offline"
+      ],
+      "cwd": "/repo/experiments/commit-survival/work/checkouts/4",
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 1.902,
+      "log": "results/builds/logs/classpath-4/go-offline-8ebaf879be69409581521e541967104c/2.txt"
+    },
+    {
+      "command": [
+        "mvn",
+        "-q",
+        "-o",
+        "dependency:build-classpath",
+        "-DincludeScope=test",
+        "-Dmdep.outputFile=/repo/experiments/commit-survival/work/classpaths/4ef84ceea697d5503027ad59cfe1cbe271e31c115736289e5056cdf858280009-94c58c1bdaf040a9943140f6a115cee6.tmp"
+      ],
+      "cwd": "/repo/experiments/commit-survival/work/checkouts/4",
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 1.221,
+      "log": "results/builds/logs/classpath-4/build-classpath-3e9a91bd0a404ed786f704e6dc5d8a86/1.txt"
+    }
+  ]
+}

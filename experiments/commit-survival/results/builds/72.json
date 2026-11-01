@@ -1,0 +1,67 @@
+{
+  "index": 72,
+  "sha": "1da8365e920f1051dbf25cf3aa905efda74bdd06",
+  "build": "ok",
+  "attempts": [
+    {
+      "command": [
+        "mvn",
+        "-q",
+        "-o",
+        "-DskipTests",
+        "compile"
+      ],
+      "cwd": "/repo/experiments/commit-survival/work/checkouts/72",
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 13.204,
+      "log": "results/builds/logs/72-1.txt"
+    }
+  ],
+  "input_sha256": "2a945f036a3f8ffc9859611edc87bd887528a5c3b28d5ee900c3f7ce9311e4cf",
+  "pom_sha256": "725b2c1d02b790a1f248c4a6ae4037e79a33dca712bcb2c83c19d722f12e2ba8",
+  "classpath": "work/classpaths/725b2c1d02b790a1f248c4a6ae4037e79a33dca712bcb2c83c19d722f12e2ba8.txt",
+  "classpath_attempts": [
+    {
+      "command": [
+        "mvn",
+        "-q",
+        "-o",
+        "dependency:go-offline"
+      ],
+      "cwd": "/repo/experiments/commit-survival/work/checkouts/72",
+      "exit_code": 1,
+      "timeout": false,
+      "seconds": 3.001,
+      "log": "results/builds/logs/classpath-72/go-offline-68b10cf2c22c486aaabdaf4dea007377/1.txt"
+    },
+    {
+      "command": [
+        "mvn",
+        "-q",
+        "-U",
+        "dependency:go-offline"
+      ],
+      "cwd": "/repo/experiments/commit-survival/work/checkouts/72",
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 9.061,
+      "log": "results/builds/logs/classpath-72/go-offline-68b10cf2c22c486aaabdaf4dea007377/2.txt"
+    },
+    {
+      "command": [
+        "mvn",
+        "-q",
+        "-o",
+        "dependency:build-classpath",
+        "-DincludeScope=test",
+        "-Dmdep.outputFile=/repo/experiments/commit-survival/work/classpaths/725b2c1d02b790a1f248c4a6ae4037e79a33dca712bcb2c83c19d722f12e2ba8-c69224819ef245999459d7f0ec0792e8.tmp"
+      ],
+      "cwd": "/repo/experiments/commit-survival/work/checkouts/72",
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 2.138,
+      "log": "results/builds/logs/classpath-72/build-classpath-2b6f05eb20ba4d89b96fce8de937a55e/1.txt"
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "index": 157,
+  "sha": "2695b1aadbf0597fdb3097ef7a05342a635f1b14",
+  "parent": "1336d33f4623cc8293e970cc8dcdddd60ce5701c",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/CERTRecord.java": [
+      158
+    ],
+    "src/main/java/org/xbill/DNS/DHCIDRecord.java": [
+      46
+    ],
+    "src/main/java/org/xbill/DNS/HIPRecord.java": [
+      140,
+      145
+    ],
+    "src/main/java/org/xbill/DNS/IPSECKEYRecord.java": [
+      161
+    ],
+    "src/main/java/org/xbill/DNS/NSEC3Record.java": [
+      188
+    ],
+    "src/main/java/org/xbill/DNS/OPENPGPKEYRecord.java": [
+      46
+    ],
+    "src/main/java/org/xbill/DNS/SIGBase.java": [
+      112
+    ],
+    "src/main/java/org/xbill/DNS/SVCBBase.java": [
+      625,
+      626,
+      629,
+      630,
+      1079,
+      1087,
+      1093,
+      1096,
+      1110,
+      1113
+    ]
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/CERTRecord.java": [
+      158
+    ],
+    "src/main/java/org/xbill/DNS/DHCIDRecord.java": [
+      46
+    ],
+    "src/main/java/org/xbill/DNS/HIPRecord.java": [
+      140,
+      145
+    ],
+    "src/main/java/org/xbill/DNS/IPSECKEYRecord.java": [
+      161
+    ],
+    "src/main/java/org/xbill/DNS/NSEC3Record.java": [
+      188
+    ],
+    "src/main/java/org/xbill/DNS/OPENPGPKEYRecord.java": [
+      46
+    ],
+    "src/main/java/org/xbill/DNS/SIGBase.java": [
+      112
+    ],
+    "src/main/java/org/xbill/DNS/SVCBBase.java": [
+      624,
+      627,
+      1076,
+      1084,
+      1090,
+      1093,
+      1107,
+      1110
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/CERTRecord.java b/src/main/java/org/xbill/DNS/CERTRecord.java\nindex 9252a5a0..4dbef487 100644\n--- a/src/main/java/org/xbill/DNS/CERTRecord.java\n+++ b/src/main/java/org/xbill/DNS/CERTRecord.java\n@@ -158 +158 @@ public class CERTRecord extends Record {\n-      throw new TextParseException(\"cert is required and must be non-empty\");\n+      throw st.exception(\"cert is required and must be non-empty\");\ndiff --git a/src/main/java/org/xbill/DNS/DHCIDRecord.java b/src/main/java/org/xbill/DNS/DHCIDRecord.java\nindex c8f20241..bfd01402 100644\n--- a/src/main/java/org/xbill/DNS/DHCIDRecord.java\n+++ b/src/main/java/org/xbill/DNS/DHCIDRecord.java\n@@ -46 +46 @@ public class DHCIDRecord extends Record {\n-      throw new TextParseException(\"data is required and must be non-empty\");\n+      throw st.exception(\"data is required and must be non-empty\");\ndiff --git a/src/main/java/org/xbill/DNS/HIPRecord.java b/src/main/java/org/xbill/DNS/HIPRecord.java\nindex f7863ae9..4317773e 100644\n--- a/src/main/java/org/xbill/DNS/HIPRecord.java\n+++ b/src/main/java/org/xbill/DNS/HIPRecord.java\n@@ -140 +140 @@ public class HIPRecord extends Record {\n-      throw new TextParseException(\"hit is required and must be non-empty\");\n+      throw st.exception(\"hit is required and must be non-empty\");\n@@ -145 +145 @@ public class HIPRecord extends Record {\n-      throw new TextParseException(\"public key is required and must be non-empty\");\n+      throw st.exception(\"public key is required and must be non-empty\");\ndiff --git a/src/main/java/org/xbill/DNS/IPSECKEYRecord.java b/src/main/java/org/xbill/DNS/IPSECKEYRecord.java\nindex a5df5363..0335138f 100644\n--- a/src/main/java/org/xbill/DNS/IPSECKEYRecord.java\n+++ b/src/main/java/org/xbill/DNS/IPSECKEYRecord.java\n@@ -161 +161 @@ public class IPSECKEYRecord extends Record {\n-          throw new TextParseException(\"invalid gateway format\");\n+          throw st.exception(\"invalid gateway format\");\ndiff --git a/src/main/java/org/xbill/DNS/NSEC3Record.java b/src/main/java/org/xbill/DNS/NSEC3Record.java\nindex 969ba9e7..88e03db2 100644\n--- a/src/main/java/org/xbill/DNS/NSEC3Record.java\n+++ b/src/main/java/org/xbill/DNS/NSEC3Record.java\n@@ -188 +188 @@ public class NSEC3Record extends Record {\n-      throw new TextParseException(\"Invalid next hash\");\n+      throw st.exception(\"Invalid next hash\");\ndiff --git a/src/main/java/org/xbill/DNS/OPENPGPKEYRecord.java b/src/main/java/org/xbill/DNS/OPENPGPKEYRecord.java\nindex ad19cf0c..75c0a455 100644\n--- a/src/main/java/org/xbill/DNS/OPENPGPKEYRecord.java\n+++ b/src/main/java/org/xbill/DNS/OPENPGPKEYRecord.java\n@@ -46 +46 @@ public class OPENPGPKEYRecord extends Record {\n-      throw new TextParseException(\"cert is required and must be non-empty\");\n+      throw st.exception(\"cert is required and must be non-empty\");\ndiff --git a/src/main/java/org/xbill/DNS/SIGBase.java b/src/main/java/org/xbill/DNS/SIGBase.java\nindex a012a9c4..7f09df74 100644\n--- a/src/main/java/org/xbill/DNS/SIGBase.java\n+++ b/src/main/java/org/xbill/DNS/SIGBase.java\n@@ -112 +112 @@ abstract class SIGBase extends Record {\n-      throw new TextParseException(\"signature is required and must be non-empty\");\n+      throw st.exception(\"signature is required and must be non-empty\");\ndiff --git a/src/main/java/org/xbill/DNS/SVCBBase.java b/src/main/java/org/xbill/DNS/SVCBBase.java\nindex 8438073f..f4388023 100644\n--- a/src/main/java/org/xbill/DNS/SVCBBase.java\n+++ b/src/main/java/org/xbill/DNS/SVCBBase.java\n@@ -624,3 +624 @@ public abstract class SVCBBase extends Record {\n-    public ParameterPort() {\n-      super();\n-    }\n+    public ParameterPort() {}\n@@ -629,2 +627 @@ public abstract class SVCBBase extends Record {\n-      super();\n-      this.port = port;\n+      this.port = checkU16(\"port\", port);\n@@ -1079 +1076 @@ public abstract class SVCBBase extends Record {\n-          throw new TextParseException(\"Expected value for parameter key '\" + keyStr + \"'\");\n+          throw st.exception(\"Expected value for parameter key '\" + keyStr + \"'\");\n@@ -1087 +1084 @@ public abstract class SVCBBase extends Record {\n-        throw new TextParseException(\"Expected valid parameter key=value for '\" + t.value() + \"'\");\n+        throw st.exception(\"Expected valid parameter key=value for '\" + t.value() + \"'\");\n@@ -1093 +1090 @@ public abstract class SVCBBase extends Record {\n-        throw new TextParseException(\"Expected a valid parameter key for '\" + keyStr + \"'\");\n+        throw st.exception(\"Expected a valid parameter key for '\" + keyStr + \"'\");\n@@ -1096 +1093 @@ public abstract class SVCBBase extends Record {\n-        throw new TextParseException(\"Duplicate parameter key for '\" + keyStr + \"'\");\n+        throw st.exception(\"Duplicate parameter key for '\" + keyStr + \"'\");\n@@ -1110 +1107 @@ public abstract class SVCBBase extends Record {\n-      throw new TextParseException(\"No parameter values allowed for AliasMode\");\n+      throw st.exception(\"No parameter values allowed for AliasMode\");\n@@ -1113 +1110 @@ public abstract class SVCBBase extends Record {\n-      throw new TextParseException(\"Not all mandatory SvcParams are specified\");\n+      throw st.exception(\"Not all mandatory SvcParams are specified\");"
+}

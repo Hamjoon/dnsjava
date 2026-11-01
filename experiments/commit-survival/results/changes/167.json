@@ -1,0 +1,12 @@
+{
+  "index": 167,
+  "sha": "1f3960bc4aa21e9ede2ce80f80e3a0d660c7bd5d",
+  "parent": "8985908a54f5d7cf155057e46515e0db7988150e",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/RRset.java": []
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/RRset.java": []
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/RRset.java b/src/main/java/org/xbill/DNS/RRset.java\nindex afeef619..27c96a3c 100644\n--- a/src/main/java/org/xbill/DNS/RRset.java\n+++ b/src/main/java/org/xbill/DNS/RRset.java\n@@ -17,0 +18,3 @@ import lombok.EqualsAndHashCode;\n+ * <p>Note that although this class contains the name {@code Set}, it is backed by an ordered list.\n+ * Insertion order matters to support round-robin answers from servers.\n+ *"
+}

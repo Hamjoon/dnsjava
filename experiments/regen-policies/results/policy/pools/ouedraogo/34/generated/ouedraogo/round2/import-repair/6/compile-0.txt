@@ -1,0 +1,33 @@
+/repo/experiments/regen-policies/results/policy/pools/ouedraogo/34/generated/ouedraogo/round2/sources/TSIG/FSL/TSIGTest.java:76: error: cannot find symbol
+  private static final byte[] KEY_BYTES = base64.fromString("YWJjZGVm"); // "abcdef"
+                                          ^
+  symbol:   variable base64
+  location: class TSIGTest
+/repo/experiments/regen-policies/results/policy/pools/ouedraogo/34/generated/ouedraogo/round2/sources/TSIG/FSL/TSIGTest.java:108: error: alg has private access in TSIG
+    assertEquals(TSIG.HMAC_MD5, tsig.alg);
+                                    ^
+/repo/experiments/regen-policies/results/policy/pools/ouedraogo/34/generated/ouedraogo/round2/sources/TSIG/FSL/TSIGTest.java:115: error: alg has private access in TSIG
+    assertEquals(TSIG.HMAC_SHA256, tsig.alg);
+                                       ^
+/repo/experiments/regen-policies/results/policy/pools/ouedraogo/34/generated/ouedraogo/round2/sources/TSIG/FSL/TSIGTest.java:204: error: incompatible types: byte[] cannot be converted to SecretKey
+    TSIG signer = new TSIG(TSIG.HMAC_SHA256, KEY_NAME, KEY_BYTES, signClock);
+                                                       ^
+/repo/experiments/regen-policies/results/policy/pools/ouedraogo/34/generated/ouedraogo/round2/sources/TSIG/FSL/TSIGTest.java:211: error: incompatible types: byte[] cannot be converted to SecretKey
+    TSIG verifier = new TSIG(TSIG.HMAC_SHA256, KEY_NAME, KEY_BYTES, verifyClock);
+                                                         ^
+/repo/experiments/regen-policies/results/policy/pools/ouedraogo/34/generated/ouedraogo/round2/sources/TSIG/FSL/TSIGTest.java:225: error: method verify in class TSIG cannot be applied to given types;
+    assertTrue(TSIG.verify(expected, shortSig));
+                   ^
+  required: byte[],byte[]
+  found:    byte[],byte[]
+  reason: verify(byte[],byte[]) has private access in TSIG
+/repo/experiments/regen-policies/results/policy/pools/ouedraogo/34/generated/ouedraogo/round2/sources/TSIG/FSL/TSIGTest.java:228: error: method verify in class TSIG cannot be applied to given types;
+    assertFalse(TSIG.verify(expected, mismatched));
+                    ^
+  required: byte[],byte[]
+  found:    byte[],byte[]
+  reason: verify(byte[],byte[]) has private access in TSIG
+Note: /repo/experiments/regen-policies/results/policy/pools/ouedraogo/34/generated/ouedraogo/round2/sources/TSIG/FSL/TSIGTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+7 errors

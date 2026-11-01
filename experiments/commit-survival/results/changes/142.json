@@ -1,0 +1,20 @@
+{
+  "index": 142,
+  "sha": "ebce5ed58d6521625b2731cdcd35fb00248dc998",
+  "parent": "c993f68a5f0a2f0453e2d3c6f3f9525ba2f6ef13",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/Generator.java": [
+      248,
+      249,
+      251
+    ]
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/Generator.java": [
+      248,
+      249,
+      251
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/Generator.java b/src/main/java/org/xbill/DNS/Generator.java\nindex ec04d85d..e4a4be08 100644\n--- a/src/main/java/org/xbill/DNS/Generator.java\n+++ b/src/main/java/org/xbill/DNS/Generator.java\n@@ -64,2 +64,2 @@ public class Generator {\n-   * @param start The start of the range.\n-   * @param end The end of the range.\n+   * @param start The start of the range (inclusive).\n+   * @param end The end of the range (inclusive).\n@@ -248,2 +248,2 @@ public class Generator {\n-    for (long i = start; i < end; i += step) {\n-      String namestr = substitute(namePattern, current);\n+    for (long i = start; i <= end; i += step) {\n+      String namestr = substitute(namePattern, i);\n@@ -251 +251 @@ public class Generator {\n-      String rdata = substitute(rdataPattern, current);\n+      String rdata = substitute(rdataPattern, i);"
+}

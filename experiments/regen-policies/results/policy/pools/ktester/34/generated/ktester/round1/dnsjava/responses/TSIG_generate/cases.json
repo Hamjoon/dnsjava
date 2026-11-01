@@ -1,0 +1,752 @@
+[
+  {
+    "group": "Null and Invalid Inputs",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "null"
+          },
+          {
+            "parameter": "byte[] b",
+            "value": "new byte[]{0x01,0x02}"
+          },
+          {
+            "parameter": "int error",
+            "value": "0"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "null"
+          }
+        ],
+        "expected": "NullPointerException",
+        "description": "The method should reject a null Message and throw NPE before any processing."
+      },
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "mock(Message)"
+          },
+          {
+            "parameter": "byte[] b",
+            "value": "null"
+          },
+          {
+            "parameter": "int error",
+            "value": "0"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "null"
+          }
+        ],
+        "expected": "NullPointerException",
+        "description": "A null byte array must cause NPE because the MAC calculation needs the original wire format."
+      },
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "mock(Message)"
+          },
+          {
+            "parameter": "byte[] b",
+            "value": "new byte[0]"
+          },
+          {
+            "parameter": "int error",
+            "value": "-1"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "null"
+          }
+        ],
+        "expected": "IllegalArgumentException",
+        "description": "Negative error codes are invalid; the implementation should validate and throw IAE."
+      }
+    ]
+  },
+  {
+    "group": "Error Code Branches",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "mock(Message)"
+          },
+          {
+            "parameter": "byte[] b",
+            "value": "new byte[]{0x10,0x20}"
+          },
+          {
+            "parameter": "int error",
+            "value": "Rcode.BADTIME"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "null"
+          }
+        ],
+        "expected": "TSIGRecord with error field set to BADTIME",
+        "description": "When the error code indicates a bad time, generate must embed that error in the returned TSIGRecord."
+      },
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "mock(Message)"
+          },
+          {
+            "parameter": "byte[] b",
+            "value": "new byte[]{0x10,0x20}"
+          },
+          {
+            "parameter": "int error",
+            "value": "Rcode.BADSIG"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "null"
+          }
+        ],
+        "expected": "TSIGRecord with error field set to BADSIG",
+        "description": "When the error code indicates a bad signature, generate must embed that error in the returned TSIGRecord."
+      },
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "mock(Message)"
+          },
+          {
+            "parameter": "byte[] b",
+            "value": "new byte[]{0x10,0x20}"
+          },
+          {
+            "parameter": "int error",
+            "value": "0"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "null"
+          }
+        ],
+        "expected": "TSIGRecord with error field set to 0 (NOERROR)",
+        "description": "A normal (no\u2011error) invocation should produce a TSIGRecord whose error field is 0."
+      }
+    ]
+  },
+  {
+    "group": "FullSignature Variations",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "mock(Message)"
+          },
+          {
+            "parameter": "byte[] b",
+            "value": "new byte[]{0x55,0x66,0x77}"
+          },
+          {
+            "parameter": "int error",
+            "value": "0"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "null"
+          }
+        ],
+        "expected": "TSIGRecord whose MAC length equals the full output length of the selected HMAC algorithm",
+        "description": "When fullSignature is true (default), generate must return the complete MAC."
+      },
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "mock(Message)"
+          },
+          {
+            "parameter": "byte[] b",
+            "value": "new byte[]{0x55,0x66,0x77}"
+          },
+          {
+            "parameter": "int error",
+            "value": "0"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "null"
+          }
+        ],
+        "expected": "TSIGRecord whose MAC is truncated to 10 bytes (or the algorithm\u2011specific truncation length)",
+        "description": "When fullSignature is false, generate must truncate the MAC according to the RFC\u20112845 rules."
+      }
+    ]
+  },
+  {
+    "group": "Old Record Influence",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "mock(Message)"
+          },
+          {
+            "parameter": "byte[] b",
+            "value": "new byte[]{0x01,0x02,0x03}"
+          },
+          {
+            "parameter": "int error",
+            "value": "0"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "mock(TSIGRecord) with prior MAC and time"
+          }
+        ],
+        "expected": "TSIGRecord whose time field is derived from the old record (time signed + FUDGE) and MAC incorporates the previous MAC",
+        "description": "If an old TSIGRecord is supplied, the new MAC must be calculated over the previous MAC and the new message, per the TSIG chaining rules."
+      },
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "mock(Message)"
+          },
+          {
+            "parameter": "byte[] b",
+            "value": "new byte[]{0x01,0x02,0x03}"
+          },
+          {
+            "parameter": "int error",
+            "value": "0"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "null"
+          }
+        ],
+        "expected": "TSIGRecord whose time field equals the current Instant (within a few milliseconds) and MAC does not include a prior MAC",
+        "description": "When old is null, the method should start a fresh TSIG chain using the current time."
+      }
+    ]
+  },
+  {
+    "group": "Algorithm Selection",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "mock(Message) with TSIG algorithm HMAC_SHA256"
+          },
+          {
+            "parameter": "byte[] b",
+            "value": "new byte[]{0x0A,0x0B}"
+          },
+          {
+            "parameter": "int error",
+            "value": "0"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "null"
+          }
+        ],
+        "expected": "TSIGRecord whose name field is HMAC_SHA256 and MAC length matches SHA\u2011256 output (32 bytes)",
+        "description": "The generate method must map the algorithm string to the correct Name constant and use the matching HMAC algorithm."
+      },
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "mock(Message) with TSIG algorithm \"unknown-alg\""
+          },
+          {
+            "parameter": "byte[] b",
+            "value": "new byte[]{0x0A,0x0B}"
+          },
+          {
+            "parameter": "int error",
+            "value": "0"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "null"
+          }
+        ],
+        "expected": "IllegalArgumentException",
+        "description": "An unsupported algorithm name should cause the method to reject the request with an IAE."
+      }
+    ]
+  },
+  {
+    "group": "Clock / Time Fudge Handling",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "mock(Message)"
+          },
+          {
+            "parameter": "byte[] b",
+            "value": "new byte[]{0x01}"
+          },
+          {
+            "parameter": "int error",
+            "value": "0"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "null"
+          }
+        ],
+        "expected": "TSIGRecord whose time value is within \u00b1TSIG.FUDGE of the system Clock instant",
+        "description": "The generated TSIG timestamp must be the current time; the test verifies it is not older than now\u2011FUDGE and not newer than now+FUDGE."
+      },
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "mock(Message)"
+          },
+          {
+            "parameter": "byte[] b",
+            "value": "new byte[]{0x01}"
+          },
+          {
+            "parameter": "int error",
+            "value": "0"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "mock(TSIGRecord) with time = Instant.now().minusSeconds(600)"
+          }
+        ],
+        "expected": "TSIGRecord with error field set to Rcode.BADTIME",
+        "description": "If the old record\u2019s time is outside the allowed fudge window, generate must return a TSIGRecord indicating BADTIME."
+      }
+    ]
+  },
+  {
+    "group": "Empty Wire Format",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "mock(Message) with default TSIG settings"
+          },
+          {
+            "parameter": "byte[] b",
+            "value": "new byte[0]"
+          },
+          {
+            "parameter": "int error",
+            "value": "0"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "null"
+          }
+        ],
+        "expected": "TSIGRecord whose MAC is non\u2011null and has the full length of the selected HMAC algorithm (e.g., 16 bytes for HMAC\u2011MD5)",
+        "description": "When the original wire format is empty the method must still produce a valid MAC; this tests that an empty byte array does not cause an exception or a zero\u2011length MAC."
+      }
+    ]
+  },
+  {
+    "group": "Large Message Handling",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "mock(Message) with default TSIG settings"
+          },
+          {
+            "parameter": "byte[] b",
+            "value": "byte[10240] filled with pseudo\u2011random data"
+          },
+          {
+            "parameter": "int error",
+            "value": "0"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "null"
+          }
+        ],
+        "expected": "TSIGRecord whose MAC length equals the full output length of the default HMAC algorithm and no exception is thrown",
+        "description": "A large wire\u2011format array (10\u202fKB) exercises the internal buffer handling and ensures the MAC calculation works for messages larger than typical DNS packets."
+      }
+    ]
+  },
+  {
+    "group": "Algorithm Mismatch Between New and Old Records",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "mock(Message) with TSIG algorithm HMAC_SHA256"
+          },
+          {
+            "parameter": "byte[] b",
+            "value": "new byte[]{0x01,0x02}"
+          },
+          {
+            "parameter": "int error",
+            "value": "0"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "mock(TSIGRecord) whose algorithm is HMAC_SHA1"
+          }
+        ],
+        "expected": "IllegalArgumentException",
+        "description": "If the old TSIGRecord uses a different algorithm than the current message, the chaining rules cannot be applied and the implementation should reject the request."
+      }
+    ]
+  },
+  {
+    "group": "Old Record Timestamp Within Fudge Window (Future Time)",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "mock(Message) with default TSIG settings"
+          },
+          {
+            "parameter": "byte[] b",
+            "value": "new byte[]{0x0A,0x0B}"
+          },
+          {
+            "parameter": "int error",
+            "value": "0"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "mock(TSIGRecord) with time = Instant.now().plusSeconds(200) and valid MAC"
+          }
+        ],
+        "expected": "TSIGRecord whose time field equals old.time + TSIG.FUDGE and error field = 0 (NOERROR)",
+        "description": "A future timestamp that is still inside the allowed \u00b1FUDGE range must be accepted; the new TSIG\u2019s time is derived from the old record per RFC\u20112845."
+      }
+    ]
+  },
+  {
+    "group": "Old Record Timestamp Exactly At Lower Fudge Boundary",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "mock(Message) with default TSIG settings"
+          },
+          {
+            "parameter": "byte[] b",
+            "value": "new byte[]{0x0C,0x0D}"
+          },
+          {
+            "parameter": "int error",
+            "value": "0"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "mock(TSIGRecord) with time = Instant.now().minusSeconds(TSIG.FUDGE.getSeconds()) and valid MAC"
+          }
+        ],
+        "expected": "TSIGRecord whose time field equals old.time + TSIG.FUDGE (i.e., current instant) and error = 0",
+        "description": "The lower edge of the fudge window must be treated as valid; this verifies the inclusive comparison used by the implementation."
+      }
+    ]
+  },
+  {
+    "group": "Non\u2011Default Algorithm \u2013 HMAC_SHA1 Full Signature",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "mock(Message) with TSIG algorithm HMAC_SHA1"
+          },
+          {
+            "parameter": "byte[] b",
+            "value": "new byte[]{0x55,0x66}"
+          },
+          {
+            "parameter": "int error",
+            "value": "0"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "null"
+          }
+        ],
+        "expected": "TSIGRecord whose name field is TSIG.HMAC_SHA1 and MAC length = 20 bytes (full SHA\u20111 output)",
+        "description": "Ensures that the generate method correctly maps the algorithm string to the HMAC\u2011SHA1 implementation and returns the complete MAC when fullSignature defaults to true."
+      }
+    ]
+  },
+  {
+    "group": "Non\u2011Default Algorithm \u2013 HMAC_SHA384 Truncated Signature",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "mock(Message) with TSIG algorithm HMAC_SHA384"
+          },
+          {
+            "parameter": "byte[] b",
+            "value": "new byte[]{0xAA,0xBB,0xCC}"
+          },
+          {
+            "parameter": "int error",
+            "value": "0"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "null"
+          }
+        ],
+        "expected": "TSIGRecord whose name field is TSIG.HMAC_SHA384 and MAC length = 10 bytes (truncated per RFC\u20112845 when fullSignature is false)",
+        "description": "Calls the overloaded generate(..., boolean fullSignature) with fullSignature = false to verify that even for a 48\u2011byte SHA\u2011384 output the method correctly truncates the MAC to the 10\u2011byte limit."
+      }
+    ]
+  },
+  {
+    "group": "Propagation of Non\u2011Standard Error Codes",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "mock(Message) with default TSIG settings"
+          },
+          {
+            "parameter": "byte[] b",
+            "value": "new byte[]{0x01}"
+          },
+          {
+            "parameter": "int error",
+            "value": "Rcode.NOTAUTH"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "null"
+          }
+        ],
+        "expected": "TSIGRecord whose error field equals Rcode.NOTAUTH",
+        "description": "The generate method should forward any valid DNS RCODE that is not specially handled (e.g., BADTIME, BADSIG) without alteration."
+      }
+    ]
+  },
+  {
+    "group": "Old Record With Null Prior MAC",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "mock(Message) with default TSIG settings"
+          },
+          {
+            "parameter": "byte[] b",
+            "value": "new byte[]{0x10,0x20,0x30}"
+          },
+          {
+            "parameter": "int error",
+            "value": "0"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "mock(TSIGRecord) with MAC = null and valid time"
+          }
+        ],
+        "expected": "TSIGRecord whose MAC length equals the full output length of the default HMAC algorithm (no truncation) and no exception is thrown",
+        "description": "When the previous TSIGRecord lacks a MAC, the implementation should treat the situation as the start of a new chain rather than failing."
+      }
+    ]
+  },
+  {
+    "group": "Invalid Key Length",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "mock(Message) with TSIG algorithm HMAC_SHA256"
+          },
+          {
+            "parameter": "byte[] b",
+            "value": "new byte[0]"
+          },
+          {
+            "parameter": "int error",
+            "value": "0"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "null"
+          }
+        ],
+        "expected": "IllegalArgumentException",
+        "description": "A zero\u2011length secret key is not valid for HMAC\u2011SHA256; the method must detect the insufficient key size and throw IAE."
+      },
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "mock(Message) with TSIG algorithm HMAC_MD5"
+          },
+          {
+            "parameter": "byte[] b",
+            "value": "new byte[]{0x01}"
+          },
+          {
+            "parameter": "int error",
+            "value": "0"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "null"
+          }
+        ],
+        "expected": "IllegalArgumentException",
+        "description": "A key that is shorter than the minimum required length for the selected algorithm (MD5 expects at least 8 bytes) must cause IAE."
+      }
+    ]
+  },
+  {
+    "group": "Invalid Error Code",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "mock(Message) with default TSIG settings"
+          },
+          {
+            "parameter": "byte[] b",
+            "value": "new byte[]{0x0A,0x0B}"
+          },
+          {
+            "parameter": "int error",
+            "value": "9999"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "null"
+          }
+        ],
+        "expected": "IllegalArgumentException",
+        "description": "Error codes outside the DNS RCODE range (0\u201165535) are invalid; the implementation should validate and throw IAE for an out\u2011of\u2011range value."
+      },
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "mock(Message) with default TSIG settings"
+          },
+          {
+            "parameter": "byte[] b",
+            "value": "new byte[]{0x0A,0x0B}"
+          },
+          {
+            "parameter": "int error",
+            "value": "-5"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "null"
+          }
+        ],
+        "expected": "IllegalArgumentException",
+        "description": "Negative error codes are not permitted; the method must reject them with IAE."
+      }
+    ]
+  },
+  {
+    "group": "Old Record Missing Required Fields",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "mock(Message) with TSIG algorithm HMAC_SHA1"
+          },
+          {
+            "parameter": "byte[] b",
+            "value": "new byte[]{0x01,0x02,0x03,0x04}"
+          },
+          {
+            "parameter": "int error",
+            "value": "0"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "mock(TSIGRecord) with time = null, name = HMAC_SHA1, MAC = non\u2011null"
+          }
+        ],
+        "expected": "IllegalArgumentException",
+        "description": "An old TSIGRecord whose timestamp is null cannot be used for chaining; the method should throw IAE."
+      },
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "mock(Message) with TSIG algorithm HMAC_SHA256"
+          },
+          {
+            "parameter": "byte[] b",
+            "value": "new byte[]{0x0A,0x0B,0x0C,0x0D}"
+          },
+          {
+            "parameter": "int error",
+            "value": "0"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "mock(TSIGRecord) with name = null, time = Instant.now(), MAC = non\u2011null"
+          }
+        ],
+        "expected": "IllegalArgumentException",
+        "description": "An old TSIGRecord without an algorithm name cannot be processed; the method must reject it with IAE."
+      },
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "mock(Message) with TSIG algorithm HMAC_SHA384"
+          },
+          {
+            "parameter": "byte[] b",
+            "value": "new byte[]{0x01,0x02,0x03,0x04,0x05,0x06}"
+          },
+          {
+            "parameter": "int error",
+            "value": "0"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "mock(TSIGRecord) with name = HMAC_SHA384, time = Instant.now(), MAC = null"
+          }
+        ],
+        "expected": "IllegalArgumentException",
+        "description": "When the previous TSIGRecord has a null MAC, the chaining logic cannot be applied; the implementation should treat this as an invalid old record and throw IAE."
+      }
+    ]
+  }
+]

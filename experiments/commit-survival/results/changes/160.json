@@ -1,0 +1,34 @@
+{
+  "index": 160,
+  "sha": "9260418e430b42f9fe8ee23be72abe2094c05d20",
+  "parent": "4f86d76cc24e3e5c0692314f2fca277f8d486537",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/Record.java": [],
+    "src/main/java/org/xbill/DNS/SPFRecord.java": [],
+    "src/main/java/org/xbill/DNS/SVCBBase.java": [],
+    "src/main/java/org/xbill/DNS/TXTBase.java": [
+      68,
+      85
+    ],
+    "src/main/java/org/xbill/DNS/TXTRecord.java": [],
+    "src/main/java/org/xbill/DNS/Tokenizer.java": []
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/Record.java": [
+      448,
+      449
+    ],
+    "src/main/java/org/xbill/DNS/SPFRecord.java": [],
+    "src/main/java/org/xbill/DNS/SVCBBase.java": [
+      993,
+      994
+    ],
+    "src/main/java/org/xbill/DNS/TXTBase.java": [
+      68,
+      85
+    ],
+    "src/main/java/org/xbill/DNS/TXTRecord.java": [],
+    "src/main/java/org/xbill/DNS/Tokenizer.java": []
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/Record.java b/src/main/java/org/xbill/DNS/Record.java\nindex d31b4a7a..576a33cb 100644\n--- a/src/main/java/org/xbill/DNS/Record.java\n+++ b/src/main/java/org/xbill/DNS/Record.java\n@@ -447,0 +448,4 @@ public abstract class Record implements Cloneable, Comparable<Record>, Serializa\n+    if (array.length == 0) {\n+      return \"\\\"\\\"\";\n+    }\n+\n@@ -550,0 +555,3 @@ public abstract class Record implements Cloneable, Comparable<Record>, Serializa\n+   * <p><b>Important</b>: {@code s} must be in presentation format, i.e. it <b>MUST NOT</b> contain\n+   * characters outside the {@code VCHAR} set (ASCII between ' ' / 0x20 and '~' / 0x7E, inclusive).\n+   *\n@@ -558,0 +566 @@ public abstract class Record implements Cloneable, Comparable<Record>, Serializa\n+   * @see <a href=\"https://www.rfc-editor.org/info/rfc5234/#appendix-B.1\">RFC 5234, Appendix B.1</a>\ndiff --git a/src/main/java/org/xbill/DNS/SPFRecord.java b/src/main/java/org/xbill/DNS/SPFRecord.java\nindex 074b4b0f..58c6bbd3 100644\n--- a/src/main/java/org/xbill/DNS/SPFRecord.java\n+++ b/src/main/java/org/xbill/DNS/SPFRecord.java\n@@ -20,0 +21,3 @@ public class SPFRecord extends TXTBase {\n+   * <p><b>Important</b>: {@code strings} is interpreted as a Java string, in standard platform\n+   * encoding. Characters outside the ASCII-range will be encoded.\n+   *\n@@ -29 +32,4 @@ public class SPFRecord extends TXTBase {\n-   * Creates a SPF Record from the given data\n+   * Creates an SPF Record from the given data.\n+   *\n+   * <p><b>Important</b>: {@code string} is interpreted as a Java string, in standard platform\n+   * encoding. Characters outside the ASCII-range will be encoded.\ndiff --git a/src/main/java/org/xbill/DNS/SVCBBase.java b/src/main/java/org/xbill/DNS/SVCBBase.java\nindex f4388023..d13b26a1 100644\n--- a/src/main/java/org/xbill/DNS/SVCBBase.java\n+++ b/src/main/java/org/xbill/DNS/SVCBBase.java\n@@ -992,0 +993,4 @@ public abstract class SVCBBase extends Record {\n+      if (value == null || value.length == 0) {\n+        return \"\";\n+      }\n+\ndiff --git a/src/main/java/org/xbill/DNS/TXTBase.java b/src/main/java/org/xbill/DNS/TXTBase.java\nindex 78ff4126..a475ad02 100644\n--- a/src/main/java/org/xbill/DNS/TXTBase.java\n+++ b/src/main/java/org/xbill/DNS/TXTBase.java\n@@ -68 +68 @@ abstract class TXTBase extends Record {\n-        throw st.exception(e.getMessage());\n+        throw st.exception(\"invalid string\", e);\n@@ -85 +85 @@ abstract class TXTBase extends Record {\n-      sb.append(byteArrayToString(array, true));\n+      sb.append(byteArrayToStringAutoQuote(array));\ndiff --git a/src/main/java/org/xbill/DNS/TXTRecord.java b/src/main/java/org/xbill/DNS/TXTRecord.java\nindex 221555f2..32b042d3 100644\n--- a/src/main/java/org/xbill/DNS/TXTRecord.java\n+++ b/src/main/java/org/xbill/DNS/TXTRecord.java\n@@ -20,0 +21,3 @@ public class TXTRecord extends TXTBase {\n+   * <p><b>Important</b>: {@code strings} is interpreted as a Java string, in standard platform\n+   * encoding. Characters outside the ASCII-range will be encoded.\n+   *\n@@ -30,0 +34,3 @@ public class TXTRecord extends TXTBase {\n+   * <p><b>Important</b>: {@code string} is interpreted as a Java string, in standard platform\n+   * encoding. Characters outside the ASCII-range will be encoded.\n+   *\ndiff --git a/src/main/java/org/xbill/DNS/Tokenizer.java b/src/main/java/org/xbill/DNS/Tokenizer.java\nindex d134fc85..2b2bd5e2 100644\n--- a/src/main/java/org/xbill/DNS/Tokenizer.java\n+++ b/src/main/java/org/xbill/DNS/Tokenizer.java\n@@ -174,0 +175,3 @@ public class Tokenizer implements AutoCloseable {\n+   * <p><b>Important</b>: {@code s} must be in presentation format, i.e. it <b>MUST NOT</b> contain\n+   * characters outside the {@code VCHAR} set (ASCII between ' ' / 0x20 and '~' / 0x7E, inclusive).\n+   *\n@@ -175,0 +179 @@ public class Tokenizer implements AutoCloseable {\n+   * @see <a href=\"https://www.rfc-editor.org/info/rfc5234/#appendix-B.1\">RFC 5234, Appendix B.1</a>"
+}

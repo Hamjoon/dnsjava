@@ -1,0 +1,68 @@
+{
+  "index": 62,
+  "sha": "36f582395ec092911ee3ac496ed2c2705fe52c52",
+  "parent": "d354e666828285f955e80cf1b5a65e876592a8a5",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/NioClient.java": [],
+    "src/main/java/org/xbill/DNS/NioTcpClient.java": [
+      88,
+      89,
+      100,
+      101,
+      102,
+      103,
+      104,
+      105,
+      106,
+      107,
+      108,
+      110,
+      111,
+      112,
+      113,
+      117,
+      251
+    ]
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/NioClient.java": [
+      194,
+      195,
+      196,
+      197,
+      198,
+      199,
+      201
+    ],
+    "src/main/java/org/xbill/DNS/NioTcpClient.java": [
+      90,
+      91,
+      94,
+      97,
+      98,
+      99,
+      100,
+      101,
+      110,
+      111,
+      112,
+      113,
+      114,
+      116,
+      117,
+      118,
+      119,
+      121,
+      122,
+      123,
+      127,
+      129,
+      130,
+      131,
+      265,
+      268,
+      269
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/NioClient.java b/src/main/java/org/xbill/DNS/NioClient.java\nindex edb48d19..d9718e00 100644\n--- a/src/main/java/org/xbill/DNS/NioClient.java\n+++ b/src/main/java/org/xbill/DNS/NioClient.java\n@@ -7,0 +8 @@ import java.net.SocketAddress;\n+import java.nio.ByteBuffer;\n@@ -190,0 +192,11 @@ public abstract class NioClient {\n+  static void verboseLog(\n+      String prefix, SocketAddress local, SocketAddress remote, ByteBuffer data) {\n+    if (log.isTraceEnabled() || packetLogger != null) {\n+      byte[] dst = new byte[data.remaining()];\n+      int pos = data.position();\n+      data.get(dst, 0, data.remaining());\n+      data.position(pos);\n+      verboseLog(prefix, local, remote, dst);\n+    }\n+  }\n+\ndiff --git a/src/main/java/org/xbill/DNS/NioTcpClient.java b/src/main/java/org/xbill/DNS/NioTcpClient.java\nindex 7f699e53..566c00eb 100644\n--- a/src/main/java/org/xbill/DNS/NioTcpClient.java\n+++ b/src/main/java/org/xbill/DNS/NioTcpClient.java\n@@ -85 +85,2 @@ final class NioTcpClient extends NioClient implements TcpIoClient {\n-    private boolean sendDone;\n+    private ByteBuffer queryDataBuffer;\n+    long bytesWrittenTotal = 0;\n@@ -87,3 +88,14 @@ final class NioTcpClient extends NioClient implements TcpIoClient {\n-    void send() throws IOException {\n-      if (sendDone) {\n-        return;\n+    boolean send() throws IOException {\n+      // send can be invoked multiple times if the entire buffer couldn't be written at once\n+      if (bytesWrittenTotal == queryData.length + 2) {\n+        return true;\n+      }\n+\n+      if (queryDataBuffer == null) {\n+        // combine length+message to avoid multiple TCP packets\n+        // https://datatracker.ietf.org/doc/html/rfc7766#section-8\n+        queryDataBuffer = ByteBuffer.allocate(queryData.length + 2);\n+        queryDataBuffer.put((byte) (queryData.length >>> 8));\n+        queryDataBuffer.put((byte) (queryData.length & 0xFF));\n+        queryDataBuffer.put(queryData);\n+        queryDataBuffer.flip();\n@@ -96,18 +108,16 @@ final class NioTcpClient extends NioClient implements TcpIoClient {\n-          queryData);\n-\n-      // combine length+message to avoid multiple TCP packets\n-      // https://datatracker.ietf.org/doc/html/rfc7766#section-8\n-      ByteBuffer buffer = ByteBuffer.allocate(queryData.length + 2);\n-      buffer.put((byte) (queryData.length >>> 8));\n-      buffer.put((byte) (queryData.length & 0xFF));\n-      buffer.put(queryData);\n-      buffer.flip();\n-      while (buffer.hasRemaining()) {\n-        long n = channel.write(buffer);\n-        if (n == 0) {\n-          throw new EOFException(\n-              \"Insufficient room for the data in the underlying output buffer for transaction \"\n-                  + query.getHeader().getID());\n-        } else if (n < queryData.length) {\n-          throw new EOFException(\n-              \"Could not write all data for transaction \" + query.getHeader().getID());\n+          queryDataBuffer);\n+\n+      while (queryDataBuffer.hasRemaining()) {\n+        long bytesWritten = channel.write(queryDataBuffer);\n+        bytesWrittenTotal += bytesWritten;\n+        if (bytesWritten == 0) {\n+          log.debug(\n+              \"Insufficient room for the data in the underlying output buffer for transaction {}, retrying\",\n+              query.getHeader().getID());\n+          return false;\n+        } else if (bytesWrittenTotal < queryData.length) {\n+          log.debug(\n+              \"Wrote {} of {} bytes data for transaction {}\",\n+              bytesWrittenTotal,\n+              queryData.length,\n+              query.getHeader().getID());\n@@ -117 +127,5 @@ final class NioTcpClient extends NioClient implements TcpIoClient {\n-      sendDone = true;\n+      log.debug(\n+          \"Send for transaction {} is complete, wrote {} bytes\",\n+          query.getHeader().getID(),\n+          bytesWrittenTotal);\n+      return true;\n@@ -251 +265,6 @@ final class NioTcpClient extends NioClient implements TcpIoClient {\n-          t.send();\n+          if (!t.send()) {\n+            // Write was incomplete because the output buffer was full. Wait until the selector\n+            // tells us that we can write again\n+            key.interestOps(SelectionKey.OP_WRITE);\n+            return;\n+          }"
+}

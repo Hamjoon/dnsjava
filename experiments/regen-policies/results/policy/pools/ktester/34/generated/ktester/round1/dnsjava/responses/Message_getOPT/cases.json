@@ -1,0 +1,132 @@
+[
+  {
+    "group": "Single OPTRecord present",
+    "cases": [
+      {
+        "input": [],
+        "expected": "instance of OPTRecord",
+        "description": "The Message's ADDITIONAL section contains exactly one OPTRecord. getOPT() should iterate over the section, find the OPTRecord and return it."
+      }
+    ]
+  },
+  {
+    "group": "Multiple records with first OPTRecord",
+    "cases": [
+      {
+        "input": [],
+        "expected": "first OPTRecord instance",
+        "description": "The ADDITIONAL section contains an OPTRecord followed by other Record types (e.g., ARecord, TXTRecord). getOPT() must return the first OPTRecord it encounters, ignoring the subsequent records."
+      }
+    ]
+  },
+  {
+    "group": "OPTRecord not first in section",
+    "cases": [
+      {
+        "input": [],
+        "expected": "OPTRecord instance",
+        "description": "The ADDITIONAL section starts with one or more non\u2011OPT records and later contains an OPTRecord. getOPT() should continue iterating until it finds the OPTRecord and return it."
+      }
+    ]
+  },
+  {
+    "group": "No OPTRecord present",
+    "cases": [
+      {
+        "input": [],
+        "expected": null,
+        "description": "The ADDITIONAL section contains only records of other types (e.g., ARecord, MXRecord) and no OPTRecord. After scanning the whole list, getOPT() must return null."
+      }
+    ]
+  },
+  {
+    "group": "Empty additional section",
+    "cases": [
+      {
+        "input": [],
+        "expected": null,
+        "description": "The ADDITIONAL section is empty. The for\u2011each loop never executes and getOPT() should directly return null."
+      }
+    ]
+  },
+  {
+    "group": "Multiple OPTRecords present",
+    "cases": [
+      {
+        "input": [],
+        "expected": "first OPTRecord instance",
+        "description": "The ADDITIONAL section contains several OPTRecord objects (e.g., three). getOPT() should return the first OPTRecord encountered and ignore the subsequent ones."
+      }
+    ]
+  },
+  {
+    "group": "OPTRecord only in non\u2011ADDITIONAL section",
+    "cases": [
+      {
+        "input": [],
+        "expected": null,
+        "description": "An OPTRecord is added to the ANSWER section (or any section other than ADDITIONAL). Since getOPT() scans only the ADDITIONAL section, it must return null."
+      }
+    ]
+  },
+  {
+    "group": "Null entry in ADDITIONAL section",
+    "cases": [
+      {
+        "input": [],
+        "expected": null,
+        "description": "The ADDITIONAL section list contains a null element followed by regular non\u2011OPT records. The instanceof check safely skips the null, and because no OPTRecord is present, getOPT() returns null."
+      }
+    ]
+  },
+  {
+    "group": "OPTRecord removed after addition",
+    "cases": [
+      {
+        "input": [],
+        "expected": null,
+        "description": "An OPTRecord is first added to the ADDITIONAL section and then removed using removeRecord(). After removal, getOPT() should no longer find an OPTRecord and must return null."
+      }
+    ]
+  },
+  {
+    "group": "Additional section contains nulls and later OPTRecord",
+    "cases": [
+      {
+        "input": [],
+        "expected": "OPTRecord instance",
+        "description": "The ADDITIONAL section includes a null entry, then some non\u2011OPT records, and finally an OPTRecord. getOPT() must ignore nulls and earlier non\u2011OPT records and return the OPTRecord."
+      }
+    ]
+  },
+  {
+    "group": "Null additional section list",
+    "cases": [
+      {
+        "input": [],
+        "expected": "NullPointerException",
+        "description": "The Message object's internal additional\u2011section list is null (e.g., via a test double that returns null from getSection(Section.ADDITIONAL)). The for\u2011each loop attempts to iterate over a null collection, causing a NullPointerException which should propagate out of getOPT()."
+      }
+    ]
+  },
+  {
+    "group": "Additional section list throws during iteration",
+    "cases": [
+      {
+        "input": [],
+        "expected": "ConcurrentModificationException",
+        "description": "A custom List implementation is injected for the ADDITIONAL section that throws ConcurrentModificationException when its iterator's next() method is called (simulating concurrent modification). The exception should propagate out of getOPT() without being caught."
+      }
+    ]
+  },
+  {
+    "group": "getSection throws IllegalArgumentException",
+    "cases": [
+      {
+        "input": [],
+        "expected": "IllegalArgumentException",
+        "description": "The Message instance is mocked so that calling getSection(Section.ADDITIONAL) throws IllegalArgumentException (e.g., because the underlying implementation validates the section index). The exception should bubble up from getOPT()."
+      }
+    ]
+  }
+]

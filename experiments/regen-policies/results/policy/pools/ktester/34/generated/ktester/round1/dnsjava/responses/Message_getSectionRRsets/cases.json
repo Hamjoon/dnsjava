@@ -1,0 +1,222 @@
+[
+  {
+    "group": "Invalid section handling",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "section",
+            "value": -1
+          }
+        ],
+        "expected": "IllegalArgumentException thrown by Section.check",
+        "description": "Calling getSectionRRsets with a negative section index should cause Section.check to reject the value and throw an IllegalArgumentException."
+      },
+      {
+        "input": [
+          {
+            "parameter": "section",
+            "value": 5
+          }
+        ],
+        "expected": "IllegalArgumentException thrown by Section.check",
+        "description": "Calling getSectionRRsets with an index greater than the maximum allowed (4) should also result in an IllegalArgumentException."
+      }
+    ]
+  },
+  {
+    "group": "Null section list returns empty collection",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "section",
+            "value": 2
+          }
+        ],
+        "expected": "empty list (Collections.emptyList())",
+        "description": "When the internal sections array slot for the supplied section is null, the method should return an immutable empty list."
+      }
+    ]
+  },
+  {
+    "group": "All records belong to distinct RRsets",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "section",
+            "value": 0
+          }
+        ],
+        "expected": "list of 3 RRset objects, each containing exactly one Record",
+        "description": "Populate Message.sections[0] with three Record instances that have different name/type/class combinations so that rec.sameRRset(set) is always false. The method must create a new RRset for each record, resulting in a list of size 3."
+      }
+    ]
+  },
+  {
+    "group": "Some records share the same RRset",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "section",
+            "value": 1
+          }
+        ],
+        "expected": "list of 2 RRset objects; first RRset contains 2 Records, second RRset contains 1 Record",
+        "description": "Populate Message.sections[1] with three Record objects: recA and recB are equal in name/type/class (so recA.sameRRset(recB) == true) and recC is different. The algorithm should detect the existing RRset for recB, add it via set.addRR(recB), and finally create a second RRset for recC."
+      }
+    ]
+  },
+  {
+    "group": "Multiple records map to the same existing RRset after several iterations",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "section",
+            "value": 3
+          }
+        ],
+        "expected": "list of 2 RRset objects; first RRset contains 3 Records, second RRset contains 1 Record",
+        "description": "Create four records for Message.sections[3]: rec1, rec2, rec3 all share the same name/type/class, and rec4 is distinct. The loop must iterate over the growing list of RRsets, find the first RRset for each of rec2 and rec3, add them, and finally add a new RRset for rec4. This exercises the inner\u2011loop \u2018continue record_iteration\u2019 path multiple times."
+      }
+    ]
+  },
+  {
+    "group": "Empty but non\u2011null section list returns empty mutable list",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "section",
+            "value": 0
+          }
+        ],
+        "expected": "empty mutable list (size 0) \u2013 not the singleton Collections.emptyList()",
+        "description": "The internal sections[0] is an instantiated but empty ArrayList. The method should iterate over it, produce a new LinkedList, and return a mutable empty list rather than the immutable Collections.emptyList()."
+      }
+    ]
+  },
+  {
+    "group": "Records with identical name/type/class but different RDATA are aggregated into a single RRset",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "section",
+            "value": 1
+          }
+        ],
+        "expected": "list containing 1 RRset; the RRset holds 3 Records (same name, type A, class IN, different IP addresses)",
+        "description": "Populate Message.sections[1] with three A records that share name, type and class but have distinct address data. Since sameRRset() only checks name, type and class, all three should be added to the same RRset."
+      }
+    ]
+  },
+  {
+    "group": "RRset order follows first occurrence of each distinct RRset",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "section",
+            "value": 2
+          }
+        ],
+        "expected": "list of 2 RRsets; first RRset contains records R1 and R2 (same RRset), second RRset contains records R3 and R4 (different RRset)",
+        "description": "Insert four records into Message.sections[2] in the order: R1 (A), R2 (A, same name/type/class as R1), R3 (MX), R4 (MX, same as R3). The algorithm should create the first RRset for R1, add R2 to it, then create a second RRset for R3 and add R4 to it, preserving the order of first appearance."
+      }
+    ]
+  },
+  {
+    "group": "Returned list is a fresh instance on each call (no caching)",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "section",
+            "value": 0
+          }
+        ],
+        "expected": "two separate list instances; modifications to the first call's result do not affect the second call",
+        "description": "After the first invocation of getSectionRRsets(0) (with a non\u2011null list of records), add a dummy RRset to the returned list. Invoke the method again and verify that the new list does not contain the dummy RRset and is a different object from the first returned list."
+      }
+    ]
+  },
+  {
+    "group": "Upper valid section index with null slot returns empty collection",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "section",
+            "value": 3
+          }
+        ],
+        "expected": "empty list (Collections.emptyList())",
+        "description": "When Message.sections[3] is null (the default state for the additional section) the method should return the immutable empty list, confirming that the null\u2011check works for the highest valid index."
+      }
+    ]
+  },
+  {
+    "group": "Null internal sections array causes NPE",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "section",
+            "value": 0
+          }
+        ],
+        "expected": "NullPointerException thrown when accessing sections[section]",
+        "description": "The Message instance is created without initializing the internal `sections` array (e.g., via reflection set to null). Calling getSectionRRsets(0) should raise a NullPointerException because the method attempts to read `sections[section]`."
+      }
+    ]
+  },
+  {
+    "group": "Insufficient sections array length causes AIOOBE",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "section",
+            "value": 2
+          }
+        ],
+        "expected": "ArrayIndexOutOfBoundsException thrown when accessing sections[section]",
+        "description": "The Message instance has its `sections` array allocated with a length smaller than the maximum section index (e.g., new List[2]). Calling getSectionRRsets(2) should trigger an ArrayIndexOutOfBoundsException because the method tries to index beyond the array bounds."
+      }
+    ]
+  },
+  {
+    "group": "Null record in section list causes NPE",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "section",
+            "value": 1
+          }
+        ],
+        "expected": "NullPointerException thrown during iteration when a null Record is encountered",
+        "description": "The `sections[1]` list is non\u2011null but contains a `null` element. When the method iterates over the list, the first iteration attempts to call `rec.sameRRset(set)` on a null reference, resulting in a NullPointerException."
+      }
+    ]
+  },
+  {
+    "group": "Record.sameRRset throws RuntimeException propagates",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "section",
+            "value": 0
+          }
+        ],
+        "expected": "RuntimeException (or subclass) thrown by Record.sameRRset propagates out of getSectionRRsets",
+        "description": "Insert a custom subclass of `Record` into `sections[0]` whose `sameRRset(RRset)` method deliberately throws a RuntimeException (e.g., IllegalStateException). The method should not catch this exception; it must propagate to the caller."
+      }
+    ]
+  }
+]

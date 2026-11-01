@@ -1,0 +1,251 @@
+{
+  "index": 102,
+  "sha": "ca25720c96f1c0ab07a63254ccba471d9785f781",
+  "status": "evaluated",
+  "imported": true,
+  "coverage_version": 3,
+  "coverage_status": "missing",
+  "coverage_reason": "imported evidence has no per-test coverage",
+  "methods": [
+    {
+      "file": "results/policy/pools/ktester/102/generated/ktester/round1/dnsjava/test_classes/Message_sectionToString_Test.java",
+      "class": "org.xbill.DNS.Message_sectionToString_Test",
+      "method": "sectionToString_returnsEmptyStringForEmptySections",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_sectionToString_Test.java|org.xbill.DNS.Message_sectionToString_Test|sectionToString_returnsEmptyStringForEmptySections",
+      "body_hash": "6a8dec283f6f5dc69b9f4abdf658ebecc23e8ddb90dda33d918190d439cd831c",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_sectionToString_Test#sectionToString_returnsEmptyStringForEmptySections()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "7658c33d5e92452cd6ca8b3c2f5636c29e9df9fab6dae87e364765464b7fd8ae",
+      "execution_hash": "c7d35050c61fb710eea6d2555963b2e47bf3af6851715ce113f0650496eac8fc",
+      "source_root": "results/policy/pools/ktester/102/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0eba5ebdf54a98acb02c5c88591710c7979beb029bdf950c6216ab762f716eb8",
+      "resource_tree_hash": "f88843586247131f4223f9c954f3db1375b4c7cca60c75bc0c1106bc258e5b2a",
+      "unit": "org.xbill.DNS.Message#sectionToString(int)",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Message_sectionToString_Test.java|org.xbill.DNS.Message_sectionToString_Test|sectionToString_returnsEmptyStringForEmptySections",
+      "resource_root": "results/policy/pools/ktester/102/dev/src-test-t"
+    },
+    {
+      "file": "results/policy/pools/ktester/102/generated/ktester/round1/dnsjava/test_classes/Message_sectionToString_Test.java",
+      "class": "org.xbill.DNS.Message_sectionToString_Test",
+      "method": "sectionToString_includesRecordStringRepresentation",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_sectionToString_Test.java|org.xbill.DNS.Message_sectionToString_Test|sectionToString_includesRecordStringRepresentation",
+      "body_hash": "9dd48bc116287a55c3d4d9251f8b7d7ea15e5b34e6381226e11296a561be5d35",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_sectionToString_Test#sectionToString_includesRecordStringRepresentation()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "7658c33d5e92452cd6ca8b3c2f5636c29e9df9fab6dae87e364765464b7fd8ae",
+      "execution_hash": "c7d35050c61fb710eea6d2555963b2e47bf3af6851715ce113f0650496eac8fc",
+      "source_root": "results/policy/pools/ktester/102/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0eba5ebdf54a98acb02c5c88591710c7979beb029bdf950c6216ab762f716eb8",
+      "resource_tree_hash": "f88843586247131f4223f9c954f3db1375b4c7cca60c75bc0c1106bc258e5b2a",
+      "unit": "org.xbill.DNS.Message#sectionToString(int)",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Message_sectionToString_Test.java|org.xbill.DNS.Message_sectionToString_Test|sectionToString_includesRecordStringRepresentation",
+      "resource_root": "results/policy/pools/ktester/102/dev/src-test-t"
+    },
+    {
+      "file": "results/policy/pools/ktester/102/generated/ktester/round1/dnsjava/test_classes/Message_sectionToString_Test.java",
+      "class": "org.xbill.DNS.Message_sectionToString_Test",
+      "method": "sectionToString_throwsExceptionForInvalidSection",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_sectionToString_Test.java|org.xbill.DNS.Message_sectionToString_Test|sectionToString_throwsExceptionForInvalidSection",
+      "body_hash": "13d5439d302c82851f5f0697524d8699ef4ffc058382efe304b06def20740820",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_sectionToString_Test#sectionToString_throwsExceptionForInvalidSection()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "7658c33d5e92452cd6ca8b3c2f5636c29e9df9fab6dae87e364765464b7fd8ae",
+      "execution_hash": "c7d35050c61fb710eea6d2555963b2e47bf3af6851715ce113f0650496eac8fc",
+      "source_root": "results/policy/pools/ktester/102/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0eba5ebdf54a98acb02c5c88591710c7979beb029bdf950c6216ab762f716eb8",
+      "resource_tree_hash": "f88843586247131f4223f9c954f3db1375b4c7cca60c75bc0c1106bc258e5b2a",
+      "unit": "org.xbill.DNS.Message#sectionToString(int)",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Message_sectionToString_Test.java|org.xbill.DNS.Message_sectionToString_Test|sectionToString_throwsExceptionForInvalidSection",
+      "resource_root": "results/policy/pools/ktester/102/dev/src-test-t"
+    },
+    {
+      "file": "results/policy/pools/ktester/102/generated/ktester/round1/dnsjava/test_classes/Message_sectionToString_Test.java",
+      "class": "org.xbill.DNS.Message_sectionToString_Test",
+      "method": "sectionToString_handlesMultipleRecordsInSameSection",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_sectionToString_Test.java|org.xbill.DNS.Message_sectionToString_Test|sectionToString_handlesMultipleRecordsInSameSection",
+      "body_hash": "c8facdaf160ed1602950c763502c22a360d81b71d6d9edb0221eba17ddc73261",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_sectionToString_Test#sectionToString_handlesMultipleRecordsInSameSection()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "7658c33d5e92452cd6ca8b3c2f5636c29e9df9fab6dae87e364765464b7fd8ae",
+      "execution_hash": "c7d35050c61fb710eea6d2555963b2e47bf3af6851715ce113f0650496eac8fc",
+      "source_root": "results/policy/pools/ktester/102/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0eba5ebdf54a98acb02c5c88591710c7979beb029bdf950c6216ab762f716eb8",
+      "resource_tree_hash": "f88843586247131f4223f9c954f3db1375b4c7cca60c75bc0c1106bc258e5b2a",
+      "unit": "org.xbill.DNS.Message#sectionToString(int)",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Message_sectionToString_Test.java|org.xbill.DNS.Message_sectionToString_Test|sectionToString_handlesMultipleRecordsInSameSection",
+      "resource_root": "results/policy/pools/ktester/102/dev/src-test-t"
+    },
+    {
+      "file": "results/policy/pools/ktester/102/generated/ktester/round1/dnsjava/test_classes/Message_sectionToString_Test.java",
+      "class": "org.xbill.DNS.Message_sectionToString_Test",
+      "method": "sectionToString_validSections_singleRecord",
+      "kind": "parameterized",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_sectionToString_Test.java|org.xbill.DNS.Message_sectionToString_Test|sectionToString_validSections_singleRecord",
+      "body_hash": "70ff4c583cbecb029eb932599afe3cbdf17456086ba60dd019cb4c6a487469dc",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_sectionToString_Test#sectionToString_validSections_singleRecord(int,org.xbill.DNS.Record,java.lang.String)"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "7658c33d5e92452cd6ca8b3c2f5636c29e9df9fab6dae87e364765464b7fd8ae",
+      "execution_hash": "c7d35050c61fb710eea6d2555963b2e47bf3af6851715ce113f0650496eac8fc",
+      "source_root": "results/policy/pools/ktester/102/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0eba5ebdf54a98acb02c5c88591710c7979beb029bdf950c6216ab762f716eb8",
+      "resource_tree_hash": "f88843586247131f4223f9c954f3db1375b4c7cca60c75bc0c1106bc258e5b2a",
+      "unit": "org.xbill.DNS.Message#sectionToString(int)",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Message_sectionToString_Test.java|org.xbill.DNS.Message_sectionToString_Test|sectionToString_validSections_singleRecord",
+      "resource_root": "results/policy/pools/ktester/102/dev/src-test-t"
+    },
+    {
+      "file": "results/policy/pools/ktester/102/generated/ktester/round1/dnsjava/test_classes/Message_sectionToString_Test.java",
+      "class": "org.xbill.DNS.Message_sectionToString_Test",
+      "method": "sectionToString_invalidSection_throws",
+      "kind": "parameterized",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_sectionToString_Test.java|org.xbill.DNS.Message_sectionToString_Test|sectionToString_invalidSection_throws",
+      "body_hash": "009a305228cb0501f3371c89598d41c320b182be4625a6323ceb4240b9158a27",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_sectionToString_Test#sectionToString_invalidSection_throws(int)"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "7658c33d5e92452cd6ca8b3c2f5636c29e9df9fab6dae87e364765464b7fd8ae",
+      "execution_hash": "c7d35050c61fb710eea6d2555963b2e47bf3af6851715ce113f0650496eac8fc",
+      "source_root": "results/policy/pools/ktester/102/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0eba5ebdf54a98acb02c5c88591710c7979beb029bdf950c6216ab762f716eb8",
+      "resource_tree_hash": "f88843586247131f4223f9c954f3db1375b4c7cca60c75bc0c1106bc258e5b2a",
+      "unit": "org.xbill.DNS.Message#sectionToString(int)",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Message_sectionToString_Test.java|org.xbill.DNS.Message_sectionToString_Test|sectionToString_invalidSection_throws",
+      "resource_root": "results/policy/pools/ktester/102/dev/src-test-t"
+    },
+    {
+      "file": "results/policy/pools/ktester/102/generated/ktester/round1/dnsjava/test_classes/Message_sectionToString_Test.java",
+      "class": "org.xbill.DNS.Message_sectionToString_Test",
+      "method": "sectionToString_variousRecordTypes_inAuthoritySection",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_sectionToString_Test.java|org.xbill.DNS.Message_sectionToString_Test|sectionToString_variousRecordTypes_inAuthoritySection",
+      "body_hash": "89aef43ff5b3fda779c11d330f4dc2392ea4f56af2f4977b97181cbf59bdaaf0",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_sectionToString_Test#sectionToString_variousRecordTypes_inAuthoritySection()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "7658c33d5e92452cd6ca8b3c2f5636c29e9df9fab6dae87e364765464b7fd8ae",
+      "execution_hash": "c7d35050c61fb710eea6d2555963b2e47bf3af6851715ce113f0650496eac8fc",
+      "source_root": "results/policy/pools/ktester/102/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0eba5ebdf54a98acb02c5c88591710c7979beb029bdf950c6216ab762f716eb8",
+      "resource_tree_hash": "f88843586247131f4223f9c954f3db1375b4c7cca60c75bc0c1106bc258e5b2a",
+      "unit": "org.xbill.DNS.Message#sectionToString(int)",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Message_sectionToString_Test.java|org.xbill.DNS.Message_sectionToString_Test|sectionToString_variousRecordTypes_inAuthoritySection",
+      "resource_root": "results/policy/pools/ktester/102/dev/src-test-t"
+    },
+    {
+      "file": "results/policy/pools/ktester/102/generated/ktester/round1/dnsjava/test_classes/Message_sectionToString_Test.java",
+      "class": "org.xbill.DNS.Message_sectionToString_Test",
+      "method": "sectionToString_immutability_snapshotBehavior",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_sectionToString_Test.java|org.xbill.DNS.Message_sectionToString_Test|sectionToString_immutability_snapshotBehavior",
+      "body_hash": "b1ee2aeb5efc69f8c0b85c82ed119a2a1d1a5b2821f9cd305ac4872608f637e9",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_sectionToString_Test#sectionToString_immutability_snapshotBehavior()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "7658c33d5e92452cd6ca8b3c2f5636c29e9df9fab6dae87e364765464b7fd8ae",
+      "execution_hash": "c7d35050c61fb710eea6d2555963b2e47bf3af6851715ce113f0650496eac8fc",
+      "source_root": "results/policy/pools/ktester/102/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0eba5ebdf54a98acb02c5c88591710c7979beb029bdf950c6216ab762f716eb8",
+      "resource_tree_hash": "f88843586247131f4223f9c954f3db1375b4c7cca60c75bc0c1106bc258e5b2a",
+      "unit": "org.xbill.DNS.Message#sectionToString(int)",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Message_sectionToString_Test.java|org.xbill.DNS.Message_sectionToString_Test|sectionToString_immutability_snapshotBehavior",
+      "resource_root": "results/policy/pools/ktester/102/dev/src-test-t"
+    }
+  ]
+}

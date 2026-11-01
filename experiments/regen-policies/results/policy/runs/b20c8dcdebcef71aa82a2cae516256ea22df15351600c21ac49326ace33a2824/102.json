@@ -1,0 +1,131 @@
+{
+  "index": 102,
+  "sha": "ca25720c96f1c0ab07a63254ccba471d9785f781",
+  "status": "evaluated",
+  "imported": true,
+  "coverage_version": 3,
+  "coverage_status": "missing",
+  "coverage_reason": "imported evidence has no per-test coverage",
+  "methods": [
+    {
+      "file": "results/policy/pools/ktester/102/generated/ktester/round1/dnsjava/test_classes/Message_numBytes_Test.java",
+      "class": "org.xbill.DNS.Message_numBytes_Test",
+      "method": "defaultMessage_hasZeroNumBytes",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_numBytes_Test.java|org.xbill.DNS.Message_numBytes_Test|defaultMessage_hasZeroNumBytes",
+      "body_hash": "566e64ff8f9e62162048fc92570db9a578d9b7319f417ce8d51977aa1d54cb0e",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_numBytes_Test#defaultMessage_hasZeroNumBytes()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "0481ace0918f096913bf756b8916880561fc1774049e5c1d81cd081312d1d5a5",
+      "execution_hash": "b20c8dcdebcef71aa82a2cae516256ea22df15351600c21ac49326ace33a2824",
+      "source_root": "results/policy/pools/ktester/102/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0eba5ebdf54a98acb02c5c88591710c7979beb029bdf950c6216ab762f716eb8",
+      "resource_tree_hash": "f88843586247131f4223f9c954f3db1375b4c7cca60c75bc0c1106bc258e5b2a",
+      "unit": "org.xbill.DNS.Message#numBytes()",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Message_numBytes_Test.java|org.xbill.DNS.Message_numBytes_Test|defaultMessage_hasZeroNumBytes",
+      "resource_root": "results/policy/pools/ktester/102/dev/src-test-t"
+    },
+    {
+      "file": "results/policy/pools/ktester/102/generated/ktester/round1/dnsjava/test_classes/Message_numBytes_Test.java",
+      "class": "org.xbill.DNS.Message_numBytes_Test",
+      "method": "messageFromByteArray_reportsCorrectNumBytes",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_numBytes_Test.java|org.xbill.DNS.Message_numBytes_Test|messageFromByteArray_reportsCorrectNumBytes",
+      "body_hash": "7eaf94d6b1b0816ae2fd4b8de0a0d60df23199e154d19b8bc8d2ea7e1ffa27d3",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_numBytes_Test#messageFromByteArray_reportsCorrectNumBytes()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "0481ace0918f096913bf756b8916880561fc1774049e5c1d81cd081312d1d5a5",
+      "execution_hash": "b20c8dcdebcef71aa82a2cae516256ea22df15351600c21ac49326ace33a2824",
+      "source_root": "results/policy/pools/ktester/102/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0eba5ebdf54a98acb02c5c88591710c7979beb029bdf950c6216ab762f716eb8",
+      "resource_tree_hash": "f88843586247131f4223f9c954f3db1375b4c7cca60c75bc0c1106bc258e5b2a",
+      "unit": "org.xbill.DNS.Message#numBytes()",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Message_numBytes_Test.java|org.xbill.DNS.Message_numBytes_Test|messageFromByteArray_reportsCorrectNumBytes",
+      "resource_root": "results/policy/pools/ktester/102/dev/src-test-t"
+    },
+    {
+      "file": "results/policy/pools/ktester/102/generated/ktester/round1/dnsjava/test_classes/Message_numBytes_Test.java",
+      "class": "org.xbill.DNS.Message_numBytes_Test",
+      "method": "numBytes_reflectionManipulation",
+      "kind": "parameterized",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_numBytes_Test.java|org.xbill.DNS.Message_numBytes_Test|numBytes_reflectionManipulation",
+      "body_hash": "ba02893603be86492b349996f6a5e9e060207f0bfa6ab5ea1388adee94d307ef",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_numBytes_Test#numBytes_reflectionManipulation(int,int)"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "0481ace0918f096913bf756b8916880561fc1774049e5c1d81cd081312d1d5a5",
+      "execution_hash": "b20c8dcdebcef71aa82a2cae516256ea22df15351600c21ac49326ace33a2824",
+      "source_root": "results/policy/pools/ktester/102/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0eba5ebdf54a98acb02c5c88591710c7979beb029bdf950c6216ab762f716eb8",
+      "resource_tree_hash": "f88843586247131f4223f9c954f3db1375b4c7cca60c75bc0c1106bc258e5b2a",
+      "unit": "org.xbill.DNS.Message#numBytes()",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Message_numBytes_Test.java|org.xbill.DNS.Message_numBytes_Test|numBytes_reflectionManipulation",
+      "resource_root": "results/policy/pools/ktester/102/dev/src-test-t"
+    },
+    {
+      "file": "results/policy/pools/ktester/102/generated/ktester/round1/dnsjava/test_classes/Message_numBytes_Test.java",
+      "class": "org.xbill.DNS.Message_numBytes_Test",
+      "method": "toWire_afterAddingOneRecord_returnsAtLeastHeaderSize",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_numBytes_Test.java|org.xbill.DNS.Message_numBytes_Test|toWire_afterAddingOneRecord_returnsAtLeastHeaderSize",
+      "body_hash": "c05281175e7f6f9cefe09b1fcdd940fd7e563ded323a84c3648f0cb6966a81a9",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_numBytes_Test#toWire_afterAddingOneRecord_returnsAtLeastHeaderSize()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "0481ace0918f096913bf756b8916880561fc1774049e5c1d81cd081312d1d5a5",
+      "execution_hash": "b20c8dcdebcef71aa82a2cae516256ea22df15351600c21ac49326ace33a2824",
+      "source_root": "results/policy/pools/ktester/102/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0eba5ebdf54a98acb02c5c88591710c7979beb029bdf950c6216ab762f716eb8",
+      "resource_tree_hash": "f88843586247131f4223f9c954f3db1375b4c7cca60c75bc0c1106bc258e5b2a",
+      "unit": "org.xbill.DNS.Message#numBytes()",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Message_numBytes_Test.java|org.xbill.DNS.Message_numBytes_Test|toWire_afterAddingOneRecord_returnsAtLeastHeaderSize",
+      "resource_root": "results/policy/pools/ktester/102/dev/src-test-t"
+    }
+  ]
+}

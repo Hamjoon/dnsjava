@@ -1,0 +1,41 @@
+{
+  "index": 140,
+  "sha": "363a70a1b9fbb1a8845aef433d434d6068c16119",
+  "parent": "7abc4f7bd2a68030dd1c959926ccd74681bdebcc",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/CAARecord.java": [
+      41,
+      43,
+      59
+    ],
+    "src/main/java/org/xbill/DNS/Record.java": [
+      373,
+      414
+    ],
+    "src/main/java/org/xbill/DNS/URIRecord.java": [
+      40,
+      58
+    ]
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/CAARecord.java": [
+      39,
+      40,
+      45,
+      47,
+      63
+    ],
+    "src/main/java/org/xbill/DNS/Record.java": [
+      367,
+      389,
+      430
+    ],
+    "src/main/java/org/xbill/DNS/URIRecord.java": [
+      39,
+      40,
+      44,
+      62
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/CAARecord.java b/src/main/java/org/xbill/DNS/CAARecord.java\nindex bcd8955c..c03b487e 100644\n--- a/src/main/java/org/xbill/DNS/CAARecord.java\n+++ b/src/main/java/org/xbill/DNS/CAARecord.java\n@@ -38,0 +39,4 @@ public class CAARecord extends Record {\n+    if (tag == null || tag.isEmpty() || tag.length() > 255) {\n+      throw new IllegalArgumentException(\"invalid tag\");\n+    }\n+\n@@ -41 +45 @@ public class CAARecord extends Record {\n-      this.value = byteArrayFromString(value);\n+      this.value = byteArrayFromString(value, -1);\n@@ -43 +47 @@ public class CAARecord extends Record {\n-      throw new IllegalArgumentException(e.getMessage());\n+      throw new IllegalArgumentException(e.getMessage(), e);\n@@ -59 +63 @@ public class CAARecord extends Record {\n-      value = byteArrayFromString(st.getString());\n+      value = byteArrayFromString(st.getString(), -1);\ndiff --git a/src/main/java/org/xbill/DNS/Record.java b/src/main/java/org/xbill/DNS/Record.java\nindex 25de18b1..e794127a 100644\n--- a/src/main/java/org/xbill/DNS/Record.java\n+++ b/src/main/java/org/xbill/DNS/Record.java\n@@ -360 +360,6 @@ public abstract class Record implements Cloneable, Comparable<Record>, Serializa\n-  /** Converts a String into a byte array. */\n+  /**\n+   * Converts a String into a byte array.\n+   *\n+   * <p>Enforces a max-length of 255 bytes. Use {@link #byteArrayFromString(String, int)} to specify\n+   * a different (or no) limit.\n+   */\n@@ -361,0 +367,11 @@ public abstract class Record implements Cloneable, Comparable<Record>, Serializa\n+    return byteArrayFromString(s, 255);\n+  }\n+\n+  /**\n+   * Converts a String into a byte array.\n+   *\n+   * @since 3.6.6\n+   * @param sizeLimit Throw a {@link TextParseException} if the string is longer than this limit,\n+   *     {@code -1} means no limit.\n+   */\n+  protected static byte[] byteArrayFromString(String s, int sizeLimit) throws TextParseException {\n@@ -373 +389 @@ public abstract class Record implements Cloneable, Comparable<Record>, Serializa\n-      if (array.length > 255) {\n+      if (sizeLimit != -1 && array.length > sizeLimit) {\n@@ -414 +430 @@ public abstract class Record implements Cloneable, Comparable<Record>, Serializa\n-    if (array.length > 255) {\n+    if (sizeLimit != -1 && array.length > sizeLimit) {\ndiff --git a/src/main/java/org/xbill/DNS/URIRecord.java b/src/main/java/org/xbill/DNS/URIRecord.java\nindex cb10f6de..006ef80b 100644\n--- a/src/main/java/org/xbill/DNS/URIRecord.java\n+++ b/src/main/java/org/xbill/DNS/URIRecord.java\n@@ -38,0 +39,4 @@ public class URIRecord extends Record {\n+    if (target == null || target.isEmpty()) {\n+      throw new IllegalArgumentException(\"target must not be empty\");\n+    }\n+\n@@ -40 +44 @@ public class URIRecord extends Record {\n-      this.target = byteArrayFromString(target);\n+      this.target = byteArrayFromString(target, -1);\n@@ -58 +62 @@ public class URIRecord extends Record {\n-      target = byteArrayFromString(st.getString());\n+      target = byteArrayFromString(st.getString(), -1);"
+}

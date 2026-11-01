@@ -1,0 +1,35 @@
+{
+  "index": 9,
+  "sha": "04186e441a0b93e75c7d54ed291b742eeaa3b7b7",
+  "parent": "c194bf85be0095912d36aaa4b1f3b5e2de315d60",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/NioUdpClient.java": [
+      136,
+      142,
+      153,
+      154,
+      156,
+      215,
+      217,
+      218,
+      220
+    ]
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/NioUdpClient.java": [
+      136,
+      142,
+      152,
+      211,
+      213,
+      215,
+      216,
+      223,
+      225,
+      226,
+      228,
+      230
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/NioUdpClient.java b/src/main/java/org/xbill/DNS/NioUdpClient.java\nindex 2605dc93..2699e755 100644\n--- a/src/main/java/org/xbill/DNS/NioUdpClient.java\n+++ b/src/main/java/org/xbill/DNS/NioUdpClient.java\n@@ -136 +136 @@ final class NioUdpClient extends NioClient implements UdpIoClient {\n-      silentCloseChannel();\n+      silentDisconnectAndCloseChannel();\n@@ -142 +142 @@ final class NioUdpClient extends NioClient implements UdpIoClient {\n-      silentCloseChannel();\n+      silentDisconnectAndCloseChannel();\n@@ -146 +146 @@ final class NioUdpClient extends NioClient implements UdpIoClient {\n-    private void silentCloseChannel() {\n+    private void silentDisconnectAndCloseChannel() {\n@@ -152,5 +152 @@ final class NioUdpClient extends NioClient implements UdpIoClient {\n-        try {\n-          channel.close();\n-        } catch (IOException e) {\n-          // ignore\n-        }\n+        NioUdpClient.silentCloseChannel(channel);\n@@ -215,7 +211 @@ final class NioUdpClient extends NioClient implements UdpIoClient {\n-      if (channel != null) {\n-        try {\n-          channel.close();\n-        } catch (IOException ioe) {\n-          // ignore\n-        }\n-      }\n+      silentCloseChannel(channel);\n@@ -222,0 +213,4 @@ final class NioUdpClient extends NioClient implements UdpIoClient {\n+    } catch (Throwable e) {\n+      // Make sure to close the channel, no matter what, but only handle the declared IOException\n+      silentCloseChannel(channel);\n+      throw e;\n@@ -227,0 +222,10 @@ final class NioUdpClient extends NioClient implements UdpIoClient {\n+  private static void silentCloseChannel(DatagramChannel channel) {\n+    if (channel != null) {\n+      try {\n+        channel.close();\n+      } catch (IOException ioe) {\n+        // ignore\n+      }\n+    }\n+  }\n+"
+}

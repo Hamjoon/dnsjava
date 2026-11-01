@@ -1,0 +1,82 @@
+{
+  "index": 101,
+  "sha": "d9327e8345217a889dc4247402a3c2a490c886a3",
+  "parent": "378aa24cd157f50d7f8446ec77b0a08851f525e2",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/CAARecord.java": [
+      82,
+      87
+    ],
+    "src/main/java/org/xbill/DNS/HINFORecord.java": [
+      56,
+      61
+    ],
+    "src/main/java/org/xbill/DNS/ISDNRecord.java": [
+      64,
+      72
+    ],
+    "src/main/java/org/xbill/DNS/NAPTRRecord.java": [
+      115,
+      120,
+      125
+    ],
+    "src/main/java/org/xbill/DNS/NSAPRecord.java": [],
+    "src/main/java/org/xbill/DNS/TXTBase.java": [
+      100
+    ],
+    "src/main/java/org/xbill/DNS/URIRecord.java": [],
+    "src/main/java/org/xbill/DNS/X25Record.java": [
+      63
+    ]
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/CAARecord.java": [
+      83,
+      94,
+      99,
+      108
+    ],
+    "src/main/java/org/xbill/DNS/HINFORecord.java": [
+      63,
+      68,
+      77,
+      88,
+      93,
+      102
+    ],
+    "src/main/java/org/xbill/DNS/ISDNRecord.java": [
+      71,
+      79,
+      88,
+      102,
+      103,
+      104,
+      112,
+      121
+    ],
+    "src/main/java/org/xbill/DNS/NAPTRRecord.java": [
+      116,
+      127,
+      132,
+      141,
+      152,
+      157,
+      166
+    ],
+    "src/main/java/org/xbill/DNS/NSAPRecord.java": [
+      99
+    ],
+    "src/main/java/org/xbill/DNS/TXTBase.java": [
+      104,
+      105,
+      112
+    ],
+    "src/main/java/org/xbill/DNS/URIRecord.java": [
+      102
+    ],
+    "src/main/java/org/xbill/DNS/X25Record.java": [
+      64
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/CAARecord.java b/src/main/java/org/xbill/DNS/CAARecord.java\nindex 2fc61cee..bcd8955c 100644\n--- a/src/main/java/org/xbill/DNS/CAARecord.java\n+++ b/src/main/java/org/xbill/DNS/CAARecord.java\n@@ -6,0 +7 @@ import java.io.IOException;\n+import java.nio.charset.StandardCharsets;\n@@ -82 +83 @@ public class CAARecord extends Record {\n-    return byteArrayToString(tag, false);\n+    return new String(tag, StandardCharsets.US_ASCII);\n@@ -85 +86,12 @@ public class CAARecord extends Record {\n-  /** Returns the value */\n+  /**\n+   * Returns the value as a string.\n+   *\n+   * @param escape if true, returns the RR textual representation of the underlying bytes. If false,\n+   *     returns just the simple string using the UTF-8 charset with no additional escaping.\n+   * @since 3.6.5\n+   */\n+  public String getValue(boolean escape) {\n+    return escape ? byteArrayToString(value, false) : new String(value, StandardCharsets.UTF_8);\n+  }\n+\n+  /** Returns the value as a string, escaped for RR textual representation */\n@@ -87 +99,10 @@ public class CAARecord extends Record {\n-    return byteArrayToString(value, false);\n+    return getValue(true);\n+  }\n+\n+  /**\n+   * Returns the value as a raw byte-array\n+   *\n+   * @since 3.6.5\n+   */\n+  public byte[] getValueAsByteArray() {\n+    return value;\ndiff --git a/src/main/java/org/xbill/DNS/HINFORecord.java b/src/main/java/org/xbill/DNS/HINFORecord.java\nindex 90b0192b..1fbd0625 100644\n--- a/src/main/java/org/xbill/DNS/HINFORecord.java\n+++ b/src/main/java/org/xbill/DNS/HINFORecord.java\n@@ -6,0 +7 @@ import java.io.IOException;\n+import java.nio.charset.StandardCharsets;\n@@ -54 +55,12 @@ public class HINFORecord extends Record {\n-  /** Returns the host's CPU */\n+  /**\n+   * Returns the host's CPU as a string.\n+   *\n+   * @param escape if true, returns the RR textual representation of the underlying bytes. If false,\n+   *     returns just the simple string using the UTF-8 charset with no additional escaping.\n+   * @since 3.6.5\n+   */\n+  public String getCPU(boolean escape) {\n+    return escape ? byteArrayToString(cpu, false) : new String(cpu, StandardCharsets.UTF_8);\n+  }\n+\n+  /** Returns the host's CPU as a string, escaped for RR textual representation */\n@@ -56 +68,10 @@ public class HINFORecord extends Record {\n-    return byteArrayToString(cpu, false);\n+    return getCPU(true);\n+  }\n+\n+  /**\n+   * Returns the host's CPU as a raw byte-array\n+   *\n+   * @since 3.6.5\n+   */\n+  public byte[] getCPUAsByteArray() {\n+    return cpu;\n@@ -59 +80,12 @@ public class HINFORecord extends Record {\n-  /** Returns the host's OS */\n+  /**\n+   * Returns the host's OS as a string.\n+   *\n+   * @param escape if true, returns the RR textual representation of the underlying bytes. If false,\n+   *     returns just the simple string using the UTF-8 charset with no additional escaping.\n+   * @since 3.6.5\n+   */\n+  public String getOS(boolean escape) {\n+    return escape ? byteArrayToString(os, false) : new String(os, StandardCharsets.UTF_8);\n+  }\n+\n+  /** Returns the host's OS as a string, escaped for RR textual representation */\n@@ -61 +93,10 @@ public class HINFORecord extends Record {\n-    return byteArrayToString(os, false);\n+    return getOS(true);\n+  }\n+\n+  /**\n+   * Returns the host's OS as a raw byte-array\n+   *\n+   * @since 3.6.5\n+   */\n+  public byte[] getOSAsByteArray() {\n+    return os;\ndiff --git a/src/main/java/org/xbill/DNS/ISDNRecord.java b/src/main/java/org/xbill/DNS/ISDNRecord.java\nindex 4e275742..9753e732 100644\n--- a/src/main/java/org/xbill/DNS/ISDNRecord.java\n+++ b/src/main/java/org/xbill/DNS/ISDNRecord.java\n@@ -6,0 +7 @@ import java.io.IOException;\n+import java.nio.charset.StandardCharsets;\n@@ -62 +63,15 @@ public class ISDNRecord extends Record {\n-  /** Returns the ISDN number associated with the domain. */\n+  /**\n+   * Returns the ISDN number associated with the domain as a string.\n+   *\n+   * @param escape if true, returns the RR textual representation of the underlying bytes. If false,\n+   *     returns just the simple string using the UTF-8 charset with no additional escaping.\n+   * @since 3.6.5\n+   */\n+  public String getAddress(boolean escape) {\n+    return escape ? byteArrayToString(address, false) : new String(address, StandardCharsets.UTF_8);\n+  }\n+\n+  /**\n+   * Returns the ISDN number associated with the domain as a string, escaped for RR textual\n+   * representation\n+   */\n@@ -64 +79 @@ public class ISDNRecord extends Record {\n-    return byteArrayToString(address, false);\n+    return getAddress(true);\n@@ -67,2 +82,17 @@ public class ISDNRecord extends Record {\n-  /** Returns the ISDN subaddress, or null if there is none. */\n-  public String getSubAddress() {\n+  /**\n+   * Returns the ISDN number associated with the domain as a raw byte-array\n+   *\n+   * @since 3.6.5\n+   */\n+  public byte[] getAddressAsByteArray() {\n+    return address;\n+  }\n+\n+  /**\n+   * Returns the ISDN subaddress as a string, or null if there is none.\n+   *\n+   * @param escape if true, returns the RR textual representation of the underlying bytes. If false,\n+   *     returns just the simple string using the UTF-8 charset with no additional escaping.\n+   * @since 3.6.5\n+   */\n+  public String getSubAddress(boolean escape) {\n@@ -72 +102,20 @@ public class ISDNRecord extends Record {\n-    return byteArrayToString(subAddress, false);\n+    return escape\n+        ? byteArrayToString(subAddress, false)\n+        : new String(subAddress, StandardCharsets.UTF_8);\n+  }\n+\n+  /**\n+   * Returns the ISDN subaddress as a string, escaped for RR textual representation, or null if\n+   * there is none.\n+   */\n+  public String getSubAddress() {\n+    return getSubAddress(true);\n+  }\n+\n+  /**\n+   * Returns the ISDN subaddress as a raw byte-array, or null if there is none.\n+   *\n+   * @since 3.6.5\n+   */\n+  public byte[] getSubAddressAsByteArray() {\n+    return subAddress;\ndiff --git a/src/main/java/org/xbill/DNS/NAPTRRecord.java b/src/main/java/org/xbill/DNS/NAPTRRecord.java\nindex 87d5f972..42c79ecb 100644\n--- a/src/main/java/org/xbill/DNS/NAPTRRecord.java\n+++ b/src/main/java/org/xbill/DNS/NAPTRRecord.java\n@@ -6,0 +7 @@ import java.io.IOException;\n+import java.nio.charset.StandardCharsets;\n@@ -115 +116 @@ public class NAPTRRecord extends Record {\n-    return byteArrayToString(flags, false);\n+    return new String(flags, StandardCharsets.US_ASCII);\n@@ -118 +119,12 @@ public class NAPTRRecord extends Record {\n-  /** Returns service */\n+  /**\n+   * Returns the service as a string.\n+   *\n+   * @param escape if true, returns the RR textual representation of the underlying bytes. If false,\n+   *     returns just the simple string using the UTF-8 charset with no additional escaping.\n+   * @since 3.6.5\n+   */\n+  public String getService(boolean escape) {\n+    return escape ? byteArrayToString(service, false) : new String(service, StandardCharsets.UTF_8);\n+  }\n+\n+  /** Returns the service as a string, escaped for RR textual representation */\n@@ -120 +132,10 @@ public class NAPTRRecord extends Record {\n-    return byteArrayToString(service, false);\n+    return getService(true);\n+  }\n+\n+  /**\n+   * Returns the service as a raw byte-array\n+   *\n+   * @since 3.6.5\n+   */\n+  public byte[] getServiceAsByteArray() {\n+    return service;\n@@ -123 +144,12 @@ public class NAPTRRecord extends Record {\n-  /** Returns regexp */\n+  /**\n+   * Returns regexp as a string.\n+   *\n+   * @param escape if true, returns the RR textual representation of the underlying bytes. If false,\n+   *     returns just the simple string using the UTF-8 charset with no additional escaping.\n+   * @since 3.6.5\n+   */\n+  public String getRegexp(boolean escape) {\n+    return escape ? byteArrayToString(regexp, false) : new String(regexp, StandardCharsets.UTF_8);\n+  }\n+\n+  /** Returns regexp as a string, escaped for RR textual representation */\n@@ -125 +157,10 @@ public class NAPTRRecord extends Record {\n-    return byteArrayToString(regexp, false);\n+    return getRegexp(true);\n+  }\n+\n+  /**\n+   * Returns regexp as a raw byte-array\n+   *\n+   * @since 3.6.5\n+   */\n+  public byte[] getRegexpAsByteArray() {\n+    return regexp;\ndiff --git a/src/main/java/org/xbill/DNS/NSAPRecord.java b/src/main/java/org/xbill/DNS/NSAPRecord.java\nindex 8b881757..e33263bb 100644\n--- a/src/main/java/org/xbill/DNS/NSAPRecord.java\n+++ b/src/main/java/org/xbill/DNS/NSAPRecord.java\n@@ -81 +81,8 @@ public class NSAPRecord extends Record {\n-  /** Returns the NSAP address. */\n+  /**\n+   * Returns the NSAP address as a string, escaped for RR textual representation.\n+   *\n+   * <p>Obsolete, use {@link NSAPRecord#getAddressAsByteArray} instead.\n+   *\n+   * @deprecated\n+   */\n+  @Deprecated\n@@ -85,0 +93,9 @@ public class NSAPRecord extends Record {\n+  /**\n+   * Returns the NSAP address.\n+   *\n+   * @since 3.6.5\n+   */\n+  public byte[] getAddressAsByteArray() {\n+    return address;\n+  }\n+\ndiff --git a/src/main/java/org/xbill/DNS/TXTBase.java b/src/main/java/org/xbill/DNS/TXTBase.java\nindex 96694b12..78ff4126 100644\n--- a/src/main/java/org/xbill/DNS/TXTBase.java\n+++ b/src/main/java/org/xbill/DNS/TXTBase.java\n@@ -6,0 +7 @@ import java.io.IOException;\n+import java.nio.charset.StandardCharsets;\n@@ -93 +94 @@ abstract class TXTBase extends Record {\n-   * Returns the text strings\n+   * Returns the text strings as a list of strings.\n@@ -95 +96,4 @@ abstract class TXTBase extends Record {\n-   * @return A list of Strings corresponding to the text strings.\n+   * @param escape if true, returns the RR textual representation of the underlying bytes for each\n+   *     string. If false, returns just the simple strings using the UTF-8 charset with no\n+   *     additional escaping.\n+   * @since 3.6.5\n@@ -97 +101 @@ abstract class TXTBase extends Record {\n-  public List<String> getStrings() {\n+  public List<String> getStrings(boolean escape) {\n@@ -100 +104,2 @@ abstract class TXTBase extends Record {\n-      list.add(byteArrayToString(string, false));\n+      list.add(\n+          escape ? byteArrayToString(string, false) : new String(string, StandardCharsets.UTF_8));\n@@ -104,0 +110,5 @@ abstract class TXTBase extends Record {\n+  /** Returns the text strings as a list of strings, escaped for RR textual representation */\n+  public List<String> getStrings() {\n+    return getStrings(true);\n+  }\n+\n@@ -106 +116 @@ abstract class TXTBase extends Record {\n-   * Returns the text strings\n+   * Returns the text strings as a list of raw byte-arrays\n@@ -108 +118 @@ abstract class TXTBase extends Record {\n-   * @return A list of byte arrays corresponding to the text strings.\n+   * @since 3.6.5\ndiff --git a/src/main/java/org/xbill/DNS/URIRecord.java b/src/main/java/org/xbill/DNS/URIRecord.java\nindex 3141f8e3..cb10f6de 100644\n--- a/src/main/java/org/xbill/DNS/URIRecord.java\n+++ b/src/main/java/org/xbill/DNS/URIRecord.java\n@@ -7,0 +8,3 @@ import java.io.IOException;\n+import java.net.URI;\n+import java.net.URISyntaxException;\n+import java.nio.charset.StandardCharsets;\n@@ -81 +84,8 @@ public class URIRecord extends Record {\n-  /** Returns the target URI */\n+  /**\n+   * Returns the target URI as a string, escaped for RR textual representation.\n+   *\n+   * <p>Obsolete, use {@link URIRecord#getTargetAsURI()} instead.\n+   *\n+   * @deprecated\n+   */\n+  @Deprecated\n@@ -85,0 +96,9 @@ public class URIRecord extends Record {\n+  /**\n+   * Returns the target URI as a {@link URI}\n+   *\n+   * @since 3.6.5\n+   */\n+  public URI getTargetAsURI() throws URISyntaxException {\n+    return new URI(new String(target, StandardCharsets.UTF_8));\n+  }\n+\ndiff --git a/src/main/java/org/xbill/DNS/X25Record.java b/src/main/java/org/xbill/DNS/X25Record.java\nindex 9b2ca5d8..779b9fb3 100644\n--- a/src/main/java/org/xbill/DNS/X25Record.java\n+++ b/src/main/java/org/xbill/DNS/X25Record.java\n@@ -6,0 +7 @@ import java.io.IOException;\n+import java.nio.charset.StandardCharsets;\n@@ -63 +64 @@ public class X25Record extends Record {\n-    return byteArrayToString(address, false);\n+    return new String(address, StandardCharsets.US_ASCII);"
+}

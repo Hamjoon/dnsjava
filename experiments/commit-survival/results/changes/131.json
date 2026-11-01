@@ -1,0 +1,22 @@
+{
+  "index": 131,
+  "sha": "a36766d2b8a45294e1c28409a9dfea49899335b9",
+  "parent": "0c6a5d45adfb57051a6fb78692866eb69cf895ad",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/Zone.java": [
+      336,
+      337,
+      591,
+      605
+    ]
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/Zone.java": [
+      336,
+      337,
+      590,
+      604
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/Zone.java b/src/main/java/org/xbill/DNS/Zone.java\nindex 279828de..b574d6c5 100644\n--- a/src/main/java/org/xbill/DNS/Zone.java\n+++ b/src/main/java/org/xbill/DNS/Zone.java\n@@ -336,3 +336,2 @@ public class Zone implements Serializable, Iterable<RRset> {\n-          if (rrset.size() + rrset.sigSize() > 1) {\n-            rrset.deleteRR(r);\n-          } else {\n+          rrset.deleteRR(r);\n+          if (rrset.isEmpty()) {\n@@ -591 +590 @@ public class Zone implements Serializable, Iterable<RRset> {\n-        if (set.getType() == type) {\n+        if (set.isEmpty() || set.getType() == type) {\n@@ -605 +604 @@ public class Zone implements Serializable, Iterable<RRset> {\n-      if (set.getType() != type) {\n+      if (!set.isEmpty() && set.getType() != type) {"
+}

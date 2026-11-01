@@ -1,0 +1,252 @@
+[
+  {
+    "group": "addRRset(RRset) - Null handling",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "rrset",
+            "value": "null"
+          }
+        ],
+        "expected": "NullPointerException",
+        "description": "Calling addRRset with a null argument should throw a NullPointerException because the method immediately dereferences the argument to obtain its name."
+      },
+      {
+        "input": [
+          {
+            "parameter": "rrset",
+            "value": "RRset{name=null, type=A, records=[ARecord] }"
+          }
+        ],
+        "expected": "NullPointerException",
+        "description": "If the RRset's name is null, the internal call to addRRset(Name,RRset) will receive a null Name and should result in a NullPointerException."
+      }
+    ]
+  },
+  {
+    "group": "addRRset(RRset) - Normal addition",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "rrset",
+            "value": "RRset{name=example.com., type=A, records=[ARecord 93.184.216.34 TTL=3600] }"
+          }
+        ],
+        "expected": "findExactMatch(example.com., A) returns RRset containing the ARecord",
+        "description": "Add a standard A RRset whose name is within the zone origin; the RRset should be stored and retrievable via findExactMatch."
+      }
+    ]
+  },
+  {
+    "group": "addRRset(RRset) - Merge duplicate RRset",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "rrset",
+            "value": "RRset{name=www.example.com., type=TXT, records=[TXTRecord \"v=spf1 -all\" TTL=300] }"
+          }
+        ],
+        "expected": "After adding the same RRset twice, findExactMatch(www.example.com., TXT) returns a RRset with a single TXTRecord (no duplicates).",
+        "description": "Adding an identical RRset a second time should merge records without creating duplicates."
+      }
+    ]
+  },
+  {
+    "group": "addRRset(RRset) - Empty RRset",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "rrset",
+            "value": "RRset{name=empty.example.com., type=MX, records=[] }"
+          }
+        ],
+        "expected": "IllegalArgumentException",
+        "description": "An RRset that contains no records is invalid; the method should reject it with an IllegalArgumentException."
+      }
+    ]
+  },
+  {
+    "group": "addRRset(RRset) - Name outside zone origin",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "rrset",
+            "value": "RRset{name=outside.com., type=A, records=[ARecord 1.2.3.4 TTL=600] }"
+          }
+        ],
+        "expected": "IllegalArgumentException",
+        "description": "If the RRset's name is not a subdomain of the zone's origin, addRRset should throw an IllegalArgumentException."
+      }
+    ]
+  },
+  {
+    "group": "addRRset(RRset) - Different types same name",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "rrset",
+            "value": "RRset{name=host.example.com., type=A, records=[ARecord 192.0.2.1 TTL=3600] }"
+          }
+        ],
+        "expected": "findExactMatch(host.example.com., A) returns the A RRset; findExactMatch(host.example.com., AAAA) later returns the AAAA RRset.",
+        "description": "Adding two RRsets with the same owner name but different types should store both independently."
+      }
+    ]
+  },
+  {
+    "group": "addRRset(RRset) - Adding SOA record",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "rrset",
+            "value": "RRset{name=example.com., type=SOA, records=[SOARecord mname=ns1.example.com. rname=hostmaster.example.com. serial=2023101501 refresh=7200 retry=3600 expire=1209600 minimum=3600 TTL=3600] }"
+          }
+        ],
+        "expected": "getSOA() returns the added SOARecord",
+        "description": "Adding an SOA RRset for the zone origin should set the zone's SOA record, accessible via getSOA()."
+      }
+    ]
+  },
+  {
+    "group": "addRRset(RRset) - Adding NS record",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "rrset",
+            "value": "RRset{name=example.com., type=NS, records=[NSRecord ns1.example.com. TTL=3600, NSRecord ns2.example.com. TTL=3600] }"
+          }
+        ],
+        "expected": "getNS() returns the NS RRset containing both NS records",
+        "description": "Adding an NS RRset for the zone origin should be stored and returned by getNS()."
+      }
+    ]
+  },
+  {
+    "group": "addRRset(RRset) - Large RRset",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "rrset",
+            "value": "RRset{name=big.example.com., type=A, records=[ARecord 10.0.0.1 TTL=300, ARecord 10.0.0.2 TTL=300, ARecord 10.0.0.3 TTL=300, ARecord 10.0.0.4 TTL=300, ARecord 10.0.0.5 TTL=300, ARecord 10.0.0.6 TTL=300, ARecord 10.0.0.7 TTL=300, ARecord 10.0.0.8 TTL=300, ARecord 10.0.0.9 TTL=300, ARecord 10.0.0.10 TTL=300] }"
+          }
+        ],
+        "expected": "findExactMatch(big.example.com., A) returns RRset with 10 A records; no exception is thrown.",
+        "description": "The method should handle an RRset containing many records without failure."
+      }
+    ]
+  },
+  {
+    "group": "addRRset(RRset) - Record name mismatch",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "rrset",
+            "value": "RRset{name=host.example.com., type=A, records=[ARecord name=other.example.com. 192.0.2.1 TTL=3600] }"
+          }
+        ],
+        "expected": "IllegalArgumentException",
+        "description": "The RRset contains a record whose owner name (other.example.com.) does not match the RRset's name (host.example.com.). addRRset should reject this with an IllegalArgumentException."
+      }
+    ]
+  },
+  {
+    "group": "addRRset(RRset) - Null record inside RRset",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "rrset",
+            "value": "RRset{name=host.example.com., type=A, records=[null] }"
+          }
+        ],
+        "expected": "NullPointerException",
+        "description": "An RRset that contains a null Record element should cause a NullPointerException when the method attempts to inspect the record."
+      }
+    ]
+  },
+  {
+    "group": "addRRset(RRset) - Record type mismatch",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "rrset",
+            "value": "RRset{name=host.example.com., type=A, records=[AAAARecord 2001:db8::1 TTL=3600] }"
+          }
+        ],
+        "expected": "IllegalArgumentException",
+        "description": "The RRset type is A but the contained record is an AAAA record. The method should detect the mismatch and throw IllegalArgumentException."
+      }
+    ]
+  },
+  {
+    "group": "addRRset(RRset) - Duplicate SOA record",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "rrset",
+            "value": "RRset{name=example.com., type=SOA, records=[SOARecord mname=ns1.example.com. rname=hostmaster.example.com. serial=2023101502 refresh=7200 retry=3600 expire=1209600 minimum=3600 TTL=3600] }"
+          }
+        ],
+        "expected": "IllegalArgumentException",
+        "description": "A zone may contain only one SOA RRset. Adding a second SOA RRset after the initial one has been added should raise IllegalArgumentException."
+      }
+    ]
+  },
+  {
+    "group": "addRRset(RRset) - Duplicate NS record",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "rrset",
+            "value": "RRset{name=example.com., type=NS, records=[NSRecord ns1.example.com. TTL=3600, NSRecord ns1.example.com. TTL=3600] }"
+          }
+        ],
+        "expected": "IllegalArgumentException",
+        "description": "Adding an NS RRset that contains duplicate NS records should be rejected with IllegalArgumentException."
+      }
+    ]
+  },
+  {
+    "group": "addRRset(RRset) - Relative (non\u2011absolute) name",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "rrset",
+            "value": "RRset{name=relative, type=A, records=[ARecord 192.0.2.1 TTL=3600] }"
+          }
+        ],
+        "expected": "IllegalArgumentException",
+        "description": "The RRset name is not a fully qualified domain name (does not end with a dot). The method should treat this as invalid and throw IllegalArgumentException."
+      }
+    ]
+  },
+  {
+    "group": "addRRset(RRset) - Unsupported record type (ANY)",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "rrset",
+            "value": "RRset{name=example.com., type=ANY, records=[ARecord 93.184.216.34 TTL=3600] }"
+          }
+        ],
+        "expected": "IllegalArgumentException",
+        "description": "The DNS ANY type is not a concrete RR type for storage. Attempting to add an RRset with type ANY should cause IllegalArgumentException."
+      }
+    ]
+  }
+]

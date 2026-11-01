@@ -1,0 +1,44 @@
+{
+    "test_cases": [
+        {
+            "group": "AXFR iterator remove unsupported",
+            "cases": [
+                {
+                    "input": [],
+                    "expected": "UnsupportedOperationException when calling remove() on the iterator returned by AXFR().",
+                    "description": "Obtain the iterator via zone.AXFR(), advance it at least once, then invoke iterator.remove(). The ZoneIterator does not support element removal, so the call must throw UnsupportedOperationException."
+                }
+            ]
+        },
+        {
+            "group": "AXFR iterator concurrent modification",
+            "cases": [
+                {
+                    "input": [],
+                    "expected": "ConcurrentModificationException when the underlying Zone is modified after the iterator has been created and before iteration completes.",
+                    "description": "Create a Zone, add a couple of records, obtain an iterator with AXFR(), then add another record to the Zone before consuming the iterator. The iterator should detect the structural change and throw ConcurrentModificationException on the next hasNext() or next() call."
+                }
+            ]
+        },
+        {
+            "group": "AXFR on zone with null origin",
+            "cases": [
+                {
+                    "input": [],
+                    "expected": "NullPointerException (or IllegalArgumentException) when AXFR() is invoked on a Zone whose origin Name is null.",
+                    "description": "Construct a Zone instance using a constructor that allows a null origin (if such a constructor exists) or manually set the origin to null via reflection. Calling AXFR() should fail because a valid zone must have an origin; the implementation is expected to throw NullPointerException or IllegalArgumentException."
+                }
+            ]
+        },
+        {
+            "group": "AXFR iterator illegal state after exhaustion",
+            "cases": [
+                {
+                    "input": [],
+                    "expected": "IllegalStateException when calling remove() after the iterator has been exhausted.",
+                    "description": "Iterate through all RRsets returned by AXFR() until hasNext() returns false, then call iterator.remove(). Since the iterator is in a state where no current element exists, it must throw IllegalStateException."
+                }
+            ]
+        }
+    ]
+}

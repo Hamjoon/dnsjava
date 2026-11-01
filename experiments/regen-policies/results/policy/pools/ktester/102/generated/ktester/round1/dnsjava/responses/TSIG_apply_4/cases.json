@@ -1,0 +1,83 @@
+[
+  {
+    "group": "apply_nullMessage_throwsNullPointerException",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "m",
+            "value": "null"
+          },
+          {
+            "parameter": "error",
+            "value": "0"
+          },
+          {
+            "parameter": "old",
+            "value": "null"
+          },
+          {
+            "parameter": "fullSignature",
+            "value": "false"
+          }
+        ],
+        "expected": "NullPointerException",
+        "description": "Calling apply with a null Message should immediately throw a NullPointerException when the method attempts to invoke m.toWire() or m.addRecord(...)."
+      }
+    ]
+  },
+  {
+    "group": "apply_negativeErrorCode_throwsIllegalArgumentException",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "m",
+            "value": "new Message()"
+          },
+          {
+            "parameter": "error",
+            "value": "-1"
+          },
+          {
+            "parameter": "old",
+            "value": "null"
+          },
+          {
+            "parameter": "fullSignature",
+            "value": "false"
+          }
+        ],
+        "expected": "IllegalArgumentException",
+        "description": "A negative DNS error code is not valid. The generate() implementation validates the error parameter and should throw IllegalArgumentException for values < 0."
+      }
+    ]
+  },
+  {
+    "group": "apply_generateReturnsNull_throwsNullPointerException",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "m",
+            "value": "new Message()"
+          },
+          {
+            "parameter": "error",
+            "value": "0"
+          },
+          {
+            "parameter": "old",
+            "value": "null"
+          },
+          {
+            "parameter": "fullSignature",
+            "value": "false"
+          }
+        ],
+        "expected": "NullPointerException",
+        "description": "If a subclass of TSIG overrides generate(...) to return null (e.g., due to an internal failure), apply will attempt to add a null record to the message, causing a NullPointerException."
+      }
+    ]
+  }
+]

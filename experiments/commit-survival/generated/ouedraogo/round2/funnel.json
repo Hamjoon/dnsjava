@@ -1,0 +1,59 @@
+{
+  "group": "ouedraogo",
+  "round": "round2",
+  "files": 15,
+  "compiled": 4,
+  "methods": 266,
+  "stable_3_of_3": 35,
+  "duplicates": 2,
+  "kept_this_round": 33,
+  "total_kept": 75,
+  "developer_denominator": 1250,
+  "ratio_to_dev": 0.06,
+  "per_prompt": {
+    "ZSL": {
+      "files": 3,
+      "compiled": 1,
+      "methods": 41,
+      "stable": 12,
+      "duplicates": 1,
+      "kept": 11
+    },
+    "FSL": {
+      "files": 3,
+      "compiled": 2,
+      "methods": 34,
+      "stable": 21,
+      "duplicates": 0,
+      "kept": 21
+    },
+    "CoT": {
+      "files": 3,
+      "compiled": 0,
+      "methods": 61,
+      "stable": 0,
+      "duplicates": 0,
+      "kept": 0
+    },
+    "ToT": {
+      "files": 3,
+      "compiled": 1,
+      "methods": 65,
+      "stable": 2,
+      "duplicates": 1,
+      "kept": 1
+    },
+    "GToT": {
+      "files": 3,
+      "compiled": 0,
+      "methods": 65,
+      "stable": 0,
+      "duplicates": 0,
+      "kept": 0
+    }
+  },
+  "dev_unmapped_excluded": 133,
+  "notes": [
+    "133 unmapped baseline cases excluded from all Dev denominators (dev.unmapped: exclude); see dev/dev-unmapped-excluded.csv."
+  ]
+}

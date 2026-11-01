@@ -1,0 +1,34 @@
+{
+  "index": 93,
+  "sha": "ad35cd7041678dbc652a3f1f9e411b73e299cc26",
+  "parent": "9f0fd8b5d68a0dcfac0c532251984d34e39d769d",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/NioClient.java": [
+      142
+    ],
+    "src/main/java/org/xbill/DNS/NioTcpClient.java": [
+      69,
+      71,
+      72,
+      73
+    ]
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/NioClient.java": [
+      97,
+      143,
+      144,
+      145,
+      146,
+      147,
+      150
+    ],
+    "src/main/java/org/xbill/DNS/NioTcpClient.java": [
+      69,
+      70,
+      71,
+      72
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/NioClient.java b/src/main/java/org/xbill/DNS/NioClient.java\nindex b197f416..076fd7d7 100644\n--- a/src/main/java/org/xbill/DNS/NioClient.java\n+++ b/src/main/java/org/xbill/DNS/NioClient.java\n@@ -96,0 +97 @@ public abstract class NioClient {\n+    log.debug(\"Closing dnsjava NIO selector, fromHook={}\", fromHook);\n@@ -142 +143,8 @@ public abstract class NioClient {\n-        if (selector.select(timeout) == 0) {\n+        int numSelects = selector.select(timeout);\n+        if (Thread.currentThread().isInterrupted()) {\n+          log.debug(\"Sector thread was interrupted, stopping\");\n+          close();\n+          break;\n+        }\n+\n+        if (numSelects == 0) {\ndiff --git a/src/main/java/org/xbill/DNS/NioTcpClient.java b/src/main/java/org/xbill/DNS/NioTcpClient.java\nindex 200a5331..50f9c131 100644\n--- a/src/main/java/org/xbill/DNS/NioTcpClient.java\n+++ b/src/main/java/org/xbill/DNS/NioTcpClient.java\n@@ -69,5 +69,4 @@ final class NioTcpClient extends NioClient implements TcpIoClient {\n-    channelMap.forEach(\n-        (key, state) -> {\n-          state.handleTransactionException(closing);\n-          state.handleChannelException(closing);\n-        });\n+    for (ChannelState state : channelMap.values()) {\n+      state.handleTransactionException(closing);\n+      state.handleChannelException(closing);\n+    }"
+}

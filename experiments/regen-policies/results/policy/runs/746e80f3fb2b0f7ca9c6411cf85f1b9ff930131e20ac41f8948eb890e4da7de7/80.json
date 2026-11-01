@@ -1,0 +1,470 @@
+{
+  "index": 80,
+  "sha": "9ae7e1d7bb1c65ab372dd2bfd8e0562b6a63e708",
+  "status": "evaluated",
+  "imported": false,
+  "coverage_version": 3,
+  "coverage_status": "complete",
+  "coverage_reason": "",
+  "methods": [
+    {
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_setHeader_Test.java|org.xbill.DNS.Message_setHeader_Test|setHeader_replacesHeader_correctly",
+      "file_hash": "4e06072f97ecdcc9661ccb4c08d7ef687f642fd9501efd9d4cf61c2d0417d173",
+      "execution_hash": "746e80f3fb2b0f7ca9c6411cf85f1b9ff930131e20ac41f8948eb890e4da7de7",
+      "class": "org.xbill.DNS.Message_setHeader_Test",
+      "method": "setHeader_replacesHeader_correctly",
+      "state": "pass",
+      "message": "",
+      "lines": [
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          63
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          64
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          65
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          66
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          75
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          76
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          163
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          164
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          172
+        ]
+      ]
+    },
+    {
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_setHeader_Test.java|org.xbill.DNS.Message_setHeader_Test|setHeader_affectsHeaderId",
+      "file_hash": "4e06072f97ecdcc9661ccb4c08d7ef687f642fd9501efd9d4cf61c2d0417d173",
+      "execution_hash": "746e80f3fb2b0f7ca9c6411cf85f1b9ff930131e20ac41f8948eb890e4da7de7",
+      "class": "org.xbill.DNS.Message_setHeader_Test",
+      "method": "setHeader_affectsHeaderId",
+      "state": "pass",
+      "message": "",
+      "lines": [
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          26
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          60
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          63
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          64
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          65
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          66
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          75
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          76
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          163
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          164
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          172
+        ]
+      ]
+    },
+    {
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_setHeader_Test.java|org.xbill.DNS.Message_setHeader_Test|setHeader_doesNotAlterMessageSections",
+      "file_hash": "4e06072f97ecdcc9661ccb4c08d7ef687f642fd9501efd9d4cf61c2d0417d173",
+      "execution_hash": "746e80f3fb2b0f7ca9c6411cf85f1b9ff930131e20ac41f8948eb890e4da7de7",
+      "class": "org.xbill.DNS.Message_setHeader_Test",
+      "method": "setHeader_doesNotAlterMessageSections",
+      "state": "pass",
+      "message": "",
+      "lines": [
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          63
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          64
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          65
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          66
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          75
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          76
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          163
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          164
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          182
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          183
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          185
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          186
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          187
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          388
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          389
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          392
+        ]
+      ]
+    },
+    {
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_setHeader_Test.java|org.xbill.DNS.Message_setHeader_Test|setHeader_withNullHeader_throwsNPE",
+      "file_hash": "4e06072f97ecdcc9661ccb4c08d7ef687f642fd9501efd9d4cf61c2d0417d173",
+      "execution_hash": "746e80f3fb2b0f7ca9c6411cf85f1b9ff930131e20ac41f8948eb890e4da7de7",
+      "class": "org.xbill.DNS.Message_setHeader_Test",
+      "method": "setHeader_withNullHeader_throwsNPE",
+      "state": "pass",
+      "message": "",
+      "lines": [
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          63
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          64
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          65
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          66
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          75
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          76
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          163
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          164
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          172
+        ]
+      ]
+    },
+    {
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_setHeader_Test.java|org.xbill.DNS.Message_setHeader_Test|setHeader_storesFreshHeaderInstance",
+      "file_hash": "4e06072f97ecdcc9661ccb4c08d7ef687f642fd9501efd9d4cf61c2d0417d173",
+      "execution_hash": "746e80f3fb2b0f7ca9c6411cf85f1b9ff930131e20ac41f8948eb890e4da7de7",
+      "class": "org.xbill.DNS.Message_setHeader_Test",
+      "method": "setHeader_storesFreshHeaderInstance",
+      "state": "pass",
+      "message": "",
+      "lines": [
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          63
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          64
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          65
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          66
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          75
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          76
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          163
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          164
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          172
+        ]
+      ]
+    },
+    {
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_setHeader_Test.java|org.xbill.DNS.Message_setHeader_Test|setHeader_nullClearsHeader",
+      "file_hash": "4e06072f97ecdcc9661ccb4c08d7ef687f642fd9501efd9d4cf61c2d0417d173",
+      "execution_hash": "746e80f3fb2b0f7ca9c6411cf85f1b9ff930131e20ac41f8948eb890e4da7de7",
+      "class": "org.xbill.DNS.Message_setHeader_Test",
+      "method": "setHeader_nullClearsHeader",
+      "state": "pass",
+      "message": "",
+      "lines": [
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          63
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          64
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          65
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          66
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          75
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          76
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          163
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          164
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          172
+        ]
+      ]
+    },
+    {
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_setHeader_Test.java|org.xbill.DNS.Message_setHeader_Test|setHeader_secondCallOverridesFirst",
+      "file_hash": "4e06072f97ecdcc9661ccb4c08d7ef687f642fd9501efd9d4cf61c2d0417d173",
+      "execution_hash": "746e80f3fb2b0f7ca9c6411cf85f1b9ff930131e20ac41f8948eb890e4da7de7",
+      "class": "org.xbill.DNS.Message_setHeader_Test",
+      "method": "setHeader_secondCallOverridesFirst",
+      "state": "pass",
+      "message": "",
+      "lines": [
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          63
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          64
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          65
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          66
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          75
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          76
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          163
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          164
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          172
+        ]
+      ]
+    },
+    {
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_setHeader_Test.java|org.xbill.DNS.Message_setHeader_Test|setHeader_keepsReferenceAndReflectsExternalModifications",
+      "file_hash": "4e06072f97ecdcc9661ccb4c08d7ef687f642fd9501efd9d4cf61c2d0417d173",
+      "execution_hash": "746e80f3fb2b0f7ca9c6411cf85f1b9ff930131e20ac41f8948eb890e4da7de7",
+      "class": "org.xbill.DNS.Message_setHeader_Test",
+      "method": "setHeader_keepsReferenceAndReflectsExternalModifications",
+      "state": "pass",
+      "message": "",
+      "lines": [
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          63
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          64
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          65
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          66
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          75
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          76
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          163
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          164
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          172
+        ]
+      ]
+    },
+    {
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_setHeader_Test.java|org.xbill.DNS.Message_setHeader_Test|setHeader_parameterised",
+      "file_hash": "4e06072f97ecdcc9661ccb4c08d7ef687f642fd9501efd9d4cf61c2d0417d173",
+      "execution_hash": "746e80f3fb2b0f7ca9c6411cf85f1b9ff930131e20ac41f8948eb890e4da7de7",
+      "class": "org.xbill.DNS.Message_setHeader_Test",
+      "method": "setHeader_parameterised",
+      "state": "pass",
+      "message": "",
+      "lines": [
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          63
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          64
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          65
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          66
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          75
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          76
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          163
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          164
+        ],
+        [
+          "src/main/java/org/xbill/DNS/Message.java",
+          172
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+[
+  {
+    "group": "Message.isSigned",
+    "cases": [
+      {
+        "input": [],
+        "expected": false,
+        "description": "tsigState is TSIG_UNSIGNED (0); isSigned() should return false."
+      },
+      {
+        "input": [],
+        "expected": false,
+        "description": "tsigState is TSIG_INTERMEDIATE (2); isSigned() should return false."
+      },
+      {
+        "input": [],
+        "expected": true,
+        "description": "tsigState is TSIG_SIGNED (3); isSigned() should return true."
+      },
+      {
+        "input": [],
+        "expected": true,
+        "description": "tsigState is TSIG_VERIFIED (1); isSigned() should return true."
+      },
+      {
+        "input": [],
+        "expected": true,
+        "description": "tsigState is TSIG_FAILED (4); isSigned() should return true."
+      },
+      {
+        "input": [],
+        "expected": false,
+        "description": "tsigState is an unexpected value (e.g., 99); isSigned() should return false."
+      }
+    ]
+  },
+  {
+    "group": "Message.isSigned edge cases",
+    "cases": [
+      {
+        "input": [],
+        "expected": false,
+        "description": "tsigState is set to a negative value (-1) via reflection; isSigned() should return false because it is not a defined signed state."
+      },
+      {
+        "input": [],
+        "expected": false,
+        "description": "tsigState is set to a value just above the defined range (5) via reflection; isSigned() should return false."
+      },
+      {
+        "input": [],
+        "expected": false,
+        "description": "tsigState is set to Integer.MAX_VALUE via reflection; isSigned() should return false as the value is not one of the signed constants."
+      },
+      {
+        "input": [],
+        "expected": false,
+        "description": "tsigState is set to Integer.MIN_VALUE via reflection; isSigned() should return false because it is not a recognized signed state."
+      }
+    ]
+  }
+]

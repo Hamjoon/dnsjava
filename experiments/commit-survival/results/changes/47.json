@@ -1,0 +1,22 @@
+{
+  "index": 47,
+  "sha": "6c519f2053f3e3bf8345a0c2af09abcf213c7c2b",
+  "parent": "2885bddf14b8f012d2c362bc00b0d4da4436b8d4",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/Cache.java": [
+      216
+    ],
+    "src/main/java/org/xbill/DNS/Zone.java": [
+      180
+    ]
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/Cache.java": [
+      222
+    ],
+    "src/main/java/org/xbill/DNS/Zone.java": [
+      186
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/Cache.java b/src/main/java/org/xbill/DNS/Cache.java\nindex 69b67f52..3258686e 100644\n--- a/src/main/java/org/xbill/DNS/Cache.java\n+++ b/src/main/java/org/xbill/DNS/Cache.java\n@@ -216 +216 @@ public class Cache {\n-    try (m) {\n+    try {\n@@ -220,0 +221,2 @@ public class Cache {\n+    } finally {\n+      m.close();\ndiff --git a/src/main/java/org/xbill/DNS/Zone.java b/src/main/java/org/xbill/DNS/Zone.java\nindex e3eb8071..53658bc8 100644\n--- a/src/main/java/org/xbill/DNS/Zone.java\n+++ b/src/main/java/org/xbill/DNS/Zone.java\n@@ -180 +180 @@ public class Zone implements Serializable, Iterable<RRset> {\n-    try (m) {\n+    try {\n@@ -184,0 +185,2 @@ public class Zone implements Serializable, Iterable<RRset> {\n+    } finally {\n+      m.close();"
+}

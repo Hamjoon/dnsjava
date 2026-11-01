@@ -1,0 +1,58 @@
+{
+  "class_name": "Zone",
+  "technique": "ZSL",
+  "status": "ok",
+  "attempts": 1,
+  "calls": [
+    {
+      "timestamp": "2026-10-29T16:45:16.430588+00:00",
+      "latency": 318.018,
+      "status": "ok",
+      "http_status": 200,
+      "finish_reason": "stop",
+      "provider": "Mancer 2",
+      "model_requested": "openai/gpt-oss-120b",
+      "model_reported": "openai/gpt-oss-120b",
+      "request_id": "gen-1793292316-RYWhWaPeSdOFSvDBz76s",
+      "usage": {
+        "prompt_tokens": 5477,
+        "completion_tokens": 13239,
+        "total_tokens": 18716,
+        "cost": 0.0035825,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0035825,
+          "upstream_inference_prompt_cost": 0.0002737659406741824,
+          "upstream_inference_completions_cost": 0.0033087340593258175
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 10280,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "error_type": null,
+      "prompt_sha256": "c7932383ff2347e7c5346f9ce4573907d40d3f2f4adfc8245b45375f44272b96",
+      "response_sha256": "48fb70222bff90a9e320af0f7f3cb2e2cc02b796438b60e55c46b0704d9c9f14"
+    }
+  ],
+  "extraction": {
+    "msr_detected": true,
+    "csr_v2": true,
+    "class_name": "ZoneTest",
+    "package": "org.xbill.DNS",
+    "fqcn": "org.xbill.DNS.ZoneTest",
+    "csr_success": null,
+    "selection": "markers",
+    "marker_pair": true,
+    "braces_balanced": true,
+    "html_detected": false
+  },
+  "file": "generated/ouedraogo/round1/sources/Zone/ZSL/ZoneTest.java"
+}

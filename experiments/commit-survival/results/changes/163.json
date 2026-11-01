@@ -1,0 +1,48 @@
+{
+  "index": 163,
+  "sha": "8a0f3347e075bccbff9453f288a2fe5bb4fa6eed",
+  "parent": "0de25a93eb555bfd025a0af95b19c61d37b21709",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/Cache.java": [
+      667
+    ],
+    "src/main/java/org/xbill/DNS/Lookup.java": [
+      620
+    ],
+    "src/main/java/org/xbill/DNS/ZoneTransferIn.java": [
+      506
+    ],
+    "src/main/java/org/xbill/DNS/dnssec/ValidatingResolver.java": [
+      1303,
+      1424
+    ],
+    "src/main/java/org/xbill/DNS/tools/jnamed.java": [
+      422
+    ],
+    "src/main/java/org/xbill/DNS/tools/update.java": [
+      492
+    ]
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/Cache.java": [
+      667
+    ],
+    "src/main/java/org/xbill/DNS/Lookup.java": [
+      620
+    ],
+    "src/main/java/org/xbill/DNS/ZoneTransferIn.java": [
+      506
+    ],
+    "src/main/java/org/xbill/DNS/dnssec/ValidatingResolver.java": [
+      1303,
+      1424
+    ],
+    "src/main/java/org/xbill/DNS/tools/jnamed.java": [
+      422
+    ],
+    "src/main/java/org/xbill/DNS/tools/update.java": [
+      492
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/Cache.java b/src/main/java/org/xbill/DNS/Cache.java\nindex 3f979f2d..2da955ac 100644\n--- a/src/main/java/org/xbill/DNS/Cache.java\n+++ b/src/main/java/org/xbill/DNS/Cache.java\n@@ -667 +667 @@ public class Cache {\n-    int rcode = in.getHeader().getRcode();\n+    int rcode = in.getRcode();\ndiff --git a/src/main/java/org/xbill/DNS/Lookup.java b/src/main/java/org/xbill/DNS/Lookup.java\nindex 4d52d07f..64d77b59 100644\n--- a/src/main/java/org/xbill/DNS/Lookup.java\n+++ b/src/main/java/org/xbill/DNS/Lookup.java\n@@ -620 +620 @@ public final class Lookup {\n-    int rcode = response.getHeader().getRcode();\n+    int rcode = response.getRcode();\ndiff --git a/src/main/java/org/xbill/DNS/ZoneTransferIn.java b/src/main/java/org/xbill/DNS/ZoneTransferIn.java\nindex eb90c5a2..09a06000 100644\n--- a/src/main/java/org/xbill/DNS/ZoneTransferIn.java\n+++ b/src/main/java/org/xbill/DNS/ZoneTransferIn.java\n@@ -506 +506 @@ public class ZoneTransferIn {\n-      if (response.getHeader().getRcode() == Rcode.NOERROR && verifier != null) {\n+      if (response.getRcode() == Rcode.NOERROR && verifier != null) {\ndiff --git a/src/main/java/org/xbill/DNS/dnssec/ValidatingResolver.java b/src/main/java/org/xbill/DNS/dnssec/ValidatingResolver.java\nindex 0d7e57df..822a1e9e 100644\n--- a/src/main/java/org/xbill/DNS/dnssec/ValidatingResolver.java\n+++ b/src/main/java/org/xbill/DNS/dnssec/ValidatingResolver.java\n@@ -1303 +1303 @@ public final class ValidatingResolver implements Resolver {\n-        int code = response.getHeader().getRcode();\n+        int code = response.getRcode();\n@@ -1424 +1424 @@ public final class ValidatingResolver implements Resolver {\n-                  && rrsigResponse.getHeader().getRcode() == Rcode.NOERROR\n+                  && rrsigResponse.getRcode() == Rcode.NOERROR\ndiff --git a/src/main/java/org/xbill/DNS/tools/jnamed.java b/src/main/java/org/xbill/DNS/tools/jnamed.java\nindex 54b24781..e028c665 100644\n--- a/src/main/java/org/xbill/DNS/tools/jnamed.java\n+++ b/src/main/java/org/xbill/DNS/tools/jnamed.java\n@@ -422 +422 @@ public class jnamed {\n-    if (header.getRcode() != Rcode.NOERROR) {\n+    if (query.getRcode() != Rcode.NOERROR) {\ndiff --git a/src/main/java/org/xbill/DNS/tools/update.java b/src/main/java/org/xbill/DNS/tools/update.java\nindex 69461242..9a42ed2c 100644\n--- a/src/main/java/org/xbill/DNS/tools/update.java\n+++ b/src/main/java/org/xbill/DNS/tools/update.java\n@@ -492 +492 @@ public class update {\n-      int rcode = response.getHeader().getRcode();\n+      int rcode = response.getRcode();"
+}

@@ -1,0 +1,5 @@
+{
+  "api document of class org.xbill.DNS.Zone": "\n * A DNS Zone. This encapsulates all data related to a Zone, and provides convenient lookup methods.\n *\n * @author Brian Wellington\n ",
+  "api document of method AXFR()": "\n   * Returns an Iterator over the RRsets in the zone that can be used to construct an AXFR response.\n   * This is identical to {@link #iterator} except that the SOA is returned at the end as well as\n   * the beginning.\n   ",
+  "dependent classes": "class `org.xbill.DNS.Zone`:\n\trelated functions:\n\t\tmethod `public Iterator<RRset> iterator()` returns `java.util.Iterator<org.xbill.DNS.RRset>`, related with `org.xbill.DNS.Zone.AXFR()`, api document:  Returns an Iterator over the RRsets in the zone. ;\nclass `org.xbill.DNS.ExtendedFlags`:\n\trelated functions:\n\t\tmethod `public static String string(int)` returns `java.lang.String`, related with `org.xbill.DNS.Zone.AXFR()`, api document:  Converts a numeric extended flag into a String ;"
+}

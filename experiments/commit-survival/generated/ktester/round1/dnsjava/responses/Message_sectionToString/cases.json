@@ -1,0 +1,132 @@
+[
+  {
+    "group": "sectionToString_nullWhenOutOfRange",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "section",
+            "value": 4
+          }
+        ],
+        "expected": null,
+        "description": "When the section index is greater than the maximum valid index (3), the method should return null."
+      },
+      {
+        "input": [
+          {
+            "parameter": "section",
+            "value": 10
+          }
+        ],
+        "expected": null,
+        "description": "A large out\u2011of\u2011range index also results in null, confirming the upper\u2011bound check is not dependent on a specific value."
+      }
+    ]
+  },
+  {
+    "group": "sectionToString_emptySections",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "section",
+            "value": 0
+          }
+        ],
+        "expected": "",
+        "description": "A freshly created Message has no QUESTION records; the string representation of an empty section must be the empty string."
+      },
+      {
+        "input": [
+          {
+            "parameter": "section",
+            "value": 1
+          }
+        ],
+        "expected": "",
+        "description": "When no ANSWER records are present, sectionToString should return an empty string rather than null."
+      },
+      {
+        "input": [
+          {
+            "parameter": "section",
+            "value": 2
+          }
+        ],
+        "expected": "",
+        "description": "An empty AUTHORITY section should also produce an empty string."
+      },
+      {
+        "input": [
+          {
+            "parameter": "section",
+            "value": 3
+          }
+        ],
+        "expected": "",
+        "description": "An empty ADDITIONAL section must return an empty string."
+      }
+    ]
+  },
+  {
+    "group": "sectionToString_withRecords",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "section",
+            "value": 1
+          }
+        ],
+        "expected": "example.com.\\t3600\\tIN\\tA\\t1.2.3.4",
+        "description": "A Message containing a single A record in the ANSWER section should return a string that includes the record's textual representation."
+      },
+      {
+        "input": [
+          {
+            "parameter": "section",
+            "value": 2
+          }
+        ],
+        "expected": "example.com.\\t3600\\tIN\\tMX\\t10 mail.example.com.",
+        "description": "When an MX record is added to the AUTHORITY section, sectionToString must contain the MX record's string form."
+      },
+      {
+        "input": [
+          {
+            "parameter": "section",
+            "value": 3
+          }
+        ],
+        "expected": "example.com.\\t3600\\tIN\\tOPT\\t4096",
+        "description": "An OPT record placed in the ADDITIONAL section should appear in the string returned for section 3."
+      }
+    ]
+  },
+  {
+    "group": "sectionToString_negativeSection_throwsException",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "section",
+            "value": -1
+          }
+        ],
+        "expected": "IllegalArgumentException",
+        "description": "Passing a negative section index should cause IllegalArgumentException because the internal helper expects a value between 0 and 3."
+      },
+      {
+        "input": [
+          {
+            "parameter": "section",
+            "value": -100
+          }
+        ],
+        "expected": "IllegalArgumentException",
+        "description": "A large negative index also triggers the same validation, confirming that any i < 0 results in an exception."
+      }
+    ]
+  }
+]

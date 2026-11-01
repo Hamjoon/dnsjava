@@ -1,0 +1,24 @@
+{
+  "index": 172,
+  "sha": "2184aa05e19953e07fd32d6177ad4420a415261d",
+  "parent": "524b459d3a5677763683035d769d945a461e7c41",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/Compression.java": [],
+    "src/main/java/org/xbill/DNS/Rcode.java": [],
+    "src/main/java/org/xbill/DNS/Record.java": [],
+    "src/main/java/org/xbill/DNS/SVCBBase.java": [],
+    "src/main/java/org/xbill/DNS/TextParseException.java": [],
+    "src/main/java/org/xbill/DNS/Tokenizer.java": [],
+    "src/main/java/org/xbill/DNS/hosts/HostsFileParser.java": []
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/Compression.java": [],
+    "src/main/java/org/xbill/DNS/Rcode.java": [],
+    "src/main/java/org/xbill/DNS/Record.java": [],
+    "src/main/java/org/xbill/DNS/SVCBBase.java": [],
+    "src/main/java/org/xbill/DNS/TextParseException.java": [],
+    "src/main/java/org/xbill/DNS/Tokenizer.java": [],
+    "src/main/java/org/xbill/DNS/hosts/HostsFileParser.java": []
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/Compression.java b/src/main/java/org/xbill/DNS/Compression.java\nindex 21bf9922..ea24c9de 100644\n--- a/src/main/java/org/xbill/DNS/Compression.java\n+++ b/src/main/java/org/xbill/DNS/Compression.java\n@@ -56 +56 @@ public class Compression {\n-   * @since 3.6.6\n+   * @since 3.7.0\ndiff --git a/src/main/java/org/xbill/DNS/Rcode.java b/src/main/java/org/xbill/DNS/Rcode.java\nindex 34ae3b63..305b156d 100644\n--- a/src/main/java/org/xbill/DNS/Rcode.java\n+++ b/src/main/java/org/xbill/DNS/Rcode.java\n@@ -86 +86 @@ public final class Rcode {\n-   * @since 3.6.6\n+   * @since 3.7.0\ndiff --git a/src/main/java/org/xbill/DNS/Record.java b/src/main/java/org/xbill/DNS/Record.java\nindex 576a33cb..28252aed 100644\n--- a/src/main/java/org/xbill/DNS/Record.java\n+++ b/src/main/java/org/xbill/DNS/Record.java\n@@ -381 +381 @@ public abstract class Record implements Cloneable, Comparable<Record>, Serializa\n-   * @since 3.6.6\n+   * @since 3.7.0\ndiff --git a/src/main/java/org/xbill/DNS/SVCBBase.java b/src/main/java/org/xbill/DNS/SVCBBase.java\nindex d13b26a1..bd076f58 100644\n--- a/src/main/java/org/xbill/DNS/SVCBBase.java\n+++ b/src/main/java/org/xbill/DNS/SVCBBase.java\n@@ -86 +86 @@ public abstract class SVCBBase extends Record {\n-   * @since 3.6.6\n+   * @since 3.7.0\n@@ -94 +94 @@ public abstract class SVCBBase extends Record {\n-   * @since 3.6.6\n+   * @since 3.7.0\n@@ -102 +102 @@ public abstract class SVCBBase extends Record {\n-   * @since 3.6.6\n+   * @since 3.7.0\n@@ -112 +112 @@ public abstract class SVCBBase extends Record {\n-   * @since 3.6.6\n+   * @since 3.7.0\n@@ -120 +120 @@ public abstract class SVCBBase extends Record {\n-   * @since 3.6.6\n+   * @since 3.7.0\n@@ -131 +131 @@ public abstract class SVCBBase extends Record {\n-   * @since 3.6.6\n+   * @since 3.7.0\ndiff --git a/src/main/java/org/xbill/DNS/TextParseException.java b/src/main/java/org/xbill/DNS/TextParseException.java\nindex 6a42c21e..ee508a84 100644\n--- a/src/main/java/org/xbill/DNS/TextParseException.java\n+++ b/src/main/java/org/xbill/DNS/TextParseException.java\n@@ -26 +26 @@ public class TextParseException extends IOException {\n-   * @since 3.6.6\n+   * @since 3.7.0\ndiff --git a/src/main/java/org/xbill/DNS/Tokenizer.java b/src/main/java/org/xbill/DNS/Tokenizer.java\nindex 2b2bd5e2..68c7e037 100644\n--- a/src/main/java/org/xbill/DNS/Tokenizer.java\n+++ b/src/main/java/org/xbill/DNS/Tokenizer.java\n@@ -748 +748 @@ public class Tokenizer implements AutoCloseable {\n-   * @since 3.6.6\n+   * @since 3.7.0\ndiff --git a/src/main/java/org/xbill/DNS/hosts/HostsFileParser.java b/src/main/java/org/xbill/DNS/hosts/HostsFileParser.java\nindex 1a5195e4..d889b502 100644\n--- a/src/main/java/org/xbill/DNS/hosts/HostsFileParser.java\n+++ b/src/main/java/org/xbill/DNS/hosts/HostsFileParser.java\n@@ -138 +138 @@ public final class HostsFileParser {\n-   * @since 3.6.6\n+   * @since 3.7.0"
+}

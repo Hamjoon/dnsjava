@@ -1,0 +1,23 @@
+{
+  "index": 86,
+  "sha": "34ba40e14de9403f5092e26132834caa607f31c3",
+  "parent": "865240c11a63ff77c4c98a3595d0ac3a8346d4f9",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/NioClient.java": [
+      105,
+      106,
+      107
+    ]
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/NioClient.java": [
+      104,
+      105,
+      107,
+      108,
+      109,
+      110
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/NioClient.java b/src/main/java/org/xbill/DNS/NioClient.java\nindex 5d529c04..b197f416 100644\n--- a/src/main/java/org/xbill/DNS/NioClient.java\n+++ b/src/main/java/org/xbill/DNS/NioClient.java\n@@ -104,4 +104,8 @@ public abstract class NioClient {\n-      try {\n-        Runtime.getRuntime().removeShutdownHook(closeThread);\n-      } catch (Exception ex) {\n-        log.warn(\"Failed to remove shutdown hook, ignoring and continuing close\");\n+      synchronized (NIO_CLIENT_LOCK) {\n+        if (closeThread != null) {\n+          try {\n+            Runtime.getRuntime().removeShutdownHook(closeThread);\n+          } catch (Exception ex) {\n+            log.warn(\"Failed to remove shutdown hook, ignoring and continuing close\", ex);\n+          }\n+        }"
+}

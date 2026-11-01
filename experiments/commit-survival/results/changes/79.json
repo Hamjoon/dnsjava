@@ -1,0 +1,35 @@
+{
+  "index": 79,
+  "sha": "a1db74504d1bd7b4137d5c5dff4919d60b0d8ab9",
+  "parent": "cd0bbdf991b375acbd72fa72df4fe8e3911380ec",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/ReverseMap.java": [
+      152,
+      159,
+      168,
+      174,
+      181,
+      184,
+      187
+    ],
+    "src/main/java/org/xbill/DNS/WKSRecord.java": [
+      692
+    ]
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/ReverseMap.java": [
+      152,
+      159,
+      168,
+      174,
+      182,
+      183,
+      186,
+      189
+    ],
+    "src/main/java/org/xbill/DNS/WKSRecord.java": [
+      692
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/ReverseMap.java b/src/main/java/org/xbill/DNS/ReverseMap.java\nindex 09c691a0..21a307ba 100644\n--- a/src/main/java/org/xbill/DNS/ReverseMap.java\n+++ b/src/main/java/org/xbill/DNS/ReverseMap.java\n@@ -152 +152 @@ public final class ReverseMap {\n-      throw new UnknownHostException(\"Not an arpa address: \" + name.toString());\n+      throw new UnknownHostException(\"Not an arpa address: \" + name);\n@@ -159 +159 @@ public final class ReverseMap {\n-        throw new UnknownHostException(\"Invalid IPv4 arpa address: \" + name.toString());\n+        throw new UnknownHostException(\"Invalid IPv4 arpa address: \" + name);\n@@ -168 +168 @@ public final class ReverseMap {\n-        throw new UnknownHostException(\"Invalid IPv4 arpa address: \" + name.toString());\n+        throw new UnknownHostException(\"Invalid IPv4 arpa address: \" + name);\n@@ -174 +174 @@ public final class ReverseMap {\n-        throw new UnknownHostException(\"Invalid IPv6 arpa address: \" + name.toString());\n+        throw new UnknownHostException(\"Invalid IPv6 arpa address: \" + name);\n@@ -181 +181,3 @@ public final class ReverseMap {\n-              Byte.parseByte(ip.getLabelString(i), 16) << ((ip.labels() - i) % 2 == 0 ? 0 : 4);\n+              (byte)\n+                  (Byte.parseByte(ip.getLabelString(i), 16)\n+                      << ((ip.labels() - i) % 2 == 0 ? 0 : 4));\n@@ -184 +186 @@ public final class ReverseMap {\n-        throw new UnknownHostException(\"Invalid IPv6 arpa address: \" + name.toString());\n+        throw new UnknownHostException(\"Invalid IPv6 arpa address: \" + name);\n@@ -187 +189 @@ public final class ReverseMap {\n-      throw new UnknownHostException(\"Not an arpa address: \" + name.toString());\n+      throw new UnknownHostException(\"Not an arpa address: \" + name);\ndiff --git a/src/main/java/org/xbill/DNS/WKSRecord.java b/src/main/java/org/xbill/DNS/WKSRecord.java\nindex d7266509..104b03ec 100644\n--- a/src/main/java/org/xbill/DNS/WKSRecord.java\n+++ b/src/main/java/org/xbill/DNS/WKSRecord.java\n@@ -692 +692 @@ public class WKSRecord extends Record {\n-      array[port / 8] |= 1 << (7 - port % 8);\n+      array[port / 8] |= (byte) (1 << (7 - port % 8));"
+}

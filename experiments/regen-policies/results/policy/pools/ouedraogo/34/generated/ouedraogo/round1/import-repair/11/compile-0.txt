@@ -1,0 +1,52 @@
+/repo/experiments/regen-policies/results/policy/pools/ouedraogo/34/generated/ouedraogo/round1/sources/Zone/FSL/ZoneTest.java:142: error: unreported exception TextParseException; must be caught or declared to be thrown
+        RRset bad = new RRset(new SOARecord(Name.fromString("bad.example.com."), DClass.IN, 3600,
+                                                           ^
+/repo/experiments/regen-policies/results/policy/pools/ouedraogo/34/generated/ouedraogo/round1/sources/Zone/FSL/ZoneTest.java:143: error: unreported exception TextParseException; must be caught or declared to be thrown
+                Name.fromString("ns.bad.example.com."), Name.fromString("admin.bad.example.com."),
+                               ^
+/repo/experiments/regen-policies/results/policy/pools/ouedraogo/34/generated/ouedraogo/round1/sources/Zone/FSL/ZoneTest.java:143: error: unreported exception TextParseException; must be caught or declared to be thrown
+                Name.fromString("ns.bad.example.com."), Name.fromString("admin.bad.example.com."),
+                                                                       ^
+/repo/experiments/regen-policies/results/policy/pools/ouedraogo/34/generated/ouedraogo/round1/sources/Zone/FSL/ZoneTest.java:153: error: unreported exception TextParseException; must be caught or declared to be thrown
+                Name.fromString("ns2.example.com."), Name.fromString("admin.example.com."),
+                               ^
+/repo/experiments/regen-policies/results/policy/pools/ouedraogo/34/generated/ouedraogo/round1/sources/Zone/FSL/ZoneTest.java:153: error: unreported exception TextParseException; must be caught or declared to be thrown
+                Name.fromString("ns2.example.com."), Name.fromString("admin.example.com."),
+                                                                    ^
+/repo/experiments/regen-policies/results/policy/pools/ouedraogo/34/generated/ouedraogo/round1/sources/Zone/FSL/ZoneTest.java:208: error: unreported exception TextParseException; must be caught or declared to be thrown
+        RRset rs = zone.findExactMatch(Name.fromString("host.example.com."), Type.A);
+                                                      ^
+/repo/experiments/regen-policies/results/policy/pools/ouedraogo/34/generated/ouedraogo/round1/sources/Zone/FSL/ZoneTest.java:215: error: unreported exception TextParseException; must be caught or declared to be thrown
+        assertEquals(1, zone.findExactMatch(Name.fromString("host.example.com."), Type.A).size());
+                                                           ^
+/repo/experiments/regen-policies/results/policy/pools/ouedraogo/34/generated/ouedraogo/round1/sources/Zone/FSL/ZoneTest.java:220: error: unreported exception TextParseException; must be caught or declared to be thrown
+        assertNull(zone.findExactMatch(Name.fromString("nosuch.example.com."), Type.A));
+                                                      ^
+/repo/experiments/regen-policies/results/policy/pools/ouedraogo/34/generated/ouedraogo/round1/sources/Zone/FSL/ZoneTest.java:233: error: unreported exception TextParseException; must be caught or declared to be thrown
+        SetResponse sr = zone.findRecords(Name.fromString("host.example.com."), Type.A);
+                                                         ^
+/repo/experiments/regen-policies/results/policy/pools/ouedraogo/34/generated/ouedraogo/round1/sources/Zone/FSL/ZoneTest.java:241: error: unreported exception TextParseException; must be caught or declared to be thrown
+        SetResponse sr = zone.findRecords(Name.fromString("cname.example.com."), Type.A);
+                                                         ^
+/repo/experiments/regen-policies/results/policy/pools/ouedraogo/34/generated/ouedraogo/round1/sources/Zone/FSL/ZoneTest.java:249: error: unreported exception TextParseException; must be caught or declared to be thrown
+        SetResponse sr = zone.findRecords(Name.fromString("anysub.example.com."), Type.A);
+                                                         ^
+/repo/experiments/regen-policies/results/policy/pools/ouedraogo/34/generated/ouedraogo/round1/sources/Zone/FSL/ZoneTest.java:256: error: unreported exception TextParseException; must be caught or declared to be thrown
+        SetResponse sr = zone.findRecords(Name.fromString("deleg.example.com."), Type.A);
+                                                         ^
+/repo/experiments/regen-policies/results/policy/pools/ouedraogo/34/generated/ouedraogo/round1/sources/Zone/FSL/ZoneTest.java:267: error: unreported exception TextParseException; must be caught or declared to be thrown
+        SetResponse sr = zone.findRecords(Name.fromString("host.example.com."), Type.AAAA);
+                                                         ^
+/repo/experiments/regen-policies/results/policy/pools/ouedraogo/34/generated/ouedraogo/round1/sources/Zone/FSL/ZoneTest.java:274: error: unreported exception TextParseException; must be caught or declared to be thrown
+        SetResponse sr = zone.findRecords(Name.fromString("outside.com."), Type.A);
+                                                         ^
+/repo/experiments/regen-policies/results/policy/pools/ouedraogo/34/generated/ouedraogo/round1/sources/Zone/FSL/ZoneTest.java:281: error: unreported exception TextParseException; must be caught or declared to be thrown
+        SetResponse sr = zone.findRecords(Name.fromString("wildhost.example.com."), Type.A);
+                                                         ^
+/repo/experiments/regen-policies/results/policy/pools/ouedraogo/34/generated/ouedraogo/round1/sources/Zone/FSL/ZoneTest.java:288: error: unreported exception TextParseException; must be caught or declared to be thrown
+        assertEquals(Name.fromString("wildhost.example.com."), expandedRec.getName());
+                                    ^
+/repo/experiments/regen-policies/results/policy/pools/ouedraogo/34/generated/ouedraogo/round1/sources/Zone/FSL/ZoneTest.java:293: error: unreported exception TextParseException; must be caught or declared to be thrown
+        SetResponse sr = zone.findRecords(Name.fromString("host.example.com."), Type.ANY);
+                                                         ^
+17 errors

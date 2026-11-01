@@ -1,0 +1,137 @@
+{
+  "passed": true,
+  "checked_at": "2026-10-29T16:42:43.205864+00:00",
+  "blocks": [
+    {
+      "class_name": "org.xbill.DNS.Message",
+      "ordered_types": [
+        "org.xbill.DNS.Header",
+        "org.xbill.DNS.DNSInput",
+        "org.xbill.DNS.Record",
+        "org.xbill.DNS.TSIG",
+        "org.xbill.DNS.TSIGRecord",
+        "org.xbill.DNS.Resolver",
+        "org.xbill.DNS.Name",
+        "org.xbill.DNS.OPTRecord",
+        "org.xbill.DNS.RRset",
+        "org.xbill.DNS.DNSOutput",
+        "org.xbill.DNS.Compression"
+      ],
+      "included": [
+        "org.xbill.DNS.Header",
+        "org.xbill.DNS.DNSInput",
+        "org.xbill.DNS.Record",
+        "org.xbill.DNS.TSIG",
+        "org.xbill.DNS.TSIGRecord",
+        "org.xbill.DNS.Resolver",
+        "org.xbill.DNS.Name",
+        "org.xbill.DNS.OPTRecord",
+        "org.xbill.DNS.RRset",
+        "org.xbill.DNS.DNSOutput",
+        "org.xbill.DNS.Compression"
+      ],
+      "omitted": [],
+      "reasons": {
+        "org.xbill.DNS.Header": "constructor",
+        "org.xbill.DNS.DNSInput": "constructor",
+        "org.xbill.DNS.Record": "field",
+        "org.xbill.DNS.TSIG": "field",
+        "org.xbill.DNS.TSIGRecord": "field",
+        "org.xbill.DNS.Resolver": "field",
+        "org.xbill.DNS.Name": "method",
+        "org.xbill.DNS.OPTRecord": "method",
+        "org.xbill.DNS.RRset": "method",
+        "org.xbill.DNS.DNSOutput": "method",
+        "org.xbill.DNS.Compression": "method"
+      },
+      "types": 11,
+      "lines": 257,
+      "limits": {
+        "types": 15,
+        "lines": 400
+      }
+    },
+    {
+      "class_name": "org.xbill.DNS.Zone",
+      "ordered_types": [
+        "org.xbill.DNS.Name",
+        "org.xbill.DNS.Record",
+        "org.xbill.DNS.ZoneTransferIn",
+        "org.xbill.DNS.RRset",
+        "org.xbill.DNS.SOARecord",
+        "org.xbill.DNS.ZoneTransferException",
+        "org.xbill.DNS.SetResponse",
+        "org.xbill.DNS.Zone.ZoneIterator"
+      ],
+      "included": [
+        "org.xbill.DNS.Name",
+        "org.xbill.DNS.Record",
+        "org.xbill.DNS.ZoneTransferIn",
+        "org.xbill.DNS.RRset",
+        "org.xbill.DNS.SOARecord",
+        "org.xbill.DNS.ZoneTransferException",
+        "org.xbill.DNS.SetResponse",
+        "org.xbill.DNS.Zone.ZoneIterator"
+      ],
+      "omitted": [],
+      "reasons": {
+        "org.xbill.DNS.Name": "constructor",
+        "org.xbill.DNS.Record": "constructor",
+        "org.xbill.DNS.ZoneTransferIn": "constructor",
+        "org.xbill.DNS.RRset": "field",
+        "org.xbill.DNS.SOARecord": "field",
+        "org.xbill.DNS.ZoneTransferException": "method",
+        "org.xbill.DNS.SetResponse": "method",
+        "org.xbill.DNS.Zone.ZoneIterator": "nested declaration"
+      },
+      "types": 8,
+      "lines": 163,
+      "limits": {
+        "types": 15,
+        "lines": 400
+      }
+    },
+    {
+      "class_name": "org.xbill.DNS.TSIG",
+      "ordered_types": [
+        "org.xbill.DNS.Name",
+        "org.xbill.DNS.Message",
+        "org.xbill.DNS.TSIGRecord",
+        "org.xbill.DNS.DNSOutput",
+        "org.xbill.DNS.utils.base64",
+        "org.xbill.DNS.utils.hexdump",
+        "org.xbill.DNS.TSIG.StreamGenerator",
+        "org.xbill.DNS.TSIG.StreamVerifier"
+      ],
+      "included": [
+        "org.xbill.DNS.Name",
+        "org.xbill.DNS.Message",
+        "org.xbill.DNS.TSIGRecord",
+        "org.xbill.DNS.DNSOutput",
+        "org.xbill.DNS.utils.base64",
+        "org.xbill.DNS.utils.hexdump",
+        "org.xbill.DNS.TSIG.StreamGenerator",
+        "org.xbill.DNS.TSIG.StreamVerifier"
+      ],
+      "omitted": [],
+      "reasons": {
+        "org.xbill.DNS.Name": "constructor",
+        "org.xbill.DNS.Message": "method",
+        "org.xbill.DNS.TSIGRecord": "method",
+        "org.xbill.DNS.DNSOutput": "method",
+        "org.xbill.DNS.utils.base64": "import",
+        "org.xbill.DNS.utils.hexdump": "import",
+        "org.xbill.DNS.TSIG.StreamGenerator": "nested declaration",
+        "org.xbill.DNS.TSIG.StreamVerifier": "nested declaration"
+      },
+      "types": 8,
+      "lines": 137,
+      "limits": {
+        "types": 15,
+        "lines": 400
+      }
+    }
+  ],
+  "empty_angle_brackets": false,
+  "headers_valid": true
+}

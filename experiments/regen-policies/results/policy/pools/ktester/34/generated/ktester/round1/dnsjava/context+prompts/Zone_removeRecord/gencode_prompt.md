@@ -1,0 +1,193 @@
+You are a professional Java software testing expert. Your task is to generate high-quality unit test code for a focal method, using **JUnit5** and **Mockito** libraries. 
+
+You'll be provided with:
+1. The focal method to test.
+2. The target class's structure (fields and methods).
+3. A pre-defined test class framework with `@Before`/`@After` methods.
+4. Test cases in JSON format.
+5. Any relevant context.
+
+**Requirements:**
+
+Code Quality:
+- Include clear comments explaining each test scenario.
+- Ensure code is clean, understandable, and maintainable.
+- Do not directly access private methods or fields. **Use reflection if the focal method is private.**
+- Include all necessary imports; code must be free of syntax errors.
+
+**Test Structure:**
+- Follow the given test class framework; do not modify `@Before`/`@After` methods.
+- Create one test function per test case group, ensuring all cases are covered.
+- Use parameterized tests where appropriate.
+- Reinitialize variables inside test functions if `@Setup` values don't fit.
+- Properly mock and set up dependencies.
+
+@input{focal method and target class}
+Here is the code of focal method, `removeRecord(Record)`, with the focal class `Zone`:
+```Java
+package org.xbill.DNS;
+import java.util.LinkedList;
+import java.util.concurrent.ConcurrentSkipListMap;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
+import lombok.Getter;
+import java.util.ArrayList;
+import java.io.IOException;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+import java.util.List;
+import java.util.function.Supplier;
+import java.util.Map;
+import java.io.Serializable;
+import java.util.Arrays;
+import java.util.Collections;
+public class Zone implements Serializable , Iterable<RRset> {
+    public static final int PRIMARY = 1;
+    public static final int SECONDARY = 2;
+    public void removeRecord(Record r) {
+        if (r == null) {
+            throw new IllegalArgumentException("r must not be null");
+        }
+        Name name = r.getName();
+        int rtype = r.getRRsetType();
+        if (r.getType() == Type.SOA) {
+            throw new IllegalArgumentException("Cannot remove SOA record");
+        }
+        withWriteLock(() -> {
+            RRset rrset = findRRsetWithoutLock(name, rtype);
+            if (rrset == null) {
+                // No set found, thus no record to remove
+                return;
+            }
+            if ((rtype == Type.NS) && (rrset.size() == 1)) {
+                throw new IllegalArgumentException("Cannot remove all NS");
+            }
+            if ((rrset.size() + rrset.sigSize()) > 1) {
+                rrset.deleteRR(r);
+            } else {
+                // Remove the set (and maybe the entire name) if the set is now empty
+                removeRRsetWithoutLock(name, rtype);
+            }
+        });
+    }
+public Iterator<RRset> AXFR();
+    public void addRRset(RRset rrset);
+    public <T extends Record> void addRecord(T r);
+    public RRset findExactMatch(Name name, int type);
+    private RRset findRRsetWithoutLock(Name name, int type);
+    public SetResponse findRecords(Name name, int type);
+    public int getDClass();
+    public RRset getNS();
+    @Override
+public Iterator<RRset> iterator();
+    public void removeRRset(Name name, int type);
+    private void removeRRsetWithoutLock(Name name, int type);
+    public String toMasterFile();
+    @Override
+public String toString();
+    private void withWriteLock(Runnable callable);
+}
+```
+
+@input{initial test class framework}
+```Java
+<initial_class>
+```
+
+@input{existing test case}
+here's the existing test cases:
+```json
+<cases_json>
+```
+
+
+@input{context information}
+
+api document of class org.xbill.DNS.Zone: 
+
+ * A DNS zone. This encapsulates all data related to a zone, and provides convenient lookup methods.
+ * A zone always contains a {@link SOARecord} and at least one {@link NSRecord}.
+ *
+ * @implNote This class uses a {@link java.util.concurrent.locks.ReadWriteLock} to ensure access and
+ *     manipulation is safe from multiple threads. Iterators are "weakly consistent" (see the
+ *     package info from {@code java.util.concurrent}).
+ * @author Brian Wellington
+ 
+
+api document of method removeRecord(Record): 
+
+   * Removes a record from the zone.
+   *
+   * @param r The record to remove.
+   * @throws IllegalArgumentException if {@code r} is {@code null}, if the record to remove is the
+   *     {@link SOARecord} or the last {@link NSRecord}.
+   
+
+dependent classes: 
+class `org.xbill.DNS.Record`:
+	
+class `org.xbill.DNS.Type`:
+	dependent fields:
+		int org.xbill.DNS.Type.SOA;
+		int org.xbill.DNS.Type.NS;
+	
+class `org.xbill.DNS.Zone`:
+	related functions:
+		method `public void addRecord(T)` returns `void`, related with `org.xbill.DNS.Zone.removeRecord(Record)`, api document: 
+   * Adds a record to the zone. If there is an existing {@link RRset} of the same {@link Name} and
+   * {@link Type}, the record is <b>added</b> to this set.
+   *
+   * @param r The record to add.
+   * @throws IllegalArgumentException if {@code name} is {@code null} or if the rrset name does not
+   *     match the zone origin.
+   ;
+		method `public void addRRset(RRset)` returns `void`, related with `org.xbill.DNS.Zone.removeRecord(Record)`, api document: 
+   * Adds an RRset to the zone.
+   *
+   * @implNote An existing {@link RRset} of the same {@link Name} and {@link Type} is
+   *     <b>replaced</b>.
+   * @param rrset The RRset to add.
+   * @see RRset
+   * @throws IllegalArgumentException if {@code rrset} is {@code null} or if the rrset name is not a
+   *     {@link Name#subdomain(Name) subdomain} of the zone origin (or, in case of a SOA, is not
+   *     equal to the zone origin).
+   ;
+		method `private void removeRRsetWithoutLock(Name, int)` returns `void`, related with `org.xbill.DNS.Zone.removeRecord(Record)`;
+		method `public void removeRRset(Name, int)` returns `void`, related with `org.xbill.DNS.Zone.removeRecord(Record)`, api document: 
+   * Removes an RRset from the zone.
+   *
+   * @param name The name to remove.
+   * @param type The type to remove.
+   * @throws IllegalArgumentException if {@code name} is {@code null}.
+   * @throws InvalidTypeException if the specified {@code type} is invalid or {@link Type#SOA} or
+   *     {@link Type#NS}.
+   * @see RRset
+   * @since 3.6
+   ;
+		method `private void maybeAddRecord(Record)` returns `void`, related with `org.xbill.DNS.Zone.removeRecord(Record)`;
+		method `private void validate()` returns `void`, related with `org.xbill.DNS.Zone.removeRecord(Record)`;
+class `org.xbill.DNS.dnssec.ValUtils`:
+	related functions:
+		method `public static boolean nsecProvesNameError(SRRset, NSECRecord, Name)` returns `boolean`, related with `org.xbill.DNS.Zone.removeRecord(Record)`, api document: 
+   * Determine if the given NSEC proves a NameError (NXDOMAIN) for a given qname.
+   *
+   * @param set The RRset that contains the NSEC.
+   * @param nsec The NSEC to check.
+   * @param qname The qname to check against.
+   * @return true if the NSEC proves the condition.
+   ;
+		method `public static NsecProvesNodataResponse nsecProvesNodata(SRRset, NSECRecord, Name, int)` returns `org.xbill.DNS.dnssec.ValUtils.NsecProvesNodataResponse`, related with `org.xbill.DNS.Zone.removeRecord(Record)`, api document: 
+   * Determine if a NSEC proves the NOERROR/NODATA conditions. This will also handle the empty
+   * non-terminal (ENT) case and partially handle the wildcard case. If the ownername of 'nsec' is a
+   * wildcard, the validator must still be provided proof that qname did not directly exist and that
+   * the wildcard is, in fact, *.closest_encloser.
+   *
+   * @param set The RRset of the NSEC record.
+   * @param nsec The NSEC to check
+   * @param qname The query name to check against.
+   * @param qtype The query type to check against.
+   * @return true if the NSEC proves the condition.
+   ;
+
+
+
+@output{test class}: output the code wrapped in a Markdown code block ```java at the beginning and ``` at the end.

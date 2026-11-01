@@ -1,0 +1,32 @@
+{
+  "index": 168,
+  "sha": "e378d6f7ef504e84838d4c042a19a3aef61302b6",
+  "parent": "1f3960bc4aa21e9ede2ce80f80e3a0d660c7bd5d",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/Generator.java": [
+      207,
+      211,
+      233,
+      235,
+      249,
+      251
+    ],
+    "src/main/java/org/xbill/DNS/Name.java": []
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/Generator.java": [
+      207,
+      211,
+      212,
+      213,
+      225,
+      226,
+      240,
+      242,
+      256,
+      258
+    ],
+    "src/main/java/org/xbill/DNS/Name.java": []
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/Generator.java b/src/main/java/org/xbill/DNS/Generator.java\nindex e4a4be08..dfb61202 100644\n--- a/src/main/java/org/xbill/DNS/Generator.java\n+++ b/src/main/java/org/xbill/DNS/Generator.java\n@@ -108 +108 @@ public class Generator {\n-  private String substitute(String spec, long n) throws IOException {\n+  private String substitute(String spec, long n, int maxLength) throws IOException {\n@@ -207 +207 @@ public class Generator {\n-        if (wantUpperCase) {\n+        if (base == 16 && wantUpperCase) {\n@@ -211 +211,5 @@ public class Generator {\n-          int zeros = (int) width - number.length();\n+          long zeros = width - number.length();\n+          if (maxLength > -1 && zeros >= maxLength || zeros > Integer.MAX_VALUE) {\n+            throw new TextParseException(\"expansion exceeds max length\");\n+          }\n+\n@@ -220,0 +225,3 @@ public class Generator {\n+    if (maxLength > -1 && sb.length() >= maxLength) {\n+      throw new TextParseException(\"expansion exceeds max length\");\n+    }\n@@ -233 +240 @@ public class Generator {\n-    String namestr = substitute(namePattern, current);\n+    String namestr = substitute(namePattern, current, Name.MAXNAME);\n@@ -235 +242 @@ public class Generator {\n-    String rdata = substitute(rdataPattern, current);\n+    String rdata = substitute(rdataPattern, current, -1);\n@@ -249 +256 @@ public class Generator {\n-      String namestr = substitute(namePattern, i);\n+      String namestr = substitute(namePattern, i, Name.MAXNAME);\n@@ -251 +258 @@ public class Generator {\n-      String rdata = substitute(rdataPattern, i);\n+      String rdata = substitute(rdataPattern, i, -1);\ndiff --git a/src/main/java/org/xbill/DNS/Name.java b/src/main/java/org/xbill/DNS/Name.java\nindex 99580d3e..80dfa06b 100644\n--- a/src/main/java/org/xbill/DNS/Name.java\n+++ b/src/main/java/org/xbill/DNS/Name.java\n@@ -47 +47 @@ public class Name implements Comparable<Name>, Serializable {\n-  private static final int MAXNAME = 255;\n+  static final int MAXNAME = 255;"
+}

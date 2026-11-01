@@ -1,0 +1,67 @@
+{
+  "index": 129,
+  "sha": "d171cc11576cc49525f6713cb7dcd425f2290712",
+  "build": "ok",
+  "attempts": [
+    {
+      "command": [
+        "mvn",
+        "-q",
+        "-o",
+        "-DskipTests",
+        "compile"
+      ],
+      "cwd": "/repo/experiments/commit-survival/work/checkouts/129",
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 16.262,
+      "log": "results/builds/logs/129-1.txt"
+    }
+  ],
+  "input_sha256": "74a7dbe378bf5807942daa3edf87b430f4aebd2516d95ef4621b6344770a4ce4",
+  "pom_sha256": "da8732f809f2ce4a5a527afd4ff06bca4877ea7cfd22062db17fb605c5e12625",
+  "classpath": "work/classpaths/da8732f809f2ce4a5a527afd4ff06bca4877ea7cfd22062db17fb605c5e12625.txt",
+  "classpath_attempts": [
+    {
+      "command": [
+        "mvn",
+        "-q",
+        "-o",
+        "dependency:go-offline"
+      ],
+      "cwd": "/repo/experiments/commit-survival/work/checkouts/129",
+      "exit_code": 1,
+      "timeout": false,
+      "seconds": 2.656,
+      "log": "results/builds/logs/classpath-129/go-offline-04f56689f915486f9f72a424bf92be79/1.txt"
+    },
+    {
+      "command": [
+        "mvn",
+        "-q",
+        "-U",
+        "dependency:go-offline"
+      ],
+      "cwd": "/repo/experiments/commit-survival/work/checkouts/129",
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 3.356,
+      "log": "results/builds/logs/classpath-129/go-offline-04f56689f915486f9f72a424bf92be79/2.txt"
+    },
+    {
+      "command": [
+        "mvn",
+        "-q",
+        "-o",
+        "dependency:build-classpath",
+        "-DincludeScope=test",
+        "-Dmdep.outputFile=/repo/experiments/commit-survival/work/classpaths/da8732f809f2ce4a5a527afd4ff06bca4877ea7cfd22062db17fb605c5e12625-27f23e5154834c6a9a2d6ddafa7decce.tmp"
+      ],
+      "cwd": "/repo/experiments/commit-survival/work/checkouts/129",
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 2.097,
+      "log": "results/builds/logs/classpath-129/build-classpath-8fc470eb3d124ccb97198bf1bf7d6263/1.txt"
+    }
+  ]
+}

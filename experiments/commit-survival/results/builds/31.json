@@ -1,0 +1,67 @@
+{
+  "index": 31,
+  "sha": "5b01f5d0f500bb0f3fed472693b884243898b971",
+  "build": "ok",
+  "attempts": [
+    {
+      "command": [
+        "mvn",
+        "-q",
+        "-o",
+        "-DskipTests",
+        "compile"
+      ],
+      "cwd": "/repo/experiments/commit-survival/work/checkouts/31",
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 10.002,
+      "log": "results/builds/logs/31-1.txt"
+    }
+  ],
+  "input_sha256": "0464b3859d26ccd1571b82e41a102356b5ac4e2822bb03d5a218f749e0dbed0b",
+  "pom_sha256": "72f53e0a436a1533cdbfd26f975dbb408f7639112758d3d75ec6a2ef186034f4",
+  "classpath": "work/classpaths/72f53e0a436a1533cdbfd26f975dbb408f7639112758d3d75ec6a2ef186034f4.txt",
+  "classpath_attempts": [
+    {
+      "command": [
+        "mvn",
+        "-q",
+        "-o",
+        "dependency:go-offline"
+      ],
+      "cwd": "/repo/experiments/commit-survival/work/checkouts/31",
+      "exit_code": 1,
+      "timeout": false,
+      "seconds": 1.074,
+      "log": "results/builds/logs/classpath-31/go-offline-da8b1a3d3bf24d8fa3833ad2e18bccbd/1.txt"
+    },
+    {
+      "command": [
+        "mvn",
+        "-q",
+        "-U",
+        "dependency:go-offline"
+      ],
+      "cwd": "/repo/experiments/commit-survival/work/checkouts/31",
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 6.473,
+      "log": "results/builds/logs/classpath-31/go-offline-da8b1a3d3bf24d8fa3833ad2e18bccbd/2.txt"
+    },
+    {
+      "command": [
+        "mvn",
+        "-q",
+        "-o",
+        "dependency:build-classpath",
+        "-DincludeScope=test",
+        "-Dmdep.outputFile=/repo/experiments/commit-survival/work/classpaths/72f53e0a436a1533cdbfd26f975dbb408f7639112758d3d75ec6a2ef186034f4-9b27b0af73ec45498f7075717197ab9a.tmp"
+      ],
+      "cwd": "/repo/experiments/commit-survival/work/checkouts/31",
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 1.473,
+      "log": "results/builds/logs/classpath-31/build-classpath-8698f00e38c540ed84d0f16a6ca63c29/1.txt"
+    }
+  ]
+}

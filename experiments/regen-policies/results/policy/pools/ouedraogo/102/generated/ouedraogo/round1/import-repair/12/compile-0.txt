@@ -1,0 +1,9 @@
+/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/generated/ouedraogo/round1/sources/Zone/GToT/ZoneTest.java:141: error: incomparable types: RRset and SOARecord
+      if (set.getType() == Type.SOA && set == zone.getSOA()) {
+                                           ^
+/repo/experiments/regen-policies/results/policy/pools/ouedraogo/102/generated/ouedraogo/round1/sources/Zone/GToT/ZoneTest.java:242: error: cannot find symbol
+    assertEquals(cname, resp.getCNAME().first());
+                                       ^
+  symbol:   method first()
+  location: class CNAMERecord
+2 errors

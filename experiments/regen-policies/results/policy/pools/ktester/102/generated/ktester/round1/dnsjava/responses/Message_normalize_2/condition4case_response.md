@@ -1,0 +1,396 @@
+{
+  "testCases": [
+    {
+      "group": "Early exit based on RCODE",
+      "cases": [
+        {
+          "input": [
+            {
+              "parameter": "query",
+              "value": "Message with QUESTION section only, RCODE = Rcode.FORMERR"
+            },
+            {
+              "parameter": "throwOnIrrelevantRecord",
+              "value": false
+            }
+          ],
+          "expected": "Returns the original Message instance (this) without modification",
+          "description": "When the response RCODE is neither NOERROR nor NXDOMAIN the method should return the original message unchanged."
+        },
+        {
+          "input": [
+            {
+              "parameter": "query",
+              "value": "Message with QUESTION section only, RCODE = Rcode.NXDOMAIN"
+            },
+            {
+              "parameter": "throwOnIrrelevantRecord",
+              "value": false
+            }
+          ],
+          "expected": "Continues processing (does not return early)",
+          "description": "NXDOMAIN is allowed, so the method proceeds to normalisation."
+        }
+      ]
+    },
+    {
+      "group": "DNAME handling – multiple entries in DNAME RRset",
+      "cases": [
+        {
+          "input": [
+            {
+              "parameter": "query",
+              "value": "Message with QUESTION name = example.com, type = A; ANSWER contains a DNAME RRset with 2 records"
+            },
+            {
+              "parameter": "throwOnIrrelevantRecord",
+              "value": true
+            }
+          ],
+          "expected": "WireParseException thrown",
+          "description": "If a DNAME RRset contains more than one record and throwOnIrrelevantRecord is true, the method must throw a WireParseException."
+        },
+        {
+          "input": [
+            {
+              "parameter": "query",
+              "value": "Message with QUESTION name = example.com, type = A; ANSWER contains a DNAME RRset with 2 records"
+            },
+            {
+              "parameter": "throwOnIrrelevantRecord",
+              "value": false
+            }
+          ],
+          "expected": "null",
+          "description": "When throwOnIrrelevantRecord is false the method logs a warning and returns null for the same situation."
+        }
+      ]
+    },
+    {
+      "group": "DNAME handling – query type is DNAME (no CNAME synthesis)",
+      "cases": [
+        {
+          "input": [
+            {
+              "parameter": "query",
+              "value": "Message with QUESTION name = alias.example.com, type = DNAME; ANSWER contains a single‑record DNAME RRset for alias.example.com → target.example.com"
+            },
+            {
+              "parameter": "throwOnIrrelevantRecord",
+              "value": false
+            }
+          ],
+          "expected": "Message whose ANSWER section contains exactly the original DNAME RRset and no synthesized CNAME",
+          "description": "When the query itself asks for DNAME, the method must keep the DNAME RRset and must not synthesize a CNAME."
+        }
+      ]
+    },
+    {
+      "group": "DNAME handling – synthesize CNAME when appropriate",
+      "cases": [
+        {
+          "input": [
+            {
+              "parameter": "query",
+              "value": "Message with QUESTION name = www.example.com, type = A; ANSWER contains a single‑record DNAME RRset for example.com → target.com followed by no CNAME"
+            },
+            {
+              "parameter": "throwOnIrrelevantRecord",
+              "value": false
+            }
+          ],
+          "expected": "Message whose ANSWER section contains the original DNAME RRset and a synthesized CNAME RRset (www.example.com → target.com) with TTL=0",
+          "description": "When a DNAME is present and the query type is not DNAME, the method must add a synthesized CNAME pointing to the DNAME target."
+        },
+        {
+          "input": [
+            {
+              "parameter": "query",
+              "value": "Message with QUESTION name = www.example.com, type = A; ANSWER contains a DNAME RRset for example.com → target.com and a CNAME RRset for www.example.com that already matches the synthesized target"
+            },
+            {
+              "parameter": "throwOnIrrelevantRecord",
+              "value": false
+            }
+          ],
+          "expected": "Message whose ANSWER section contains the DNAME RRset only (the existing CNAME is recognised as correct and not duplicated)",
+          "description": "If the next RRset is a CNAME that already matches the expected synthesized CNAME, the method must skip adding a new CNAME."
+        },
+        {
+          "input": [
+            {
+              "parameter": "query",
+              "value": "Message with QUESTION name = www.example.com, type = ANY; ANSWER contains a DNAME RRset for example.com → target.com followed by an unrelated RRset for old.example.com"
+            },
+            {
+              "parameter": "throwOnIrrelevantRecord",
+              "value": false
+            }
+          ],
+          "expected": "Message whose ANSWER section contains DNAME, synthesized CNAME and the extra RRset for old.example.com (because query type is ANY)",
+          "description": "When the query type is ANY the method must keep additional records that have the original name after the DNAME processing loop."
+        },
+        {
+          "input": [
+            {
+              "parameter": "query",
+              "value": "Message with QUESTION name = www.example.com, type = A; ANSWER contains a DNAME RRset for example.com → target.com; the DNAME target is so long that Name.fromDNAME throws NameTooLongException"
+            },
+            {
+              "parameter": "throwOnIrrelevantRecord",
+              "value": true
+            }
+          ],
+          "expected": "WireParseException thrown (wrapped NameTooLongException)",
+          "description": "If synthesising a CNAME fails due to a NameTooLongException and throwOnIrrelevantRecord is true, the method must throw a WireParseException."
+        },
+        {
+          "input": [
+            {
+              "parameter": "query",
+              "value": "Message with QUESTION name = www.example.com, type = A; ANSWER contains a DNAME RRset for example.com → target.com; the DNAME target is too long"
+            },
+            {
+              "parameter": "throwOnIrrelevantRecord",
+              "value": false
+            }
+          ],
+          "expected": "null",
+          "description": "Same situation as above but with throwOnIrrelevantRecord false – the method logs a warning and returns null."
+        }
+      ]
+    },
+    {
+      "group": "Irrelevant records in ANSWER section (name mismatch)",
+      "cases": [
+        {
+          "input": [
+            {
+              "parameter": "query",
+              "value": "Message with QUESTION name = wanted.example.com, type = A; ANSWER contains an A RRset for other.example.com"
+            },
+            {
+              "parameter": "throwOnIrrelevantRecord",
+              "value": false
+            }
+          ],
+          "expected": "Message where the irrelevant RRset is omitted from the cleaned ANSWER section",
+          "description": "Records whose name does not match the current sname must be ignored."
+        },
+        {
+          "input": [
+            {
+              "parameter": "query",
+              "value": "Message with QUESTION name = wanted.example.com, type = A; ANSWER contains an A RRset for other.example.com"
+            },
+            {
+              "parameter": "throwOnIrrelevantRecord",
+              "value": true
+            }
+          ],
+          "expected": "WireParseException thrown",
+          "description": "When throwOnIrrelevantRecord is true the same situation must raise a WireParseException."
+        }
+      ]
+    },
+    {
+      "group": "CNAME handling – multiple CNAME RRs in one RRset",
+      "cases": [
+        {
+          "input": [
+            {
+              "parameter": "query",
+              "value": "Message with QUESTION name = alias.example.com, type = A; ANSWER contains a CNAME RRset for alias.example.com with two CNAME records"
+            },
+            {
+              "parameter": "throwOnIrrelevantRecord",
+              "value": false
+            }
+          ],
+          "expected": "Message where the CNAME RRset contains only the first CNAME record (the second removed) and sname updated to the target of the first CNAME",
+          "description": "When a CNAME RRset contains more than one record, the method must keep only the first and drop the rest, unless throwOnIrrelevantRecord forces an exception."
+        },
+        {
+          "input": [
+            {
+              "parameter": "query",
+              "value": "Message with QUESTION name = alias.example.com, type = A; ANSWER contains a CNAME RRset for alias.example.com with two CNAME records"
+            },
+            {
+              "parameter": "throwOnIrrelevantRecord",
+              "value": true
+            }
+          ],
+          "expected": "WireParseException thrown",
+          "description": "If throwOnIrrelevantRecord is true the method throws a WireParseException when multiple CNAMEs are present."
+        }
+      ]
+    },
+    {
+      "group": "CNAME handling – ANY query with extra records after CNAME",
+      "cases": [
+        {
+          "input": [
+            {
+              "parameter": "query",
+              "value": "Message with QUESTION name = alias.example.com, type = ANY; ANSWER contains CNAME RRset for alias.example.com → target.example.com followed by an A RRset for alias.example.com"
+            },
+            {
+              "parameter": "throwOnIrrelevantRecord",
+              "value": false
+            }
+          ],
+          "expected": "Message whose ANSWER section contains the CNAME RRset and also the following A RRset (preserved because query type is ANY)",
+          "description": "When the query type is ANY, records that appear after a CNAME with the original name must be kept."
+        }
+      ]
+    },
+    {
+      "group": "Record type mismatch in ANSWER (non‑ANY query)",
+      "cases": [
+        {
+          "input": [
+            {
+              "parameter": "query",
+              "value": "Message with QUESTION name = host.example.com, type = A; ANSWER contains an AAAA RRset for host.example.com"
+            },
+            {
+              "parameter": "throwOnIrrelevantRecord",
+              "value": false
+            }
+          ],
+          "expected": "Message where the AAAA RRset is omitted from the cleaned ANSWER section",
+          "description": "If the queried type is not ANY and the RRset type does not match the query, the RRset is ignored."
+        }
+      ]
+    },
+    {
+      "group": "Authority section – forbidden types (switch case)",
+      "cases": [
+        {
+          "input": [
+            {
+              "parameter": "query",
+              "value": "Message with QUESTION name = example.com, type = A; AUTHORITY contains RRsets of type DNAME, CNAME, A, AAAA"
+            },
+            {
+              "parameter": "throwOnIrrelevantRecord",
+              "value": false
+            }
+          ],
+          "expected": "Message where none of those RRsets appear in the cleaned AUTHORITY section",
+          "description": "The switch statement must ignore RRsets of type DNAME, CNAME, A and AAAA in the authority section."
+        }
+      ]
+    },
+    {
+      "group": "Authority section – disallowed type for section",
+      "cases": [
+        {
+          "input": [
+            {
+              "parameter": "query",
+              "value": "Message with QUESTION name = example.com, type = A; AUTHORITY contains an RRset of type SRV (assuming isTypeAllowedInSection returns false for SRV in AUTHORITY)"
+            },
+            {
+              "parameter": "throwOnIrrelevantRecord",
+              "value": false
+            }
+          ],
+          "expected": "Message where the SRV RRset is omitted from the cleaned AUTHORITY section",
+          "description": "If isTypeAllowedInSection returns false for a type in the authority section, the RRset must be ignored."
+        }
+      ]
+    },
+    {
+      "group": "Authority NS handling – subdomain check",
+      "cases": [
+        {
+          "input": [
+            {
+              "parameter": "query",
+              "value": "Message with QUESTION name = sub.example.com, type = A; AUTHORITY contains an NS RRset for other.com"
+            },
+            {
+              "parameter": "throwOnIrrelevantRecord",
+              "value": false
+            }
+          ],
+          "expected": "Message where the NS RRset is omitted because its name is not a subdomain of the query name",
+          "description": "NS RRsets must be a subdomain of the current sname; otherwise they are ignored."
+        }
+      ]
+    },
+    {
+      "group": "Authority NS handling – NXDOMAIN or NODATA suppression",
+      "cases": [
+        {
+          "input": [
+            {
+              "parameter": "query",
+              "value": "Message with RCODE = NXDOMAIN; QUESTION name = example.com; AUTHORITY contains an NS RRset for example.com"
+            },
+            {
+              "parameter": "throwOnIrrelevantRecord",
+              "value": false
+            }
+          ],
+          "expected": "Message where the NS RRset is omitted because the response is NXDOMAIN",
+          "description": "When the response code is NXDOMAIN, NS records in the authority section must be ignored."
+        },
+        {
+          "input": [
+            {
+              "parameter": "query",
+              "value": "Message with RCODE = NOERROR, ANSWER section empty, AUTHORITY contains an SOA RRset and an NS RRset for example.com"
+            },
+            {
+              "parameter": "throwOnIrrelevantRecord",
+              "value": false
+            }
+          ],
+          "expected": "Message where the NS RRset is omitted because this is a NODATA response (SOA present and ANSWER empty)",
+          "description": "When the response is NOERROR, an SOA is present in authority and there is no answer, NS records must be ignored."
+        }
+      ]
+    },
+    {
+      "group": "Authority NS handling – duplicate NS RRsets",
+      "cases": [
+        {
+          "input": [
+            {
+              "parameter": "query",
+              "value": "Message with QUESTION name = example.com, type = A; AUTHORITY contains two NS RRsets for example.com"
+            },
+            {
+              "parameter": "throwOnIrrelevantRecord",
+              "value": false
+            }
+          ],
+          "expected": "Message where only the first NS RRset is kept; the second is ignored",
+          "description": "Only the first NS RRset is allowed; subsequent NS RRsets are ignored."
+        }
+      ]
+    },
+    {
+      "group": "Successful normalisation – overall flow",
+      "cases": [
+        {
+          "input": [
+            {
+              "parameter": "query",
+              "value": "Message with QUESTION name = www.example.com, type = A; ANSWER contains a CNAME RRset (www.example.com → alias.example.com) and an A RRset for alias.example.com; AUTHORITY contains an NS RRset for example.com; ADDITIONAL contains an A RRset for ns1.example.com"
+            },
+            {
+              "parameter": "throwOnIrrelevantRecord",
+              "value": false
+            }
+          ],
+          "expected": "A new Message (cleanedMessage) whose ANSWER section contains the CNAME RRset and the A RRset (both kept), AUTHORITY contains the NS RRset, ADDITIONAL contains the original additional A RRset (because it was referenced by the NS), and header counts are updated accordingly",
+          "description": "A typical successful case exercising CNAME following, additional‑section handling and proper header count fixing."
+        }
+      ]
+    }
+  ]
+}

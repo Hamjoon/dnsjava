@@ -1,0 +1,185 @@
+[
+  {
+    "group": "findExactMatch",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "null"
+          },
+          {
+            "parameter": "type",
+            "value": "1"
+          }
+        ],
+        "expected": "IllegalArgumentException with message \"name must not be null\"",
+        "description": "Passing a null Name should trigger validation and throw IllegalArgumentException before any other processing."
+      },
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "Name.fromString(\"example.com.\")"
+          },
+          {
+            "parameter": "type",
+            "value": "-1"
+          }
+        ],
+        "expected": "IllegalArgumentException thrown by Type.check(int)",
+        "description": "An invalid DNS type (negative value) must be rejected by Type.check, causing the method to throw IllegalArgumentException."
+      },
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "Name.fromString(\"nonexistent.example.\")"
+          },
+          {
+            "parameter": "type",
+            "value": "RRset.A"
+          }
+        ],
+        "expected": "null",
+        "description": "When the underlying findRRsetWithoutLock returns null (no matching RRset), findExactMatch should return null."
+      },
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "Name.fromString(\"host.example.\")"
+          },
+          {
+            "parameter": "type",
+            "value": "RRset.A"
+          }
+        ],
+        "expected": "RRset instance that is equal in content to the original but not the same reference",
+        "description": "When a matching RRset exists, findExactMatch must return a defensive copy (new RRset(set)). The copy should contain the same records as the original, but modifying the original after the call must not affect the returned copy."
+      }
+    ]
+  },
+  {
+    "group": "findExactMatch_additional",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "Name.fromString(\"HOST.Example.COM.\")"
+          },
+          {
+            "parameter": "type",
+            "value": "Type.A"
+          }
+        ],
+        "expected": "RRset instance equal in content to the original but a different reference (case\u2011insensitive name lookup)",
+        "description": "Zone stores an A RRset under a lower\u2011case name (\"host.example.com.\"). Querying with a mixed\u2011case Name should succeed because DNS names are case\u2011insensitive, and the method must still return a defensive copy."
+      },
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "Name.fromString(\"host.example.com.\")"
+          },
+          {
+            "parameter": "type",
+            "value": "0"
+          }
+        ],
+        "expected": "IllegalArgumentException thrown by Type.check(int)",
+        "description": "Type value 0 is not a valid DNS RR type; Type.check should reject it and the method must propagate the IllegalArgumentException."
+      },
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "Name.fromString(\"host.example.com.\")"
+          },
+          {
+            "parameter": "type",
+            "value": "Type.ANY"
+          }
+        ],
+        "expected": "null",
+        "description": "The ANY type (255) is allowed by Type.check, but findExactMatch looks for an exact type match. Since no RRset is stored under type ANY, the method should return null."
+      },
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "Name.fromString(\"host.example.com.\")"
+          },
+          {
+            "parameter": "type",
+            "value": "Type.A"
+          }
+        ],
+        "expected": "RRset copy that remains unchanged after the original RRset is mutated",
+        "description": "After obtaining the exact match, add an additional record to the original RRset stored in the Zone. The RRset returned by findExactMatch must be a defensive copy, so its contents must stay the same while the original changes."
+      },
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "Name.fromString(\"host.example.com.\")"
+          },
+          {
+            "parameter": "type",
+            "value": "Type.AAAA"
+          }
+        ],
+        "expected": "null",
+        "description": "The Zone contains an A RRset for the name but no AAAA RRset. Requesting a different, valid type should result in null, confirming that the method does not return unrelated RRsets."
+      },
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "Name.fromString(\"example.com.\")"
+          },
+          {
+            "parameter": "type",
+            "value": "Type.SOA"
+          }
+        ],
+        "expected": "RRset instance that is a copy of the stored SOA RRset",
+        "description": "Verify that findExactMatch works for the special SOA type, returning a copy of the SOA RRset rather than the original instance."
+      }
+    ]
+  },
+  {
+    "group": "findExactMatch_exceptions",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "Name.fromString(\"example.com.\")"
+          },
+          {
+            "parameter": "type",
+            "value": "65536"
+          }
+        ],
+        "expected": "IllegalArgumentException thrown by Type.check(int) because type exceeds the maximum valid DNS type (65535)",
+        "description": "A type value greater than the highest defined DNS RR type should be rejected by Type.check, causing findExactMatch to throw IllegalArgumentException."
+      },
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "Name.fromString(\"example.com.\")"
+          },
+          {
+            "parameter": "type",
+            "value": "Integer.MAX_VALUE"
+          }
+        ],
+        "expected": "IllegalArgumentException thrown by Type.check(int) because type is out of the valid range",
+        "description": "Using Integer.MAX_VALUE as the type parameter tests the upper bound validation of Type.check; the method must propagate the IllegalArgumentException."
+      }
+    ]
+  }
+]

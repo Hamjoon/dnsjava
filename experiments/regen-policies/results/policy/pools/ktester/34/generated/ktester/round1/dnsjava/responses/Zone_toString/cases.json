@@ -1,0 +1,141 @@
+[
+  {
+    "group": "Empty Zone",
+    "cases": [
+      {
+        "input": [],
+        "expected": "\"$ORIGIN .\\n\"",
+        "description": "A newly created Zone with no records should produce a minimal master\u2011file representation containing only the default $ORIGIN directive. The toString() method must return the same string as toMasterFile()."
+      }
+    ]
+  },
+  {
+    "group": "Zone with SOA and NS records only",
+    "cases": [
+      {
+        "input": [],
+        "expected": "String containing both an SOA record line and an NS record line, each ending with a newline character.",
+        "description": "Create a Zone, add a valid SOA record and an NS record. The master\u2011file representation must include both records in the correct order. toString() must return that exact representation."
+      }
+    ]
+  },
+  {
+    "group": "Zone with multiple RRsets (A, AAAA, MX)",
+    "cases": [
+      {
+        "input": [],
+        "expected": "String that contains lines for an A record, an AAAA record and an MX record for the same owner name, each correctly formatted.",
+        "description": "Populate the Zone with three different RRsets (A, AAAA, MX) for the same name. The toString() output must list all three records, proving that the method iterates over all RRsets."
+      }
+    ]
+  },
+  {
+    "group": "Zone with duplicate records in the same RRset",
+    "cases": [
+      {
+        "input": [],
+        "expected": "String where the duplicate records appear only once (or appear according to DNS zone semantics \u2013 the test asserts the exact expected line count).",
+        "description": "Add two identical A records to the same name/type RRset. The master\u2011file format should either collapse duplicates or list them both, depending on Zone implementation. The test verifies that toString() follows the implementation\u2019s rule."
+      }
+    ]
+  },
+  {
+    "group": "Zone with comments and $TTL directive",
+    "cases": [
+      {
+        "input": [],
+        "expected": "String that starts with a $TTL line followed by a comment line (starting with ';') and then the zone records.",
+        "description": "Set a custom TTL on the Zone and add a comment via a Record of type TXT that is treated as a comment in master\u2011file output. The toString() result must contain the $TTL directive and the comment, ensuring those conditional branches are exercised."
+      }
+    ]
+  },
+  {
+    "group": "Zone with large number of RRsets (stress test)",
+    "cases": [
+      {
+        "input": [],
+        "expected": "A non\u2011null, non\u2011empty string whose length equals the sum of the formatted lines for all inserted records.",
+        "description": "Insert 10\u202f000 random records of various types. toString() must return a complete master\u2011file representation without throwing OutOfMemoryError or truncating data, exercising any size\u2011related branches in toMasterFile()."
+      }
+    ]
+  },
+  {
+    "group": "Zone with malformed record causing toMasterFile() to throw",
+    "cases": [
+      {
+        "input": [],
+        "expected": "java.io.IOException",
+        "description": "Inject a Record that is known to cause toMasterFile() to throw an IOException (e.g., a Record with an illegal name). The toString() method should propagate the exception, so the test expects an IOException."
+      }
+    ]
+  },
+  {
+    "group": "Custom $ORIGIN directive",
+    "cases": [
+      {
+        "input": [],
+        "expected": "\"$ORIGIN example.com.\\n$TTL 3600\\nexample.com. 3600 IN SOA ns.example.com. hostmaster.example.com. 2024010101 7200 3600 1209600 3600\\n\"",
+        "description": "Create a Zone with origin set to \"example.com.\" and a default TTL of 3600 seconds. Add a minimal SOA record. The toString() output must start with a $ORIGIN line reflecting the custom origin, followed by $TTL and the SOA record. This verifies that toMasterFile() correctly prints a non\u2011root origin."
+      }
+    ]
+  },
+  {
+    "group": "Per\u2011record TTL overrides",
+    "cases": [
+      {
+        "input": [],
+        "expected": "\"$ORIGIN .\\n$TTL 7200\\nwww.example.com. 3600 IN A 192.0.2.1\\nwww.example.com. 7200 IN AAAA 2001:db8::1\\n\"",
+        "description": "Create a Zone with a default TTL of 7200 seconds. Add an A record with an explicit TTL of 3600 and an AAAA record without an explicit TTL (so it inherits the zone TTL). The toString() output must show the A record line with the overridden TTL (3600) and the AAAA record line with the zone default TTL (7200). This tests the branch that prints per\u2011record TTL values."
+      }
+    ]
+  },
+  {
+    "group": "Record removal reflected in output",
+    "cases": [
+      {
+        "input": [],
+        "expected": "\"$ORIGIN .\\n$TTL 3600\\nexample.com. 3600 IN NS ns1.example.com.\\nexample.com. 3600 IN NS ns2.example.com.\\n\"",
+        "description": "Create a Zone, add two NS records and an additional A record for \"example.com.\". Remove the A record via Zone.removeRecord(). The toString() output must contain only the two NS records and must not contain any line for the removed A record, confirming that removal updates the master\u2011file representation."
+      }
+    ]
+  },
+  {
+    "group": "Zone containing DNSSEC records (RRSIG, DNSKEY)",
+    "cases": [
+      {
+        "input": [],
+        "expected": "\"$ORIGIN .\\n$TTL 3600\\n. 3600 IN DNSKEY 256 3 13 AwEAAc...\\n. 3600 IN RRSIG DNSKEY 13 2 3600 20250101000000 20240101000000 12345 . AwEAA...\\n\"",
+        "description": "Create a Zone, add a DNSKEY record and a corresponding RRSIG record (both with the same owner name \".\"). The toString() output must contain correctly formatted lines for DNSKEY and RRSIG records, proving that toMasterFile() handles DNSSEC RR types."
+      }
+    ]
+  },
+  {
+    "group": "Non\u2011ASCII (Unicode) owner name handling",
+    "cases": [
+      {
+        "input": [],
+        "expected": "\"$ORIGIN .\\n$TTL 3600\\nxn--bcher-kva.example.com. 3600 IN A 192.0.2.55\\n\"",
+        "description": "Create a Zone and add an A record for the Internationalized Domain Name \"b\u00fccher.example.com.\". The library should punycode\u2011encode the label, resulting in the owner name \"xn--bcher-kva.example.com.\" in the master\u2011file output. The test asserts that toString() returns the punycode representation."
+      }
+    ]
+  },
+  {
+    "group": "Null origin causes NullPointerException",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "origin",
+            "value": "null"
+          },
+          {
+            "parameter": "dclass",
+            "value": "1"
+          }
+        ],
+        "expected": "NullPointerException",
+        "description": "Create a Zone with a null origin (e.g., new Zone(null, Zone.PRIMARY)). Calling toString() should throw NullPointerException because toMasterFile attempts to access the origin name."
+      }
+    ]
+  }
+]

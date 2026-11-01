@@ -1,0 +1,77 @@
+[
+  {
+    "group": "Message.getOPT() - OPT record retrieval from ADDITIONAL section",
+    "cases": [
+      {
+        "input": [],
+        "expected": "OPTRecord instance (the first OPTRecord in the ADDITIONAL section)",
+        "description": "The ADDITIONAL section contains a single OPTRecord. getOPT() should iterate over the section, detect the instance of OPTRecord and return it."
+      },
+      {
+        "input": [],
+        "expected": "OPTRecord instance (the first OPTRecord among several records)",
+        "description": "The ADDITIONAL section contains several records (e.g., ARecord, AAAARecord) followed by an OPTRecord and then other records. getOPT() must return the first encountered OPTRecord, ignoring preceding non\u2011OPT records."
+      },
+      {
+        "input": [],
+        "expected": "OPTRecord instance (the first of multiple OPTRecords)",
+        "description": "The ADDITIONAL section contains two OPTRecord objects (perhaps with different UDP payload sizes). The method should stop at the first one and return it, never reaching the second."
+      },
+      {
+        "input": [],
+        "expected": "null",
+        "description": "The ADDITIONAL section contains records, but none are instances of OPTRecord. After scanning the whole list, getOPT() should fall through the loop and return null."
+      },
+      {
+        "input": [],
+        "expected": "null",
+        "description": "The ADDITIONAL section is empty (getSection(Section.ADDITIONAL) returns an empty list). The loop body never executes, and the method returns null."
+      }
+    ]
+  },
+  {
+    "group": "Message.getOPT() - Null entries in ADDITIONAL section",
+    "cases": [
+      {
+        "input": [],
+        "expected": "OPTRecord instance (the first non\u2011null OPTRecord in the ADDITIONAL section)",
+        "description": "The ADDITIONAL section list contains a leading null element, followed by an OPTRecord and then other records. The method should safely ignore the null, detect the OPTRecord and return it."
+      },
+      {
+        "input": [],
+        "expected": "null",
+        "description": "The ADDITIONAL section list contains only null elements. The loop should skip all nulls and ultimately return null."
+      }
+    ]
+  },
+  {
+    "group": "Message.getOPT() - getSection returns null",
+    "cases": [
+      {
+        "input": [],
+        "expected": "java.lang.NullPointerException",
+        "description": "A subclass of Message overrides getSection(int) to return null for the ADDITIONAL section. The for\u2011each loop in getOPT() attempts to iterate over a null reference, causing a NullPointerException."
+      }
+    ]
+  },
+  {
+    "group": "Message.getOPT() - getSection throws unchecked exception",
+    "cases": [
+      {
+        "input": [],
+        "expected": "java.lang.IllegalStateException",
+        "description": "A subclass of Message overrides getSection(int) to throw an IllegalStateException when called for the ADDITIONAL section. The exception propagates out of getOPT()."
+      }
+    ]
+  },
+  {
+    "group": "Message.getOPT() - iterator throws ConcurrentModificationException",
+    "cases": [
+      {
+        "input": [],
+        "expected": "java.util.ConcurrentModificationException",
+        "description": "A custom List implementation is returned by getSection(Section.ADDITIONAL) whose iterator throws ConcurrentModificationException on the first call to hasNext(). This simulates a concurrent modification during iteration, which should be propagated by getOPT()."
+      }
+    ]
+  }
+]

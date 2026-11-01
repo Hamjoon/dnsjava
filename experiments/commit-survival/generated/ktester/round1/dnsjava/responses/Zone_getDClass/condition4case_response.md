@@ -1,0 +1,20 @@
+{
+    "group": "Zone.getDClass",
+    "cases": [
+        {
+            "input": [],
+            "expected": 1,
+            "description": "Verify that a newly created Zone instance returns the Internet class constant (DClass.IN) from getDClass()."
+        },
+        {
+            "input": [],
+            "expected": 1,
+            "description": "Confirm that calling getDClass() repeatedly on the same Zone object always returns the same constant value."
+        },
+        {
+            "input": [],
+            "expected": 1,
+            "description": "Ensure that invoking other Zone methods (e.g., addRecord, removeRecord) does not change the result of getDClass()."
+        }
+    ]
+}

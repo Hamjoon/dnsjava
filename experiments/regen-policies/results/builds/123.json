@@ -1,0 +1,25 @@
+{
+  "index": 123,
+  "sha": "dfcba5dbd6dbf52fa1de7f0b3d86b4e3960cc4a6",
+  "build": "ok",
+  "attempts": [
+    {
+      "command": [
+        "mvn",
+        "-q",
+        "-o",
+        "-DskipTests",
+        "compile"
+      ],
+      "cwd": "/repo/experiments/regen-policies/work/checkouts/123",
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 12.786,
+      "log": "results/builds/logs/123-1.txt"
+    }
+  ],
+  "input_sha256": "4d4004ecd59abbb665c5dd22253d9979a2822f13e9a2bbc1e0341d33a022e395",
+  "pom_sha256": "5c6702832e81a1505c62c33591a95284c3c98f2bdbd9aed42b73d4f8fe2f01bb",
+  "classpath": "work/classpaths/5c6702832e81a1505c62c33591a95284c3c98f2bdbd9aed42b73d4f8fe2f01bb.txt",
+  "classpath_attempts": []
+}

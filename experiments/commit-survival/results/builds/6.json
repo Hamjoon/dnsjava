@@ -1,0 +1,25 @@
+{
+  "index": 6,
+  "sha": "ae50e1fd44db8b791df3a569165c74c89deca6b4",
+  "build": "ok",
+  "attempts": [
+    {
+      "command": [
+        "mvn",
+        "-q",
+        "-o",
+        "-DskipTests",
+        "compile"
+      ],
+      "cwd": "/repo/experiments/commit-survival/work/checkouts/6",
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 16.223,
+      "log": "results/builds/logs/6-1.txt"
+    }
+  ],
+  "input_sha256": "c6116d0dc248491b1ba70237942c6141e2cbe6c40e62f7e01f7296e4c08f0fc0",
+  "pom_sha256": "4ef84ceea697d5503027ad59cfe1cbe271e31c115736289e5056cdf858280009",
+  "classpath": "work/classpaths/4ef84ceea697d5503027ad59cfe1cbe271e31c115736289e5056cdf858280009.txt",
+  "classpath_attempts": []
+}

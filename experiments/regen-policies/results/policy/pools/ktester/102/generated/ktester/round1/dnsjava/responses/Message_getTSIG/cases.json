@@ -1,0 +1,67 @@
+[
+  {
+    "group": "Message.getTSIG",
+    "cases": [
+      {
+        "input": [],
+        "expected": "null",
+        "description": "When the ADDITIONAL section count is zero, getTSIG() should return null. The Message is constructed with a Header whose ADDITIONAL count is 0 and an empty ADDITIONAL section list."
+      },
+      {
+        "input": [],
+        "expected": "null",
+        "description": "When the ADDITIONAL section contains records but the last record is not of type TSIG, getTSIG() should return null. The Message is set up with a Header reporting a non\u2011zero ADDITIONAL count and the last Record in the ADDITIONAL list has a type different from Type.TSIG."
+      },
+      {
+        "input": [],
+        "expected": "instance of TSIGRecord",
+        "description": "When the ADDITIONAL section contains at least one record and the last record is a TSIGRecord, getTSIG() should return that TSIGRecord. The Message is prepared with a Header whose ADDITIONAL count matches the size of the ADDITIONAL list, and the final element of that list is a TSIGRecord."
+      }
+    ]
+  },
+  {
+    "group": "Message.getTSIG edge cases",
+    "cases": [
+      {
+        "input": [],
+        "expected": "NullPointerException",
+        "description": "When the Message's header field is null, getTSIG() should throw a NullPointerException because it attempts to call header.getCount(...)."
+      },
+      {
+        "input": [],
+        "expected": "NullPointerException",
+        "description": "When the ADDITIONAL section array entry is null (sections[Section.ADDITIONAL] == null), getTSIG() should throw a NullPointerException when it tries to read from the list."
+      },
+      {
+        "input": [],
+        "expected": "IndexOutOfBoundsException",
+        "description": "When the header reports a non\u2011zero ADDITIONAL count that is larger than the actual size of the ADDITIONAL list, getTSIG() should throw an IndexOutOfBoundsException while accessing l.get(count\u20111)."
+      },
+      {
+        "input": [],
+        "expected": "NullPointerException",
+        "description": "When the ADDITIONAL list size matches the header count but the last element in the list is null, getTSIG() should throw a NullPointerException when it tries to read rec.type."
+      },
+      {
+        "input": [],
+        "expected": "ClassCastException",
+        "description": "When the last record in the ADDITIONAL section has type TSIG but is not an instance of TSIGRecord (e.g., a plain Record with type set to Type.TSIG), getTSIG() should throw a ClassCastException during the cast to TSIGRecord."
+      }
+    ]
+  },
+  {
+    "group": "Message.getTSIG array issues",
+    "cases": [
+      {
+        "input": [],
+        "expected": "NullPointerException",
+        "description": "When the Message's internal 'sections' array is null, getTSIG() should throw a NullPointerException because it attempts to index into a null array (sections[Section.ADDITIONAL])."
+      },
+      {
+        "input": [],
+        "expected": "ArrayIndexOutOfBoundsException",
+        "description": "When the Message's 'sections' array is shorter than the required ADDITIONAL index (e.g., new List[Section.ADDITIONAL] creates an array whose length is less than Section.ADDITIONAL), getTSIG() should throw an ArrayIndexOutOfBoundsException while trying to access sections[Section.ADDITIONAL]."
+      }
+    ]
+  }
+]

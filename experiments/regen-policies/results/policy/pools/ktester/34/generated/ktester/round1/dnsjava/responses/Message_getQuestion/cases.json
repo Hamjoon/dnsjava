@@ -1,0 +1,67 @@
+[
+  {
+    "group": "Message.getQuestion - null or empty question section",
+    "cases": [
+      {
+        "input": [],
+        "expected": "null",
+        "description": "The QUESTION section array entry is null. getQuestion() should return null."
+      },
+      {
+        "input": [],
+        "expected": "null",
+        "description": "The QUESTION section contains an empty List. getQuestion() should return null."
+      }
+    ]
+  },
+  {
+    "group": "Message.getQuestion - returns first question record when multiple present",
+    "cases": [
+      {
+        "input": [],
+        "expected": "Record(name=example.com., type=A)",
+        "description": "A Message is created and two question records are added to the QUESTION section. getQuestion() should return the first added Record (example.com A) and ignore the second."
+      }
+    ]
+  },
+  {
+    "group": "Message.getQuestion - returns null when first element in question list is null",
+    "cases": [
+      {
+        "input": [],
+        "expected": "null",
+        "description": "A Message is created, a null entry is inserted as the first element of the QUESTION list (followed by a valid Record). getQuestion() should return null because the first element retrieved from the list is null."
+      }
+    ]
+  },
+  {
+    "group": "Message.getQuestion - throws NullPointerException when internal sections array is null",
+    "cases": [
+      {
+        "input": [],
+        "expected": "NullPointerException",
+        "description": "A Message instance is constructed and its internal 'sections' field is manually set to null (using reflection). Invoking getQuestion() should propagate a NullPointerException because the method attempts to index into a null array."
+      }
+    ]
+  },
+  {
+    "group": "Message.getQuestion - throws ArrayIndexOutOfBoundsException when sections array is too short",
+    "cases": [
+      {
+        "input": [],
+        "expected": "ArrayIndexOutOfBoundsException",
+        "description": "A Message instance is created and its internal 'sections' field is manually set (via reflection) to a new array of length 0. Invoking getQuestion() attempts to access sections[Section.QUESTION] (index 0) and therefore throws ArrayIndexOutOfBoundsException."
+      }
+    ]
+  },
+  {
+    "group": "Message.getQuestion - propagates exception from underlying list implementation",
+    "cases": [
+      {
+        "input": [],
+        "expected": "IllegalStateException",
+        "description": "A Message instance is created and its internal 'sections' array is set (via reflection) so that sections[Section.QUESTION] contains a custom List implementation whose get(0) method always throws IllegalStateException. Calling getQuestion() should propagate this IllegalStateException."
+      }
+    ]
+  }
+]

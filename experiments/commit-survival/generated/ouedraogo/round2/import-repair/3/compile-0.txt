@@ -1,0 +1,14 @@
+/repo/experiments/commit-survival/generated/ouedraogo/round2/sources/Message/ToT/MessageTest.java:4: error: cannot find symbol
+import org.xbill.DNS.utils.TextParseException;
+                          ^
+  symbol:   class TextParseException
+  location: package org.xbill.DNS.utils
+/repo/experiments/commit-survival/generated/ouedraogo/round2/sources/Message/ToT/MessageTest.java:31: error: reference to Record is ambiguous
+    private Record aRecord;
+            ^
+  both class org.xbill.DNS.Record in org.xbill.DNS and class java.lang.Record in java.lang match
+/repo/experiments/commit-survival/generated/ouedraogo/round2/sources/Message/ToT/MessageTest.java:32: error: reference to Record is ambiguous
+    private Record txtRecord;
+            ^
+  both class org.xbill.DNS.Record in org.xbill.DNS and class java.lang.Record in java.lang match
+3 errors

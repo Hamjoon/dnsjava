@@ -1,0 +1,31 @@
+{
+  "index": 123,
+  "sha": "dfcba5dbd6dbf52fa1de7f0b3d86b4e3960cc4a6",
+  "parent": "a47ea56d6f6b0d89a0e437905fc30f034ce23a19",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/TSIG.java": [
+      502,
+      536,
+      553,
+      554,
+      555,
+      556,
+      557
+    ]
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/TSIG.java": [
+      502,
+      503,
+      504,
+      505,
+      506,
+      507,
+      542,
+      543,
+      544,
+      546
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/TSIG.java b/src/main/java/org/xbill/DNS/TSIG.java\nindex c3bf7067..934e5c41 100644\n--- a/src/main/java/org/xbill/DNS/TSIG.java\n+++ b/src/main/java/org/xbill/DNS/TSIG.java\n@@ -502 +502,7 @@ public class TSIG {\n-    Duration fudge = getTsigFudge();\n+    Duration fudge = error == Rcode.BADTIME ? old.getFudge() : getTsigFudge();\n+    byte[] other = null;\n+    if (error == Rcode.BADTIME) {\n+      DNSOutput otherData = new DNSOutput(6);\n+      writeTsigTime(clock.instant(), otherData);\n+      other = otherData.toByteArray();\n+    }\n@@ -536 +542,6 @@ public class TSIG {\n-      out.writeU16(0); /* No other data */\n+      if (other != null) {\n+        out.writeU16(other.length);\n+        out.writeByteArray(other);\n+      } else {\n+        out.writeU16(0);\n+      }\n@@ -553,7 +563,0 @@ public class TSIG {\n-    byte[] other = null;\n-    if (error == Rcode.BADTIME) {\n-      out = new DNSOutput(6);\n-      writeTsigTime(clock.instant(), out);\n-      other = out.toByteArray();\n-    }\n-"
+}

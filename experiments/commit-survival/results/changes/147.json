@@ -1,0 +1,15 @@
+{
+  "index": 147,
+  "sha": "e64807ea6dbc314931b2c4ca546be4fd2cc1105d",
+  "parent": "a943d8068a5341d6e74b8a6e852e68b3265800af",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/Record.java": []
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/Record.java": [
+      230,
+      231
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/Record.java b/src/main/java/org/xbill/DNS/Record.java\nindex e794127a..5437974c 100644\n--- a/src/main/java/org/xbill/DNS/Record.java\n+++ b/src/main/java/org/xbill/DNS/Record.java\n@@ -225,0 +226,3 @@ public abstract class Record implements Cloneable, Comparable<Record>, Serializa\n+    // rfc2181/#section-8\n+    // Implementations should treat TTL values received with the most\n+    // significant bit set as if the entire value received was zero.\n@@ -226,0 +230,4 @@ public abstract class Record implements Cloneable, Comparable<Record>, Serializa\n+    if (ttl > TTL.MAX_VALUE) {\n+      ttl = 0;\n+    }\n+"
+}

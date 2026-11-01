@@ -1,0 +1,446 @@
+[
+  {
+    "group": "findRecords - null and invalid arguments",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "null"
+          },
+          {
+            "parameter": "type",
+            "value": "1"
+          }
+        ],
+        "expected": "NullPointerException",
+        "description": "Calling findRecords with a null Name should throw a NullPointerException because the method ultimately forwards the argument to lookup which expects a non\u2011null name."
+      },
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "Name.fromString(\"example.com.\")"
+          },
+          {
+            "parameter": "type",
+            "value": "-1"
+          }
+        ],
+        "expected": "IllegalArgumentException",
+        "description": "Passing an invalid DNS type (negative value) should cause lookup to reject the request and throw an IllegalArgumentException."
+      }
+    ]
+  },
+  {
+    "group": "findRecords - exact match scenarios",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "Name.fromString(\"www.example.com.\")"
+          },
+          {
+            "parameter": "type",
+            "value": "Type.A"
+          }
+        ],
+        "expected": "SetResponse with status SUCCESS and an RRset containing the A record for www.example.com.",
+        "description": "The zone contains an A record for www.example.com. The query should return a successful SetResponse with the exact matching RRset."
+      },
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "Name.fromString(\"mail.example.com.\")"
+          },
+          {
+            "parameter": "type",
+            "value": "Type.MX"
+          }
+        ],
+        "expected": "SetResponse with status NXDOMAIN",
+        "description": "The queried name does not exist in the zone at all, so lookup should return an NXDOMAIN response."
+      },
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "Name.fromString(\"host.example.com.\")"
+          },
+          {
+            "parameter": "type",
+            "value": "Type.SRV"
+          }
+        ],
+        "expected": "SetResponse with status NODATA (name exists but no SRV RRset)",
+        "description": "The name host.example.com exists (e.g., has an A record) but there is no SRV record. The method should return a NODATA response."
+      }
+    ]
+  },
+  {
+    "group": "findRecords - delegation and CNAME handling",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "Name.fromString(\"sub.example.com.\")"
+          },
+          {
+            "parameter": "type",
+            "value": "Type.A"
+          }
+        ],
+        "expected": "SetResponse with status DELEGATION and the NS RRset for sub.example.com.",
+        "description": "sub.example.com is a delegated sub\u2011zone (has NS records). The lookup should identify the delegation and return a DELEGATION response."
+      },
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "Name.fromString(\"alias.example.com.\")"
+          },
+          {
+            "parameter": "type",
+            "value": "Type.A"
+          }
+        ],
+        "expected": "SetResponse with status CNAME and the CNAME RRset pointing to the canonical name.",
+        "description": "alias.example.com is defined as a CNAME record. The query for an A record should result in a CNAME response containing the CNAME RRset."
+      }
+    ]
+  },
+  {
+    "group": "findRecords - wildcard matching",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "Name.fromString(\"anyhost.example.com.\")"
+          },
+          {
+            "parameter": "type",
+            "value": "Type.A"
+          }
+        ],
+        "expected": "SetResponse with status SUCCESS and an RRset derived from the wildcard *.example.com A record.",
+        "description": "The zone contains a wildcard A record (*.example.com). A query for a name that does not have an explicit record should be satisfied by the wildcard, returning a SUCCESS response."
+      }
+    ]
+  },
+  {
+    "group": "findRecords - empty zone handling",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "Name.fromString(\"any.example.com.\")"
+          },
+          {
+            "parameter": "type",
+            "value": "Type.A"
+          }
+        ],
+        "expected": "SetResponse with status NXDOMAIN",
+        "description": "When the Zone instance contains no records, any lookup should result in an NXDOMAIN response."
+      }
+    ]
+  },
+  {
+    "group": "findRecords - apex and SOA/NS handling",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "Name.fromString(\"example.com.\")"
+          },
+          {
+            "parameter": "type",
+            "value": "Type.SOA"
+          }
+        ],
+        "expected": "SetResponse with status SUCCESS and an RRset containing the SOA record for the zone apex.",
+        "description": "Querying the zone origin for its SOA should return a successful response with the SOA RRset."
+      },
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "Name.fromString(\"example.com.\")"
+          },
+          {
+            "parameter": "type",
+            "value": "Type.NS"
+          }
+        ],
+        "expected": "SetResponse with status SUCCESS and an RRset containing the NS records for the zone apex.",
+        "description": "The apex NS records are present; a lookup for NS at the zone origin must return them."
+      },
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "Name.fromString(\"example.com.\")"
+          },
+          {
+            "parameter": "type",
+            "value": "Type.A"
+          }
+        ],
+        "expected": "SetResponse with status NODATA (name exists but no A RRset at the apex).",
+        "description": "The zone origin exists but does not have an A record; the lookup should indicate NODATA."
+      }
+    ]
+  },
+  {
+    "group": "findRecords - ANY type queries",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "Name.fromString(\"multirec.example.com.\")"
+          },
+          {
+            "parameter": "type",
+            "value": "Type.ANY"
+          }
+        ],
+        "expected": "SetResponse with status SUCCESS and RRsets for all record types (e.g., A, AAAA, MX) associated with multirec.example.com.",
+        "description": "An ANY query should return every RRset stored for the name, confirming aggregation logic."
+      },
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "Name.fromString(\"nonexistent.example.com.\")"
+          },
+          {
+            "parameter": "type",
+            "value": "Type.ANY"
+          }
+        ],
+        "expected": "SetResponse with status NXDOMAIN",
+        "description": "ANY query for a name that is not present in the zone must result in NXDOMAIN."
+      }
+    ]
+  },
+  {
+    "group": "findRecords - CNAME chain and loop handling",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "Name.fromString(\"alias1.example.com.\")"
+          },
+          {
+            "parameter": "type",
+            "value": "Type.A"
+          }
+        ],
+        "expected": "SetResponse with status CNAME and RRsets containing the CNAME chain (alias1 \u2192 alias2 \u2192 target.example.com) plus the final A record for target.example.com.",
+        "description": "When a CNAME chain resolves to a concrete record, the response should include the CNAME(s) and the terminal A RRset."
+      },
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "Name.fromString(\"loop1.example.com.\")"
+          },
+          {
+            "parameter": "type",
+            "value": "Type.A"
+          }
+        ],
+        "expected": "IllegalStateException (or SERVFAIL) indicating a CNAME loop was detected.",
+        "description": "A CNAME loop (loop1 \u2192 loop2 \u2192 loop1) must be detected and cause a failure rather than infinite recursion."
+      }
+    ]
+  },
+  {
+    "group": "findRecords - DNAME handling",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "Name.fromString(\"host.example.com.\")"
+          },
+          {
+            "parameter": "type",
+            "value": "Type.A"
+          }
+        ],
+        "expected": "SetResponse with status DNAME and an RRset containing the DNAME record for example.com pointing to newexample.com, plus synthesized CNAME(s) for host.example.com.",
+        "description": "A DNAME at example.com should cause the lookup to return a DNAME response with appropriate synthesized CNAMEs for the queried name."
+      }
+    ]
+  },
+  {
+    "group": "findRecords - case insensitivity of names",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "Name.fromString(\"WWW.Example.Com.\")"
+          },
+          {
+            "parameter": "type",
+            "value": "Type.A"
+          }
+        ],
+        "expected": "SetResponse with status SUCCESS and the same A RRset as a lower\u2011case query (Name.fromString(\"www.example.com.\")).",
+        "description": "DNS name matching must be case\u2011insensitive; the result should be identical to the lower\u2011case form."
+      }
+    ]
+  },
+  {
+    "group": "findRecords - delegation with DS records",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "Name.fromString(\"sub.example.com.\")"
+          },
+          {
+            "parameter": "type",
+            "value": "Type.DS"
+          }
+        ],
+        "expected": "SetResponse with status SUCCESS and an RRset containing the DS records for the delegated sub\u2011zone.",
+        "description": "When a child zone is delegated, its DS records are stored at the parent; a DS query for the child should return those records."
+      }
+    ]
+  },
+  {
+    "group": "findRecords - root zone queries",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "Name.fromString(\".\")"
+          },
+          {
+            "parameter": "type",
+            "value": "Type.NS"
+          }
+        ],
+        "expected": "SetResponse with status SUCCESS and an RRset containing the root zone NS records.",
+        "description": "A lookup for NS at the root name (\".\") must return the root NS RRset."
+      },
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "Name.fromString(\".\")"
+          },
+          {
+            "parameter": "type",
+            "value": "Type.A"
+          }
+        ],
+        "expected": "SetResponse with status NODATA (root name exists but has no A record).",
+        "description": "The root zone does not have an A record; the lookup should indicate NODATA."
+      }
+    ]
+  },
+  {
+    "group": "findRecords - invalid type values",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "Name.fromString(\"example.com.\")"
+          },
+          {
+            "parameter": "type",
+            "value": "0"
+          }
+        ],
+        "expected": "IllegalArgumentException",
+        "description": "DNS type 0 is reserved and not a valid query type; lookup should reject it and throw IllegalArgumentException."
+      },
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "Name.fromString(\"example.com.\")"
+          },
+          {
+            "parameter": "type",
+            "value": "70000"
+          }
+        ],
+        "expected": "IllegalArgumentException",
+        "description": "Type values larger than the 16\u2011bit DNS type space (65535) are illegal; the method should throw IllegalArgumentException."
+      }
+    ]
+  },
+  {
+    "group": "findRecords - non\u2011absolute name handling",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "Name.fromString(\"relative\")"
+          },
+          {
+            "parameter": "type",
+            "value": "Type.A"
+          }
+        ],
+        "expected": "IllegalArgumentException",
+        "description": "A Name that does not end with the root label (i.e., not absolute) is invalid for zone lookups; lookup should throw IllegalArgumentException."
+      }
+    ]
+  },
+  {
+    "group": "findRecords - empty name handling",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "Name.empty()"
+          },
+          {
+            "parameter": "type",
+            "value": "Type.A"
+          }
+        ],
+        "expected": "IllegalArgumentException",
+        "description": "An empty Name (zero labels) cannot be looked up in a zone; the method should reject it with IllegalArgumentException."
+      }
+    ]
+  },
+  {
+    "group": "findRecords - zone without origin",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "name",
+            "value": "Name.fromString(\"example.com.\")"
+          },
+          {
+            "parameter": "type",
+            "value": "Type.A"
+          }
+        ],
+        "expected": "IllegalStateException",
+        "description": "If a Zone instance is created without setting an origin (e.g., using the default constructor and never calling setOrigin), internal lookup will fail and should throw IllegalStateException."
+      }
+    ]
+  }
+]

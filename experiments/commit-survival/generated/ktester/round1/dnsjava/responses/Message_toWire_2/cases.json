@@ -1,0 +1,187 @@
+[
+  {
+    "group": "Empty Message",
+    "cases": [
+      {
+        "input": [],
+        "expected": "byte array of length 12 (DNS header only) and Message.size equals 12",
+        "description": "A newly instantiated Message with no sections or TSIG. toWire() should serialize only the DNS header (12 bytes) and set the internal size field accordingly."
+      }
+    ]
+  },
+  {
+    "group": "Message with Question Section Only",
+    "cases": [
+      {
+        "input": [],
+        "expected": "byte array length >12 containing the question record; Message.size equals the byte array length",
+        "description": "Create a Message via Message.newQuery(Record) with a simple A query. The serialized wire format must contain the header plus one question entry. Verify that size matches the returned array length."
+      }
+    ]
+  },
+  {
+    "group": "Message with Answer Section",
+    "cases": [
+      {
+        "input": [],
+        "expected": "byte array length >12 containing header, question and one answer RR; Message.size equals array length",
+        "description": "Add a single answer Record to the ANSWER section of a query Message. toWire() must include the answer section and correctly update size."
+      }
+    ]
+  },
+  {
+    "group": "Message with Multiple Sections (Answer, Authority, Additional)",
+    "cases": [
+      {
+        "input": [],
+        "expected": "byte array containing header, question, answer, authority and additional sections; Message.size matches length",
+        "description": "Populate ANSWER, AUTHORITY and ADDITIONAL sections with at least one Record each. Verify that toWire() serializes all sections in the correct order and updates size."
+      }
+    ]
+  },
+  {
+    "group": "Message with unsigned TSIG (TSIG present but not signed)",
+    "cases": [
+      {
+        "input": [],
+        "expected": "byte array containing TSIG record in the additional section; Message.size matches length; no exception thrown",
+        "description": "Create a Message, add a TSIG key via setTSIG(TSIG) without signing. toWire() should include the TSIG record as an unsigned additional record."
+      }
+    ]
+  },
+  {
+    "group": "Message with signed TSIG",
+    "cases": [
+      {
+        "input": [],
+        "expected": "byte array containing a signed TSIG record; Message.size matches length; TSIG state is TSIG_SIGNED",
+        "description": "Create a Message, sign it with a TSIG key using setTSIG(key, error, querytsig). toWire() must produce a wire format where the TSIG is the last additional record and the internal tsigState reflects TSIG_SIGNED."
+      }
+    ]
+  },
+  {
+    "group": "Message Exceeding Maximum Length",
+    "cases": [
+      {
+        "input": [],
+        "expected": "throws IOException (or IllegalArgumentException) because the generated wire format exceeds Message.MAXLENGTH (65535)",
+        "description": "Construct a Message with a very large number of records (e.g., 2000 TXT records) so that the resulting wire length is >65535. Calling toWire() should detect the overflow and raise an exception."
+      }
+    ]
+  },
+  {
+    "group": "Message with OPT Record (EDNS0)",
+    "cases": [
+      {
+        "input": [],
+        "expected": "byte array containing an OPT record in the additional section; Message.size matches length",
+        "description": "Add an OPTRecord via setOPT or by directly adding to the additional section. Verify that toWire() includes the OPT pseudo\u2011RR and updates size correctly."
+      }
+    ]
+  },
+  {
+    "group": "Message with Truncated Flag Set",
+    "cases": [
+      {
+        "input": [],
+        "expected": "byte array where the header's TC flag is set; Message.size matches length",
+        "description": "Set the Header's truncated flag (TC) to true before serialization. toWire() must preserve this flag in the output bytes."
+      }
+    ]
+  },
+  {
+    "group": "Message with Multiple Question Records",
+    "cases": [
+      {
+        "input": [],
+        "expected": "byte array length > 12 containing two question records serialized in order; Message.size equals the returned array length",
+        "description": "Create a Message via new Message(), add two distinct Question records (e.g., A query for example.com and AAAA query for example.org) using addRecord(record, Message.QUESTION_SECTION). Call toWire() and verify that both questions appear in the wire format and that the internal size field matches the byte array length."
+      }
+    ]
+  },
+  {
+    "group": "Message with OPT and Signed TSIG Order",
+    "cases": [
+      {
+        "input": [],
+        "expected": "byte array where the OPT pseudo\u2011RR appears before the signed TSIG record in the additional section; Message.size matches array length; tsigState is TSIG_SIGNED",
+        "description": "Create a Message, add an OPTRecord via setOPT(OPTRecord), then sign the message with a TSIG key using setTSIG(key, 0, null). Call toWire() and verify that the serialized additional section contains the OPT record first and the TSIG record last, confirming correct ordering per RFC 6891."
+      }
+    ]
+  },
+  {
+    "group": "Message with Various Header Flags (RD, AA, RCODE)",
+    "cases": [
+      {
+        "input": [],
+        "expected": "byte array whose DNS header has the Recursion Desired (RD) flag set, Authoritative Answer (AA) flag set, and RCODE set to NXDOMAIN (3); Message.size equals array length",
+        "description": "Instantiate a Message, obtain its Header via getHeader(), setRD(true), setAA(true), setRcode(Rcode.NXDOMAIN). Add a simple question record. After toWire(), decode the first two bytes of the header to ensure the RD and AA bits are 1 and the lower 4 bits of the third byte equal 3 (NXDOMAIN)."
+      }
+    ]
+  },
+  {
+    "group": "Message Size Field Overwrite Verification",
+    "cases": [
+      {
+        "input": [],
+        "expected": "Message.size reflects the length of the newly generated wire array, not any previous value; byte array length matches Message.size",
+        "description": "Create a Message, manually set its private field `size` to an arbitrary value (e.g., 999) using reflection, then call toWire(). Verify that after serialization the `size` field equals the actual length of the returned byte array, confirming that toWire() overwrites any stale size."
+      }
+    ]
+  },
+  {
+    "group": "Message at Maximum Allowed Length (65535 bytes)",
+    "cases": [
+      {
+        "input": [],
+        "expected": "byte array length exactly 65535; no exception thrown; Message.size equals 65535",
+        "description": "Construct a Message that fills the wire format to exactly 65535 bytes (e.g., a query with a large number of TXT records whose total serialized size is 65523 bytes plus the 12\u2011byte header). Call toWire() and assert that the returned array length is 65535 and that no IOException or IllegalArgumentException is raised."
+      }
+    ]
+  },
+  {
+    "group": "Message with Overly Long Domain Name",
+    "cases": [
+      {
+        "input": [],
+        "expected": "IOException (or IllegalArgumentException) because a domain name longer than 255 bytes cannot be encoded in DNS wire format",
+        "description": "Create a Record whose name is a string of 256 'a' characters (or a sequence that expands to >255 bytes when encoded). Add the record to the ANSWER section of a Message and invoke toWire(). The serialization should fail with an exception due to DNS name length limits."
+      }
+    ]
+  },
+  {
+    "group": "Message with Unsupported RR Type",
+    "cases": [
+      {
+        "input": [],
+        "expected": "IOException because the RR type is not recognized by the DNS library during wire conversion",
+        "description": "Construct a custom Record subclass (or use a Record with a type value that is not defined in the library, e.g., 0xFFFF). Add it to any section of a Message and call toWire(). The method should throw an IOException when it attempts to write the unknown type."
+      }
+    ]
+  },
+  {
+    "group": "Message with Null Record",
+    "cases": [
+      {
+        "input": [],
+        "expected": "NullPointerException when the internal serialization loop encounters a null entry",
+        "description": "Call addRecord(null, Message.QUESTION_SECTION) on a freshly created Message (the library permits adding null). When toWire() processes the question section it will dereference the null Record and throw a NullPointerException."
+      }
+    ]
+  },
+  {
+    "group": "toWire with Insufficient Max Length",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "maxLength",
+            "value": "10"
+          }
+        ],
+        "expected": "IllegalArgumentException because the supplied maxLength (10) is smaller than the minimum DNS header size (12)",
+        "description": "Invoke the overloaded method Message.toWire(int maxLength) with a value less than the DNS header length. The implementation validates the argument and should raise an IllegalArgumentException before any serialization occurs."
+      }
+    ]
+  }
+]

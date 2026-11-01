@@ -1,0 +1,62 @@
+[
+  {
+    "group": "newUpdate with valid zone",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "zone",
+            "value": "Name.fromString(\"example.com.\")"
+          }
+        ],
+        "expected": "instance of Update whose question name equals \"example.com.\"",
+        "description": "When a non\u2011null Name is supplied, newUpdate should create an Update object. The returned object must be of type Update and its question section should contain a Record whose name matches the supplied zone."
+      }
+    ]
+  },
+  {
+    "group": "newUpdate with null zone",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "zone",
+            "value": "null"
+          }
+        ],
+        "expected": "NullPointerException",
+        "description": "Passing a null Name should cause a NullPointerException (or IllegalArgumentException) because the Update constructor expects a non\u2011null zone. The test verifies that the method fails fast for invalid input."
+      }
+    ]
+  },
+  {
+    "group": "newUpdate with root zone",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "zone",
+            "value": "Name.root"
+          }
+        ],
+        "expected": "instance of Update whose question name equals \".\" (the root name)",
+        "description": "The DNS root zone is represented by Name.root. newUpdate should accept it and create an Update object whose question section contains a record with the root name."
+      }
+    ]
+  },
+  {
+    "group": "newUpdate with wildcard zone",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "zone",
+            "value": "Name.fromString(\"*.example.com.\")"
+          }
+        ],
+        "expected": "IllegalArgumentException",
+        "description": "Passing a wildcard Name (e.g., \"*.example.com.\") as the zone should cause IllegalArgumentException because an Update zone cannot be a wildcard."
+      }
+    ]
+  }
+]

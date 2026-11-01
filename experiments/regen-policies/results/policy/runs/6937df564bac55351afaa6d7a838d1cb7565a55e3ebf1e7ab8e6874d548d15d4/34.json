@@ -1,0 +1,551 @@
+{
+  "index": 34,
+  "sha": "fd1d7c9280986ebb219c421695a902559aaeda22",
+  "status": "evaluated",
+  "imported": true,
+  "coverage_version": 3,
+  "coverage_status": "missing",
+  "coverage_reason": "imported evidence has no per-test coverage",
+  "methods": [
+    {
+      "file": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java",
+      "class": "org.xbill.DNS.Message_findRRset_2_Test",
+      "method": "findRRset_presentInAnswer_returnsTrue",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java|org.xbill.DNS.Message_findRRset_2_Test|findRRset_presentInAnswer_returnsTrue",
+      "body_hash": "91f4623890161dab1f5b59d59f7cf95902e759c32c0abd05d727211a15136882",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_presentInAnswer_returnsTrue()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "3dd6f484df7eb88a5f84aa03b71d75b345d14fed835af023e81c97e058b280fa",
+      "execution_hash": "6937df564bac55351afaa6d7a838d1cb7565a55e3ebf1e7ab8e6874d548d15d4",
+      "source_root": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0a86ba63f7379cd03eeb83e8739e9cebcd20ac34830f8ae9f79ab6a8466f0110",
+      "resource_tree_hash": "de9617e6c9dd225fb49909e865a12a9415c63de3448234d2eb4d0a852a3dd419",
+      "unit": "org.xbill.DNS.Message#findRRset(Name, int)",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java|org.xbill.DNS.Message_findRRset_2_Test|findRRset_presentInAnswer_returnsTrue",
+      "resource_root": "results/policy/pools/ktester/34/dev/src-test-t"
+    },
+    {
+      "file": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java",
+      "class": "org.xbill.DNS.Message_findRRset_2_Test",
+      "method": "findRRset_presentInAuthority_returnsTrue",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java|org.xbill.DNS.Message_findRRset_2_Test|findRRset_presentInAuthority_returnsTrue",
+      "body_hash": "0e0530e6aea559698450031da5a7a06fd60eb8d6683fd674cebbf40964ae041a",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_presentInAuthority_returnsTrue()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "3dd6f484df7eb88a5f84aa03b71d75b345d14fed835af023e81c97e058b280fa",
+      "execution_hash": "6937df564bac55351afaa6d7a838d1cb7565a55e3ebf1e7ab8e6874d548d15d4",
+      "source_root": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0a86ba63f7379cd03eeb83e8739e9cebcd20ac34830f8ae9f79ab6a8466f0110",
+      "resource_tree_hash": "de9617e6c9dd225fb49909e865a12a9415c63de3448234d2eb4d0a852a3dd419",
+      "unit": "org.xbill.DNS.Message#findRRset(Name, int)",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java|org.xbill.DNS.Message_findRRset_2_Test|findRRset_presentInAuthority_returnsTrue",
+      "resource_root": "results/policy/pools/ktester/34/dev/src-test-t"
+    },
+    {
+      "file": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java",
+      "class": "org.xbill.DNS.Message_findRRset_2_Test",
+      "method": "findRRset_presentInAdditional_returnsTrue",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java|org.xbill.DNS.Message_findRRset_2_Test|findRRset_presentInAdditional_returnsTrue",
+      "body_hash": "53c609a4abdecd7071e9d680c46f5c47d2030ae61f57fe91e1c1b5a952967870",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_presentInAdditional_returnsTrue()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "3dd6f484df7eb88a5f84aa03b71d75b345d14fed835af023e81c97e058b280fa",
+      "execution_hash": "6937df564bac55351afaa6d7a838d1cb7565a55e3ebf1e7ab8e6874d548d15d4",
+      "source_root": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0a86ba63f7379cd03eeb83e8739e9cebcd20ac34830f8ae9f79ab6a8466f0110",
+      "resource_tree_hash": "de9617e6c9dd225fb49909e865a12a9415c63de3448234d2eb4d0a852a3dd419",
+      "unit": "org.xbill.DNS.Message#findRRset(Name, int)",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java|org.xbill.DNS.Message_findRRset_2_Test|findRRset_presentInAdditional_returnsTrue",
+      "resource_root": "results/policy/pools/ktester/34/dev/src-test-t"
+    },
+    {
+      "file": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java",
+      "class": "org.xbill.DNS.Message_findRRset_2_Test",
+      "method": "findRRset_notPresent_returnsFalse",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java|org.xbill.DNS.Message_findRRset_2_Test|findRRset_notPresent_returnsFalse",
+      "body_hash": "a89482eea3345278ec79f8c1ba68363ba0d28575baf1f19cfec2e0a5445413c9",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_notPresent_returnsFalse()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "3dd6f484df7eb88a5f84aa03b71d75b345d14fed835af023e81c97e058b280fa",
+      "execution_hash": "6937df564bac55351afaa6d7a838d1cb7565a55e3ebf1e7ab8e6874d548d15d4",
+      "source_root": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0a86ba63f7379cd03eeb83e8739e9cebcd20ac34830f8ae9f79ab6a8466f0110",
+      "resource_tree_hash": "de9617e6c9dd225fb49909e865a12a9415c63de3448234d2eb4d0a852a3dd419",
+      "unit": "org.xbill.DNS.Message#findRRset(Name, int)",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java|org.xbill.DNS.Message_findRRset_2_Test|findRRset_notPresent_returnsFalse",
+      "resource_root": "results/policy/pools/ktester/34/dev/src-test-t"
+    },
+    {
+      "file": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java",
+      "class": "org.xbill.DNS.Message_findRRset_2_Test",
+      "method": "findRRset_wrongType_returnsFalse",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java|org.xbill.DNS.Message_findRRset_2_Test|findRRset_wrongType_returnsFalse",
+      "body_hash": "7f6737b061ea985f3410f00aa8350695c681202321a3abf1a3b1e25871d586a1",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_wrongType_returnsFalse()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "3dd6f484df7eb88a5f84aa03b71d75b345d14fed835af023e81c97e058b280fa",
+      "execution_hash": "6937df564bac55351afaa6d7a838d1cb7565a55e3ebf1e7ab8e6874d548d15d4",
+      "source_root": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0a86ba63f7379cd03eeb83e8739e9cebcd20ac34830f8ae9f79ab6a8466f0110",
+      "resource_tree_hash": "de9617e6c9dd225fb49909e865a12a9415c63de3448234d2eb4d0a852a3dd419",
+      "unit": "org.xbill.DNS.Message#findRRset(Name, int)",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java|org.xbill.DNS.Message_findRRset_2_Test|findRRset_wrongType_returnsFalse",
+      "resource_root": "results/policy/pools/ktester/34/dev/src-test-t"
+    },
+    {
+      "file": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java",
+      "class": "org.xbill.DNS.Message_findRRset_2_Test",
+      "method": "findRRset_wrongName_returnsFalse",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java|org.xbill.DNS.Message_findRRset_2_Test|findRRset_wrongName_returnsFalse",
+      "body_hash": "5fd9aab271a8e52e161d32fd651fc1b02af0e5d75efb548e48f2828c8cb55502",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_wrongName_returnsFalse()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "3dd6f484df7eb88a5f84aa03b71d75b345d14fed835af023e81c97e058b280fa",
+      "execution_hash": "6937df564bac55351afaa6d7a838d1cb7565a55e3ebf1e7ab8e6874d548d15d4",
+      "source_root": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0a86ba63f7379cd03eeb83e8739e9cebcd20ac34830f8ae9f79ab6a8466f0110",
+      "resource_tree_hash": "de9617e6c9dd225fb49909e865a12a9415c63de3448234d2eb4d0a852a3dd419",
+      "unit": "org.xbill.DNS.Message#findRRset(Name, int)",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java|org.xbill.DNS.Message_findRRset_2_Test|findRRset_wrongName_returnsFalse",
+      "resource_root": "results/policy/pools/ktester/34/dev/src-test-t"
+    },
+    {
+      "file": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java",
+      "class": "org.xbill.DNS.Message_findRRset_2_Test",
+      "method": "findRRset_multipleSectionsOnlyOneMatches_returnsTrue",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java|org.xbill.DNS.Message_findRRset_2_Test|findRRset_multipleSectionsOnlyOneMatches_returnsTrue",
+      "body_hash": "b3cd69081667ba3a44d16eb6a6811372d61b9bfa7a3935dc2df95782d5400d16",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_multipleSectionsOnlyOneMatches_returnsTrue()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "3dd6f484df7eb88a5f84aa03b71d75b345d14fed835af023e81c97e058b280fa",
+      "execution_hash": "6937df564bac55351afaa6d7a838d1cb7565a55e3ebf1e7ab8e6874d548d15d4",
+      "source_root": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0a86ba63f7379cd03eeb83e8739e9cebcd20ac34830f8ae9f79ab6a8466f0110",
+      "resource_tree_hash": "de9617e6c9dd225fb49909e865a12a9415c63de3448234d2eb4d0a852a3dd419",
+      "unit": "org.xbill.DNS.Message#findRRset(Name, int)",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java|org.xbill.DNS.Message_findRRset_2_Test|findRRset_multipleSectionsOnlyOneMatches_returnsTrue",
+      "resource_root": "results/policy/pools/ktester/34/dev/src-test-t"
+    },
+    {
+      "file": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java",
+      "class": "org.xbill.DNS.Message_findRRset_2_Test",
+      "method": "findRRset_basicScenarios",
+      "kind": "parameterized",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java|org.xbill.DNS.Message_findRRset_2_Test|findRRset_basicScenarios",
+      "body_hash": "20e88151650ba109b1ef1cf1df339b5e3ef34491671435deaba50fc8481c8601",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_basicScenarios(java.lang.String,int,boolean,java.lang.String)"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "3dd6f484df7eb88a5f84aa03b71d75b345d14fed835af023e81c97e058b280fa",
+      "execution_hash": "6937df564bac55351afaa6d7a838d1cb7565a55e3ebf1e7ab8e6874d548d15d4",
+      "source_root": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0a86ba63f7379cd03eeb83e8739e9cebcd20ac34830f8ae9f79ab6a8466f0110",
+      "resource_tree_hash": "de9617e6c9dd225fb49909e865a12a9415c63de3448234d2eb4d0a852a3dd419",
+      "unit": "org.xbill.DNS.Message#findRRset(Name, int)",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java|org.xbill.DNS.Message_findRRset_2_Test|findRRset_basicScenarios",
+      "resource_root": "results/policy/pools/ktester/34/dev/src-test-t"
+    },
+    {
+      "file": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java",
+      "class": "org.xbill.DNS.Message_findRRset_2_Test",
+      "method": "findRRset_typeGreaterThan65535_throwsIllegalArgumentException",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java|org.xbill.DNS.Message_findRRset_2_Test|findRRset_typeGreaterThan65535_throwsIllegalArgumentException",
+      "body_hash": "77d5fde160742200c1d38d4c1e96022385bea661a985d3f907a34d1c99d18ee7",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_typeGreaterThan65535_throwsIllegalArgumentException()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "3dd6f484df7eb88a5f84aa03b71d75b345d14fed835af023e81c97e058b280fa",
+      "execution_hash": "6937df564bac55351afaa6d7a838d1cb7565a55e3ebf1e7ab8e6874d548d15d4",
+      "source_root": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0a86ba63f7379cd03eeb83e8739e9cebcd20ac34830f8ae9f79ab6a8466f0110",
+      "resource_tree_hash": "de9617e6c9dd225fb49909e865a12a9415c63de3448234d2eb4d0a852a3dd419",
+      "unit": "org.xbill.DNS.Message#findRRset(Name, int)",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java|org.xbill.DNS.Message_findRRset_2_Test|findRRset_typeGreaterThan65535_throwsIllegalArgumentException",
+      "resource_root": "results/policy/pools/ktester/34/dev/src-test-t"
+    },
+    {
+      "file": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java",
+      "class": "org.xbill.DNS.Message_findRRset_2_Test",
+      "method": "findRRset_shortCircuitStopsAfterAnswer",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java|org.xbill.DNS.Message_findRRset_2_Test|findRRset_shortCircuitStopsAfterAnswer",
+      "body_hash": "f94e23b9fb43fb0d795d2e3ad5f3c010fbc1fb3938aa35ac38baf3ada4a0a969",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_shortCircuitStopsAfterAnswer()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "3dd6f484df7eb88a5f84aa03b71d75b345d14fed835af023e81c97e058b280fa",
+      "execution_hash": "6937df564bac55351afaa6d7a838d1cb7565a55e3ebf1e7ab8e6874d548d15d4",
+      "source_root": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0a86ba63f7379cd03eeb83e8739e9cebcd20ac34830f8ae9f79ab6a8466f0110",
+      "resource_tree_hash": "de9617e6c9dd225fb49909e865a12a9415c63de3448234d2eb4d0a852a3dd419",
+      "unit": "org.xbill.DNS.Message#findRRset(Name, int)",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java|org.xbill.DNS.Message_findRRset_2_Test|findRRset_shortCircuitStopsAfterAnswer",
+      "resource_root": "results/policy/pools/ktester/34/dev/src-test-t"
+    },
+    {
+      "file": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java",
+      "class": "org.xbill.DNS.Message_findRRset_2_Test",
+      "method": "findRRset_ANYTypeMatchesAnyRecord",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java|org.xbill.DNS.Message_findRRset_2_Test|findRRset_ANYTypeMatchesAnyRecord",
+      "body_hash": "800d648b09828ac41093903ae1d9ef2a5cdacd3d745ecb232cec0540ba69c514",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_ANYTypeMatchesAnyRecord()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "3dd6f484df7eb88a5f84aa03b71d75b345d14fed835af023e81c97e058b280fa",
+      "execution_hash": "6937df564bac55351afaa6d7a838d1cb7565a55e3ebf1e7ab8e6874d548d15d4",
+      "source_root": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0a86ba63f7379cd03eeb83e8739e9cebcd20ac34830f8ae9f79ab6a8466f0110",
+      "resource_tree_hash": "de9617e6c9dd225fb49909e865a12a9415c63de3448234d2eb4d0a852a3dd419",
+      "unit": "org.xbill.DNS.Message#findRRset(Name, int)",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java|org.xbill.DNS.Message_findRRset_2_Test|findRRset_ANYTypeMatchesAnyRecord",
+      "resource_root": "results/policy/pools/ktester/34/dev/src-test-t"
+    },
+    {
+      "file": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java",
+      "class": "org.xbill.DNS.Message_findRRset_2_Test",
+      "method": "findRRset_nameCaseInsensitivity",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java|org.xbill.DNS.Message_findRRset_2_Test|findRRset_nameCaseInsensitivity",
+      "body_hash": "1a720e6337019b9fda753f953cbc0f78d323d8db1889105922e50ccd355edb11",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_nameCaseInsensitivity()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "3dd6f484df7eb88a5f84aa03b71d75b345d14fed835af023e81c97e058b280fa",
+      "execution_hash": "6937df564bac55351afaa6d7a838d1cb7565a55e3ebf1e7ab8e6874d548d15d4",
+      "source_root": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0a86ba63f7379cd03eeb83e8739e9cebcd20ac34830f8ae9f79ab6a8466f0110",
+      "resource_tree_hash": "de9617e6c9dd225fb49909e865a12a9415c63de3448234d2eb4d0a852a3dd419",
+      "unit": "org.xbill.DNS.Message#findRRset(Name, int)",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java|org.xbill.DNS.Message_findRRset_2_Test|findRRset_nameCaseInsensitivity",
+      "resource_root": "results/policy/pools/ktester/34/dev/src-test-t"
+    },
+    {
+      "file": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java",
+      "class": "org.xbill.DNS.Message_findRRset_2_Test",
+      "method": "findRRset_subdomainMismatch_returnsFalse",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java|org.xbill.DNS.Message_findRRset_2_Test|findRRset_subdomainMismatch_returnsFalse",
+      "body_hash": "b41b0bd8f76d1031b9200ba35f0d38acb0d357e2637660bb644d0d0d5975bd1c",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_subdomainMismatch_returnsFalse()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "3dd6f484df7eb88a5f84aa03b71d75b345d14fed835af023e81c97e058b280fa",
+      "execution_hash": "6937df564bac55351afaa6d7a838d1cb7565a55e3ebf1e7ab8e6874d548d15d4",
+      "source_root": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0a86ba63f7379cd03eeb83e8739e9cebcd20ac34830f8ae9f79ab6a8466f0110",
+      "resource_tree_hash": "de9617e6c9dd225fb49909e865a12a9415c63de3448234d2eb4d0a852a3dd419",
+      "unit": "org.xbill.DNS.Message#findRRset(Name, int)",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java|org.xbill.DNS.Message_findRRset_2_Test|findRRset_subdomainMismatch_returnsFalse",
+      "resource_root": "results/policy/pools/ktester/34/dev/src-test-t"
+    },
+    {
+      "file": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java",
+      "class": "org.xbill.DNS.Message_findRRset_2_Test",
+      "method": "findRRset_emptyMessage_returnsFalse",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java|org.xbill.DNS.Message_findRRset_2_Test|findRRset_emptyMessage_returnsFalse",
+      "body_hash": "0a0c77767d770696085ed7877955181a6886108bd57c5d9e715ed35de575b8b0",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_emptyMessage_returnsFalse()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "3dd6f484df7eb88a5f84aa03b71d75b345d14fed835af023e81c97e058b280fa",
+      "execution_hash": "6937df564bac55351afaa6d7a838d1cb7565a55e3ebf1e7ab8e6874d548d15d4",
+      "source_root": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0a86ba63f7379cd03eeb83e8739e9cebcd20ac34830f8ae9f79ab6a8466f0110",
+      "resource_tree_hash": "de9617e6c9dd225fb49909e865a12a9415c63de3448234d2eb4d0a852a3dd419",
+      "unit": "org.xbill.DNS.Message#findRRset(Name, int)",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java|org.xbill.DNS.Message_findRRset_2_Test|findRRset_emptyMessage_returnsFalse",
+      "resource_root": "results/policy/pools/ktester/34/dev/src-test-t"
+    },
+    {
+      "file": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java",
+      "class": "org.xbill.DNS.Message_findRRset_2_Test",
+      "method": "findRRset_nullName_returnsFalse",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java|org.xbill.DNS.Message_findRRset_2_Test|findRRset_nullName_returnsFalse",
+      "body_hash": "83fd810a9973b5db8d4c631b97226a07dcb62864398cfabb0b2a8d8a7f00ead8",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_nullName_returnsFalse()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "3dd6f484df7eb88a5f84aa03b71d75b345d14fed835af023e81c97e058b280fa",
+      "execution_hash": "6937df564bac55351afaa6d7a838d1cb7565a55e3ebf1e7ab8e6874d548d15d4",
+      "source_root": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0a86ba63f7379cd03eeb83e8739e9cebcd20ac34830f8ae9f79ab6a8466f0110",
+      "resource_tree_hash": "de9617e6c9dd225fb49909e865a12a9415c63de3448234d2eb4d0a852a3dd419",
+      "unit": "org.xbill.DNS.Message#findRRset(Name, int)",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java|org.xbill.DNS.Message_findRRset_2_Test|findRRset_nullName_returnsFalse",
+      "resource_root": "results/policy/pools/ktester/34/dev/src-test-t"
+    },
+    {
+      "file": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java",
+      "class": "org.xbill.DNS.Message_findRRset_2_Test",
+      "method": "findRRset_invalidNameEmptyString_throwsTextParseException",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java|org.xbill.DNS.Message_findRRset_2_Test|findRRset_invalidNameEmptyString_throwsTextParseException",
+      "body_hash": "7cd2e5eb346f3db5bc91d4998bd2fd9c4ecd64fef687fb1c9a02c1c0cc7acda0",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_invalidNameEmptyString_throwsTextParseException()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "3dd6f484df7eb88a5f84aa03b71d75b345d14fed835af023e81c97e058b280fa",
+      "execution_hash": "6937df564bac55351afaa6d7a838d1cb7565a55e3ebf1e7ab8e6874d548d15d4",
+      "source_root": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0a86ba63f7379cd03eeb83e8739e9cebcd20ac34830f8ae9f79ab6a8466f0110",
+      "resource_tree_hash": "de9617e6c9dd225fb49909e865a12a9415c63de3448234d2eb4d0a852a3dd419",
+      "unit": "org.xbill.DNS.Message#findRRset(Name, int)",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java|org.xbill.DNS.Message_findRRset_2_Test|findRRset_invalidNameEmptyString_throwsTextParseException",
+      "resource_root": "results/policy/pools/ktester/34/dev/src-test-t"
+    },
+    {
+      "file": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java",
+      "class": "org.xbill.DNS.Message_findRRset_2_Test",
+      "method": "findRRset_negativeType_throwsInvalidTypeException",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java|org.xbill.DNS.Message_findRRset_2_Test|findRRset_negativeType_throwsInvalidTypeException",
+      "body_hash": "f380639a846537e6733315d69392c57d7863de080746fabdefe7448f781e349a",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_negativeType_throwsInvalidTypeException()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "3dd6f484df7eb88a5f84aa03b71d75b345d14fed835af023e81c97e058b280fa",
+      "execution_hash": "6937df564bac55351afaa6d7a838d1cb7565a55e3ebf1e7ab8e6874d548d15d4",
+      "source_root": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0a86ba63f7379cd03eeb83e8739e9cebcd20ac34830f8ae9f79ab6a8466f0110",
+      "resource_tree_hash": "de9617e6c9dd225fb49909e865a12a9415c63de3448234d2eb4d0a852a3dd419",
+      "unit": "org.xbill.DNS.Message#findRRset(Name, int)",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java|org.xbill.DNS.Message_findRRset_2_Test|findRRset_negativeType_throwsInvalidTypeException",
+      "resource_root": "results/policy/pools/ktester/34/dev/src-test-t"
+    },
+    {
+      "file": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java",
+      "class": "org.xbill.DNS.Message_findRRset_2_Test",
+      "method": "findRRset_typeNotAllowedInSection_returnsFalse",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java|org.xbill.DNS.Message_findRRset_2_Test|findRRset_typeNotAllowedInSection_returnsFalse",
+      "body_hash": "3e80dff9bbcb3b53438c4b63777d1c78cbd7f0b1f0b080f14e7a9c5f461e1c45",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_findRRset_2_Test#findRRset_typeNotAllowedInSection_returnsFalse()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "file_hash": "3dd6f484df7eb88a5f84aa03b71d75b345d14fed835af023e81c97e058b280fa",
+      "execution_hash": "6937df564bac55351afaa6d7a838d1cb7565a55e3ebf1e7ab8e6874d548d15d4",
+      "source_root": "results/policy/pools/ktester/34/generated/ktester/round1/dnsjava/test_classes",
+      "source_tree_hash": "0a86ba63f7379cd03eeb83e8739e9cebcd20ac34830f8ae9f79ab6a8466f0110",
+      "resource_tree_hash": "de9617e6c9dd225fb49909e865a12a9415c63de3448234d2eb4d0a852a3dd419",
+      "unit": "org.xbill.DNS.Message#findRRset(Name, int)",
+      "origin_id": "generated/ktester/round1/dnsjava/test_classes/Message_findRRset_2_Test.java|org.xbill.DNS.Message_findRRset_2_Test|findRRset_typeNotAllowedInSection_returnsFalse",
+      "resource_root": "results/policy/pools/ktester/34/dev/src-test-t"
+    }
+  ]
+}

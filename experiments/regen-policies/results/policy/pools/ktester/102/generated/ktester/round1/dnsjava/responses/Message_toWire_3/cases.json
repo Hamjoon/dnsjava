@@ -1,0 +1,227 @@
+[
+  {
+    "group": "Successful conversion \u2013 normal size",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "maxLength",
+            "value": 512
+          }
+        ],
+        "expected": "byte[] length <= 512 and Message.size equals returned byte[].length",
+        "description": "A typical DNS query message (one question record, no answer/authority/additional sections) is converted with a maxLength far larger than the actual wire size. The method should succeed, return the complete wire format, and set the internal size field to the number of bytes written."
+      }
+    ]
+  },
+  {
+    "group": "Boundary condition \u2013 exact maxLength",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "maxLength",
+            "value": 128
+          }
+        ],
+        "expected": "byte[] length == 128 and Message.size == 128",
+        "description": "Create a message whose wire representation is exactly 128 bytes (e.g., a query with several additional OPT records). Calling toWire(128) must succeed without truncation, returning a byte array whose length equals the supplied maxLength."
+      }
+    ]
+  },
+  {
+    "group": "Exceeding maxLength \u2013 truncation path",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "maxLength",
+            "value": 64
+          }
+        ],
+        "expected": "byte[] length == 64 and Message.size == 64",
+        "description": "When the generated wire size is larger than the supplied maxLength, the private toWire method should truncate the output to the allowed length (the public toWire(int) does not expose a truncate flag, so the implementation must honour the limit). The returned array must be exactly maxLength bytes long and the size field must reflect the truncated length."
+      }
+    ]
+  },
+  {
+    "group": "Exceeding maxLength \u2013 exception path",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "maxLength",
+            "value": 10
+          }
+        ],
+        "expected": "MessageSizeExceededException thrown",
+        "description": "If the implementation decides that truncation would produce an invalid DNS message (e.g., the header itself cannot fit), it should throw MessageSizeExceededException. Supplying a maxLength smaller than the minimum DNS header (12 bytes) validates this error path."
+      }
+    ]
+  },
+  {
+    "group": "Invalid argument \u2013 negative maxLength",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "maxLength",
+            "value": -1
+          }
+        ],
+        "expected": "IllegalArgumentException thrown",
+        "description": "The method must validate its argument. Passing a negative maxLength should result in an IllegalArgumentException before any wire conversion is attempted."
+      }
+    ]
+  },
+  {
+    "group": "Message with TSIG \u2013 signed message handling",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "maxLength",
+            "value": 1024
+          }
+        ],
+        "expected": "byte[] length <= 1024, includes TSIG record at the end, and Message.size matches byte[].length",
+        "description": "Create a message, add a TSIG record (using setTSIG) and verify that toWire correctly appends the TSIG MAC and updates the size field. The output must still respect the maxLength limit."
+      }
+    ]
+  },
+  {
+    "group": "Minimal message \u2013 header only",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "maxLength",
+            "value": 12
+          }
+        ],
+        "expected": "byte[] length == 12 and Message.size == 12",
+        "description": "A freshly created Message contains only the DNS header (12 bytes). Calling toWire(12) should succeed, return exactly 12 bytes and set the internal size field to 12."
+      }
+    ]
+  },
+  {
+    "group": "Zero maxLength \u2013 argument validation",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "maxLength",
+            "value": 0
+          }
+        ],
+        "expected": "IllegalArgumentException thrown",
+        "description": "The method must reject a maxLength of zero because a DNS message cannot be empty. An IllegalArgumentException should be thrown before any wire conversion takes place."
+      }
+    ]
+  },
+  {
+    "group": "Maximum allowed size \u2013 MAXLENGTH boundary",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "maxLength",
+            "value": 65535
+          }
+        ],
+        "expected": "byte[] length <= 65535 and Message.size equals returned byte[].length",
+        "description": "Create a Message that fills the DNS UDP payload limit (e.g., many records across all sections). Calling toWire(Message.MAXLENGTH) must succeed, returning a byte array whose length does not exceed 65535 and updating the size field accordingly."
+      }
+    ]
+  },
+  {
+    "group": "Complex message \u2013 multiple sections without truncation",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "maxLength",
+            "value": 1024
+          }
+        ],
+        "expected": "byte[] length <= 1024 and Message.size equals returned byte[].length; all added records are present in the wire output",
+        "description": "Add records to the answer, authority, and additional sections (including an OPT pseudo\u2011record). The total wire size is well under 1024 bytes. toWire(1024) should serialize the full message, preserve the order of sections, and set size to the exact byte count."
+      }
+    ]
+  },
+  {
+    "group": "Repeated toWire calls \u2013 size field consistency",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "maxLength",
+            "value": 512
+          }
+        ],
+        "expected": "first call: size == first byte[].length; second call with larger maxLength: size == second byte[].length (updated); both arrays contain correct wire data",
+        "description": "Invoke toWire(512) on a Message, then add an extra record and invoke toWire(1024). Verify that the internal size field reflects the most recent conversion and that each returned byte array is correct for its respective call."
+      }
+    ]
+  },
+  {
+    "group": "TSIG present but maxLength too small \u2013 exception path",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "maxLength",
+            "value": 30
+          }
+        ],
+        "expected": "MessageSizeExceededException thrown",
+        "description": "Create a signed Message with a TSIG record (approximately 20\u201130 bytes). A maxLength that can hold the header and question but not the full TSIG should cause the method to abort with MessageSizeExceededException rather than produce a truncated, invalid TSIG."
+      }
+    ]
+  },
+  {
+    "group": "Very large maxLength \u2013 larger than any possible wire size",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "maxLength",
+            "value": 200000
+          }
+        ],
+        "expected": "byte[] length == actual wire size (<= Message.MAXLENGTH) and Message.size equals that length",
+        "description": "Pass a maxLength far exceeding the protocol limit (e.g., 200\u202f000). The implementation should ignore the oversized limit, serialize the message up to its natural size (\u2264 65535), and set size accordingly without throwing."
+      }
+    ]
+  },
+  {
+    "group": "Header only with insufficient maxLength for question",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "maxLength",
+            "value": 12
+          }
+        ],
+        "expected": "MessageSizeExceededException thrown",
+        "description": "Create a Message that contains a question record (the minimal non\u2011header DNS message). Calling toWire(12) provides space only for the DNS header, so the method must abort and throw MessageSizeExceededException because the question cannot be encoded."
+      }
+    ]
+  },
+  {
+    "group": "maxLength exceeds DNS protocol limit",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "maxLength",
+            "value": 65536
+          }
+        ],
+        "expected": "IllegalArgumentException thrown",
+        "description": "The DNS protocol caps a UDP message at 65535 bytes (Message.MAXLENGTH). Supplying a maxLength larger than this constant should be rejected with IllegalArgumentException before any serialization occurs."
+      }
+    ]
+  }
+]

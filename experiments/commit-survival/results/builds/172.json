@@ -1,0 +1,67 @@
+{
+  "index": 172,
+  "sha": "2184aa05e19953e07fd32d6177ad4420a415261d",
+  "build": "ok",
+  "attempts": [
+    {
+      "command": [
+        "mvn",
+        "-q",
+        "-o",
+        "-DskipTests",
+        "compile"
+      ],
+      "cwd": "/repo/experiments/commit-survival/work/checkouts/172",
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 16.872,
+      "log": "results/builds/logs/172-1.txt"
+    }
+  ],
+  "input_sha256": "41e817f40ecb268da866590ace99a951b993abc2323c8d70226f3744a02aa809",
+  "pom_sha256": "34555ec2439782ac67a27c402a7fc3efd5f3579e473e3194808a23d5a9924c9e",
+  "classpath": "work/classpaths/34555ec2439782ac67a27c402a7fc3efd5f3579e473e3194808a23d5a9924c9e.txt",
+  "classpath_attempts": [
+    {
+      "command": [
+        "mvn",
+        "-q",
+        "-o",
+        "dependency:go-offline"
+      ],
+      "cwd": "/repo/experiments/commit-survival/work/checkouts/172",
+      "exit_code": 1,
+      "timeout": false,
+      "seconds": 2.137,
+      "log": "results/builds/logs/classpath-172/go-offline-0dd56614ab814b35b01bf1aff6aa27d1/1.txt"
+    },
+    {
+      "command": [
+        "mvn",
+        "-q",
+        "-U",
+        "dependency:go-offline"
+      ],
+      "cwd": "/repo/experiments/commit-survival/work/checkouts/172",
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 4.899,
+      "log": "results/builds/logs/classpath-172/go-offline-0dd56614ab814b35b01bf1aff6aa27d1/2.txt"
+    },
+    {
+      "command": [
+        "mvn",
+        "-q",
+        "-o",
+        "dependency:build-classpath",
+        "-DincludeScope=test",
+        "-Dmdep.outputFile=/repo/experiments/commit-survival/work/classpaths/34555ec2439782ac67a27c402a7fc3efd5f3579e473e3194808a23d5a9924c9e-6d69c932b0ca4e3fbc6d8ddb35111d55.tmp"
+      ],
+      "cwd": "/repo/experiments/commit-survival/work/checkouts/172",
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 3.392,
+      "log": "results/builds/logs/classpath-172/build-classpath-8054480e3f8649758328a32b9b41db3d/1.txt"
+    }
+  ]
+}

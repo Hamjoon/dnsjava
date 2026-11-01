@@ -1,0 +1,22 @@
+{
+  "index": 37,
+  "sha": "345e76cc433ef429df862d56e323d8e2babca760",
+  "parent": "ba8a959bb16cdf8136b8fe47a23881a690e9ef2c",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/lookup/LookupSession.java": [
+      584
+    ]
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/lookup/LookupSession.java": [
+      586,
+      587,
+      588,
+      589,
+      590,
+      591,
+      592
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/lookup/LookupSession.java b/src/main/java/org/xbill/DNS/lookup/LookupSession.java\nindex 5ebc36ca..7f35acbc 100644\n--- a/src/main/java/org/xbill/DNS/lookup/LookupSession.java\n+++ b/src/main/java/org/xbill/DNS/lookup/LookupSession.java\n@@ -57,0 +58 @@ public class LookupSession {\n+\n@@ -102,0 +104 @@ public class LookupSession {\n+\n@@ -232 +233,0 @@ public class LookupSession {\n-     * @see HostsFileParser\n@@ -233,0 +235 @@ public class LookupSession {\n+     * @see HostsFileParser\n@@ -244 +245,0 @@ public class LookupSession {\n-     * @see Cache\n@@ -245,0 +247 @@ public class LookupSession {\n+     * @see Cache\n@@ -265 +266,0 @@ public class LookupSession {\n-     * @see Cache\n@@ -266,0 +268 @@ public class LookupSession {\n+     * @see Cache\n@@ -289,2 +290,0 @@ public class LookupSession {\n-     * @deprecated use {@link #cache(Cache)}, the {@link Cache} already provides the class.\n-     * @see Cache\n@@ -291,0 +292,2 @@ public class LookupSession {\n+     * @see Cache\n+     * @deprecated use {@link #cache(Cache)}, the {@link Cache} already provides the class.\n@@ -302,0 +305,2 @@ public class LookupSession {\n+     * @return {@code this}.\n+     * @see Cache\n@@ -305,2 +308,0 @@ public class LookupSession {\n-     * @see Cache\n-     * @return {@code this}.\n@@ -584 +586,7 @@ public class LookupSession {\n-    if (setResponse.isSuccessful()) {\n+    if (setResponse.isCNAME()) {\n+      return CompletableFuture.completedFuture(\n+          new LookupResult(Collections.singletonList(setResponse.getCNAME()), aliases));\n+    } else if (setResponse.isDNAME()) {\n+      return CompletableFuture.completedFuture(\n+          new LookupResult(Collections.singletonList(setResponse.getDNAME()), aliases));\n+    } else if (setResponse.isSuccessful()) {"
+}

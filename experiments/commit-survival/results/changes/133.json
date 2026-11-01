@@ -1,0 +1,64 @@
+{
+  "index": 133,
+  "sha": "7dad10578c5fd603703eeb0cf4fb02335621b0bd",
+  "parent": "a9149d6353496535212a64576d91432efabc4652",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/A6Record.java": [
+      35,
+      36,
+      114
+    ],
+    "src/main/java/org/xbill/DNS/AAAARecord.java": [
+      43,
+      44,
+      68,
+      70
+    ],
+    "src/main/java/org/xbill/DNS/IPAddressUtils.java": [],
+    "src/main/java/org/xbill/DNS/IPSECKEYRecord.java": [
+      105,
+      106,
+      108,
+      109,
+      111,
+      112
+    ]
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/A6Record.java": [
+      84,
+      86,
+      121,
+      123,
+      124,
+      125,
+      127
+    ],
+    "src/main/java/org/xbill/DNS/AAAARecord.java": [
+      19,
+      46,
+      47,
+      72,
+      74,
+      94,
+      96
+    ],
+    "src/main/java/org/xbill/DNS/IPAddressUtils.java": [
+      11
+    ],
+    "src/main/java/org/xbill/DNS/IPSECKEYRecord.java": [
+      108,
+      109,
+      194,
+      195,
+      198,
+      200,
+      250,
+      251,
+      254,
+      256,
+      265
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/A6Record.java b/src/main/java/org/xbill/DNS/A6Record.java\nindex 7f191524..439ea2b4 100644\n--- a/src/main/java/org/xbill/DNS/A6Record.java\n+++ b/src/main/java/org/xbill/DNS/A6Record.java\n@@ -5,0 +6,2 @@ package org.xbill.DNS;\n+import static org.xbill.DNS.IPAddressUtils.IPV4_MAPPED_IPV6_PREFIX;\n+\n@@ -6,0 +9 @@ import java.io.IOException;\n+import java.net.Inet4Address;\n@@ -35,3 +37,0 @@ public class A6Record extends Record {\n-    if (suffix != null && Address.familyOf(suffix) != Address.IPv6) {\n-      throw new IllegalArgumentException(\"invalid IPv6 address\");\n-    }\n@@ -83,0 +84,5 @@ public class A6Record extends Record {\n+      if (suffix instanceof Inet4Address) {\n+        // Deal with Java's broken handling of mapped IPv4 addresses.\n+        sb.append(\"0:0:0:0:0:ffff:\");\n+      }\n+\n@@ -85,0 +91 @@ public class A6Record extends Record {\n+\n@@ -114 +120,10 @@ public class A6Record extends Record {\n-      byte[] data = suffix.getAddress();\n+      byte[] data;\n+      if (suffix instanceof Inet4Address) {\n+        // Deal with Java's broken handling of mapped IPv4 addresses.\n+        data = new byte[16];\n+        System.arraycopy(IPV4_MAPPED_IPV6_PREFIX, 0, data, 0, IPV4_MAPPED_IPV6_PREFIX.length);\n+        System.arraycopy(suffix.getAddress(), 0, data, IPV4_MAPPED_IPV6_PREFIX.length, 4);\n+      } else {\n+        data = suffix.getAddress();\n+      }\n+\ndiff --git a/src/main/java/org/xbill/DNS/AAAARecord.java b/src/main/java/org/xbill/DNS/AAAARecord.java\nindex a834c2ff..6d9706bd 100644\n--- a/src/main/java/org/xbill/DNS/AAAARecord.java\n+++ b/src/main/java/org/xbill/DNS/AAAARecord.java\n@@ -6,0 +7 @@ import java.io.IOException;\n+import java.net.Inet4Address;\n@@ -17,0 +19,2 @@ public class AAAARecord extends Record {\n+  private static final byte[] IPV4_MAPPED_IPV6_PREFIX =\n+      new byte[] {0, 0, 0, 0, 0, 0, 0, 0, (byte) 0xff, (byte) 0xff, (byte) 0xff, (byte) 0xff};\n@@ -43,2 +46,2 @@ public class AAAARecord extends Record {\n-    if (address == null || address.length != 16) {\n-      throw new IllegalArgumentException(\"invalid IPv6 address\");\n+    if (address == null || address.length != 4 && address.length != 16) {\n+      throw new IllegalArgumentException(\"invalid IPv4/IPv6 address\");\n@@ -45,0 +49 @@ public class AAAARecord extends Record {\n+\n@@ -68 +72 @@ public class AAAARecord extends Record {\n-    if (addr.getAddress().length == 4) {\n+    if (addr instanceof Inet4Address) {\n@@ -70 +74 @@ public class AAAARecord extends Record {\n-      return \"::ffff:\" + addr.getHostAddress();\n+      return \"0:0:0:0:0:ffff:\" + addr.getHostAddress();\n@@ -89,0 +94,5 @@ public class AAAARecord extends Record {\n+    if (address.length == 4) {\n+      // Deal with Java's broken handling of mapped IPv4 addresses.\n+      out.writeByteArray(IPAddressUtils.IPV4_MAPPED_IPV6_PREFIX);\n+    }\n+\ndiff --git a/src/main/java/org/xbill/DNS/IPAddressUtils.java b/src/main/java/org/xbill/DNS/IPAddressUtils.java\nindex 8f0aac23..f8bb36d7 100644\n--- a/src/main/java/org/xbill/DNS/IPAddressUtils.java\n+++ b/src/main/java/org/xbill/DNS/IPAddressUtils.java\n@@ -10,0 +11,2 @@ class IPAddressUtils {\n+  static final byte[] IPV4_MAPPED_IPV6_PREFIX =\n+      new byte[] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, (byte) 0xff, (byte) 0xff};\ndiff --git a/src/main/java/org/xbill/DNS/IPSECKEYRecord.java b/src/main/java/org/xbill/DNS/IPSECKEYRecord.java\nindex 59c5be20..a5df5363 100644\n--- a/src/main/java/org/xbill/DNS/IPSECKEYRecord.java\n+++ b/src/main/java/org/xbill/DNS/IPSECKEYRecord.java\n@@ -5,0 +6,2 @@ package org.xbill.DNS;\n+import static org.xbill.DNS.IPAddressUtils.IPV4_MAPPED_IPV6_PREFIX;\n+\n@@ -7 +9 @@ import java.io.IOException;\n-import java.net.Inet6Address;\n+import java.net.Inet4Address;\n@@ -105,5 +106,0 @@ public class IPSECKEYRecord extends Record {\n-        if (!(gateway instanceof InetAddress)) {\n-          throw new IllegalArgumentException(\"\\\"gateway\\\" must be an IPv4 address\");\n-        }\n-        this.gateway = gateway;\n-        break;\n@@ -111,2 +108,2 @@ public class IPSECKEYRecord extends Record {\n-        if (!(gateway instanceof Inet6Address)) {\n-          throw new IllegalArgumentException(\"\\\"gateway\\\" must be an IPv6 address\");\n+        if (!(gateway instanceof InetAddress)) {\n+          throw new IllegalArgumentException(\"\\\"gateway\\\" must be an InetAddress\");\n@@ -196,0 +194,2 @@ public class IPSECKEYRecord extends Record {\n+        sb.append(((InetAddress) gateway).getHostAddress());\n+        break;\n@@ -198,0 +198,4 @@ public class IPSECKEYRecord extends Record {\n+        if (gatewayAddr instanceof Inet4Address) {\n+          // Deal with Java's broken handling of mapped IPv4 addresses.\n+          sb.append(\"0:0:0:0:0:ffff:\");\n+        }\n@@ -201,0 +205 @@ public class IPSECKEYRecord extends Record {\n+      default:\n@@ -245,0 +250,2 @@ public class IPSECKEYRecord extends Record {\n+        out.writeByteArray(((InetAddress) gateway).getAddress());\n+        break;\n@@ -247,0 +254,4 @@ public class IPSECKEYRecord extends Record {\n+        if (gatewayAddr instanceof Inet4Address) {\n+          // Deal with Java's broken handling of mapped IPv4 addresses.\n+          out.writeByteArray(IPV4_MAPPED_IPV6_PREFIX);\n+        }\n@@ -253,0 +264,2 @@ public class IPSECKEYRecord extends Record {\n+      default:\n+        throw new IllegalStateException(\"Unknown gateway format\");"
+}

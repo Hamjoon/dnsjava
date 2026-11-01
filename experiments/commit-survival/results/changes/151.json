@@ -1,0 +1,16 @@
+{
+  "index": 151,
+  "sha": "1674d53ed6a8484e4426588cb0ebac0710ea595a",
+  "parent": "afda867340c5c3d5a2514b285d7b6dccefd6a9b3",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/DNSOutput.java": [
+      41
+    ]
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/DNSOutput.java": [
+      41
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/DNSOutput.java b/src/main/java/org/xbill/DNS/DNSOutput.java\nindex 204fda0e..2e6c90a3 100644\n--- a/src/main/java/org/xbill/DNS/DNSOutput.java\n+++ b/src/main/java/org/xbill/DNS/DNSOutput.java\n@@ -41 +41 @@ public class DNSOutput {\n-    if (val < 0 || val > max) {\n+    if (val < 0 || val >= max) {"
+}

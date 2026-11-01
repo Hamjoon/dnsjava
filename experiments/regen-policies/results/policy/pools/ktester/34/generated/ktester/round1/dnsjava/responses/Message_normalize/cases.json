@@ -1,0 +1,47 @@
+[
+  {
+    "group": "Message.normalize(Message) - normal flow",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "query",
+            "value": "Message.newQuery(new ARecord(Name.fromString(\"example.com.\"), DClass.IN, 3600, InetAddress.getByName(\"1.2.3.4\")))"
+          }
+        ],
+        "expected": "A non\u2011null Message instance returned (the result of normalize(query, false)). The returned Message should be a normalized copy of the supplied query, preserving the question section and having no TSIG errors.",
+        "description": "Invokes normalize(Message) with a well\u2011formed query Message. The internal call to normalize(query, false) should succeed without throwing, so the method returns the normalized Message."
+      }
+    ]
+  },
+  {
+    "group": "Message.normalize(Message) - WireParseException handling",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "query",
+            "value": "Message.newUpdate(Name.fromString(\"example.com.\"))"
+          }
+        ],
+        "expected": "null (the method catches WireParseException and returns null)",
+        "description": "Pass a Message that triggers a WireParseException inside normalize(query, false). The exception is caught by the method, so the returned value should be null."
+      }
+    ]
+  },
+  {
+    "group": "Message.normalize(Message) - null query handling",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "query",
+            "value": "null"
+          }
+        ],
+        "expected": "NullPointerException",
+        "description": "Provide a null argument. The call to normalize(query, false) dereferences the null reference, causing a NullPointerException which is not caught by the method."
+      }
+    ]
+  }
+]

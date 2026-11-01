@@ -1,0 +1,222 @@
+[
+  {
+    "group": "Message.toWire(DNSOutput) - branch coverage",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "out",
+            "value": "DNSOutput mock instance"
+          }
+        ],
+        "expected": "header.toWire(out) is invoked exactly once; no Record.toWire is invoked because all sections are null",
+        "description": "All sections in the Message are null. The method should skip the inner loops and only write the header."
+      },
+      {
+        "input": [
+          {
+            "parameter": "out",
+            "value": "DNSOutput mock instance"
+          }
+        ],
+        "expected": "header.toWire(out) is invoked once; Record.toWire(out, 0, any Compression) is invoked once for the single record in section 0",
+        "description": "Section 0 contains a non\u2011null list with one Record. The method must write the header and then call the record's toWire with section index 0."
+      },
+      {
+        "input": [
+          {
+            "parameter": "out",
+            "value": "DNSOutput mock instance"
+          }
+        ],
+        "expected": "header.toWire(out) is invoked once; Record.toWire is invoked three times: once for section 0, twice for section 2, with the correct section indexes",
+        "description": "Mixed null and non\u2011null sections: section 0 has one Record, section 1 is null, section 2 has two Records. The method should correctly iterate over each non\u2011null section and call each record's toWire with its section index."
+      },
+      {
+        "input": [
+          {
+            "parameter": "out",
+            "value": "DNSOutput mock instance"
+          }
+        ],
+        "expected": "header.toWire(out) is invoked once; no Record.toWire is invoked because the only non\u2011null section contains an empty list",
+        "description": "A non\u2011null but empty List is present in a section. The method should skip the inner loop without calling any Record.toWire."
+      },
+      {
+        "input": [
+          {
+            "parameter": "out",
+            "value": "DNSOutput mock instance"
+          }
+        ],
+        "expected": "header.toWire(out) is invoked once; the method completes without entering the for\u2011loop because sections array length is 0",
+        "description": "The Message has an empty sections array (length 0). This tests the edge case where the outer loop never executes."
+      }
+    ]
+  },
+  {
+    "group": "Message.toWire(DNSOutput) - header before records order",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "out",
+            "value": "mock DNSOutput"
+          }
+        ],
+        "expected": "header.toWire(out) is invoked before any Record.toWire; verification done via ordered mock calls",
+        "description": "A Message with a non\u2011null header and a single Record in section 1. The test asserts that the header's toWire method is called first, then the record's toWire, ensuring correct ordering."
+      }
+    ]
+  },
+  {
+    "group": "Message.toWire(DNSOutput) - single Compression instance reused",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "out",
+            "value": "mock DNSOutput"
+          }
+        ],
+        "expected": "The same Compression object (identical by reference) is passed to every Record.toWire call",
+        "description": "Message contains three Records spread across sections 0, 2, and 3. Each Record captures the Compression instance it receives; the test verifies that all captured instances are the same object, confirming that toWire creates one Compression and reuses it."
+      }
+    ]
+  },
+  {
+    "group": "Message.toWire(DNSOutput) - exception propagation from Record",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "out",
+            "value": "mock DNSOutput"
+          }
+        ],
+        "expected": "IOException thrown by a Record.toWire call propagates out of Message.toWire",
+        "description": "A Message with a Record whose toWire implementation throws an IOException. The test asserts that Message.toWire does not catch the exception and the same IOException reaches the caller."
+      }
+    ]
+  },
+  {
+    "group": "Message.toWire(DNSOutput) - null sections array",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "out",
+            "value": "mock DNSOutput"
+          }
+        ],
+        "expected": "NullPointerException is thrown when sections field is null",
+        "description": "The Message object's sections field is explicitly set to null before calling toWire. Accessing sections.length should cause a NullPointerException."
+      }
+    ]
+  },
+  {
+    "group": "Message.toWire(DNSOutput) - null header",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "out",
+            "value": "mock DNSOutput"
+          }
+        ],
+        "expected": "NullPointerException is thrown because header is null when header.toWire(out) is invoked",
+        "description": "A Message with a null header and a valid non\u2011empty sections array. The method attempts to call header.toWire, resulting in a NullPointerException."
+      }
+    ]
+  },
+  {
+    "group": "Message.toWire(DNSOutput) - list contains null Record",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "out",
+            "value": "mock DNSOutput"
+          }
+        ],
+        "expected": "NullPointerException is thrown when iterating over a non\u2011null list that contains a null Record",
+        "description": "Section 0 holds a List with a single null element. The enhanced for\u2011loop retrieves the null element and attempts to invoke toWire on it, causing a NullPointerException."
+      }
+    ]
+  },
+  {
+    "group": "Message.toWire(DNSOutput) - null out parameter",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "out",
+            "value": "null"
+          }
+        ],
+        "expected": "NullPointerException is thrown because the DNSOutput argument is null and header.toWire(out) dereferences it",
+        "description": "Calling toWire with a null DNSOutput should result in an immediate NullPointerException before any other processing."
+      }
+    ]
+  },
+  {
+    "group": "Message.toWire(DNSOutput) - header throws IOException",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "out",
+            "value": "DNSOutput mock instance"
+          }
+        ],
+        "expected": "IOException thrown by header.toWire(out) propagates out of Message.toWire",
+        "description": "The Message's header is a mock that throws a checked IOException when its toWire method is invoked. The test verifies that Message.toWire does not catch the exception."
+      }
+    ]
+  },
+  {
+    "group": "Message.toWire(DNSOutput) - header throws RuntimeException",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "out",
+            "value": "DNSOutput mock instance"
+          }
+        ],
+        "expected": "RuntimeException thrown by header.toWire(out) propagates out of Message.toWire",
+        "description": "The Message's header is a mock that throws an unchecked RuntimeException during toWire. The method should let the exception bubble up."
+      }
+    ]
+  },
+  {
+    "group": "Message.toWire(DNSOutput) - Record throws RuntimeException",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "out",
+            "value": "DNSOutput mock instance"
+          }
+        ],
+        "expected": "RuntimeException thrown by a Record.toWire call propagates out of Message.toWire",
+        "description": "A Record in a non\u2011null section is mocked to throw a RuntimeException when its toWire method is called. The test ensures the exception is not caught by Message.toWire."
+      }
+    ]
+  },
+  {
+    "group": "Message.toWire(DNSOutput) - sections list iterator throws RuntimeException",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "out",
+            "value": "DNSOutput mock instance"
+          }
+        ],
+        "expected": "RuntimeException thrown while iterating over a section list propagates out of Message.toWire",
+        "description": "A custom List implementation placed in a section throws a RuntimeException from its iterator().next() method. The test verifies that Message.toWire does not swallow the exception."
+      }
+    ]
+  }
+]

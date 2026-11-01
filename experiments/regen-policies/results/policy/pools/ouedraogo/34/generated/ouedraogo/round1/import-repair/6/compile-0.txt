@@ -1,0 +1,19 @@
+/repo/experiments/regen-policies/results/policy/pools/ouedraogo/34/generated/ouedraogo/round1/sources/TSIG/FSL/TSIGTest.java:157: error: alg has private access in TSIG
+    assertEquals(TSIG.HMAC_MD5, tsig.alg);
+                                    ^
+/repo/experiments/regen-policies/results/policy/pools/ouedraogo/34/generated/ouedraogo/round1/sources/TSIG/FSL/TSIGTest.java:159: error: name has private access in TSIG
+    assertEquals(Name.fromString("mykey.", Name.root), tsig.name);
+                                                           ^
+/repo/experiments/regen-policies/results/policy/pools/ouedraogo/34/generated/ouedraogo/round1/sources/TSIG/FSL/TSIGTest.java:215: error: cannot find symbol
+            new SecretKeySpec(base64.fromString(ONE_BYTE_KEY_B64), "HmacMD5"),
+                ^
+  symbol:   class SecretKeySpec
+  location: class TSIGTest
+/repo/experiments/regen-policies/results/policy/pools/ouedraogo/34/generated/ouedraogo/round1/sources/TSIG/FSL/TSIGTest.java:215: error: cannot find symbol
+            new SecretKeySpec(base64.fromString(ONE_BYTE_KEY_B64), "HmacMD5"),
+                              ^
+  symbol:   variable base64
+  location: class TSIGTest
+Note: /repo/experiments/regen-policies/results/policy/pools/ouedraogo/34/generated/ouedraogo/round1/sources/TSIG/FSL/TSIGTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+4 errors

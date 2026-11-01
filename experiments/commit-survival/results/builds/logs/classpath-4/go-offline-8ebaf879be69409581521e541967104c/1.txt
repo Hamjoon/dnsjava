@@ -1,0 +1,7 @@
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-dependency-plugin:3.7.0:go-offline (default-cli) on project dnsjava: org.eclipse.aether.resolution.DependencyResolutionException: The following artifacts could not be resolved: org.projectlombok:lombok-maven-plugin:jar:1.18.20.0 (absent): Cannot access central (https://repo.maven.apache.org/maven2) in offline mode and the artifact org.projectlombok:lombok-maven-plugin:jar:1.18.20.0 has not been downloaded from it before. -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException

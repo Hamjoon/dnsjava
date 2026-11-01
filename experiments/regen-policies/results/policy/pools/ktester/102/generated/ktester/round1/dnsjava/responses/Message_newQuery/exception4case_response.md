@@ -1,0 +1,15 @@
+{
+    "group": "test_newQuery_nullRecord",
+    "cases": [
+        {
+            "input": [
+                {
+                    "parameter": "r",
+                    "value": "null"
+                }
+            ],
+            "expected": "NullPointerException",
+            "description": "Calling newQuery with a null Record should throw NullPointerException because addRecord requires a non‑null Record."
+        }
+    ]
+}

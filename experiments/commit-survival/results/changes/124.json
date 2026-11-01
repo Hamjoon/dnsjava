@@ -1,0 +1,49 @@
+{
+  "index": 124,
+  "sha": "bd4cd483ac56d55829ca2efa51ad862996be0157",
+  "parent": "dfcba5dbd6dbf52fa1de7f0b3d86b4e3960cc4a6",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/Master.java": [
+      179
+    ],
+    "src/main/java/org/xbill/DNS/TTL.java": [
+      36,
+      42,
+      43,
+      44,
+      46
+    ],
+    "src/main/java/org/xbill/DNS/Tokenizer.java": [
+      429
+    ],
+    "src/main/java/org/xbill/DNS/X25Record.java": [
+      26
+    ]
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/Master.java": [
+      179,
+      180
+    ],
+    "src/main/java/org/xbill/DNS/TTL.java": [
+      36,
+      39,
+      40,
+      41,
+      47,
+      48,
+      49,
+      51
+    ],
+    "src/main/java/org/xbill/DNS/Tokenizer.java": [
+      429,
+      430
+    ],
+    "src/main/java/org/xbill/DNS/X25Record.java": [
+      23,
+      24,
+      30
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/Master.java b/src/main/java/org/xbill/DNS/Master.java\nindex 0c35de14..20452b33 100644\n--- a/src/main/java/org/xbill/DNS/Master.java\n+++ b/src/main/java/org/xbill/DNS/Master.java\n@@ -179 +179,2 @@ public class Master implements AutoCloseable {\n-    if (!Character.isDigit(s.charAt(0))) {\n+    char c = s.charAt(0);\n+    if (c < '0' || c > '9') {\n@@ -181,0 +183 @@ public class Master implements AutoCloseable {\n+\ndiff --git a/src/main/java/org/xbill/DNS/TTL.java b/src/main/java/org/xbill/DNS/TTL.java\nindex 0a5c6111..4c550e4a 100644\n--- a/src/main/java/org/xbill/DNS/TTL.java\n+++ b/src/main/java/org/xbill/DNS/TTL.java\n@@ -36 +36 @@ public final class TTL {\n-    if (s == null || s.isEmpty() || !Character.isDigit(s.charAt(0))) {\n+    if (s == null || s.isEmpty()) {\n@@ -38,0 +39,5 @@ public final class TTL {\n+    char c = s.charAt(0);\n+    if (c < '0' || c > '9') {\n+      throw new NumberFormatException();\n+    }\n+\n@@ -42,3 +47,3 @@ public final class TTL {\n-      char c = s.charAt(i);\n-      long oldvalue = value;\n-      if (Character.isDigit(c)) {\n+      c = s.charAt(i);\n+      long oldValue = value;\n+      if (c >= '0' && c <= '9') {\n@@ -46 +51 @@ public final class TTL {\n-        if (value < oldvalue) {\n+        if (value < oldValue) {\ndiff --git a/src/main/java/org/xbill/DNS/Tokenizer.java b/src/main/java/org/xbill/DNS/Tokenizer.java\nindex f2d3ae49..80cc1f3d 100644\n--- a/src/main/java/org/xbill/DNS/Tokenizer.java\n+++ b/src/main/java/org/xbill/DNS/Tokenizer.java\n@@ -429 +429,2 @@ public class Tokenizer implements AutoCloseable {\n-    if (!Character.isDigit(next.charAt(0))) {\n+    char c = next.charAt(0);\n+    if (c < '0' || c > '9') {\ndiff --git a/src/main/java/org/xbill/DNS/X25Record.java b/src/main/java/org/xbill/DNS/X25Record.java\nindex 779b9fb3..9ab5e91d 100644\n--- a/src/main/java/org/xbill/DNS/X25Record.java\n+++ b/src/main/java/org/xbill/DNS/X25Record.java\n@@ -22,0 +23,4 @@ public class X25Record extends Record {\n+    if (length == 0 || length > 15) {\n+      return null;\n+    }\n+\n@@ -26 +30 @@ public class X25Record extends Record {\n-      if (!Character.isDigit(c)) {\n+      if (c < '0' || c > '9') {"
+}

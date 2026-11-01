@@ -1,0 +1,18 @@
+{
+  "index": 67,
+  "sha": "77e049578334982794348885027261130e89b2d1",
+  "parent": "5fa4ccfad4dbf557bcfbc87f768d90e7790b1978",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/Message.java": [
+      64,
+      709
+    ]
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/Message.java": [
+      64,
+      709
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/Message.java b/src/main/java/org/xbill/DNS/Message.java\nindex 81af1a9c..c15a4550 100644\n--- a/src/main/java/org/xbill/DNS/Message.java\n+++ b/src/main/java/org/xbill/DNS/Message.java\n@@ -62 +62 @@ public class Message implements Cloneable {\n-  @SuppressWarnings(\"unchecked\")\n+  @SuppressWarnings({\"unchecked\"})\n@@ -64 +64 @@ public class Message implements Cloneable {\n-    sections = new List[4];\n+    sections = (List<Record>[]) new List<?>[4];\n@@ -709 +709 @@ public class Message implements Cloneable {\n-    m.sections = new List[sections.length];\n+    m.sections = (List<Record>[]) new List<?>[sections.length];"
+}

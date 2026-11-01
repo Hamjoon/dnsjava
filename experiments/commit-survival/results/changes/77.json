@@ -1,0 +1,50 @@
+{
+  "index": 77,
+  "sha": "60e75e592014f1bc566722cdb2713d7509583ec6",
+  "parent": "560999841b5041c76c57605b367aefd75a150620",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/Message.java": [
+      813,
+      814,
+      815,
+      846,
+      866,
+      875,
+      946,
+      953,
+      976,
+      978,
+      1048,
+      1049,
+      1054,
+      1055,
+      1056
+    ]
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/Message.java": [
+      814,
+      815,
+      816,
+      817,
+      848,
+      868,
+      877,
+      948,
+      955,
+      978,
+      980,
+      1050,
+      1051,
+      1056,
+      1057,
+      1060,
+      1061,
+      1062,
+      1064,
+      1065,
+      1066
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/Message.java b/src/main/java/org/xbill/DNS/Message.java\nindex bb214c8d..767450b8 100644\n--- a/src/main/java/org/xbill/DNS/Message.java\n+++ b/src/main/java/org/xbill/DNS/Message.java\n@@ -813,3 +813,5 @@ public class Message implements Cloneable {\n-    List<RRset> cleanedAnswerSection = new ArrayList<>();\n-    List<RRset> cleanedAuthoritySection = new ArrayList<>();\n-    List<RRset> cleanedAdditionalSection = new ArrayList<>();\n+    @SuppressWarnings(\"unchecked\")\n+    List<RRset>[] cleanedSection = new ArrayList[4];\n+    cleanedSection[Section.ANSWER] = new ArrayList<>();\n+    cleanedSection[Section.AUTHORITY] = new ArrayList<>();\n+    cleanedSection[Section.ADDITIONAL] = new ArrayList<>();\n@@ -846 +848 @@ public class Message implements Cloneable {\n-          cleanedAnswerSection.add(rrset);\n+          cleanedSection[Section.ANSWER].add(rrset);\n@@ -866 +868 @@ public class Message implements Cloneable {\n-            cleanedAnswerSection.add(\n+            cleanedSection[Section.ANSWER].add(\n@@ -875 +877 @@ public class Message implements Cloneable {\n-                  cleanedAnswerSection.add(rrset);\n+                  cleanedSection[Section.ANSWER].add(rrset);\n@@ -946 +948 @@ public class Message implements Cloneable {\n-        cleanedAnswerSection.add(rrset);\n+        cleanedSection[Section.ANSWER].add(rrset);\n@@ -953 +955 @@ public class Message implements Cloneable {\n-              cleanedAnswerSection.add(rrset);\n+              cleanedSection[Section.ANSWER].add(rrset);\n@@ -976 +978 @@ public class Message implements Cloneable {\n-      cleanedAnswerSection.add(rrset);\n+      cleanedSection[Section.ANSWER].add(rrset);\n@@ -978 +980 @@ public class Message implements Cloneable {\n-        addAdditionalRRset(rrset, additionalSectionSets, cleanedAdditionalSection);\n+        addAdditionalRRset(rrset, additionalSectionSets, cleanedSection[Section.ADDITIONAL]);\n@@ -1048,2 +1050,2 @@ public class Message implements Cloneable {\n-      cleanedAuthoritySection.add(rrset);\n-      addAdditionalRRset(rrset, additionalSectionSets, cleanedAdditionalSection);\n+      cleanedSection[Section.AUTHORITY].add(rrset);\n+      addAdditionalRRset(rrset, additionalSectionSets, cleanedSection[Section.ADDITIONAL]);\n@@ -1054,3 +1056,13 @@ public class Message implements Cloneable {\n-    cleanedMessage.sections[Section.ANSWER] = rrsetListToRecords(cleanedAnswerSection);\n-    cleanedMessage.sections[Section.AUTHORITY] = rrsetListToRecords(cleanedAuthoritySection);\n-    cleanedMessage.sections[Section.ADDITIONAL] = rrsetListToRecords(cleanedAdditionalSection);\n+    for (int section : new int[] {Section.ANSWER, Section.AUTHORITY, Section.ADDITIONAL}) {\n+      cleanedMessage.sections[section] = rrsetListToRecords(cleanedSection[section]);\n+\n+      // Fixup counts in the header\n+      cleanedMessage\n+          .getHeader()\n+          .setCount(\n+              section,\n+              cleanedMessage.sections[section] == null\n+                  ? 0\n+                  : cleanedMessage.sections[section].size());\n+    }\n+"
+}

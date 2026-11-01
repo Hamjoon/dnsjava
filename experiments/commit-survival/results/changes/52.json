@@ -1,0 +1,18 @@
+{
+  "index": 52,
+  "sha": "f714b16b54be181ab5365689b2b6d372ce97a82f",
+  "parent": "19e359c34e87844f8b8bd1d994b30ab1cfe9e6d7",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/hosts/HostsFileParser.java": [
+      32,
+      33
+    ]
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/hosts/HostsFileParser.java": [
+      32,
+      33
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/hosts/HostsFileParser.java b/src/main/java/org/xbill/DNS/hosts/HostsFileParser.java\nindex 4bf614a3..f813dd0a 100644\n--- a/src/main/java/org/xbill/DNS/hosts/HostsFileParser.java\n+++ b/src/main/java/org/xbill/DNS/hosts/HostsFileParser.java\n@@ -32,2 +32,2 @@ public final class HostsFileParser {\n-  private final int MAX_FULL_CACHE_FILE_SIZE_BYTES = Integer.parseInt(\n-    System.getProperty(\"dnsjava.hostsfile.max_size_bytes\", \"16384\"));\n+  private final int MAX_FULL_CACHE_FILE_SIZE_BYTES =\n+      Integer.parseInt(System.getProperty(\"dnsjava.hostsfile.max_size_bytes\", \"16384\"));"
+}

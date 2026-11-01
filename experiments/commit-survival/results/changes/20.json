@@ -1,0 +1,39 @@
+{
+  "index": 20,
+  "sha": "5cb03916a7a0139dd5220b326d5358b6fd7e55dc",
+  "parent": "6f1ab2c603e5fefb36e38fe4b37e5288e2685b4f",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/dnssec/ValUtils.java": [
+      118
+    ]
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/dnssec/ValUtils.java": [
+      53,
+      124,
+      125,
+      126,
+      127,
+      128,
+      275,
+      276,
+      905,
+      906,
+      912,
+      913,
+      914,
+      915,
+      917,
+      918,
+      919,
+      920,
+      921,
+      922,
+      924,
+      926,
+      928,
+      929
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/dnssec/ValUtils.java b/src/main/java/org/xbill/DNS/dnssec/ValUtils.java\nindex 5dc9fa65..3a0450f3 100644\n--- a/src/main/java/org/xbill/DNS/dnssec/ValUtils.java\n+++ b/src/main/java/org/xbill/DNS/dnssec/ValUtils.java\n@@ -5,0 +6 @@ package org.xbill.DNS.dnssec;\n+import java.security.PublicKey;\n@@ -6,0 +8 @@ import java.security.Security;\n+import java.security.interfaces.RSAPublicKey;\n@@ -39,0 +42,2 @@ final class ValUtils {\n+  public static final String ALGORITHM_RSA_MIN_KEY_SIZE =\n+      \"dnsjava.dnssec.algorithm_rsa_min_key_size\";\n@@ -48,0 +53 @@ final class ValUtils {\n+  private int minRsaKeySize = 1024;\n@@ -95,0 +101 @@ final class ValUtils {\n+   *   <li>{@value #ALGORITHM_RSA_MIN_KEY_SIZE}\n@@ -118 +124,5 @@ final class ValUtils {\n-    this.digestHardenDowngrade = Boolean.parseBoolean(config.getProperty(DIGEST_HARDEN_DOWNGRADE));\n+    this.digestHardenDowngrade =\n+        Boolean.parseBoolean(config.getProperty(DIGEST_HARDEN_DOWNGRADE, Boolean.TRUE.toString()));\n+    this.minRsaKeySize =\n+        Integer.parseInt(\n+            config.getProperty(ALGORITHM_RSA_MIN_KEY_SIZE, Integer.toString(minRsaKeySize)));\n@@ -264,0 +275,3 @@ final class ValUtils {\n+        if (!isKeySizeSupported(dnskey)) {\n+          continue;\n+        }\n@@ -883,0 +897,36 @@ final class ValUtils {\n+  /**\n+   * Check if the key size for an algorithm is supported.\n+   *\n+   * @param dnskey the key to validate.\n+   * @return {@code true} if supported.\n+   */\n+  private boolean isKeySizeSupported(DNSKEYRecord dnskey) {\n+    try {\n+      PublicKey publicKey = dnskey.getPublicKey();\n+      switch (dnskey.getAlgorithm()) {\n+        case Algorithm.RSAMD5:\n+        case Algorithm.RSASHA1:\n+        case Algorithm.RSA_NSEC3_SHA1:\n+        case Algorithm.RSASHA256:\n+        case Algorithm.RSASHA512:\n+          int bitLength = ((RSAPublicKey) publicKey).getModulus().bitLength();\n+          boolean valid = bitLength >= minRsaKeySize;\n+          if (!valid) {\n+            log.debug(\n+                \"Key size {} for DNSKEY <{}/{}>, alg={}, id={} is less than minimum of {}\",\n+                bitLength,\n+                dnskey.getName(),\n+                DClass.string(dnskey.getDClass()),\n+                DNSSEC.Algorithm.string(dnskey.getAlgorithm()),\n+                dnskey.getFootprint(),\n+                minRsaKeySize);\n+          }\n+          return valid;\n+        default:\n+          return true;\n+      }\n+    } catch (DNSSEC.DNSSECException e) {\n+      return false;\n+    }\n+  }\n+"
+}

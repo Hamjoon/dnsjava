@@ -1,0 +1,442 @@
+{
+  "file": "generated/ktester/round1/dnsjava/test_classes/Message_removeAllRecords_Test.java",
+  "compile": {
+    "command": [
+      "javac",
+      "-J-Xmx512m",
+      "-cp",
+      "/repo/experiments/commit-survival/work/checkouts/0/target/classes:/repo/experiments/commit-survival/work/libs/apiguardian-api-1.1.2.jar:/repo/experiments/commit-survival/work/libs/byte-buddy-1.17.7.jar:/repo/experiments/commit-survival/work/libs/byte-buddy-agent-1.17.7.jar:/repo/experiments/commit-survival/work/libs/commons-io-2.16.1.jar:/repo/experiments/commit-survival/work/libs/commons-lang3-3.14.0.jar:/repo/experiments/commit-survival/work/libs/hamcrest-2.2.jar:/repo/experiments/commit-survival/work/libs/junit-jupiter-5.11.4.jar:/repo/experiments/commit-survival/work/libs/junit-jupiter-api-5.10.2.jar:/repo/experiments/commit-survival/work/libs/junit-jupiter-engine-5.10.2.jar:/repo/experiments/commit-survival/work/libs/junit-jupiter-params-5.10.2.jar:/repo/experiments/commit-survival/work/libs/junit-platform-commons-1.10.2.jar:/repo/experiments/commit-survival/work/libs/junit-platform-engine-1.10.2.jar:/repo/experiments/commit-survival/work/libs/mockito-core-5.24.0.jar:/repo/experiments/commit-survival/work/libs/mockito-junit-jupiter-5.24.0.jar:/repo/experiments/commit-survival/work/libs/objenesis-3.3.jar:/repo/experiments/commit-survival/work/libs/opentest4j-1.3.0.jar:/repo/experiments/commit-survival/work/libs/junit-vintage-engine-5.10.2.jar:/repo/experiments/commit-survival/work/libs/junit-4.13.2.jar:/repo/experiments/commit-survival/work/libs/hamcrest-core-1.3.jar:/repo/experiments/commit-survival/work/libs/junit-platform-console-standalone-1.9.3.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/projectlombok/lombok/1.18.30/lombok-1.18.30.jar:/root/.m2/repository/net/java/dev/jna/jna/5.13.0/jna-5.13.0.jar:/root/.m2/repository/net/java/dev/jna/jna-platform/5.13.0/jna-platform-5.13.0.jar:/root/.m2/repository/org/bouncycastle/bcprov-jdk18on/1.76/bcprov-jdk18on-1.76.jar:/root/.m2/repository/org/mockito/mockito-core/5.7.0/mockito-core-5.7.0.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.14.9/byte-buddy-1.14.9.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.9/byte-buddy-agent-1.14.9.jar:/root/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/root/.m2/repository/org/mockito/mockito-junit-jupiter/5.7.0/mockito-junit-jupiter-5.7.0.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.36/slf4j-simple-1.7.36.jar:/root/.m2/repository/io/vertx/vertx-core/4.4.6/vertx-core-4.4.6.jar:/root/.m2/repository/io/netty/netty-common/4.1.100.Final/netty-common-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-buffer/4.1.100.Final/netty-buffer-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-transport/4.1.100.Final/netty-transport-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-handler/4.1.100.Final/netty-handler-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-transport-native-unix-common/4.1.100.Final/netty-transport-native-unix-common-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-codec/4.1.100.Final/netty-codec-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-handler-proxy/4.1.100.Final/netty-handler-proxy-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-codec-socks/4.1.100.Final/netty-codec-socks-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-codec-http/4.1.100.Final/netty-codec-http-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-codec-http2/4.1.100.Final/netty-codec-http2-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-resolver/4.1.100.Final/netty-resolver-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-resolver-dns/4.1.100.Final/netty-resolver-dns-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-codec-dns/4.1.100.Final/netty-codec-dns-4.1.100.Final.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.15.0/jackson-core-2.15.0.jar:/root/.m2/repository/io/vertx/vertx-junit5/4.4.6/vertx-junit5-4.4.6.jar:/root/.m2/repository/io/vertx/vertx-codegen/4.4.6/vertx-codegen-4.4.6.jar:/root/.m2/repository/commons-io/commons-io/2.15.0/commons-io-2.15.0.jar",
+      "-sourcepath",
+      "/repo/experiments/commit-survival/generated/ktester/round1/dnsjava/test_classes",
+      "-d",
+      "/repo/experiments/commit-survival/work/validation/ktester/round1/20/test/classes",
+      "/repo/experiments/commit-survival/generated/ktester/round1/dnsjava/test_classes/Message_removeAllRecords_Test.java"
+    ],
+    "cwd": "/repo/experiments/commit-survival/work/checkouts/0",
+    "exit_code": 0,
+    "timeout": false,
+    "seconds": 1.576,
+    "log": "work/validation/ktester/round1/20/test/javac.txt"
+  },
+  "runs": [
+    {
+      "command": [
+        "java",
+        "-Xmx1g",
+        "-XX:+UseSerialGC",
+        "-cp",
+        "/repo/experiments/commit-survival/work/validation/ktester/round1/20/test/classes:/repo/experiments/commit-survival/work/checkouts/0/target/classes:/repo/experiments/commit-survival/work/libs/apiguardian-api-1.1.2.jar:/repo/experiments/commit-survival/work/libs/byte-buddy-1.17.7.jar:/repo/experiments/commit-survival/work/libs/byte-buddy-agent-1.17.7.jar:/repo/experiments/commit-survival/work/libs/commons-io-2.16.1.jar:/repo/experiments/commit-survival/work/libs/commons-lang3-3.14.0.jar:/repo/experiments/commit-survival/work/libs/hamcrest-2.2.jar:/repo/experiments/commit-survival/work/libs/junit-jupiter-5.11.4.jar:/repo/experiments/commit-survival/work/libs/junit-jupiter-api-5.10.2.jar:/repo/experiments/commit-survival/work/libs/junit-jupiter-engine-5.10.2.jar:/repo/experiments/commit-survival/work/libs/junit-jupiter-params-5.10.2.jar:/repo/experiments/commit-survival/work/libs/junit-platform-commons-1.10.2.jar:/repo/experiments/commit-survival/work/libs/junit-platform-engine-1.10.2.jar:/repo/experiments/commit-survival/work/libs/mockito-core-5.24.0.jar:/repo/experiments/commit-survival/work/libs/mockito-junit-jupiter-5.24.0.jar:/repo/experiments/commit-survival/work/libs/objenesis-3.3.jar:/repo/experiments/commit-survival/work/libs/opentest4j-1.3.0.jar:/repo/experiments/commit-survival/work/libs/junit-vintage-engine-5.10.2.jar:/repo/experiments/commit-survival/work/libs/junit-4.13.2.jar:/repo/experiments/commit-survival/work/libs/hamcrest-core-1.3.jar:/repo/experiments/commit-survival/work/libs/junit-platform-console-standalone-1.9.3.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/projectlombok/lombok/1.18.30/lombok-1.18.30.jar:/root/.m2/repository/net/java/dev/jna/jna/5.13.0/jna-5.13.0.jar:/root/.m2/repository/net/java/dev/jna/jna-platform/5.13.0/jna-platform-5.13.0.jar:/root/.m2/repository/org/bouncycastle/bcprov-jdk18on/1.76/bcprov-jdk18on-1.76.jar:/root/.m2/repository/org/mockito/mockito-core/5.7.0/mockito-core-5.7.0.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.14.9/byte-buddy-1.14.9.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.9/byte-buddy-agent-1.14.9.jar:/root/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/root/.m2/repository/org/mockito/mockito-junit-jupiter/5.7.0/mockito-junit-jupiter-5.7.0.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.36/slf4j-simple-1.7.36.jar:/root/.m2/repository/io/vertx/vertx-core/4.4.6/vertx-core-4.4.6.jar:/root/.m2/repository/io/netty/netty-common/4.1.100.Final/netty-common-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-buffer/4.1.100.Final/netty-buffer-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-transport/4.1.100.Final/netty-transport-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-handler/4.1.100.Final/netty-handler-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-transport-native-unix-common/4.1.100.Final/netty-transport-native-unix-common-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-codec/4.1.100.Final/netty-codec-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-handler-proxy/4.1.100.Final/netty-handler-proxy-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-codec-socks/4.1.100.Final/netty-codec-socks-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-codec-http/4.1.100.Final/netty-codec-http-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-codec-http2/4.1.100.Final/netty-codec-http2-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-resolver/4.1.100.Final/netty-resolver-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-resolver-dns/4.1.100.Final/netty-resolver-dns-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-codec-dns/4.1.100.Final/netty-codec-dns-4.1.100.Final.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.15.0/jackson-core-2.15.0.jar:/root/.m2/repository/io/vertx/vertx-junit5/4.4.6/vertx-junit5-4.4.6.jar:/root/.m2/repository/io/vertx/vertx-codegen/4.4.6/vertx-codegen-4.4.6.jar:/root/.m2/repository/commons-io/commons-io/2.15.0/commons-io-2.15.0.jar:/repo/experiments/commit-survival/dev/src-test-t/resources:/repo/experiments/commit-survival/dev/src-test-t/suite",
+        "org.junit.platform.console.ConsoleLauncher",
+        "--disable-banner",
+        "--disable-ansi-colors",
+        "--fail-if-no-tests",
+        "--details",
+        "summary",
+        "--select-method",
+        "org.xbill.DNS.Message_removeAllRecords_Test#removeAllRecords_FromPopulatedSection_ClearsSectionAndHeaderCount()",
+        "--select-method",
+        "org.xbill.DNS.Message_removeAllRecords_Test#removeAllRecords_FromEmptySection_LeavesHeaderCountZero()",
+        "--select-method",
+        "org.xbill.DNS.Message_removeAllRecords_Test#removeAllRecords_InvalidSection_ThrowsArrayIndexOutOfBoundsException()",
+        "--select-method",
+        "org.xbill.DNS.Message_removeAllRecords_Test#removeAllRecords_ValidSection_ClearsInternalArrayAndResetsHeader(int)",
+        "--select-method",
+        "org.xbill.DNS.Message_removeAllRecords_Test#removeAllRecords_InvalidSectionIndices_ThrowArrayIndexOutOfBounds(int)",
+        "--select-method",
+        "org.xbill.DNS.Message_removeAllRecords_Test#removeAllRecords_NullHeader_ThrowsNullPointerException()",
+        "--select-method",
+        "org.xbill.DNS.Message_removeAllRecords_Test#removeAllRecords_AlreadyEmptySection_IsIdempotent()",
+        "--select-method",
+        "org.xbill.DNS.Message_removeAllRecords_Test#removeAllRecords_AfterAddingRecords_SectionClearedAndHeaderReset()",
+        "--select-method",
+        "org.xbill.DNS.Message_removeAllRecords_Test#removeAllRecords_HeaderSetCountInvokedExactlyOnce_Section0(org.xbill.DNS.Header)",
+        "--select-method",
+        "org.xbill.DNS.Message_removeAllRecords_Test#removeAllRecords_HeaderSetCountInvokedExactlyOnce_Section3(org.xbill.DNS.Header)",
+        "--select-method",
+        "org.xbill.DNS.Message_removeAllRecords_Test#removeAllRecords_NullSectionsArray_ThrowsNullPointerException()",
+        "--select-method",
+        "org.xbill.DNS.Message_removeAllRecords_Test#removeAllRecords_HeaderSetCountThrows_ExceptionPropagates(org.xbill.DNS.Header)",
+        "--reports-dir",
+        "/repo/experiments/commit-survival/work/validation/ktester/round1/20/test/run1"
+      ],
+      "cwd": "/repo/experiments/commit-survival/work/runtime",
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 3.409,
+      "log": "work/validation/ktester/round1/20/test/run1/console.txt"
+    },
+    {
+      "command": [
+        "java",
+        "-Xmx1g",
+        "-XX:+UseSerialGC",
+        "-cp",
+        "/repo/experiments/commit-survival/work/validation/ktester/round1/20/test/classes:/repo/experiments/commit-survival/work/checkouts/0/target/classes:/repo/experiments/commit-survival/work/libs/apiguardian-api-1.1.2.jar:/repo/experiments/commit-survival/work/libs/byte-buddy-1.17.7.jar:/repo/experiments/commit-survival/work/libs/byte-buddy-agent-1.17.7.jar:/repo/experiments/commit-survival/work/libs/commons-io-2.16.1.jar:/repo/experiments/commit-survival/work/libs/commons-lang3-3.14.0.jar:/repo/experiments/commit-survival/work/libs/hamcrest-2.2.jar:/repo/experiments/commit-survival/work/libs/junit-jupiter-5.11.4.jar:/repo/experiments/commit-survival/work/libs/junit-jupiter-api-5.10.2.jar:/repo/experiments/commit-survival/work/libs/junit-jupiter-engine-5.10.2.jar:/repo/experiments/commit-survival/work/libs/junit-jupiter-params-5.10.2.jar:/repo/experiments/commit-survival/work/libs/junit-platform-commons-1.10.2.jar:/repo/experiments/commit-survival/work/libs/junit-platform-engine-1.10.2.jar:/repo/experiments/commit-survival/work/libs/mockito-core-5.24.0.jar:/repo/experiments/commit-survival/work/libs/mockito-junit-jupiter-5.24.0.jar:/repo/experiments/commit-survival/work/libs/objenesis-3.3.jar:/repo/experiments/commit-survival/work/libs/opentest4j-1.3.0.jar:/repo/experiments/commit-survival/work/libs/junit-vintage-engine-5.10.2.jar:/repo/experiments/commit-survival/work/libs/junit-4.13.2.jar:/repo/experiments/commit-survival/work/libs/hamcrest-core-1.3.jar:/repo/experiments/commit-survival/work/libs/junit-platform-console-standalone-1.9.3.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/projectlombok/lombok/1.18.30/lombok-1.18.30.jar:/root/.m2/repository/net/java/dev/jna/jna/5.13.0/jna-5.13.0.jar:/root/.m2/repository/net/java/dev/jna/jna-platform/5.13.0/jna-platform-5.13.0.jar:/root/.m2/repository/org/bouncycastle/bcprov-jdk18on/1.76/bcprov-jdk18on-1.76.jar:/root/.m2/repository/org/mockito/mockito-core/5.7.0/mockito-core-5.7.0.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.14.9/byte-buddy-1.14.9.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.9/byte-buddy-agent-1.14.9.jar:/root/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/root/.m2/repository/org/mockito/mockito-junit-jupiter/5.7.0/mockito-junit-jupiter-5.7.0.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.36/slf4j-simple-1.7.36.jar:/root/.m2/repository/io/vertx/vertx-core/4.4.6/vertx-core-4.4.6.jar:/root/.m2/repository/io/netty/netty-common/4.1.100.Final/netty-common-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-buffer/4.1.100.Final/netty-buffer-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-transport/4.1.100.Final/netty-transport-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-handler/4.1.100.Final/netty-handler-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-transport-native-unix-common/4.1.100.Final/netty-transport-native-unix-common-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-codec/4.1.100.Final/netty-codec-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-handler-proxy/4.1.100.Final/netty-handler-proxy-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-codec-socks/4.1.100.Final/netty-codec-socks-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-codec-http/4.1.100.Final/netty-codec-http-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-codec-http2/4.1.100.Final/netty-codec-http2-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-resolver/4.1.100.Final/netty-resolver-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-resolver-dns/4.1.100.Final/netty-resolver-dns-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-codec-dns/4.1.100.Final/netty-codec-dns-4.1.100.Final.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.15.0/jackson-core-2.15.0.jar:/root/.m2/repository/io/vertx/vertx-junit5/4.4.6/vertx-junit5-4.4.6.jar:/root/.m2/repository/io/vertx/vertx-codegen/4.4.6/vertx-codegen-4.4.6.jar:/root/.m2/repository/commons-io/commons-io/2.15.0/commons-io-2.15.0.jar:/repo/experiments/commit-survival/dev/src-test-t/resources:/repo/experiments/commit-survival/dev/src-test-t/suite",
+        "org.junit.platform.console.ConsoleLauncher",
+        "--disable-banner",
+        "--disable-ansi-colors",
+        "--fail-if-no-tests",
+        "--details",
+        "summary",
+        "--select-method",
+        "org.xbill.DNS.Message_removeAllRecords_Test#removeAllRecords_FromPopulatedSection_ClearsSectionAndHeaderCount()",
+        "--select-method",
+        "org.xbill.DNS.Message_removeAllRecords_Test#removeAllRecords_FromEmptySection_LeavesHeaderCountZero()",
+        "--select-method",
+        "org.xbill.DNS.Message_removeAllRecords_Test#removeAllRecords_InvalidSection_ThrowsArrayIndexOutOfBoundsException()",
+        "--select-method",
+        "org.xbill.DNS.Message_removeAllRecords_Test#removeAllRecords_ValidSection_ClearsInternalArrayAndResetsHeader(int)",
+        "--select-method",
+        "org.xbill.DNS.Message_removeAllRecords_Test#removeAllRecords_InvalidSectionIndices_ThrowArrayIndexOutOfBounds(int)",
+        "--select-method",
+        "org.xbill.DNS.Message_removeAllRecords_Test#removeAllRecords_NullHeader_ThrowsNullPointerException()",
+        "--select-method",
+        "org.xbill.DNS.Message_removeAllRecords_Test#removeAllRecords_AlreadyEmptySection_IsIdempotent()",
+        "--select-method",
+        "org.xbill.DNS.Message_removeAllRecords_Test#removeAllRecords_AfterAddingRecords_SectionClearedAndHeaderReset()",
+        "--select-method",
+        "org.xbill.DNS.Message_removeAllRecords_Test#removeAllRecords_HeaderSetCountInvokedExactlyOnce_Section0(org.xbill.DNS.Header)",
+        "--select-method",
+        "org.xbill.DNS.Message_removeAllRecords_Test#removeAllRecords_HeaderSetCountInvokedExactlyOnce_Section3(org.xbill.DNS.Header)",
+        "--select-method",
+        "org.xbill.DNS.Message_removeAllRecords_Test#removeAllRecords_NullSectionsArray_ThrowsNullPointerException()",
+        "--select-method",
+        "org.xbill.DNS.Message_removeAllRecords_Test#removeAllRecords_HeaderSetCountThrows_ExceptionPropagates(org.xbill.DNS.Header)",
+        "--reports-dir",
+        "/repo/experiments/commit-survival/work/validation/ktester/round1/20/test/run2"
+      ],
+      "cwd": "/repo/experiments/commit-survival/work/runtime",
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 2.791,
+      "log": "work/validation/ktester/round1/20/test/run2/console.txt"
+    },
+    {
+      "command": [
+        "java",
+        "-Xmx1g",
+        "-XX:+UseSerialGC",
+        "-cp",
+        "/repo/experiments/commit-survival/work/validation/ktester/round1/20/test/classes:/repo/experiments/commit-survival/work/checkouts/0/target/classes:/repo/experiments/commit-survival/work/libs/apiguardian-api-1.1.2.jar:/repo/experiments/commit-survival/work/libs/byte-buddy-1.17.7.jar:/repo/experiments/commit-survival/work/libs/byte-buddy-agent-1.17.7.jar:/repo/experiments/commit-survival/work/libs/commons-io-2.16.1.jar:/repo/experiments/commit-survival/work/libs/commons-lang3-3.14.0.jar:/repo/experiments/commit-survival/work/libs/hamcrest-2.2.jar:/repo/experiments/commit-survival/work/libs/junit-jupiter-5.11.4.jar:/repo/experiments/commit-survival/work/libs/junit-jupiter-api-5.10.2.jar:/repo/experiments/commit-survival/work/libs/junit-jupiter-engine-5.10.2.jar:/repo/experiments/commit-survival/work/libs/junit-jupiter-params-5.10.2.jar:/repo/experiments/commit-survival/work/libs/junit-platform-commons-1.10.2.jar:/repo/experiments/commit-survival/work/libs/junit-platform-engine-1.10.2.jar:/repo/experiments/commit-survival/work/libs/mockito-core-5.24.0.jar:/repo/experiments/commit-survival/work/libs/mockito-junit-jupiter-5.24.0.jar:/repo/experiments/commit-survival/work/libs/objenesis-3.3.jar:/repo/experiments/commit-survival/work/libs/opentest4j-1.3.0.jar:/repo/experiments/commit-survival/work/libs/junit-vintage-engine-5.10.2.jar:/repo/experiments/commit-survival/work/libs/junit-4.13.2.jar:/repo/experiments/commit-survival/work/libs/hamcrest-core-1.3.jar:/repo/experiments/commit-survival/work/libs/junit-platform-console-standalone-1.9.3.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/projectlombok/lombok/1.18.30/lombok-1.18.30.jar:/root/.m2/repository/net/java/dev/jna/jna/5.13.0/jna-5.13.0.jar:/root/.m2/repository/net/java/dev/jna/jna-platform/5.13.0/jna-platform-5.13.0.jar:/root/.m2/repository/org/bouncycastle/bcprov-jdk18on/1.76/bcprov-jdk18on-1.76.jar:/root/.m2/repository/org/mockito/mockito-core/5.7.0/mockito-core-5.7.0.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.14.9/byte-buddy-1.14.9.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.9/byte-buddy-agent-1.14.9.jar:/root/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/root/.m2/repository/org/mockito/mockito-junit-jupiter/5.7.0/mockito-junit-jupiter-5.7.0.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.36/slf4j-simple-1.7.36.jar:/root/.m2/repository/io/vertx/vertx-core/4.4.6/vertx-core-4.4.6.jar:/root/.m2/repository/io/netty/netty-common/4.1.100.Final/netty-common-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-buffer/4.1.100.Final/netty-buffer-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-transport/4.1.100.Final/netty-transport-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-handler/4.1.100.Final/netty-handler-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-transport-native-unix-common/4.1.100.Final/netty-transport-native-unix-common-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-codec/4.1.100.Final/netty-codec-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-handler-proxy/4.1.100.Final/netty-handler-proxy-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-codec-socks/4.1.100.Final/netty-codec-socks-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-codec-http/4.1.100.Final/netty-codec-http-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-codec-http2/4.1.100.Final/netty-codec-http2-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-resolver/4.1.100.Final/netty-resolver-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-resolver-dns/4.1.100.Final/netty-resolver-dns-4.1.100.Final.jar:/root/.m2/repository/io/netty/netty-codec-dns/4.1.100.Final/netty-codec-dns-4.1.100.Final.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.15.0/jackson-core-2.15.0.jar:/root/.m2/repository/io/vertx/vertx-junit5/4.4.6/vertx-junit5-4.4.6.jar:/root/.m2/repository/io/vertx/vertx-codegen/4.4.6/vertx-codegen-4.4.6.jar:/root/.m2/repository/commons-io/commons-io/2.15.0/commons-io-2.15.0.jar:/repo/experiments/commit-survival/dev/src-test-t/resources:/repo/experiments/commit-survival/dev/src-test-t/suite",
+        "org.junit.platform.console.ConsoleLauncher",
+        "--disable-banner",
+        "--disable-ansi-colors",
+        "--fail-if-no-tests",
+        "--details",
+        "summary",
+        "--select-method",
+        "org.xbill.DNS.Message_removeAllRecords_Test#removeAllRecords_FromPopulatedSection_ClearsSectionAndHeaderCount()",
+        "--select-method",
+        "org.xbill.DNS.Message_removeAllRecords_Test#removeAllRecords_FromEmptySection_LeavesHeaderCountZero()",
+        "--select-method",
+        "org.xbill.DNS.Message_removeAllRecords_Test#removeAllRecords_InvalidSection_ThrowsArrayIndexOutOfBoundsException()",
+        "--select-method",
+        "org.xbill.DNS.Message_removeAllRecords_Test#removeAllRecords_ValidSection_ClearsInternalArrayAndResetsHeader(int)",
+        "--select-method",
+        "org.xbill.DNS.Message_removeAllRecords_Test#removeAllRecords_InvalidSectionIndices_ThrowArrayIndexOutOfBounds(int)",
+        "--select-method",
+        "org.xbill.DNS.Message_removeAllRecords_Test#removeAllRecords_NullHeader_ThrowsNullPointerException()",
+        "--select-method",
+        "org.xbill.DNS.Message_removeAllRecords_Test#removeAllRecords_AlreadyEmptySection_IsIdempotent()",
+        "--select-method",
+        "org.xbill.DNS.Message_removeAllRecords_Test#removeAllRecords_AfterAddingRecords_SectionClearedAndHeaderReset()",
+        "--select-method",
+        "org.xbill.DNS.Message_removeAllRecords_Test#removeAllRecords_HeaderSetCountInvokedExactlyOnce_Section0(org.xbill.DNS.Header)",
+        "--select-method",
+        "org.xbill.DNS.Message_removeAllRecords_Test#removeAllRecords_HeaderSetCountInvokedExactlyOnce_Section3(org.xbill.DNS.Header)",
+        "--select-method",
+        "org.xbill.DNS.Message_removeAllRecords_Test#removeAllRecords_NullSectionsArray_ThrowsNullPointerException()",
+        "--select-method",
+        "org.xbill.DNS.Message_removeAllRecords_Test#removeAllRecords_HeaderSetCountThrows_ExceptionPropagates(org.xbill.DNS.Header)",
+        "--reports-dir",
+        "/repo/experiments/commit-survival/work/validation/ktester/round1/20/test/run3"
+      ],
+      "cwd": "/repo/experiments/commit-survival/work/runtime",
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 1.924,
+      "log": "work/validation/ktester/round1/20/test/run3/console.txt"
+    }
+  ],
+  "methods": [
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/Message_removeAllRecords_Test.java",
+      "class": "org.xbill.DNS.Message_removeAllRecords_Test",
+      "method": "removeAllRecords_FromPopulatedSection_ClearsSectionAndHeaderCount",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_removeAllRecords_Test.java|org.xbill.DNS.Message_removeAllRecords_Test|removeAllRecords_FromPopulatedSection_ClearsSectionAndHeaderCount",
+      "body_hash": "848a3209703489d481265426a93e8b3b756ec6b4fd25ace0c135d3c52ca3c0ec",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_removeAllRecords_Test#removeAllRecords_FromPopulatedSection_ClearsSectionAndHeaderCount()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/Message_removeAllRecords_Test.java",
+      "class": "org.xbill.DNS.Message_removeAllRecords_Test",
+      "method": "removeAllRecords_FromEmptySection_LeavesHeaderCountZero",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_removeAllRecords_Test.java|org.xbill.DNS.Message_removeAllRecords_Test|removeAllRecords_FromEmptySection_LeavesHeaderCountZero",
+      "body_hash": "fedb2a58590e9d04553f34c8693362ba96c0f10b6251f98dab853a71ac12bff1",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_removeAllRecords_Test#removeAllRecords_FromEmptySection_LeavesHeaderCountZero()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/Message_removeAllRecords_Test.java",
+      "class": "org.xbill.DNS.Message_removeAllRecords_Test",
+      "method": "removeAllRecords_InvalidSection_ThrowsArrayIndexOutOfBoundsException",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_removeAllRecords_Test.java|org.xbill.DNS.Message_removeAllRecords_Test|removeAllRecords_InvalidSection_ThrowsArrayIndexOutOfBoundsException",
+      "body_hash": "d69d5f8efd12a53b3889bb9c79a93d19d8655d554c7f0bacca3a5201a68796aa",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_removeAllRecords_Test#removeAllRecords_InvalidSection_ThrowsArrayIndexOutOfBoundsException()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/Message_removeAllRecords_Test.java",
+      "class": "org.xbill.DNS.Message_removeAllRecords_Test",
+      "method": "removeAllRecords_ValidSection_ClearsInternalArrayAndResetsHeader",
+      "kind": "parameterized",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_removeAllRecords_Test.java|org.xbill.DNS.Message_removeAllRecords_Test|removeAllRecords_ValidSection_ClearsInternalArrayAndResetsHeader",
+      "body_hash": "472264a5c7a33e829bb902982f200a9c4de2c17333257c8fe7e998410d63d52f",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_removeAllRecords_Test#removeAllRecords_ValidSection_ClearsInternalArrayAndResetsHeader(int)"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/Message_removeAllRecords_Test.java",
+      "class": "org.xbill.DNS.Message_removeAllRecords_Test",
+      "method": "removeAllRecords_InvalidSectionIndices_ThrowArrayIndexOutOfBounds",
+      "kind": "parameterized",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_removeAllRecords_Test.java|org.xbill.DNS.Message_removeAllRecords_Test|removeAllRecords_InvalidSectionIndices_ThrowArrayIndexOutOfBounds",
+      "body_hash": "461461360208375eff9bd34a8cd1298acecc7b829886c7dadf69af49209cfb56",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_removeAllRecords_Test#removeAllRecords_InvalidSectionIndices_ThrowArrayIndexOutOfBounds(int)"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/Message_removeAllRecords_Test.java",
+      "class": "org.xbill.DNS.Message_removeAllRecords_Test",
+      "method": "removeAllRecords_NullHeader_ThrowsNullPointerException",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_removeAllRecords_Test.java|org.xbill.DNS.Message_removeAllRecords_Test|removeAllRecords_NullHeader_ThrowsNullPointerException",
+      "body_hash": "13f2d7e400eee6a930b3a46b674d9de8a70afba7b31d941148eb082eefeecb88",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_removeAllRecords_Test#removeAllRecords_NullHeader_ThrowsNullPointerException()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/Message_removeAllRecords_Test.java",
+      "class": "org.xbill.DNS.Message_removeAllRecords_Test",
+      "method": "removeAllRecords_AlreadyEmptySection_IsIdempotent",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_removeAllRecords_Test.java|org.xbill.DNS.Message_removeAllRecords_Test|removeAllRecords_AlreadyEmptySection_IsIdempotent",
+      "body_hash": "19513b7af39e8d9f6cdac8ebd528f4290822a32a7efe77cab2f0b5405a368cad",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_removeAllRecords_Test#removeAllRecords_AlreadyEmptySection_IsIdempotent()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/Message_removeAllRecords_Test.java",
+      "class": "org.xbill.DNS.Message_removeAllRecords_Test",
+      "method": "removeAllRecords_AfterAddingRecords_SectionClearedAndHeaderReset",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_removeAllRecords_Test.java|org.xbill.DNS.Message_removeAllRecords_Test|removeAllRecords_AfterAddingRecords_SectionClearedAndHeaderReset",
+      "body_hash": "af33ff7842ed62874aaf1d8089b32d89e34f567074dda1d66cb0c3fbb823f41f",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_removeAllRecords_Test#removeAllRecords_AfterAddingRecords_SectionClearedAndHeaderReset()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/Message_removeAllRecords_Test.java",
+      "class": "org.xbill.DNS.Message_removeAllRecords_Test",
+      "method": "removeAllRecords_HeaderSetCountInvokedExactlyOnce_Section0",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_removeAllRecords_Test.java|org.xbill.DNS.Message_removeAllRecords_Test|removeAllRecords_HeaderSetCountInvokedExactlyOnce_Section0",
+      "body_hash": "fdf0e8da34d3a1df067e14c4c68a9c088982562cc3db13fff65282127677629e",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_removeAllRecords_Test#removeAllRecords_HeaderSetCountInvokedExactlyOnce_Section0(org.xbill.DNS.Header)"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/Message_removeAllRecords_Test.java",
+      "class": "org.xbill.DNS.Message_removeAllRecords_Test",
+      "method": "removeAllRecords_HeaderSetCountInvokedExactlyOnce_Section3",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_removeAllRecords_Test.java|org.xbill.DNS.Message_removeAllRecords_Test|removeAllRecords_HeaderSetCountInvokedExactlyOnce_Section3",
+      "body_hash": "1852dbbc113773a958492b78f0234d72cbe770f6fec6c38cdeaef5d825c9adb0",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_removeAllRecords_Test#removeAllRecords_HeaderSetCountInvokedExactlyOnce_Section3(org.xbill.DNS.Header)"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/Message_removeAllRecords_Test.java",
+      "class": "org.xbill.DNS.Message_removeAllRecords_Test",
+      "method": "removeAllRecords_NullSectionsArray_ThrowsNullPointerException",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_removeAllRecords_Test.java|org.xbill.DNS.Message_removeAllRecords_Test|removeAllRecords_NullSectionsArray_ThrowsNullPointerException",
+      "body_hash": "71d31bbeb736728b31c68c2469a9fff2655a6b506f473c168519405987c1116e",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_removeAllRecords_Test#removeAllRecords_NullSectionsArray_ThrowsNullPointerException()"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "file": "generated/ktester/round1/dnsjava/test_classes/Message_removeAllRecords_Test.java",
+      "class": "org.xbill.DNS.Message_removeAllRecords_Test",
+      "method": "removeAllRecords_HeaderSetCountThrows_ExceptionPropagates",
+      "kind": "plain",
+      "id": "generated/ktester/round1/dnsjava/test_classes/Message_removeAllRecords_Test.java|org.xbill.DNS.Message_removeAllRecords_Test|removeAllRecords_HeaderSetCountThrows_ExceptionPropagates",
+      "body_hash": "41d5b8fb06ee5684c2eea9cc6bfba0e8951dd179b4e89e10bc1a05566fd2b617",
+      "round": "round1",
+      "technique": "KTester",
+      "state": "pass",
+      "message": "",
+      "flaky": false,
+      "initial_state": "pass",
+      "selector": [
+        "org.xbill.DNS.Message_removeAllRecords_Test#removeAllRecords_HeaderSetCountThrows_ExceptionPropagates(org.xbill.DNS.Header)"
+      ],
+      "baseline_states": [
+        "pass",
+        "pass",
+        "pass"
+      ]
+    }
+  ],
+  "parse": {
+    "command": [
+      "java",
+      "-Xmx512m",
+      "/survival-package/adapters/java/SourceInventory.java",
+      "/repo/experiments/commit-survival/generated/ktester/round1/dnsjava/test_classes/Message_removeAllRecords_Test.java",
+      "auto"
+    ],
+    "cwd": "/repo/experiments/commit-survival/work/checkouts/0",
+    "exit_code": 0,
+    "timeout": false,
+    "seconds": 0.895,
+    "log": "work/validation/ktester/round1/20/inventory.tsv"
+  },
+  "input_sha256": "f8a44db983d9e7c3e29d44b7e77caddd36716bbfe87badcbf8f0ba5318e78b69"
+}

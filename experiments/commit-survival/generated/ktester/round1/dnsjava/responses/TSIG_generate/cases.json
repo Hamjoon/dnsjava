@@ -1,0 +1,649 @@
+[
+  {
+    "group": "Null checks",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "null"
+          },
+          {
+            "parameter": "byte[] b",
+            "value": "new byte[]{1,2,3}"
+          },
+          {
+            "parameter": "int error",
+            "value": "0"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "null"
+          }
+        ],
+        "expected": "NullPointerException",
+        "description": "The method should reject a null Message and throw NPE before any processing."
+      },
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "validMessage"
+          },
+          {
+            "parameter": "byte[] b",
+            "value": "null"
+          },
+          {
+            "parameter": "int error",
+            "value": "0"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "null"
+          }
+        ],
+        "expected": "NullPointerException",
+        "description": "The method should reject a null key byte array and throw NPE."
+      },
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "validMessage"
+          },
+          {
+            "parameter": "byte[] b",
+            "value": "new byte[]{1,2,3}"
+          },
+          {
+            "parameter": "int error",
+            "value": "0"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "null"
+          }
+        ],
+        "expected": "TSIGRecord instance",
+        "description": "All non\u2011null arguments should result in a TSIGRecord being generated."
+      }
+    ]
+  },
+  {
+    "group": "Error handling (error != 0)",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "validMessage"
+          },
+          {
+            "parameter": "byte[] b",
+            "value": "validKeyBytes"
+          },
+          {
+            "parameter": "int error",
+            "value": "9"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "null"
+          }
+        ],
+        "expected": "TSIGRecord with error code 9",
+        "description": "When a non\u2011zero error code is supplied the generated TSIGRecord must contain that error code."
+      },
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "validMessage"
+          },
+          {
+            "parameter": "byte[] b",
+            "value": "validKeyBytes"
+          },
+          {
+            "parameter": "int error",
+            "value": "9"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "validOldRecord"
+          }
+        ],
+        "expected": "TSIGRecord with error code 9 and proper continuation data",
+        "description": "Non\u2011zero error with an existing old TSIG should still embed the error while preserving the old record\u2019s MAC for continuation."
+      }
+    ]
+  },
+  {
+    "group": "Old TSIG presence (old == null vs not null)",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "validMessage"
+          },
+          {
+            "parameter": "byte[] b",
+            "value": "validKeyBytes"
+          },
+          {
+            "parameter": "int error",
+            "value": "0"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "null"
+          }
+        ],
+        "expected": "TSIGRecord without previous MAC field",
+        "description": "When old is null the generated TSIGRecord must not contain a previous MAC (the field should be empty)."
+      },
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "validMessage"
+          },
+          {
+            "parameter": "byte[] b",
+            "value": "validKeyBytes"
+          },
+          {
+            "parameter": "int error",
+            "value": "0"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "validOldRecord"
+          }
+        ],
+        "expected": "TSIGRecord whose previous MAC matches old.getSignature()",
+        "description": "When old is supplied the new TSIGRecord must embed the old MAC to allow proper chaining of TSIG signatures."
+      }
+    ]
+  },
+  {
+    "group": "Full signature flag (always true in this overload)",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "validMessage"
+          },
+          {
+            "parameter": "byte[] b",
+            "value": "validKeyBytes"
+          },
+          {
+            "parameter": "int error",
+            "value": "0"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "null"
+          }
+        ],
+        "expected": "TSIGRecord containing the full HMAC (not truncated)",
+        "description": "The overload without the boolean forces fullSignature=true, so the resulting MAC must be the complete HMAC output."
+      }
+    ]
+  },
+  {
+    "group": "Algorithm handling (different key algorithms)",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "validMessageSHA256"
+          },
+          {
+            "parameter": "byte[] b",
+            "value": "validKeyBytesSHA256"
+          },
+          {
+            "parameter": "int error",
+            "value": "0"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "null"
+          }
+        ],
+        "expected": "TSIGRecord with algorithm name HMAC_SHA256",
+        "description": "When the Message contains an algorithm of SHA\u2011256 the generated TSIGRecord must use the HMAC\u2011SHA256 algorithm name."
+      },
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "validMessageMD5"
+          },
+          {
+            "parameter": "byte[] b",
+            "value": "validKeyBytesMD5"
+          },
+          {
+            "parameter": "int error",
+            "value": "0"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "null"
+          }
+        ],
+        "expected": "TSIGRecord with algorithm name HMAC_MD5",
+        "description": "When the Message specifies MD5 the generated TSIGRecord must use the HMAC\u2011MD5 algorithm name."
+      }
+    ]
+  },
+  {
+    "group": "Exception handling (unsupported algorithm)",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "validMessageUnsupportedAlg"
+          },
+          {
+            "parameter": "byte[] b",
+            "value": "validKeyBytes"
+          },
+          {
+            "parameter": "int error",
+            "value": "0"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "null"
+          }
+        ],
+        "expected": "GeneralSecurityException",
+        "description": "If the algorithm indicated by the Message cannot be mapped to a known HMAC algorithm, the method should throw a GeneralSecurityException."
+      }
+    ]
+  },
+  {
+    "group": "Key edge cases",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "validMessage"
+          },
+          {
+            "parameter": "byte[] b",
+            "value": "new byte[]{}"
+          },
+          {
+            "parameter": "int error",
+            "value": "0"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "null"
+          }
+        ],
+        "expected": "TSIGRecord instance with MAC equal to HMAC over empty key (as per algorithm) and no exception",
+        "description": "An empty key byte array should be accepted; the method must still produce a TSIGRecord whose MAC is the HMAC of the message using an empty secret (per JCE behavior)."
+      },
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "validMessage"
+          },
+          {
+            "parameter": "byte[] b",
+            "value": "new byte[256]"
+          },
+          {
+            "parameter": "int error",
+            "value": "0"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "null"
+          }
+        ],
+        "expected": "TSIGRecord instance (MAC computed with a 256\u2011byte key) and no exception",
+        "description": "A large key (256 bytes) should not cause overflow or performance issues; the method must correctly initialize the Mac with the supplied key size."
+      }
+    ]
+  },
+  {
+    "group": "Message edge cases",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "emptyMessage"
+          },
+          {
+            "parameter": "byte[] b",
+            "value": "validKeyBytes"
+          },
+          {
+            "parameter": "int error",
+            "value": "0"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "null"
+          }
+        ],
+        "expected": "TSIGRecord instance whose MAC is the HMAC of an empty DNS message",
+        "description": "When the Message contains no sections (empty wire format), generate must still compute a valid MAC over the empty byte array."
+      },
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "messageWithOnlyQuestion"
+          },
+          {
+            "parameter": "byte[] b",
+            "value": "validKeyBytes"
+          },
+          {
+            "parameter": "int error",
+            "value": "0"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "null"
+          }
+        ],
+        "expected": "TSIGRecord instance with MAC reflecting only the question section",
+        "description": "A Message that only contains a DNS question should be handled correctly; the MAC must be calculated over the serialized question only."
+      }
+    ]
+  },
+  {
+    "group": "Error code boundaries",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "validMessage"
+          },
+          {
+            "parameter": "byte[] b",
+            "value": "validKeyBytes"
+          },
+          {
+            "parameter": "int error",
+            "value": "65535"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "null"
+          }
+        ],
+        "expected": "TSIGRecord with error code 65535 (maximum unsigned 16\u2011bit value)",
+        "description": "The method must correctly store the maximum possible error code without overflow."
+      },
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "validMessage"
+          },
+          {
+            "parameter": "byte[] b",
+            "value": "validKeyBytes"
+          },
+          {
+            "parameter": "int error",
+            "value": "-1"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "null"
+          }
+        ],
+        "expected": "TSIGRecord with error code -1 (signed int preserved) and no exception",
+        "description": "Although error codes are defined as unsigned in the DNS spec, the implementation should accept any int value and store it verbatim."
+      }
+    ]
+  },
+  {
+    "group": "Old TSIG edge cases",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "validMessage"
+          },
+          {
+            "parameter": "byte[] b",
+            "value": "validKeyBytes"
+          },
+          {
+            "parameter": "int error",
+            "value": "0"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "oldRecordWithEmptySignature"
+          }
+        ],
+        "expected": "TSIGRecord whose previous MAC field is empty (zero\u2011length) and no exception",
+        "description": "When the supplied old TSIGRecord has an empty signature, generate must embed an empty previous MAC, not a null pointer."
+      },
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "validMessage"
+          },
+          {
+            "parameter": "byte[] b",
+            "value": "validKeyBytes"
+          },
+          {
+            "parameter": "int error",
+            "value": "0"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "oldRecordWithDifferentAlgorithm"
+          }
+        ],
+        "expected": "TSIGRecord that contains the old MAC unchanged and uses the algorithm of the new Message",
+        "description": "If the old TSIGRecord was created with a different algorithm, the new TSIGRecord must still copy the old MAC for chaining while using the algorithm indicated by the current Message."
+      }
+    ]
+  },
+  {
+    "group": "Algorithm variations (SHA\u20111)",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "validMessageSHA1"
+          },
+          {
+            "parameter": "byte[] b",
+            "value": "validKeyBytesSHA1"
+          },
+          {
+            "parameter": "int error",
+            "value": "0"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "null"
+          }
+        ],
+        "expected": "TSIGRecord with algorithm name HMAC_SHA1",
+        "description": "When the Message specifies the SHA\u20111 algorithm, generate must select the HMAC\u2011SHA1 algorithm name."
+      }
+    ]
+  },
+  {
+    "group": "Time\u2011signed (fudge) validation",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "validMessage"
+          },
+          {
+            "parameter": "byte[] b",
+            "value": "validKeyBytes"
+          },
+          {
+            "parameter": "int error",
+            "value": "0"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "null"
+          }
+        ],
+        "expected": "TSIGRecord whose timeSigned is within \u00b1FUDGE (300\u202fs) of the system clock at generation time",
+        "description": "The generated TSIGRecord must set the time\u2011signed field to the current instant; the test verifies that it lies inside the allowed fudge window."
+      }
+    ]
+  },
+  {
+    "group": "Old TSIGRecord null fields",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "validMessage"
+          },
+          {
+            "parameter": "byte[] b",
+            "value": "validKeyBytes"
+          },
+          {
+            "parameter": "int error",
+            "value": "0"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "oldRecordWithNullSignature"
+          }
+        ],
+        "expected": "NullPointerException",
+        "description": "When the supplied old TSIGRecord has a null signature field, generate attempts to copy the previous MAC and throws NPE."
+      },
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "validMessage"
+          },
+          {
+            "parameter": "byte[] b",
+            "value": "validKeyBytes"
+          },
+          {
+            "parameter": "int error",
+            "value": "0"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "oldRecordWithNullName"
+          }
+        ],
+        "expected": "NullPointerException",
+        "description": "If the old TSIGRecord's name (key name) is null, generate attempts to reference it while building the new TSIGRecord and throws NPE."
+      }
+    ]
+  },
+  {
+    "group": "Message missing algorithm",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "messageWithoutTSIGAlgorithm"
+          },
+          {
+            "parameter": "byte[] b",
+            "value": "validKeyBytes"
+          },
+          {
+            "parameter": "int error",
+            "value": "0"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "null"
+          }
+        ],
+        "expected": "IllegalArgumentException",
+        "description": "When the Message does not contain a TSIG algorithm name (null), generate cannot map the algorithm and throws IllegalArgumentException."
+      },
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "messageWithEmptyAlgorithmString"
+          },
+          {
+            "parameter": "byte[] b",
+            "value": "validKeyBytes"
+          },
+          {
+            "parameter": "int error",
+            "value": "0"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "null"
+          }
+        ],
+        "expected": "GeneralSecurityException",
+        "description": "An empty algorithm string cannot be mapped to a known HMAC algorithm; generate attempts to obtain a Mac instance and throws GeneralSecurityException."
+      }
+    ]
+  },
+  {
+    "group": "Invalid key for MAC initialization",
+    "cases": [
+      {
+        "input": [
+          {
+            "parameter": "Message m",
+            "value": "validMessageSHA256"
+          },
+          {
+            "parameter": "byte[] b",
+            "value": "invalidKeyForSHA256"
+          },
+          {
+            "parameter": "int error",
+            "value": "0"
+          },
+          {
+            "parameter": "TSIGRecord old",
+            "value": "null"
+          }
+        ],
+        "expected": "InvalidKeyException",
+        "description": "Supplying a key that the underlying JCE provider deems invalid for the selected HMAC algorithm (e.g., a key with illegal length for a hardware\u2011bound provider) causes Mac.init() to throw InvalidKeyException, which propagates as a GeneralSecurityException."
+      }
+    ]
+  }
+]

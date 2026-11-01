@@ -1,0 +1,19 @@
+{
+  "index": 145,
+  "sha": "ef208e2ca5f168bce2a614aa9842862fb02b7ff4",
+  "parent": "1758566e22185f417d6f9d2a9f30a44bb72f73dc",
+  "pre_image": {
+    "src/main/java/org/xbill/DNS/ReverseMap.java": [
+      165
+    ]
+  },
+  "post_image": {
+    "src/main/java/org/xbill/DNS/ReverseMap.java": [
+      165,
+      166,
+      167,
+      169
+    ]
+  },
+  "diff": "diff --git a/src/main/java/org/xbill/DNS/ReverseMap.java b/src/main/java/org/xbill/DNS/ReverseMap.java\nindex 21a307ba..dbb2aa97 100644\n--- a/src/main/java/org/xbill/DNS/ReverseMap.java\n+++ b/src/main/java/org/xbill/DNS/ReverseMap.java\n@@ -165 +165,5 @@ public final class ReverseMap {\n-          ipBytes[ip.labels() - i - 1] = (byte) Integer.parseInt(ip.getLabelString(i));\n+          int labelValue = Integer.parseInt(ip.getLabelString(i));\n+          if (labelValue < 0 || labelValue > 255) {\n+            throw new UnknownHostException(\"Invalid IPv4 arpa address: \" + name);\n+          }\n+          ipBytes[ip.labels() - i - 1] = (byte) labelValue;"
+}
